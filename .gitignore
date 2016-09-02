@@ -1,2 +1,6 @@
 *.class
 target/*
+ZKCrawler-Master/target/*
+ZKCrawler-TaskClient/target/*
+ZKCrawler-Worker/target/*
+ZKCrawler-Webmagic/target/*
