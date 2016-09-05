@@ -4,9 +4,7 @@ import cn.com.cloudpioneer.worker.utils.RandomUtils;
 import org.apache.curator.RetryPolicy;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
-import org.apache.curator.framework.recipes.cache.PathChildrenCache;
-import org.apache.curator.framework.recipes.cache.PathChildrenCacheEvent;
-import org.apache.curator.framework.recipes.cache.PathChildrenCacheListener;
+import org.apache.curator.framework.recipes.cache.*;
 import org.apache.curator.retry.ExponentialBackoffRetry;
 import org.apache.zookeeper.CreateMode;
 import org.slf4j.Logger;
@@ -24,27 +22,47 @@ public class Worker implements Closeable {
     private static final String TASKS_PATH = "/tasks";
     private static final String WORKERS_PATH = "/workers";
 
+
     private static final Logger LOGGER = LoggerFactory.getLogger(Worker.class);
 
+    private final TreeCache myTasksCache;
     private String myId;
     private CuratorFramework client;
-    private final PathChildrenCache myTasksCache;
 
 
-    PathChildrenCacheListener myTaskCacheListener = new PathChildrenCacheListener() {
-        public void childEvent(CuratorFramework client, PathChildrenCacheEvent event) {
-            /*if(event.getType() == PathChildrenCacheEvent.Type.CHILD_ADDED) {
-                try{
-                   // assignTask(event.getData().getPath().replaceFirst("/tasks/", ""),
-                   //         event.getData().getData());
-                } catch (Exception e) {
-                   // LOG.error("Exception when assigning task.", e);
+    TreeCacheListener myTaskCacheListener = new TreeCacheListener() {
+        @Override
+        public void childEvent(CuratorFramework curatorFramework, TreeCacheEvent treeCacheEvent) throws Exception {
+
+            try {
+
+                switch (treeCacheEvent.getType()) {
+                    case NODE_ADDED:
+                        System.out.println("================>>  Event is: " + treeCacheEvent.getType());
+                        System.out.println("================>>  Event Data is: " + treeCacheEvent.toString());
+                        ChildData data = treeCacheEvent.getData();
+                        if (data!=null)
+                            System.out.println("================>>  Path: " + data.getPath());
+
+                        break;
+                    case NODE_UPDATED:
+                        break;
+                    case NODE_REMOVED:
+                        break;
+                    case CONNECTION_LOST:
+                        break;
+                    case CONNECTION_RECONNECTED:
+                        break;
+                    case CONNECTION_SUSPENDED:
+                        break;
+                    case INITIALIZED:
+                        System.out.println("================>>  Event is: " + treeCacheEvent.getType());
+                        break;
                 }
-            }*/
 
-            System.out.println("================>>  Event is: " + event.getType());
-            System.out.println("================>>  Event Data is: " + event.toString());
-            System.out.println("================>>  Path: " + event.getData().getPath());
+            } catch (Exception e) {
+
+            }
         }
     };
 
@@ -70,7 +88,7 @@ public class Worker implements Closeable {
         LOGGER.info("Worker constructing, hostPort:" + hostPort);
         LOGGER.info("my work id: " + myId);
         this.client = CuratorFrameworkFactory.newClient(hostPort, retryPolicy);
-        this.myTasksCache = new PathChildrenCache(this.client, WORKERS_PATH + "/" + myId, true);
+        this.myTasksCache = new TreeCache(this.client, WORKERS_PATH + "/" + myId);
 
     }
 
@@ -119,7 +137,7 @@ public class Worker implements Closeable {
 
     public static void main(String[] args) {
 
-        Worker worker  = null;
+        Worker worker = null;
         try {
             worker = new Worker("88.88.88.110:2181", new ExponentialBackoffRetry(1000, 5));
             worker.startZK();
@@ -127,7 +145,7 @@ public class Worker implements Closeable {
             worker.runForWorker();
             while (true) {
 
-                    Thread.sleep(10000);
+                Thread.sleep(10000);
 
             }
 
