@@ -103,6 +103,10 @@ public class Worker implements Closeable {
 
     }
 
+    /**
+     * 这是一个测试的main
+     * @param args
+     */
     public static void main(String[] args) {
 
         Worker worker = null;
