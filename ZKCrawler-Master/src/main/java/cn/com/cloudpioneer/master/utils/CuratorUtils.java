@@ -1,6 +1,7 @@
 package cn.com.cloudpioneer.master.utils;
 
 import org.apache.curator.framework.CuratorFramework;
+import org.apache.zookeeper.data.Stat;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -46,5 +47,14 @@ public class CuratorUtils
     {
         deleteChidrenForPath(client,path);
         client.delete().inBackground().forPath(path);
+    }
+
+    public static boolean isNodeExist(CuratorFramework client,String node) throws Exception
+    {
+        Stat stat=client.checkExists().forPath(node);
+        if (stat!=null){
+            return true;
+        }
+        return false;
     }
 }

@@ -1,15 +1,17 @@
 package cn.com.cloudpioneer.master;
 
+import cn.com.cloudpioneer.master.utils.CuratorUtils;
 import org.apache.curator.RetryPolicy;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
-import org.apache.curator.framework.recipes.cache.ChildData;
-import org.apache.curator.framework.recipes.cache.PathChildrenCache;
-import org.apache.curator.framework.recipes.cache.PathChildrenCacheEvent;
-import org.apache.curator.framework.recipes.cache.PathChildrenCacheListener;
+import org.apache.curator.framework.recipes.cache.TreeCache;
+import org.apache.curator.framework.recipes.cache.TreeCacheEvent;
+import org.apache.curator.framework.recipes.cache.TreeCacheListener;
 import org.apache.curator.framework.recipes.leader.LeaderSelector;
 import org.apache.curator.framework.recipes.leader.LeaderSelectorListener;
 import org.apache.curator.framework.state.ConnectionState;
+import org.apache.curator.retry.ExponentialBackoffRetry;
+import org.apache.curator.utils.CloseableUtils;
 import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.data.Stat;
 import org.slf4j.Logger;
@@ -17,10 +19,10 @@ import org.slf4j.LoggerFactory;
 
 import java.io.Closeable;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.CountDownLatch;
+import java.util.regex.Pattern;
 
 /**
  * Created by Tijun on 2016/9/1.
@@ -34,21 +36,34 @@ public class CuratorMaster implements Closeable,LeaderSelectorListener
     //serverId
     private String myId="masterId-"+new Random().nextInt();
 
-    //连接zk的CuratorClient
+    //连接zk的client
     private CuratorFramework client;
 
     //进行leader选举
     private LeaderSelector leaderSelector;
 
-    //对/workers节点进行监听的PathChildrenCache
-    private PathChildrenCache workersCache;
+    //对/workers节点进行监听的workersCache
+    private TreeCache workersCache;
 
-    //对/tasks节点进行监听的PathChildrenCache
-    private PathChildrenCache tasksCache;
+    //对/tasks节点进行监听的tasksCache
+    private TreeCache tasksCache;
+
+
+    private final static Pattern TASK_WORKER=Pattern.compile("/tasks/task-.*/worker-.*");
+
+
+
+    private static final String PATH_ROOT_TASKS="/tasks";
+
+    private static final String PATH_ROOT_MASTER="/master";
+    private static final String PATH_ROOT_WORKERS="/workers";
+
 
     private String hostPort;
 
-    CountDownLatch leaderLatch;
+    private CountDownLatch leaderLatch=new CountDownLatch(1);
+
+    private  CountDownLatch closeLatch=new CountDownLatch(1);
 
     /**
      *初始化client连接配置参数
@@ -56,16 +71,16 @@ public class CuratorMaster implements Closeable,LeaderSelectorListener
      * @param hostPort
      * @param retryPolicy
      */
-    public CuratorMaster(String myId,String hostPort,RetryPolicy retryPolicy){
+    public CuratorMaster(String myId, String hostPort, RetryPolicy retryPolicy){
         if (myId!=null){
             this.myId=myId;
         }
         this.hostPort=hostPort;
-        this.client= CuratorFrameworkFactory.newClient(hostPort, 16000, 16000, retryPolicy);
+        this.client= CuratorFrameworkFactory.newClient(hostPort,retryPolicy);
 
-        this.leaderSelector = new LeaderSelector(this.client, "/master", this);
-        this.workersCache = new PathChildrenCache(this.client, "/workers", true);
-        this.tasksCache = new PathChildrenCache(this.client, "/tasks", true);
+        this.leaderSelector = new LeaderSelector(this.client, PATH_ROOT_MASTER, this);
+        this.workersCache = new TreeCache(this.client, PATH_ROOT_WORKERS);
+        this.tasksCache = new TreeCache(this.client, PATH_ROOT_TASKS);
 
     }
 
@@ -75,10 +90,10 @@ public class CuratorMaster implements Closeable,LeaderSelectorListener
     /**
      * 启动连接
      */
-    public void startZK(){
-        LOG.info("zk Starting");
+    public void startZK() throws Exception
+    {
         client.start();
-        LOG.info("started zk");
+
     }
 
     /**
@@ -86,68 +101,37 @@ public class CuratorMaster implements Closeable,LeaderSelectorListener
      * @throws Exception
      */
     public void bootstrap() throws Exception {
+        if (!isNodeExist(PATH_ROOT_MASTER)){
+            client.create().forPath(PATH_ROOT_MASTER, new byte[0]);
+        }
+        if (!isNodeExist(PATH_ROOT_WORKERS)){
+            client.create().forPath(PATH_ROOT_WORKERS, new byte[0]);
+        }
+        if (!isNodeExist(PATH_ROOT_TASKS)){
+            client.create().forPath(PATH_ROOT_TASKS, new byte[0]);
+        }
 
-        client.create().forPath("/workers", new byte[0]);
-        client.create().forPath("/assign", new byte[0]);
-        client.create().forPath("/tasks", new byte[0]);
     }
 
     /**
-     * 启动master，将会启动对/workers,/tasks节点的监听，如果监听到有可用的/tasks和可用/workers就会进行任务分配
+     * 启动master，将会启动对/workers,/tasks节点的监听
      * @return
      */
-    public CuratorFramework runForMaster() {
+    public CuratorFramework runForMaster() throws Exception
+    {
         leaderSelector.setId(myId);
         LOG.info("Starting master selection: " + myId);
-        //leaderSelector.autoRequeue();
         leaderSelector.start();
         return client;
     }
 
-    /**
-     * 对多个任务进行分配
-     */
 
-    void assignTasks (List<String> tasks)
-            throws Exception {
-        for(String task : tasks) {
-            assignTask(task, client.getData().forPath("/tasks/" + task));
-        }
-    }
-
-    /**
-     * 对单个任务进行分配 这里要调用分配策略
-     * @param task
-     * @param data
-     * @throws Exception
-     */
-    void assignTask (String task, byte[] data)
-            throws Exception {
-        /*
-         * Choose worker at random.
-         */
-        //String designatedWorker = workerList.get(rand.nextInt(workerList.size()));
-        List<ChildData> workersList = workersCache.getCurrentData();
-        Random rand = new Random(System.currentTimeMillis());
-        LOG.info("Assigning task {}, data {}", task, new String(data));
-        String designatedWorker;
-        if (workersList!=null&&workersList.size()>0){
-            designatedWorker = workersList.get(rand.nextInt(workersList.size())).getPath().replaceFirst("/workers/", "");
-        }else {return;}
-
-
-        /*
-         * Assign task to randomly chosen worker.
-         */
-        String path = "/assign/" + designatedWorker + "/" + task;
-        createAssignment(path, data);
-    }
 
     /**
      * 为workersCache 添加监视器
      * @param workersListener
      */
-    public void  addWorkersListener(PathChildrenCacheListener workersListener){
+    public void  addWorkersListener(TreeCacheListener workersListener){
         this.workersCache.getListenable().addListener(workersListener);
     }
 
@@ -155,53 +139,75 @@ public class CuratorMaster implements Closeable,LeaderSelectorListener
      * 为tasksCache 添加监视器
      * @param tasksListener
      */
-    public void  addTasksListener(PathChildrenCacheListener tasksListener){
-        this.workersCache.getListenable().addListener(tasksListener);
-    }
-    /**
-     * 任务删除
-     * @param task
-     */
-    public void deleteTask(String task) throws Exception
-    {
-        client.delete().forPath(task);
+    public void  addTasksListener(TreeCacheListener tasksListener){
+        this.tasksCache.getListenable().addListener(tasksListener);
     }
 
     /**
-     * Creates an assignment.
-     *
-     * @param path
-     *          path of the assignment
+     * 等待选举结束
+     * @throws InterruptedException
      */
-    void createAssignment(String path, byte[] data)
-            throws Exception {
-        /*
-         * The default ACL is ZooDefs.Ids#OPEN_ACL_UNSAFE
-         */
-        client.create().withMode(CreateMode.PERSISTENT).inBackground().forPath(path, data);
+    public void awaitLeadership()throws InterruptedException {
+        leaderLatch.await();
     }
 
+    public boolean isLeader() {
+        return leaderSelector.hasLeadership();
+    }
+
+    CountDownLatch recoveryLatch = new CountDownLatch(0);
     /**
      *  选举leader成功后执行该方法，在此方法中启动对/workers, /tasks的监听，并在/assign下进行进行任务分配
      */
     @Override
     public void takeLeadership(CuratorFramework curatorFramework) throws Exception
     {
-        //如果当当前选举的master挂掉之后会进行重新选举，此时当前的master得再次发现之前可用的worker和tasks
-        LOG.info( "Mastership participants: " + myId + ", " + leaderSelector.getParticipants() );
-         /*
-         * Register listeners for master
-         *
-         * client.getCuratorListenable().addListener(masterListener);
-        client.getUnhandledErrorListenable().addListener(errorsListener);*/
-        //为workerCache添加监视器并并启动监听
-        addWorkersListener(workersCacheListener);
-        workersCache.start();
+        //之前无法进入此方法的原因是受log4j的影响
+        //如果当当前选举的master挂掉之后会进行重新选举，此时当前的master得再次发现之前可用的worker和tasks然后对必要的未将
+        recoverTask();
+        LOG.info("Mastership participants: " + myId + ", " + leaderSelector.getParticipants());
 
+        //为workerCache添加监视器并并启动监听
+//        new Thread(new Runnable()
+//        {
+//            @Override
+//            public void run()
+//            {
+//                try
+//                {
+//
+//                } catch (Exception e)
+//                {
+//                    e.printStackTrace();
+//                }
+//            }
+//        }).start();
+        addWorkersListener(workersCacheListener);
+        addTasksListener(tasksCacheListener);
+        workersCache.start();
+        tasksCache.start();
+        leaderLatch.countDown();
+        LOG.info("latch count:"+ closeLatch.getCount());
+        //  closeLatch.await();
+        LOG.info("latch count:"+closeLatch.getCount());
     }
 
     /**
-     *curatorFramework 与zkserver的网络连接状态
+     * 阻塞当前线程方法，保证监听一直监听下去，指导下达close命令。
+     */
+    public void keepListenerListen(){
+        try
+        {
+            closeLatch.await();
+        } catch (InterruptedException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+
+    /**
+     *curatorFramework 与zkserver的网络连接状态在这里根据不同状态进行处理，比如网络连接异常
      * @param curatorFramework
      * @param connectionState
      */
@@ -219,7 +225,14 @@ public class CuratorMaster implements Closeable,LeaderSelectorListener
 
                 break;
             case SUSPENDED:
-                LOG.warn("Session suspended");
+                LOG.warn("Session suspended");//
+                try
+                {
+                    runForMaster();
+                } catch (Exception e)
+                {
+                    e.printStackTrace();
+                }
 
                 break;
             case LOST:
@@ -237,6 +250,7 @@ public class CuratorMaster implements Closeable,LeaderSelectorListener
         }
     }
 
+
     /**
      * 检查节点是否存在
      * @return
@@ -249,60 +263,161 @@ public class CuratorMaster implements Closeable,LeaderSelectorListener
         }
         return false;
     }
-    /**
-     * 查找未分配的任务节点
-     * @return
-     * @throws Exception
-     */
-    public List<String> getTasks() throws Exception
-    {
-        List<String> tasks=  client.getChildren().forPath("/tasks");
-        List<String> assignsedTasks=  client.getChildren().forPath("/assigns");
-        List notAssignedTasks=new ArrayList();
-        for(String assign:assignsedTasks){
-         String assignTask= assign.split("/")[0];
-            if(!tasks.contains(assignTask)){
-                notAssignedTasks.add(assignTask);
-            }
-        }
-        return notAssignedTasks;
-    }
     @Override
     public void close() throws IOException
     {
-
+        closeLatch.countDown();
+        CloseableUtils.closeQuietly(tasksCache);
+        CloseableUtils.closeQuietly(workersCache);
+        CloseableUtils.closeQuietly(leaderSelector);
+        CloseableUtils.closeQuietly(client);
     }
 
     /**
      * 对/workers节点进行监听的监视器需完成对相应事件的处理
      */
-    PathChildrenCacheListener workersCacheListener = new PathChildrenCacheListener() {
-        public void childEvent(CuratorFramework client, PathChildrenCacheEvent event) {
+    private TreeCacheListener workersCacheListener = new TreeCacheListener() {
+        public void childEvent(CuratorFramework client, TreeCacheEvent event) {
             switch (event.getType()){
-                case CHILD_REMOVED:break;
-                case CHILD_ADDED:break;
-                case CHILD_UPDATED:break;
+                case NODE_ADDED:
+                    LOG.info("NODE_ADDED:"+event.getData().getPath() );
+                    break;
+                case NODE_UPDATED:
+                    String nodePath1=event.getData().getPath();
+                    LOG.info("NODE_UPDATED:"+nodePath1);
+                    break;
+                case NODE_REMOVED:
+                    String nodePath=event.getData().getPath();
+                    LOG.info("NODE_REMOVED:"+nodePath);
+                    try
+                    {
+                        //删除过期的worker节点
+                        String path=nodePath.replace("/status","");
+                        LOG.info("将删除:"+path);
+                        if(isNodeExist(path)){
+                            CuratorUtils.deletePathAndChildren(client, path);
+                        }
+                        //
+                        LOG.info("已将删除:" + path);
+                    } catch (Exception e)
+                    {
+                        e.printStackTrace();
+                    }
+                    //  Pattern pattern=Pattern.compile(PATH_ROOT_WORKERS.concat("/").concat())
+                    break;
+
             }
 
 
         }
     };
+
+
     /**
      * 对tasks进行监听的监视器需完成对相应事件的处理
+     *
      */
-    PathChildrenCacheListener tasksCacheListener = new PathChildrenCacheListener() {
-        public void childEvent(CuratorFramework client, PathChildrenCacheEvent event) {
+    private TreeCacheListener tasksCacheListener = new TreeCacheListener() {
+        public void childEvent(CuratorFramework client, TreeCacheEvent event) throws Exception
+        {
+
             switch (event.getType()){
-                case  CHILD_ADDED:{
-                    try{
-                        assignTask(event.getData().getPath().replaceFirst("/tasks/", ""),
-                                event.getData().getData());
-                    } catch (Exception e) {
-                        LOG.error("Exception when assigning task.", e);
+
+                case  NODE_ADDED:{
+
+                    String child=event.getData().getPath();
+                    LOG.info("Event Path:"+child);
+                    //先判增加的节点是task或者task-*/worker?
+                    //节点为/tasks/task-*/worker-* 类型
+                    if (TASK_WORKER.matcher(child).matches()){
+                        String[] arr=   child.split("/");
+                        String taskId=arr[2];
+                        String workerId=arr[3];
+                        task4worker(taskId,workerId);
+
                     }
                 }
+                break;
+
+                case NODE_REMOVED:{
+                    break;
+                }
+                case NODE_UPDATED:{
+                    LOG.info("update");
+                    break;
+                }
+                case CONNECTION_LOST:{
+                    LOG.info("CONNECTION_LOST");
+                    runForMaster();
+
+                    break;
+                }
+                case CONNECTION_SUSPENDED:{
+                    LOG.info("CONNECTION_SUSPENDED");
+                    runForMaster();
+                    break;
+                }
+
+
             }
         }
     };
 
+    /**
+     * 当leader挂掉从新启动时得再次确定task是否已经挂载到了具体的worker下面
+     * @throws Exception
+     */
+    private void recoverTask() throws Exception
+    {
+        List<String> tasks=client.getChildren().forPath(PATH_ROOT_TASKS);
+        for (String task:tasks){
+            List<String> workers=client.getChildren().forPath(PATH_ROOT_TASKS.concat("/").concat(task));
+            for (String worker:workers){
+                task4worker(task,worker);
+            }
+        }
+    }
+    /**
+     * 将task复制到相应的worker目录下
+     * @param taskId
+     * @param workerId
+     */
+    private void task4worker(String taskId,String workerId){
+        try
+        {
+            //task下的配置信息
+            byte[] taskData=  client.getData().forPath(PATH_ROOT_TASKS+"/"+taskId);
+            //判断worker是否存在
+            Stat stat=client.checkExists().forPath(PATH_ROOT_WORKERS+"/"+workerId);
+            if (stat!=null){
+                //将任务挂载到worker下面
+
+                String task4workerPath=PATH_ROOT_WORKERS.concat("/").concat(workerId).concat("/").concat(taskId);
+
+                if(!isNodeExist(task4workerPath)){
+                    client.create().withMode(CreateMode.PERSISTENT).forPath(task4workerPath,taskData);
+                }
+
+            }else {
+                //当任务分配要挂载的worker不存在时删除具体任务下的worker
+                client.delete().forPath(PATH_ROOT_TASKS.concat("/").concat(taskId).concat("/").concat(workerId));
+            }
+
+        }catch (Exception e){
+
+        }
+    }
+
+    public static void main(String []args) throws Exception
+    {
+        final CuratorMaster master=new CuratorMaster("123","192.168.142.2:2181",new ExponentialBackoffRetry(1000,5));
+        master.startZK();
+        master.runForMaster();
+        master.awaitLeadership();
+        master.keepListenerListen();
+
+
+
+
+    }
 }
