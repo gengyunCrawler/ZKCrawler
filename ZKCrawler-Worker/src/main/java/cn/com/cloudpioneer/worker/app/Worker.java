@@ -107,7 +107,7 @@ public class Worker implements Closeable {
      * 这是一个测试的main
      * @param args
      */
-    public static void main(String[] args) {
+    public static void worker_main(String[] args) {
 
         Worker worker = null;
         try {
@@ -115,19 +115,22 @@ public class Worker implements Closeable {
             worker.startZK();
             worker.bootsrap();
             worker.runForWorker();
-            while (true) {
+           /* int i = 50;
+            while (i > 0) {
 
-                Thread.sleep(10000);
-
+                LOGGER.info("time: " + i + " s");
+                Thread.sleep(1000);
+                i--;
             }
+            worker.close();*/
 
         } catch (Exception e) {
             e.printStackTrace();
-            try {
+            /*try {
                 worker.close();
             } catch (IOException e1) {
                 e1.printStackTrace();
-            }
+            }*/
         }
     }
 }
