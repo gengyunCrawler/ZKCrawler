@@ -27,7 +27,7 @@ public class CuratorMasterTester
 //        master.getClient().create().withMode(CreateMode.PERSISTENT).forPath("/assigns/worker-456/task-456",new byte[0]);
 //        master.getClient().create().withMode(CreateMode.PERSISTENT).forPath("/assigns/worker-789/task-789",new byte[0]);
 
-        master.getTasks();
+      //  master.getTasks();
     }
 
     @Test
