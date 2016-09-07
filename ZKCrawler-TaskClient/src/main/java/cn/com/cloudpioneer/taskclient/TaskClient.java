@@ -1,24 +1,27 @@
 package cn.com.cloudpioneer.taskclient;
 import cn.com.cloudpioneer.taskclient.chooser.TaskChooser;
 import cn.com.cloudpioneer.taskclient.entity.TaskEntity;
-import org.apache.curator.RetryPolicy;
-import org.apache.curator.RetrySleeper;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
+import org.apache.curator.framework.api.CuratorEvent;
 import org.apache.curator.framework.api.CuratorListener;
 import org.apache.curator.framework.api.UnhandledErrorListener;
-import org.apache.curator.framework.recipes.cache.PathChildrenCache;
-import org.apache.curator.framework.recipes.cache.PathChildrenCacheListener;
+import org.apache.curator.framework.recipes.cache.*;
 import org.apache.curator.framework.recipes.leader.LeaderSelector;
 import org.apache.curator.framework.state.ConnectionState;
-import org.apache.curator.retry.ExponentialBackoffRetry;
 import org.apache.curator.retry.RetryNTimes;
-import org.apache.zookeeper.*;
+import org.apache.zookeeper.CreateMode;
+import org.apache.zookeeper.WatchedEvent;
+import org.apache.zookeeper.Watcher;
+import org.apache.zookeeper.data.Stat;
 
-import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.regex.Pattern;
 
 /**
  * Created by Tianjinjin on 2016/9/1.
@@ -90,7 +93,19 @@ public class TaskClient {
         return null;
     }
 
-    private int tasksCreator(List<TaskEntity> taskEntityList){
+
+    /**
+     * 创建任务，把任务添加到task节点中
+     * @param taskEntityList
+     * @return
+     */
+    private int tasksCreator(List<TaskEntity> taskEntityList) throws Exception {
+        String path;
+        for(TaskEntity task:taskEntityList){
+            String data =task.toString();
+            client.create().withMode(CreateMode.PERSISTENT_SEQUENTIAL).forPath("/tasks/task" + "-" + task.getId() + "-", data.getBytes());
+            System.out.println(client.getChildren().forPath("/tasks"));
+        }
         return 0;
     }
 
@@ -106,7 +121,15 @@ public class TaskClient {
         return false;
     }
 
-    private boolean taskDelete(String node){
+
+    /**
+     * 删除tasks下已完成的任务节点
+     * @param node
+     * @return
+     */
+    private boolean taskDelete(String node) throws Exception {
+
+        client.delete().forPath("/tasks/task3");
         return false;
     }
 
@@ -138,8 +161,51 @@ public class TaskClient {
 
     }
 
+    public void listenTaskNode() throws Exception {
+        CountDownLatch countDownLatch = new CountDownLatch(1);
+        //ExecutorService pool = Executors.newCachedThreadPool();
+        //设置节点的cache
+        TreeCache treeCache = new TreeCache(client, "/tasks");
+        //设置监听器和处理过程
+        treeCache.getListenable().addListener(new TreeCacheListener() {
+            @Override
+            public void childEvent(org.apache.curator.framework.CuratorFramework client, TreeCacheEvent event) throws Exception {
+                String regexp="/tasks/task-\\d{10}-\\d{10}";
+                Pattern pattern = Pattern.compile(regexp);
+                //System.out.println(event.getType());
+                ChildData data = event.getData();
+                switch (event.getType()) {
+                    case NODE_ADDED:
+                        String path=event.getData().getPath();
+                        if(pattern.matcher(path).matches()){
+                            client.create().withMode(CreateMode.PERSISTENT_SEQUENTIAL).forPath(path+"/status", "1".getBytes());
+                            System.out.println(client.getChildren().forPath("/tasks"));
+                        }
+                        System.out.println("NODE_ADDED : " + data.getPath() + "  数据:" + new String(data.getData()));
+                        break;
+                    case NODE_REMOVED:
+                        System.out.println("NODE_REMOVED : " + data.getPath());
+                        break;
+                    case NODE_UPDATED:
+                        System.out.println("NODE_UPDATED : " + data.getPath() + "  数据:" + new String(data.getData()));
+                        break;
+                    default:
+                        break;
+                }
+                if (data == null) {
+                    System.out.println("data is null : " + event.getType());
+                }
+            }
+        });
+        //开始监听
+        treeCache.start();
+
+        countDownLatch.await();
+    }
+
     public static void main(String[] args) throws Exception {
         TaskEntity taskEntity = new TaskEntity();
+        taskEntity.setId("1234567890");
         taskEntity.setCompleteTimes(2);
         taskEntity.setDeleteFlag(true);
         taskEntity.setCostLastCrawl(20);
@@ -155,56 +221,14 @@ public class TaskClient {
         taskEntity.setWorkNum(5);
         taskEntity.setSeedUrls("url1,url2,url3");
 
-        /*RetryPolicy retryPolicy = new RetryPolicy() {
-            @Override
-            public boolean allowRetry(int i, long l, RetrySleeper retrySleeper) {
-                return false;
-            }
-        };*/
+        List<TaskEntity> taskEntityList = new ArrayList<TaskEntity>();
+        taskEntityList.add(taskEntity);
 
-        //创建 ZooKeeper 实例
-        /*ZooKeeper zk = new ZooKeeper("192.168.229.128:2181,192.168.229.129:2181,192.168.229.130:2181", 30*1000, new Watcher() {
-            public void process(WatchedEvent event) {
-                if( event.getType().equals(Event.EventType.NodeDataChanged) ){
-                    System.out.println("config is changed");
-                    try {
-                        updateConfig();
-                    } catch (KeeperException | InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        });*/
+        TaskClient taskClient=new TaskClient();
 
-
-        String path = "/test_path";
-//        CuratorFramework client = CuratorFrameworkFactory.builder()
-//                .connectString("192.168.229.130:2181")
-//                .namespace("brokers")
-//                .retryPolicy(new RetryNTimes(Integer.MAX_VALUE, 1000))
-//                .connectionTimeoutMs(5000).build();        // 启动 上面的namespace会作为一个最根的节点在使用时自动创建
-        CuratorFramework client = CuratorFrameworkFactory.newClient("localhost:2181",new RetryNTimes(Integer.MAX_VALUE, 1000));
-                client.start();           // 创建一个节点
-                client.create().forPath("/head", new byte[0]);
-                // 异步地删除一个节点
-                client.delete().inBackground().forPath("/head");
-                // 创建一个临时节点
-                client.create().withMode(CreateMode.EPHEMERAL_SEQUENTIAL).forPath("/head/child", new byte[0]);
-                // 取数据
-                client.getData().watched().inBackground().forPath("/test");
-                // 检查路径是否存在
-                client.checkExists().forPath(path);
-                // 异步删除
-                client.delete().inBackground().forPath("/head");
-                // 注册观察者，当节点变动时触发
-                client.getData().usingWatcher(new Watcher() {
-                    @Override
-                    public void process(WatchedEvent event) {
-                        System.out.println("node is changed");
-                    }
-                }).inBackground().forPath("/test");
-                // 结束使用
-                client.close();
+        taskClient.client = CuratorFrameworkFactory.newClient("192.168.229.130:2181", new RetryNTimes(Integer.MAX_VALUE, 1000));
+        taskClient.client.start();
+        taskClient.tasksCreator(taskEntityList);
 
     }
 
