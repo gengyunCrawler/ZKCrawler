@@ -1,0 +1,2 @@
+例子：
+-depth 3 -pass 3 -tid whole-site20160808 -starttime 201608081124 -seedpath /data/seeds.txt -protocolDir ttt -type ttt -recalldepth 3 -templateDir /templates -clickregexDir ttt -postregexDir ttt -configpath ttt

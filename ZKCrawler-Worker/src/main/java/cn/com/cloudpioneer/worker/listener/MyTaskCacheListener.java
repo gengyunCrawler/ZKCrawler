@@ -8,7 +8,7 @@ import org.apache.curator.framework.recipes.cache.TreeCacheListener;
 /**
  * Created by Administrator on 2016/9/5.
  */
-public class MyTaskCacheListener implements TreeCacheListener{
+public class MyTaskCacheListener implements TreeCacheListener {
 
     @Override
     public void childEvent(CuratorFramework curatorFramework, TreeCacheEvent treeCacheEvent) throws Exception {
@@ -26,6 +26,7 @@ public class MyTaskCacheListener implements TreeCacheListener{
 
                     break;
                 case NODE_UPDATED:
+
                     break;
                 case NODE_REMOVED:
                     break;

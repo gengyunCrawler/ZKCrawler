@@ -32,8 +32,8 @@
       <module name="ZKCrawler" target="1.6" />
       <module name="ZKCrawler-Master" target="1.6" />
       <module name="ZKCrawler-TaskClient" target="1.6" />
-      <module name="ZKCrawler-Webmagic" target="1.6" />
-      <module name="ZKCrawler-Worker" target="1.6" />
+      <module name="ZKCrawler-Webmagic" target="1.7" />
+      <module name="ZKCrawler-Worker" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>
