@@ -65,10 +65,6 @@ public class MySqlPoolUtils extends LoggerUtil {
 
 
     private void init() {
-
-        logger.info("connection url : " + this.url);
-        logger.info("username: " + this.username + ", password: " + this.password);
-
         try {
             dataSource = new MysqlDataSource();
             dataSource.setUrl(url);
@@ -87,7 +83,6 @@ public class MySqlPoolUtils extends LoggerUtil {
                 connMap.put(getNewConnection(), true);
             }
         } catch (Exception e) {
-            logger.error("Init Mysql Pool Catch a exception, Message: " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -96,7 +91,6 @@ public class MySqlPoolUtils extends LoggerUtil {
         try {
             return dataSource.getConnection();
         } catch (SQLException e) {
-            logger.error("getNewConnection() SQL Exception, Message: " + e.getMessage());
             e.printStackTrace();
         }
         return null;
@@ -122,7 +116,6 @@ public class MySqlPoolUtils extends LoggerUtil {
                 }
             }
         } catch (Exception e) {
-            logger.error("getConnection() Exception, Message: " + e.getMessage());
             e.printStackTrace();
         }
         return conn;
@@ -146,68 +139,7 @@ public class MySqlPoolUtils extends LoggerUtil {
                 conn.close();
             }
         } catch (SQLException e) {
-            logger.error("releaseConnection() Exception, Message: " + e.getMessage());
             e.printStackTrace();
         }
     }
-
-/*    private static volatile int a;
-    private synchronized static void incr() {
-        a++;
-    }
-    public static void main(String[] args) throws InterruptedException {
-        int times = 1000;
-        long start = System.currentTimeMillis();
-        for (int i = 0; i < times; i++) {
-            new Thread(new Runnable() {
-
-                @Override
-                public void run() {
-
-                    MySqlPoolUtils pool = MySqlPoolUtils.getMySqlPoolUtils(
-                            "108.108.108.8", 3306, "wifi_ac", "builder", "builder"
-                    );                    Connection conn = pool.getConnection();
-                    Statement stmt = null;
-                    ResultSet rs = null;
-                    try {
-                        stmt = conn.createStatement();
-                        rs = stmt.executeQuery("select * from tb_crawler");
-                        while (rs.next()) {
-                            System.out.println(rs.getInt(1) + ", "
-                                    + rs.getString(2));
-                        }
-                    } catch (SQLException e) {
-                        e.printStackTrace();
-                    } finally {
-                        incr();
-                        if (rs != null) {
-                            try {
-                                rs.close();
-                            } catch (SQLException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                        if (stmt != null) {
-                            try {
-                                stmt.close();
-                            } catch (SQLException e) {
-                            }
-                        }
-                        pool.releaseConnection(conn);
-                    }
-                }
-            }).start();
-        }
-        while (true) {
-            if (a == times) {
-                System.out.println("finished, time:"
-                        + (System.currentTimeMillis() - start));
-                break;
-            }
-            Thread.sleep(100);
-        }
-    }
-
-    */
-
 }
