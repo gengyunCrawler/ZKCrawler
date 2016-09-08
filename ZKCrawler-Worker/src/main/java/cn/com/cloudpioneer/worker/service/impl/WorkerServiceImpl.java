@@ -11,8 +11,18 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class WorkerServiceImpl implements WorkerService {
+
+    private Worker worker = Worker.getThisWorker();
+
     @Override
-    public boolean statusWriteBack(@Nullable Worker worker, @Nullable String taskId) {
+    public boolean statusWriteBack(@Nullable String taskId) {
         return false;
+    }
+
+    @Override
+    public void taskWriteBack(String taskId) {
+
+        worker.myTaskWirteBack(taskId);
+
     }
 }

@@ -410,8 +410,9 @@ public class CuratorMaster implements Closeable,LeaderSelectorListener
 
     public static void main(String []args) throws Exception
     {
-        final CuratorMaster master=new CuratorMaster("123","192.168.142.2:2181",new ExponentialBackoffRetry(1000,5));
+        final CuratorMaster master=new CuratorMaster("123","88.88.88.110:2181",new ExponentialBackoffRetry(1000,5));
         master.startZK();
+        master.bootstrap();
         master.runForMaster();
         master.awaitLeadership();
         master.keepListenerListen();

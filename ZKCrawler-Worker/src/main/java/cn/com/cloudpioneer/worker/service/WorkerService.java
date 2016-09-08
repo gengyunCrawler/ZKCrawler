@@ -10,5 +10,7 @@ import com.sun.istack.internal.Nullable;
 
 public interface WorkerService {
 
-        boolean statusWriteBack(@Nullable Worker worker, @Nullable String taskId);
+    boolean statusWriteBack(@Nullable String taskId);
+
+    void taskWriteBack(String taskId);
 }

@@ -3,6 +3,7 @@ package cn.com.cloudpioneer.worker.controller;
 import cn.com.cloudpioneer.worker.service.WorkerService;
 import cn.com.cloudpioneer.worker.utils.GetServletRequestBody;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,10 +21,19 @@ public class WorkerController {
     private WorkerService workerService;
 
     @RequestMapping("test")
-    public String test(ServletRequest request){
+    public String test(ServletRequest request) {
 
-        return GetServletRequestBody.getBodyString(request);
-       // return "" + workerService.statusWriteBack(null, "123456");
+        //return GetServletRequestBody.getBodyString(request);
+        return "" + workerService.statusWriteBack("123456");
+    }
+
+
+    @RequestMapping("taskWriteBack/{taskId}")
+    public String taskWirteBack(@PathVariable("taskId") String taskId) {
+
+        workerService.taskWriteBack(taskId);
+
+        return "ok.";
     }
 
 }

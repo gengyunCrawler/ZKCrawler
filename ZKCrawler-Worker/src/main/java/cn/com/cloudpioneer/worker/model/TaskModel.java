@@ -1,6 +1,7 @@
 package cn.com.cloudpioneer.worker.model;
 
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
 import java.io.Serializable;
@@ -16,6 +17,7 @@ public class TaskModel implements Serializable {
     private String entityString;
     private long startTime;
     private TaskEntity entity;
+
 
     public TaskModel() {
         this.taskPath = "";
@@ -101,5 +103,5 @@ public class TaskModel implements Serializable {
  System.out.println("========= model +++++++");
  System.out.println(JSON.toJSONString(taskModel));
  }
- ***********/
+ /***********/
 }
