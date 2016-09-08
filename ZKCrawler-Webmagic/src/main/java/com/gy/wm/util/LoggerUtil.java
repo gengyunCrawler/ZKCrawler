@@ -1,5 +1,7 @@
 package com.gy.wm.util;
 
+
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
@@ -7,6 +9,6 @@ import org.slf4j.LoggerFactory;
  */
 public abstract class LoggerUtil {
 
-    protected org.slf4j.Logger logger = LoggerFactory.getLogger(getClass());
+//    protected Logger logger = LoggerFactory.getLogger(getClass());
 
 }
