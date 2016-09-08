@@ -1,5 +1,7 @@
 package cn.com.cloudpioneer.taskclient.entity;
 
+import com.alibaba.fastjson.JSONObject;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -330,17 +332,37 @@ public class TaskEntity implements Serializable{
 
     @Override
     public String toString() {
-        return "{\"id\":\"" + id + "\",\"idUser\":\"" + idUser + "\",\"name\":\"" + name + "\",\"remark\":\"" + remark
-                + "\",\"seedUrls\":\"" + seedUrls + "\",\"pathTemplates\":\"" + pathTemplates + "\",\"pathTag\":\""
-                + pathTag + "\",\"pathSeeds\":\"" + pathSeeds + "\",\"pathConfigs\":\"" + pathConfigs
-                + "\",\"pathClickRegex\":\"" + pathClickRegex + "\",\"pathRegexFilter\":\"" + pathRegexFilter
-                + "\",\"pathProtocolFilter\":\"" + pathProtocolFilter + "\",\"pathSuffixFilter\":\"" + pathSuffixFilter
-                + "\",\"type\":\"" + type + "\",\"depthCrawl\":\"" + depthCrawl + "\",\"depthDynamic\":\""
-                + depthDynamic + "\",\"pass\":\"" + pass + "\",\"weight\":\"" + weight + "\",\"threads\":\"" + threads
-                + "\",\"completeTimes\":\"" + completeTimes + "\",\"cycleRecrawl\":\"" + cycleRecrawl
-                + "\",\"status\":\"" + status + "\",\"deleteFlag\":\"" + deleteFlag + "\",\"timeStart\":\"" + timeStart
-                + "\",\"timeStop\":\"" + timeStop + "\",\"timeLastCrawl\":\"" + timeLastCrawl
-                + "\",\"costLastCrawl\":\"" + costLastCrawl + "\",\"scheduleType\":\"" + scheduleType + "\",\"workNum\":\"" + workNum
-                + "\",\"createDate\":\"" + createDate + "\"}";
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("id", this.id);
+        jsonObject.put("idUser", this.idUser);
+        jsonObject.put("name", this.name);
+        jsonObject.put("remark", this.remark);
+        jsonObject.put("seedUrls", this.seedUrls);
+        jsonObject.put("pathTemplates", this.pathTemplates);
+        jsonObject.put("pathTag", this.pathTag);
+        jsonObject.put("pathSeeds", this.pathSeeds);
+        jsonObject.put("pathConfigs", this.pathConfigs);
+        jsonObject.put("pathClickRegex", this.pathClickRegex);
+        jsonObject.put("pathRegexFilter", this.pathRegexFilter);
+        jsonObject.put("pathProtocolFilter", this.pathProtocolFilter);
+        jsonObject.put("pathSuffixFilter", this.pathSuffixFilter);
+        jsonObject.put("type", this.type);
+        jsonObject.put("depthCrawl", this.depthCrawl);
+        jsonObject.put("depthDynamic", this.depthDynamic);
+        jsonObject.put("pass", this.pass);
+        jsonObject.put("weight", this.weight);
+        jsonObject.put("threads", this.threads);
+        jsonObject.put("completeTimes", this.completeTimes);
+        jsonObject.put("cycleRecrawl", this.cycleRecrawl);
+        jsonObject.put("status", this.status);
+        jsonObject.put("deleteFlag", this.deleteFlag);
+        jsonObject.put("timeStart", this.timeStart);
+        jsonObject.put("timeStop", this.timeStop);
+        jsonObject.put("timeLastCrawl", this.timeLastCrawl);
+        jsonObject.put("costLastCrawl", this.costLastCrawl);
+        jsonObject.put("scheduleType", this.scheduleType);
+        jsonObject.put("workNum", this.workNum);
+        jsonObject.put("createDate", this.createDate);
+        return jsonObject.toString();
     }
 }
