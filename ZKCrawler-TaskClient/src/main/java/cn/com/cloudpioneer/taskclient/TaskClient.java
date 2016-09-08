@@ -3,30 +3,25 @@ import cn.com.cloudpioneer.taskclient.chooser.TaskChooser;
 import cn.com.cloudpioneer.taskclient.entity.TaskEntity;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
-import org.apache.curator.framework.api.CuratorEvent;
 import org.apache.curator.framework.api.CuratorListener;
 import org.apache.curator.framework.api.UnhandledErrorListener;
 import org.apache.curator.framework.recipes.cache.*;
 import org.apache.curator.framework.recipes.leader.LeaderSelector;
+import org.apache.curator.framework.recipes.leader.LeaderSelectorListener;
 import org.apache.curator.framework.state.ConnectionState;
 import org.apache.curator.retry.RetryNTimes;
 import org.apache.zookeeper.CreateMode;
-import org.apache.zookeeper.WatchedEvent;
-import org.apache.zookeeper.Watcher;
-import org.apache.zookeeper.data.Stat;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.regex.Pattern;
 
 /**
  * Created by Tianjinjin on 2016/9/1.
  */
-public class TaskClient {
+public class TaskClient implements Cloneable,LeaderSelectorListener{
 
     //TaskClient的配置
     private Map<String,Object> config;
@@ -38,7 +33,7 @@ public class TaskClient {
     private CuratorFramework client;
 
     //主节点选择器
-    private final LeaderSelector leaderSelector = null;
+    private  LeaderSelector leaderSelector = null;
 
     //任务的缓存器
     private final PathChildrenCache tasksCache=null;
@@ -67,9 +62,13 @@ public class TaskClient {
     //askClient的逻辑实现监听器，是个接口，自己实现逻辑
     private CuratorListener performListener;
 
+    private static final String PATH_ROOT_TASKS="/tasks";
 
+    private static final String PATH_ROOT_WORKERS="/workers";
 
-    public TaskClient() {
+    public TaskClient(){
+        this.leaderSelector = new LeaderSelector(this.client, PATH_ROOT_TASKS, this);
+        leaderSelector.start();
     }
 
     public TaskClient(String configFileName) {
@@ -149,12 +148,25 @@ public class TaskClient {
         return false;
     }
 
+
+    //获得领导权限后执行
+    @Override
     public void takeLeadership(CuratorFramework client){
 
     }
 
-    public void stateChanged(CuratorFramework client,ConnectionState newState){
 
+    //对不同的网络连接状态做处理
+    @Override
+    public void stateChanged(CuratorFramework client,ConnectionState newState){
+            switch (newState){
+                case CONNECTED:break;
+                case RECONNECTED:break;
+                case SUSPENDED:break;
+                case LOST:break;
+                case READ_ONLY:
+                    break;
+            }
     }
 
     public void close(){
