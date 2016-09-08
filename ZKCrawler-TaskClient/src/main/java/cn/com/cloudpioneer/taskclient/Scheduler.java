@@ -25,6 +25,10 @@ public class Scheduler {
         this.policy = policy;
     }
 
+    public SchedulePolicy getPolicy() {
+        return policy;
+    }
+
     public Map<String,List<String>> scheduleProcess(List<Object> workers, List<Object> tasks){
         return null;
     }
