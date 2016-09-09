@@ -209,6 +209,7 @@ public class CuratorMaster implements Closeable,LeaderSelectorListener
                 LOG.warn("Session suspended");//
                 try
                 {
+                    closeLatch.countDown();
                     runForMaster();
                 } catch (Exception e)
                 {
@@ -219,7 +220,10 @@ public class CuratorMaster implements Closeable,LeaderSelectorListener
             case LOST:
                 try{
                     close();
-                } catch (IOException e) {
+                    startZK();
+                    runForMaster();
+
+                } catch (Exception e) {
                     LOG.warn( "Exception while closing", e );
                 }
 
@@ -325,17 +329,6 @@ public class CuratorMaster implements Closeable,LeaderSelectorListener
                 }
                 case NODE_UPDATED:{
                     LOG.info("update");
-                    break;
-                }
-                case CONNECTION_LOST:{
-                    LOG.info("CONNECTION_LOST");
-                    runForMaster();
-
-                    break;
-                }
-                case CONNECTION_SUSPENDED:{
-                    LOG.info("CONNECTION_SUSPENDED");
-                    runForMaster();
                     break;
                 }
 
