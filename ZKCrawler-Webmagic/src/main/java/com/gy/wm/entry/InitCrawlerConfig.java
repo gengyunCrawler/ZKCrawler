@@ -73,9 +73,7 @@ public class InitCrawlerConfig {
         //读取模板
         listTemplate = new ArrayList<>();
         String str;
-//        File files = new File("C:\\temp\\templates");
-        File files = new File(System.getProperty("user.dir") + templatesDir);
-//        File files = new File(templatesDir);
+        File files = new File(templatesDir);
         File[] templateFiles = files.listFiles();
         List<File> fileList = new ArrayList<>();
         for(File templateFile : templateFiles)    {
@@ -95,61 +93,5 @@ public class InitCrawlerConfig {
 
         setListTemplate(listTemplate);
 
-        /*//读取点击标签
-        List<String> regexs = new ArrayList<String>();
-        File regexs_file = new File("C:\\temp\\regexs");
-        String regexStr;
-        try {
-            InputStream in = new FileInputStream(regexs_file);
-            BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-            while((regexStr = reader.readLine()) != null)   {
-                regexs.add(regexStr);
-            }
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        setRegexList(regexs);
-
-        //读取过滤协议
-        List<String> protocols = new ArrayList<String>();
-        File protocols_file = new File("C:\\temp\\protocols");
-        String protocol;
-        try {
-            InputStream in = new FileInputStream(regexs_file);
-            BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-            while((protocol = reader.readLine()) != null)   {
-                regexs.add(protocol);
-            }
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        setProtocols(protocols);
-
-        //读取过滤后缀
-        List<String> postRegexs = new ArrayList<String>();
-        File postRegexs_file = new File("C:\\temp\\postRegexs");
-        String postRegex;
-        try {
-            InputStream in = new FileInputStream(regexs_file);
-            BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-            while((postRegex = reader.readLine()) != null)   {
-                regexs.add(postRegex);
-            }
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        setPostRegex(postRegexs)*/;
     }
 }
