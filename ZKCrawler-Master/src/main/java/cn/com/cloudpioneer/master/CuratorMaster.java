@@ -10,7 +10,6 @@ import org.apache.curator.framework.recipes.cache.TreeCacheListener;
 import org.apache.curator.framework.recipes.leader.LeaderSelector;
 import org.apache.curator.framework.recipes.leader.LeaderSelectorListener;
 import org.apache.curator.framework.state.ConnectionState;
-import org.apache.curator.retry.ExponentialBackoffRetry;
 import org.apache.curator.utils.CloseableUtils;
 import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.data.Stat;
@@ -166,30 +165,12 @@ public class CuratorMaster implements Closeable,LeaderSelectorListener
         //如果当当前选举的master挂掉之后会进行重新选举，此时当前的master得再次发现之前可用的worker和tasks然后对必要的未将
         recoverTask();
         LOG.info("Mastership participants: " + myId + ", " + leaderSelector.getParticipants());
-
-        //为workerCache添加监视器并并启动监听
-//        new Thread(new Runnable()
-//        {
-//            @Override
-//            public void run()
-//            {
-//                try
-//                {
-//
-//                } catch (Exception e)
-//                {
-//                    e.printStackTrace();
-//                }
-//            }
-//        }).start();
         addWorkersListener(workersCacheListener);
         addTasksListener(tasksCacheListener);
         workersCache.start();
         tasksCache.start();
         leaderLatch.countDown();
-        LOG.info("latch count:"+ closeLatch.getCount());
-        //  closeLatch.await();
-        LOG.info("latch count:"+closeLatch.getCount());
+
     }
 
     /**
@@ -408,17 +389,26 @@ public class CuratorMaster implements Closeable,LeaderSelectorListener
         }
     }
 
-    public static void main(String []args) throws Exception
+    /**
+     * 启动master
+     * @throws Exception
+     */
+    public void startMaster() throws Exception
     {
-        final CuratorMaster master=new CuratorMaster("123","88.88.88.110:2181",new ExponentialBackoffRetry(1000,5));
-        master.startZK();
-        master.bootstrap();
-        master.runForMaster();
-        master.awaitLeadership();
-        master.keepListenerListen();
-
-
-
-
+        this.startZK();
+        this.bootstrap();
+        this.runForMaster();
+        this.awaitLeadership();
+        this.keepListenerListen();
     }
+
+    /**
+     * 关闭master
+     * @throws IOException
+     */
+    public void stopMaster() throws IOException
+    {
+        close();
+    }
+
 }

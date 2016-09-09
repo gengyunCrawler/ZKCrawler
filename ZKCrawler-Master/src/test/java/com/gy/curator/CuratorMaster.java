@@ -166,22 +166,6 @@ public class CuratorMaster implements Closeable,LeaderSelectorListener
         //如果当当前选举的master挂掉之后会进行重新选举，此时当前的master得再次发现之前可用的worker和tasks然后对必要的未将
         recoverTask();
         LOG.info("Mastership participants: " + myId + ", " + leaderSelector.getParticipants());
-
-        //为workerCache添加监视器并并启动监听
-//        new Thread(new Runnable()
-//        {
-//            @Override
-//            public void run()
-//            {
-//                try
-//                {
-//
-//                } catch (Exception e)
-//                {
-//                    e.printStackTrace();
-//                }
-//            }
-//        }).start();
         addWorkersListener(workersCacheListener);
         addTasksListener(tasksCacheListener);
         workersCache.start();
@@ -263,6 +247,8 @@ public class CuratorMaster implements Closeable,LeaderSelectorListener
         }
         return false;
     }
+
+    //进行关闭操作
     @Override
     public void close() throws IOException
     {
@@ -340,6 +326,7 @@ public class CuratorMaster implements Closeable,LeaderSelectorListener
                     break;
 
                 case NODE_REMOVED:{
+                    System.out.println("NODE_REMOVED:"+event.getData().getPath());
                     break;
                 }
                 case NODE_UPDATED:{
@@ -414,6 +401,7 @@ public class CuratorMaster implements Closeable,LeaderSelectorListener
         master.startZK();
         master.runForMaster();
         master.awaitLeadership();
+        //保证main线程不会退出
         master.keepListenerListen();
 
 

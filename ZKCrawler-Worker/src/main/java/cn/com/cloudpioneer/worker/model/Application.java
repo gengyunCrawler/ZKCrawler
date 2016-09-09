@@ -1,4 +1,4 @@
-package cn.com.cloudpioneer.worker;
+package cn.com.cloudpioneer.worker.model;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,7 +8,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 
 @SpringBootApplication
-public class Application {
+public class Application
+{
 
     public static void main(String[] args) {
 

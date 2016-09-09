@@ -2,7 +2,7 @@ package com.gy.wm;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * <SpringBootApplication,启动Springboot提供API服务>
@@ -11,9 +11,9 @@ import org.springframework.context.ApplicationContext;
  * @Version: 2016-09-08
  **/
 @SpringBootApplication
+@ComponentScan
 public class Application {
     public static void main(String[] args) {
-        ApplicationContext ctx =
-                SpringApplication.run(Application.class,args);
+       SpringApplication.run(Application.class,args);
     }
 }

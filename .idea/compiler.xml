@@ -24,11 +24,23 @@
         <processorPath useClasspath="true" />
         <module name="ZKCrawler-Master" />
         <module name="ZKCrawler-TaskClient" />
-        <module name="ZKCrawler-Webmagic" />
+      </profile>
+      <profile default="false" name="Annotation profile for ZKCrawler-Worker" enabled="true">
+        <sourceOutputDir name="target\generated-sources\annotations" />
+        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
         <module name="ZKCrawler-Worker" />
       </profile>
+      <profile default="false" name="Annotation profile for ZKCrawler-Webmagic" enabled="true">
+        <sourceOutputDir name="target\generated-sources\annotations" />
+        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="ZKCrawler-Webmagic" />
+      </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="1.7">
       <module name="ZKCrawler" target="1.6" />
       <module name="ZKCrawler-Master" target="1.6" />
       <module name="ZKCrawler-TaskClient" target="1.6" />
