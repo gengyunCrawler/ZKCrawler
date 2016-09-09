@@ -1,7 +1,6 @@
 package cn.com.cloudpioneer.worker.controller;
 
 import cn.com.cloudpioneer.worker.service.WorkerService;
-import cn.com.cloudpioneer.worker.utils.GetServletRequestBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +26,11 @@ public class WorkerController {
         return "" + workerService.statusWriteBack("123456");
     }
 
+    @RequestMapping("currentTasks")
+    public String currentTasks() {
+
+        return workerService.getCurrentTasks();
+    }
 
     @RequestMapping("taskWriteBack/{taskId}")
     public String taskWirteBack(@PathVariable("taskId") String taskId) {

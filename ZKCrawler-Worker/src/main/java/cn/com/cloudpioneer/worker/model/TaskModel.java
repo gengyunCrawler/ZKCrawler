@@ -1,7 +1,6 @@
 package cn.com.cloudpioneer.worker.model;
 
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
 import java.io.Serializable;
@@ -85,23 +84,24 @@ public class TaskModel implements Serializable {
         return entity;
     }
 
-/***
- *
- public static void main(String[] args) {
- TaskEntity entity = new TaskEntity();
 
- entity.setId("123456789");
- entity.setName("my-test-entity");
+    /***
+     *
+     public static void main(String[] args) {
+     TaskEntity entity = new TaskEntity();
 
- System.out.println("entity:====> " + entity.toString());
+     entity.setId("123456789");
+     entity.setName("my-test-entity");
 
- TaskModel taskModel = new TaskModel("/path/test", entity.toString().getBytes());
+     System.out.println("entity:====> " + entity.toString());
 
- System.out.println("model-str:====> " + taskModel.getEntityString());
- System.out.println("model-entity: => " + taskModel.getEntity().toString());
+     TaskModel taskModel = new TaskModel("/path/test", entity.toString().getBytes());
 
- System.out.println("========= model +++++++");
- System.out.println(JSON.toJSONString(taskModel));
- }
- /***********/
+     System.out.println("model-str:====> " + taskModel.getEntityString());
+     System.out.println("model-entity: => " + taskModel.getEntity().toString());
+
+     System.out.println("========= model +++++++");
+     System.out.println(JSON.toJSONString(taskModel));
+     }
+     /***********/
 }

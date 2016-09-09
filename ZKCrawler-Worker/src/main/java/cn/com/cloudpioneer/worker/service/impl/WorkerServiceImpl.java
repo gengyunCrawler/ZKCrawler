@@ -2,6 +2,7 @@ package cn.com.cloudpioneer.worker.service.impl;
 
 import cn.com.cloudpioneer.worker.app.Worker;
 import cn.com.cloudpioneer.worker.service.WorkerService;
+import com.alibaba.fastjson.JSONArray;
 import com.sun.istack.internal.Nullable;
 import org.springframework.stereotype.Service;
 
@@ -24,5 +25,12 @@ public class WorkerServiceImpl implements WorkerService {
 
         worker.myTaskWirteBack(taskId);
 
+    }
+
+
+    @Override
+    public String getCurrentTasks() {
+
+        return JSONArray.toJSONString(worker.getMyTasks());
     }
 }

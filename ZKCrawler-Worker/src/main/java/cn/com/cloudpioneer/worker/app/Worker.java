@@ -3,22 +3,24 @@ package cn.com.cloudpioneer.worker.app;
 import cn.com.cloudpioneer.worker.listener.MyTaskCacheListener;
 import cn.com.cloudpioneer.worker.model.TaskModel;
 import cn.com.cloudpioneer.worker.tasks.MyTasks;
+import cn.com.cloudpioneer.worker.utils.HttpClientUtils;
 import cn.com.cloudpioneer.worker.utils.RandomUtils;
 import org.apache.curator.RetryPolicy;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
 import org.apache.curator.framework.recipes.cache.TreeCache;
 import org.apache.curator.framework.recipes.cache.TreeCacheListener;
+import org.apache.curator.framework.state.ConnectionState;
+import org.apache.curator.framework.state.ConnectionStateListener;
+import org.apache.curator.utils.CloseableUtils;
 import org.apache.zookeeper.CreateMode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.Closeable;
 import java.io.IOException;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.io.UnsupportedEncodingException;
+import java.util.*;
 
 /**
  * Created by Administrator on 2016/9/1.
@@ -28,7 +30,7 @@ import java.util.Map;
  * Worker 是一个单例，任何时候的任何有关worker操作的请求，
  * 只由此一个work处理。
  */
-public class Worker implements Closeable {
+public class Worker implements Closeable, ConnectionStateListener {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Worker.class);
 
@@ -38,6 +40,8 @@ public class Worker implements Closeable {
     public static final String TASKS_ROOT_PATH = "/tasks";
     public static final String WORKERS_ROOT_PATH = "/workers";
     public static final String LOCK_ROOT_PATH = "/lock-4-workers";
+
+    public static final String API_CRAWLER_TASK_STARTER = ResourceBundle.getBundle("config").getString("API_CRAWLER_TASK_STARTER");
 
     private Map<String, String> taskLockMap;
 
@@ -79,41 +83,53 @@ public class Worker implements Closeable {
         try {
             client.create().withMode(CreateMode.EPHEMERAL).forPath(LOCK_ROOT_PATH + "/" + taskId);
         } catch (Exception e) {
-            LOGGER.warn("create lock: " + taskId + " Exception.");
+            LOGGER.warn("get lock: " + taskId + " Failed. return false.");
             return false;
-            //e.printStackTrace();
         }
 
         taskLockMap.put(taskId, LOCK_ROOT_PATH + "/" + taskId);
-        LOGGER.info("create lock: " + taskId + " OK.");
+        LOGGER.info("get lock: " + taskId + " Success. return true.");
         return true;
     }
 
 
     private synchronized void releaseTaskLock(String taskId) {
 
+        int retry = 5;
         String lockPath = taskLockMap.remove(taskId);
         if (lockPath != null) {
-            try {
-                client.delete().forPath(lockPath);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return;
-            }
-        }
+            while (retry > 0) {
 
-        LOGGER.info("release lock: " + lockPath);
+                try {
+                    client.delete().forPath(lockPath);
+                } catch (Exception e) {
+                    LOGGER.warn("release lock: " + lockPath + " Exception. retry ......");
+                    retry--;
+                    continue;
+                }
+
+                LOGGER.info("release lock: " + lockPath + " ok.");
+                break;
+            }
+        } else
+            LOGGER.warn("try to release a not exists lock, ignore it ......");
+
     }
 
 
-    public String getWorkerId(){
+    public String getWorkerId() {
 
         return this.workerId;
     }
 
+
     public void myTaskWirteBack(String taskId) {
 
         TaskModel task = myTasks.removeTask(taskId);
+        if (task == null) {
+            LOGGER.warn("try to write back a null task to the TaskClient, taskId = " + taskId + ", ignore it.");
+            return;
+        }
         int costTime = (int) (System.currentTimeMillis() - task.getStartTime());
         task.getEntity().setTimeStop(new Date());
         task.getEntity().setCostLastCrawl(costTime);
@@ -125,46 +141,130 @@ public class Worker implements Closeable {
             @Override
             public void run() {
 
+                int retry = 5;
+                int count = Integer.MAX_VALUE;
+                byte[] data = null;
+                boolean isException = false;
+
                 while (true) {
 
                     if (!isGetTaskLock(backTask.getEntity().getId())) {
+                        LOGGER.info("can't get the lock, retry ......");
                         try {
                             Thread.sleep(50);
                         } catch (InterruptedException e) {
-                            e.printStackTrace();
+
                         }
                         continue;
                     }
+                    LOGGER.info("get lock ok.");
                     break;
                 }
-                int count;
-                try {
-                    count = Integer.parseInt(new String(client.getData().forPath(backTask.getTaskPath() + "/status"), "UTF-8"));
-                } catch (Exception e) {
+
+
+                while (retry > 0) {
+
+                    try {
+                        data = client.getData().forPath(backTask.getTaskPath() + "/status");
+
+                    } catch (Exception e) {
+                        LOGGER.warn("get the znode: " + backTask.getTaskPath() + "/status  data error. retry ......");
+                        retry--;
+                        isException = true;
+                        continue;
+                    }
+                    isException = false;
+                    LOGGER.info("get the znode: " + backTask.getTaskPath() + "/status  data success.");
+                    break;
+                }
+
+                if (isException) {
+                    LOGGER.error("task write back error. release the lock and return.");
                     releaseTaskLock(backTask.getEntity().getId());
-                    e.printStackTrace();
                     return;
+                }
+
+                try {
+                    count = Integer.parseInt(new String(data, "UTF-8"));
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
                 }
                 count--;
                 if (count == 0) {
 
-                    try {
-                        client.setData().forPath(backTask.getTaskPath(), backTask.getEntity().toString().getBytes());
-                    } catch (Exception e) {
-                        e.printStackTrace();
+                    retry = 5;
+                    while (retry > 0) {
+
+                        try {
+                            client.setData().forPath(backTask.getTaskPath(), backTask.getEntity().toString().getBytes());
+                        } catch (Exception e) {
+                            LOGGER.warn("write task data back to znode: " + backTask.getTaskPath() + " Exception. retry ......");
+                            retry--;
+                            isException = true;
+                            continue;
+                        }
+                        isException = false;
+                        LOGGER.info("write task data back to znode: " + backTask.getTaskPath() + " Success.");
+                        break;
                     }
 
-                    try {
-                        client.setData().forPath(backTask.getTaskPath() + "/status", ("" + count).getBytes());
-                    } catch (Exception e) {
-                        e.printStackTrace();
+                    if (isException) {
+                        LOGGER.error("task write back error. release the lock and return.");
+                        releaseTaskLock(backTask.getEntity().getId());
+                        return;
+                    }
+                    retry = 5;
+                    while (retry > 0) {
+
+                        try {
+                            client.setData().forPath(backTask.getTaskPath() + "/status", "0".getBytes());
+                        } catch (Exception e) {
+                            LOGGER.warn("write task data back to znode: " + backTask.getTaskPath() + "/status Exception. retry ......");
+                            retry--;
+                            isException = true;
+                            continue;
+                        }
+                        isException = false;
+                        break;
                     }
 
+                    if (isException) {
+                        LOGGER.error("task write back error. release the lock and return.");
+                        releaseTaskLock(backTask.getEntity().getId());
+                        return;
+                    }
+
+                    LOGGER.info("write task data back to TaskClient Success. release the lock and return this thread.");
+                    releaseTaskLock(backTask.getEntity().getId());
+
+                } else {
+                    LOGGER.info("I am not the last worker, count for me is: " + count);
+                    retry = 5;
+
+                    while (retry > 0) {
+                        try {
+                            //LOGGER.info("count: " + Integer.valueOf(count).toString().getBytes());
+                            client.setData().forPath(backTask.getTaskPath() + "/status", ("" + count).getBytes());
+                        } catch (Exception e) {
+                            LOGGER.warn("write count back to znode: " + backTask.getTaskPath() + "/status Exception. retry ......");
+                            retry--;
+                            isException = true;
+                            continue;
+                        }
+                        isException = false;
+                        break;
+                    }
                 }
-
+                if (isException) {
+                    LOGGER.error("write count data back error. release the lock and return.");
+                    releaseTaskLock(backTask.getEntity().getId());
+                    return;
+                }
+                LOGGER.info("write count data back  Success. release the lock and return this thread.");
                 releaseTaskLock(backTask.getEntity().getId());
             }
         }).start();
+
     }
 
 
@@ -188,9 +288,21 @@ public class Worker implements Closeable {
         return thisWorker;
     }
 
-    public void addTaskToRunning(TaskModel task) {
+    public void addTaskToRunning(final TaskModel task) {
 
-        this.myTasks.addTask(task);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                try {
+                    HttpClientUtils.jsonPostRequest(API_CRAWLER_TASK_STARTER, task.getEntityString());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                myTasks.addTask(task);
+            }
+        }).start();
+
     }
 
     public byte[] getZnodeData(String znode) {
@@ -199,7 +311,6 @@ public class Worker implements Closeable {
             return client.getData().forPath(znode);
         } catch (Exception e) {
             LOGGER.warn("get znode data error.");
-            //e.printStackTrace();
         }
         return null;
     }
@@ -247,9 +358,9 @@ public class Worker implements Closeable {
     @Override
     public void close() throws IOException {
 
-        LOGGER.info("closing worker");
-        myTasksCache.close();
-        client.close();
+        LOGGER.info("closing worker ......");
+        CloseableUtils.closeQuietly(myTasksCache);
+        CloseableUtils.closeQuietly(client);
         LOGGER.info("worker closed.");
 
     }
@@ -273,4 +384,29 @@ public class Worker implements Closeable {
 
         return Worker.thisWorker;
     }
+
+
+    @Override
+    public void stateChanged(CuratorFramework curatorFramework, ConnectionState connectionState) {
+
+        switch (connectionState) {
+
+            case CONNECTED:
+                LOGGER.info("worker connected.");
+                break;
+            case SUSPENDED:
+                LOGGER.info("worker suspended.");
+                break;
+            case RECONNECTED:
+                LOGGER.info("worker reconnected.");
+                break;
+            case LOST:
+                LOGGER.info("worker lost.");
+                break;
+            case READ_ONLY:
+                LOGGER.info("worker read only event.");
+                break;
+        }
+    }
+
 }

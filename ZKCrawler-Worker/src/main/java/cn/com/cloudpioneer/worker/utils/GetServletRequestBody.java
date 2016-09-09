@@ -11,6 +11,7 @@ public class GetServletRequestBody {
 
     public static String getBodyString(ServletRequest request) {
 
+
         InputStream inputStream = null;
         int length = request.getContentLength();
         byte[] bytes = new byte[length];
