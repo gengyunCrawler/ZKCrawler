@@ -1,7 +1,5 @@
 package com.gy.wm.util;
 
-import javax.swing.plaf.PanelUI;
-import java.math.BigInteger;
 import java.util.Random;
 
 /**
