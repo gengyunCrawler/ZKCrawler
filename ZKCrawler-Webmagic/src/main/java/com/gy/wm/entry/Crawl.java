@@ -1,9 +1,6 @@
 package com.gy.wm.entry;
 
 import com.gy.wm.dbpipeline.MyHbaseUtils;
-import com.gy.wm.heartbeat.Heartbeart;
-import com.gy.wm.heartbeat.model.HeartbeatMsgModel;
-import com.gy.wm.heartbeat.model.HeartbeatStatusCode;
 import com.gy.wm.model.CrawlData;
 import com.gy.wm.util.ConfigUtils;
 import com.gy.wm.util.GetDomain;
@@ -34,10 +31,6 @@ public class Crawl {
         CrawlerWorkflowManager workflow = new CrawlerWorkflowManager(tid, "appname");
         workflow.crawl(crawlDataList, tid, starttime, pass);
     }
-
-    private static HeartbeatMsgModel heartbeatMsg;
-    private static Heartbeart heartbeart;
-
     public static void main(String[] args) {
         long start_time = System.currentTimeMillis();
         if (args.length < 24) {
@@ -117,15 +110,6 @@ public class Crawl {
 
             String selfIp = ConfigUtils.getResourceBundle().getString("HEARTBEAT_HOST");
 
-            heartbeatMsg = new HeartbeatMsgModel();
-            heartbeatMsg.setHostname(selfIp);
-            heartbeatMsg.setPid(Integer.parseInt(pid));
-            heartbeatMsg.setTheads(5);
-            heartbeatMsg.setStatusCode(HeartbeatStatusCode.CRAWLING);
-            heartbeatMsg.setTaskId(tid);
-
-            heartbeart = new Heartbeart(heartbeatMsg);
-
 //            new Thread(heartbeart).start();// the heartbeat thread
 
             kick(depth, pass, tid, starttime, seedpath, protocolDir, postregexDir, type, recalldepth, templateDir, clickregexDir, configpath);
@@ -136,9 +120,6 @@ public class Crawl {
         } finally {
             HbasePoolUtils.cleanAll();
         }
-
-        heartbeatMsg.setStatusCode(HeartbeatStatusCode.FINISHED);
-        heartbeart.setFinish(true);
 
         long end_time = System.currentTimeMillis();
         System.out.println("time elapse(seconds):" + ((end_time - start_time) / 1000.00));
