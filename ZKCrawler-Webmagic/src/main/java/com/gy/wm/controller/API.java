@@ -12,12 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
  **/
 @RestController
 public class API {
-
-    @RequestMapping("/")
-    public String index()   {
-        return "hello world";
-    }
-
     @RequestMapping("/startTask")
     public String startTask(TaskEntity taskEntity)   {
         return null;
