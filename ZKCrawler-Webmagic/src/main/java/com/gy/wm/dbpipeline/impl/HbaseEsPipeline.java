@@ -1,7 +1,6 @@
 package com.gy.wm.dbpipeline.impl;
 
 import com.alibaba.fastjson.JSON;
-import com.gy.wm.dbpipeline.MyHbaseUtils;
 import com.gy.wm.dbpipeline.PipelineBloomFilter;
 import com.gy.wm.dbpipeline.dbclient.EsClient;
 import com.gy.wm.dbpipeline.dbclient.HbaseClient;

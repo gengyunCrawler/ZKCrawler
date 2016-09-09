@@ -1,18 +1,16 @@
 package com.gy.wm.util;
-
 import org.apache.hadoop.hbase.Cell;
 import org.apache.hadoop.hbase.CellUtil;
+import org.apache.hadoop.hbase.KeyValue;
 import org.apache.hadoop.hbase.client.HTableInterface;
 import org.apache.hadoop.hbase.client.Result;
 import org.apache.hadoop.hbase.client.ResultScanner;
 import org.apache.hadoop.hbase.client.Scan;
 import org.apache.hadoop.hbase.util.Bytes;
-import org.apache.hadoop.hbase.KeyValue;
+
 
 import java.io.IOException;
 import java.io.Reader;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Administrator on 2016/5/18.
@@ -46,8 +44,6 @@ public class Test {
                             Bytes.toString(kv.getFamily()) +  ";\nqualifier: " +
                             Bytes.toString(kv.getQualifier()) + ";\nvalue: " +
                             Bytes.toString(kv.getValue()));
-
-
                 }
                 System.out.println("-------------------------------------------");
                 System.out.println(i);

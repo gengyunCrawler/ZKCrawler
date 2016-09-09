@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="ZKCrawler-Webmagic:war">
+    <output-path>$PROJECT_DIR$/ZKCrawler-Webmagic/target</output-path>
+    <root id="archive" name="ZKCrawler-Webmagic-Unknown.war">
+      <element id="artifact" artifact-name="ZKCrawler-Webmagic:war exploded" />
+    </root>
+  </artifact>
+</component>

@@ -6,7 +6,7 @@ import com.gy.wm.heartbeat.message.Message;
 /**
  * Created by TianyuanPan on 6/4/16.
  */
-public class HeartbeatMsgModel implements Message{
+public class HeartbeatMsgModel implements Message {
 
     private String taskId;
     private String hostname;

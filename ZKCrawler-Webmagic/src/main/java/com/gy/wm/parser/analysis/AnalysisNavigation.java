@@ -51,7 +51,7 @@ public class AnalysisNavigation
      * 初始化
      * @return
      */
-    public   AnalysisNavigation  initial(String url,String html)
+    public AnalysisNavigation initial(String url, String html)
     {
         newTokens.clear();
         ansTokens.clear();
