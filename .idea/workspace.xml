@@ -2,33 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f80612aa-7060-4aab-872b-8b78d4511402" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ZKCrawler-Worker/src/main/java/cn/com/cloudpioneer/worker/model/Application.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_3_3_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/resources/application.properties" />
-      <change type="DELETED" beforePath="E:\Workspaces\IDEA\ZKCrawler\.idea\libraries\Maven__com_sun_jdmk_jmxtools_1_2_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\Workspaces\IDEA\ZKCrawler\.idea\libraries\Maven__com_sun_jmx_jmxri_1_2_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\Workspaces\IDEA\ZKCrawler\.idea\libraries\Maven__javax_jms_jms_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\Workspaces\IDEA\ZKCrawler\.idea\libraries\Maven__junit_junit_4_12.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\Workspaces\IDEA\ZKCrawler\.idea\libraries\Maven__org_apache_hadoop_zookeeper_3_4_6.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\Workspaces\IDEA\ZKCrawler\.idea\libraries\Maven__org_slf4j_slf4j_log4j12_1_7_7.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\Workspaces\IDEA\ZKCrawler\.idea\libraries\Maven__org_springframework_spring_jdbc_4_1_6_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\Workspaces\IDEA\ZKCrawler\.idea\libraries\Maven__org_springframework_spring_tx_4_2_6_RELEASE.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ZKCrawler-Master/src/main/java/Application.java" afterPath="$PROJECT_DIR$/ZKCrawler-Master/src/main/java/Application.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/Application.java" afterPath="$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/Application.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ZKCrawler-Worker/src/main/java/cn/com/cloudpioneer/worker/Application.java" afterPath="$PROJECT_DIR$/ZKCrawler-Worker/src/main/java/cn/com/cloudpioneer/worker/Application.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ZKCrawler-Master/src/main/java/cn/com/cloudpioneer/master/CuratorMaster.java" afterPath="$PROJECT_DIR$/ZKCrawler-Master/src/main/java/cn/com/cloudpioneer/master/CuratorMaster.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ZKCrawler-Master/src/test/java/com/gy/curator/CuratorMaster.java" afterPath="$PROJECT_DIR$/ZKCrawler-Master/src/test/java/com/gy/curator/CuratorMaster.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ZKCrawler-Master/src/test/java/com/gy/curator/CuratorMasterTester.java" afterPath="$PROJECT_DIR$/ZKCrawler-Master/src/test/java/com/gy/curator/CuratorMasterTester.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ZKCrawler-Master/ZKCrawler-Master.iml" afterPath="$PROJECT_DIR$/ZKCrawler-Master/ZKCrawler-Master.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ZKCrawler-TaskClient/ZKCrawler-TaskClient.iml" afterPath="$PROJECT_DIR$/ZKCrawler-TaskClient/ZKCrawler-TaskClient.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ZKCrawler-Webmagic/ZKCrawler-Webmagic.iml" afterPath="$PROJECT_DIR$/ZKCrawler-Webmagic/ZKCrawler-Webmagic.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ZKCrawler-Worker/ZKCrawler-Worker.iml" afterPath="$PROJECT_DIR$/ZKCrawler-Worker/ZKCrawler-Worker.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ZKCrawler.iml" afterPath="$PROJECT_DIR$/ZKCrawler.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ZKCrawler-Master/src/main/resources/log4j.properties" afterPath="$PROJECT_DIR$/ZKCrawler-Master/src/main/resources/log4j.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ZKCrawler-TaskClient/pom.xml" afterPath="$PROJECT_DIR$/ZKCrawler-TaskClient/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ZKCrawler-Webmagic/pom.xml" afterPath="$PROJECT_DIR$/ZKCrawler-Webmagic/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ZKCrawler.iws" />
@@ -75,10 +48,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Application.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Application.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/Application.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3383199">
+            <state vertical-scroll-proportion="0.0">
               <caret line="16" column="53" selection-start-line="16" selection-start-column="53" selection-end-line="16" selection-end-column="53" />
               <folding>
                 <element signature="e#415#416#0" expanded="true" />
@@ -133,20 +106,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <marker date="1473389720456" expanded="true" signature="106407:106424" placeholder="..." />
-                <marker date="1473389720456" expanded="true" signature="106407:106442" placeholder="..." />
-                <marker date="1473389720456" expanded="true" signature="106407:106455" placeholder="..." />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="211" column="36" selection-start-line="211" selection-start-column="36" selection-end-line="211" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.3181818">
+              <caret line="7" column="39" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -1510,7 +1479,7 @@
       <workItem from="1473322129131" duration="2635000" />
       <workItem from="1473324860773" duration="89000" />
       <workItem from="1473384130421" duration="3003000" />
-      <workItem from="1473389639666" duration="123000" />
+      <workItem from="1473389639666" duration="238000" />
     </task>
     <task id="LOCAL-00001" summary="first init">
       <created>1472713688029</created>
@@ -1542,11 +1511,17 @@
       <option name="project" value="LOCAL" />
       <updated>1473068040425</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="修改worker代码结构。">
+      <created>1473389778792</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1473389778792</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70792000" />
+    <option name="totallyTimeSpent" value="70907000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1560,11 +1535,11 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960895" sideWeight="0.5021322" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20895523" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4532294" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4532294" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.7037862" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32850778" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26385927" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26385927" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32995737" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1908,14 +1883,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="211" column="36" selection-start-line="211" selection-start-column="36" selection-end-line="211" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ZKCrawler-Worker/src/main/java/cn/com/cloudpioneer/worker/model/Application.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1940,26 +1907,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1473389720456" expanded="true" signature="106407:106424" placeholder="..." />
-            <marker date="1473389720456" expanded="true" signature="106407:106442" placeholder="..." />
-            <marker date="1473389720456" expanded="true" signature="106407:106455" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/Application.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3383199">
+        <state vertical-scroll-proportion="0.0">
           <caret line="16" column="53" selection-start-line="16" selection-start-column="53" selection-end-line="16" selection-end-column="53" />
           <folding>
             <element signature="e#415#416#0" expanded="true" />
             <element signature="e#475#476#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3181818">
+          <caret line="7" column="39" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>
