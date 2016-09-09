@@ -1,5 +1,6 @@
 package com.gy.wm.controller;
 
+import com.gy.wm.model.TaskEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,5 +16,10 @@ public class API {
     @RequestMapping("/")
     public String index()   {
         return "hello world";
+    }
+
+    @RequestMapping("/startTask")
+    public String startTask(TaskEntity taskEntity)   {
+        return null;
     }
 }
