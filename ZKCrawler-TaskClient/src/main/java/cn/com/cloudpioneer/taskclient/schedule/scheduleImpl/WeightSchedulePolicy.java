@@ -1,5 +1,6 @@
 package cn.com.cloudpioneer.taskclient.schedule.scheduleImpl;
 
+import cn.com.cloudpioneer.taskclient.entity.TaskEntity;
 import cn.com.cloudpioneer.taskclient.schedule.SchedulePolicy;
 
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.Map;
  */
 public class WeightSchedulePolicy implements SchedulePolicy{
     @Override
-    public Map<String, List<String>> process(List<Object> workers, List<Object> tasks) {
+    public Map<String, List<String>> process(List<String> workers, List<TaskEntity> tasks) {
         return null;
     }
 }

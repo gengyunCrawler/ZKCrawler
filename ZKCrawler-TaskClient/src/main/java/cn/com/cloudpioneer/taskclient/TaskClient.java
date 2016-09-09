@@ -1,13 +1,14 @@
 package cn.com.cloudpioneer.taskclient;
 import cn.com.cloudpioneer.taskclient.chooser.TaskChooser;
 import cn.com.cloudpioneer.taskclient.entity.TaskEntity;
+import cn.com.cloudpioneer.taskclient.schedule.scheduleImpl.ManualPolicy;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
 import org.apache.curator.framework.api.CuratorListener;
 import org.apache.curator.framework.api.UnhandledErrorListener;
 import org.apache.curator.framework.recipes.cache.*;
 import org.apache.curator.framework.recipes.leader.LeaderSelector;
-import org.apache.curator.framework.recipes.leader.LeaderSelectorListener;
+import org.apache.curator.framework.recipes.leader.LeaderSelectorListenerAdapter;
 import org.apache.curator.framework.state.ConnectionState;
 import org.apache.curator.retry.RetryNTimes;
 import org.apache.zookeeper.CreateMode;
@@ -21,7 +22,7 @@ import java.util.regex.Pattern;
 /**
  * Created by Tianjinjin on 2016/9/1.
  */
-public class TaskClient implements Cloneable,LeaderSelectorListener{
+public class TaskClient extends LeaderSelectorListenerAdapter implements Cloneable {
 
     //TaskClient的配置
     private Map<String,Object> config;
@@ -67,8 +68,7 @@ public class TaskClient implements Cloneable,LeaderSelectorListener{
     private static final String PATH_ROOT_WORKERS="/workers";
 
     public TaskClient(){
-        this.leaderSelector = new LeaderSelector(this.client, PATH_ROOT_TASKS, this);
-        leaderSelector.start();
+
     }
 
     public TaskClient(String configFileName) {
@@ -88,6 +88,33 @@ public class TaskClient implements Cloneable,LeaderSelectorListener{
         return null;
     }
 
+
+    public CuratorFramework getClient() {
+        return client;
+    }
+
+    public void setClient(CuratorFramework client) {
+        this.client = client;
+        this.leaderSelector = new LeaderSelector(this.client, PATH_ROOT_TASKS, this);
+        leaderSelector.start();
+    }
+
+    public String getMyId() {
+        return myId;
+    }
+
+    public void setMyId(String myId) {
+        this.myId = myId;
+    }
+
+    public LeaderSelector getLeaderSelector() {
+        return leaderSelector;
+    }
+
+    public void setLeaderSelector(LeaderSelector leaderSelector) {
+        this.leaderSelector = leaderSelector;
+    }
+
     private Map<String, Object> initConfig(String configFileName){
         return null;
     }
@@ -99,10 +126,9 @@ public class TaskClient implements Cloneable,LeaderSelectorListener{
      * @return
      */
     private int tasksCreator(List<TaskEntity> taskEntityList) throws Exception {
-        String path;
         for(TaskEntity task:taskEntityList){
             String data =task.toString();
-            client.create().withMode(CreateMode.PERSISTENT_SEQUENTIAL).forPath("/tasks/task" + "-" + task.getId() + "-", data.getBytes());
+            client.create().withMode(CreateMode.PERSISTENT).forPath("/tasks/task" + "-" + task.getId(), data.getBytes());
             System.out.println(client.getChildren().forPath("/tasks"));
         }
         return 0;
@@ -152,7 +178,7 @@ public class TaskClient implements Cloneable,LeaderSelectorListener{
     //获得领导权限后执行
     @Override
     public void takeLeadership(CuratorFramework client){
-
+        System.out.println(this.getMyId()+"is leader");
     }
 
 
@@ -160,17 +186,36 @@ public class TaskClient implements Cloneable,LeaderSelectorListener{
     @Override
     public void stateChanged(CuratorFramework client,ConnectionState newState){
             switch (newState){
-                case CONNECTED:break;
-                case RECONNECTED:break;
-                case SUSPENDED:break;
-                case LOST:break;
+                case CONNECTED:
+                    System.out.println("连接成功！");
+                    break;
+                case RECONNECTED:
+                    System.out.println("正在连接......");
+                    break;
+                case SUSPENDED:
+                    client.start();
+                    break;
+                case LOST:
+                    client.start();
+                    break;
                 case READ_ONLY:
+                    System.out.println("正在读取内容......");
                     break;
             }
     }
 
     public void close(){
 
+    }
+
+    /**
+     * 获取worsk节点下的所有work节点
+     * @return
+     * @throws Exception
+     */
+    public List<String> getWorks() throws Exception {
+        List<String> works=client.getChildren().forPath("/works");
+        return works;
     }
 
     public void listenTaskNode() throws Exception {
@@ -190,7 +235,7 @@ public class TaskClient implements Cloneable,LeaderSelectorListener{
                     case NODE_ADDED:
                         String path=event.getData().getPath();
                         if(pattern.matcher(path).matches()){
-                            client.create().withMode(CreateMode.PERSISTENT_SEQUENTIAL).forPath(path+"/status", "1".getBytes());
+                            client.create().withMode(CreateMode.PERSISTENT).forPath(path+"/status");
                             System.out.println(client.getChildren().forPath("/tasks"));
                         }
                         System.out.println("NODE_ADDED : " + data.getPath() + "  数据:" + new String(data.getData()));
@@ -218,13 +263,13 @@ public class TaskClient implements Cloneable,LeaderSelectorListener{
     public static void main(String[] args) throws Exception {
         TaskEntity taskEntity = new TaskEntity();
         taskEntity.setId("1234567890");
+        taskEntity.setName("WWW");
         taskEntity.setCompleteTimes(2);
         taskEntity.setDeleteFlag(true);
         taskEntity.setCostLastCrawl(20);
         taskEntity.setCycleRecrawl(40);
         taskEntity.setDepthCrawl(3);
         taskEntity.setIdUser(0144552);
-        taskEntity.setName("dfsaf");
         taskEntity.setPathTemplates("agvb");
         taskEntity.setSeedUrls("rety");
         taskEntity.setPathRegexFilter("trh");
@@ -241,7 +286,15 @@ public class TaskClient implements Cloneable,LeaderSelectorListener{
         taskClient.client = CuratorFrameworkFactory.newClient("192.168.229.130:2181", new RetryNTimes(Integer.MAX_VALUE, 1000));
         taskClient.client.start();
         taskClient.tasksCreator(taskEntityList);
-
+        List<String> works= taskClient.getWorks();
+        ManualPolicy manualPolicy = new ManualPolicy();
+        Scheduler scheduler = new Scheduler(manualPolicy);
+        Map<String,List<String>> map=scheduler.getPolicy().process(works, taskEntityList);
+        for(TaskEntity task:taskEntityList){
+            for(int j=0;j<map.get(task.getName()).size();j++){
+                taskClient.client.create().forPath("/tasks/task-"+task.getId()+"/"+map.get(task.getName()).get(j));
+            }
+        }
     }
 
 }
