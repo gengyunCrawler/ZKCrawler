@@ -29,22 +29,22 @@ public class MyTasks {
     }
 
 
-    public void addTask(TaskModel task){
+    public synchronized void addTask(TaskModel task){
 
         tasksMap.put(task.getEntity().getId(), task);
     }
 
-    public TaskModel removeTask(String id){
+    public synchronized TaskModel removeTask(String id){
 
         return tasksMap.remove(id);
     }
 
-    public int getMyTaskNumber(){
+    public synchronized int getMyTaskNumber(){
 
         return tasksMap.size();
     }
 
-    public List<TaskModel> getTasks(){
+    public synchronized List<TaskModel> getTasks(){
 
         List<TaskModel> taskModels = new ArrayList<>();
 

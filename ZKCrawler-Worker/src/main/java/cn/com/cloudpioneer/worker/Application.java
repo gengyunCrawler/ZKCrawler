@@ -11,6 +11,7 @@ import java.util.ResourceBundle;
  * Created by TianyuanPan on 6/29/16.
  */
 
+
 @SpringBootApplication
 public class Application {
 
@@ -18,7 +19,7 @@ public class Application {
 
     public static void main(String[] args) throws InterruptedException {
 
-        Worker worker = Worker.initializeWorker(zkHostPort, new ExponentialBackoffRetry(1000, 10));
+        Worker worker = Worker.initializeWorker(zkHostPort, new ExponentialBackoffRetry(1000, 5));
         SpringApplication.run(Application.class, args);
         worker.workerStart();
     }

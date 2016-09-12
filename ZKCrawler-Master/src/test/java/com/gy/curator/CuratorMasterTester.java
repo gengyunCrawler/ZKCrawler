@@ -57,7 +57,9 @@ public class CuratorMasterTester
     {
         CuratorMaster master=new CuratorMaster("123","192.168.142.2:2181",new ExponentialBackoffRetry(1000,5000));
         master.startZK();
-        master.getClient().create().withMode(CreateMode.EPHEMERAL).forPath("/workers/worker-1/status","sf".getBytes());
+      String s=master.getClient().create().withMode(CreateMode.EPHEMERAL).forPath("/as","sf".getBytes());
+        System.out.println("----------------");
+        System.out.println(s);
     }
 
     @Test

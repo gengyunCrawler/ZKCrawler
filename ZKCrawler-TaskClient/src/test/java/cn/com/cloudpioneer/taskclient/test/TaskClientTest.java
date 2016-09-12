@@ -1,6 +1,7 @@
 package cn.com.cloudpioneer.taskclient.test;
 
 
+import cn.com.cloudpioneer.taskclient.TaskClient;
 import cn.com.cloudpioneer.taskclient.entity.TaskEntity;
 import cn.com.cloudpioneer.taskclient.mapper.TaskEntityMapper;
 import org.apache.curator.framework.CuratorFramework;
@@ -9,6 +10,7 @@ import org.apache.curator.framework.recipes.cache.ChildData;
 import org.apache.curator.framework.recipes.cache.TreeCache;
 import org.apache.curator.framework.recipes.cache.TreeCacheEvent;
 import org.apache.curator.framework.recipes.cache.TreeCacheListener;
+import org.apache.curator.framework.recipes.leader.LeaderSelector;
 import org.apache.curator.retry.RetryNTimes;
 import org.apache.zookeeper.CreateMode;
 import org.junit.Test;
@@ -25,6 +27,7 @@ import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by Tianjinjin on 2016/9/1.
@@ -69,7 +72,7 @@ public class TaskClientTest {
             @Override
             public void childEvent(CuratorFramework client, TreeCacheEvent event) throws Exception {
                 ChildData data = event.getData();
-                System.out.println("data:"+data);
+                System.out.println("data:" + data);
                 switch (event.getType()) {
                     case NODE_ADDED:
                         System.out.println("NODE_ADDED : " + data.getPath() + "  数据:" + new String(data.getData()));
@@ -109,6 +112,19 @@ public class TaskClientTest {
         CuratorFramework client = CuratorFrameworkFactory.newClient("192.168.229.130:2181", new RetryNTimes(Integer.MAX_VALUE, 1000));
         client.start();
         client.delete().forPath("/tasks/task2");
+    }
+
+
+    @Test
+    public void testSelectLeader() throws InterruptedException {
+        TaskClient taskClient= new TaskClient();
+        for(int i=0;i<10;i++){
+            taskClient.setMyId("x" + i);
+            taskClient.setClient(CuratorFrameworkFactory.newClient("192.168.229.130:2181", new RetryNTimes(Integer.MAX_VALUE, 1000)));
+            taskClient.getClient().start();
+            //taskClient.stateChanged(taskClient.getClient(),taskClient.getClient().getConnectionStateListenable());
+        }
+        Thread.sleep(Long.MAX_VALUE);
     }
 
     @Test

@@ -40,7 +40,7 @@ public class HttpClientUtils {
      * @param data
      * @return
      */
-    public static String postRequest(String url, Map<String, String> data) {
+    public static String jsonPostRequest(String url, Map<String, String> data) {
 
         RequestConfig defaultRequestConfig = RequestConfig.custom()
                 .setSocketTimeout(readTimeOut)
@@ -101,10 +101,10 @@ public class HttpClientUtils {
     /**
      *
      * @param url
-     * @param data
+     * @param jsonData
      * @return
      */
-    public static String postRequest(String url, String data) {
+    public static String jsonPostRequest(String url, String jsonData) {
 
         RequestConfig defaultRequestConfig = RequestConfig.custom()
                 .setSocketTimeout(readTimeOut)
@@ -117,11 +117,13 @@ public class HttpClientUtils {
                 .setDefaultRequestConfig(defaultRequestConfig).build();
 
         HttpPost postRequest = new HttpPost(url);
+        postRequest.setHeader("Accept", "application/json");
+        postRequest.setHeader("Content-type", "application/json");
 
         StringEntity stringEntity;
 
         try {
-            stringEntity = new StringEntity(data, "UTF-8");
+            stringEntity = new StringEntity(jsonData, "UTF-8");
             postRequest.setEntity(stringEntity);
             LOGGER.info("executing request: " + postRequest.getURI());
             CloseableHttpResponse response = httpClient.execute(postRequest);
@@ -213,7 +215,7 @@ public class HttpClientUtils {
     }
 
     public static void main(String[] args) {
-        System.out.println(HttpClientUtils.postRequest("http://localhost:10080/worker/test", "{\"key\":\"hello\",\"num\":4520}"));
+        System.out.println(HttpClientUtils.jsonPostRequest("http://118.118.118.201:8080/startTask", "{\"id\":\"454564846\",\"idUser\":\"4520\"}"));
     }
 
 }
