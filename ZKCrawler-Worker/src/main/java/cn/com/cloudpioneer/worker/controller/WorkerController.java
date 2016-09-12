@@ -26,18 +26,31 @@ public class WorkerController {
         return "" + workerService.statusWriteBack("123456");
     }
 
+
+    /**
+     * 获取 worker 当前的所有任务。
+     *
+     * @return json 字符串
+     */
     @RequestMapping("currentTasks")
     public String currentTasks() {
 
         return workerService.getCurrentTasks();
     }
 
+    /**
+     * 任务回写接口，当 WebMagic 爬取的任务完成时，调用此接口把任务
+     * 信息回写到数据库中。
+     *
+     * @param taskId：要回写的数据库ID
+     * @return
+     */
     @RequestMapping("taskWriteBack/{taskId}")
     public String taskWirteBack(@PathVariable("taskId") String taskId) {
 
         workerService.taskWriteBack(taskId);
 
-        return "ok.";
+        return "0";
     }
 
 }

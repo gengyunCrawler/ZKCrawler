@@ -26,12 +26,14 @@ public class MyTaskCacheListener implements TreeCacheListener {
 
         try {
 
+            String treeChildren = treeCacheEvent.getData().getPath();
+            String taskPath = Worker.TASKS_ROOT_PATH;
+
             switch (treeCacheEvent.getType()) {
 
                 case NODE_ADDED:
                     Pattern taskInMyWorker = Pattern.compile(Worker.WORKERS_ROOT_PATH + "/" + worker.getWorkerId() + "/task-.*");
-                    String treeChildren = treeCacheEvent.getData().getPath();
-                    String taskPath = Worker.TASKS_ROOT_PATH;
+
                     LOGGER.info("znode add event, treeChildren: " + treeChildren);
 
 
@@ -41,7 +43,7 @@ public class MyTaskCacheListener implements TreeCacheListener {
                         LOGGER.info("get the task path: " + taskPath);
                         byte[] taskData = worker.getZnodeData(taskPath);
 
-                        if (taskData == null){
+                        if (taskData == null) {
                             LOGGER.error("get task data from znode error, task will not start, return this Event Handler.");
                             return;
                         }
@@ -62,7 +64,25 @@ public class MyTaskCacheListener implements TreeCacheListener {
                     break;
                 case NODE_REMOVED:
                    /* ignore this case */
-                    LOGGER.info("node removed event.");
+                    LOGGER.info("node removed event， treeChildren: " + treeChildren);
+                    Pattern taskRemove = Pattern.compile(Worker.WORKERS_ROOT_PATH + "/" + worker.getWorkerId() + "/task-.*");
+                    if (taskRemove.matcher(treeChildren).matches()) {
+
+                        taskPath += "/" + treeChildren.split("/")[3];
+                        LOGGER.info("get the task path: " + taskPath);
+                        byte[] taskData = worker.getZnodeData(taskPath);
+
+                        if (taskData == null) {
+                            LOGGER.error("get task data from znode error, task will not start, return this Event Handler.");
+                            return;
+                        }
+
+                        TaskModel taskModel = new TaskModel(taskPath, taskData);
+                        worker.myTaskWirteBack(taskModel.getEntity().getId());
+                        worker.removeTaskInRunning(taskModel);
+
+                    } else
+                        LOGGER.info("task remove in my worker not match .............");
                     break;
                 case CONNECTION_LOST:
                     LOGGER.info("connection lost event.");

@@ -42,6 +42,7 @@ public class Worker implements Closeable, ConnectionStateListener {
     public static final String LOCK_ROOT_PATH = "/lock-4-workers";
 
     public static final String API_CRAWLER_TASK_STARTER = ResourceBundle.getBundle("config").getString("API_CRAWLER_TASK_STARTER");
+    public static final String API_CRAWLER_TASK_STOPPER = ResourceBundle.getBundle("config").getString("API_CRAWLER_TASK_STOPPER");
 
     private Map<String, String> taskLockMap;
 
@@ -305,6 +306,24 @@ public class Worker implements Closeable, ConnectionStateListener {
 
     }
 
+
+
+    public void removeTaskInRunning(final TaskModel task) {
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                try {
+                    HttpClientUtils.jsonPostRequest(API_CRAWLER_TASK_STOPPER, task.getEntity().getId());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+
+    }
+
     public byte[] getZnodeData(String znode) {
 
         try {
@@ -399,9 +418,15 @@ public class Worker implements Closeable, ConnectionStateListener {
                 break;
             case RECONNECTED:
                 LOGGER.info("worker reconnected.");
+                workerStart();
                 break;
             case LOST:
                 LOGGER.info("worker lost.");
+                try {
+                    close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 break;
             case READ_ONLY:
                 LOGGER.info("worker read only event.");
