@@ -4,17 +4,21 @@ import com.gy.wm.dbpipeline.MyHbaseUtils;
 import com.gy.wm.model.CrawlData;
 import com.gy.wm.model.TaskEntity;
 import com.gy.wm.util.GetDomain;
+import com.gy.wm.util.HttpUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.ResourceBundle;
 
 /**
  * Created by Administrator on 2016/5/18.
  */
 @Service
 public class Crawl {
+    private static String nomalEndUri = ResourceBundle.getBundle("api").getString("nomalEndUri");
+
     private static final Logger LOG= LoggerFactory.getLogger(Crawl.class);
 
     public static void kick(int depth, int pass, String tid, String starttime, String seedpath, String protocolDir,
@@ -59,6 +63,6 @@ public class Crawl {
 
         long end_time = System.currentTimeMillis();
         LOG.info("time elapse(seconds):" + ((end_time - start_time) / 1000.00));
-
+        HttpUtil.postMethod(nomalEndUri + taskEntity.getId());
     }
 }

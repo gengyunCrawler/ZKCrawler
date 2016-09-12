@@ -1,6 +1,7 @@
-package com.gy.wm.parser.analysis;
+package com.gy.wm.plugins.topicPlugin.analysis;
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Created by Administrator on 2015/11/12.
@@ -9,11 +10,11 @@ public class BaseAnalysisURL
 {
     String url = null;
     String title = null;
-    long date = 0;
+    Date date = null;
     String html = null;
     String text;
 
-    public void setDate(long date)
+    public void setDate(Date date)
     {
         this.date = date;
     }
@@ -28,7 +29,7 @@ public class BaseAnalysisURL
         this.text = text;
     }
 
-    BaseAnalysisURL(String url, String title, long date, String html)
+    BaseAnalysisURL(String url, String title, Date date, String html)
     {
         this.url = url;
         this.title = title;
@@ -46,16 +47,16 @@ public class BaseAnalysisURL
         this.html = html;
     }
 
-    public long getDate()
+    public Date getDate()
     {
         return date;
     }
 
     public String getDateTime()
     {
-        if (date==0) return "0";
+        if (date==null) return null;
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        java.util.Date date = new java.util.Date();
+        Date date = new Date();
         String str = sdf.format(date);
         return str;
     }

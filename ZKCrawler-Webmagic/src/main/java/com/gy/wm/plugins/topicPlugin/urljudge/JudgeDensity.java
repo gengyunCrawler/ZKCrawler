@@ -1,8 +1,9 @@
-package com.gy.wm.parser.urljudge;
+package com.gy.wm.plugins.topicPlugin.urljudge;
 
 
-import com.gy.wm.parser.tool.AnalysisTool;
-import com.gy.wm.parser.tool.JsoupHtml;
+
+import com.gy.wm.plugins.topicPlugin.tool.AnalysisTool;
+import com.gy.wm.plugins.topicPlugin.tool.JsoupHtml;
 
 import java.io.IOException;
 import java.util.List;
@@ -28,8 +29,6 @@ public class JudgeDensity
         //将网页转换为token
         List<String> tokens= JsoupHtml.getHtmlTokens(html);
 
-
-        //������ҳ���ҳ�������������������
         String token,nextToken;
         int sort;
         for (int i = 0; i <tokens.size() ; i++)

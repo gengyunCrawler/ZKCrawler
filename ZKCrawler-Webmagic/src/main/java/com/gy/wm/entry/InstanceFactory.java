@@ -1,8 +1,8 @@
 package com.gy.wm.entry;
 
-import com.gy.wm.parser.analysis.BaseTemplate;
-import com.gy.wm.parser.analysis.TextAnalysis;
-import com.gy.wm.parser.analysis.WholeSiteAnalysis;
+import com.gy.wm.plugins.wholesitePlugin.analysis.BaseTemplate;
+import com.gy.wm.plugins.wholesitePlugin.analysis.TextAnalysis;
+import com.gy.wm.plugins.wholesitePlugin.analysis.WholeSiteAnalysis;
 import com.gy.wm.queue.RedisCrawledQue;
 import com.gy.wm.queue.RedisToCrawlQue;
 
@@ -34,6 +34,11 @@ public class InstanceFactory {
         TEXT_ANALYSIS = new TextAnalysis(WHOLE_SITE_ANALYSIS);
     }
 
+    /**
+     * 在静态方法中按使用静态字段，多线程存在，字段同时被修改
+     * @param object
+     * @return
+     */
     public static InstanceFactory getInstance(final InitCrawlerConfig object) {
         if (singleton == null) {
             synchronized (InstanceFactory.class) {

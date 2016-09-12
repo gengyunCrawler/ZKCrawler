@@ -1,4 +1,4 @@
-package com.gy.wm.parser.tool;
+package com.gy.wm.plugins.wholesitePlugin.tool;
 
 import java.io.*;
 import java.text.SimpleDateFormat;

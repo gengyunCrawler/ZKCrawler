@@ -5,11 +5,11 @@ import com.gy.wm.dbpipeline.impl.EsPipeline;
 import com.gy.wm.dbpipeline.impl.HbaseEsPipeline;
 import com.gy.wm.dbpipeline.impl.HbasePipeline;
 import com.gy.wm.model.CrawlData;
-import com.gy.wm.parser.analysis.TextAnalysis;
+import com.gy.wm.plugins.wholesitePlugin.analysis.TextAnalysis;
 import com.gy.wm.queue.RedisCrawledQue;
 import com.gy.wm.queue.RedisToCrawlQue;
 import com.gy.wm.schedular.RedisScheduler;
-import com.gy.wm.service.WholesitePageProcessor;
+import com.gy.wm.service.CustomPageProcessor;
 import com.gy.wm.util.BloomFilter;
 import com.gy.wm.util.GetDomain;
 import com.gy.wm.util.JedisPoolUtils;
@@ -67,7 +67,7 @@ public class CrawlerWorkflowManager {
             bloomFilter.add("redis:bloomfilter:" + tid, seed.getUrl());
         }
         //初始化webMagic的Spider程序
-        initSpider(seeds, textAnalysis, domain);
+        initSpider(seeds, domain);
 
         //结束之后清空对应任务的redis
 //        jedis.del("redis:bloomfilter:" + tid);
@@ -77,7 +77,7 @@ public class CrawlerWorkflowManager {
 
     }
 
-    protected void initSpider(List<CrawlData> seeds, TextAnalysis textAnalysis, String domain) {
+    protected void initSpider(List<CrawlData> seeds, String domain) {
         List<String> seedList = new ArrayList<>();
         for (CrawlData crawlData : seeds) {
             seedList.add(crawlData.getUrl());
@@ -86,7 +86,7 @@ public class CrawlerWorkflowManager {
         /* set the pipeline filter key */
         PipelineBloomFilter.setKeyInRedis(tid);
 
-        Spider.create(new WholesitePageProcessor(tid, textAnalysis, domain))
+        Spider.create(new CustomPageProcessor(tid, domain))
                 .setScheduler(new RedisScheduler(domain)).setUUID(tid)
                 //从seed开始抓
                 .addUrl(urlArray)

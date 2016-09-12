@@ -1,4 +1,4 @@
-package com.gy.wm.parser.analysis;
+package com.gy.wm.plugins.topicPlugin.analysis;
 
 
 import com.gy.wm.parser.tool.AnalysisTool;
@@ -6,6 +6,7 @@ import com.gy.wm.parser.tool.NormalTokens;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -62,7 +63,7 @@ public class WholeSiteAnalysisNavigation {
     }
 
 
-    private void addAnsToken(String url, String title, long date) {
+    private void addAnsToken(String url, String title, Date date) {
         BaseAnalysisURL baseAnalysisURL = new BaseAnalysisURL(url, title, date, null);
         ansTokens.add(baseAnalysisURL);
     }
@@ -71,7 +72,7 @@ public class WholeSiteAnalysisNavigation {
     private void AnalysisHtml() {
 
         String newToken, title, url, xpath;
-        long date;
+        Date date;
         int newTag = 0;
         int newLength = newTokens.size();
         text="";
@@ -108,7 +109,7 @@ public class WholeSiteAnalysisNavigation {
                 case 3:
                 {
                     url=getImgUrl(newToken);
-                    addAnsToken(url,null,0);
+                    addAnsToken(url,null,null);
                 }break;
                 case 0:
                 {
@@ -147,7 +148,7 @@ public class WholeSiteAnalysisNavigation {
      * @param tag 当前标签位置
      * @return
      */
-    private long findDate(int tag) {
+    private Date findDate(int tag) {
         //初始化
         String token;
         int nowTag;
@@ -164,7 +165,7 @@ public class WholeSiteAnalysisNavigation {
             token = newTokens.get(nowTag);
             if (AnalysisTool.isDate(token)) return AnalysisTool.getDateFormString(token);
         }
-        return 0;
+        return null;
     }
 
 

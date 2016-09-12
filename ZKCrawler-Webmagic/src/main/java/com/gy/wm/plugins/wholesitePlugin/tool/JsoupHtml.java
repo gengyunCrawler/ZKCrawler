@@ -1,4 +1,4 @@
-package com.gy.wm.parser.tool;
+package com.gy.wm.plugins.wholesitePlugin.tool;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Created by Administrator on 2015/10/15.
  */
-public class NormalTokens
+public class JsoupHtml
 {
 
     public static List<String> getHtmlTokens(String html) throws IOException
@@ -29,7 +29,7 @@ public class NormalTokens
      */
     static int getMarketSort(String str)
     {
-        String delMarket = "(<(\\?|o:p|!|meta|br|hr|span|link|input|p|/(o:p|strong|p|span|a)).*)";
+        String delMarket = "(<(\\?|o:p|!|meta|br|hr|span|img|link|input|p|/(o:p|strong|p|span|a)).*)";
         if (str.matches(delMarket)) return 0;
         if (str.endsWith("/>")) return 2;
         return 1;

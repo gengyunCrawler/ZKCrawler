@@ -2,7 +2,7 @@ package com.gy.wm.service;
 
 import com.gy.wm.entry.InstanceFactory;
 import com.gy.wm.model.CrawlData;
-import com.gy.wm.parser.analysis.TextAnalysis;
+import com.gy.wm.plugins.wholesitePlugin.analysis.TextAnalysis;
 import com.gy.wm.queue.RedisCrawledQue;
 import com.gy.wm.queue.RedisToCrawlQue;
 import com.gy.wm.schedular.RedisBloomFilter;
@@ -27,14 +27,13 @@ import java.util.List;
  * @author yinlei
  *         2014-3-5 下午4:27:51
  */
-public class WholesitePageProcessor implements PageProcessor {
+public class CustomPageProcessor implements PageProcessor {
     private String tid;
     private TextAnalysis textAnalysis;
     private String domain;
 
-    public WholesitePageProcessor(String tid, TextAnalysis textAnalysis, String domain) {
+    public CustomPageProcessor(String tid, String domain) {
         this.tid = tid;
-        this.textAnalysis = textAnalysis;
         this.domain = domain;
     }
 
@@ -50,11 +49,8 @@ public class WholesitePageProcessor implements PageProcessor {
             pool = jedisPoolUtils.getJedisPool();
             jedis = pool.getResource();
 
-            CrawlData page_crawlData = null;
-
             String json_crawlData = jedis.hget("webmagicCrawler::ToCrawl::" + tid, page.getRequest().getUrl());
-            System.out.println("page.getRequest.getUrl ==> url: " + page.getRequest().getUrl());
-            page_crawlData = (CrawlData) JSONUtil.jackson2Object(json_crawlData, CrawlData.class);
+            CrawlData page_crawlData = (CrawlData) JSONUtil.jackson2Object(json_crawlData, CrawlData.class);
             jedis.hdel("webmagicCrawler::ToCrawl::" + tid, page.getRequest().getUrl());
 
             int statusCode = page.getStatusCode();
@@ -64,7 +60,7 @@ public class WholesitePageProcessor implements PageProcessor {
             page_crawlData.setHtml(html);
             page_crawlData.setStatusCode(statusCode);
 
-            //解析过程
+            //解析过程(解析逻辑织入过程)
             List<CrawlData> perPageCrawlDateList = this.getTextAnalysis().analysisHtml(page_crawlData);
 
             List<CrawlData> nextCrawlData = new ArrayList<>();
@@ -72,7 +68,7 @@ public class WholesitePageProcessor implements PageProcessor {
 
             BloomFilter bloomFilter = new BloomFilter(jedis, 1000, 0.001f, (int) Math.pow(2, 31));
             for (CrawlData crawlData : perPageCrawlDateList) {
-                if (!crawlData.isFetched()) {
+                if (crawlData.getDepthfromSeed() < crawlData.getDepthfromSeed() &&!crawlData.isFetched()) {
                     //链接fetched为false,即导航页,bloomFilter判断待爬取队列没有记录
                     boolean isNew = RedisBloomFilter.notExistInBloomHash(crawlData.getUrl(), tid, jedis, bloomFilter);
                     if (isNew && URLFilter.linkFilter(crawlData.getUrl()) && URLFilter.matchDomain(crawlData.getUrl(), domain)) {

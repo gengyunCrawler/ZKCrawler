@@ -1,4 +1,4 @@
-package com.gy.wm.parser.urljudge;
+package com.gy.wm.plugins.wholesitePlugin.urljudge;
 
 import java.util.ArrayList;
 import java.util.List;

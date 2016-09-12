@@ -1,4 +1,4 @@
-package com.gy.wm.parser.tool;
+package com.gy.wm.plugins.topicPlugin.tool;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -121,7 +121,7 @@ public class AnalysisTool
     {
         if (Pattern.matches(DATE_MATCHER, str))
         {
-       //     System.out.println(str);
+            //     System.out.println(str);
             return true;
         }
         return false;
@@ -135,9 +135,9 @@ public class AnalysisTool
      * @return
      */
     final static String DATE_MATCHER = "\\S?(\\d{4}(\\-|年|\\\\|/|\\.)\\d{1,2}(\\-|月|\\\\|/|\\.)\\d{1,2}(日)?)\\S?";
-    public static   long getDateFormString(String str)
+    public static   Date getDateFormString(String str)
     {
-        if (str==null) return 0;
+        if (str==null) return null;
         String dateString=null;
         Pattern compile = Pattern.compile(DATE_MATCHER, Pattern.CASE_INSENSITIVE);
         Matcher matcher = compile.matcher(str);
@@ -145,7 +145,7 @@ public class AnalysisTool
 
             dateString = matcher.group(1);
 
-            if (dateString==null) return 0;
+            if (dateString==null) return null;
             //格式标准化
             dateString = dateString.replaceAll("\\\\|/|年|月|\\.", "-");
             dateString = dateString.replaceAll("日", "");
@@ -157,10 +157,10 @@ public class AnalysisTool
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-            long timeStemp = date.getTime();
-            return timeStemp;
+//            long timeStemp = date.getTime();
+            return date;
         }
-        return 0;
+        return null;
     }
 
 
@@ -273,5 +273,4 @@ public class AnalysisTool
         return ans;
 
     }
-
 }

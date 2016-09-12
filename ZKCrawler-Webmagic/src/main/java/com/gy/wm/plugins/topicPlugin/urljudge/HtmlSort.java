@@ -1,7 +1,8 @@
-package com.gy.wm.parser.urljudge;
+package com.gy.wm.plugins.topicPlugin.urljudge;
 
 
-import com.gy.wm.parser.tool.GetHtml;
+
+import com.gy.wm.plugins.topicPlugin.tool.GetHtml;
 
 import java.io.IOException;
 
