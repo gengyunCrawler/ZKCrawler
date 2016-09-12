@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f80612aa-7060-4aab-872b-8b78d4511402" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ZKCrawler-Worker/src/main/java/cn/com/cloudpioneer/worker/model/Application.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ZKCrawler-Worker/src/main/java/cn/com/cloudpioneer/worker/app/Worker.java" afterPath="$PROJECT_DIR$/ZKCrawler-Worker/src/main/java/cn/com/cloudpioneer/worker/app/Worker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ZKCrawler-Worker/src/main/java/cn/com/cloudpioneer/worker/controller/WorkerController.java" afterPath="$PROJECT_DIR$/ZKCrawler-Worker/src/main/java/cn/com/cloudpioneer/worker/controller/WorkerController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ZKCrawler-Worker/src/main/java/cn/com/cloudpioneer/worker/listener/MyTaskCacheListener.java" afterPath="$PROJECT_DIR$/ZKCrawler-Worker/src/main/java/cn/com/cloudpioneer/worker/listener/MyTaskCacheListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ZKCrawler-Worker/src/main/resources/config.properties" afterPath="$PROJECT_DIR$/ZKCrawler-Worker/src/main/resources/config.properties" />
     </list>
     <ignored path="ZKCrawler.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -949,7 +944,7 @@
       <workItem from="1473125609333" duration="7502000" />
       <workItem from="1473135499582" duration="55685000" />
       <workItem from="1473327203342" duration="8472000" />
-      <workItem from="1473390780214" duration="33007000" />
+      <workItem from="1473390780214" duration="33048000" />
     </task>
     <task id="LOCAL-00001" summary="first init">
       <created>1472713688029</created>
@@ -1035,11 +1030,18 @@
       <option name="project" value="LOCAL" />
       <updated>1473416653292</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="添加任务停止逻辑。">
+      <created>1473672397157</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1473672397157</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="141886000" />
+    <option name="totallyTimeSpent" value="141927000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1096,7 +1098,8 @@
     <MESSAGE value="webmagic Spring Boot启动异常解决_2016-09-09 10:47:16" />
     <MESSAGE value="TaskEntity添加到webmagic" />
     <MESSAGE value="完成：任务信息获取、启动任务、任务回写。" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成：任务信息获取、启动任务、任务回写。" />
+    <MESSAGE value="添加任务停止逻辑。" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加任务停止逻辑。" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
