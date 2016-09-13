@@ -215,7 +215,7 @@ public class HttpClientUtils {
     }
 
     public static void main(String[] args) {
-        System.out.println(HttpClientUtils.jsonPostRequest("http://118.118.118.201:8080/startTask", "{\"id\":\"454564846\",\"idUser\":\"4520\"}"));
+        System.out.println(HttpClientUtils.jsonPostRequest("http://localhost:8080/startTask", "{\"id\":\"454564846\",\"idUser\":\"4520\"}"));
     }
 
 }
