@@ -88,6 +88,7 @@ public class Worker implements Closeable, ConnectionStateListener {
      */
     private final TreeCache myTasksCache;
 
+
     /**
      * workerId 在 zookeeper 节点中标识 worker 自己，与其他的 worker 节点不同，
      * 也就是说，workerId 就是 work 在路径中的名称。
@@ -114,16 +115,16 @@ public class Worker implements Closeable, ConnectionStateListener {
 
     /**
      * 获取 worker 的 workerId，获取方式是
-     * 字符串 worker- 加上当前时间的毫秒数加上字符 '-' 加上长度为 10
-     * 的随机字符串，该字符串由大、小写字母和数字组成。
+     * 字符串 worker- 加上长度为 10
+     * 的随机字符串，该字符串由大、小写字母和数字组成,加上字符 '-'加上当前时间的毫秒数。
      * workId 的示例如下：
-     * worker-1473737224577-q78KtWyUpz
+     * worker-q78KtWyUpz-1473737224577
      *
      * @return 返回值就是生成的 workerId
      */
     private String getMyId() {
 
-        return ("worker-" + System.currentTimeMillis() + "-" + RandomUtils.getRandomString(10));
+        return ("worker-" + RandomUtils.getRandomString(10)) + "-" + System.currentTimeMillis();
     }
 
 
@@ -393,6 +394,7 @@ public class Worker implements Closeable, ConnectionStateListener {
         LOGGER.info("Worker constructing, hostPort:" + hostPort);
         LOGGER.info("my work id: " + workerId);
         this.client = CuratorFrameworkFactory.newClient(hostPort, retryPolicy);
+        this.client.getConnectionStateListenable().addListener(this);
         this.myTasksCache = new TreeCache(this.client, WORKERS_ROOT_PATH + "/" + workerId);
         this.myTaskCacheListener = new MyTaskCacheListener();
 
@@ -592,25 +594,20 @@ public class Worker implements Closeable, ConnectionStateListener {
         switch (connectionState) {
 
             case CONNECTED:
-                LOGGER.info("worker connected.");
+                LOGGER.info("======== worker connected. ======");
                 break;
             case SUSPENDED:
-                LOGGER.info("worker suspended.");
+                LOGGER.info("======== worker suspended. =======");
                 break;
             case RECONNECTED:
-                LOGGER.info("worker reconnected.");
-                workerStart();
+                LOGGER.info("======== worker reconnected. =======");
+                bootsrap();
                 break;
             case LOST:
-                LOGGER.info("worker lost.");
-                try {
-                    close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                LOGGER.info("======== worker lost. ========");
                 break;
             case READ_ONLY:
-                LOGGER.info("worker read only event.");
+                LOGGER.info("======== worker read only event. =========");
                 break;
         }
     }
