@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f80612aa-7060-4aab-872b-8b78d4511402" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ZKCrawler-Worker/src/main/java/cn/com/cloudpioneer/worker/app/Worker.java" afterPath="$PROJECT_DIR$/ZKCrawler-Worker/src/main/java/cn/com/cloudpioneer/worker/app/Worker.java" />
     </list>
     <ignored path="ZKCrawler.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -51,7 +50,7 @@
       <file leaf-file-name="Worker.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ZKCrawler-Worker/src/main/java/cn/com/cloudpioneer/worker/app/Worker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="401">
+            <state relative-caret-position="-397">
               <caret line="525" column="57" selection-start-line="525" selection-start-column="57" selection-end-line="525" selection-end-column="57" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -1066,7 +1065,7 @@
       <workItem from="1473135499582" duration="55685000" />
       <workItem from="1473327203342" duration="8472000" />
       <workItem from="1473390780214" duration="34421000" />
-      <workItem from="1473734729298" duration="18671000" />
+      <workItem from="1473734729298" duration="18735000" />
     </task>
     <task id="LOCAL-00001" summary="first init">
       <created>1472713688029</created>
@@ -1173,11 +1172,18 @@
       <option name="project" value="LOCAL" />
       <updated>1473751460095</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="修复worker的链接状态监听">
+      <created>1473836015307</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1473836015307</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="161971000" />
+    <option name="totallyTimeSpent" value="162035000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1236,7 +1242,8 @@
     <MESSAGE value="完成：任务信息获取、启动任务、任务回写。" />
     <MESSAGE value="添加任务停止逻辑。" />
     <MESSAGE value="给 worker 添加注释。" />
-    <option name="LAST_COMMIT_MESSAGE" value="给 worker 添加注释。" />
+    <MESSAGE value="修复worker的链接状态监听" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复worker的链接状态监听" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1738,7 +1745,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ZKCrawler-Worker/src/main/java/cn/com/cloudpioneer/worker/app/Worker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
+        <state relative-caret-position="-397">
           <caret line="525" column="57" selection-start-line="525" selection-start-column="57" selection-end-line="525" selection-end-column="57" />
           <folding>
             <element signature="imports" expanded="true" />
