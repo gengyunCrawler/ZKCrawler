@@ -56,11 +56,16 @@ public class Crawl {
         String configpath = taskEntity.getPathConfigs();
 
         try {
-            kick(depth, pass, tid, starttime, seedpath, protocolDir, postregexDir, type, recalldepth, templateDir, clickregexDir, configpath);
+         //   kick(depth, pass, tid, starttime, seedpath, protocolDir, postregexDir, type, recalldepth, templateDir, clickregexDir, configpath);
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Here , I'm finished !!!!!!!!!!!!!!!!!!");
         long end_time = System.currentTimeMillis();
         LOG.info("time elapse(seconds):" + ((end_time - start_time) / 1000.00));
         HttpUtil.postMethod(nomalEndUri + taskEntity.getId());

@@ -21,6 +21,8 @@ import java.io.Closeable;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * Created by TianyuanPan on 2016/9/1.
@@ -76,6 +78,12 @@ public class Worker implements Closeable, ConnectionStateListener {
      * worker 自己拥有的所有锁的集合。taskLockMap 存储 worker 当前自己拥有的锁。
      */
     private Map<String, String> taskLockMap;
+
+
+    /**
+     * myTasksLock 是在操作 myTasks 时加的锁。
+     */
+    private Lock myTasksLock;
 
 
     /**
@@ -237,7 +245,7 @@ public class Worker implements Closeable, ConnectionStateListener {
      */
     public void myTaskWirteBack(String taskId) {
 
-        TaskModel task = myTasks.removeTask(taskId);
+        TaskModel task = removeTask(taskId);
         if (task == null) {
             LOGGER.warn("try to write back a null task to the TaskClient, taskId = " + taskId + ", ignore it.");
             return;
@@ -389,6 +397,7 @@ public class Worker implements Closeable, ConnectionStateListener {
     private Worker(String hostPort, RetryPolicy retryPolicy) {
 
         taskLockMap = new HashMap<>();
+        myTasksLock = new ReentrantLock();
         myTasks = new MyTasks();
         workerId = getMyId();
         LOGGER.info("Worker constructing, hostPort:" + hostPort);
@@ -423,19 +432,24 @@ public class Worker implements Closeable, ConnectionStateListener {
      */
     public void addTaskToRunning(final TaskModel task) {
 
+        addTask(task);
+        LOGGER.info("task added: myTasksSize: " + getMyTasksSize());
+
         new Thread(new Runnable() {
             @Override
             public void run() {
 
                 try {
+                    LOGGER.info("=====>> Start request Webmagic.......");
                     HttpClientUtils.jsonPostRequest(API_CRAWLER_TASK_STARTER, task.getEntityString());
+                    LOGGER.info("=====>> Ended request Webmagic.......");
                 } catch (Exception e) {
                     e.printStackTrace();
+                    return;
                 }
-                myTasks.addTask(task);
+
             }
         }).start();
-
     }
 
 
@@ -479,14 +493,78 @@ public class Worker implements Closeable, ConnectionStateListener {
 
 
     /**
+     * 添加任务到 worker 的任务字典中。
+     *
+     * @param task 要添加的任务。
+     */
+    private void addTask(TaskModel task) {
+
+        try {
+            myTasksLock.lock();
+            myTasks.addTask(task);
+        } catch (Exception e) {
+
+        } finally {
+
+            myTasksLock.unlock();
+        }
+
+    }
+
+    /**
+     * 从 worker 中的任务字典移除任务
+     *
+     * @param id 任务ID
+     * @return
+     */
+    private TaskModel removeTask(String id) {
+
+        try {
+            myTasksLock.lock();
+            return myTasks.removeTask(id);
+        } catch (Exception e) {
+            return null;
+        } finally {
+
+            myTasksLock.unlock();
+        }
+    }
+
+    /**
      * 此方法获取 worker 当前的所有任务。
      *
      * @return worker 当前任务的列表。
      */
     public List<TaskModel> getMyTasks() {
 
-        return myTasks.getTasks();
+        try {
+            myTasksLock.lock();
 
+            return myTasks.getTasks();
+
+        } catch (Exception e) {
+            return new LinkedList<>();
+        } finally {
+            myTasksLock.unlock();
+        }
+
+    }
+
+
+    /**
+     * 获取 worker 当前的的任务总数。
+     *
+     * @return 当前任务总数。
+     */
+    public int getMyTasksSize() {
+        try {
+            myTasksLock.lock();
+            return myTasks.getMyTasksSize();
+        } catch (Exception ex) {
+            return 0;
+        } finally {
+            myTasksLock.unlock();
+        }
     }
 
 
