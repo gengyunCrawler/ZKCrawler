@@ -1,8 +1,10 @@
 package com.gy.wm.plugins.topicPlugin.analysis;
 
 
-import com.gy.wm.parser.tool.AnalysisTool;
-import com.gy.wm.parser.tool.NormalTokens;
+
+
+import com.gy.wm.plugins.wholesitePlugin.tool.AnalysisTool;
+import com.gy.wm.plugins.wholesitePlugin.tool.NormalTokens;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -158,12 +160,12 @@ public class WholeSiteAnalysisNavigation {
             nowTag = tag + i + 1;//从a标签后两个开始找时间
             if (nowTag >= newTokens.size()) break;
             token = newTokens.get(nowTag);
-            if (AnalysisTool.isDate(token)) return AnalysisTool.getDateFormString(token);
+            if (AnalysisTool.isDate(token)) return new Date(AnalysisTool.getDateFormString(token));
 
             nowTag = tag - i;
             if (nowTag < 0) break;
             token = newTokens.get(nowTag);
-            if (AnalysisTool.isDate(token)) return AnalysisTool.getDateFormString(token);
+            if (AnalysisTool.isDate(token)) return new Date(AnalysisTool.getDateFormString(token));
         }
         return null;
     }

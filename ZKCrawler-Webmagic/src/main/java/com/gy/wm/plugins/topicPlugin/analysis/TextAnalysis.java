@@ -1,7 +1,7 @@
 package com.gy.wm.plugins.topicPlugin.analysis;
 
 import com.gy.wm.model.CrawlData;
-import com.gy.wm.parser.urljudge.HtmlSort;
+import com.gy.wm.plugins.topicPlugin.urljudge.HtmlSort;
 import com.gy.wm.util.TimeJudger;
 
 import java.io.IOException;

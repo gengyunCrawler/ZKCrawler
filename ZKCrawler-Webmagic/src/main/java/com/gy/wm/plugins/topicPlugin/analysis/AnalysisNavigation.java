@@ -1,9 +1,10 @@
 package com.gy.wm.plugins.topicPlugin.analysis;
 
 
-import com.gy.wm.parser.tool.AnalysisTool;
-import com.gy.wm.parser.tool.JsoupHtml;
-import com.gy.wm.parser.urljudge.JudgeURL;
+
+import com.gy.wm.plugins.topicPlugin.tool.AnalysisTool;
+import com.gy.wm.plugins.topicPlugin.tool.JsoupHtml;
+import com.gy.wm.plugins.topicPlugin.urljudge.JudgeURL;
 
 import java.io.IOException;
 import java.util.ArrayList;

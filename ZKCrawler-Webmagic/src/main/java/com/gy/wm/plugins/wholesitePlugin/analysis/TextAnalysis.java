@@ -5,6 +5,7 @@ import com.gy.wm.model.CrawlData;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -55,7 +56,7 @@ public class TextAnalysis implements Serializable {
             crawlData.setRootUrl(rootURL);
             crawlData.setDepthfromSeed(depth + 1);
             crawlData.setFromUrl(fromUrl);
-            crawlData.setPublishTime(baseURL.getDate());
+            crawlData.setPublishTime(new Date(baseURL.getDate()));
             crawlData.setUrl(url);
             crawlData.setPass(pass);
             crawlData.setTitle(baseURL.getTitle());

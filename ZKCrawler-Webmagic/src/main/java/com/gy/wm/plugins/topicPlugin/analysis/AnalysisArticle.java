@@ -1,8 +1,9 @@
 package com.gy.wm.plugins.topicPlugin.analysis;
 
 
-import com.gy.wm.parser.tool.AnalysisTool;
-import com.gy.wm.parser.tool.JsoupHtml;
+
+import com.gy.wm.plugins.topicPlugin.tool.AnalysisTool;
+import com.gy.wm.plugins.topicPlugin.tool.JsoupHtml;
 
 import java.io.IOException;
 import java.io.Serializable;

@@ -2,6 +2,7 @@ package com.gy.wm.service;
 
 import com.gy.wm.entry.InstanceFactory;
 import com.gy.wm.model.CrawlData;
+import com.gy.wm.plugins.testPlugin.TestParser;
 import com.gy.wm.plugins.wholesitePlugin.analysis.TextAnalysis;
 import com.gy.wm.queue.RedisCrawledQue;
 import com.gy.wm.queue.RedisToCrawlQue;
@@ -10,6 +11,8 @@ import com.gy.wm.util.BloomFilter;
 import com.gy.wm.util.JSONUtil;
 import com.gy.wm.util.JedisPoolUtils;
 import com.gy.wm.util.URLFilter;
+import org.springframework.context.ApplicationContext;
+import org.springframework.stereotype.Component;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import us.codecraft.webmagic.Page;
@@ -19,6 +22,7 @@ import us.codecraft.webmagic.processor.PageProcessor;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
 
 /**
@@ -27,14 +31,31 @@ import java.util.List;
  * @author yinlei
  *         2014-3-5 下午4:27:51
  */
+@Component
 public class CustomPageProcessor implements PageProcessor {
     private String tid;
     private TextAnalysis textAnalysis;
     private String domain;
+    private static TestParser testParser;
+    private static String pluginName;
+
+    public static ApplicationContext getCtx() {
+        return ctx;
+    }
+
+    private static ApplicationContext ctx;
+
+    public static void setCtx(ApplicationContext ctx) {
+        CustomPageProcessor.ctx = ctx;
+    }
 
     public CustomPageProcessor(String tid, String domain) {
         this.tid = tid;
         this.domain = domain;
+    }
+
+    public CustomPageProcessor()    {
+
     }
 
     private Site site = Site.me().setDomain(domain).setRetryTimes(3).setSleepTime(1000).setTimeOut(1000);
@@ -60,8 +81,13 @@ public class CustomPageProcessor implements PageProcessor {
             page_crawlData.setHtml(html);
             page_crawlData.setStatusCode(statusCode);
 
-            //解析过程(解析逻辑织入过程)
+            //通过上下文拿到解析类
+            pluginName = ResourceBundle.getBundle("config.properties").getString("pluginName");
+             Object object = ctx.getBean(pluginName);
+            object.getClass().getName();
+
             List<CrawlData> perPageCrawlDateList = this.getTextAnalysis().analysisHtml(page_crawlData);
+
 
             List<CrawlData> nextCrawlData = new ArrayList<>();
             List<CrawlData> crawledData = new ArrayList<>();
@@ -104,6 +130,13 @@ public class CustomPageProcessor implements PageProcessor {
 
     public TextAnalysis getTextAnalysis() {
         return textAnalysis;
+    }
+
+    public void test()   {
+        String pluginName = ResourceBundle.getBundle("config").getString("pluginName");
+        System.out.println("pluginName: "+ pluginName);
+        Object object =  ctx.getBean(pluginName);
+        System.out.println(object.getClass().getName());
     }
 }
 

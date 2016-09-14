@@ -3,8 +3,6 @@ package com.gy.wm.service;
 import com.gy.wm.entry.Crawl;
 import com.gy.wm.model.TaskEntity;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.config.Task;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 /**
