@@ -15,16 +15,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class WorkerServiceImpl implements WorkerService {
 
-    /**
-     * worker 成员
-     */
     private Worker worker = Worker.getThisWorker();
 
     @Override
     public boolean statusWriteBack(@Nullable String taskId) {
         return false;
     }
-
 
     @Override
     public void taskWriteBack(String taskId) {

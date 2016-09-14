@@ -48,7 +48,7 @@ public class MyTasks {
      *
      * @param task 要添加的任务。
      */
-    public synchronized void addTask(TaskModel task) {
+    public  void addTask(TaskModel task) {
 
         tasksMap.put(task.getEntity().getId(), task);
     }
@@ -60,7 +60,7 @@ public class MyTasks {
      * @param id 任务ID
      * @return 移除的任务，若任务不存在，则为 null。
      */
-    public synchronized TaskModel removeTask(String id) {
+    public  TaskModel removeTask(String id) {
 
         return tasksMap.remove(id);
     }
@@ -70,7 +70,7 @@ public class MyTasks {
      *
      * @return 任务数量。
      */
-    public synchronized int getMyTaskNumber() {
+    public  int getMyTasksSize() {
 
         return tasksMap.size();
     }
@@ -80,7 +80,7 @@ public class MyTasks {
      *
      * @return 任务列表。
      */
-    public synchronized List<TaskModel> getTasks() {
+    public  List<TaskModel> getTasks() {
 
         List<TaskModel> taskModels = new ArrayList<>();
 

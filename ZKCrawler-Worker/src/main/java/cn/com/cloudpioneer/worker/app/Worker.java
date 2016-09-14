@@ -21,6 +21,8 @@ import java.io.Closeable;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * Created by TianyuanPan on 2016/9/1.
@@ -79,6 +81,12 @@ public class Worker implements Closeable, ConnectionStateListener {
 
 
     /**
+     * myTasksLock 是在操作 myTasks 时加的锁。
+     */
+    private Lock myTasksLock;
+
+
+    /**
      * myTasks 存储 worker 当前正在进行的爬取任务。
      */
     private MyTasks myTasks;
@@ -87,6 +95,7 @@ public class Worker implements Closeable, ConnectionStateListener {
      * myTasksCache 是 worker 监听的节点数中的缓存。
      */
     private final TreeCache myTasksCache;
+
 
     /**
      * workerId 在 zookeeper 节点中标识 worker 自己，与其他的 worker 节点不同，
@@ -114,16 +123,16 @@ public class Worker implements Closeable, ConnectionStateListener {
 
     /**
      * 获取 worker 的 workerId，获取方式是
-     * 字符串 worker- 加上当前时间的毫秒数加上字符 '-' 加上长度为 10
-     * 的随机字符串，该字符串由大、小写字母和数字组成。
+     * 字符串 worker- 加上长度为 10
+     * 的随机字符串，该字符串由大、小写字母和数字组成,加上字符 '-'加上当前时间的毫秒数。
      * workId 的示例如下：
-     * worker-1473737224577-q78KtWyUpz
+     * worker-q78KtWyUpz-1473737224577
      *
      * @return 返回值就是生成的 workerId
      */
     private String getMyId() {
 
-        return ("worker-" + System.currentTimeMillis() + "-" + RandomUtils.getRandomString(10));
+        return ("worker-" + RandomUtils.getRandomString(10)) + "-" + System.currentTimeMillis();
     }
 
 
@@ -236,7 +245,7 @@ public class Worker implements Closeable, ConnectionStateListener {
      */
     public void myTaskWirteBack(String taskId) {
 
-        TaskModel task = myTasks.removeTask(taskId);
+        TaskModel task = removeTask(taskId);
         if (task == null) {
             LOGGER.warn("try to write back a null task to the TaskClient, taskId = " + taskId + ", ignore it.");
             return;
@@ -388,11 +397,13 @@ public class Worker implements Closeable, ConnectionStateListener {
     private Worker(String hostPort, RetryPolicy retryPolicy) {
 
         taskLockMap = new HashMap<>();
+        myTasksLock = new ReentrantLock();
         myTasks = new MyTasks();
         workerId = getMyId();
         LOGGER.info("Worker constructing, hostPort:" + hostPort);
         LOGGER.info("my work id: " + workerId);
         this.client = CuratorFrameworkFactory.newClient(hostPort, retryPolicy);
+        this.client.getConnectionStateListenable().addListener(this);
         this.myTasksCache = new TreeCache(this.client, WORKERS_ROOT_PATH + "/" + workerId);
         this.myTaskCacheListener = new MyTaskCacheListener();
 
@@ -421,19 +432,24 @@ public class Worker implements Closeable, ConnectionStateListener {
      */
     public void addTaskToRunning(final TaskModel task) {
 
+        addTask(task);
+        LOGGER.info("task added: myTasksSize: " + getMyTasksSize());
+
         new Thread(new Runnable() {
             @Override
             public void run() {
 
                 try {
+                    LOGGER.info("=====>> Start request Webmagic.......");
                     HttpClientUtils.jsonPostRequest(API_CRAWLER_TASK_STARTER, task.getEntityString());
+                    LOGGER.info("=====>> Ended request Webmagic.......");
                 } catch (Exception e) {
                     e.printStackTrace();
+                    return;
                 }
-                myTasks.addTask(task);
+
             }
         }).start();
-
     }
 
 
@@ -477,14 +493,78 @@ public class Worker implements Closeable, ConnectionStateListener {
 
 
     /**
+     * 添加任务到 worker 的任务字典中。
+     *
+     * @param task 要添加的任务。
+     */
+    private void addTask(TaskModel task) {
+
+        try {
+            myTasksLock.lock();
+            myTasks.addTask(task);
+        } catch (Exception e) {
+
+        } finally {
+
+            myTasksLock.unlock();
+        }
+
+    }
+
+    /**
+     * 从 worker 中的任务字典移除任务
+     *
+     * @param id 任务ID
+     * @return
+     */
+    private TaskModel removeTask(String id) {
+
+        try {
+            myTasksLock.lock();
+            return myTasks.removeTask(id);
+        } catch (Exception e) {
+            return null;
+        } finally {
+
+            myTasksLock.unlock();
+        }
+    }
+
+    /**
      * 此方法获取 worker 当前的所有任务。
      *
      * @return worker 当前任务的列表。
      */
     public List<TaskModel> getMyTasks() {
 
-        return myTasks.getTasks();
+        try {
+            myTasksLock.lock();
 
+            return myTasks.getTasks();
+
+        } catch (Exception e) {
+            return new LinkedList<>();
+        } finally {
+            myTasksLock.unlock();
+        }
+
+    }
+
+
+    /**
+     * 获取 worker 当前的的任务总数。
+     *
+     * @return 当前任务总数。
+     */
+    public int getMyTasksSize() {
+        try {
+            myTasksLock.lock();
+            return myTasks.getMyTasksSize();
+        } catch (Exception ex) {
+            return 0;
+        } finally {
+            myTasksLock.unlock();
+        }
     }
 
 
@@ -592,25 +672,20 @@ public class Worker implements Closeable, ConnectionStateListener {
         switch (connectionState) {
 
             case CONNECTED:
-                LOGGER.info("worker connected.");
+                LOGGER.info("======== worker connected. ======");
                 break;
             case SUSPENDED:
-                LOGGER.info("worker suspended.");
+                LOGGER.info("======== worker suspended. =======");
                 break;
             case RECONNECTED:
-                LOGGER.info("worker reconnected.");
-                workerStart();
+                LOGGER.info("======== worker reconnected. =======");
+                bootsrap();
                 break;
             case LOST:
-                LOGGER.info("worker lost.");
-                try {
-                    close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                LOGGER.info("======== worker lost. ========");
                 break;
             case READ_ONLY:
-                LOGGER.info("worker read only event.");
+                LOGGER.info("======== worker read only event. =========");
                 break;
         }
     }

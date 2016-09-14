@@ -2,7 +2,6 @@ package com.gy.wm.service;
 
 import com.gy.wm.entry.InstanceFactory;
 import com.gy.wm.model.CrawlData;
-import com.gy.wm.plugins.testPlugin.TestParser;
 import com.gy.wm.plugins.wholesitePlugin.analysis.TextAnalysis;
 import com.gy.wm.queue.RedisCrawledQue;
 import com.gy.wm.queue.RedisToCrawlQue;
@@ -33,7 +32,6 @@ public class CustomPageProcessor implements PageProcessor {
     private String tid;
     private TextAnalysis textAnalysis;
     private String domain;
-    private static TestParser testParser;
     private static String pluginName;
 
     public static ApplicationContext getCtx() {
