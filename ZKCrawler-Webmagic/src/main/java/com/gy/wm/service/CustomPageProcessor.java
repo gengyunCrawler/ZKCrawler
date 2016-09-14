@@ -7,10 +7,7 @@ import com.gy.wm.plugins.wholesitePlugin.analysis.TextAnalysis;
 import com.gy.wm.queue.RedisCrawledQue;
 import com.gy.wm.queue.RedisToCrawlQue;
 import com.gy.wm.schedular.RedisBloomFilter;
-import com.gy.wm.util.BloomFilter;
-import com.gy.wm.util.JSONUtil;
-import com.gy.wm.util.JedisPoolUtils;
-import com.gy.wm.util.URLFilter;
+import com.gy.wm.util.*;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 import redis.clients.jedis.Jedis;
@@ -81,10 +78,9 @@ public class CustomPageProcessor implements PageProcessor {
             page_crawlData.setHtml(html);
             page_crawlData.setStatusCode(statusCode);
 
-            //通过上下文拿到解析类
-            pluginName = ResourceBundle.getBundle("config.properties").getString("pluginName");
-             Object object = ctx.getBean(pluginName);
-            object.getClass().getName();
+            //通过上下文拿到解析类,pending
+
+            PluginUtil.exactPluginObject(page);
 
             List<CrawlData> perPageCrawlDateList = this.getTextAnalysis().analysisHtml(page_crawlData);
 
@@ -122,7 +118,6 @@ public class CustomPageProcessor implements PageProcessor {
         }
     }
 
-
     @Override
     public Site getSite() {
         return site;
@@ -132,11 +127,6 @@ public class CustomPageProcessor implements PageProcessor {
         return textAnalysis;
     }
 
-    public void test()   {
-        String pluginName = ResourceBundle.getBundle("config").getString("pluginName");
-        System.out.println("pluginName: "+ pluginName);
-        Object object =  ctx.getBean(pluginName);
-        System.out.println(object.getClass().getName());
-    }
+
 }
 
