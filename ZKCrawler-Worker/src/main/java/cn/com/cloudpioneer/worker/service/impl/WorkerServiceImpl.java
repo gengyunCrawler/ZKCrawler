@@ -7,18 +7,24 @@ import com.sun.istack.internal.Nullable;
 import org.springframework.stereotype.Service;
 
 /**
- * Created by Administrator on 2016/9/6.
+ * Created by TianyuanPan on 2016/9/6.
+ * <p>
+ * 接口 workerService 的实现类。
  */
 
 @Service
 public class WorkerServiceImpl implements WorkerService {
 
+    /**
+     * worker 成员
+     */
     private Worker worker = Worker.getThisWorker();
 
     @Override
     public boolean statusWriteBack(@Nullable String taskId) {
         return false;
     }
+
 
     @Override
     public void taskWriteBack(String taskId) {

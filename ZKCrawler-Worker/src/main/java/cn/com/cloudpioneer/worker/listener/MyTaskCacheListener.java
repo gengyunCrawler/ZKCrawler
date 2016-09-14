@@ -2,7 +2,6 @@ package cn.com.cloudpioneer.worker.listener;
 
 import cn.com.cloudpioneer.worker.app.Worker;
 import cn.com.cloudpioneer.worker.model.TaskModel;
-import com.alibaba.fastjson.JSON;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.recipes.cache.TreeCacheEvent;
 import org.apache.curator.framework.recipes.cache.TreeCacheListener;
@@ -12,16 +11,42 @@ import java.util.Date;
 import java.util.regex.Pattern;
 
 /**
- * Created by Administrator on 2016/9/5.
+ * Created by TianyuanPan on 2016/9/5.
+ * <p>
+ * 类 MyTaskCacheListener 实现 zookeeper 中的 TreeCacheListener,
+ * 用于监听节点的变化情况，worker 将根据这些变化事件来完成相应的工作。
+ * 事件的处理在方法 childEvent 中进行。
  */
 public class MyTaskCacheListener implements TreeCacheListener {
 
+    /**
+     * 日志成员。
+     */
     private static final Logger LOGGER = Logger.getLogger(MyTaskCacheListener.class);
 
 
+    /**
+     * 重载其接口的方法，此方法处理节点事件。
+     * 这是个回调方法。
+     * 几个要处理的事件如下：
+     * <p>
+     * 节点增加事件（NODE_ADDED）：
+     * --------------------------- 先取得增加的路径，看是否是任务 task 节点增加，若是，则找到 task 的路径，
+     * 并读取任务信息，然后启动任务。
+     * <p>
+     * 节点移除事件（NODE_REMOVED）：
+     * ---------------------------- 先取得移除的路径，看是否是任务 task 节点，若是，进行任务的停止操作。
+     *
+     * @param curatorFramework
+     * @param treeCacheEvent
+     * @throws Exception
+     */
     @Override
     public void childEvent(CuratorFramework curatorFramework, TreeCacheEvent treeCacheEvent) throws Exception {
 
+        /**
+         * 获取 worker。
+         */
         Worker worker = Worker.getThisWorker();
 
         try {
@@ -44,7 +69,7 @@ public class MyTaskCacheListener implements TreeCacheListener {
                         byte[] taskData = worker.getZnodeData(taskPath);
 
                         if (taskData == null) {
-                            LOGGER.error("get task data from znode error, task will not start, return this Event Handler.");
+                            LOGGER.error("get task data from znode error,  task will not start, return this Event Handler.");
                             return;
                         }
 

@@ -9,9 +9,14 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.ServletRequest;
 
 /**
- * Created by Administrator on 2016/9/6.
+ * Created by TianyuanPan on 2016/9/6.
+ * <p>
+ * 给 spring boot 提供对外的服务 API
  */
 
+/**
+ * 请求路径映射为 /worker
+ */
 @RestController
 @RequestMapping("/worker")
 public class WorkerController {
@@ -37,6 +42,7 @@ public class WorkerController {
 
         return workerService.getCurrentTasks();
     }
+
 
     /**
      * 任务回写接口，当 WebMagic 爬取的任务完成时，调用此接口把任务
