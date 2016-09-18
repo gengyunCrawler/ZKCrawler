@@ -22,6 +22,7 @@ public class TaskEntity implements Serializable {
     //爬虫任务描述
     private String remark;
 
+/********************************************************
     //爬取的种子入口列表，格式为JSON数组
     private String seedUrls;
 
@@ -48,6 +49,7 @@ public class TaskEntity implements Serializable {
 
     //后缀过滤配置文件地址
     private String pathSuffixFilter;
+*******************************************************/
 
     //爬虫任务类型
     private int type;
@@ -132,6 +134,8 @@ public class TaskEntity implements Serializable {
         this.remark = remark;
     }
 
+
+/**************************************************************
     public String getSeedUrls() {
         return seedUrls;
     }
@@ -203,6 +207,8 @@ public class TaskEntity implements Serializable {
     public void setPathSuffixFilter(String pathSuffixFilter) {
         this.pathSuffixFilter = pathSuffixFilter;
     }
+
+*****************************************************************/
 
     public int getType() {
         return type;
