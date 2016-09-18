@@ -11,13 +11,11 @@
 
     <insert id="insertTaskEntity">
         INSERT  INTO  tbcrawlertask
-                       (id,idUser,name,remark,seedUrls,pathTemplates,pathTag,pathSeeds,pathConfigs,pathClickRegex,
-                       pathRegexFilter,pathProtocolFilter,pathSuffixFilter,type,depthCrawl,depthDynamic,pass,weight,
+                       (id,idUser,name,remark,type,depthCrawl,depthDynamic,pass,weight,
                        threads,completeTimes,cycleRecrawl,status,deleteFlag,timeStart,timeStop,timeLastCrawl,costLastCrawl,
                        scheduleType,workNum,createDate)
                        VALUES
-                       (#{id},#{idUser},#{name},#{remark},#{seedUrls},#{pathTemplates},#{pathTag},#{pathSeeds},#{pathConfigs},
-                       #{pathClickRegex},#{pathRegexFilter},#{pathProtocolFilter},#{pathSuffixFilter},#{type},#{depthCrawl},
+                       (#{id},#{idUser},#{name},#{remark},#{type},#{depthCrawl},
                        #{depthDynamic},#{pass},#{weight},#{threads},#{completeTimes},#{cycleRecrawl},#{status},#{deleteFlag},
                        #{timeStart},#{timeStop},#{timeLastCrawl},#{costLastCrawl},#{scheduleType},#{workNum},#{createDate})
 
@@ -47,10 +45,7 @@
     <update id="updateTaskEntityById">
         update tbcrawlertask
         set
-         idUser=#{idUser},name=#{name},remark=#{remark},seedUrls=#{seedUrls},
-         pathTemplates=#{pathTemplates},pathTag=#{pathTag},pathSeeds=#{pathSeeds},
-         pathConfigs=#{pathConfigs},pathClickRegex=#{pathClickRegex},pathRegexFilter=#{pathRegexFilter},
-         pathProtocolFilter=#{pathProtocolFilter},pathSuffixFilter=#{pathSuffixFilter},type=#{type},
+         idUser=#{idUser},name=#{name},remark=#{remark},type=#{type},
          depthCrawl=#{depthCrawl},depthDynamic=#{depthDynamic},pass=#{pass},weight=#{weight},
          threads=#{threads},completeTimes=#{completeTimes},cycleRecrawl=#{cycleRecrawl},status=#{status},
          deleteFlag=#{deleteFlag},timeStart=#{timeStart},timeStop=#{timeStop},timeLastCrawl=#{timeLastCrawl},

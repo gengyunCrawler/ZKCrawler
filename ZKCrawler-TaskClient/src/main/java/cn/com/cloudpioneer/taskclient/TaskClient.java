@@ -177,7 +177,8 @@ public class TaskClient extends LeaderSelectorListenerAdapter implements Cloneab
 
     //获得领导权限后执行
     @Override
-    public void takeLeadership(CuratorFramework client){
+    public void takeLeadership(CuratorFramework client) throws Exception {
+        listenTaskNode();
         System.out.println(this.getMyId()+"is leader");
     }
 
@@ -270,19 +271,16 @@ public class TaskClient extends LeaderSelectorListenerAdapter implements Cloneab
         taskEntity.setCycleRecrawl(40);
         taskEntity.setDepthCrawl(3);
         taskEntity.setIdUser(0144552);
-        taskEntity.setPathTemplates("agvb");
+        /*taskEntity.setPathTemplates("agvb");
         taskEntity.setSeedUrls("rety");
         taskEntity.setPathRegexFilter("trh");
-        taskEntity.setPathRegexFilter("ngjrd");
+        taskEntity.setSeedUrls("url1,url2,url3");
+        taskEntity.setPathRegexFilter("ngjrd");*/
         taskEntity.setThreads(3);
         taskEntity.setWorkNum(5);
-        taskEntity.setSeedUrls("url1,url2,url3");
-
         List<TaskEntity> taskEntityList = new ArrayList<TaskEntity>();
         taskEntityList.add(taskEntity);
-
         TaskClient taskClient=new TaskClient();
-
         taskClient.client = CuratorFrameworkFactory.newClient("192.168.229.130:2181", new RetryNTimes(Integer.MAX_VALUE, 1000));
         taskClient.client.start();
         taskClient.tasksCreator(taskEntityList);

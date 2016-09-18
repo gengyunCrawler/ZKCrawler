@@ -1,5 +1,6 @@
 package cn.com.cloudpioneer.taskclient.entity;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
 import java.io.Serializable;
@@ -22,7 +23,7 @@ public class TaskEntity implements Serializable{
     //爬虫任务描述
     private String remark;
 
-    //爬取的种子入口列表，格式为JSON数组
+    /*//爬取的种子入口列表，格式为JSON数组
     private String seedUrls;
 
     //存放模板文件路径
@@ -47,7 +48,7 @@ public class TaskEntity implements Serializable{
     private String pathProtocolFilter;
 
     //后缀过滤配置文件地址
-    private String pathSuffixFilter;
+    private String pathSuffixFilter;*/
 
     //爬虫任务类型
     private int type;
@@ -132,7 +133,8 @@ public class TaskEntity implements Serializable{
         this.remark = remark;
     }
 
-    public String getSeedUrls() {
+
+    /*public String getSeedUrls() {
         return seedUrls;
     }
 
@@ -200,7 +202,7 @@ public class TaskEntity implements Serializable{
 
     public void setPathSuffixFilter(String pathSuffixFilter) {
         this.pathSuffixFilter = pathSuffixFilter;
-    }
+    }*/
 
     public int getType() {
         return type;
@@ -332,6 +334,7 @@ public class TaskEntity implements Serializable{
 
     @Override
     public String toString() {
+        /*
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("id", this.id);
         jsonObject.put("idUser", this.idUser);
@@ -364,5 +367,7 @@ public class TaskEntity implements Serializable{
         jsonObject.put("workNum", this.workNum);
         jsonObject.put("createDate", this.createDate);
         return jsonObject.toString();
+        */
+        return JSON.toJSONString(this);
     }
 }
