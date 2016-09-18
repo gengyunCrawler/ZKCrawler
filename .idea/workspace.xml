@@ -893,7 +893,7 @@
       <workItem from="1473327203342" duration="8472000" />
       <workItem from="1473390780214" duration="34421000" />
       <workItem from="1473734729298" duration="38730000" />
-      <workItem from="1474193945778" duration="34000" />
+      <workItem from="1474193945778" duration="51000" />
     </task>
     <task id="LOCAL-00001" summary="first init">
       <created>1472713688029</created>
@@ -1028,11 +1028,18 @@
       <option name="project" value="LOCAL" />
       <updated>1473846932958</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="修复worker的链接状态监听">
+      <created>1474193991707</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1474193991707</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="182191000" />
+    <option name="totallyTimeSpent" value="182208000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
