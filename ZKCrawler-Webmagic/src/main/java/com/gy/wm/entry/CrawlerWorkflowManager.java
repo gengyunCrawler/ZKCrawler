@@ -4,8 +4,9 @@ import com.gy.wm.dbpipeline.PipelineBloomFilter;
 import com.gy.wm.dbpipeline.impl.EsPipeline;
 import com.gy.wm.dbpipeline.impl.HbaseEsPipeline;
 import com.gy.wm.dbpipeline.impl.HbasePipeline;
+import com.gy.wm.dbpipeline.impl.MysqlPipeline;
 import com.gy.wm.model.CrawlData;
-import com.gy.wm.plugins.wholesitePlugin.analysis.TextAnalysis;
+import com.gy.wm.plugins.wholesitePlugin.analysis.WholesiteTextAnalysis;
 import com.gy.wm.queue.RedisCrawledQue;
 import com.gy.wm.queue.RedisToCrawlQue;
 import com.gy.wm.schedular.RedisScheduler;
@@ -27,9 +28,6 @@ import java.util.List;
  */
 public class CrawlerWorkflowManager {
     private LogManager logger = new LogManager(CrawlerWorkflowManager.class);
-    //初始化爬虫工厂是，用于解析的模板文件
-    private TextAnalysis textAnalysis = InstanceFactory.getTextAnalysis();
-
     //待爬取队列
     private RedisToCrawlQue nextQueue = InstanceFactory.getRedisToCrawlQue();
     //已爬取队列
@@ -90,12 +88,12 @@ public class CrawlerWorkflowManager {
                 .setScheduler(new RedisScheduler(domain)).setUUID(tid)
                 //从seed开始抓
                 .addUrl(urlArray)
-//                .addPipeline(new MysqlPipeline("tb_fbird", new FengBirdModel()))
-                .addPipeline(new EsPipeline())
-                .addPipeline(new HbaseEsPipeline())
-                .addPipeline(new HbasePipeline())
+                .addPipeline(new MysqlPipeline())
+//                .addPipeline(new EsPipeline())
+//                .addPipeline(new HbaseEsPipeline())
+//                .addPipeline(new HbasePipeline())
                         //开启5个线程抓取
-                .thread(10)
+                .thread(20)
                         //启动爬虫
                 .run();
     }

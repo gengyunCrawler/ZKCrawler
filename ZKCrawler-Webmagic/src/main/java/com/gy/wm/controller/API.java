@@ -30,7 +30,7 @@ public class API {
      */
     @RequestMapping(value = "/startTask",method = RequestMethod.POST,produces = {MediaType.APPLICATION_JSON_VALUE})
     public String startTask(@RequestBody TaskEntity taskEntity)   {
-//        this.taskService.startTask(taskEntity);
+        this.taskService.startTask(taskEntity);
         return "ok";
     }
 

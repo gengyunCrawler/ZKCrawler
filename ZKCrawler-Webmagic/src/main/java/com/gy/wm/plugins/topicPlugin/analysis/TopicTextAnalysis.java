@@ -1,8 +1,9 @@
 package com.gy.wm.plugins.topicPlugin.analysis;
 
+import com.gy.wm.entry.InstanceFactory;
 import com.gy.wm.model.CrawlData;
 import com.gy.wm.plugins.topicPlugin.urljudge.HtmlSort;
-//import com.gy.wm.util.TimeJudger;
+import com.gy.wm.service.PageParser;
 
 import java.io.IOException;
 import java.io.Serializable;
@@ -14,17 +15,23 @@ import java.util.List;
 /**
  * Created by root on 15-12-22.
  */
-public class TextAnalysis implements Serializable {
+public class TopicTextAnalysis implements Serializable,PageParser {
     private List<BaseTemplate> baseTemplates;
-
     private AnalysisArticle analysisArticle;
-
-    public TextAnalysis(List<BaseTemplate> baseTemplates) {
+    public void setBaseTemplates(List<BaseTemplate> baseTemplates) {
         this.baseTemplates = baseTemplates;
-        this.analysisArticle = new AnalysisArticle();
     }
 
-    public List<CrawlData> analysisHtml(CrawlData crawlData)   {
+    public void setAnalysisArticle(AnalysisArticle analysisArticle) {
+        this.analysisArticle = analysisArticle;
+    }
+
+    public TopicTextAnalysis()  {
+        this.setAnalysisArticle(new AnalysisArticle());
+        this.setBaseTemplates(InstanceFactory.getBaseTemplate());
+    }
+
+    public List<CrawlData> parse(CrawlData crawlData)   {
         List<CrawlData> crawlDataList = new ArrayList<>();
         List<BaseAnalysisURL> baseAnalysisURLList = new ArrayList<>();
         //初始化
