@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created by TianyuanPan on 5/9/16.
  */
-public class EsClient extends AbstractDBClient {
+public class EsClient {
 
     private String hostname;
     private int port;
@@ -38,7 +38,6 @@ public class EsClient extends AbstractDBClient {
 
         this.dataList = new ArrayList<>();
 
-        this.connOpen = false;
     }
 
 
@@ -68,8 +67,6 @@ public class EsClient extends AbstractDBClient {
                 ++count;
 
             } catch (Exception ex) {
-                logger.warn("EsClient doSetInsert Exception!!! DATA IS: " + dataJson);
-                logger.warn("EsClient doSetInsert Exception!!! Message: " + ex.getMessage());
                 ex.printStackTrace();
             }
         }
@@ -87,17 +84,11 @@ public class EsClient extends AbstractDBClient {
 
 
         } catch (Exception ex) {
-            logger.warn("EsClient doSetInsert Exception!!! DATA IS: " + data);
-            logger.warn("EsClient doSetInsert Exception!!! Message: " + ex.getMessage());
             ex.printStackTrace();
             return 0;
         }
 
         return 1;
-    }
-
-    public boolean isConnOpen() {
-        return this.connOpen;
     }
 
     public void add(CrawlData data) {

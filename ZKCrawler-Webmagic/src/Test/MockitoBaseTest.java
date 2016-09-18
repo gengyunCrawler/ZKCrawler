@@ -1,16 +1,17 @@
 import com.gy.wm.Application;
+import com.gy.wm.controller.API;
+import com.gy.wm.model.TaskEntity;
+import com.gy.wm.service.CustomPageProcessor;
 import com.gy.wm.service.TaskService;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.annotation.CustomAutowireConfigurer;
 import org.springframework.boot.test.SpringApplicationConfiguration;
-import org.springframework.boot.test.WebIntegrationTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.web.context.WebApplicationContext;
+import org.springframework.test.context.web.WebAppConfiguration;
+
+import java.util.Date;
 
 /**
  * <类详细说明：使用Mockito测试>
@@ -18,27 +19,38 @@ import org.springframework.web.context.WebApplicationContext;
  * @Author： Huanghai
  * @Version: 2016-09-13
  **/
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = Application.class)
-@WebIntegrationTest("server.port:0")
+@WebAppConfiguration
 public  class MockitoBaseTest {
     @Autowired
-    private WebApplicationContext ctx;
-    @Autowired
     private TaskService taskService;
-    @Value("${local.server.port}")
-    private int port;
+    @Autowired
+    private CustomPageProcessor customPageProcessor;
+    @Autowired
+    private API api;
 
-    private MockMvc mockMvc;
-
-    @Before
-    public void setupMockMvc() {
-        mockMvc = MockMvcBuilders.webAppContextSetup(ctx).build();
+    @Test
+    public void test() throws Exception{
+        customPageProcessor.test();
     }
 
     @Test
-    public void testGetBean()   {
-        taskService = (TaskService) ctx.getBean("taskService");
-        System.out.println(taskService.getClass().getName());
+    public void testStartTask() {
+        TaskEntity taskEntity =new TaskEntity();
+        taskEntity.setDepthCrawl(5);
+        taskEntity.setPass(1);
+        taskEntity.setId("wholesite20160918135308");
+        taskEntity.setTimeStart(new Date(System.currentTimeMillis()));
+        taskEntity.setPathSeeds("D:\\testZkCrawler\\seeds.txt");
+        taskEntity.setPathProtocolFilter("pending");
+        taskEntity.setPathSuffixFilter("pending");
+        taskEntity.setType(1);
+        taskEntity.setCycleRecrawl(3);
+        taskEntity.setPathTemplates("D:\\testZkCrawler\\templates");
+        taskEntity.setPathClickRegex("pending");
+        taskEntity.setPathConfigs("pending");
+        api.startTask(taskEntity);
     }
 }

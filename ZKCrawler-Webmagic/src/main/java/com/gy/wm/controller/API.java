@@ -4,6 +4,7 @@ import com.gy.wm.model.TaskEntity;
 import com.gy.wm.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -27,10 +28,10 @@ public class API {
      * @param taskEntity
      * @return
      */
-    @RequestMapping(value = "/startTask",method = RequestMethod.POST)
+    @RequestMapping(value = "/startTask",method = RequestMethod.POST,produces = {MediaType.APPLICATION_JSON_VALUE})
     public String startTask(@RequestBody TaskEntity taskEntity)   {
         this.taskService.startTask(taskEntity);
-        return "0";
+        return "ok";
     }
 
 }

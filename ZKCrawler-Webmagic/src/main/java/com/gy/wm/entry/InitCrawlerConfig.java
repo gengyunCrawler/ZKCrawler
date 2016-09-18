@@ -1,6 +1,6 @@
 package com.gy.wm.entry;
 
-import com.gy.wm.plugins.wholesitePlugin.analysis.BaseTemplate;
+import com.gy.wm.plugins.topicPlugin.analysis.BaseTemplate;
 import com.gy.wm.util.BloomFilter;
 
 import java.io.*;

@@ -14,18 +14,13 @@ import java.util.List;
  */
 public class ConfigLoader {
     public List<String> loadSeedConfig(String inputFilePath)    {
-        String projPath = System.getProperty("user.dir");
         List<String> seedsList = new ArrayList<>();
         try {
             // read file content from file
             StringBuffer sb= new StringBuffer("");
-
-            FileReader reader = new FileReader(projPath + inputFilePath);
-//            FileReader reader = new FileReader(inputFilePath);
+            FileReader reader = new FileReader(inputFilePath);
             BufferedReader br = new BufferedReader(reader);
-
             String str = null;
-
             while((str = br.readLine()) != null) {
                 seedsList.add(str);
             }

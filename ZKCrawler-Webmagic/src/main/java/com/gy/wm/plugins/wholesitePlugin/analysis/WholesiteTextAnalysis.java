@@ -1,6 +1,7 @@
 package com.gy.wm.plugins.wholesitePlugin.analysis;
 
 import com.gy.wm.model.CrawlData;
+import com.gy.wm.service.PageParser;
 
 import java.io.IOException;
 import java.io.Serializable;
@@ -11,15 +12,22 @@ import java.util.List;
 /**
  * Created by root on 15-12-22.
  */
-public class TextAnalysis implements Serializable {
+public class WholesiteTextAnalysis implements Serializable,PageParser {
 
     private WholeSiteAnalysis wholeSiteAnalysis;
 
-    public TextAnalysis(WholeSiteAnalysis wholeSiteAnalysis) {
+    public void setWholeSiteAnalysis(WholeSiteAnalysis wholeSiteAnalysis) {
         this.wholeSiteAnalysis = wholeSiteAnalysis;
     }
 
-    public List<CrawlData> analysisHtml(CrawlData crawlData)   {
+    public WholesiteTextAnalysis(WholeSiteAnalysis wholeSiteAnalysis) {
+        this.wholeSiteAnalysis = wholeSiteAnalysis;
+    }
+
+    public WholesiteTextAnalysis()  {}
+
+    public List<CrawlData> parse(CrawlData crawlData)   {
+        this.setWholeSiteAnalysis(new WholeSiteAnalysis());
         List<CrawlData> crawlDataList = new ArrayList<>();
 
         String html = crawlData.getHtml();
@@ -27,17 +35,15 @@ public class TextAnalysis implements Serializable {
         if(html != null || html.length() > 0) {
             String rootUrl = crawlData.getRootUrl();
             long depth = crawlData.getDepthfromSeed();
-            if(depth < 10 )  {
-                String fromUrl = crawlData.getUrl();
-                try {
-                    List<BaseURL> baseURLList = wholeSiteAnalysis.getUrlList(fromUrl,html);
-                    for (int i=0; i<baseURLList.size(); i++) {
-                        CrawlData newCrawlData = createNewCrawlData(baseURLList.get(i),rootUrl,depth,fromUrl,crawlData.getPass(),crawlData.getTid(),crawlData.getStartTime());
-                        crawlDataList.add(newCrawlData);
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
+            String fromUrl = crawlData.getUrl();
+            try {
+                List<BaseURL> baseURLList = wholeSiteAnalysis.getUrlList(fromUrl,html);
+                for (int i=0; i<baseURLList.size(); i++) {
+                    CrawlData newCrawlData = createNewCrawlData(baseURLList.get(i),rootUrl,depth,fromUrl,crawlData.getPass(),crawlData.getTid(),crawlData.getStartTime());
+                    crawlDataList.add(newCrawlData);
                 }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
 
             crawlData.setText(wholeSiteAnalysis.getText());

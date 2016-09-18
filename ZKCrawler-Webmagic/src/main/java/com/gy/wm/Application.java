@@ -1,6 +1,5 @@
 package com.gy.wm;
 
-import com.gy.wm.service.CustomPageProcessor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -15,7 +14,6 @@ import org.springframework.context.ApplicationContext;
 public class Application {
     public static void main(String[] args) {
         ApplicationContext ctx = SpringApplication.run(Application.class,args);
-        CustomPageProcessor.setCtx(ctx);
     }
 
 }
