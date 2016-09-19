@@ -4,7 +4,6 @@ import com.gy.wm.dbpipeline.MyHbaseUtils;
 import com.gy.wm.model.CrawlData;
 import com.gy.wm.model.TaskEntity;
 import com.gy.wm.util.GetDomain;
-import com.gy.wm.util.HttpUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;

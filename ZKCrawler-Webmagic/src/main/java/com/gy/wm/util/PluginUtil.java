@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 /**
- * <类详细说明:通过反射取得具体解析插件,并执行解析方法>
+ * <类详细说明:通过反射取得具体插件,并执行解析方法>
  *
  * @Author： Huanghai
  * @Version: 2016-09-14
@@ -39,6 +39,7 @@ public class PluginUtil {
         //执行方法
         List<CrawlData> crawlDataList = new ArrayList<>();
         crawlDataList = (List<CrawlData>) pse.invoke(object,arguments);
+        LOG.info("crawlDataList size：" + crawlDataList.size());
         return crawlDataList;
     }
 

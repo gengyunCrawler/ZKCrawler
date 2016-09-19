@@ -6,9 +6,12 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * Created by Tianjinjin on 2016/9/1.
- */
-public class TaskEntity implements Serializable {
+ * <类详细说明:爬虫任务实体>
+ *
+ * @Author： Huanghai
+ * @Version: 2016-09-19
+ **/
+public class TaskEntity implements Serializable{
 
     //爬虫的任务id，唯一
     private String id;
