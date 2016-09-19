@@ -33,15 +33,14 @@ public  class MockitoBaseTest {
 
     @Test
     public void test() throws Exception{
-        customPageProcessor.test();
     }
 
     @Test
     public void testStartTask() {
         TaskEntity taskEntity =new TaskEntity();
-        taskEntity.setDepthCrawl(5);
+        taskEntity.setDepthCrawl(1);
         taskEntity.setPass(1);
-        taskEntity.setId("wholesite20160918135308");
+        taskEntity.setId("topic20160918135308");
         taskEntity.setTimeStart(new Date(System.currentTimeMillis()));
         taskEntity.setPathSeeds("D:\\testZkCrawler\\seeds.txt");
         taskEntity.setPathProtocolFilter("pending");

@@ -77,7 +77,7 @@ public class CustomPageProcessor implements PageProcessor {
 
             BloomFilter bloomFilter = new BloomFilter(jedis, 1000, 0.001f, (int) Math.pow(2, 31));
             for (CrawlData crawlData : perPageCrawlDateList) {
-                if (crawlData.getDepthfromSeed() < 10&&!crawlData.isFetched()) {
+                if (crawlData.getDepthfromSeed() < 2&&!crawlData.isFetched()) {
                     //链接fetched为false,即导航页,bloomFilter判断待爬取队列没有记录
                     boolean isNew = RedisBloomFilter.notExistInBloomHash(crawlData.getUrl(), tid, jedis, bloomFilter);
                     if (isNew && URLFilter.linkFilter(crawlData.getUrl()) && URLFilter.matchDomain(crawlData.getUrl(), domain)) {
@@ -109,10 +109,5 @@ public class CustomPageProcessor implements PageProcessor {
     public Site getSite() {
         return site;
     }
-
-    public void test()   {
-        System.out.println("custom... is passed!");
-    }
-
 }
 
