@@ -14,7 +14,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import java.util.Date;
 
 /**
- * <类详细说明：使用Mockito测试>
+ * <类详细说明：单元测试>
  *
  * @Author： Huanghai
  * @Version: 2016-09-13
@@ -23,7 +23,7 @@ import java.util.Date;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = Application.class)
 @WebAppConfiguration
-public  class MockitoBaseTest {
+public  class ServiceTest {
     @Autowired
     private TaskService taskService;
     @Autowired
