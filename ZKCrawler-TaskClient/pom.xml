@@ -13,17 +13,6 @@
 
     <dependencies>
 
-        <dependency>
-            <groupId>org.apache.hadoop</groupId>
-            <artifactId>zookeeper</artifactId>
-            <version>3.4.6</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>1.7.7</version>
-        </dependency>
 
         <!-- JDBC -->
         <dependency>

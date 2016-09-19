@@ -1,4 +1,5 @@
 package cn.com.cloudpioneer.taskclient;
+
 import cn.com.cloudpioneer.taskclient.chooser.TaskChooser;
 import cn.com.cloudpioneer.taskclient.entity.TaskEntity;
 import cn.com.cloudpioneer.taskclient.schedule.scheduleImpl.ManualPolicy;
@@ -25,7 +26,7 @@ import java.util.regex.Pattern;
 public class TaskClient extends LeaderSelectorListenerAdapter implements Cloneable {
 
     //TaskClient的配置
-    private Map<String,Object> config;
+    private Map<String, Object> config;
 
     //TaskClient的Id
     private String myId;
@@ -34,10 +35,10 @@ public class TaskClient extends LeaderSelectorListenerAdapter implements Cloneab
     private CuratorFramework client;
 
     //主节点选择器
-    private  LeaderSelector leaderSelector = null;
+    private LeaderSelector leaderSelector = null;
 
     //任务的缓存器
-    private final PathChildrenCache tasksCache=null;
+    private final PathChildrenCache tasksCache = null;
 
     //任务实体TaskEntity列表
     private List<TaskEntity> taskEntityList;
@@ -63,11 +64,11 @@ public class TaskClient extends LeaderSelectorListenerAdapter implements Cloneab
     //askClient的逻辑实现监听器，是个接口，自己实现逻辑
     private CuratorListener performListener;
 
-    private static final String PATH_ROOT_TASKS="/tasks";
+    private static final String PATH_ROOT_TASKS = "/tasks";
 
-    private static final String PATH_ROOT_WORKERS="/workers";
+    private static final String PATH_ROOT_WORKERS = "/workers";
 
-    public TaskClient(){
+    public TaskClient() {
 
     }
 
@@ -77,14 +78,14 @@ public class TaskClient extends LeaderSelectorListenerAdapter implements Cloneab
     public TaskClient(TaskChooser chooser) {
     }
 
-    public TaskClient(String configFileName,TaskChooser chooser) {
+    public TaskClient(String configFileName, TaskChooser chooser) {
     }
 
-    public void setConfig(String configFileName){
+    public void setConfig(String configFileName) {
 
     }
 
-    public Object getConfig(String key){
+    public Object getConfig(String key) {
         return null;
     }
 
@@ -115,40 +116,43 @@ public class TaskClient extends LeaderSelectorListenerAdapter implements Cloneab
         this.leaderSelector = leaderSelector;
     }
 
-    private Map<String, Object> initConfig(String configFileName){
+    private Map<String, Object> initConfig(String configFileName) {
         return null;
     }
 
 
     /**
      * 创建任务，把任务添加到task节点中
+     *
      * @param taskEntityList
      * @return
      */
     private int tasksCreator(List<TaskEntity> taskEntityList) throws Exception {
-        for(TaskEntity task:taskEntityList){
-            String data =task.toString();
+        for (TaskEntity task : taskEntityList) {
+            String data = task.toString();
             client.create().withMode(CreateMode.PERSISTENT).forPath("/tasks/task" + "-" + task.getId(), data.getBytes());
+            client.create().withMode(CreateMode.PERSISTENT).forPath("/tasks/task" + "-" + task.getId() + "/status");
             System.out.println(client.getChildren().forPath("/tasks"));
         }
         return 0;
     }
 
-    private List<TaskEntity> tasksGeter(int size){
+    private List<TaskEntity> tasksGeter(int size) {
         return null;
     }
 
-    private int tasksWriteBack(List<TaskEntity> taskEntityList){
+    private int tasksWriteBack(List<TaskEntity> taskEntityList) {
         return 0;
     }
 
-    private boolean testMaster(){
+    private boolean testMaster() {
         return false;
     }
 
 
     /**
      * 删除tasks下已完成的任务节点
+     *
      * @param node
      * @return
      */
@@ -158,19 +162,19 @@ public class TaskClient extends LeaderSelectorListenerAdapter implements Cloneab
         return false;
     }
 
-    public void startZK(){
+    public void startZK() {
 
     }
 
-    public void runForTC(){
+    public void runForTC() {
 
     }
 
-    public void awaitLeadership(){
+    public void awaitLeadership() {
 
     }
 
-    public boolean isLeader(){
+    public boolean isLeader() {
         return false;
     }
 
@@ -179,43 +183,44 @@ public class TaskClient extends LeaderSelectorListenerAdapter implements Cloneab
     @Override
     public void takeLeadership(CuratorFramework client) throws Exception {
         listenTaskNode();
-        System.out.println(this.getMyId()+"is leader");
+        System.out.println(this.getMyId() + "is leader");
     }
 
 
     //对不同的网络连接状态做处理
     @Override
-    public void stateChanged(CuratorFramework client,ConnectionState newState){
-            switch (newState){
-                case CONNECTED:
-                    System.out.println("连接成功！");
-                    break;
-                case RECONNECTED:
-                    System.out.println("正在连接......");
-                    break;
-                case SUSPENDED:
-                    client.start();
-                    break;
-                case LOST:
-                    client.start();
-                    break;
-                case READ_ONLY:
-                    System.out.println("正在读取内容......");
-                    break;
-            }
+    public void stateChanged(CuratorFramework client, ConnectionState newState) {
+        switch (newState) {
+            case CONNECTED:
+                System.out.println("连接成功！");
+                break;
+            case RECONNECTED:
+                System.out.println("正在连接......");
+                break;
+            case SUSPENDED:
+                client.start();
+                break;
+            case LOST:
+                client.start();
+                break;
+            case READ_ONLY:
+                System.out.println("正在读取内容......");
+                break;
+        }
     }
 
-    public void close(){
+    public void close() {
 
     }
 
     /**
      * 获取worsk节点下的所有work节点
+     *
      * @return
      * @throws Exception
      */
     public List<String> getWorks() throws Exception {
-        List<String> works=client.getChildren().forPath("/works");
+        List<String> works = client.getChildren().forPath(PATH_ROOT_WORKERS);
         return works;
     }
 
@@ -223,20 +228,20 @@ public class TaskClient extends LeaderSelectorListenerAdapter implements Cloneab
         CountDownLatch countDownLatch = new CountDownLatch(1);
         //ExecutorService pool = Executors.newCachedThreadPool();
         //设置节点的cache
-        TreeCache treeCache = new TreeCache(client, "/tasks");
+        TreeCache treeCache = new TreeCache(client, PATH_ROOT_TASKS);
         //设置监听器和处理过程
         treeCache.getListenable().addListener(new TreeCacheListener() {
             @Override
             public void childEvent(org.apache.curator.framework.CuratorFramework client, TreeCacheEvent event) throws Exception {
-                String regexp="/tasks/task-\\d{10}-\\d{10}";
+                String regexp = "/tasks/task-\\d{10}-\\d{10}";
                 Pattern pattern = Pattern.compile(regexp);
                 //System.out.println(event.getType());
                 ChildData data = event.getData();
                 switch (event.getType()) {
                     case NODE_ADDED:
-                        String path=event.getData().getPath();
-                        if(pattern.matcher(path).matches()){
-                            client.create().withMode(CreateMode.PERSISTENT).forPath(path+"/status");
+                        String path = event.getData().getPath();
+                        if (pattern.matcher(path).matches()) {
+                         //   client.create().withMode(CreateMode.PERSISTENT).forPath(path + "/status");
                             System.out.println(client.getChildren().forPath("/tasks"));
                         }
                         System.out.println("NODE_ADDED : " + data.getPath() + "  数据:" + new String(data.getData()));
@@ -280,18 +285,19 @@ public class TaskClient extends LeaderSelectorListenerAdapter implements Cloneab
         taskEntity.setWorkNum(5);
         List<TaskEntity> taskEntityList = new ArrayList<TaskEntity>();
         taskEntityList.add(taskEntity);
-        TaskClient taskClient=new TaskClient();
-        taskClient.client = CuratorFrameworkFactory.newClient("192.168.229.130:2181", new RetryNTimes(Integer.MAX_VALUE, 1000));
+        TaskClient taskClient = new TaskClient();
+        taskClient.client = CuratorFrameworkFactory.newClient("88.88.88.110:2181", new RetryNTimes(Integer.MAX_VALUE, 1000));
         taskClient.client.start();
         taskClient.tasksCreator(taskEntityList);
-        List<String> works= taskClient.getWorks();
+        List<String> works = taskClient.getWorks();
         ManualPolicy manualPolicy = new ManualPolicy();
         Scheduler scheduler = new Scheduler(manualPolicy);
-        Map<String,List<String>> map=scheduler.getPolicy().process(works, taskEntityList);
-        for(TaskEntity task:taskEntityList){
-            for(int j=0;j<map.get(task.getName()).size();j++){
-                taskClient.client.create().forPath("/tasks/task-"+task.getId()+"/"+map.get(task.getName()).get(j));
+        Map<String, List<String>> map = scheduler.getPolicy().process(works, taskEntityList);
+        for (TaskEntity task : taskEntityList) {
+            for (int j = 0; j < map.get(task.getName()).size(); j++) {
+                taskClient.client.create().forPath(PATH_ROOT_TASKS + "/task-" + task.getId() + "/" + map.get(task.getName()).get(j));
             }
+            taskClient.client.setData().forPath(PATH_ROOT_TASKS + "/task-" + task.getId() + "/status", ("" + works.size()).getBytes());
         }
     }
 
