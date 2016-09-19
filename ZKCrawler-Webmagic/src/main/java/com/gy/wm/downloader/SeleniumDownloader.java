@@ -28,7 +28,7 @@ import java.util.concurrent.TimeUnit;
  *         Time: afternoon 1:37 <br>
  */
 public class SeleniumDownloader implements Downloader, Closeable {
-private final static org.slf4j.Logger LOG= LoggerFactory.getLogger(SeleniumDownloader.class);
+    private final static org.slf4j.Logger LOG= LoggerFactory.getLogger(SeleniumDownloader.class);
     static {
         /**
          * The phantomjs driver installed path are indicated in /webdriver.properties
@@ -39,7 +39,7 @@ private final static org.slf4j.Logger LOG= LoggerFactory.getLogger(SeleniumDownl
         {
             properties.load(is);
             /**
-             * init a environment for phantomjs
+             * init an environment for phantomjs
              */
             System.setProperty("phantomjs.binary.path",properties.getProperty("phantomjs.binary.path"));
         } catch (IOException e)
