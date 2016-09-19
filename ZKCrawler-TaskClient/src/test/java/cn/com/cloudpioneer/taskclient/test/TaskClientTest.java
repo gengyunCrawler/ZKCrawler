@@ -1,7 +1,7 @@
 package cn.com.cloudpioneer.taskclient.test;
 
 
-import cn.com.cloudpioneer.taskclient.TaskClient;
+import cn.com.cloudpioneer.taskclient.app.TaskClient;
 import cn.com.cloudpioneer.taskclient.entity.TaskEntity;
 import cn.com.cloudpioneer.taskclient.mapper.TaskEntityMapper;
 import org.apache.curator.framework.CuratorFramework;
@@ -21,13 +21,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by Tianjinjin on 2016/9/1.

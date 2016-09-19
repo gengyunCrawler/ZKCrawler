@@ -1,4 +1,4 @@
-package cn.com.cloudpioneer.taskclient;
+package cn.com.cloudpioneer.taskclient.app;
 
 import cn.com.cloudpioneer.taskclient.chooser.TaskChooser;
 import cn.com.cloudpioneer.taskclient.entity.TaskEntity;
@@ -9,10 +9,12 @@ import org.apache.curator.framework.api.CuratorListener;
 import org.apache.curator.framework.api.UnhandledErrorListener;
 import org.apache.curator.framework.recipes.cache.*;
 import org.apache.curator.framework.recipes.leader.LeaderSelector;
-import org.apache.curator.framework.recipes.leader.LeaderSelectorListenerAdapter;
+import org.apache.curator.framework.recipes.leader.LeaderSelectorListener;
 import org.apache.curator.framework.state.ConnectionState;
 import org.apache.curator.retry.RetryNTimes;
 import org.apache.zookeeper.CreateMode;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +25,11 @@ import java.util.regex.Pattern;
 /**
  * Created by Tianjinjin on 2016/9/1.
  */
-public class TaskClient extends LeaderSelectorListenerAdapter implements Cloneable {
+public class TaskClient implements Cloneable, LeaderSelectorListener {
+
+    private static Logger LOGGER = LoggerFactory.getLogger(TaskClient.class);
+
+    private static volatile TaskClient taskClient;
 
     //TaskClient的配置
     private Map<String, Object> config;
@@ -35,10 +41,14 @@ public class TaskClient extends LeaderSelectorListenerAdapter implements Cloneab
     private CuratorFramework client;
 
     //主节点选择器
-    private LeaderSelector leaderSelector = null;
+    private LeaderSelector leaderSelector;
 
     //任务的缓存器
-    private final PathChildrenCache tasksCache = null;
+    private TreeCache tasksCache;
+
+
+    private TreeCache workersCache;
+
 
     //任务实体TaskEntity列表
     private List<TaskEntity> taskEntityList;
@@ -47,12 +57,12 @@ public class TaskClient extends LeaderSelectorListenerAdapter implements Cloneab
     private TaskChooser taskChooser;
 
     //领导锁
-    private CountDownLatch leaderLatch;
+    private CountDownLatch leaderLatch = new CountDownLatch(1);
 
     //关闭锁
-    private CountDownLatch closeLatch;
+    private CountDownLatch closeLatch = new CountDownLatch(1);
 
-    //领导监听器，是个接口，需要自己实现
+/*    //领导监听器，是个接口，需要自己实现
     private CuratorListener leaderListener;
 
     //任务缓存监听器，是个接口，需要自己实现
@@ -62,23 +72,23 @@ public class TaskClient extends LeaderSelectorListenerAdapter implements Cloneab
     private UnhandledErrorListener errorsListener;
 
     //askClient的逻辑实现监听器，是个接口，自己实现逻辑
-    private CuratorListener performListener;
+    private CuratorListener performListener;*/
 
-    private static final String PATH_ROOT_TASKS = "/tasks";
+    private static final String TASKS_ROOT_PATH = "/tasks";
 
-    private static final String PATH_ROOT_WORKERS = "/workers";
+    private static final String WORKERS_ROOT_PATH = "/workers";
 
-    public TaskClient() {
+    private TaskClient() {
 
     }
 
-    public TaskClient(String configFileName) {
+    private TaskClient(String configFileName) {
     }
 
-    public TaskClient(TaskChooser chooser) {
+    private TaskClient(TaskChooser chooser) {
     }
 
-    public TaskClient(String configFileName, TaskChooser chooser) {
+    private TaskClient(String configFileName, TaskChooser chooser) {
     }
 
     public void setConfig(String configFileName) {
@@ -96,7 +106,7 @@ public class TaskClient extends LeaderSelectorListenerAdapter implements Cloneab
 
     public void setClient(CuratorFramework client) {
         this.client = client;
-        this.leaderSelector = new LeaderSelector(this.client, PATH_ROOT_TASKS, this);
+        this.leaderSelector = new LeaderSelector(this.client, TASKS_ROOT_PATH, this);
         leaderSelector.start();
     }
 
@@ -130,8 +140,8 @@ public class TaskClient extends LeaderSelectorListenerAdapter implements Cloneab
     private int tasksCreator(List<TaskEntity> taskEntityList) throws Exception {
         for (TaskEntity task : taskEntityList) {
             String data = task.toString();
-            client.create().withMode(CreateMode.PERSISTENT).forPath("/tasks/task" + "-" + task.getId(), data.getBytes());
-            client.create().withMode(CreateMode.PERSISTENT).forPath("/tasks/task" + "-" + task.getId() + "/status");
+            client.create().withMode(CreateMode.PERSISTENT).forPath("/tasks/task-" + task.getId(), data.getBytes());
+            client.create().withMode(CreateMode.PERSISTENT).forPath("/tasks/task-" + task.getId() + "/status");
             System.out.println(client.getChildren().forPath("/tasks"));
         }
         return 0;
@@ -193,9 +203,11 @@ public class TaskClient extends LeaderSelectorListenerAdapter implements Cloneab
         switch (newState) {
             case CONNECTED:
                 System.out.println("连接成功！");
+                LOGGER.info("连接成功！");
                 break;
             case RECONNECTED:
                 System.out.println("正在连接......");
+                LOGGER.info("正在连接......");
                 break;
             case SUSPENDED:
                 client.start();
@@ -205,6 +217,7 @@ public class TaskClient extends LeaderSelectorListenerAdapter implements Cloneab
                 break;
             case READ_ONLY:
                 System.out.println("正在读取内容......");
+                LOGGER.info("正在读取内容......");
                 break;
         }
     }
@@ -220,7 +233,7 @@ public class TaskClient extends LeaderSelectorListenerAdapter implements Cloneab
      * @throws Exception
      */
     public List<String> getWorks() throws Exception {
-        List<String> works = client.getChildren().forPath(PATH_ROOT_WORKERS);
+        List<String> works = client.getChildren().forPath(WORKERS_ROOT_PATH);
         return works;
     }
 
@@ -228,7 +241,7 @@ public class TaskClient extends LeaderSelectorListenerAdapter implements Cloneab
         CountDownLatch countDownLatch = new CountDownLatch(1);
         //ExecutorService pool = Executors.newCachedThreadPool();
         //设置节点的cache
-        TreeCache treeCache = new TreeCache(client, PATH_ROOT_TASKS);
+        TreeCache treeCache = new TreeCache(client, TASKS_ROOT_PATH);
         //设置监听器和处理过程
         treeCache.getListenable().addListener(new TreeCacheListener() {
             @Override
@@ -241,7 +254,7 @@ public class TaskClient extends LeaderSelectorListenerAdapter implements Cloneab
                     case NODE_ADDED:
                         String path = event.getData().getPath();
                         if (pattern.matcher(path).matches()) {
-                         //   client.create().withMode(CreateMode.PERSISTENT).forPath(path + "/status");
+                            //   client.create().withMode(CreateMode.PERSISTENT).forPath(path + "/status");
                             System.out.println(client.getChildren().forPath("/tasks"));
                         }
                         System.out.println("NODE_ADDED : " + data.getPath() + "  数据:" + new String(data.getData()));
@@ -295,9 +308,9 @@ public class TaskClient extends LeaderSelectorListenerAdapter implements Cloneab
         Map<String, List<String>> map = scheduler.getPolicy().process(works, taskEntityList);
         for (TaskEntity task : taskEntityList) {
             for (int j = 0; j < map.get(task.getName()).size(); j++) {
-                taskClient.client.create().forPath(PATH_ROOT_TASKS + "/task-" + task.getId() + "/" + map.get(task.getName()).get(j));
+                taskClient.client.create().forPath(TASKS_ROOT_PATH + "/task-" + task.getId() + "/" + map.get(task.getName()).get(j));
             }
-            taskClient.client.setData().forPath(PATH_ROOT_TASKS + "/task-" + task.getId() + "/status", ("" + works.size()).getBytes());
+            taskClient.client.setData().forPath(TASKS_ROOT_PATH + "/task-" + task.getId() + "/status", ("" + works.size()).getBytes());
         }
     }
 
