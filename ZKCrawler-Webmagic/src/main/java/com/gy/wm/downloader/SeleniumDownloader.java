@@ -1,5 +1,4 @@
 package com.gy.wm.downloader;
-import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -23,28 +22,31 @@ import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 /**
-
- * 需要下载pantomjs driver支持。<br>
- *
- * @author code4crafter@gmail.com <br>
- *         Date: 13-7-26 <br>
- *         Time: 下午1:37 <br>
+ *This is a downloader for dynamic web page,and it needs phantomjs driver to suport.<br/>
+ * @author TijunWang
+ *         Date: 2016-7-26 <br>
+ *         Time: afternoon 1:37 <br>
  */
 public class SeleniumDownloader implements Downloader, Closeable {
-private final static org.slf4j.Logger LOG= LoggerFactory.getLogger(SeleniumDownloader.class);
+    private final static org.slf4j.Logger LOG= LoggerFactory.getLogger(SeleniumDownloader.class);
     static {
+        /**
+         * The phantomjs driver installed path are indicated in /webdriver.properties
+         */
         InputStream is= System.class.getResourceAsStream("/webdriver.properties");
         Properties properties=new Properties();
         try
         {
             properties.load(is);
+            /**
+             * init an environment for phantomjs
+             */
             System.setProperty("phantomjs.binary.path",properties.getProperty("phantomjs.binary.path"));
         } catch (IOException e)
         {  LOG.error("must have pantomjs webdriver path be indicated in /webdriver.properties");
             e.printStackTrace();
         }
     }
-    private Logger logger = Logger.getLogger(getClass());
 
     private int sleepTime = 0;
 
@@ -52,26 +54,31 @@ private final static org.slf4j.Logger LOG= LoggerFactory.getLogger(SeleniumDownl
 
     private WebDriver webDriver;
 
-    //根据每个domain来管理 WebDriver的manmage
+    //cache webdriver
     private Map<String,WebDriver> webDriverMap= Collections.synchronizedMap(new HashMap<String, WebDriver>());
 
-
-    private WebDriver getWebDriver(Task task){
+    /**
+     * use domain to gain a webdriver from webDriverMap,if webDriverMap has no webDriver for current domain,we create
+     * a webDriver for it ,and put the  driver into webDrvierMap to cache
+     * @param task
+     * @return
+     */
+    private synchronized WebDriver  getWebDriver(Task task){
         String domain=task.getSite().getDomain();
         WebDriver driver=  webDriverMap.get(domain);
-        if (driver==null)
-            synchronized (this) {
-                webDriver = create();
-                webDriverMap.put(domain, create());
-                driver = webDriver;
-            }
+        if (driver==null){
+            webDriver = create();
+            webDriverMap.put(domain, webDriver);
+            driver = webDriver;
+        }
+
         return driver;
     }
 
     /**
-     * Constructor without any filed. Construct PhantomJS browser
+     * Constructor without any filed.
      *
-     * @author bob.li.0718@gmail.com
+     * @author
      */
     public SeleniumDownloader() {
     }
@@ -90,8 +97,9 @@ private final static org.slf4j.Logger LOG= LoggerFactory.getLogger(SeleniumDownl
     @Override
     public Page download(Request request, Task task) {
         webDriver= this.getWebDriver(task);
-        logger.info("downloading page " + request.getUrl());
+        LOG.info("downloading page " + request.getUrl());
         webDriver.get(request.getUrl());
+        this.sleep();
         WebElement webElement = webDriver.findElement(By.xpath("/html"));
         String content = webElement.getAttribute("outerHTML");
         Page page = new Page();
@@ -102,7 +110,18 @@ private final static org.slf4j.Logger LOG= LoggerFactory.getLogger(SeleniumDownl
         return page;
     }
 
-
+    /**
+     * sleep sleepTime  to wait page loading
+     */
+    private void sleep(){
+        try
+        {
+            Thread.sleep(sleepTime);
+        } catch (InterruptedException e)
+        {
+            e.printStackTrace();
+        }
+    }
     @Override
     public void setThread(int thread) {
         this.poolSize = thread;
@@ -110,16 +129,20 @@ private final static org.slf4j.Logger LOG= LoggerFactory.getLogger(SeleniumDownl
 
     @Override
     public void close() throws IOException {
-        //webDriverPool.closeAll();
+        this.closeAll();
     }
-    //create webDriver
+
+    /**
+     *   create a webDriver and return it
+     */
     private WebDriver create(){
         WebDriver webDriver=new PhantomJSDriver();
         webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         return webDriver;
     }
-    //when finished all tasks，close all webdrivers and kill all webdriver processes
-
+    /**
+     * when finished all tasks，close all webdrivers and kill all webdriver processes
+     */
     public void  closeAll(){
         for (String domain:webDriverMap.keySet()){
             WebDriver driver=webDriverMap.remove(domain);

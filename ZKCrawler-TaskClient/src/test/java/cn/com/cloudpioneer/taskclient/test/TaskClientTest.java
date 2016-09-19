@@ -47,13 +47,13 @@ public class TaskClientTest {
         taskEntity.setDepthCrawl(3);
         taskEntity.setIdUser(0144552);
         taskEntity.setName("dfsaf");
-        taskEntity.setPathTemplates("agvb");
+        /*taskEntity.setPathTemplates("agvb");
         taskEntity.setSeedUrls("rety");
         taskEntity.setPathRegexFilter("trh");
-        taskEntity.setPathRegexFilter("ngjrd");
+        taskEntity.setPathRegexFilter("ngjrd");*/
         taskEntity.setThreads(3);
         taskEntity.setWorkNum(5);
-        taskEntity.setSeedUrls("url1,url2,url3");
+        //taskEntity.setSeedUrls("url1,url2,url3");
         taskEntity.setCreateTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse("2016-08-04 16:30:20"));
         System.out.println(taskEntity.toString());
 
@@ -141,13 +141,13 @@ public class TaskClientTest {
         taskEntity.setIdUser(0144552);
         taskEntity.setName("xxxzzz");
         taskEntity.setType(1);
-        taskEntity.setPathTemplates("agvb");
+        /*taskEntity.setPathTemplates("agvb");
         taskEntity.setSeedUrls("qqq");
         taskEntity.setPathRegexFilter("ppp");
-        taskEntity.setPathRegexFilter("^_^");
+        taskEntity.setPathRegexFilter("^_^");*/
         taskEntity.setThreads(3);
         taskEntity.setWorkNum(5);
-        taskEntity.setSeedUrls("url1,url2,url3");
+        //taskEntity.setSeedUrls("url1,url2,url3");
         taskEntity.setCreateTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse("2016-08-03 07:20:10"));
         //String currentDate=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
         taskEntity.setTimeLastCrawl(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse("2016-08-04 16:30:20"));
