@@ -56,15 +56,15 @@ private final static org.slf4j.Logger LOG= LoggerFactory.getLogger(SeleniumDownl
     private Map<String,WebDriver> webDriverMap= Collections.synchronizedMap(new HashMap<String, WebDriver>());
 
 
-    private WebDriver getWebDriver(Task task){
+    private synchronized WebDriver  getWebDriver(Task task){
         String domain=task.getSite().getDomain();
         WebDriver driver=  webDriverMap.get(domain);
-        if (driver==null)
-            synchronized (this) {
-                webDriver = create();
-                webDriverMap.put(domain, create());
-                driver = webDriver;
-            }
+        if (driver==null){
+            webDriver = create();
+            webDriverMap.put(domain, webDriver);
+            driver = webDriver;
+        }
+
         return driver;
     }
 
