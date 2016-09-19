@@ -5,6 +5,10 @@ import com.alibaba.fastjson.JSONObject;
 
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by TianyuanPan on 2016/9/5.
@@ -39,6 +43,54 @@ public class TaskModel implements Serializable {
      */
     private TaskEntity entity;
 
+    /**
+     * 任务具体配置
+     */
+    private Map<String, List<TaskConfigEntity>> configs;
+
+
+    /**
+     * 获取配置项列表。
+     *
+     * @param typeName 配置项类型名称
+     * @return
+     */
+    public List<String> getConfigs(String typeName) {
+
+        List<TaskConfigEntity> conf = configs.get(typeName);
+        List<String> confs = new ArrayList<>();
+        for (TaskConfigEntity item : conf)
+            confs.add(item.getConfValue());
+        return confs;
+    }
+
+    /**
+     * 设置任务配置
+     *
+     * @param configs
+     */
+    public void setConfigs(Map<String, List<TaskConfigEntity>> configs) {
+        this.configs = configs;
+    }
+
+    /**
+     * 获取配置
+     *
+     * @return
+     */
+    public Map<String, List<TaskConfigEntity>> getConfigs() {
+        return configs;
+    }
+
+    /**
+     * 设置任务路径
+     *
+     * @param taskPath 任务节点绝对路径
+     */
+    public void setTaskPath(String taskPath) {
+        this.taskPath = taskPath;
+    }
+
 
     /**
      * 无参数构造方法，构造空数据的任务模型。
@@ -49,8 +101,8 @@ public class TaskModel implements Serializable {
         this.entityString = "";
         this.startTime = System.currentTimeMillis();
         this.entity = new TaskEntity();
+        this.configs = new HashMap<>();
     }
-
 
     /**
      * 参数构造方法，构造 worker 所需的任务模型。
@@ -76,16 +128,6 @@ public class TaskModel implements Serializable {
             this.entity = new TaskEntity();
             e.printStackTrace();
         }
-    }
-
-
-    /**
-     * 设置任务路径
-     *
-     * @param taskPath 任务节点绝对路径
-     */
-    public void setTaskPath(String taskPath) {
-        this.taskPath = taskPath;
     }
 
 
@@ -157,6 +199,34 @@ public class TaskModel implements Serializable {
      */
     public TaskEntity getEntity() {
         return entity;
+    }
+
+
+    /**
+     * 转换成 JSON 字符串
+     *
+     * @return
+     */
+    @Override
+    public String toString() {
+
+        JSONObject objectA = new JSONObject();
+        JSONObject objectB = new JSONObject();
+
+        objectA.put(ConfigType.SEED_URLS, getConfigs(ConfigType.SEED_URLS));
+        objectA.put(ConfigType.CLICK_REGEX, getConfigs(ConfigType.CLICK_REGEX));
+        objectA.put(ConfigType.CONFIGS, getConfigs(ConfigType.CONFIGS));
+        objectA.put(ConfigType.PROTOCOL_FILTER, getConfigs(ConfigType.PROTOCOL_FILTER));
+        objectA.put(ConfigType.REGEX_FILTER, getConfigs(ConfigType.REGEX_FILTER));
+        objectA.put(ConfigType.SUFFIX_FILTER, getConfigs(ConfigType.SUFFIX_FILTER));
+        objectA.put(ConfigType.TAGS, getConfigs(ConfigType.TAGS));
+        objectA.put(ConfigType.TEMPLATES, getConfigs(ConfigType.TEMPLATES));
+
+        objectB.put("base", this.entity);
+        objectB.put("param", objectA);
+
+        return objectB.toJSONString();
+
     }
 
 }
