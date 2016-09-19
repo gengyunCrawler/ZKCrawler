@@ -11,17 +11,16 @@ import com.gy.wm.queue.RedisCrawledQue;
 import com.gy.wm.queue.RedisToCrawlQue;
 import com.gy.wm.schedular.RedisScheduler;
 import com.gy.wm.service.CustomPageProcessor;
-import com.gy.wm.util.BloomFilter;
-import com.gy.wm.util.GetDomain;
-import com.gy.wm.util.JedisPoolUtils;
-import com.gy.wm.util.LogManager;
+import com.gy.wm.util.*;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import us.codecraft.webmagic.Spider;
+import us.codecraft.webmagic.downloader.HttpClientDownloader;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
 /**
  * Created by Administrator on 2016/5/18.
@@ -39,6 +38,7 @@ public class CrawlerWorkflowManager {
 
     private String domain;
 
+    private static final String DOWNLOAD_PLUGIN_NAME = ResourceBundle.getBundle("config").getString("donwloadPluginName");
 
     public CrawlerWorkflowManager(String tid, String appname) {
         this.tid = tid;
@@ -84,7 +84,14 @@ public class CrawlerWorkflowManager {
         /* set the pipeline filter key */
         PipelineBloomFilter.setKeyInRedis(tid);
 
-        Spider.create(new CustomPageProcessor(tid, domain))
+        Spider spider = null;
+        try {
+            spider = PluginUtil.excutePluginDownload(tid,domain);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        spider.create(new CustomPageProcessor(tid, domain))
                 .setScheduler(new RedisScheduler(domain)).setUUID(tid)
                 //从seed开始抓
                 .addUrl(urlArray)
