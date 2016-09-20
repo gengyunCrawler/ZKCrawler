@@ -84,8 +84,7 @@ public class CrawlerWorkflowManager {
             e.printStackTrace();
         }
 
-        spider.create(new CustomPageProcessor(tid, domain))
-                .setScheduler(new RedisScheduler(domain)).setUUID(tid)
+        spider.setScheduler(new RedisScheduler(domain)).setUUID(tid)
                 //从seed开始抓
                 .addUrl(urlArray)
                 .addPipeline(new MysqlPipeline())

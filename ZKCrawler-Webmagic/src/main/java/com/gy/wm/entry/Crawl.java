@@ -2,7 +2,6 @@ package com.gy.wm.entry;
 
 import com.gy.wm.dbpipeline.MyHbaseUtils;
 import com.gy.wm.model.CrawlData;
-import com.gy.wm.model.TaskEntity;
 import com.gy.wm.model.TaskParamModel;
 import com.gy.wm.util.GetDomain;
 import org.slf4j.Logger;

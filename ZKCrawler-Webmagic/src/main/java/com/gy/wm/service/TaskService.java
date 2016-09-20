@@ -1,7 +1,6 @@
 package com.gy.wm.service;
 
 import com.gy.wm.entry.Crawl;
-import com.gy.wm.model.TaskEntity;
 import com.gy.wm.model.TaskParamModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

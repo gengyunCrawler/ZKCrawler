@@ -1,6 +1,5 @@
 package com.gy.wm.controller;
 
-import com.gy.wm.model.TaskEntity;
 import com.gy.wm.model.TaskParamModel;
 import com.gy.wm.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +27,7 @@ public class API {
 
     /**
      *
-     * @param taskEntity
+     * @param taskParamModel
      * @return
      */
     @RequestMapping(value = "/startTask",method = RequestMethod.POST,produces = {MediaType.APPLICATION_JSON_VALUE})
