@@ -12,6 +12,7 @@ import java.util.List;
  * Created by Administrator on 2016/5/18.
  */
 public class InstanceFactory {
+
     private static InitCrawlerConfig CRAWL_CONFIG;
 
     private static InstanceFactory singleton;
@@ -123,5 +124,12 @@ public class InstanceFactory {
         WHOLE_SITE_ANALYSIS = wholeSiteAnalysis;
     }
 
+    public static InitCrawlerConfig getCrawlConfig() {
+        return CRAWL_CONFIG;
+    }
+
+    public static void setCrawlConfig(InitCrawlerConfig crawlConfig) {
+        CRAWL_CONFIG = crawlConfig;
+    }
 
 }

@@ -1,6 +1,7 @@
 package com.gy.wm.controller;
 
 import com.gy.wm.model.TaskEntity;
+import com.gy.wm.model.TaskParamModel;
 import com.gy.wm.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -31,8 +32,8 @@ public class API {
      * @return
      */
     @RequestMapping(value = "/startTask",method = RequestMethod.POST,produces = {MediaType.APPLICATION_JSON_VALUE})
-    public String startTask(@RequestBody TaskEntity taskEntity)   {
-        this.taskService.startTask(taskEntity);
+    public String startTask(@RequestBody TaskParamModel taskParamModel)   {
+        this.taskService.startTask(taskParamModel);
         return "ok";
     }
 

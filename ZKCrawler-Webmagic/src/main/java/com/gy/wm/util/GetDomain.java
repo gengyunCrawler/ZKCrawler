@@ -9,7 +9,7 @@ public class GetDomain {
         String part_last = array_all[1];
         String [] array_last = part_last.split("/");
         String result = array_last[0];
-        return  result/*.replace("www.","")*/;
+        return  result.replace("www.","");
     }
 
     //test

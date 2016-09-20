@@ -28,6 +28,8 @@ import java.util.List;
 public class CustomPageProcessor implements PageProcessor {
     private String tid;
     private String domain;
+    //解析的深度，对应爬虫任务设置的深度
+    private final int DEPTH = InstanceFactory.getCrawlConfig().getDepth();
 
     public CustomPageProcessor(String tid, String domain) {
         this.tid = tid;
@@ -77,7 +79,7 @@ public class CustomPageProcessor implements PageProcessor {
 
             BloomFilter bloomFilter = new BloomFilter(jedis, 1000, 0.001f, (int) Math.pow(2, 31));
             for (CrawlData crawlData : perPageCrawlDateList) {
-                if (crawlData.getDepthfromSeed() < 2&&!crawlData.isFetched()) {
+                if (crawlData.getDepthfromSeed() < DEPTH &&!crawlData.isFetched()) {
                     //链接fetched为false,即导航页,bloomFilter判断待爬取队列没有记录
                     boolean isNew = RedisBloomFilter.notExistInBloomHash(crawlData.getUrl(), tid, jedis, bloomFilter);
                     if (isNew && URLFilter.linkFilter(crawlData.getUrl()) && URLFilter.matchDomain(crawlData.getUrl(), domain)) {
