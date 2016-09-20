@@ -22,9 +22,9 @@ import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 /**
- *This is a downloader for dynamic web page,and it needs phantomjs driver to suport.<br/>
+ *This is a downloader for dynamic web page,and it needs phantomjs driver to support.<br/>
  * @author TijunWang
- *         Date: 2016-7-26 <br>
+ *         Date: 2016-9-19 <br>
  *         Time: afternoon 1:37 <br>
  */
 public class SeleniumDownloader implements Downloader, Closeable {
@@ -41,9 +41,14 @@ public class SeleniumDownloader implements Downloader, Closeable {
             /**
              * init an environment for phantomjs
              */
-            System.setProperty("phantomjs.binary.path",properties.getProperty("phantomjs.binary.path"));
-        } catch (IOException e)
-        {  LOG.error("must have pantomjs webdriver path be indicated in /webdriver.properties");
+             String phantomJsPath=properties.getProperty("phantomjs.binary.path");
+            if (phantomJsPath==null||phantomJsPath.equals("")){
+                throw new Exception("must have phantomjs webdriver path be indicated in /webdriver.properties");
+            }
+
+            System.setProperty("phantomjs.binary.path",phantomJsPath);
+        } catch (Exception e)
+        {
             e.printStackTrace();
         }
     }
@@ -147,8 +152,11 @@ public class SeleniumDownloader implements Downloader, Closeable {
         for (String domain:webDriverMap.keySet()){
             WebDriver driver=webDriverMap.remove(domain);
             if(driver!=null){
-                driver.quit();
+                //exit browser
                 driver.close();
+                //kill browser process
+                driver.quit();
+
                 driver=null;
             }
 

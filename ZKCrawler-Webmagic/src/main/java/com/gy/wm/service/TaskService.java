@@ -2,6 +2,7 @@ package com.gy.wm.service;
 
 import com.gy.wm.entry.Crawl;
 import com.gy.wm.model.TaskEntity;
+import com.gy.wm.model.TaskParamModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
@@ -23,8 +24,8 @@ public class TaskService {
 
     }
 
-    public void startTask(TaskEntity taskEntity) {
-        this.crawl.startTask(taskEntity);
+    public void startTask(TaskParamModel taskParamModel) {
+        this.crawl.startTask(taskParamModel);
     }
 
     public void test()  {
