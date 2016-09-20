@@ -43,7 +43,7 @@ public class SeleniumDownloader implements Downloader, Closeable {
              */
              String phantomJsPath=properties.getProperty("phantomjs.binary.path");
             if (phantomJsPath==null||phantomJsPath.equals("")){
-                throw new Exception("must have pantomjs webdriver path be indicated in /webdriver.properties");
+                throw new Exception("must have phantomjs webdriver path be indicated in /webdriver.properties");
             }
 
             System.setProperty("phantomjs.binary.path",phantomJsPath);
@@ -152,8 +152,11 @@ public class SeleniumDownloader implements Downloader, Closeable {
         for (String domain:webDriverMap.keySet()){
             WebDriver driver=webDriverMap.remove(domain);
             if(driver!=null){
-                driver.quit();
+                //exit browser
                 driver.close();
+                //kill browser process
+                driver.quit();
+
                 driver=null;
             }
 
