@@ -1,5 +1,7 @@
 package cn.com.cloudpioneer.taskclient;
 
+import cn.com.cloudpioneer.taskclient.app.TaskClient;
+import org.apache.curator.retry.RetryNTimes;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -27,13 +29,22 @@ public class Application {
      * @param args
      * @throws InterruptedException
      */
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws Exception {
 
+        /**
+         * 初始化 task client。
+         */
+        TaskClient taskClient = TaskClient.initializeTaskClient(zkHostPort, new RetryNTimes(5, 1000), null, null, null);
 
         /**
          * 启动 spring boot 服务。
          */
         SpringApplication.run(Application.class, args);
+
+        /**
+         * 启动 task client。
+         */
+        taskClient.startTaskClient();
     }
 
 }

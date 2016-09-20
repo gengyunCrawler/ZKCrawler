@@ -63,9 +63,9 @@ public class Worker implements Closeable, ConnectionStateListener {
     public static final String WORKERS_ROOT_PATH = "/workers";
 
     /**
-     * LOCK_ROOT_PATH 是 worker 创建的各种锁节点的根节点，节点是永久类型（persistent）。
+     * LOCK_ROOT_PATH 是任务锁节点的根节点，节点是永久类型（persistent）。
      */
-    public static final String LOCK_ROOT_PATH = "/lock-4-workers";
+    public static final String LOCK_ROOT_PATH = "/lock-4-tasks";
 
     /**
      * API_CRAWLER_TASK_STARTER 启动爬取任务时，访问的 WebMagic API，存储在配置文件中。

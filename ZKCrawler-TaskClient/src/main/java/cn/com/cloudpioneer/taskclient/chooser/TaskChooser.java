@@ -1,6 +1,6 @@
 package cn.com.cloudpioneer.taskclient.chooser;
 
-import cn.com.cloudpioneer.taskclient.entity.TaskEntity;
+import cn.com.cloudpioneer.taskclient.model.TaskEntity;
 
 import java.util.List;
 

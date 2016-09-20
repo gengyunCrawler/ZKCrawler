@@ -1,7 +1,6 @@
-package cn.com.cloudpioneer.taskclient.entity;
+package cn.com.cloudpioneer.taskclient.model;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -227,11 +226,11 @@ public class TaskEntity implements Serializable{
 
     public void setWorkNum(int workNum) { this.workNum = workNum;}
 
-    public Date getCreateTime() {
+    public Date getCreateDate() {
         return createDate;
     }
 
-    public void setCreateTime(Date createDate) {
+    public void setCreateDate(Date createDate) {
         this.createDate = createDate;
     }
 

@@ -1,6 +1,8 @@
 package cn.com.cloudpioneer.taskclient.app;
 
-import cn.com.cloudpioneer.taskclient.schedule.SchedulePolicy;
+import cn.com.cloudpioneer.taskclient.model.TaskEntity;
+import cn.com.cloudpioneer.taskclient.scheduler.SchedulePolicy;
+import cn.com.cloudpioneer.taskclient.scheduler.schedulerImpl.EveryWorkerPolicy;
 
 import java.util.List;
 import java.util.Map;
@@ -15,13 +17,14 @@ public class Scheduler {
 
     public Scheduler() {
 
+        policy = new EveryWorkerPolicy();
     }
 
     public Scheduler(SchedulePolicy policy) {
         this.policy = policy;
     }
 
-    public void setPolicy(SchedulePolicy policy){
+    public void setPolicy(SchedulePolicy policy) {
         this.policy = policy;
     }
 
@@ -29,7 +32,7 @@ public class Scheduler {
         return policy;
     }
 
-    public Map<String,List<String>> scheduleProcess(List<Object> workers, List<Object> tasks){
-        return null;
+    public Map<TaskEntity, List<String>> scheduleProcess(List<TaskEntity> tasks, List<String> workers) {
+        return policy.process(tasks, workers);
     }
 }
