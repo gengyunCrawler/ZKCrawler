@@ -1,5 +1,6 @@
 package cn.com.cloudpioneer.taskclient.entity;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
 import java.io.Serializable;
@@ -21,33 +22,6 @@ public class TaskEntity implements Serializable{
 
     //爬虫任务描述
     private String remark;
-
-    //爬取的种子入口列表，格式为JSON数组
-    private String seedUrls;
-
-    //存放模板文件路径
-    private String pathTemplates;
-
-    //标签文件路径，存放文件夹地址
-    private String pathTag;
-
-    //种子文件路径
-    private String pathSeeds;
-
-    //配置文件路径
-    private String pathConfigs;
-
-    //点击正则配置文件路径
-    private String pathClickRegex;
-
-    //正则过滤配置文件路径
-    private String pathRegexFilter;
-
-    //协议过滤配置文件地址
-    private String pathProtocolFilter;
-
-    //后缀过滤配置文件地址
-    private String pathSuffixFilter;
 
     //爬虫任务类型
     private int type;
@@ -132,75 +106,6 @@ public class TaskEntity implements Serializable{
         this.remark = remark;
     }
 
-    public String getSeedUrls() {
-        return seedUrls;
-    }
-
-    public void setSeedUrls(String seedUrls) {
-        this.seedUrls = seedUrls;
-    }
-
-    public String getPathTemplates() {
-        return pathTemplates;
-    }
-
-    public void setPathTemplates(String pathTemplates) {
-        this.pathTemplates = pathTemplates;
-    }
-
-    public String getPathTag() {
-        return pathTag;
-    }
-
-    public void setPathTag(String pathTag) {
-        this.pathTag = pathTag;
-    }
-
-    public String getPathSeeds() {
-        return pathSeeds;
-    }
-
-    public void setPathSeeds(String pathSeeds) {
-        this.pathSeeds = pathSeeds;
-    }
-
-    public String getPathConfigs() {
-        return pathConfigs;
-    }
-
-    public void setPathConfigs(String pathConfigs) {this.pathConfigs = pathConfigs;}
-
-    public String getPathClickRegex() {
-        return pathClickRegex;
-    }
-
-    public void setPathClickRegex(String pathClickRegex) {
-        this.pathClickRegex = pathClickRegex;
-    }
-
-    public String getPathRegexFilter() {
-        return pathRegexFilter;
-    }
-
-    public void setPathRegexFilter(String pathRegexFilter) {
-        this.pathRegexFilter = pathRegexFilter;
-    }
-
-    public String getPathProtocolFilter() {
-        return pathProtocolFilter;
-    }
-
-    public void setPathProtocolFilter(String pathProtocolFilter) {
-        this.pathProtocolFilter = pathProtocolFilter;
-    }
-
-    public String getPathSuffixFilter() {
-        return pathSuffixFilter;
-    }
-
-    public void setPathSuffixFilter(String pathSuffixFilter) {
-        this.pathSuffixFilter = pathSuffixFilter;
-    }
 
     public int getType() {
         return type;
@@ -332,37 +237,7 @@ public class TaskEntity implements Serializable{
 
     @Override
     public String toString() {
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("id", this.id);
-        jsonObject.put("idUser", this.idUser);
-        jsonObject.put("name", this.name);
-        jsonObject.put("remark", this.remark);
-        jsonObject.put("seedUrls", this.seedUrls);
-        jsonObject.put("pathTemplates", this.pathTemplates);
-        jsonObject.put("pathTag", this.pathTag);
-        jsonObject.put("pathSeeds", this.pathSeeds);
-        jsonObject.put("pathConfigs", this.pathConfigs);
-        jsonObject.put("pathClickRegex", this.pathClickRegex);
-        jsonObject.put("pathRegexFilter", this.pathRegexFilter);
-        jsonObject.put("pathProtocolFilter", this.pathProtocolFilter);
-        jsonObject.put("pathSuffixFilter", this.pathSuffixFilter);
-        jsonObject.put("type", this.type);
-        jsonObject.put("depthCrawl", this.depthCrawl);
-        jsonObject.put("depthDynamic", this.depthDynamic);
-        jsonObject.put("pass", this.pass);
-        jsonObject.put("weight", this.weight);
-        jsonObject.put("threads", this.threads);
-        jsonObject.put("completeTimes", this.completeTimes);
-        jsonObject.put("cycleRecrawl", this.cycleRecrawl);
-        jsonObject.put("status", this.status);
-        jsonObject.put("deleteFlag", this.deleteFlag);
-        jsonObject.put("timeStart", this.timeStart);
-        jsonObject.put("timeStop", this.timeStop);
-        jsonObject.put("timeLastCrawl", this.timeLastCrawl);
-        jsonObject.put("costLastCrawl", this.costLastCrawl);
-        jsonObject.put("scheduleType", this.scheduleType);
-        jsonObject.put("workNum", this.workNum);
-        jsonObject.put("createDate", this.createDate);
-        return jsonObject.toString();
+
+        return JSON.toJSONString(this);
     }
 }

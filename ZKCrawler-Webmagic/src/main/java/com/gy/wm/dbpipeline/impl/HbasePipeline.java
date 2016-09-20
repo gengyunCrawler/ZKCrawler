@@ -41,13 +41,10 @@ public class HbasePipeline implements Pipeline{
         if (crawlerData != null) {
 
             try {
-                if (!pipelineBloomFilter.contains(crawlerData.getUrl())) {
-                    pipelineBloomFilter.add(crawlerData.getUrl());
-                    this.hbaseClient.add(crawlerData);
-                    int i = this.hbaseClient.doSetInsert();
-                    System.out.println("HbasePipeline doInsert Successful number: " + i);
-                    //logger.debug("HbasePipeline doInsert Successful number: " + i);
-                }
+                this.hbaseClient.add(crawlerData);
+                int i = this.hbaseClient.doSetInsert();
+                System.out.println("HbasePipeline doInsert Successful number: " + i);
+                //logger.debug("HbasePipeline doInsert Successful number: " + i);
 
             } catch (Exception e) {
 

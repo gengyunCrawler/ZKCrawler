@@ -1,12 +1,7 @@
 package com.gy.wm.entry;
 
-import com.gy.wm.dbpipeline.PipelineBloomFilter;
-import com.gy.wm.dbpipeline.impl.EsPipeline;
-import com.gy.wm.dbpipeline.impl.HbaseEsPipeline;
-import com.gy.wm.dbpipeline.impl.HbasePipeline;
 import com.gy.wm.dbpipeline.impl.MysqlPipeline;
 import com.gy.wm.model.CrawlData;
-import com.gy.wm.plugins.wholesitePlugin.analysis.WholesiteTextAnalysis;
 import com.gy.wm.queue.RedisCrawledQue;
 import com.gy.wm.queue.RedisToCrawlQue;
 import com.gy.wm.schedular.RedisScheduler;
@@ -15,7 +10,6 @@ import com.gy.wm.util.*;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import us.codecraft.webmagic.Spider;
-import us.codecraft.webmagic.downloader.HttpClientDownloader;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -59,7 +53,7 @@ public class CrawlerWorkflowManager {
             pool.returnResource(jedis);
         }
 
-        //初始化布隆过滤hash表
+        //初始化布隆过滤HASH表
         BloomFilter bloomFilter = new BloomFilter(jedis, 1000, 0.001f, (int) Math.pow(2, 31));
         for (CrawlData seed : seeds) {
             bloomFilter.add("redis:bloomfilter:" + tid, seed.getUrl());
@@ -81,11 +75,10 @@ public class CrawlerWorkflowManager {
             seedList.add(crawlData.getUrl());
         }
         String[] urlArray = seedList.toArray(new String[seedList.size()]);
-        /* set the pipeline filter key */
-        PipelineBloomFilter.setKeyInRedis(tid);
 
         Spider spider = null;
         try {
+            //反射机制取得下载插件，PluginUtil为反射工具类
             spider = PluginUtil.excutePluginDownload(tid,domain);
         } catch (Exception e) {
             e.printStackTrace();
