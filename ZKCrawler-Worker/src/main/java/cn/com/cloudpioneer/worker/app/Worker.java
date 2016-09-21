@@ -451,7 +451,7 @@ public class Worker implements Closeable, ConnectionStateListener {
 
                 try {
                     LOGGER.info("=====>> Start request Webmagic.......");
-                    //HttpClientUtils.jsonPostRequest(API_CRAWLER_TASK_STARTER, task.toString());
+                    HttpClientUtils.jsonPostRequest(API_CRAWLER_TASK_STARTER, task.toString());
                     System.out.println(task.toString());
                     LOGGER.info("=====>> Ended request Webmagic.......");
                 } catch (Exception e) {

@@ -94,7 +94,9 @@ public class InitCrawlerConfig {
                         tokens.add(str);
                     }
                     reader.close();
-                    listTemplate.add(new BaseTemplate(domain,tokens));
+                    if(null != domain && tokens.size() > 0) {
+                        listTemplate.add(new BaseTemplate(domain,tokens));
+                    }
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

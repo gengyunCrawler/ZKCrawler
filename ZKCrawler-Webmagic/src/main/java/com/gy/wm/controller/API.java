@@ -3,11 +3,14 @@ package com.gy.wm.controller;
 import com.gy.wm.model.TaskParamModel;
 import com.gy.wm.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.concurrent.ExecutorService;
 
 /**
  * worker和webmagic交互的API
@@ -16,7 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
  * @Version: 2016-09-08
  **/
 @RestController
-public class API {
+@Scope("prototype")
+public class API implements Runnable{
     @Autowired
     private TaskService taskService;
 
@@ -32,8 +36,18 @@ public class API {
      */
     @RequestMapping(value = "/startTask",method = RequestMethod.POST,produces = {MediaType.APPLICATION_JSON_VALUE})
     public String startTask(@RequestBody TaskParamModel taskParamModel)   {
-        this.taskService.startTask(taskParamModel);
+        final TaskParamModel taskModel = taskParamModel;
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                API.this.taskService.startTask(taskModel);
+            }
+        }).start();
         return "ok";
     }
 
+    @Override
+    public void run() {
+
+    }
 }

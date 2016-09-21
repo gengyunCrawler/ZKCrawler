@@ -9,6 +9,7 @@ import com.gy.wm.util.HttpUtil;
 import com.gy.wm.util.PluginUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,6 +19,7 @@ import java.util.ResourceBundle;
  * Created by Administrator on 2016/5/18.
  */
 @Service
+@Scope("prototype")
 public class Crawl {
     private static String nomalEndUri = ResourceBundle.getBundle("api").getString("nomalEndUri");
     private static final String DOWNLOAD_PLUGIN_NAME = ResourceBundle.getBundle("config").getString("donwloadPluginName");

@@ -9,9 +9,9 @@
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.jdbc.Driver"/>
                 <property name="url"
-                          value="jdbc:mysql://108.108.108.8:3306/wifi_ac?useUnicode=true&amp;characterEncoding=UTF-8"/>
-                <property name="username" value="builder"/>
-                <property name="password" value="builder"/>
+                          value="jdbc:mysql://127.0.0.1:3306/crawlerdata?useUnicode=true&amp;characterEncoding=UTF-8"/>
+                <property name="username" value="root"/>
+                <property name="password" value="123456"/>
             </dataSource>
         </environment>
     </environments>

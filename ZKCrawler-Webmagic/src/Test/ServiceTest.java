@@ -54,6 +54,8 @@ public  class ServiceTest {
 
         taskParamModel.setParam(param);
         taskParamModel.setBase(base);
-        api.startTask(taskParamModel);
+        System.out.println(api.startTask(taskParamModel));
     }
+
+
 }
