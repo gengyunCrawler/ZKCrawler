@@ -16,29 +16,24 @@ import com.sun.istack.internal.Nullable;
 import org.apache.curator.RetryPolicy;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
-import org.apache.curator.framework.listen.Listenable;
-import org.apache.curator.framework.recipes.cache.ChildData;
 import org.apache.curator.framework.recipes.cache.TreeCache;
-import org.apache.curator.framework.recipes.cache.TreeCacheEvent;
 import org.apache.curator.framework.recipes.cache.TreeCacheListener;
 import org.apache.curator.framework.recipes.leader.LeaderSelector;
 import org.apache.curator.framework.recipes.leader.LeaderSelectorListener;
 import org.apache.curator.framework.state.ConnectionState;
 import org.apache.curator.utils.CloseableUtils;
-import org.apache.ibatis.annotations.Select;
 import org.apache.zookeeper.CreateMode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.core.task.support.ExecutorServiceAdapter;
 
 import java.io.Closeable;
 import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.regex.Pattern;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * Created by Tianjinjin on 2016/9/1.
@@ -72,6 +67,9 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
 
     //我的任务实体集合
     private Map<String, TaskModel> myTasks;
+
+
+    private Lock lock4MyTasks;
 
     //任务选择器成员
     private TaskChooser taskChooser;
@@ -173,12 +171,13 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
         this.myTasks = new HashMap<>();
         this.taskLockMap = new HashMap<>();
         this.executorService = Executors.newFixedThreadPool(10);
+        this.lock4MyTasks = new ReentrantLock();
         this.configs = initConfigs(configFileName);
 
         if (myId != null)
             this.myId = myId;
         else
-            this.myId = "taskClientId-" + RandomUtils.getRandomString(10) + "-" + System.currentTimeMillis();
+            this.myId = "TaskClient-" + RandomUtils.getRandomString(10) + "-" + System.currentTimeMillis();
 
         if (taskChooser == null)
             this.taskChooser = new LongTimeFirstTaskChooser();
@@ -194,6 +193,12 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
         this.tasksCache = new TreeCache(this.client, TASKS_ROOT_PATH);
     }
 
+    public void myExecutor(Runnable task) {
+
+        if (!executorService.isShutdown())
+            executorService.execute(task);
+    }
+
     private void startZK() throws Exception {
 
         client.start();
@@ -202,19 +207,35 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
 
     private TaskModel removeMyTasks(String taskId) {
 
-        return myTasks.remove(taskId);
+        try {
+            lock4MyTasks.lock();
+            return myTasks.remove(taskId);
+        } finally {
+            lock4MyTasks.unlock();
+        }
     }
 
 
     private void addToMyTasks(String taskId, TaskModel taskModel) {
 
-        myTasks.put(taskId, taskModel);
+
+        try {
+            lock4MyTasks.lock();
+            myTasks.put(taskId, taskModel);
+        } finally {
+            lock4MyTasks.unlock();
+        }
     }
 
 
     public int getMyTasksSize() {
 
-        return myTasks.size();
+        try {
+            lock4MyTasks.lock();
+            return myTasks.size();
+        } finally {
+            lock4MyTasks.unlock();
+        }
     }
 
 
@@ -311,25 +332,65 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
     }
 
 
-    /**
-     * 创建任务，把任务添加到task节点中
-     *
-     * @param taskEntityList
-     * @return
-     */
-    private int tasksCreator(List<TaskEntity> taskEntityList) throws Exception {
-        for (TaskEntity task : taskEntityList) {
-            String data = task.toString();
-            client.create().withMode(CreateMode.PERSISTENT).forPath("/tasks/task-" + task.getId(), data.getBytes());
-            client.create().withMode(CreateMode.PERSISTENT).forPath("/tasks/task-" + task.getId() + "/status");
-            System.out.println(client.getChildren().forPath("/tasks"));
+    private TaskEntity getTaskData(String taskPath) {
+
+        String taskId = taskPath.split("-")[1];
+        while (!isGetTaskLock(taskId)) {
+            try {
+                Thread.sleep(20);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
-        return 0;
+        try {
+            return JSON.parseObject(new String(client.getData().forPath(taskPath), "UTF-8"), TaskEntity.class);
+        } catch (Exception e) {
+            return null;
+        } finally {
+
+            releaseTaskLock(taskId);
+        }
+    }
+
+
+    private int getTaskStatusData(String statusPath) {
+
+        String taskId = statusPath.split("-")[1].split("/")[0];
+        while (!isGetTaskLock(taskId)) {
+            try {
+                Thread.sleep(20);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        try {
+            return Integer.parseInt(new String(client.getData().forPath(statusPath), "UTF-8"));
+        } catch (Exception e) {
+            return -1;
+        } finally {
+
+            releaseTaskLock(taskId);
+        }
+    }
+
+    public void taskUpdateProcess(String taskStatusPath) {
+
+        String taskPath = TASKS_ROOT_PATH + "/" + taskStatusPath.split("/")[2];
+        if (getTaskStatusData(taskStatusPath) == 0) {
+            TaskEntity entity = getTaskData(taskPath);
+            if (entity == null)
+                return;
+            //entity.setStatus(TaskStatusItem.TASK_STATUS_COMPLETED);
+            removeMyTasks(entity.getId());
+            taskWriteBack(entity);
+            taskDelete(taskPath);
+        }
+
     }
 
 
     private List<TaskEntity> tasksGeter(int size) {
-        if (size == 0)
+        if (size <= 0)
             return new ArrayList<>();
         return this.taskChooser.chooser(size);
     }
@@ -340,52 +401,60 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
         this.scheduler.setPolicy(policy);
     }
 
-    private void tasksCreator() throws Exception {
+    public void tasksCreator() throws Exception {
 
         int size = (int) configs.get(ConfigItem.MAX_RUNNING_TASKS_SIZE) - getMyTasksSize();
 
         List<TaskEntity> taskEntities = tasksGeter(size);
         List<String> workers = getWorks();
-        Map<TaskEntity, List<String>> twMap = scheduler.scheduleProcess(taskEntities, workers);
+        if (taskEntities == null || taskEntities.size() == 0 || workers == null || workers.size() == 0)
+            return;
 
-        for (Map.Entry item : twMap.entrySet()) {
-            while (!isGetTaskLock(((TaskEntity) item.getKey()).getId())) {
-                try {
-                    Thread.sleep(20);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+        final Map<TaskEntity, List<String>> twMap = scheduler.scheduleProcess(taskEntities, workers);
+
+        this.executorService.execute(new Runnable() {
+            @Override
+            public void run() {
+                for (Map.Entry item : twMap.entrySet()) {
+                    while (!isGetTaskLock(((TaskEntity) item.getKey()).getId())) {
+                        try {
+                            Thread.sleep(20);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    try {
+
+                        String taskId = ((TaskEntity) item.getKey()).getId();
+                        byte[] taskData = (item.getKey()).toString().getBytes();
+                        List<String> ws = (List<String>) item.getValue();
+
+                        TaskModel taskModel = new TaskModel(TASKS_ROOT_PATH + "/task-" + taskId, ((TaskEntity) item.getKey()), "" + ws.size(), ws);
+                        taskModel.setTaskStatus(TaskStatusItem.TASK_STATUS_RUNNING);
+
+                        client.create().withMode(CreateMode.PERSISTENT).forPath(TASKS_ROOT_PATH + "/task-" + taskId, taskModel.getEntity().toString().getBytes());
+                        for (String w : ws) {
+                            client.create().withMode(CreateMode.PERSISTENT).forPath(TASKS_ROOT_PATH + "/task-" + taskId + "/" + w, "".getBytes());
+                        }
+                        client.create().withMode(CreateMode.PERSISTENT).forPath(TASKS_ROOT_PATH + "/task-" + taskId + "/status", ("" + ws.size()).getBytes());
+
+                        addToMyTasks(taskId, taskModel);
+                        taskWriteBack(taskModel.getEntity());
+
+                    } catch (Exception ex) {
+
+                    } finally {
+                        releaseTaskLock(((TaskEntity) item.getKey()).getId());
+                    }
                 }
             }
-
-            try {
-
-                String taskId = ((TaskEntity) item.getKey()).getId();
-                byte[] taskData = (item.getKey()).toString().getBytes();
-                List<String> ws = (List<String>) item.getValue();
-
-                TaskModel taskModel = new TaskModel(TASKS_ROOT_PATH + "/task-" + taskId, ((TaskEntity) item.getKey()), "" + ws.size(), ws);
-                taskModel.setTaskStatus(TaskStatusItem.TASK_STATUS_RUNNING);
-
-                client.create().withMode(CreateMode.PERSISTENT).forPath(TASKS_ROOT_PATH + "/task-" + taskId, taskData);
-                for (String w : ws) {
-                    client.create().withMode(CreateMode.PERSISTENT).forPath(TASKS_ROOT_PATH + "/task-" + taskId + "/" + w, "".getBytes());
-                }
-                client.create().withMode(CreateMode.PERSISTENT).forPath(TASKS_ROOT_PATH + "/task-" + taskId + "/status", ("" + ws.size()).getBytes());
-
-                addToMyTasks(taskId, taskModel);
-                tasksWriteBack(taskModel.getEntity());
-
-            } catch (Exception ex) {
-
-            } finally {
-                releaseTaskLock(((TaskEntity) item.getKey()).getId());
-            }
-        }
+        });
 
     }
 
 
-    private int tasksWriteBack(TaskEntity taskEntity) {
+    private int taskWriteBack(TaskEntity taskEntity) {
 
         return new TaskDao().updateTaskEntityById(taskEntity);
     }
@@ -410,7 +479,9 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
         }
 
         try {
-            client.delete().forPath(taskNode + "/status");
+            List<String> children = client.getChildren().forPath(taskNode);
+            for (String item : children)
+                client.delete().forPath(taskNode + "/" + item);
             client.delete().forPath(taskNode);
         } catch (Exception e) {
             e.printStackTrace();
@@ -527,81 +598,5 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
         return works;
     }
 
-    public void listenTaskNode() throws Exception {
-        CountDownLatch countDownLatch = new CountDownLatch(1);
-        //ExecutorService pool = Executors.newCachedThreadPool();
-        //设置节点的cache
-        TreeCache treeCache = new TreeCache(client, TASKS_ROOT_PATH);
-        //设置监听器和处理过程
-        treeCache.getListenable().addListener(new TreeCacheListener() {
-            @Override
-            public void childEvent(org.apache.curator.framework.CuratorFramework client, TreeCacheEvent event) throws Exception {
-                String regexp = "/tasks/task-\\d{10}-\\d{10}";
-                Pattern pattern = Pattern.compile(regexp);
-                //System.out.println(event.getType());
-                ChildData data = event.getData();
-                switch (event.getType()) {
-                    case NODE_ADDED:
-                        String path = event.getData().getPath();
-                        if (pattern.matcher(path).matches()) {
-                            //   client.create().withMode(CreateMode.PERSISTENT).forPath(path + "/status");
-                            System.out.println(client.getChildren().forPath("/tasks"));
-                        }
-                        System.out.println("NODE_ADDED : " + data.getPath() + "  数据:" + new String(data.getData()));
-                        break;
-                    case NODE_REMOVED:
-                        System.out.println("NODE_REMOVED : " + data.getPath());
-                        break;
-                    case NODE_UPDATED:
-                        System.out.println("NODE_UPDATED : " + data.getPath() + "  数据:" + new String(data.getData()));
-                        break;
-                    default:
-                        break;
-                }
-                if (data == null) {
-                    System.out.println("data is null : " + event.getType());
-                }
-            }
-        });
-        //开始监听
-        treeCache.start();
-
-        countDownLatch.await();
-    }
-
-/*    public static void main(String[] args) throws Exception {
-        TaskEntity taskEntity = new TaskEntity();
-        taskEntity.setId("1234567890");
-        taskEntity.setName("WWW");
-        taskEntity.setCompleteTimes(2);
-        taskEntity.setDeleteFlag(true);
-        taskEntity.setCostLastCrawl(20);
-        taskEntity.setCycleRecrawl(40);
-        taskEntity.setDepthCrawl(3);
-        taskEntity.setIdUser(0144552);
-        *//*taskEntity.setPathTemplates("agvb");
-        taskEntity.setSeedUrls("rety");
-        taskEntity.setPathRegexFilter("trh");
-        taskEntity.setSeedUrls("url1,url2,url3");
-        taskEntity.setPathRegexFilter("ngjrd");*//*
-        taskEntity.setThreads(3);
-        taskEntity.setWorkNum(5);
-        List<TaskEntity> taskEntityList = new ArrayList<TaskEntity>();
-        taskEntityList.add(taskEntity);
-        TaskClient taskClient = new TaskClient();
-        taskClient.client = CuratorFrameworkFactory.newClient("88.88.88.110:2181", new RetryNTimes(Integer.MAX_VALUE, 1000));
-        taskClient.client.start();
-        taskClient.tasksCreator(taskEntityList);
-        List<String> works = taskClient.getWorks();
-        EveryWorkerPolicy manualPolicy = new EveryWorkerPolicy();
-        Scheduler scheduler = new Scheduler(manualPolicy);
-        Map<String, List<String>> map = scheduler.getPolicy().process(works, taskEntityList);
-        for (TaskEntity task : taskEntityList) {
-            for (int j = 0; j < map.get(task.getName()).size(); j++) {
-                taskClient.client.create().forPath(TASKS_ROOT_PATH + "/task-" + task.getId() + "/" + map.get(task.getName()).get(j));
-            }
-            taskClient.client.setData().forPath(TASKS_ROOT_PATH + "/task-" + task.getId() + "/status", ("" + works.size()).getBytes());
-        }
-    }*/
 
 }

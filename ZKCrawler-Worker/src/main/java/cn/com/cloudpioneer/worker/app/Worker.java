@@ -21,6 +21,8 @@ import java.io.Closeable;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -120,6 +122,12 @@ public class Worker implements Closeable, ConnectionStateListener {
      * 根据变化情况的不同，worker 完成不同的操作。
      */
     private TreeCacheListener myTaskCacheListener;
+
+
+    /**
+     *
+     */
+    private ExecutorService executorService;
 
     /**
      * 获取 worker 的 workerId，获取方式是
@@ -254,10 +262,11 @@ public class Worker implements Closeable, ConnectionStateListener {
         task.getEntity().setTimeStop(new Date());
         task.getEntity().setCostLastCrawl(costTime);
         task.getEntity().setCompleteTimes(task.getEntity().getCompleteTimes() + 1);
+        task.getEntity().setStatus(0);
 
         final TaskModel backTask = task;
 
-        new Thread(new Runnable() {
+        executorService.execute(new Runnable() {
             @Override
             public void run() {
 
@@ -383,7 +392,7 @@ public class Worker implements Closeable, ConnectionStateListener {
                 LOGGER.info("write count data back  Success. release the lock and return this thread.");
                 releaseTaskLock(backTask.getEntity().getId());
             }
-        }).start();
+        });
 
     }
 
@@ -400,6 +409,7 @@ public class Worker implements Closeable, ConnectionStateListener {
         myTasksLock = new ReentrantLock();
         myTasks = new MyTasks();
         workerId = getMyId();
+        executorService = Executors.newFixedThreadPool(10);
         LOGGER.info("Worker constructing, hostPort:" + hostPort);
         LOGGER.info("my work id: " + workerId);
         this.client = CuratorFrameworkFactory.newClient(hostPort, retryPolicy);
@@ -435,7 +445,7 @@ public class Worker implements Closeable, ConnectionStateListener {
         addTask(task);
         LOGGER.info("task added: myTasksSize: " + getMyTasksSize());
 
-        new Thread(new Runnable() {
+        executorService.execute(new Runnable() {
             @Override
             public void run() {
 
@@ -450,7 +460,7 @@ public class Worker implements Closeable, ConnectionStateListener {
                 }
 
             }
-        }).start();
+        });
     }
 
 
@@ -461,7 +471,7 @@ public class Worker implements Closeable, ConnectionStateListener {
      */
     public void removeTaskInRunning(final TaskModel task) {
 
-        new Thread(new Runnable() {
+        executorService.execute(new Runnable() {
             @Override
             public void run() {
 
@@ -471,7 +481,7 @@ public class Worker implements Closeable, ConnectionStateListener {
                     e.printStackTrace();
                 }
             }
-        }).start();
+        });
 
     }
 
@@ -579,6 +589,11 @@ public class Worker implements Closeable, ConnectionStateListener {
         LOGGER.info("zookeeper client started.");
     }
 
+    public void myExecutor(Runnable task) {
+
+        if (!executorService.isShutdown())
+            executorService.execute(task);
+    }
 
     /**
      * 此方法调用节点注册方法 register，进行
