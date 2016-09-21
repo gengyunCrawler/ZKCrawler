@@ -153,8 +153,11 @@ public class SeleniumDownloader implements Downloader, Closeable {
         for (String domain:webDriverMap.keySet()){
             WebDriver driver=webDriverMap.remove(domain);
             if(driver!=null){
-                driver.quit();
+                //exit browser
                 driver.close();
+                //kill browser process
+                driver.quit();
+
                 driver=null;
             }
 

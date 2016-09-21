@@ -16,6 +16,6 @@
         </environment>
     </environments>
     <mappers>
-        <mapper class="cn.com.cloudpioneer.worker.mapper.TaskConfigEntityMapper"/>
+        <mapper class="cn.com.cloudpioneer.taskclient.mapper.TaskEntityMapper"/>
     </mappers>
 </configuration>

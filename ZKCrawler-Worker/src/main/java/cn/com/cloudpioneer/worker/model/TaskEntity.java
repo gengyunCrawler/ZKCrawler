@@ -233,11 +233,11 @@ public class TaskEntity implements Serializable {
         this.workNum = workNum;
     }
 
-    public Date getCreateTime() {
+    public Date getCreateDate() {
         return createDate;
     }
 
-    public void setCreateTime(Date createDate) {
+    public void setCreateDate(Date createDate) {
         this.createDate = createDate;
     }
 
