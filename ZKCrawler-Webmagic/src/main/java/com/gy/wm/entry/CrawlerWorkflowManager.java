@@ -5,8 +5,9 @@ import com.gy.wm.model.CrawlData;
 import com.gy.wm.queue.RedisCrawledQue;
 import com.gy.wm.queue.RedisToCrawlQue;
 import com.gy.wm.schedular.RedisScheduler;
-import com.gy.wm.service.CustomPageProcessor;
 import com.gy.wm.util.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import us.codecraft.webmagic.Spider;
@@ -14,13 +15,12 @@ import us.codecraft.webmagic.Spider;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ResourceBundle;
 
 /**
  * Created by Administrator on 2016/5/18.
  */
 public class CrawlerWorkflowManager {
-    private LogManager logger = new LogManager(CrawlerWorkflowManager.class);
+    private static final Logger LOG= LoggerFactory.getLogger(CrawlerWorkflowManager.class);
     //待爬取队列
     private RedisToCrawlQue nextQueue = InstanceFactory.getRedisToCrawlQue();
     //已爬取队列
@@ -31,8 +31,6 @@ public class CrawlerWorkflowManager {
     private String appname;
 
     private String domain;
-
-    private static final String DOWNLOAD_PLUGIN_NAME = ResourceBundle.getBundle("config").getString("donwloadPluginName");
 
     public CrawlerWorkflowManager(String tid, String appname) {
         this.tid = tid;
@@ -46,7 +44,7 @@ public class CrawlerWorkflowManager {
         Jedis jedis = pool.getResource();
         domain = GetDomain.getDomain(seeds.get(0).getUrl());
 
-        System.out.println("**********domain************: " + domain);
+        LOG.info("****************************domain****************************: " + domain);
         try {
             nextQueue.putNextUrls(seeds, jedis, tid);
         } finally {
@@ -76,6 +74,7 @@ public class CrawlerWorkflowManager {
         }
         String[] urlArray = seedList.toArray(new String[seedList.size()]);
 
+        //Spider抓取类初始化设置
         Spider spider = null;
         try {
             //反射机制取得下载插件，PluginUtil为反射工具类

@@ -1,9 +1,12 @@
 package com.gy.wm.entry;
 
 import com.gy.wm.dbpipeline.MyHbaseUtils;
+import com.gy.wm.downloader.SeleniumDownloader;
 import com.gy.wm.model.CrawlData;
 import com.gy.wm.model.TaskParamModel;
 import com.gy.wm.util.GetDomain;
+import com.gy.wm.util.HttpUtil;
+import com.gy.wm.util.PluginUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -17,6 +20,7 @@ import java.util.ResourceBundle;
 @Service
 public class Crawl {
     private static String nomalEndUri = ResourceBundle.getBundle("api").getString("nomalEndUri");
+    private static final String DOWNLOAD_PLUGIN_NAME = ResourceBundle.getBundle("config").getString("donwloadPluginName");
 
     private static final Logger LOG= LoggerFactory.getLogger(Crawl.class);
 
@@ -65,9 +69,14 @@ public class Crawl {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        LOG.info("***********************************it's finished******************************************");
+        LOG.info("***********************************task finished******************************************");
         long end_time = System.currentTimeMillis();
         LOG.info("time elapse(seconds):" + ((end_time - start_time) / 1000.00));
-//        HttpUtil.postMethod(nomalEndUri + taskEntity.getId());
+        //向worker发送任务结束信息
+        HttpUtil.postMethod(nomalEndUri + taskParamModel.getBase().getId());
+        //如果下载插件式Selenium，需要在程序结束后杀掉webdriver进程
+        String seleniumDownloaderName = "com.gy.wm.downloader.SeleniumDownloader";
+        if(seleniumDownloaderName.equals(DOWNLOAD_PLUGIN_NAME)) {
+        }
     }
 }

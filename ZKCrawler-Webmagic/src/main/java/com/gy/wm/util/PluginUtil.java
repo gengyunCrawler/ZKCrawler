@@ -1,6 +1,5 @@
 package com.gy.wm.util;
 
-import com.gy.wm.downloader.SeleniumDownloader;
 import com.gy.wm.model.CrawlData;
 import com.gy.wm.service.CustomPageProcessor;
 import org.slf4j.Logger;

@@ -20,7 +20,6 @@ public class TaskService {
     private Crawl crawl;
 
     public TaskService()    {
-
     }
 
     public void startTask(TaskParamModel taskParamModel) {
