@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f80612aa-7060-4aab-872b-8b78d4511402" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ZKCrawler-TaskClient/src/main/java/cn/com/cloudpioneer/taskclient/app/TaskClient.java" afterPath="$PROJECT_DIR$/ZKCrawler-TaskClient/src/main/java/cn/com/cloudpioneer/taskclient/app/TaskClient.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ZKCrawler-TaskClient/src/main/java/cn/com/cloudpioneer/taskclient/listener/TasksCacheListener.java" afterPath="$PROJECT_DIR$/ZKCrawler-TaskClient/src/main/java/cn/com/cloudpioneer/taskclient/listener/TasksCacheListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ZKCrawler-TaskClient/src/main/resources/config.properties" afterPath="$PROJECT_DIR$/ZKCrawler-TaskClient/src/main/resources/config.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ZKCrawler-Worker/src/main/java/cn/com/cloudpioneer/worker/app/Worker.java" afterPath="$PROJECT_DIR$/ZKCrawler-Worker/src/main/java/cn/com/cloudpioneer/worker/app/Worker.java" />
     </list>
     <ignored path="ZKCrawler.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1757,7 +1753,7 @@
       <workItem from="1473734729298" duration="38730000" />
       <workItem from="1474193945778" duration="15078000" />
       <workItem from="1474268472716" duration="45897000" />
-      <workItem from="1474419367203" duration="8744000" />
+      <workItem from="1474419367203" duration="8909000" />
     </task>
     <task id="LOCAL-00001" summary="first init">
       <created>1472713688029</created>
@@ -1941,11 +1937,18 @@
       <option name="project" value="LOCAL" />
       <updated>1474373675884</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="完成 TaskClient 的最简单任务分配主骨架，待测试；具体细节处理还需更新完善。2016-09-21 11:25:00">
+      <created>1474428273522</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1474428273523</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="251876000" />
+    <option name="totallyTimeSpent" value="252041000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -2009,7 +2012,8 @@
     <MESSAGE value="修改任务配置从文件存储配置信息转为数据库存储配置信息。" />
     <MESSAGE value="fix TaskClient" />
     <MESSAGE value="快完成TaskClient的简单版了，还差一点点。" />
-    <option name="LAST_COMMIT_MESSAGE" value="快完成TaskClient的简单版了，还差一点点。" />
+    <MESSAGE value="完成 TaskClient 的最简单任务分配主骨架，待测试；具体细节处理还需更新完善。2016-09-21 11:25:00" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成 TaskClient 的最简单任务分配主骨架，待测试；具体细节处理还需更新完善。2016-09-21 11:25:00" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
