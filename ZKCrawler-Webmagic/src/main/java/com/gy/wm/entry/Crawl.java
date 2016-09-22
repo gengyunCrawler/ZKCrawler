@@ -45,7 +45,7 @@ public class Crawl {
         workflow.crawl(crawlDataList, tid, starttime, pass);
     }
 
-    public static void startTask(TaskParamModel taskParamModel) {
+    public void startTask(TaskParamModel taskParamModel) {
         long start_time = System.currentTimeMillis();
         int depth = taskParamModel.getBase().getDepthCrawl();
         int pass = taskParamModel.getBase().getPass();
