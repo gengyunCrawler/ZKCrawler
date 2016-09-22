@@ -258,7 +258,7 @@ public class Worker implements Closeable, ConnectionStateListener {
             LOGGER.warn("try to write back a null task to the TaskClient, taskId = " + taskId + ", ignore it.");
             return;
         }
-        final int costTime = (int) (System.currentTimeMillis() - task.getStartTime());
+        final int costTime = (int) ((System.currentTimeMillis() - task.getStartTime()) / 1000 / 60);
         task.getEntity().setTimeStop(new Date());
         task.getEntity().setCostLastCrawl(costTime);
         task.getEntity().setCompleteTimes(task.getEntity().getCompleteTimes() + 1);
@@ -535,6 +535,20 @@ public class Worker implements Closeable, ConnectionStateListener {
             return myTasks.removeTask(id);
         } catch (Exception e) {
             return null;
+        } finally {
+
+            myTasksLock.unlock();
+        }
+    }
+
+
+    public boolean containsTask(String taskId) {
+
+        try {
+            myTasksLock.lock();
+            return myTasks.containsKey(taskId);
+        } catch (Exception e) {
+            return false;
         } finally {
 
             myTasksLock.unlock();

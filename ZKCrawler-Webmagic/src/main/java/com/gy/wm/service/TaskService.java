@@ -48,7 +48,7 @@ public class TaskService {
             return;
         }
 
-        LOGGER.warn("===> executorService was shutdown !!!! crawler task can't be started");
+        LOGGER.warn("===> executorService was shutdown !!!! crawler task can't be started.");
 
     }
 
