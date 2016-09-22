@@ -373,18 +373,24 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
         }
     }
 
-    public void taskUpdateProcess(String taskStatusPath) {
+    public boolean taskUpdateProcess(String taskStatusPath) {
 
         String taskPath = TASKS_ROOT_PATH + "/" + taskStatusPath.split("/")[2];
         if (getTaskStatusData(taskStatusPath) == 0) {
             TaskEntity entity = getTaskData(taskPath);
-            if (entity == null)
-                return;
+            if (entity == null) {
+                return false;
+            }
+            LOGGER.info("===> taskUpdateProcess get task data:\n\t" + entity.toString());
             //entity.setStatus(TaskStatusItem.TASK_STATUS_COMPLETED);
             removeMyTasks(entity.getId());
             taskWriteBack(entity);
             taskDelete(taskPath);
+
+            return true;
         }
+
+        return false;
 
     }
 

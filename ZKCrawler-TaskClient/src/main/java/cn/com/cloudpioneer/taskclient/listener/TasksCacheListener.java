@@ -59,10 +59,11 @@ public class TasksCacheListener implements TreeCacheListener {
                 LOGGER.info("====> Tasks Listener, NODE_UPDATED event.");
                 LOGGER.info("====> node path: " + nodePath);
 
-                if (isThisNodeUpdated(nodePath, "status")) {
-                    taskClient.taskUpdateProcess(nodePath);
+                if (isThisNodeUpdated(nodePath, "status") &&
+                        taskClient.taskUpdateProcess(nodePath)) {
                     taskClient.tasksCreator();
                 }
+
 
                 break;
             case NODE_REMOVED:

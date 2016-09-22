@@ -251,14 +251,14 @@ public class Worker implements Closeable, ConnectionStateListener {
      *
      * @param taskId 任务完成并要回写的任务ID
      */
-    public void myTaskWirteBack(String taskId) {
+    public void myTaskWriteBack(String taskId) {
 
         TaskModel task = removeTask(taskId);
         if (task == null) {
             LOGGER.warn("try to write back a null task to the TaskClient, taskId = " + taskId + ", ignore it.");
             return;
         }
-        int costTime = (int) (System.currentTimeMillis() - task.getStartTime());
+        final int costTime = (int) (System.currentTimeMillis() - task.getStartTime());
         task.getEntity().setTimeStop(new Date());
         task.getEntity().setCostLastCrawl(costTime);
         task.getEntity().setCompleteTimes(task.getEntity().getCompleteTimes() + 1);
@@ -315,6 +315,7 @@ public class Worker implements Closeable, ConnectionStateListener {
 
                 try {
                     count = Integer.parseInt(new String(data, "UTF-8"));
+                    LOGGER.info("===> count data is: " + count);
                 } catch (UnsupportedEncodingException e) {
                     e.printStackTrace();
                 }
@@ -348,12 +349,13 @@ public class Worker implements Closeable, ConnectionStateListener {
                         try {
                             client.setData().forPath(backTask.getTaskPath() + "/status", "0".getBytes());
                         } catch (Exception e) {
-                            LOGGER.warn("write task data back to znode: " + backTask.getTaskPath() + "/status Exception. retry ......");
+                            LOGGER.warn("write task status data back to znode: " + backTask.getTaskPath() + "/status Exception. retry ......");
                             retry--;
                             isException = true;
                             continue;
                         }
                         isException = false;
+                        LOGGER.info("write task status data back to znode: " + backTask.getTaskPath() + "/status Success.");
                         break;
                     }
 
@@ -381,16 +383,14 @@ public class Worker implements Closeable, ConnectionStateListener {
                             continue;
                         }
                         isException = false;
+                        LOGGER.info(("write count back to znode: " + backTask.getTaskPath() + "/status Success."));
                         break;
                     }
+                    if (isException) {
+                        LOGGER.error("write count data back error. release the lock and return this thread.");
+                        releaseTaskLock(backTask.getEntity().getId());
+                    }
                 }
-                if (isException) {
-                    LOGGER.error("write count data back error. release the lock and return.");
-                    releaseTaskLock(backTask.getEntity().getId());
-                    return;
-                }
-                LOGGER.info("write count data back  Success. release the lock and return this thread.");
-                releaseTaskLock(backTask.getEntity().getId());
             }
         });
 

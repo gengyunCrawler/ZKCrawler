@@ -1,4 +1,4 @@
-import com.gy.wm.Application;
+import com.gy.wm.ApplicationWebmagic;
 import com.gy.wm.controller.API;
 import com.gy.wm.vo.Base;
 import com.gy.wm.vo.Param;
@@ -23,7 +23,7 @@ import java.util.List;
  **/
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = Application.class)
+@SpringApplicationConfiguration(classes = ApplicationWebmagic.class)
 @WebAppConfiguration
 public  class ServiceTest {
     @Autowired

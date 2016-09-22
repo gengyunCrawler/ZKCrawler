@@ -1,7 +1,7 @@
-package cn.com.cloudpioneer.worker;
+package cn.com.cloudpioneer.taskclient;
 
-import cn.com.cloudpioneer.worker.app.Worker;
-import org.apache.curator.retry.ExponentialBackoffRetry;
+import cn.com.cloudpioneer.taskclient.app.TaskClient;
+import org.apache.curator.retry.RetryNTimes;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -15,7 +15,7 @@ import java.util.ResourceBundle;
 
 
 @SpringBootApplication
-public class Application {
+public class ApplicationTaskClient {
 
     /**
      * zookeeper 的链接字符串，从配置文件中获得。
@@ -29,22 +29,22 @@ public class Application {
      * @param args
      * @throws InterruptedException
      */
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws Exception {
 
         /**
-         * 初始化 worker。
+         * 初始化 task client。
          */
-        Worker worker = Worker.initializeWorker(zkHostPort, new ExponentialBackoffRetry(1000, 5));
+        TaskClient taskClient = TaskClient.initializeTaskClient(zkHostPort, new RetryNTimes(5, 1000), null, null, null);
 
         /**
          * 启动 spring boot 服务。
          */
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(ApplicationTaskClient.class, args);
 
         /**
-         * 启动 worker。
+         * 启动 task client。
          */
-        worker.workerStart();
+        taskClient.startTaskClient();
     }
 
 }
