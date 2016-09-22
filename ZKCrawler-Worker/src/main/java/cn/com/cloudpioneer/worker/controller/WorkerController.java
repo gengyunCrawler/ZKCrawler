@@ -1,6 +1,8 @@
 package cn.com.cloudpioneer.worker.controller;
 
 import cn.com.cloudpioneer.worker.service.WorkerService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +22,8 @@ import javax.servlet.ServletRequest;
 @RestController
 @RequestMapping("/worker")
 public class WorkerController {
+
+    private static Logger LOGGER = LoggerFactory.getLogger(WorkerController.class);
 
     @Autowired
     private WorkerService workerService;
@@ -52,11 +56,13 @@ public class WorkerController {
      * @return
      */
     @RequestMapping("taskWriteBack/{taskId}")
-    public String taskWirteBack(@PathVariable("taskId") String taskId) {
+    public String taskWriteBack(@PathVariable("taskId") String taskId) {
+
+        LOGGER.info("task write back call, taskId = " + taskId);
 
         workerService.taskWriteBack(taskId);
 
-        return "0";
+        return taskId;
     }
 
 }

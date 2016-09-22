@@ -1,4 +1,4 @@
-package cn.com.cloudpioneer.master;
+package cn.com.cloudpioneer.master.app;
 
 import cn.com.cloudpioneer.master.utils.CuratorUtils;
 import org.apache.curator.RetryPolicy;

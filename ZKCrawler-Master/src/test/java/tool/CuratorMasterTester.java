@@ -1,6 +1,6 @@
 package tool;
 
-import cn.com.cloudpioneer.master.CuratorMaster;
+import cn.com.cloudpioneer.master.app.CuratorMaster;
 import org.apache.curator.retry.ExponentialBackoffRetry;
 import org.apache.zookeeper.CreateMode;
 import org.junit.Test;

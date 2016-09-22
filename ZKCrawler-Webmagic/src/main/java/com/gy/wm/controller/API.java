@@ -20,30 +20,29 @@ import java.util.concurrent.ExecutorService;
  **/
 @RestController
 @Scope("prototype")
-public class API implements Runnable{
+public class API implements Runnable {
     @Autowired
     private TaskService taskService;
 
     @RequestMapping("/")
-    public String test()  {
+    public String test() {
         return "test!";
     }
 
     /**
-     *
      * @param taskParamModel
      * @return
      */
-    @RequestMapping(value = "/startTask",method = RequestMethod.POST,produces = {MediaType.APPLICATION_JSON_VALUE})
-    public String startTask(@RequestBody TaskParamModel taskParamModel)   {
+    @RequestMapping(value = "/startTask", method = RequestMethod.POST, produces = {MediaType.APPLICATION_JSON_VALUE})
+    public String startTask(@RequestBody TaskParamModel taskParamModel) {
         final TaskParamModel taskModel = taskParamModel;
-        new Thread(new Runnable() {
+        TaskService.taskExecutor(new Runnable() {
             @Override
             public void run() {
                 API.this.taskService.startTask(taskModel);
             }
-        }).start();
-        return "ok";
+        });
+        return taskModel.getBase().getId();
     }
 
     @Override

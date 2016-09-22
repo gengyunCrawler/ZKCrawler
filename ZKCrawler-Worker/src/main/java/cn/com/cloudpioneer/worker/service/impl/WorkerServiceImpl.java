@@ -25,7 +25,7 @@ public class WorkerServiceImpl implements WorkerService {
     @Override
     public void taskWriteBack(String taskId) {
 
-        worker.myTaskWirteBack(taskId);
+        worker.myTaskWriteBack(taskId);
 
     }
 

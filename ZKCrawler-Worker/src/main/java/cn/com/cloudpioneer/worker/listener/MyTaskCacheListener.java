@@ -105,7 +105,7 @@ public class MyTaskCacheListener implements TreeCacheListener {
                         }
 
                         TaskModel taskModel = new TaskModel(taskPath, taskData);
-                        worker.myTaskWirteBack(taskModel.getEntity().getId());
+                        worker.myTaskWriteBack(taskModel.getEntity().getId());
                         worker.removeTaskInRunning(taskModel);
 
                     } else
