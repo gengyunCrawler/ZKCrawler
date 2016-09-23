@@ -46,7 +46,7 @@ public class TasksCacheListener implements TreeCacheListener {
     public void childEvent(CuratorFramework curatorFramework, TreeCacheEvent treeCacheEvent) throws Exception {
 
         String nodePath = null;
-        TaskClient taskClient = TaskClient.getTaskClient();
+        TaskClient taskClient = TaskClient.getThisTaskClient();
 
         switch (treeCacheEvent.getType()) {
             case NODE_ADDED:

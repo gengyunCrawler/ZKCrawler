@@ -15,7 +15,7 @@ public class CuratorMasterTester
     @Test
     public void testGetTasks() throws Exception
     {
-        CuratorMaster master=new CuratorMaster("123","192.168.142.2:2181",new ExponentialBackoffRetry(1000,5000));
+        CuratorMaster master=new CuratorMaster("192.168.142.2:2181",new ExponentialBackoffRetry(1000,5000), null);
         master.startZK();
 //        master.getClient().create().withMode(CreateMode.PERSISTENT).forPath("/assigns");
 //        master.getClient().create().withMode(CreateMode.PERSISTENT).forPath("/tasks/task-123", new byte[0]);

@@ -389,7 +389,11 @@ public class Worker implements Closeable, ConnectionStateListener {
                     if (isException) {
                         LOGGER.error("write count data back error. release the lock and return this thread.");
                         releaseTaskLock(backTask.getEntity().getId());
+                        return;
                     }
+
+                    LOGGER.info("write count data back to TaskClient Success. release the lock.");
+                    releaseTaskLock(backTask.getEntity().getId());
                 }
             }
         });

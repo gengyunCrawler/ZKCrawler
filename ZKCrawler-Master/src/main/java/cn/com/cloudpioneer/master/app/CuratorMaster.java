@@ -1,6 +1,7 @@
 package cn.com.cloudpioneer.master.app;
 
 import cn.com.cloudpioneer.master.utils.CuratorUtils;
+import com.sun.istack.internal.Nullable;
 import org.apache.curator.RetryPolicy;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
@@ -70,7 +71,7 @@ public class CuratorMaster implements Closeable, LeaderSelectorListener {
      * @param hostPort
      * @param retryPolicy
      */
-    public CuratorMaster(String myId, String hostPort, RetryPolicy retryPolicy) {
+    public CuratorMaster(String hostPort, RetryPolicy retryPolicy, @Nullable String myId) {
         if (myId != null) {
             this.myId = myId;
         }

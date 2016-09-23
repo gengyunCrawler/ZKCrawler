@@ -42,7 +42,9 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
 
     private static Logger LOGGER = LoggerFactory.getLogger(TaskClient.class);
 
-    private static volatile TaskClient taskClient;
+    private static volatile TaskClient thisTaskClient;
+
+    private Timer tasksTimer;
 
     //TaskClient的配置
     private Map<String, Object> configs;
@@ -87,8 +89,10 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
     private CountDownLatch closeLatch = new CountDownLatch(1);
 
 
+    private static int tasksScannerPeriod = 2;
+
     /**
-     * taskClient 自己拥有的所有锁的集合。taskLockMap 存储 worker 当前自己拥有的锁。
+     * thisTaskClient 自己拥有的所有锁的集合。taskLockMap 存储 worker 当前自己拥有的锁。
      */
     private Map<String, String> taskLockMap;
 
@@ -102,8 +106,16 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
     public static final String CLIENT_ROOT_PATH = "/TASK_CLIENT";
 
 
+    static {
+        try {
+            tasksScannerPeriod = Integer.parseInt(ResourceBundle.getBundle("config").getString("TASKS_SCANNER_PERIOD"));
+        } catch (NumberFormatException e) {
+            tasksScannerPeriod = 2;
+        }
+    }
+
     /**
-     * taskClient 在工作时，是围绕任务来进行的，因而锁也是围绕任务来建立的。
+     * thisTaskClient 在工作时，是围绕任务来进行的，因而锁也是围绕任务来建立的。
      * 此方法是获取某个任务的锁。在 worker 中所说的锁都是独享锁。
      *
      * @param taskId 任务ID，以获取此任务的锁。
@@ -125,7 +137,7 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
 
 
     /**
-     * 释放 taskClient 获得的锁。
+     * 释放 thisTaskClient 获得的锁。
      *
      * @param taskId 任务ID，也是该任务的锁id。
      */
@@ -155,19 +167,20 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
 
     public static TaskClient initializeTaskClient(String hostPort, RetryPolicy retryPolicy, @Nullable String myId, @Nullable TaskChooser taskChooser, @Nullable String configFileName) {
 
-        if (taskClient == null)
-            taskClient = new TaskClient(hostPort, retryPolicy, myId, taskChooser, configFileName);
-        return taskClient;
+        if (thisTaskClient == null)
+            thisTaskClient = new TaskClient(hostPort, retryPolicy, myId, taskChooser, configFileName);
+        return thisTaskClient;
 
     }
 
-    public static TaskClient getTaskClient() {
-        return taskClient;
+    public static TaskClient getThisTaskClient() {
+        return thisTaskClient;
     }
 
 
     private TaskClient(String hostPort, RetryPolicy retryPolicy, @Nullable String myId, @Nullable TaskChooser taskChooser, @Nullable String configFileName) {
 
+        this.tasksTimer = new Timer();
         this.myTasks = new HashMap<>();
         this.taskLockMap = new HashMap<>();
         this.executorService = Executors.newFixedThreadPool(10);
@@ -191,6 +204,20 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
         this.leaderSelector = new LeaderSelector(this.client, CLIENT_ROOT_PATH, this);
         this.workersCache = new TreeCache(this.client, WORKERS_ROOT_PATH);
         this.tasksCache = new TreeCache(this.client, TASKS_ROOT_PATH);
+
+        tasksTimer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                try {
+                    LOGGER.info("+++-> tasks scanning ......  period: " + tasksScannerPeriod + " minutes");
+                    tasksScanner();
+
+                } catch (Exception e) {
+
+                    LOGGER.warn("+++-> tasks scanning Exception!!!!");
+                }
+            }
+        }, 120 * 1000, tasksScannerPeriod * 60 * 1000);
     }
 
     public void myExecutor(Runnable task) {
@@ -407,7 +434,7 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
         this.scheduler.setPolicy(policy);
     }
 
-    public void tasksCreator() throws Exception {
+    public synchronized void tasksCreator() throws Exception {
 
         int size = (int) configs.get(ConfigItem.MAX_RUNNING_TASKS_SIZE) - getMyTasksSize();
 
@@ -460,6 +487,12 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
     }
 
 
+    private void tasksScanner() throws Exception {
+        if (!isLeader())
+            return;
+        tasksCreator();
+    }
+
     private int taskWriteBack(TaskEntity taskEntity) {
 
         return new TaskDao().updateTaskEntityById(taskEntity);
@@ -501,7 +534,7 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
     private void runForTaskClient() {
 
         leaderSelector.setId(myId);
-        LOGGER.info("Starting taskClient selection: " + myId);
+        LOGGER.info("Starting thisTaskClient selection: " + myId);
         leaderSelector.start();
     }
 
@@ -516,7 +549,7 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
     @Override
     public void takeLeadership(CuratorFramework client) throws Exception {
         //listenTaskNode();
-        LOGGER.info("Mastership participants for taskClient: " + myId + ", " + leaderSelector.getParticipants());
+        LOGGER.info("Mastership participants for thisTaskClient: " + myId + ", " + leaderSelector.getParticipants());
 
         addTasksListener(new TasksCacheListener());
         addWorkersListener(new WorkersCacheListener());
