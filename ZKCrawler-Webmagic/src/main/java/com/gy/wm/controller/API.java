@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.concurrent.ExecutorService;
-
 /**
  * worker和webmagic交互的API
  *
@@ -29,7 +27,7 @@ public class API implements Runnable {
         return "test!";
     }
 
-    /**
+    /**开始任务接口
      * @param taskParamModel
      * @return
      */
@@ -43,6 +41,15 @@ public class API implements Runnable {
             }
         });
         return taskModel.getBase().getId();
+    }
+
+    /**
+     * 任务结束后清除rendis数据
+     * @param tid
+     * @return String
+     */
+    public String cleanTaskRedis(String tid)    {
+        return this.taskService.cleanTaskRedis(tid);
     }
 
     @Override

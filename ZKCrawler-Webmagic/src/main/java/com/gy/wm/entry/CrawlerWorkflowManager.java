@@ -58,13 +58,6 @@ public class CrawlerWorkflowManager {
         }
         //初始化webMagic的Spider程序
         initSpider(seeds, domain);
-
-        //结束之后清空对应任务的redis
-//        jedis.del("redis:bloomfilter:" + tid);
-//        jedis.del("queue_" + tid);
-//        jedis.del("webmagicCrawler::ToCrawl::" + tid);
-//        jedis.del("webmagicCrawler::Crawled::" + tid);
-
     }
 
     protected void initSpider(List<CrawlData> seeds, String domain) {
