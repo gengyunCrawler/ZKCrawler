@@ -1,4 +1,4 @@
-package cn.com.cloudpioneer.zkcapi.utils;
+package cn.com.cloudpioneer.master.utils;
 
 import java.util.Random;
 

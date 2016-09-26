@@ -1,4 +1,4 @@
-package cn.com.cloudpioneer.zkcapi.app;
+package cn.com.cloudpioneer.zkcrawlerAPI;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,11 +8,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 
 @SpringBootApplication
-public class Application {
+public class ApplicationAPI {
 
     public static void main(String[] args) {
 
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(ApplicationAPI.class, args);
 
     }
 

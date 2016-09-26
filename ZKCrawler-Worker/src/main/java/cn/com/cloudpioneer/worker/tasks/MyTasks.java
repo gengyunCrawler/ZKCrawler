@@ -75,6 +75,12 @@ public class MyTasks {
         return tasksMap.size();
     }
 
+
+    public boolean containsKey(String key){
+
+        return tasksMap.containsKey(key);
+    }
+
     /**
      * 获取当前所有任务
      *

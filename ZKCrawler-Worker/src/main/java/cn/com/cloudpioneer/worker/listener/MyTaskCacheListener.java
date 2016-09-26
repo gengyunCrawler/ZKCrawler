@@ -76,6 +76,7 @@ public class MyTaskCacheListener implements TreeCacheListener {
 
                         TaskModel taskModel = new TaskModel(taskPath, taskData);
                         taskModel.getEntity().setTimeStart(new Date());
+                        taskModel.getEntity().setTimeLastCrawl(new Date());
                         GetTaskConfig getTaskConfig = new GetTaskConfig();
                         taskModel.setConfigs(GetTaskConfig.configsParser(getTaskConfig.findConfigs(taskModel.getEntity().getId())));
                         worker.addTaskToRunning(taskModel);
@@ -100,11 +101,15 @@ public class MyTaskCacheListener implements TreeCacheListener {
                         byte[] taskData = worker.getZnodeData(taskPath);
 
                         if (taskData == null) {
-                            LOGGER.error("get task data from znode error, task will not start, return this Event Handler.");
+                            LOGGER.error("get task data from znode error, task will not stop, return this Event Handler.");
                             return;
                         }
 
                         TaskModel taskModel = new TaskModel(taskPath, taskData);
+                        if (!worker.containsTask(taskModel.getEntity().getId())) {
+                            LOGGER.info("==> the removed task not in myTasks, return this Event Handler.");
+                            return;
+                        }
                         worker.myTaskWriteBack(taskModel.getEntity().getId());
                         worker.removeTaskInRunning(taskModel);
 
