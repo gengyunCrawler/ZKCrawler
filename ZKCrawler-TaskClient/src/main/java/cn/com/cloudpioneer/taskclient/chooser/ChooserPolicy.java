@@ -7,6 +7,7 @@ import java.util.List;
 /**
  * Created by Tianjinjin on 2016/9/1.
  */
-public interface TaskChooser {
-    public List<TaskEntity> chooser(int size);
+public interface ChooserPolicy {
+
+    List<TaskEntity> chooser(int size);
 }

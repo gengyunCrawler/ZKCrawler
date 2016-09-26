@@ -18,9 +18,9 @@ public class TasksCacheListener implements TreeCacheListener {
 
     private boolean isThisNodeUpdated(String nodePath, String nodeName) {
 
-        Pattern taskStatusPath = Pattern.compile(TaskClient.TASKS_ROOT_PATH + "/task-.*/status");
-        Pattern taskPath = Pattern.compile(TaskClient.TASKS_ROOT_PATH + "/task-.*");
-        Pattern workerPath = Pattern.compile(TaskClient.TASKS_ROOT_PATH + "/task-.*/worker-.*");
+        Pattern taskStatusPath = Pattern.compile(TaskClient.ROOT_PATH_TASKS + "/task-.*/status");
+        Pattern taskPath = Pattern.compile(TaskClient.ROOT_PATH_TASKS + "/task-.*");
+        Pattern workerPath = Pattern.compile(TaskClient.ROOT_PATH_TASKS + "/task-.*/worker-.*");
 
         switch (nodeName) {
             case "task":

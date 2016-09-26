@@ -57,7 +57,6 @@ public class TaskService {
     }
 
 
-
     @Autowired
     private Crawl crawl;
 
@@ -69,7 +68,7 @@ public class TaskService {
     }
 
 
-    public String cleanTaskRedis(String tid)  {
+    public String cleanTaskRedis(String tid) {
         JedisPoolUtils jedisPoolUtils = null;
         JedisPool pool = null;
         Jedis jedis = null;
@@ -89,7 +88,7 @@ public class TaskService {
         } finally {
             pool.returnResource(jedis);
         }
-        return tid+"has been cleaned";
+        return tid + "has been cleaned";
     }
 
     public void test() {

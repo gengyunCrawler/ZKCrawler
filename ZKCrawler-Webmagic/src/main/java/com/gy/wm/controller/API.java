@@ -5,12 +5,7 @@ import com.gy.wm.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.util.concurrent.ExecutorService;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * worker和webmagic交互的API
@@ -20,11 +15,12 @@ import java.util.concurrent.ExecutorService;
  **/
 @RestController
 @Scope("prototype")
+@RequestMapping("/WebMagic")
 public class API implements Runnable {
     @Autowired
     private TaskService taskService;
 
-    @RequestMapping("/")
+    @RequestMapping("/test")
     public String test() {
         return "test!";
     }
@@ -45,13 +41,32 @@ public class API implements Runnable {
         return taskModel.getBase().getId();
     }
 
+
+    /**
+     * @param taskId
+     * @return
+     */
+    @RequestMapping("/stopTask/{taskId}")
+    public String stopTask(@PathVariable("taskId") String taskId) {
+
+        return taskId;
+    }
+
     /**
      * 任务结束后清除rendis数据
-     * @param tid
+     *
+     * @param taskId
      * @return String
      */
-    public String cleanTaskRedis(String tid)    {
-        return this.taskService.cleanTaskRedis(tid);
+    @RequestMapping(value = "/cleanTaskRedis/{taskId}", method = RequestMethod.POST)
+    public String cleanTaskRedis(@PathVariable("taskId") final String taskId) {
+        TaskService.taskExecutor(new Runnable() {
+            @Override
+            public void run() {
+                taskService.cleanTaskRedis(taskId);
+            }
+        });
+        return taskId;//this.taskService.cleanTaskRedis(taskId);
     }
 
     @Override
