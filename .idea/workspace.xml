@@ -2,21 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f80612aa-7060-4aab-872b-8b78d4511402" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ZKCrawler-TaskClient/src/main/java/cn/com/cloudpioneer/taskclient/app/Chooser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ZKCrawler-TaskClient/src/main/java/cn/com/cloudpioneer/taskclient/app/TaskClient.java" afterPath="$PROJECT_DIR$/ZKCrawler-TaskClient/src/main/java/cn/com/cloudpioneer/taskclient/app/TaskClient.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ZKCrawler-TaskClient/src/main/java/cn/com/cloudpioneer/taskclient/listener/TasksCacheListener.java" afterPath="$PROJECT_DIR$/ZKCrawler-TaskClient/src/main/java/cn/com/cloudpioneer/taskclient/listener/TasksCacheListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/controller/API.java" afterPath="$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/controller/API.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/service/TaskService.java" afterPath="$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/service/TaskService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ZKCrawler-Worker/src/main/java/cn/com/cloudpioneer/worker/app/Worker.java" afterPath="$PROJECT_DIR$/ZKCrawler-Worker/src/main/java/cn/com/cloudpioneer/worker/app/Worker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ZKCrawler-Worker/src/main/java/cn/com/cloudpioneer/worker/listener/MyTaskCacheListener.java" afterPath="$PROJECT_DIR$/ZKCrawler-Worker/src/main/java/cn/com/cloudpioneer/worker/listener/MyTaskCacheListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ZKCrawler-Worker/src/main/resources/config.properties" afterPath="$PROJECT_DIR$/ZKCrawler-Worker/src/main/resources/config.properties" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ZKCrawler-TaskClient/src/main/java/cn/com/cloudpioneer/taskclient/chooser/TaskChooser.java" afterPath="$PROJECT_DIR$/ZKCrawler-TaskClient/src/main/java/cn/com/cloudpioneer/taskclient/chooser/ChooserPolicy.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ZKCrawler-TaskClient/src/main/java/cn/com/cloudpioneer/taskclient/chooser/chooserImpl/CompleteTimesFirstTaskChooser.java" afterPath="$PROJECT_DIR$/ZKCrawler-TaskClient/src/main/java/cn/com/cloudpioneer/taskclient/chooser/chooserPolicyImpl/CompleteTimesFirstChooserPolicy.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ZKCrawler-TaskClient/src/main/java/cn/com/cloudpioneer/taskclient/chooser/chooserImpl/LongTimeFirstTaskChooser.java" afterPath="$PROJECT_DIR$/ZKCrawler-TaskClient/src/main/java/cn/com/cloudpioneer/taskclient/chooser/chooserPolicyImpl/LongTimeFirstChooserPolicy.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ZKCrawler-TaskClient/src/main/java/cn/com/cloudpioneer/taskclient/chooser/chooserImpl/WeightFirstTaskChooser.java" afterPath="$PROJECT_DIR$/ZKCrawler-TaskClient/src/main/java/cn/com/cloudpioneer/taskclient/chooser/chooserPolicyImpl/WeightFirstChooserPolicy.java" />
     </list>
     <ignored path="ZKCrawler.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -533,6 +519,116 @@
       <recent name="D:\IdeaProjects\ZKCrawler\ZKCrawler-Webmagic\src\main\java\com\gy\wm" />
       <recent name="E:\IdeaProjects\ZKCrawler\ZKCrawler-Worker\src\main\java\cn\com\cloudpioneer\worker\app" />
     </key>
+  </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/plugins/testPlugin/QNRParser.java</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
   </component>
   <component name="RunManager" selected="Application.ApplicationMaster">
     <configuration default="false" name="ApplicationWorker" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -1141,7 +1237,7 @@
       <workItem from="1474618799254" duration="6917000" />
       <workItem from="1474854492365" duration="886000" />
       <workItem from="1474855409771" duration="19715000" />
-      <workItem from="1474882147186" duration="2281000" />
+      <workItem from="1474882147186" duration="2444000" />
     </task>
     <task id="LOCAL-00001" summary="first init">
       <created>1472713688029</created>
@@ -1374,15 +1470,22 @@
       <option name="project" value="LOCAL" />
       <updated>1474875465667</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="给 TaskClient 类添加注释，给 worker 添加 WebMagic 端的资源清理请求逻辑。&#10;2016-09-26 18:10:00">
+      <created>1474884578804</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1474884578804</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="332178000" />
+    <option name="totallyTimeSpent" value="332341000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1394,10 +1497,10 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5441341" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.66480446" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26480448" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26480448" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28304905" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28304905" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1748401" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1479,7 +1582,8 @@
     <MESSAGE value="联合测试 二： 单个任务测试，修复了 Worker 不释放任务锁的BUG。添加了 打 jar 包的 POX 配置。&#10;2016-09-23 15:25:00" />
     <MESSAGE value="添加日志输出到文件的配置，添加四个脚本文件。&#10;2016-09-23 18:10:00" />
     <MESSAGE value="WebMagic 添加 redis 清理逻辑；修复 master 和 TaskClient 释放领导权的问题。&#10;2016-09-26 15:37:00" />
-    <option name="LAST_COMMIT_MESSAGE" value="WebMagic 添加 redis 清理逻辑；修复 master 和 TaskClient 释放领导权的问题。&#10;2016-09-26 15:37:00" />
+    <MESSAGE value="给 TaskClient 类添加注释，给 worker 添加 WebMagic 端的资源清理请求逻辑。&#10;2016-09-26 18:10:00" />
+    <option name="LAST_COMMIT_MESSAGE" value="给 TaskClient 类添加注释，给 worker 添加 WebMagic 端的资源清理请求逻辑。&#10;2016-09-26 18:10:00" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1564,6 +1668,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="7" column="40" selection-start-line="7" selection-start-column="40" selection-end-line="7" selection-end-column="40" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1681,6 +1786,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
           <caret line="39" column="29" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1707,6 +1813,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1102">
           <caret line="65" column="51" selection-start-line="65" selection-start-column="51" selection-end-line="65" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1675#1821#0" expanded="false" />
+            <element signature="e#1820#1821#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1714,6 +1825,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="708">
           <caret line="79" column="30" selection-start-line="79" selection-start-column="30" selection-end-line="79" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1736,6 +1850,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="52">
           <caret line="106" column="25" selection-start-line="106" selection-start-column="25" selection-end-line="106" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1750,6 +1865,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="7" column="40" selection-start-line="7" selection-start-column="40" selection-end-line="7" selection-end-column="40" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1757,6 +1873,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
           <caret line="27" column="23" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1771,6 +1888,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1976">
           <caret line="113" column="39" selection-start-line="113" selection-start-column="39" selection-end-line="113" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1778,6 +1896,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-11927">
           <caret line="64" column="42" selection-start-line="64" selection-start-column="42" selection-end-line="64" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>
