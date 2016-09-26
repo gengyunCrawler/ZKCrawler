@@ -56,6 +56,9 @@ public class TaskService {
         LOGGER.warn("===> executorService was shutdown !!!! crawler task can't be started");
     }
 
+    @Autowired
+    private Crawl crawl;
+
     public TaskService() {
     }
 
