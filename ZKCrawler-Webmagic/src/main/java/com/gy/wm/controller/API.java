@@ -45,6 +45,15 @@ public class API implements Runnable {
         return taskModel.getBase().getId();
     }
 
+    /**
+     * 任务结束后清除rendis数据
+     * @param tid
+     * @return String
+     */
+    public String cleanTaskRedis(String tid)    {
+        return this.taskService.cleanTaskRedis(tid);
+    }
+
     @Override
     public void run() {
 

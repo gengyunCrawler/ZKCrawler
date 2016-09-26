@@ -1,6 +1,7 @@
 package cn.com.cloudpioneer.master.app;
 
 import cn.com.cloudpioneer.master.utils.CuratorUtils;
+import cn.com.cloudpioneer.master.utils.RandomUtils;
 import com.sun.istack.internal.Nullable;
 import org.apache.curator.RetryPolicy;
 import org.apache.curator.framework.CuratorFramework;
@@ -20,7 +21,6 @@ import org.slf4j.LoggerFactory;
 import java.io.Closeable;
 import java.io.IOException;
 import java.util.List;
-import java.util.Random;
 import java.util.concurrent.CountDownLatch;
 import java.util.regex.Pattern;
 
@@ -31,10 +31,12 @@ import java.util.regex.Pattern;
  * @version 1.0
  */
 public class CuratorMaster implements Closeable, LeaderSelectorListener {
-    private static final Logger LOG = LoggerFactory.getLogger(CuratorMaster.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(CuratorMaster.class);
+
+    private static volatile CuratorMaster thisMaster;
 
     //serverId
-    private String myId = "masterId-" + new Random().nextInt();
+    private String myId = "master-" + RandomUtils.getRandomString(10) + "-" + System.currentTimeMillis();
 
     //连接zk的client
     private CuratorFramework client;
@@ -49,20 +51,33 @@ public class CuratorMaster implements Closeable, LeaderSelectorListener {
     private TreeCache tasksCache;
 
 
-    private final static Pattern TASK_WORKER = Pattern.compile("/tasks/task-.*/worker-.*");
-
-
     private static final String PATH_ROOT_TASKS = "/tasks";
 
     private static final String PATH_ROOT_MASTER = "/master";
     private static final String PATH_ROOT_WORKERS = "/workers";
 
 
+    private final static Pattern TASK_WORKER = Pattern.compile(PATH_ROOT_TASKS + "/task-.*/worker-.*");
+
+
     private String hostPort;
 
-    private CountDownLatch leaderLatch = new CountDownLatch(1);
 
+    private CountDownLatch leaderLatch = new CountDownLatch(1);
     private CountDownLatch closeLatch = new CountDownLatch(1);
+
+
+    public static CuratorMaster initializeMaster(String hostPort, RetryPolicy retryPolic, @Nullable String myId) {
+
+        if (thisMaster == null)
+            thisMaster = new CuratorMaster(hostPort, retryPolic, myId);
+        return thisMaster;
+    }
+
+    public static CuratorMaster getThisMaster() {
+
+        return thisMaster;
+    }
 
     /**
      * 初始化client连接配置参数
@@ -71,13 +86,12 @@ public class CuratorMaster implements Closeable, LeaderSelectorListener {
      * @param hostPort
      * @param retryPolicy
      */
-    public CuratorMaster(String hostPort, RetryPolicy retryPolicy, @Nullable String myId) {
+    private CuratorMaster(String hostPort, RetryPolicy retryPolicy, @Nullable String myId) {
         if (myId != null) {
             this.myId = myId;
         }
         this.hostPort = hostPort;
         this.client = CuratorFrameworkFactory.newClient(hostPort, retryPolicy);
-
         this.leaderSelector = new LeaderSelector(this.client, PATH_ROOT_MASTER, this);
         this.workersCache = new TreeCache(this.client, PATH_ROOT_WORKERS);
         this.tasksCache = new TreeCache(this.client, PATH_ROOT_TASKS);
@@ -121,7 +135,7 @@ public class CuratorMaster implements Closeable, LeaderSelectorListener {
      */
     public CuratorFramework runForMaster() throws Exception {
         leaderSelector.setId(myId);
-        LOG.info("Starting master selection: " + myId);
+        LOGGER.info("Starting master selection: " + myId);
         leaderSelector.start();
         return client;
     }
@@ -168,19 +182,25 @@ public class CuratorMaster implements Closeable, LeaderSelectorListener {
         //之前无法进入此方法的原因是受log4j的影响
         //如果当当前选举的master挂掉之后会进行重新选举，此时当前的master得再次发现之前可用的worker和tasks然后对必要的未将
         recoverTask();
-        LOG.info("Mastership participants: " + myId + ", " + leaderSelector.getParticipants());
+
+        LOGGER.info("Mastership participants: " + myId + ", " + leaderSelector.getParticipants());
+
         addWorkersListener(workersCacheListener);
         addTasksListener(tasksCacheListener);
+
         workersCache.start();
         tasksCache.start();
         leaderLatch.countDown();
+
+        keepAsLeader();
 
     }
 
     /**
      * 阻塞当前线程方法，保证监听一直监听下去，指导下达close命令。
      */
-    public void keepListenerListen() {
+    private void keepAsLeader() {
+        LOGGER.info("now, keep as a leader.");
         try {
             closeLatch.await();
         } catch (InterruptedException e) {
@@ -208,7 +228,7 @@ public class CuratorMaster implements Closeable, LeaderSelectorListener {
 
                 break;
             case SUSPENDED:
-                LOG.warn("Session suspended");//
+                LOGGER.warn("Session suspended");//
                 try {
                     closeLatch.countDown();
                     runForMaster();
@@ -224,7 +244,7 @@ public class CuratorMaster implements Closeable, LeaderSelectorListener {
                     runForMaster();
 
                 } catch (Exception e) {
-                    LOG.warn("Exception while closing", e);
+                    LOGGER.warn("Exception while closing", e);
                 }
 
                 break;
@@ -265,24 +285,24 @@ public class CuratorMaster implements Closeable, LeaderSelectorListener {
         public void childEvent(CuratorFramework client, TreeCacheEvent event) {
             switch (event.getType()) {
                 case NODE_ADDED:
-                    LOG.info("NODE_ADDED:" + event.getData().getPath());
+                    LOGGER.info("NODE_ADDED:" + event.getData().getPath());
                     break;
                 case NODE_UPDATED:
                     String nodePath1 = event.getData().getPath();
-                    LOG.info("NODE_UPDATED:" + nodePath1);
+                    LOGGER.info("NODE_UPDATED:" + nodePath1);
                     break;
                 case NODE_REMOVED:
                     String nodePath = event.getData().getPath();
-                    LOG.info("NODE_REMOVED:" + nodePath);
+                    LOGGER.info("NODE_REMOVED:" + nodePath);
                     try {
                         //删除过期的worker节点
                         String path = nodePath.replace("/status", "");
-                        LOG.info("将删除:" + path);
+                        LOGGER.info("将删除:" + path);
                         if (isNodeExist(path)) {
                             CuratorUtils.deletePathAndChildren(client, path);
                         }
                         //
-                        LOG.info("已将删除:" + path);
+                        LOGGER.info("已将删除:" + path);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -310,8 +330,8 @@ public class CuratorMaster implements Closeable, LeaderSelectorListener {
                 case NODE_ADDED:
 
                     child = event.getData().getPath();
-                    LOG.info("===> taskCacheListener NODE_ADDED Event.");
-                    LOG.info("Event Path:" + child);
+                    LOGGER.info("===> taskCacheListener NODE_ADDED Event.");
+                    LOGGER.info("Event Path:" + child);
                     //先判增加的节点是task或者task-*/worker?
                     //节点为/tasks/task-*/worker-* 类型
                     if (TASK_WORKER.matcher(child).matches()) {
@@ -326,21 +346,21 @@ public class CuratorMaster implements Closeable, LeaderSelectorListener {
 
                 case NODE_REMOVED:
                     child = event.getData().getPath();
-                    LOG.info("===> taskCacheListener NODE_ADDED Event.");
-                    LOG.info("===> Event Path: " + child);
+                    LOGGER.info("===> taskCacheListener NODE_ADDED Event.");
+                    LOGGER.info("===> Event Path: " + child);
                     //先判增加的节点是task或者task-*/worker?
                     //节点为/tasks/task-*/worker-* 类型
                     if (TASK_WORKER.matcher(child).matches()) {
                         String[] arr = child.split("/");
                         String worker = PATH_ROOT_WORKERS + "/" + arr[3];
                         String task = arr[2];
-                        LOG.info("===> removing znode: " + worker + "/" + task);
+                        LOGGER.info("===> removing znode: " + worker + "/" + task);
                         CuratorUtils.deletePathAndChildren(client, worker + "/" + task);
                     }
                     break;
 
                 case NODE_UPDATED:
-                    LOG.info("update");
+                    LOGGER.info("update");
                     break;
                 default:
 
@@ -405,7 +425,6 @@ public class CuratorMaster implements Closeable, LeaderSelectorListener {
         this.bootstrap();
         this.runForMaster();
         this.awaitLeadership();
-        this.keepListenerListen();
     }
 
     /**

@@ -84,7 +84,6 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
 
     //领导锁
     private CountDownLatch leaderLatch = new CountDownLatch(1);
-
     //关闭锁
     private CountDownLatch closeLatch = new CountDownLatch(1);
 
@@ -437,11 +436,15 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
     public synchronized void tasksCreator() throws Exception {
 
         int size = (int) configs.get(ConfigItem.MAX_RUNNING_TASKS_SIZE) - getMyTasksSize();
-
+        LOGGER.info("will get tasks, size: " + size);
         List<TaskEntity> taskEntities = tasksGeter(size);
         List<String> workers = getWorks();
-        if (taskEntities == null || taskEntities.size() == 0 || workers == null || workers.size() == 0)
+        if (taskEntities == null || taskEntities.size() == 0 || workers == null || workers.size() == 0) {
+            LOGGER.info("tasks null or tasks size = 0 or workers is null or workers size = 0, return.");
             return;
+        }
+
+        LOGGER.info("get tasks size: " + taskEntities.size() + ", get workers size: " + workers.size());
 
         final Map<TaskEntity, List<String>> twMap = scheduler.scheduleProcess(taskEntities, workers);
 
@@ -488,8 +491,11 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
 
 
     private void tasksScanner() throws Exception {
-        if (!isLeader())
+        if (!isLeader()) {
+            LOGGER.info("I am not the leader, don't need to create tasks, my id is: " + myId);
             return;
+        }
+        LOGGER.info("I am the leader, my id is: " + myId);
         tasksCreator();
     }
 
@@ -558,10 +564,19 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
         leaderLatch.countDown();
         updateMyTasks();
         tasksCreator();
-
         LOGGER.info(this.getMyId() + " is leader");
+        keepAsLeader();
     }
 
+
+    private void keepAsLeader() {
+        LOGGER.info("now, keep as a leader.");
+        try {
+            closeLatch.await();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 
     //对不同的网络连接状态做处理
     @Override
@@ -598,7 +613,6 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
                 break;
             case READ_ONLY:
                 LOGGER.info("========= stateChanged: READ_ONLY");
-                System.out.println("正在读取内容......");
                 LOGGER.info("正在读取内容......");
                 break;
         }

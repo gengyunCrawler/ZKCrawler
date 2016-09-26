@@ -22,7 +22,7 @@ public class ApplicationMaster {
 
     public static void main(String[] args) throws Exception {
 
-        CuratorMaster master = new CuratorMaster(zkHostPort, new ExponentialBackoffRetry(1000, 5), null);
+        CuratorMaster master = CuratorMaster.initializeMaster(zkHostPort, new ExponentialBackoffRetry(1000, 5), null);
 
         SpringApplication.run(ApplicationMaster.class, args);
 
