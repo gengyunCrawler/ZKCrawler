@@ -13,6 +13,7 @@
         <module>ZKCrawler-TaskClient</module>
         <module>ZKCrawler-Worker</module>
         <module>ZKCrawler-Webmagic</module>
+        <module>ZKCrawler-Starter</module>
     </modules>
 
     <parent>

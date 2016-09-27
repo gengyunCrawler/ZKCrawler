@@ -47,7 +47,6 @@ public class TaskService {
     public static void taskExecutor(Runnable task) {
 
         if (!executorService.isShutdown()) {
-            LOGGER.info("===> starting crawler task ......");
             executorService.execute(task);
             return;
         }

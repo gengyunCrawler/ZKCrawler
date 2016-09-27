@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ZKCrawler.iml" filepath="$PROJECT_DIR$/ZKCrawler.iml" />
       <module fileurl="file://$PROJECT_DIR$/ZKCrawler-Master/ZKCrawler-Master.iml" filepath="$PROJECT_DIR$/ZKCrawler-Master/ZKCrawler-Master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ZKCrawler-Starter/ZKCrawler-Starter.iml" filepath="$PROJECT_DIR$/ZKCrawler-Starter/ZKCrawler-Starter.iml" />
       <module fileurl="file://$PROJECT_DIR$/ZKCrawler-TaskClient/ZKCrawler-TaskClient.iml" filepath="$PROJECT_DIR$/ZKCrawler-TaskClient/ZKCrawler-TaskClient.iml" />
       <module fileurl="file://$PROJECT_DIR$/ZKCrawler-Webmagic/ZKCrawler-Webmagic.iml" filepath="$PROJECT_DIR$/ZKCrawler-Webmagic/ZKCrawler-Webmagic.iml" />
       <module fileurl="file://$PROJECT_DIR$/ZKCrawler-Worker/ZKCrawler-Worker.iml" filepath="$PROJECT_DIR$/ZKCrawler-Worker/ZKCrawler-Worker.iml" />
