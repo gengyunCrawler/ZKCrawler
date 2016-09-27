@@ -34,7 +34,7 @@ public class ApplicationTaskClient {
         /**
          * 初始化 task client。
          */
-        TaskClient taskClient = TaskClient.initializeTaskClient(zkHostPort, new RetryNTimes(5, 1000), null, null, null);
+        TaskClient taskClient = TaskClient.initializeTaskClient(zkHostPort, new RetryNTimes(5, 1000), null, null, null, null);
 
         /**
          * 启动 spring boot 服务。

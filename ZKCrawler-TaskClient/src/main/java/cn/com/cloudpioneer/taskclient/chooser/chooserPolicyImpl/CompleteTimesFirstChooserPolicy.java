@@ -25,6 +25,11 @@ public class CompleteTimesFirstChooserPolicy implements ChooserPolicy {
         return getBySize(size);
     }
 
+    @Override
+    public String getPolicyName() {
+        return "CompleteTimesFirstChooserPolicy";
+    }
+
 
     private void cycleRecrawlFilter() {
 

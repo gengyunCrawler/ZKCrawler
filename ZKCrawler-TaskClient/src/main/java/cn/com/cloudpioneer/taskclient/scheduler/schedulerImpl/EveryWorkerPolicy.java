@@ -21,4 +21,9 @@ public class EveryWorkerPolicy implements SchedulePolicy {
         }
         return map;
     }
+
+    @Override
+    public String getPolicyName() {
+        return "EveryWorkerPolicy";
+    }
 }

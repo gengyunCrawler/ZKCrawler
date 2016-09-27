@@ -11,4 +11,6 @@ import java.util.Map;
 public interface SchedulePolicy {
 
     Map<TaskEntity, List<String>> process(List<TaskEntity> tasks, List<String> workers);
+
+    String getPolicyName();
 }

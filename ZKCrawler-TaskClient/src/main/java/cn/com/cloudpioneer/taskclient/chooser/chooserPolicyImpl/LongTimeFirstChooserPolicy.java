@@ -24,6 +24,11 @@ public class LongTimeFirstChooserPolicy implements ChooserPolicy {
         return getBySize(size);
     }
 
+    @Override
+    public String getPolicyName() {
+        return "LongTimeFirstChooserPolicy";
+    }
+
 
     private void cycleRecrawlFilter() {
 

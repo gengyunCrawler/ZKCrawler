@@ -10,4 +10,6 @@ import java.util.List;
 public interface ChooserPolicy {
 
     List<TaskEntity> chooser(int size);
+
+    String getPolicyName();
 }

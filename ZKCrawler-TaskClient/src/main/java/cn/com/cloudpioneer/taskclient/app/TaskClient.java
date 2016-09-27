@@ -237,10 +237,10 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
      * @param configFileName TaskClient 的配置文件，可以为 null，为 null 时将使用默认值。
      * @return 返回 TaskClient 实例。
      */
-    public static TaskClient initializeTaskClient(String hostPort, RetryPolicy retryPolicy, @Nullable String myId, @Nullable ChooserPolicy chooserPolicy, @Nullable String configFileName) {
+    public static TaskClient initializeTaskClient(String hostPort, RetryPolicy retryPolicy, @Nullable String myId, @Nullable SchedulePolicy schedulePolicy, @Nullable ChooserPolicy chooserPolicy, @Nullable String configFileName) {
 
         if (thisTaskClient == null)
-            thisTaskClient = new TaskClient(hostPort, retryPolicy, myId, chooserPolicy, configFileName);
+            thisTaskClient = new TaskClient(hostPort, retryPolicy, myId, schedulePolicy, chooserPolicy, configFileName);
         return thisTaskClient;
 
     }
@@ -265,7 +265,7 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
      * @param chooserPolicy  任务选择器的选择策略，可以为 null，为 null 时将使用默认值。
      * @param configFileName TaskClient 的配置文件，可以为 null，为 null 时将使用默认值。
      */
-    private TaskClient(String hostPort, RetryPolicy retryPolicy, @Nullable String myId, @Nullable ChooserPolicy chooserPolicy, @Nullable String configFileName) {
+    private TaskClient(String hostPort, RetryPolicy retryPolicy, @Nullable String myId, @Nullable SchedulePolicy schedulePolicy, @Nullable ChooserPolicy chooserPolicy, @Nullable String configFileName) {
 
         this.tasksTimer = new Timer();
         this.myTasks = new HashMap<>();
@@ -280,10 +280,14 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
         else
             this.myId = "TaskClient-" + RandomUtils.getRandomString(10) + "-" + System.currentTimeMillis();
 
-        if (tasksChooser != null)
-            tasksChooser.setPolicy(chooserPolicy);
+        if (chooserPolicy != null)
+            this.tasksChooser.setPolicy(chooserPolicy);
+
 
         this.workersScheduler = new Scheduler();
+
+        if (schedulePolicy != null)
+            this.workersScheduler.setPolicy(schedulePolicy);
 
         this.hostPort = hostPort;
         this.client = CuratorFrameworkFactory.newClient(this.hostPort, retryPolicy);
@@ -406,6 +410,7 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
         }
 
     }
+
 
     /**
      * 为workersCache 添加监视器
@@ -603,15 +608,15 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
     }
 
 
-    /**
-     * 设置调度器策略。
-     *
-     * @param policy
-     */
-    public void setSchedulerPolicy(SchedulePolicy policy) {
-
-        this.workersScheduler.setPolicy(policy);
+    public Chooser getTasksChooser() {
+        return tasksChooser;
     }
+
+    public Scheduler getWorkersScheduler() {
+        return workersScheduler;
+    }
+
+
 
 
     /**
@@ -638,7 +643,11 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
             @Override
             public void run() {
                 for (Map.Entry item : twMap.entrySet()) {
-                    while (!isGetTaskLock(((TaskEntity) item.getKey()).getId())) {
+
+                    String taskId;
+                    taskId = ((TaskEntity) item.getKey()).getId();
+
+                    while (!isGetTaskLock(taskId)) {
                         try {
                             Thread.sleep(20);
                         } catch (InterruptedException e) {
@@ -646,13 +655,14 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
                         }
                     }
 
+
+                    TaskModel taskModel = new TaskModel();
+
                     try {
 
-                        String taskId = ((TaskEntity) item.getKey()).getId();
-                        byte[] taskData = (item.getKey()).toString().getBytes();
                         List<String> ws = (List<String>) item.getValue();
 
-                        TaskModel taskModel = new TaskModel(ROOT_PATH_TASKS + "/task-" + taskId, ((TaskEntity) item.getKey()), "" + ws.size(), ws);
+                        taskModel = new TaskModel(ROOT_PATH_TASKS + "/task-" + taskId, ((TaskEntity) item.getKey()), "" + ws.size(), ws);
                         taskModel.setTaskStatus(TaskStatusItem.TASK_STATUS_RUNNING);
 
                         client.create().withMode(CreateMode.PERSISTENT).forPath(ROOT_PATH_TASKS + "/task-" + taskId, taskModel.getEntity().toString().getBytes());
@@ -666,8 +676,13 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
 
                     } catch (Exception ex) {
 
+                        LOGGER.error("--++--++--> task create error, taskId = " + taskId);
+                        taskDelete(ROOT_PATH_TASKS + "/task-" + taskId);
+                        taskModel.getEntity().setStatus(TaskStatusItem.TASK_STATUS_COMPLETED);
+                        taskWriteBack(taskModel.getEntity());
+
                     } finally {
-                        releaseTaskLock(((TaskEntity) item.getKey()).getId());
+                        releaseTaskLock(taskId);
                     }
                 }
             }
@@ -806,12 +821,10 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
         switch (newState) {
             case CONNECTED:
                 LOGGER.info("========= stateChanged: CONNECTED");
-                System.out.println("连接成功！");
                 LOGGER.info("连接成功！");
                 break;
             case RECONNECTED:
                 LOGGER.info("========= stateChanged: RECONNECTED");
-                System.out.println("正在连接......");
                 LOGGER.info("正在连接......");
                 break;
             case SUSPENDED:
@@ -843,6 +856,7 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
 
     /**
      * 启动 TaskClient 的方法。
+     *
      * @throws Exception
      */
     public void startTaskClient() throws Exception {
@@ -856,6 +870,7 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
 
     /**
      * 关闭 TaskClient 的方法。
+     *
      * @throws IOException
      */
     @Override
