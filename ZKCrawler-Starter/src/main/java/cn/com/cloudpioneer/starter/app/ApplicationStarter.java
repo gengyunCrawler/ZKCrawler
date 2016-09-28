@@ -14,7 +14,7 @@ public class ApplicationStarter {
         System.exit(0);
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
         if (args == null || args.length < 2) {
             usage();
@@ -41,6 +41,16 @@ public class ApplicationStarter {
 
         starter.startZKCrawlerNodes();
 
+        while (ZKCrawlerStarter.getNumberOfHost() > 0){
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        System.out.println("==++==--++==> now, all roles started, exit starter.");
+        System.exit(0);
     }
 
 

@@ -27,6 +27,22 @@ public class ShellUtils {
     private String password;
 
 
+    public String getHostname() {
+        return hostname;
+    }
+
+    public int getPort() {
+        return port;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
     public static ShellUtils getShellUtils(String username, String password, String hostname, int port) {
 
         ShellUtils shell;

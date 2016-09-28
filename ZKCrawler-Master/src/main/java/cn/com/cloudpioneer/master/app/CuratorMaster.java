@@ -172,6 +172,7 @@ public class CuratorMaster implements Closeable, LeaderSelectorListener {
         return leaderSelector.hasLeadership();
     }
 
+
     CountDownLatch recoveryLatch = new CountDownLatch(0);
 
     /**
@@ -282,17 +283,41 @@ public class CuratorMaster implements Closeable, LeaderSelectorListener {
      * 对/workers节点进行监听的监视器需完成对相应事件的处理
      */
     private TreeCacheListener workersCacheListener = new TreeCacheListener() {
+
+        String nodePath = "";
+
         public void childEvent(CuratorFramework client, TreeCacheEvent event) {
             switch (event.getType()) {
                 case NODE_ADDED:
-                    LOGGER.info("NODE_ADDED:" + event.getData().getPath());
+                    nodePath = event.getData().getPath();
+                    LOGGER.info("===> NODE_ADDED Event, path: " + nodePath);
+
+                   /*
+                    Pattern workers = Pattern.compile(PATH_ROOT_WORKERS + "/worker-.*");
+                    Pattern workerStatus = Pattern.compile(PATH_ROOT_WORKERS + "/worker-.*//*status");
+
+
+                    if (workers.matcher(nodePath).matches() && !workerStatus.matcher(nodePath).matches()) {
+                        LOGGER.info("===> check workers.");
+                        try {
+                            if (!CuratorUtils.isHaveChildren(client, nodePath))
+                                CuratorUtils.deletePath(client, nodePath);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                    */
+
                     break;
                 case NODE_UPDATED:
-                    String nodePath1 = event.getData().getPath();
-                    LOGGER.info("NODE_UPDATED:" + nodePath1);
+                    nodePath = event.getData().getPath();
+                    LOGGER.info("NODE_UPDATED:" + nodePath);
                     break;
                 case NODE_REMOVED:
-                    String nodePath = event.getData().getPath();
+
+                    nodePath = event.getData().getPath();
+
                     LOGGER.info("NODE_REMOVED:" + nodePath);
                     try {
                         //删除过期的worker节点

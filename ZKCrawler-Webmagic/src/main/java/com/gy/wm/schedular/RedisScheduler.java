@@ -13,7 +13,7 @@ public class RedisScheduler implements Scheduler {
     private static final String QUEUE_PREFIX = "queue_";
     private String domain;
 
-    public RedisScheduler(String domain)   {
+    public RedisScheduler(String domain) {
         this.domain = domain;
     }
 
@@ -52,12 +52,12 @@ public class RedisScheduler implements Scheduler {
 
         String url = null;
         try {
-            url = jedis.lpop(QUEUE_PREFIX+task.getUUID());
+            url = jedis.lpop(QUEUE_PREFIX + task.getUUID());
         } finally {
             pool.returnResource(jedis);
         }
 
-        if (url==null) {
+        if (url == null) {
             return null;
         } else {
             return new Request(url);

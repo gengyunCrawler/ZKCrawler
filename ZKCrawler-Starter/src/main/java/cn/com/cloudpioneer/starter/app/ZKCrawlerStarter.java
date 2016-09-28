@@ -12,6 +12,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Created by Administrator on 2016/9/27.
@@ -33,15 +35,17 @@ public class ZKCrawlerStarter {
     }
 
 
-
+    static volatile int numberOfHost = 0;
 
     List<HostInfo> hostInfoList;
     List<ShellUtils> shellUtilsList;
+    ExecutorService executorService;
 
 
     public ZKCrawlerStarter() {
 
         hostInfoList = new ArrayList<>();
+        executorService = Executors.newFixedThreadPool(50);
 
     }
 
@@ -77,6 +81,8 @@ public class ZKCrawlerStarter {
             e.printStackTrace();
         }
 
+        numberOfHost = hostInfoList.size();
+
         return hostInfoList;
     }
 
@@ -87,9 +93,42 @@ public class ZKCrawlerStarter {
 
         JSONArray jsonArray = JSON.parseArray(hostInfo);
         for (Object item : jsonArray)
-            hostInfoList.add(JSON.parseObject(item.toString(),HostInfo.class));
+            hostInfoList.add(JSON.parseObject(item.toString(), HostInfo.class));
 
+        numberOfHost = hostInfoList.size();
         return hostInfoList;
+
+    }
+
+
+    private static synchronized void subOfNumberOfHost(int deta){
+
+        numberOfHost -= deta;
+    }
+
+    public static synchronized int getNumberOfHost(){
+
+        return numberOfHost;
+    }
+
+    private void delay(int seconds, String waitName) {
+
+
+        int i = seconds;
+
+        while (i >= 0) {
+
+            try {
+                System.out.printf("\r");
+                System.out.printf("===> waiting for " + waitName + " starting complete.  sec: " + i);
+                Thread.sleep(1000);
+
+            } catch (Exception e) {
+
+            }
+
+            i--;
+        }
 
     }
 
@@ -100,18 +139,32 @@ public class ZKCrawlerStarter {
 
         for (ShellUtils item : shellUtilsList) {
 
-            item.openPerformShell();
+            final ShellUtils myShell = item;
 
-            System.out.println(item.doExecuteShell(startMasterSh));
-            System.out.println(item.doExecuteShell(startWebmagicSh));
-            System.out.println(item.doExecuteShell(startWorkerSh));
-            System.out.println(item.doExecuteShell(startTaskClientSh));
+            executorService.execute(new Runnable() {
+                @Override
+                public void run() {
 
-            item.closePerformShell();
+                    System.out.println("Login host: " + myShell.getHostname());
+
+                    System.out.println("\n===> now, starting Master.");
+                    System.out.println(myShell.doExecuteShell(startMasterSh));
+                    delay(10, "Master");
+                    System.out.println("\n===> now, starting Webmagic.");
+                    System.out.println(myShell.doExecuteShell(startWebmagicSh));
+                    delay(20, "Webmagic");
+                    System.out.println("\n===> now, starting Worker.");
+                    System.out.println(myShell.doExecuteShell(startWorkerSh));
+                    delay(10, "Worker");
+                    System.out.println("\n===> now, starting TaskClient.");
+                    System.out.println(myShell.doExecuteShell(startTaskClientSh));
+
+                    System.out.println("Exit host: " + myShell.getHostname());
+
+                    subOfNumberOfHost(1);
+                }
+            });
 
         }
-
     }
-
-
 }

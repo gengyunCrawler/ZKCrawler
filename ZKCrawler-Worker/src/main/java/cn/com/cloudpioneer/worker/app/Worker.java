@@ -160,12 +160,16 @@ public class Worker implements Closeable, ConnectionStateListener {
         }
 
         // 去 workers 节点下注册 worker 节点，持久类型（ephemeral）
-        client.create().withMode(CreateMode.PERSISTENT).forPath(ROOT_PATH_WORKERS + "/" + workerId, workerId.getBytes());
-        LOGGER.info("register zonode: " + ROOT_PATH_WORKERS + "/" + workerId + " finished.");
+        if (client.checkExists().forPath(ROOT_PATH_WORKERS + "/" + workerId) == null) {
+            client.create().withMode(CreateMode.PERSISTENT).forPath(ROOT_PATH_WORKERS + "/" + workerId, workerId.getBytes());
+            LOGGER.info("register zonode: " + ROOT_PATH_WORKERS + "/" + workerId + " finished.");
+        }
 
         // 去 workers 节点下之间的节点woker 注册状态节点status，短暂类型（persistent）
-        client.create().withMode(CreateMode.EPHEMERAL).forPath(ROOT_PATH_WORKERS + "/" + workerId + "/status", MY_STATUS.getBytes());
-        LOGGER.info("register zonode: " + ROOT_PATH_WORKERS + "/" + workerId + "/status" + " finished.");
+        if (client.checkExists().forPath(ROOT_PATH_WORKERS + "/" + workerId + "/status") == null) {
+            client.create().withMode(CreateMode.EPHEMERAL).forPath(ROOT_PATH_WORKERS + "/" + workerId + "/status", MY_STATUS.getBytes());
+            LOGGER.info("register zonode: " + ROOT_PATH_WORKERS + "/" + workerId + "/status" + " finished.");
+        }
     }
 
 
