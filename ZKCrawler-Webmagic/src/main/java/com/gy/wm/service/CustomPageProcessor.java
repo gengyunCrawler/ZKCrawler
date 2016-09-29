@@ -52,9 +52,15 @@ public class CustomPageProcessor implements PageProcessor {
             pool = jedisPoolUtils.getJedisPool();
             jedis = pool.getResource();
 
-            String json_crawlData = jedis.hget("webmagicCrawler::ToCrawl::" + tid, page.getRequest().getUrl());
-            CrawlData page_crawlData = (CrawlData) JSONUtil.jackson2Object(json_crawlData, CrawlData.class);
-            jedis.hdel("webmagicCrawler::ToCrawl::" + tid, page.getRequest().getUrl());
+            byte [] byte_crawlData = jedis.hget(("webmagicCrawler::ToCrawl::" + tid).getBytes(), page.getRequest().getUrl().getBytes());
+            CrawlData page_crawlData = null;
+            try {
+                page_crawlData = (CrawlData) MySerializer.deserialize(byte_crawlData);
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+
+            jedis.hdel(("webmagicCrawler::ToCrawl::" + tid).getBytes(), page.getRequest().getUrl().getBytes());
 
             int statusCode = page.getStatusCode();
             String html = page.getHtml().toString();
@@ -69,7 +75,7 @@ public class CustomPageProcessor implements PageProcessor {
              */
             List<CrawlData> perPageCrawlDateList = null;
             try {
-                perPageCrawlDateList = PluginUtil.excutePluginParse(page_crawlData);
+                perPageCrawlDateList = new PluginUtil().excutePluginParse(page_crawlData);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -79,17 +85,19 @@ public class CustomPageProcessor implements PageProcessor {
 
             BloomFilter bloomFilter = new BloomFilter(jedis, 1000, 0.001f, (int) Math.pow(2, 31));
             for (CrawlData crawlData : perPageCrawlDateList) {
-                if (crawlData.getDepthfromSeed() < DEPTH &&!crawlData.isFetched()) {
-                    //链接fetched为false,即导航页,bloomFilter判断待爬取队列没有记录
-                    boolean isNew = RedisBloomFilter.notExistInBloomHash(crawlData.getUrl(), tid, jedis, bloomFilter);
-                    if (isNew && URLFilter.linkFilter(crawlData.getUrl()) && URLFilter.matchDomain(crawlData.getUrl(), domain)) {
-                        nextCrawlData.add(crawlData);
-                        page.addTargetRequest(crawlData.getUrl());
+                if(crawlData.getDepthfromSeed() <= DEPTH)    {
+                    if (!crawlData.isFetched()) {
+                        //链接fetched为false,即导航页,bloomFilter判断待爬取队列没有记录
+                        boolean isNew = RedisBloomFilter.notExistInBloomHash(crawlData.getUrl(), tid, jedis, bloomFilter);
+                        if (isNew && URLFilter.linkFilter(crawlData.getUrl()) && URLFilter.matchDomain(crawlData.getUrl(), domain)) {
+                            nextCrawlData.add(crawlData);
+                            page.addTargetRequest(crawlData.getUrl());
+                        }
+                    } else {
+                        //链接fetched为true,即文章页，添加到redis的已爬取队列
+                        crawledData.add(crawlData);
+                        page.putField("crawlerData", crawlData);
                     }
-                } else {
-                    //链接fetched为true,即文章页，添加到redis的已爬取队列
-                    crawledData.add(crawlData);
-                    page.putField("crawlerData", crawlData);
                 }
             }
 

@@ -71,7 +71,7 @@ public class CrawlerWorkflowManager {
         Spider spider = null;
         try {
             //反射机制取得下载插件，PluginUtil为反射工具类
-            spider = PluginUtil.excutePluginDownload(tid,domain);
+            spider = new PluginUtil().excutePluginDownload(tid,domain);
         } catch (Exception e) {
             e.printStackTrace();
         }

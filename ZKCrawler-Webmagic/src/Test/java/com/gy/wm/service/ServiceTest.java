@@ -1,3 +1,5 @@
+package com.gy.wm.service;
+
 import com.gy.wm.ApplicationWebmagic;
 import com.gy.wm.controller.API;
 import com.gy.wm.vo.Base;
@@ -13,6 +15,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -45,17 +48,34 @@ public  class ServiceTest {
 
     @Test
     public void testStartTask() {
-        String seed = "http://www.gog.cn/";
+//        List<String> templateList = new ArrayList<>();
+//        templateList.add("");
         List<String> seedUrls = new ArrayList<>();
-        seedUrls.add(seed);
+
+
+        String seed1 = "http://www.qnz.com.cn/news/newslist-0-12.shtml";
+//        String seed2 = "http://www.qnz.com.cn/news/newslist-0-13.shtml";
+//        String seed3 = "http://www.qnz.com.cn/news/newsshow-29863.shtml";
+//        String seed4 = "http://www.gygov.gov.cn/col/col10683/index.html";
+
+        seedUrls.add(seed1);
+//        seedUrls.add(seed2);
+//        param.setTemplates(templateList);
         param.setSeedUrls(seedUrls);
-        base.setId("wholesite20160920101159");
-        base.setDepthCrawl(10);
+
+//        templateList.add(guiyangTemplate);
+//        param.setTemplates(templateList);
+
+        base.setId("acbrocdldrtfkauj9ertt29d67");
+        base.setDepthCrawl(1);
 
         taskParamModel.setParam(param);
         taskParamModel.setBase(base);
         System.out.println(api.startTask(taskParamModel));
+        try {
+            Thread.sleep(Long.MAX_VALUE);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
-
-
 }

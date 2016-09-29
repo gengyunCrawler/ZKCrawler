@@ -13,7 +13,7 @@ import org.springframework.context.ApplicationContext;
 @SpringBootApplication
 public class ApplicationWebmagic {
     public static void main(String[] args) {
-        ApplicationContext ctx = SpringApplication.run(ApplicationWebmagic.class,args);
+        SpringApplication.run(ApplicationWebmagic.class,args);
     }
 
 }

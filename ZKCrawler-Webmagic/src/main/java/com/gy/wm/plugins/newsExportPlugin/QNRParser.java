@@ -1,8 +1,7 @@
-package com.gy.wm.plugins.testPlugin;
+package com.gy.wm.plugins.newsExportPlugin;
 
 import com.gy.wm.model.CrawlData;
 import com.gy.wm.service.PageParser;
-import com.mysql.jdbc.log.Log;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import us.codecraft.webmagic.selector.Html;
@@ -16,14 +15,18 @@ import java.util.List;
  */
 public class QNRParser implements PageParser {
     private final Logger LOG= LoggerFactory.getLogger(QNRParser.class);
-    private static final String QNR_ARTICLE_REGEX="http://news.sohu.com/\\d*/n\\d*.shtml";
-
+    //黔都在线
+    private static final String QNR_ARTICLE_REGEX="http://www.qnz.com.cn/news/newsshow-\\d*.shtml";
     private static final  String QNR_COLUMN_REGEX="http://www.qnz.com.cn/news/newslist-0-\\d*.shtml";
+    //贵阳市
+//    private static final  String QNR_COLUMN_REGEX="http://www.gygov.gov.cn/col/col10683/index.html";
+//    private static final String QNR_ARTICLE_REGEX="http://www.gygov.gov.cn/art/\\d*/\\d*/\\d*/art.*.html";
     @Override
     public List<CrawlData> parse(CrawlData crawlData) {
         //match the url list
         List<CrawlData> crawlDatas=new ArrayList<>();
         List<String> urls=new ArrayList<>();
+
         if (crawlData.getUrl().matches(QNR_COLUMN_REGEX)){
             urls=new Html(crawlData.getHtml()).xpath("//a/@href").all();
             for (String url:urls){
@@ -31,6 +34,10 @@ public class QNRParser implements PageParser {
                     System.out.println(url);
                     CrawlData data=new CrawlData();
                     data.setUrl(url);
+                    data.setTid(crawlData.getTid());
+                    data.setFromUrl(crawlData.getUrl());
+                    data.setRootUrl(crawlData.getUrl());
+                    data.setFetched(false);
                     crawlDatas.add(data);
                 }
             }
@@ -41,21 +48,23 @@ public class QNRParser implements PageParser {
         }
         return crawlDatas;
     }
-    private CrawlData parseData(Html html,CrawlData crawlData1){
-        CrawlData crawlData=new CrawlData();
-        String title=html.xpath("//div[@class='Title_h1']/h1/").toString();
-        String contentHtml=html.xpath("//div[@id='MyContent']/table/tbody/tr[1]/td/div").toString();
-        crawlData.setTitle(title);
-        crawlData.setHtml(contentHtml);
-        LOG.info("title:"+title);
-        LOG.info("content:"+contentHtml);
-        crawlData.setFetched(true);
-        crawlData.setDepthfromSeed(1);
-        crawlData.setCrawlTime(new Date());
-        crawlData.setFromUrl(crawlData1.getUrl());
-        crawlData.setText(html.smartContent().get());
+    private CrawlData parseData(Html html,CrawlData crawlData){
+        //黔都在线
+        String title=html.xpath("//div[@class='Title_h1']/h1/text()").toString();
+        String contentHtml=html.xpath("//div[@id='content_main']").toString();
 
-        crawlData.setTid(crawlData1.getTid());
+        //贵阳市
+//        String title=html.xpath("//td[@class='title']").toString();
+//        String contentHtml=html.xpath("//td[@id='contents']").toString();
+
+        crawlData.setTid(crawlData.getTid());
+        crawlData.setTitle(title);
+        crawlData.setHtml(html.toString());
+        crawlData.setDepthfromSeed(crawlData.getDepthfromSeed()+1);
+        crawlData.setFetched(true);
+        crawlData.setCrawlTime(new Date());
+        crawlData.setText(contentHtml);
+
         return crawlData;
 
     }

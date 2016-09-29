@@ -23,7 +23,7 @@ public class PluginUtil {
     private static final String PARSE_PLUGIN_NAME = ResourceBundle.getBundle("config").getString("parsePluginName");
     private static final String DOWNLOAD_PLUGIN_NAME = ResourceBundle.getBundle("config").getString("donwloadPluginName");
 
-    public static List<CrawlData> excutePluginParse(CrawlData crawlData) throws Exception{
+    public List<CrawlData> excutePluginParse(CrawlData crawlData) throws Exception{
         Class c = Class.forName(PARSE_PLUGIN_NAME);
         Object object = c.newInstance();
         //得到方法
@@ -42,7 +42,7 @@ public class PluginUtil {
         return crawlDataList;
     }
 
-    public static Spider excutePluginDownload(String tid,String domain) throws Exception{
+    public Spider excutePluginDownload(String tid,String domain) throws Exception{
         Class c = Class.forName(DOWNLOAD_PLUGIN_NAME);
         Object object = c.newInstance();
         return Spider.create(new CustomPageProcessor(tid, domain)).setDownloader((Downloader) object);

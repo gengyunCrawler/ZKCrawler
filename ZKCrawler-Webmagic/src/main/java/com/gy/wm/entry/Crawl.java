@@ -23,10 +23,9 @@ import java.util.ResourceBundle;
 public class Crawl {
     private static String nomalEndUri = ResourceBundle.getBundle("api").getString("nomalEndUri");
     private static final String DOWNLOAD_PLUGIN_NAME = ResourceBundle.getBundle("config").getString("donwloadPluginName");
-
     private static final Logger LOG= LoggerFactory.getLogger(Crawl.class);
 
-    public static void kick(int depth, int pass, String tid, String starttime, List<String> seedList, List<String> protocolList,
+    public void kick(int depth, int pass, String tid, String starttime, List<String> seedList, List<String> protocolList,
                             List<String> postregexList, String type, int recalldepth, List<String> templateList, List<String> clickregexList, List<String> configpath) throws Exception {
         //tid_startTime作为appname，即作为这个爬虫的任务名称
         InitCrawlerConfig crawlerConfig = new InitCrawlerConfig(tid + starttime, depth, templateList, clickregexList, protocolList, postregexList);
