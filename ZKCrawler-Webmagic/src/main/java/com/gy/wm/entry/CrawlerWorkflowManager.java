@@ -58,13 +58,6 @@ public class CrawlerWorkflowManager {
         }
         //初始化webMagic的Spider程序
         initSpider(seeds, domain);
-
-        //结束之后清空对应任务的redis
-//        jedis.del("redis:bloomfilter:" + tid);
-//        jedis.del("queue_" + tid);
-//        jedis.del("webmagicCrawler::ToCrawl::" + tid);
-//        jedis.del("webmagicCrawler::Crawled::" + tid);
-
     }
 
     protected void initSpider(List<CrawlData> seeds, String domain) {
@@ -78,7 +71,7 @@ public class CrawlerWorkflowManager {
         Spider spider = null;
         try {
             //反射机制取得下载插件，PluginUtil为反射工具类
-            spider = PluginUtil.excutePluginDownload(tid,domain);
+            spider = new PluginUtil().excutePluginDownload(tid,domain);
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -23,7 +23,6 @@ import java.util.ResourceBundle;
 public class Crawl {
     private static String nomalEndUri = ResourceBundle.getBundle("api").getString("nomalEndUri");
     private static final String DOWNLOAD_PLUGIN_NAME = ResourceBundle.getBundle("config").getString("donwloadPluginName");
-
     private static final Logger LOG= LoggerFactory.getLogger(Crawl.class);
 
     public  void kick(int depth, int pass, String tid, String starttime, List<String> seedList, List<String> protocolList,

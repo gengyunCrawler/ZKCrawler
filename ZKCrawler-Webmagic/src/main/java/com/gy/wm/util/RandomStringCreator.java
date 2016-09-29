@@ -12,6 +12,11 @@ import java.security.SecureRandom;
 public class RandomStringCreator {
     private static SecureRandom random = new SecureRandom();
     public static String getString() {
+        System.out.println(new BigInteger(130, random).toString(32));
         return new BigInteger(130, random).toString(32);
+    }
+
+    public static void main(String[] args) {
+        getString();
     }
 }

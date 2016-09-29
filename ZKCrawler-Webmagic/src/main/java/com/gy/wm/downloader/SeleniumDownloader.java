@@ -157,7 +157,6 @@ public class SeleniumDownloader implements Downloader, Closeable {
                 driver.close();
                 //kill browser process
                 driver.quit();
-
                 driver=null;
             }
 

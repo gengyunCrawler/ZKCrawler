@@ -31,6 +31,9 @@ public class TaskService {
 
     private static ExecutorService executorService;
 
+    @Autowired
+    private Crawl crawl;
+
     static {
         int poolSize = 20;
         try {
@@ -47,6 +50,7 @@ public class TaskService {
     public static void taskExecutor(Runnable task) {
 
         if (!executorService.isShutdown()) {
+            LOGGER.info("===> starting crawler task ......");
             executorService.execute(task);
             return;
         }
@@ -55,10 +59,6 @@ public class TaskService {
 
     }
 
-
-    @Autowired
-    private Crawl crawl;
-
     public TaskService() {
     }
 
@@ -66,8 +66,7 @@ public class TaskService {
         this.crawl.startTask(taskParamModel);
     }
 
-
-    public String cleanTaskRedis(String tid) {
+    public String cleanTaskRedis(String tid)  {
         JedisPoolUtils jedisPoolUtils = null;
         JedisPool pool = null;
         Jedis jedis = null;
@@ -77,10 +76,10 @@ public class TaskService {
             jedis = pool.getResource();
 
             //结束之后清空对应任务的redis
-            jedis.del("redis:bloomfilter:" + tid);
+            jedis.del(("redis:bloomfilter:" + tid));
             jedis.del("queue_" + tid);
-            jedis.del("webmagicCrawler::ToCrawl::" + tid);
-            jedis.del("webmagicCrawler::Crawled::" + tid);
+            jedis.del(("webmagicCrawler::ToCrawl::" + tid).getBytes());
+            jedis.del(("webmagicCrawler::Crawled::" + tid).getBytes());
 
         } catch (IOException e) {
             e.printStackTrace();
