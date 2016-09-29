@@ -59,11 +59,6 @@ public class TaskService {
 
     }
 
-
-
-    @Autowired
-    private Crawl crawl;
-
     public TaskService() {
     }
 
@@ -81,10 +76,10 @@ public class TaskService {
             jedis = pool.getResource();
 
             //结束之后清空对应任务的redis
-            jedis.del("redis:bloomfilter:" + tid);
+            jedis.del(("redis:bloomfilter:" + tid));
             jedis.del("queue_" + tid);
-            jedis.del("webmagicCrawler::ToCrawl::" + tid);
-            jedis.del("webmagicCrawler::Crawled::" + tid);
+            jedis.del(("webmagicCrawler::ToCrawl::" + tid).getBytes());
+            jedis.del(("webmagicCrawler::Crawled::" + tid).getBytes());
 
         } catch (IOException e) {
             e.printStackTrace();

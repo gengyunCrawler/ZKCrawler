@@ -95,7 +95,7 @@ public class CustomPageProcessor implements PageProcessor {
                         }
                     } else {
                         //链接fetched为true,即文章页，添加到redis的已爬取队列
-                        crawledData.add(crawlData);
+//                        crawledData.add(crawlData);
                         page.putField("crawlerData", crawlData);
                     }
                 }
