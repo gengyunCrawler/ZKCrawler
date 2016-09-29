@@ -1,6 +1,6 @@
-package cn.com.cloudpioneer.taskclient.chooser.chooserImpl;
+package cn.com.cloudpioneer.taskclient.chooser.chooserPolicyImpl;
 
-import cn.com.cloudpioneer.taskclient.chooser.TaskChooser;
+import cn.com.cloudpioneer.taskclient.chooser.ChooserPolicy;
 import cn.com.cloudpioneer.taskclient.dao.TaskDao;
 import cn.com.cloudpioneer.taskclient.model.TaskEntity;
 import cn.com.cloudpioneer.taskclient.model.TaskStatusItem;
@@ -10,18 +10,24 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Created by Tianjinjin on 2016/9/2.
+ * Created by Tianjinjin on 2016/9/1.
  */
-public class LongTimeFirstTaskChooser implements TaskChooser {
+public class CompleteTimesFirstChooserPolicy implements ChooserPolicy {
 
     private List<TaskEntity> taskEntities;
+
 
     @Override
     public List<TaskEntity> chooser(int size) {
         taskEntities = selectAllTask();
         cycleRecrawlFilter();
-        sortByTimeLastCrawlSmallToBig();
+        sortByCompleteSmallToBig();
         return getBySize(size);
+    }
+
+    @Override
+    public String getPolicyName() {
+        return "CompleteTimesFirstChooserPolicy";
     }
 
 
@@ -38,7 +44,6 @@ public class LongTimeFirstTaskChooser implements TaskChooser {
 
     }
 
-
     private List<TaskEntity> selectAllTask() {
         TaskDao dao = new TaskDao();
         return dao.findAllValidByStatus(TaskStatusItem.TASK_STATUS_COMPLETED);
@@ -47,7 +52,7 @@ public class LongTimeFirstTaskChooser implements TaskChooser {
     /**
      * 冒泡排序，按最后爬取时间从小到大从小到大。
      */
-    private void sortByTimeLastCrawlSmallToBig() {
+    private void sortByCompleteSmallToBig() {
 
         int length = taskEntities.size();
         TaskEntity[] entityArray = new TaskEntity[length];
@@ -60,7 +65,7 @@ public class LongTimeFirstTaskChooser implements TaskChooser {
 
         for (i = 0; i < length; i++) {
             for (int j = i + 1; j < length; j++) {
-                if (entityArray[i].getTimeLastCrawl().getTime() > entityArray[j].getTimeLastCrawl().getTime()) {
+                if (entityArray[i].getCompleteTimes() > entityArray[j].getCompleteTimes()) {
                     TaskEntity tmp = entityArray[j];
                     entityArray[i] = entityArray[j];
                     entityArray[j] = tmp;

@@ -40,6 +40,18 @@ public class CuratorUtils {
         }
     }
 
+
+    public static boolean isHaveChildren(CuratorFramework client, String nodePath) throws Exception {
+
+        List<String> children = client.getChildren().forPath(nodePath);
+
+        if (children == null || children.size() == 0)
+            return false;
+
+        return true;
+
+    }
+
     /**
      * 删除该目录及其子节点
      *

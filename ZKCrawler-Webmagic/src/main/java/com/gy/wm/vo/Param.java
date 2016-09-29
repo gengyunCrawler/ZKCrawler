@@ -30,6 +30,14 @@ public class Param {
 
     List<String> protocolFilter;
 
+    List<String> downloader;
+
+    List<String> urlParser;
+
+    List<String> pageParser;
+
+    List<String> proxy;
+
     public List<String> getTags() {
         return tags;
     }
@@ -92,5 +100,37 @@ public class Param {
 
     public void setProtocolFilter(List<String> protocolFilter) {
         this.protocolFilter = protocolFilter;
+    }
+
+    public List<String> getDownloader() {
+        return downloader;
+    }
+
+    public void setDownloader(List<String> downloader) {
+        this.downloader = downloader;
+    }
+
+    public List<String> getUrlParser() {
+        return urlParser;
+    }
+
+    public void setUrlParser(List<String> urlParser) {
+        this.urlParser = urlParser;
+    }
+
+    public List<String> getPageParser() {
+        return pageParser;
+    }
+
+    public void setPageParser(List<String> pageParser) {
+        this.pageParser = pageParser;
+    }
+
+    public List<String> getProxy() {
+        return proxy;
+    }
+
+    public void setProxy(List<String> proxy) {
+        this.proxy = proxy;
     }
 }

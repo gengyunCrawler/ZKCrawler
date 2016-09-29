@@ -48,13 +48,21 @@ public class TaskService {
 
 
     public static void taskExecutor(Runnable task) {
+
         if (!executorService.isShutdown()) {
             LOGGER.info("===> starting crawler task ......");
             executorService.execute(task);
             return;
         }
-        LOGGER.warn("===> executorService was shutdown !!!! crawler task can't be started");
+
+        LOGGER.warn("===> executorService was shutdown !!!! crawler task can't be started.");
+
     }
+
+
+
+    @Autowired
+    private Crawl crawl;
 
     public TaskService() {
     }
@@ -83,7 +91,7 @@ public class TaskService {
         } finally {
             pool.returnResource(jedis);
         }
-        return tid+"has been cleaned";
+        return tid + "has been cleaned";
     }
 
     public void test() {

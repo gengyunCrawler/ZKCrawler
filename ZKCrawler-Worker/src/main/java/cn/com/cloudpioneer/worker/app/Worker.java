@@ -55,19 +55,19 @@ public class Worker implements Closeable, ConnectionStateListener {
     private static final String MY_STATUS = "alive";
 
     /**
-     * TASKS_ROOT_PATH 是 zookeeper 中的任务根节点，节点是永久类型（persistent）。
+     * ROOT_PATH_TASKS 是 zookeeper 中的任务根节点，节点是永久类型（persistent）。
      */
-    public static final String TASKS_ROOT_PATH = "/tasks";
+    public static final String ROOT_PATH_TASKS = "/tasks";
 
     /**
-     * WORKERS_ROOT_PATH 是 zookeeper 中挂载 worker 的根节点，节点是永久类型（persistent）。
+     * ROOT_PATH_WORKERS 是 zookeeper 中挂载 worker 的根节点，节点是永久类型（persistent）。
      */
-    public static final String WORKERS_ROOT_PATH = "/workers";
+    public static final String ROOT_PATH_WORKERS = "/workers";
 
     /**
-     * LOCK_ROOT_PATH 是任务锁节点的根节点，节点是永久类型（persistent）。
+     * ROOT_PATH_LOCK 是任务锁节点的根节点，节点是永久类型（persistent）。
      */
-    public static final String LOCK_ROOT_PATH = "/lock-4-tasks";
+    public static final String ROOT_PATH_LOCK = "/lock-4-tasks";
 
     /**
      * API_CRAWLER_TASK_STARTER 启动爬取任务时，访问的 WebMagic API，存储在配置文件中。
@@ -75,6 +75,7 @@ public class Worker implements Closeable, ConnectionStateListener {
      */
     public static final String API_CRAWLER_TASK_STARTER = ResourceBundle.getBundle("config").getString("API_CRAWLER_TASK_STARTER");
     public static final String API_CRAWLER_TASK_STOPPER = ResourceBundle.getBundle("config").getString("API_CRAWLER_TASK_STOPPER");
+    public static final String API_CRAWLER_TASK_CLEAN_R = ResourceBundle.getBundle("config").getString("API_CRAWLER_TASK_CLEAN_R");
 
     /**
      * worker 自己拥有的所有锁的集合。taskLockMap 存储 worker 当前自己拥有的锁。
@@ -153,18 +154,22 @@ public class Worker implements Closeable, ConnectionStateListener {
     private void register() throws Exception {
 
         // 注册锁根节点,永久类型
-        if (client.checkExists().forPath(LOCK_ROOT_PATH) == null) {
-            client.create().withMode(CreateMode.PERSISTENT).forPath(LOCK_ROOT_PATH);
-            LOGGER.info("register znode: " + LOCK_ROOT_PATH + " finished.");
+        if (client.checkExists().forPath(ROOT_PATH_LOCK) == null) {
+            client.create().withMode(CreateMode.PERSISTENT).forPath(ROOT_PATH_LOCK);
+            LOGGER.info("register znode: " + ROOT_PATH_LOCK + " finished.");
         }
 
         // 去 workers 节点下注册 worker 节点，持久类型（ephemeral）
-        client.create().withMode(CreateMode.PERSISTENT).forPath(WORKERS_ROOT_PATH + "/" + workerId, workerId.getBytes());
-        LOGGER.info("register zonode: " + WORKERS_ROOT_PATH + "/" + workerId + " finished.");
+        if (client.checkExists().forPath(ROOT_PATH_WORKERS + "/" + workerId) == null) {
+            client.create().withMode(CreateMode.PERSISTENT).forPath(ROOT_PATH_WORKERS + "/" + workerId, workerId.getBytes());
+            LOGGER.info("register zonode: " + ROOT_PATH_WORKERS + "/" + workerId + " finished.");
+        }
 
         // 去 workers 节点下之间的节点woker 注册状态节点status，短暂类型（persistent）
-        client.create().withMode(CreateMode.EPHEMERAL).forPath(WORKERS_ROOT_PATH + "/" + workerId + "/status", MY_STATUS.getBytes());
-        LOGGER.info("register zonode: " + WORKERS_ROOT_PATH + "/" + workerId + "/status" + " finished.");
+        if (client.checkExists().forPath(ROOT_PATH_WORKERS + "/" + workerId + "/status") == null) {
+            client.create().withMode(CreateMode.EPHEMERAL).forPath(ROOT_PATH_WORKERS + "/" + workerId + "/status", MY_STATUS.getBytes());
+            LOGGER.info("register zonode: " + ROOT_PATH_WORKERS + "/" + workerId + "/status" + " finished.");
+        }
     }
 
 
@@ -178,13 +183,13 @@ public class Worker implements Closeable, ConnectionStateListener {
     private synchronized boolean isGetTaskLock(String taskId) {
 
         try {
-            client.create().withMode(CreateMode.EPHEMERAL).forPath(LOCK_ROOT_PATH + "/" + taskId);
+            client.create().withMode(CreateMode.EPHEMERAL).forPath(ROOT_PATH_LOCK + "/" + taskId);
         } catch (Exception e) {
             LOGGER.warn("get lock: " + taskId + " Failed. return false.");
             return false;
         }
 
-        taskLockMap.put(taskId, LOCK_ROOT_PATH + "/" + taskId);
+        taskLockMap.put(taskId, ROOT_PATH_LOCK + "/" + taskId);
         LOGGER.info("get lock: " + taskId + " Success. return true.");
         return true;
     }
@@ -198,13 +203,19 @@ public class Worker implements Closeable, ConnectionStateListener {
     private synchronized void releaseTaskLock(String taskId) {
 
         int retry = 5;
+
         String lockPath = taskLockMap.remove(taskId);
+
         if (lockPath != null) {
+
             while (retry > 0) {
 
                 try {
+
                     client.delete().forPath(lockPath);
+
                 } catch (Exception e) {
+
                     LOGGER.warn("release lock: " + lockPath + " Exception. retry ......");
                     retry--;
                     continue;
@@ -213,8 +224,9 @@ public class Worker implements Closeable, ConnectionStateListener {
                 LOGGER.info("release lock: " + lockPath + " ok.");
                 break;
             }
-        } else
+        } else {
             LOGGER.warn("try to release a not exists lock, ignore it ......");
+        }
 
     }
 
@@ -258,7 +270,9 @@ public class Worker implements Closeable, ConnectionStateListener {
             LOGGER.warn("try to write back a null task to the TaskClient, taskId = " + taskId + ", ignore it.");
             return;
         }
-        final int costTime = (int) ((System.currentTimeMillis() - task.getStartTime()) / 1000 / 60);
+
+        int costTime = (int) ((System.currentTimeMillis() - task.getStartTime()) / 1000 / 60);
+
         task.getEntity().setTimeStop(new Date());
         task.getEntity().setCostLastCrawl(costTime);
         task.getEntity().setCompleteTimes(task.getEntity().getCompleteTimes() + 1);
@@ -280,7 +294,7 @@ public class Worker implements Closeable, ConnectionStateListener {
                     if (!isGetTaskLock(backTask.getEntity().getId())) {
                         LOGGER.info("can't get the lock, retry ......");
                         try {
-                            Thread.sleep(50);
+                            Thread.sleep(20);
                         } catch (InterruptedException e) {
 
                         }
@@ -314,12 +328,18 @@ public class Worker implements Closeable, ConnectionStateListener {
                 }
 
                 try {
+
                     count = Integer.parseInt(new String(data, "UTF-8"));
+
                     LOGGER.info("===> count data is: " + count);
+
                 } catch (UnsupportedEncodingException e) {
+
                     e.printStackTrace();
                 }
+
                 count--;
+
                 if (count == 0) {
 
                     retry = 5;
@@ -368,25 +388,35 @@ public class Worker implements Closeable, ConnectionStateListener {
                     LOGGER.info("write task data back to TaskClient Success. release the lock and return this thread.");
                     releaseTaskLock(backTask.getEntity().getId());
 
+                    LOGGER.info("===> now, clean WebMagic redis call.");
+                    HttpClientUtils.jsonPostRequest(API_CRAWLER_TASK_CLEAN_R + backTask.getEntity().getId(), "[]");
+
                 } else {
+
                     LOGGER.info("I am not the last worker, count for me is: " + count);
                     retry = 5;
 
                     while (retry > 0) {
+
                         try {
-                            //LOGGER.info("count: " + Integer.valueOf(count).toString().getBytes());
+
                             client.setData().forPath(backTask.getTaskPath() + "/status", ("" + count).getBytes());
+
                         } catch (Exception e) {
+
                             LOGGER.warn("write count back to znode: " + backTask.getTaskPath() + "/status Exception. retry ......");
                             retry--;
                             isException = true;
                             continue;
                         }
+
                         isException = false;
                         LOGGER.info(("write count back to znode: " + backTask.getTaskPath() + "/status Success."));
                         break;
                     }
+
                     if (isException) {
+
                         LOGGER.error("write count data back error. release the lock and return this thread.");
                         releaseTaskLock(backTask.getEntity().getId());
                         return;
@@ -418,7 +448,7 @@ public class Worker implements Closeable, ConnectionStateListener {
         LOGGER.info("my work id: " + workerId);
         this.client = CuratorFrameworkFactory.newClient(hostPort, retryPolicy);
         this.client.getConnectionStateListenable().addListener(this);
-        this.myTasksCache = new TreeCache(this.client, WORKERS_ROOT_PATH + "/" + workerId);
+        this.myTasksCache = new TreeCache(this.client, ROOT_PATH_WORKERS + "/" + workerId);
         this.myTaskCacheListener = new MyTaskCacheListener();
 
     }
@@ -455,8 +485,8 @@ public class Worker implements Closeable, ConnectionStateListener {
 
                 try {
                     LOGGER.info("=====>> Start request Webmagic.......");
+                    LOGGER.info("=====>> task info:\n\t" + task.toString());
                     HttpClientUtils.jsonPostRequest(API_CRAWLER_TASK_STARTER, task.toString());
-                    System.out.println(task.toString());
                     LOGGER.info("=====>> Ended request Webmagic.......");
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -480,12 +510,28 @@ public class Worker implements Closeable, ConnectionStateListener {
             public void run() {
 
                 try {
-                    HttpClientUtils.jsonPostRequest(API_CRAWLER_TASK_STOPPER, task.getEntity().getId());
+                    HttpClientUtils.jsonPostRequest(API_CRAWLER_TASK_STOPPER + task.getEntity().getId(), task.getEntity().getId());
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
         });
+
+        /**
+         * 清理 redis 调用。
+         */
+        /**
+         executorService.execute(new Runnable() {
+        @Override public void run() {
+        try {
+        HttpClientUtils.jsonPostRequest(API_CRAWLER_TASK_CLEAN_R + task.getEntity().getId(), task.getEntity().getId());
+        } catch (Exception e) {
+        e.printStackTrace();
+        }
+        }
+        });
+
+         **/
 
     }
 
@@ -518,7 +564,7 @@ public class Worker implements Closeable, ConnectionStateListener {
             myTasksLock.lock();
             myTasks.addTask(task);
         } catch (Exception e) {
-
+            LOGGER.warn("myTasks.addTask Exception...!!!");
         } finally {
 
             myTasksLock.unlock();

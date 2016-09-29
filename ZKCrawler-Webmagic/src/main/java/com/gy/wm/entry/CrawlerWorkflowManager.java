@@ -44,7 +44,7 @@ public class CrawlerWorkflowManager {
         Jedis jedis = pool.getResource();
         domain = GetDomain.getDomain(seeds.get(0).getUrl());
 
-        LOG.info("****************************domain****************************: " + domain);
+        LOG.info("****************************>>>>> domain:  " + domain);
         try {
             nextQueue.putNextUrls(seeds, jedis, tid);
         } finally {
