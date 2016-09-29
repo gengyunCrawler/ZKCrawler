@@ -33,13 +33,6 @@ public class TasksCacheListener implements TreeCacheListener {
                 return false;
         }
 
-       /* if ()
-            LOGGER.info("=======> matches task path ......");
-        if ()
-            LOGGER.info("=======> matches task status path ......");
-        if ()
-            LOGGER.info("=======> matches task worker-* path ......");*/
-
     }
 
     @Override

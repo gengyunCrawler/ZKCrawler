@@ -51,9 +51,22 @@ public class RedisScheduler implements Scheduler {
 
 
         String url = null;
+
         try {
             url = jedis.lpop(QUEUE_PREFIX + task.getUUID());
+            int i = 10;
+            while (i-- > 0 && url == null) {
+
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                url = jedis.lpop(QUEUE_PREFIX + task.getUUID());
+            }
+
         } finally {
+
             pool.returnResource(jedis);
         }
 

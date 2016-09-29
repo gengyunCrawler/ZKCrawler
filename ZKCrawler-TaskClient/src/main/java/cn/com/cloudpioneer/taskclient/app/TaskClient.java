@@ -577,7 +577,9 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
     public boolean taskUpdateProcess(String taskStatusPath) {
 
         String taskPath = ROOT_PATH_TASKS + "/" + taskStatusPath.split("/")[2];
-        if (getTaskStatusData(taskStatusPath) == 0) {
+        int count = getTaskStatusData(taskStatusPath);
+        LOGGER.info("******====>> COUNT: " + count + ", status node: " + taskStatusPath);
+        if (count == 0) {
             TaskEntity entity = getTaskData(taskPath);
             if (entity == null) {
                 return false;

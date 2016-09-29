@@ -9,23 +9,12 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>ZKCrawler-Starter</artifactId>
+    <artifactId>ZKCrawler-API</artifactId>
 
-
-    <dependencies>
-
-        <!-- http://mvnrepository.com/artifact/com.jcraft/jsch -->
-        <!-- ssh login utils -->
-        <dependency>
-            <groupId>com.jcraft</groupId>
-            <artifactId>jsch</artifactId>
-            <version>0.1.53</version>
-        </dependency>
-
-    </dependencies>
 
 
     <build>
+
 
         <plugins>
 
@@ -59,14 +48,12 @@
                 <version>2.6</version>
 
                 <configuration>
-                    <finalName>ZKCrawler-Starter-${version}</finalName>
+                    <finalName>ZKCrawler-API-${version}</finalName>
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>libZKCrawler/</classpathPrefix>
-                            <mainClass>
-                                cn.com.cloudpioneer.starter.app.ApplicationStarter
-                            </mainClass>
+                            <mainClass>cn.com.cloudpioneer.zkcrawlerAPI.ApplicationAPI</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -93,6 +80,7 @@
             </plugin>
 
         </plugins>
+
 
         <resources>
 

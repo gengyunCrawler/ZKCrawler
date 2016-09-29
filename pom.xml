@@ -14,6 +14,7 @@
         <module>ZKCrawler-Worker</module>
         <module>ZKCrawler-Webmagic</module>
         <module>ZKCrawler-Starter</module>
+        <module>ZKCrawler-API</module>
     </modules>
 
     <parent>
@@ -41,6 +42,7 @@
             <artifactId>jackson-databind</artifactId>
             <version>2.4.1</version>
         </dependency>
+
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
@@ -100,5 +102,32 @@
 
     </dependencies>
 
+
+    <build>
+
+        <plugins>
+
+            <!-- 依赖库放到同一库目录下 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>2.10</version>
+                <executions>
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/libZKCrawler</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+
+    </build>
 
 </project>
