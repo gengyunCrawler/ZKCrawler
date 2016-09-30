@@ -59,24 +59,24 @@ public  class ServiceTest {
 //        String seed4 = "http://www.gygov.gov.cn/col/col10683/index.html";
         String seed5 = "http://www.gog.cn/";
 
-        seedUrls.add(seed5);
+//        seedUrls.add(seed5);
 //        seedUrls.add(seed2);
 //        param.setTemplates(templateList);
-        param.setSeedUrls(seedUrls);
+//        param.setSeedUrls(seedUrls);
 
 //        templateList.add(guiyangTemplate);
 //        param.setTemplates(templateList);
 
-        base.setId("acbrocdldrtfkauj9ertt29d67");
-        base.setDepthCrawl(1);
-
-        taskParamModel.setParam(param);
-        taskParamModel.setBase(base);
-        System.out.println(api.startTask(taskParamModel));
-        try {
-            Thread.sleep(Long.MAX_VALUE);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        base.setId("acbrocdldrtfkauj9ertt29d67");
+//        base.setDepthCrawl(1);
+//
+//        taskParamModel.setParam(param);
+//        taskParamModel.setBase(base);
+//        System.out.println(api.startTask(taskParamModel));
+//        try {
+//            Thread.sleep(Long.MAX_VALUE);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
     }
 }

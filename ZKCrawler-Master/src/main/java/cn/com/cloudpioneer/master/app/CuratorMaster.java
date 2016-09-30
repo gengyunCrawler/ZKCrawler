@@ -31,42 +31,90 @@ import java.util.regex.Pattern;
  * @version 1.0
  */
 public class CuratorMaster implements Closeable, LeaderSelectorListener {
+
+    /**
+     * slf4j 日志记录成员。
+     */
     private static final Logger LOGGER = LoggerFactory.getLogger(CuratorMaster.class);
 
+
+    /**
+     * CuratorMaster 设计成单实例，此静态变量为提供给外部引用。
+     */
     private static volatile CuratorMaster thisMaster;
 
-    //serverId
+
+    /**
+     * master 注册时的 ID 号，若初始化时没有指定，那么随机成，生成的方法为：
+     * "master-" + "十个有数字和大小写字母组成的随机字符串" + "-" + "master 初始化时的系统当前时间戳"
+     */
     private String myId = "master-" + RandomUtils.getRandomString(10) + "-" + System.currentTimeMillis();
 
-    //连接zk的client
+
+    /**
+     * 链接 zoookeeper 的客户端。
+     */
     private CuratorFramework client;
 
-    //进行leader选举
+
+    /**
+     * zookeeper 的主节点选举器成员。
+     */
     private LeaderSelector leaderSelector;
 
-    //对/workers节点进行监听的workersCache
+
+    /**
+     * 根节点 workers 的树缓存。
+     */
     private TreeCache workersCache;
 
-    //对/tasks节点进行监听的tasksCache
+
+    /**
+     * 根节点 tasks 的树缓存。
+     */
     private TreeCache tasksCache;
 
 
-    private static final String PATH_ROOT_TASKS = "/tasks";
+    /**
+     * zookeeper 三个角色 角色TaskCLient 角色Master 角色Worker 的根节点。
+     */
+    public static final String PATH_ROOT_TASKS = "/tasks";
+    public static final String PATH_ROOT_MASTER = "/master";
+    public static final String PATH_ROOT_WORKERS = "/workers";
 
-    private static final String PATH_ROOT_MASTER = "/master";
-    private static final String PATH_ROOT_WORKERS = "/workers";
 
-
+    /**
+     * 匹配 task 节点下的 worker 节点的正则表达式。
+     */
     private final static Pattern TASK_WORKER = Pattern.compile(PATH_ROOT_TASKS + "/task-.*/worker-.*");
 
 
+    /**
+     * zookeeper 的链接字符串。
+     */
     private String hostPort;
 
 
+    /**
+     * 主节点锁
+     */
     private CountDownLatch leaderLatch = new CountDownLatch(1);
+
+
+    /**
+     * 关闭锁
+     */
     private CountDownLatch closeLatch = new CountDownLatch(1);
 
 
+    /**
+     * master 初始化方法，角色 master 必须由此方法来进行实例化。
+     *
+     * @param hostPort   zookeeper 的链接字符串。
+     * @param retryPolic zookeeper 链接失败时的重试策略。
+     * @param myId       master 的 ID ，可以为 null， 若为空时使用默认值。
+     * @return Mater 的对象。
+     */
     public static CuratorMaster initializeMaster(String hostPort, RetryPolicy retryPolic, @Nullable String myId) {
 
         if (thisMaster == null)
@@ -74,17 +122,25 @@ public class CuratorMaster implements Closeable, LeaderSelectorListener {
         return thisMaster;
     }
 
+
+    /**
+     * 获取此 master 实例的方法，此方法需在实例化方法对 master 实例化后方可调用，
+     * 否则会得到空对象 null。
+     *
+     * @return Master 的对象。
+     */
     public static CuratorMaster getThisMaster() {
 
         return thisMaster;
     }
 
+
     /**
-     * 初始化client连接配置参数
+     * Master 的私有构造方法，由静态的初始化方法调用，得到 master 实例。
      *
-     * @param myId
-     * @param hostPort
-     * @param retryPolicy
+     * @param myId        master 的 ID ，可以为 null， 若为空时使用默认值。
+     * @param hostPort    zookeeper 的链接字符串。
+     * @param retryPolicy zookeeper 链接失败时的重试策略。
      */
     private CuratorMaster(String hostPort, RetryPolicy retryPolicy, @Nullable String myId) {
         if (myId != null) {
@@ -98,57 +154,68 @@ public class CuratorMaster implements Closeable, LeaderSelectorListener {
 
     }
 
+
+    /**
+     * 获取 Master 的 zookeeper 链接客户端。
+     *
+     * @return 此 Master 的 CuratorFramework 的客户端。
+     */
     public CuratorFramework getClient() {
         return client;
     }
 
+
     /**
-     * 启动连接
+     * 启动连接客户端，进行 zookeeper 的链接。
      */
     public void startZK() throws Exception {
         client.start();
 
     }
 
+
     /**
-     * 初始化节点如果节点不存在择创建节点
+     * 创建各个角色的根节点，如果它们不存在的话。
      *
-     * @throws Exception
+     * @throws Exception 创建出错的的时候抛出异常。
      */
-    public void bootstrap() throws Exception {
+    private void bootstrap() throws Exception {
+
         if (!isNodeExist(PATH_ROOT_MASTER)) {
             client.create().forPath(PATH_ROOT_MASTER, new byte[0]);
         }
+
         if (!isNodeExist(PATH_ROOT_WORKERS)) {
             client.create().forPath(PATH_ROOT_WORKERS, new byte[0]);
         }
+
         if (!isNodeExist(PATH_ROOT_TASKS)) {
             client.create().forPath(PATH_ROOT_TASKS, new byte[0]);
         }
 
     }
 
+
     /**
-     * 启动master，将会启动对/workers,/tasks节点的监听
-     *
-     * @return
+     * 启动 master，将会启动主节点选择器并进行主节点的选举。
      */
-    public CuratorFramework runForMaster() throws Exception {
+    private void runForMaster() throws Exception {
+
         leaderSelector.setId(myId);
         LOGGER.info("Starting master selection: " + myId);
         leaderSelector.start();
-        return client;
     }
 
 
     /**
-     * 为workersCache 添加监视器
+     * 为 workersCache 添加监听器。
      *
-     * @param workersListener
+     * @param workersListener workers 节点的监听器。
      */
     public void addWorkersListener(TreeCacheListener workersListener) {
         this.workersCache.getListenable().addListener(workersListener);
     }
+
 
     /**
      * 为tasksCache 添加监视器
@@ -159,6 +226,7 @@ public class CuratorMaster implements Closeable, LeaderSelectorListener {
         this.tasksCache.getListenable().addListener(tasksListener);
     }
 
+
     /**
      * 等待选举结束
      *
@@ -168,6 +236,12 @@ public class CuratorMaster implements Closeable, LeaderSelectorListener {
         leaderLatch.await();
     }
 
+
+    /**
+     * 查看此 master 是否是主节点权限。
+     *
+     * @return true 为主节点，false 非主节点。
+     */
     public boolean isLeader() {
         return leaderSelector.hasLeadership();
     }
@@ -175,8 +249,23 @@ public class CuratorMaster implements Closeable, LeaderSelectorListener {
 
     CountDownLatch recoveryLatch = new CountDownLatch(0);
 
+
     /**
-     * 选举leader成功后执行该方法，在此方法中启动对/workers, /tasks的监听，并在/assign下进行进行任务分配
+     * 阻塞当前方法方法退出，用在 master 获得主节点权限后，保持权限，直到 close 调用。
+     */
+    private void keepAsLeader() {
+        LOGGER.info("now, keep as a leader.");
+        try {
+            closeLatch.await();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    /**
+     * 选举 leader 成功后执行该方法，在此方法中启动对/workers, /tasks的监听，并进行任务分配。
+     * 若退出此方法，则为放弃主节点权限。
      */
     @Override
     public void takeLeadership(CuratorFramework curatorFramework) throws Exception {
@@ -193,25 +282,16 @@ public class CuratorMaster implements Closeable, LeaderSelectorListener {
         tasksCache.start();
         leaderLatch.countDown();
 
+        //保持主节点权限。
         keepAsLeader();
 
     }
 
-    /**
-     * 阻塞当前线程方法，保证监听一直监听下去，指导下达close命令。
-     */
-    private void keepAsLeader() {
-        LOGGER.info("now, keep as a leader.");
-        try {
-            closeLatch.await();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
+
 
 
     /**
-     * curatorFramework 与zkserver的网络连接状态在这里根据不同状态进行处理，比如网络连接异常
+     * curatorFramework 与 zookeeper 的网络连接状态在这里根据不同状态进行处理，比如网络连接异常。
      *
      * @param curatorFramework
      * @param connectionState
@@ -279,6 +359,7 @@ public class CuratorMaster implements Closeable, LeaderSelectorListener {
         CloseableUtils.closeQuietly(client);
     }
 
+
     /**
      * 对/workers节点进行监听的监视器需完成对相应事件的处理
      */
@@ -292,6 +373,9 @@ public class CuratorMaster implements Closeable, LeaderSelectorListener {
                     nodePath = event.getData().getPath();
                     LOGGER.info("===> NODE_ADDED Event, path: " + nodePath);
 
+                    /**
+                     *  此处需要做一些具体处理，比如清理一些不存在的 work 节点。
+                     */
                    /*
                     Pattern workers = Pattern.compile(PATH_ROOT_WORKERS + "/worker-.*");
                     Pattern workerStatus = Pattern.compile(PATH_ROOT_WORKERS + "/worker-.*//*status");
@@ -459,6 +543,32 @@ public class CuratorMaster implements Closeable, LeaderSelectorListener {
      */
     public void stopMaster() throws IOException {
         close();
+    }
+
+
+    /**
+     * 获取该节点下的所有子节点
+     *
+     * @param znode
+     * @return List<String>
+     * @throws Exception
+     */
+    public List<String> getChildren(String znode) throws Exception {
+        return client.getChildren().forPath(znode);
+    }
+
+    /**
+     * 获取该节点下的数据
+     *
+     * @param znode
+     * @return
+     * @throws Exception
+     */
+    public byte[] getNodeData(String znode) throws Exception {
+        if (CuratorUtils.isNodeExist(client, znode)) {
+            return client.getData().forPath(znode);
+        }
+        return null;
     }
 
 }
