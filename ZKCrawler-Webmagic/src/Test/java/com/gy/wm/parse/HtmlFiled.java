@@ -1,13 +1,14 @@
 package com.gy.wm.parse;
 
+import java.util.List;
+
 /**
  * Created by Administrator on 2016/9/30.
  */
 public class HtmlFiled {
     private String fieldName;
-    private String xpath;
+    private List<String> xpaths;
     private String regex;
-    private boolean muti;
     private String occur;
 
     public String getFieldName() {
@@ -18,12 +19,13 @@ public class HtmlFiled {
         this.fieldName = fieldName;
     }
 
-    public String getXpath() {
-        return xpath;
+
+    public List<String> getXpath() {
+        return xpaths;
     }
 
-    public void setXpath(String xpath) {
-        this.xpath = xpath;
+    public void setXpath(List<String> xpath) {
+        this.xpaths = xpath;
     }
 
     public String getRegex() {
@@ -34,13 +36,7 @@ public class HtmlFiled {
         this.regex = regex;
     }
 
-    public boolean isMuti() {
-        return muti;
-    }
 
-    public void setMuti(boolean muti) {
-        this.muti = muti;
-    }
 
     public String getOccur() {
         return occur;
