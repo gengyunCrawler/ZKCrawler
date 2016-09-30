@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f80612aa-7060-4aab-872b-8b78d4511402" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_jcraft_jsch_0_1_53.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ZKCrawler-Master/src/main/java/cn/com/cloudpioneer/master/app/AdminClient.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ZKCrawler-Webmagic/logs/logs-webmagic/ZKCrawler-webmagic.log" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ZKCrawler-API/ZKCrawler-API.iml" afterPath="$PROJECT_DIR$/ZKCrawler-API/ZKCrawler-API.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ZKCrawler-Master/src/main/java/cn/com/cloudpioneer/master/app/CuratorMaster.java" afterPath="$PROJECT_DIR$/ZKCrawler-Master/src/main/java/cn/com/cloudpioneer/master/app/CuratorMaster.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ZKCrawler-Starter/ZKCrawler-Starter.iml" afterPath="$PROJECT_DIR$/ZKCrawler-Starter/ZKCrawler-Starter.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ZKCrawler-Webmagic/ZKCrawler-Webmagic.iml" afterPath="$PROJECT_DIR$/ZKCrawler-Webmagic/ZKCrawler-Webmagic.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ZKCrawler-Webmagic/src/Test/java/com/gy/wm/service/ServiceTest.java" afterPath="$PROJECT_DIR$/ZKCrawler-Webmagic/src/Test/java/com/gy/wm/service/ServiceTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/resources/config.properties" afterPath="$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/resources/config.properties" />
     </list>
     <ignored path="ZKCrawler.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1003,7 +993,7 @@
       <workItem from="1474854492365" duration="886000" />
       <workItem from="1474855409771" duration="19715000" />
       <workItem from="1474882147186" duration="49155000" />
-      <workItem from="1475140804630" duration="17294000" />
+      <workItem from="1475140804630" duration="17380000" />
     </task>
     <task id="LOCAL-00001" summary="first init">
       <created>1472713688029</created>
@@ -1278,11 +1268,18 @@
       <option name="project" value="LOCAL" />
       <updated>1475143583770</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="给 master 添加一些注释。">
+      <created>1475224341224</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1475224341224</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="396346000" />
+    <option name="totallyTimeSpent" value="396432000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1388,7 +1385,8 @@
     <MESSAGE value="添加集群启动工具。&#10;2016-09-27 18:35:00" />
     <MESSAGE value="修改打包方式，修改 WebMagic Redis 取爬取 URL 时的等待。&#10;2016-09-29 17:25:00" />
     <MESSAGE value="... ..." />
-    <option name="LAST_COMMIT_MESSAGE" value="... ..." />
+    <MESSAGE value="给 master 添加一些注释。" />
+    <option name="LAST_COMMIT_MESSAGE" value="给 master 添加一些注释。" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
