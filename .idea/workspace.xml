@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f80612aa-7060-4aab-872b-8b78d4511402" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/plugins/newsExportPlugin/QNRParser.java" afterPath="$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/plugins/newsExportPlugin/QNRParser.java" />
     </list>
     <ignored path="ZKCrawler.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -71,19 +70,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TaskService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/service/TaskService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="124">
-              <caret line="79" column="22" selection-start-line="79" selection-start-column="22" selection-end-line="79" selection-end-column="22" />
-              <folding>
-                <element signature="e#1858#1859#0" expanded="true" />
-                <element signature="e#1910#1911#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="CustomPageProcessor.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/service/CustomPageProcessor.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -94,21 +80,51 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MySerializer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/util/MySerializer.java">
+      <file leaf-file-name="QNRParser.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/plugins/newsExportPlugin/QNRParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+            <state relative-caret-position="410">
+              <caret line="64" column="43" selection-start-line="64" selection-start-column="43" selection-end-line="64" selection-end-column="43" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="QNRParser.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/plugins/newsExportPlugin/QNRParser.java">
+      <file leaf-file-name="HtmlFiled.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/Test/java/com/gy/wm/parse/HtmlFiled.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="568">
-              <caret line="73" column="1" selection-start-line="73" selection-start-column="1" selection-end-line="73" selection-end-column="1" />
+            <state relative-caret-position="95">
+              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CrawlerParserEntity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/Test/java/com/gy/wm/parse/CrawlerParserEntity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="95">
+              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CrawlerParserConfigTester.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/Test/java/com/gy/wm/parse/CrawlerParserConfigTester.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="266">
+              <caret line="19" column="72" selection-start-line="19" selection-start-column="72" selection-end-line="19" selection-end-column="72" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CrawlerParserConfig.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/Test/java/com/gy/wm/parse/CrawlerParserConfig.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -124,31 +140,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ServiceTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/Test/java/com/gy/wm/service/ServiceTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="SqlMapConfig.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/resources/SqlMapConfig.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="95">
               <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GetDomain.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/util/GetDomain.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -268,10 +264,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="207" />
-    <option name="y" value="76" />
-    <option name="width" value="1684" />
-    <option name="height" value="983" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -756,7 +752,75 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="wm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ZKCrawler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ZKCrawler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ZKCrawler-Webmagic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="parse" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ZKCrawler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ZKCrawler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ZKCrawler-Webmagic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wm" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1230,6 +1294,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ZKCrawler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ZKCrawler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ZKCrawler-Master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane" />
@@ -1283,42 +1361,6 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.gitignore</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/compiler.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/dataSources.ids</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/dataSources.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/encodings.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/modules.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-Master/pom.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-Master/src/main/java/cn/com/cloudpioneer/master/app/CuratorMaster.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-Master/src/main/java/cn/com/cloudpioneer/master/utils/CuratorUtils.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-Master/src/main/resources/config.properties</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-Master/src/test/java/com/gy/curator/CuratorMasterTester.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-Master/src/test/java/tool/CuratorMasterTester.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-TaskClient/pom.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-TaskClient/src/main/java/cn/com/cloudpioneer/taskclient/ApplicationTaskClient.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-TaskClient/src/main/java/cn/com/cloudpioneer/taskclient/app/TaskClient.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-TaskClient/src/main/java/cn/com/cloudpioneer/taskclient/listener/TasksCacheListener.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-TaskClient/src/main/java/cn/com/cloudpioneer/taskclient/scheduler/SchedulePolicy.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-TaskClient/src/main/java/cn/com/cloudpioneer/taskclient/scheduler/schedulerImpl/EveryWorkerPolicy.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-TaskClient/src/main/resources/config.properties</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-Webmagic/pom.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/controller/API.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/entry/Crawl.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/entry/CrawlerWorkflowManager.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/schedular/RedisScheduler.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/service/TaskService.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/vo/Param.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/resources/config.properties</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-Worker/pom.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-Worker/src/main/java/cn/com/cloudpioneer/worker/app/GetTaskConfig.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-Worker/src/main/java/cn/com/cloudpioneer/worker/app/Worker.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-Worker/src/main/java/cn/com/cloudpioneer/worker/listener/MyTaskCacheListener.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-Worker/src/main/java/cn/com/cloudpioneer/worker/model/ConfigType.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-Worker/src/main/java/cn/com/cloudpioneer/worker/model/TaskModel.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-Worker/src/main/resources/config.properties</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/doc/任务信息-SQL.txt.sql</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/pom.xml</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -1326,34 +1368,12 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__com_jcraft_jsch_0_1_53.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/README.md</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-API/ZKCrawler-API.iml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-API/pom.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/ApplicationAPI.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/app/controller/GreetingController.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/utils/RandomUtils.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-API/src/main/resources/application.properties</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-API/src/main/resources/config.properties</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-API/src/main/resources/templates/error.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-API/src/main/resources/templates/greeting.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-Starter/ZKCrawler-Starter.iml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-Starter/pom.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-Starter/src/main/java/cn/com/cloudpioneer/starter/app/ApplicationStarter.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-Starter/src/main/java/cn/com/cloudpioneer/starter/app/ZKCrawlerStarter.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-Starter/src/main/java/cn/com/cloudpioneer/starter/model/HostInfo.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-Starter/src/main/java/cn/com/cloudpioneer/starter/utils/ShellUtils.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-Starter/src/main/resources/HostInfo.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-Starter/src/main/resources/config.properties</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-TaskClient/src/main/java/cn/com/cloudpioneer/taskclient/app/Chooser.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-TaskClient/src/main/java/cn/com/cloudpioneer/taskclient/app/PolicyBuilder.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-TaskClient/src/main/java/cn/com/cloudpioneer/taskclient/chooser/ChooserPolicy.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-TaskClient/src/main/java/cn/com/cloudpioneer/taskclient/chooser/chooserPolicyImpl/CompleteTimesFirstChooserPolicy.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-TaskClient/src/main/java/cn/com/cloudpioneer/taskclient/chooser/chooserPolicyImpl/LongTimeFirstChooserPolicy.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-TaskClient/src/main/java/cn/com/cloudpioneer/taskclient/chooser/chooserPolicyImpl/WeightFirstChooserPolicy.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-TaskClient/src/main/java/cn/com/cloudpioneer/taskclient/controller/TaskClientController.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-TaskClient/src/main/java/cn/com/cloudpioneer/taskclient/service/TaskClientService.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-TaskClient/src/main/java/cn/com/cloudpioneer/taskclient/service/impl/TaskClientServiceImpl.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-Webmagic/src/Test/java/com/gy/wm/mapper/CrawlerParserMapper.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-Webmagic/src/Test/java/com/gy/wm/parse/CrawlerParserConfig.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-Webmagic/src/Test/java/com/gy/wm/parse/CrawlerParserConfigTester.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-Webmagic/src/Test/java/com/gy/wm/parse/CrawlerParserEntity.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-Webmagic/src/Test/java/com/gy/wm/parse/HtmlFiled.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-Webmagic/src/Test/java/com/gy/wm/parse/UrlPattern.java</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Deleted" />
@@ -1361,17 +1381,6 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="true" />
           <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-TaskClient/src/main/java/cn/com/cloudpioneer/taskclient/chooser/TaskChooser.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-TaskClient/src/main/java/cn/com/cloudpioneer/taskclient/chooser/chooserImpl/CompleteTimesFirstTaskChooser.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-TaskClient/src/main/java/cn/com/cloudpioneer/taskclient/chooser/chooserImpl/LongTimeFirstTaskChooser.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-TaskClient/src/main/java/cn/com/cloudpioneer/taskclient/chooser/chooserImpl/WeightFirstTaskChooser.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/ApplicationAPI.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/app/controller/GreetingController.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/utils/RandomUtils.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/resources/application.properties</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/resources/config.properties</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/resources/templates/error.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/resources/templates/greeting.html</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Restored" />
@@ -1453,19 +1462,7 @@
       </FILE-GROUP>
     </UpdatedFiles>
   </component>
-  <component name="RunManager" selected="JUnit.ServiceTest.testStartTask">
-    <configuration default="false" name="Application (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="cn.com.cloudpioneer.taskclient.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="SPRING_BOOT_MAIN_CLASS" value="cn.com.cloudpioneer.taskclient.Application" />
-      <module name="ZKCrawler-TaskClient" />
-      <envs />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="JUnit.CrawlerParserConfigTester.testConfig">
     <configuration default="false" name="ServiceTest.testStartTask" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="ZKCrawler-Webmagic" />
@@ -1545,6 +1542,32 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="ZKCrawler-Webmagic" />
       <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="CrawlerParserConfigTester.testConfig" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.gy.wm.parse.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="ZKCrawler-Webmagic" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.gy.wm.parse" />
+      <option name="MAIN_CLASS_NAME" value="com.gy.wm.parse.CrawlerParserConfigTester" />
+      <option name="METHOD_NAME" value="testConfig" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
       <method />
     </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
@@ -1983,20 +2006,20 @@
     </configuration>
     <list size="7">
       <item index="0" class="java.lang.String" itemvalue="Spring Boot.Application" />
-      <item index="1" class="java.lang.String" itemvalue="Spring Boot.Application (1)" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.ServiceTest.testStartTask" />
-      <item index="3" class="java.lang.String" itemvalue="Application.RandomStringCreator" />
-      <item index="4" class="java.lang.String" itemvalue="Application.MySerializer" />
-      <item index="5" class="java.lang.String" itemvalue="Spring Boot.ApplicationWebmagic" />
-      <item index="6" class="java.lang.String" itemvalue="Application.GetDomain" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.ServiceTest.testStartTask" />
+      <item index="2" class="java.lang.String" itemvalue="Application.RandomStringCreator" />
+      <item index="3" class="java.lang.String" itemvalue="Application.MySerializer" />
+      <item index="4" class="java.lang.String" itemvalue="Spring Boot.ApplicationWebmagic" />
+      <item index="5" class="java.lang.String" itemvalue="Application.GetDomain" />
+      <item index="6" class="java.lang.String" itemvalue="JUnit.CrawlerParserConfigTester.testConfig" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.ServiceTest.testStartTask" />
-        <item index="1" class="java.lang.String" itemvalue="Application.GetDomain" />
-        <item index="2" class="java.lang.String" itemvalue="Application.MySerializer" />
-        <item index="3" class="java.lang.String" itemvalue="Application.RandomStringCreator" />
-        <item index="4" class="java.lang.String" itemvalue="Spring Boot.Application (1)" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.CrawlerParserConfigTester.testConfig" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.ServiceTest.testStartTask" />
+        <item index="2" class="java.lang.String" itemvalue="Application.GetDomain" />
+        <item index="3" class="java.lang.String" itemvalue="Application.MySerializer" />
+        <item index="4" class="java.lang.String" itemvalue="Application.RandomStringCreator" />
       </list>
     </recent_temporary>
   </component>
@@ -2032,7 +2055,7 @@
       <workItem from="1474617151518" duration="599000" />
       <workItem from="1474853183624" duration="10688000" />
       <workItem from="1474881431580" duration="30812000" />
-      <workItem from="1475113601337" duration="14112000" />
+      <workItem from="1475113601337" duration="16168000" />
     </task>
     <task id="LOCAL-00001" summary="first init">
       <created>1472713688029</created>
@@ -2251,12 +2274,19 @@
       <option name="project" value="LOCAL" />
       <updated>1475143385238</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="fix&#10;Huanghai 2016-09-30 11:46:18">
+      <created>1475207187460</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1475207187460</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ServiceTest_testStartTask - 2016.09.27 at 15h 35m 24s.xml">
-      <configuration name="ServiceTest.testStartTask" configurationId="JUnit" />
+    <history-entry file="CrawlerParserConfigTester_testConfig - 2016.09.30 at 14h 16m 42s.xml">
+      <configuration name="CrawlerParserConfigTester.testConfig" configurationId="JUnit" />
     </history-entry>
     <history-entry file="ServiceTest_testStartTask - 2016.09.27 at 15h 48m 02s.xml">
       <configuration name="ServiceTest.testStartTask" configurationId="JUnit" />
@@ -2287,7 +2317,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="346028000" />
+    <option name="totallyTimeSpent" value="348084000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -2299,7 +2329,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="207" y="76" width="1684" height="983" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -2310,13 +2340,13 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.5021322" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1635071" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.08244994" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15401301" sideWeight="0.4978678" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14208242" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28199565" sideWeight="0.4978678" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329718" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30585682" sideWeight="0.4978678" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28633004" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24786781" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15473609" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -2377,7 +2407,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="first init" />
     <MESSAGE value="修改代码结构。" />
     <MESSAGE value="修改worker代码结构。" />
     <MESSAGE value="添加两个工具类，HttpClientUtils、GetServletRequestBody 。" />
@@ -2401,7 +2430,9 @@
     <MESSAGE value="fix&#10;Huanghai 2016-09-26 15:33:26" />
     <MESSAGE value="序列化不用Json，使用Redis的字节流&#10;Huanghai 2016-09-29 17:42:19" />
     <MESSAGE value="序列化不用Json，使用Redis的字节流&#10;Huanghai 2016-09-29 18:02:56" />
-    <option name="LAST_COMMIT_MESSAGE" value="序列化不用Json，使用Redis的字节流&#10;Huanghai 2016-09-29 18:02:56" />
+    <MESSAGE value="fix&#10;Huanghai 2016-09-30 11:46:18" />
+    <MESSAGE value="fix&#10;Huanghai 2016-9-30 14:28:26" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix&#10;Huanghai 2016-9-30 14:28:26" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2432,10 +2463,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ZKCrawler-Master/src/main/java/Application.java" />
-    <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/Application.java" />
-    <entry file="file://$PROJECT_DIR$/ZKCrawler-Worker/src/main/java/cn/com/cloudpioneer/worker/Application.java" />
-    <entry file="file://$PROJECT_DIR$/ZKCrawler-TaskClient/src/main/java/cn/com/cloudpioneer/taskclient/Application.java" />
     <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/resources/core-site.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -2929,8 +2956,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/plugins/newsExportPlugin/QNRParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="568">
-          <caret line="73" column="1" selection-start-line="73" selection-start-column="1" selection-end-line="73" selection-end-column="1" />
+        <state relative-caret-position="410">
+          <caret line="64" column="43" selection-start-line="64" selection-start-column="43" selection-end-line="64" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/Test/java/com/gy/wm/parse/HtmlFiled.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/Test/java/com/gy/wm/parse/CrawlerParserConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/Test/java/com/gy/wm/parse/CrawlerParserEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/Test/java/com/gy/wm/parse/CrawlerParserConfigTester.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="19" column="72" selection-start-line="19" selection-start-column="72" selection-end-line="19" selection-end-column="72" />
           <folding />
         </state>
       </provider>
