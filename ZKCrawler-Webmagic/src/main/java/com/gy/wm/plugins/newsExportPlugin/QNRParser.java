@@ -50,9 +50,12 @@ public class QNRParser implements PageParser {
     }
     private CrawlData parseData(Html html,CrawlData crawlData){
         //黔都在线
+        //标题
         String title=html.xpath("//div[@class='Title_h1']/h1/text()").toString();
+        //包含html格式的文章段落
         String contentHtml=html.xpath("//div[@id='content_main']").toString();
-
+        //来源和作者字段
+        String basicInfo=html.xpath("").toString();
         //贵阳市
 //        String title=html.xpath("//td[@class='title']").toString();
 //        String contentHtml=html.xpath("//td[@id='contents']").toString();
