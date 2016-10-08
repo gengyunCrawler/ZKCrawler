@@ -282,12 +282,12 @@ public class CuratorMaster implements Closeable, LeaderSelectorListener {
         tasksCache.start();
         leaderLatch.countDown();
 
+        checkWorkers();
+
         //保持主节点权限。
         keepAsLeader();
 
     }
-
-
 
 
     /**
@@ -374,24 +374,8 @@ public class CuratorMaster implements Closeable, LeaderSelectorListener {
                     LOGGER.info("===> NODE_ADDED Event, path: " + nodePath);
 
                     /**
-                     *  此处需要做一些具体处理，比如清理一些不存在的 work 节点。
+                     *  此处需要做一些具体处理，比如清理一些不存在的 worker 节点。
                      */
-                   /*
-                    Pattern workers = Pattern.compile(PATH_ROOT_WORKERS + "/worker-.*");
-                    Pattern workerStatus = Pattern.compile(PATH_ROOT_WORKERS + "/worker-.*//*status");
-
-
-                    if (workers.matcher(nodePath).matches() && !workerStatus.matcher(nodePath).matches()) {
-                        LOGGER.info("===> check workers.");
-                        try {
-                            if (!CuratorUtils.isHaveChildren(client, nodePath))
-                                CuratorUtils.deletePath(client, nodePath);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-
-                    }
-                    */
 
                     break;
                 case NODE_UPDATED:
@@ -569,6 +553,31 @@ public class CuratorMaster implements Closeable, LeaderSelectorListener {
             return client.getData().forPath(znode);
         }
         return null;
+    }
+
+
+    /**
+     * 检查 worker 的有效性，若 worker 无效，则把它删除。
+     *
+     * @throws Exception
+     */
+    private void checkWorkers() throws Exception {
+
+        LOGGER.info("check workers ...");
+        List<String> workers = getChildren(PATH_ROOT_WORKERS);
+        if (workers == null || workers.size() == 0) {
+            LOGGER.info("not have invalid workers.");
+            return;
+        }
+
+        for (String item : workers) {
+
+            if (!CuratorUtils.isHaveSpecificChild(this.client, PATH_ROOT_WORKERS + "/" + item, "status")) {
+                LOGGER.info("====> clean invalid worker: " + PATH_ROOT_WORKERS + "/" + item);
+                CuratorUtils.deletePathAndChildren(this.client, PATH_ROOT_WORKERS + "/" + item);
+            }
+        }
+
     }
 
 }
