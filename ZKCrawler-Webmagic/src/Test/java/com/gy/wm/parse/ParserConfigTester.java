@@ -10,29 +10,29 @@ import java.util.List;
 /**
  * Created by Administrator on 2016/9/30.
  */
-public class CrawlerParserConfigTester
+public class ParserConfigTester
 {
     @Test
     public void testConfig(){
         List<UrlPattern> urlPatterns=new ArrayList<>();
-        List<HtmlFiled> fileds=new ArrayList<>();
+        List<HtmlField> fileds=new ArrayList<>();
         urlPatterns.add(new UrlPattern("www.baidu.com/\\w+","colum"));
         urlPatterns.add(new UrlPattern("www.baidu.com/\\d+","article"));
-        HtmlFiled filed1=new HtmlFiled();
+        HtmlField filed1=new HtmlField();
         filed1.setFieldName("title");
-        filed1.setMuti(false);
+
         filed1.setOccur("occur");
         filed1.setRegex("regex");
-        filed1.setXpath("//div");
-        HtmlFiled filed2=new HtmlFiled();
+
+        HtmlField filed2=new HtmlField();
         filed2.setFieldName("title");
-        filed2.setMuti(false);
+
         filed2.setOccur("occur");
         filed2.setRegex(null);
-        filed2.setXpath("//div");
+
         fileds.add(filed1);
         fileds.add(filed2);
-        CrawlerParserConfig config=new CrawlerParserConfig();
+        ParserConfig config=new ParserConfig();
         config.setFileds(fileds);
         config.setId(3434);
         config.setTaskId("task222");
@@ -74,7 +74,7 @@ public class CrawlerParserConfigTester
                 "    ]\n" +
                 "}";
         System.out.printf(configJson);
-        CrawlerParserConfig config= JSONObject.parseObject(configJson,CrawlerParserConfig.class);
+        ParserConfig config= JSONObject.parseObject(configJson,ParserConfig.class);
         System.out.printf(JSON.toJSONString(config));
     }
 }

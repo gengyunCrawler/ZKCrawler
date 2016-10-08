@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Created by Administrator on 2016/9/30.
  */
-public class HtmlFiled {
+public class HtmlField {
     private String fieldName;
     private List<String> xpaths;
     private String regex;
@@ -20,12 +20,12 @@ public class HtmlFiled {
     }
 
 
-    public List<String> getXpath() {
+    public List<String> getXpaths() {
         return xpaths;
     }
 
-    public void setXpath(List<String> xpath) {
-        this.xpaths = xpath;
+    public void setXpaths(List<String> xpaths) {
+        this.xpaths = xpaths;
     }
 
     public String getRegex() {
