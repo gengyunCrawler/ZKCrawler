@@ -57,9 +57,9 @@ public  class ServiceTest {
 //        String seed2 = "http://www.qnz.com.cn/news/newslist-0-13.shtml";
 //        String seed3 = "http://www.qnz.com.cn/news/newsshow-29863.shtml";
 //        String seed4 = "http://www.gygov.gov.cn/col/col10683/index.html";
-        String seed5 = "http://www.gog.cn/";
+//        String seed5 = "http://www.gog.cn/";
 
-        seedUrls.add(seed5);
+        seedUrls.add(seed1);
 //        seedUrls.add(seed2);
 //        param.setTemplates(templateList);
         param.setSeedUrls(seedUrls);
