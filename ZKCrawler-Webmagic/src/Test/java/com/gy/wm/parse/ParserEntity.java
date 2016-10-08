@@ -3,7 +3,7 @@ package com.gy.wm.parse;
 /**
  * Created by Administrator on 2016/9/30.
  */
-public class CrawlerParserEntity {
+public class ParserEntity {
     private int id;
     private String config;
     private String tid;

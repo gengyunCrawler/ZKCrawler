@@ -36,7 +36,9 @@ public class MysqlPipeline implements Pipeline {
     @Override
     public void process(ResultItems resultItems, Task task) {
         CrawlData crawlData = resultItems.get("crawlerData");
-        insertTosql(crawlData);
+        if(null != crawlData)   {
+            insertTosql(crawlData);
+        }
     }
 
     public void insertTosql(CrawlData crawlData)   {
