@@ -35,7 +35,7 @@ public class CommonParser implements PageParser {
                     e.printStackTrace();
                 }
             }
-            config= JSONObject.parseObject(testConfig,ParserConfig.class);
+            config= JSONObject.parseObject(entity.getConfig(),ParserConfig.class);
            // config=testConfig;
             for(UrlPattern pattern:config.getUrlPatterns()){
                 if (pattern.getType().equals(ParserConfig.HTML_LINK_REGEX)){
