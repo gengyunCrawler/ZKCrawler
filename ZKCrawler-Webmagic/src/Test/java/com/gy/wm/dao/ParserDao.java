@@ -20,7 +20,7 @@ public class ParserDao {
 
     static {
         try {
-            reader = Resources.getResourceAsReader("mybatis-config.xml");
+            reader = Resources.getResourceAsReader("SqlMapConfig.xml");
         } catch (IOException e) {
             e.printStackTrace();
         }

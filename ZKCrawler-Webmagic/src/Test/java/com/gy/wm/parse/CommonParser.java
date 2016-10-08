@@ -23,20 +23,20 @@ public class CommonParser implements PageParser {
 
     @Override
     public List<CrawlData> parse(CrawlData crawlData) {
-
+        System.out.printf(crawlData.toString());
         List<CrawlData> crawlDatas=new ArrayList<>();
         //obtain crawler config from MySQL ,one task one config(json),so for a task ,it just accesses database once
         if(config==null){
-            ParserEntity entity= parserDao.find(crawlData.getTid());
+            /*ParserEntity entity= parserDao.find(crawlData.getTid());
             if (entity==null){
                 try {
                     throw new Exception("ERROR:couldn't find config by tid='"+crawlData.getTid()+"'");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-            }
-            config= JSONObject.parseObject(entity.getConfig(),ParserConfig.class);
-
+            }*/
+            config= JSONObject.parseObject(testConfig,ParserConfig.class);
+           // config=testConfig;
             for(UrlPattern pattern:config.getUrlPatterns()){
                 if (pattern.getType().equals(ParserConfig.HTML_LINK_REGEX)){
                     contentLinkRegexs.add(pattern.getRegex());
@@ -53,6 +53,7 @@ public class CommonParser implements PageParser {
             List<String> urls=new Html(crawlData.getHtml()).xpath("//a/@href").all();
             for (String url:urls){
                 if(isContentHtml(url)){
+                    System.out.printf("url---:"+url);
                     CrawlData data=new CrawlData();
                     data.setUrl(url);
                     data.setTid(crawlData.getTid());
@@ -97,10 +98,6 @@ public class CommonParser implements PageParser {
             }
         }
 
-        //贵阳市
-//        String title=html.xpath("//td[@class='title']").toString();
-//        String contentHtml=html.xpath("//td[@id='contents']").toString();
-
         crawlData.setTid(crawlData.getTid());
         crawlData.setTitle(title);
         crawlData.setHtml(html.toString());
@@ -138,4 +135,5 @@ public class CommonParser implements PageParser {
         }
         return null;
     }
+    private static String testConfig="{\"fileds\":[{\"fieldName\":\"title\",\"xpaths\":[\"/html/body/table[5]/tbody/tr/td/table/tbody/tr/td/table[3]/tbody/tr/td[1]/table[2]/tbody/tr/td/text()\"]},{\"fieldName\":\"content\",\"xpaths\":[\"//td[@class='newstext']\"]}],\"id\":3434,\"taskId\":\"task222\",\"urlPatterns\":[{\"regex\":\"http://www.qnz.com.cn/news/newslist-0-\\\\d.shtml\",\"type\":\"COLUMN_REGEX\"},{\"regex\":\"http://www.qnz.com.cn/news/newsshow-\\\\d.shtml\",\"type\":\"CONTENT_LINK_REGEX\"}]}";
 }
