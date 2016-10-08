@@ -2,6 +2,8 @@ package com.gy.wm.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Administrator on 2016/4/29.
@@ -26,7 +28,15 @@ public class CrawlData implements Serializable {
     private long count;
     private boolean tag;//true：文章，fallse：导航
     private boolean fetched;
+    private List<Map<String,String>> fieldsMap;
 
+    public List<Map<String, String>> getFieldsMap() {
+        return fieldsMap;
+    }
+
+    public void setFieldsMap(List<Map<String, String>> fieldsMap) {
+        this.fieldsMap = fieldsMap;
+    }
 
     public CrawlData() {}
 
