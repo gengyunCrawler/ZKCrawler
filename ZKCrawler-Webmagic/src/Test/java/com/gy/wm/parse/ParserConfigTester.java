@@ -2,6 +2,7 @@ package com.gy.wm.parse;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.sun.jna.platform.win32.OaIdl;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -10,30 +11,30 @@ import java.util.List;
 /**
  * Created by Administrator on 2016/9/30.
  */
-public class CrawlerParserConfigTester
+public class ParserConfigTester
 {
     @Test
     public void testConfig(){
         List<UrlPattern> urlPatterns=new ArrayList<>();
-        List<HtmlFiled> fileds=new ArrayList<>();
-        urlPatterns.add(new UrlPattern("www.baidu.com/\\w+","colum"));
-        urlPatterns.add(new UrlPattern("www.baidu.com/\\d+","article"));
-        HtmlFiled filed1=new HtmlFiled();
+        List<HtmlField> fileds=new ArrayList<>();
+        urlPatterns.add(new UrlPattern("http://www.qnz.com.cn/news/newslist-0-\\d.shtml","COLUMN_REGEX"));
+        urlPatterns.add(new UrlPattern("http://www.qnz.com.cn/news/newsshow-\\d.shtml","CONTENT_LINK_REGEX"));
+        HtmlField filed1=new HtmlField();
         filed1.setFieldName("title");
-        filed1.setOccur("occur");
-        filed1.setRegex("regex");
-        List<String> titleXpath = new ArrayList<>();
-        titleXpath.add("//div");
-        filed1.setXpath(titleXpath);
-        HtmlFiled filed2=new HtmlFiled();
+        List<String> list1=new ArrayList<>();
+        list1.add("/html/body/table[5]/tbody/tr/td/table/tbody/tr/td/table[3]/tbody/tr/td[1]/table[2]/tbody/tr/td/text()");
+        filed1.setXpaths(list1);
+
+
+        HtmlField filed2=new HtmlField();
         filed2.setFieldName("content");
-        filed2.setOccur("occur");
-        filed2.setRegex(null);
-        List<String> contentXpath = new ArrayList<>();
-        contentXpath.add("//div");
+        List<String> list2=new ArrayList<>();
+        list2.add("//td[@class='newstext']");
+        filed2.setXpaths(list2);
+
         fileds.add(filed1);
         fileds.add(filed2);
-        CrawlerParserConfig config=new CrawlerParserConfig();
+        ParserConfig config=new ParserConfig();
         config.setFileds(fileds);
         config.setId(3434);
         config.setTaskId("task222");
@@ -75,7 +76,7 @@ public class CrawlerParserConfigTester
                 "    ]\n" +
                 "}";
         System.out.printf(configJson);
-        CrawlerParserConfig config= JSONObject.parseObject(configJson,CrawlerParserConfig.class);
+        ParserConfig config= JSONObject.parseObject(configJson,ParserConfig.class);
         System.out.printf(JSON.toJSONString(config));
     }
 }
