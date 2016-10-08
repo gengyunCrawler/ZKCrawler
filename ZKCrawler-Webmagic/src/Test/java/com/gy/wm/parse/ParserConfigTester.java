@@ -23,6 +23,7 @@ public class ParserConfigTester
         filed1.setFieldName("title");
         List<String> list1=new ArrayList<>();
         list1.add("/html/body/table[5]/tbody/tr/td/table/tbody/tr/td/table[3]/tbody/tr/td[1]/table[2]/tbody/tr/td/text()");
+        list1.add("//table[@class='bk4']/tbody/tr/td/table[3]/tbody/tr/td");
         filed1.setXpaths(list1);
 
 

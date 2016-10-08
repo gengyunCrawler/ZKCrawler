@@ -11215,3 +11215,112 @@ java.lang.NullPointerException: null
 2016-10-08 17:44:48.741  INFO 16544 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : Retrying request
 2016-10-08 17:44:49.742  INFO 16544 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : I/O exception (java.net.ConnectException) caught when processing request: Connection refused: connect
 2016-10-08 17:44:49.742  INFO 16544 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : Retrying request
+2016-10-08 17:58:06.350  INFO 9988 --- [main] com.gy.wm.service.ServiceTest            : Starting ServiceTest on DESKTOP-I5VPLTQ with PID 9988 (started by karel in D:\IdeaProjects\ZKCrawler\ZKCrawler-Webmagic)
+2016-10-08 17:58:06.351  INFO 9988 --- [main] com.gy.wm.service.ServiceTest            : No active profile set, falling back to default profiles: default
+2016-10-08 17:58:06.474  INFO 9988 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@5be6a078: startup date [Sat Oct 08 17:58:06 CST 2016]; root of context hierarchy
+2016-10-08 17:58:08.464  INFO 9988 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-10-08 17:58:09.604  INFO 9988 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@5be6a078: startup date [Sat Oct 08 17:58:06 CST 2016]; root of context hierarchy
+2016-10-08 17:58:09.693  INFO 9988 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/test]}" onto public java.lang.String com.gy.wm.controller.API.test()
+2016-10-08 17:58:09.694  INFO 9988 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/startTask],methods=[POST],produces=[application/json]}" onto public java.lang.String com.gy.wm.controller.API.startTask(com.gy.wm.model.TaskParamModel)
+2016-10-08 17:58:09.695  INFO 9988 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/stopTask/{taskId}]}" onto public java.lang.String com.gy.wm.controller.API.stopTask(java.lang.String)
+2016-10-08 17:58:09.695  INFO 9988 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/cleanTaskRedis/{taskId}],methods=[POST]}" onto public java.lang.String com.gy.wm.controller.API.cleanTaskRedis(java.lang.String)
+2016-10-08 17:58:09.697  INFO 9988 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2016-10-08 17:58:09.698  INFO 9988 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2016-10-08 17:58:09.772  INFO 9988 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-08 17:58:09.772  INFO 9988 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-08 17:58:09.885  INFO 9988 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-08 17:58:10.399  INFO 9988 --- [main] com.gy.wm.service.ServiceTest            : Started ServiceTest in 5.059 seconds (JVM running for 6.279)
+2016-10-08 17:58:10.429  INFO 9988 --- [main] com.gy.wm.service.TaskService            : ===> get thread pool size: 50
+2016-10-08 17:58:10.486  INFO 9988 --- [main] com.gy.wm.service.TaskService            : ===> starting crawler task ......
+2016-10-08 17:58:10.487  INFO 9988 --- [pool-1-thread-1] com.gy.wm.controller.API                 : ==++==> starting task. taskId: acbrocdldrtfkauj9ertt29d67
+2016-10-08 17:58:10.768  INFO 9988 --- [pool-1-thread-1] com.gy.wm.entry.CrawlerWorkflowManager   : ****************************>>>>> domain:  qnz.com.cn
+2016-10-08 17:58:11.038  INFO 9988 --- [pool-1-thread-1] us.codecraft.webmagic.Spider             : Spider acbrocdldrtfkauj9ertt29d67 started!
+2016-10-08 17:58:12.593  INFO 9988 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：50
+2016-10-08 17:58:14.966  INFO 9988 --- [pool-2-thread-3] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-08 17:58:15.355  INFO 9988 --- [pool-2-thread-2] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-08 17:58:15.359  INFO 9988 --- [pool-2-thread-8] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-08 17:58:15.434  INFO 9988 --- [pool-2-thread-5] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-08 17:58:15.436  INFO 9988 --- [pool-2-thread-4] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-08 17:58:15.473  INFO 9988 --- [pool-2-thread-12] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-08 17:58:15.494  INFO 9988 --- [pool-2-thread-20] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-08 17:58:15.538  INFO 9988 --- [pool-2-thread-9] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-08 17:58:15.554  INFO 9988 --- [pool-2-thread-11] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-08 17:58:15.565  INFO 9988 --- [pool-2-thread-18] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-08 17:58:15.570  INFO 9988 --- [pool-2-thread-7] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-08 17:58:15.651  INFO 9988 --- [pool-2-thread-17] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-08 17:58:15.654  INFO 9988 --- [pool-2-thread-13] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-08 17:58:15.679  INFO 9988 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-08 17:58:15.686  INFO 9988 --- [pool-2-thread-15] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-08 17:58:17.746  INFO 9988 --- [pool-2-thread-7] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-08 17:58:17.796  INFO 9988 --- [pool-2-thread-12] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-08 17:58:17.798  INFO 9988 --- [pool-2-thread-3] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-08 17:58:17.842  INFO 9988 --- [pool-2-thread-13] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-08 17:58:17.847  INFO 9988 --- [pool-2-thread-11] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-08 17:58:17.948  INFO 9988 --- [pool-2-thread-2] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-08 17:58:17.957  INFO 9988 --- [pool-2-thread-18] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-08 17:58:17.965  INFO 9988 --- [pool-2-thread-9] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-08 17:58:18.004  INFO 9988 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-08 17:58:18.005  INFO 9988 --- [pool-2-thread-4] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-08 17:58:18.010  INFO 9988 --- [pool-2-thread-20] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-08 17:58:18.049  INFO 9988 --- [pool-2-thread-17] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-08 17:58:18.138  INFO 9988 --- [pool-2-thread-15] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-08 17:58:18.165  INFO 9988 --- [pool-2-thread-6] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-08 17:58:19.183  INFO 9988 --- [pool-2-thread-8] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-08 17:58:19.238  INFO 9988 --- [pool-2-thread-5] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-08 17:58:19.714  INFO 9988 --- [pool-2-thread-7] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-08 17:58:19.836  INFO 9988 --- [pool-2-thread-3] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-08 17:58:19.839  INFO 9988 --- [pool-2-thread-12] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-08 17:58:19.878  INFO 9988 --- [pool-2-thread-13] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-08 17:58:22.564  INFO 9988 --- [pool-2-thread-11] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-08 17:58:35.234 ERROR 9988 --- [pool-2-thread-16] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29891.shtml', method='null', extras=null, priority=0} error
+
+java.lang.NullPointerException: null
+	at com.gy.wm.downloader.HttpClientDownloader.download(HttpClientDownloader.java:36) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:409) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_80]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_80]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_80]
+
+2016-10-08 17:58:35.235 ERROR 9988 --- [pool-2-thread-14] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29911.shtml', method='null', extras=null, priority=0} error
+
+java.lang.NullPointerException: null
+	at com.gy.wm.downloader.HttpClientDownloader.download(HttpClientDownloader.java:36) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:409) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_80]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_80]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_80]
+
+2016-10-08 17:58:35.242 ERROR 9988 --- [pool-2-thread-10] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29943.shtml', method='null', extras=null, priority=0} error
+
+java.lang.NullPointerException: null
+	at com.gy.wm.downloader.HttpClientDownloader.download(HttpClientDownloader.java:36) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:409) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_80]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_80]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_80]
+
+2016-10-08 17:58:35.508 ERROR 9988 --- [pool-2-thread-19] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29881.shtml', method='null', extras=null, priority=0} error
+
+java.lang.NullPointerException: null
+	at com.gy.wm.downloader.HttpClientDownloader.download(HttpClientDownloader.java:36) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:409) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_80]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_80]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_80]
+
+2016-10-08 17:58:50.239  INFO 9988 --- [pool-1-thread-1] com.gy.wm.entry.Crawl                    : ***********************************task finished******************************************
+2016-10-08 17:58:50.239  INFO 9988 --- [pool-1-thread-1] com.gy.wm.entry.Crawl                    : time elapse(seconds):39.752
+2016-10-08 17:58:51.343  INFO 9988 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : I/O exception (java.net.ConnectException) caught when processing request: Connection refused: connect
+2016-10-08 17:58:51.344  INFO 9988 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : Retrying request
+2016-10-08 17:58:52.358  INFO 9988 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : I/O exception (java.net.ConnectException) caught when processing request: Connection refused: connect
+2016-10-08 17:58:52.358  INFO 9988 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : Retrying request
+2016-10-08 17:58:53.361  INFO 9988 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : I/O exception (java.net.ConnectException) caught when processing request: Connection refused: connect
+2016-10-08 17:58:53.361  INFO 9988 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : Retrying request
