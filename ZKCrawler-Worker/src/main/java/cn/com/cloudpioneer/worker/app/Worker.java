@@ -276,6 +276,7 @@ public class Worker implements Closeable, ConnectionStateListener {
         task.getEntity().setTimeStop(new Date());
         task.getEntity().setCostLastCrawl(costTime);
         task.getEntity().setCompleteTimes(task.getEntity().getCompleteTimes() + 1);
+        task.getEntity().setPass(task.getEntity().getPass() + 1);
         task.getEntity().setStatus(0);
 
         final TaskModel backTask = task;
