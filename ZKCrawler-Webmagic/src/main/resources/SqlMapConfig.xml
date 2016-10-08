@@ -17,5 +17,6 @@
 </environments>
     <mappers>
         <mapper class="com.gy.wm.model.CrawlDataMapper"></mapper>
+        <mapper class="com.gy.wm.mapper.ParserMapper"></mapper>
     </mappers>
 </configuration>

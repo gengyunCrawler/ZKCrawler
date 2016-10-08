@@ -53,7 +53,7 @@ public  class ServiceTest {
         List<String> seedUrls = new ArrayList<>();
 
 
-        String seed1 = "http://www.gygov.gov.cn/col/col10682/index.html";
+        String seed1 = "http://www.qnz.com.cn/news/newslist-0-12.shtml";
 //        String seed2 = "http://www.qnz.com.cn/news/newslist-0-13.shtml";
 //        String seed3 = "http://www.qnz.com.cn/news/newsshow-29863.shtml";
 //        String seed4 = "http://www.gygov.gov.cn/col/col10683/index.html";
