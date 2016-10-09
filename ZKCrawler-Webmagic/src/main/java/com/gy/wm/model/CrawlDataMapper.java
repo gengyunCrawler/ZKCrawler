@@ -10,6 +10,6 @@ import org.apache.ibatis.annotations.Insert;
  **/
 public interface CrawlDataMapper {
     @Insert("INSERT INTO crawlerdata_zktest(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched) VALUES " +
-            "(#{tid},#{url},#{statusCode},#{pass},#{type},#{rootUrl},#{fromUrl},#{text},#{html},#{title},#{startTime},#{crawlTime},#{publishTime},#{depthfromSeed},#{count},#{tag},#{fetched})")
+            "(#{tid},#{url},#{statusCode},#{pass},#{type},#{rootUrl},#{fromUrl},#{text},#{html},#{title},#{startTime},#{crawlTime},#{publishTime},#{depthfromSeed},#{count},#{tag},#{fetched},#{author},#{sourceName})")
     public void saveToMysql(CrawlData crawlData);
 }

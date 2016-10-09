@@ -4081,3 +4081,1689 @@ Caused by: java.net.SocketException: Connection reset
 2016-10-09 09:10:18.371  INFO 26400 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : Retrying request
 2016-10-09 09:10:19.392  INFO 26400 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : I/O exception (java.net.ConnectException) caught when processing request: Connection refused: connect
 2016-10-09 09:10:19.392  INFO 26400 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : Retrying request
+2016-10-09 11:27:15.362  INFO 38516 --- [main] com.gy.wm.service.ServiceTest            : Starting ServiceTest on Tijun-PC with PID 38516 (started by Administrator in E:\Workspaces\IDEA\ZKCrawler\ZKCrawler-Webmagic)
+2016-10-09 11:27:15.363  INFO 38516 --- [main] com.gy.wm.service.ServiceTest            : No active profile set, falling back to default profiles: default
+2016-10-09 11:27:15.764  INFO 38516 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@768ed221: startup date [Sun Oct 09 11:27:15 CST 2016]; root of context hierarchy
+2016-10-09 11:27:19.943  INFO 38516 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-10-09 11:27:21.107  INFO 38516 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@768ed221: startup date [Sun Oct 09 11:27:15 CST 2016]; root of context hierarchy
+2016-10-09 11:27:21.197  INFO 38516 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/test]}" onto public java.lang.String com.gy.wm.controller.API.test()
+2016-10-09 11:27:21.198  INFO 38516 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/startTask],methods=[POST],produces=[application/json]}" onto public java.lang.String com.gy.wm.controller.API.startTask(com.gy.wm.model.TaskParamModel)
+2016-10-09 11:27:21.198  INFO 38516 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/cleanTaskRedis/{taskId}],methods=[POST]}" onto public java.lang.String com.gy.wm.controller.API.cleanTaskRedis(java.lang.String)
+2016-10-09 11:27:21.199  INFO 38516 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/stopTask/{taskId}]}" onto public java.lang.String com.gy.wm.controller.API.stopTask(java.lang.String)
+2016-10-09 11:27:21.201  INFO 38516 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2016-10-09 11:27:21.201  INFO 38516 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2016-10-09 11:27:21.266  INFO 38516 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-09 11:27:21.266  INFO 38516 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-09 11:27:21.351  INFO 38516 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-09 11:27:21.783  INFO 38516 --- [main] com.gy.wm.service.ServiceTest            : Started ServiceTest in 7.658 seconds (JVM running for 9.494)
+2016-10-09 11:27:21.881  INFO 38516 --- [main] com.gy.wm.service.TaskService            : ===> get thread pool size: 50
+2016-10-09 11:27:21.939  INFO 38516 --- [main] com.gy.wm.service.TaskService            : ===> starting crawler task ......
+2016-10-09 11:27:21.940  INFO 38516 --- [pool-1-thread-1] com.gy.wm.controller.API                 : ==++==> starting task. taskId: acbrocdldrtfkauj9ertt29d67
+2016-10-09 11:27:22.736  INFO 38516 --- [pool-1-thread-1] com.gy.wm.entry.CrawlerWorkflowManager   : ****************************>>>>> domain:  qnz.com.cn
+2016-10-09 11:27:23.469  INFO 38516 --- [pool-1-thread-1] us.codecraft.webmagic.Spider             : Spider acbrocdldrtfkauj9ertt29d67 started!
+2016-10-09 11:27:24.556  WARN 38516 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:24 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:24 GMT
+2016-10-09 11:27:25.128  INFO 38516 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：50
+2016-10-09 11:27:26.682  WARN 38516 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:26 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:26 GMT
+2016-10-09 11:27:27.401  INFO 38516 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:27:27.774 ERROR 38516 --- [pool-2-thread-1] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-30001.shtml', method='null', extras=null, priority=0} error
+
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+### The error may involve com.gy.wm.model.CrawlDataMapper.saveToMysql-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO crawlerdata_zktest(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+### Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:23) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:150) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:137) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:46) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:43) ~[mybatis-3.2.3.jar:3.2.3]
+	at com.sun.proxy.$Proxy70.saveToMysql(Unknown Source) ~[na:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.insertTosql(MysqlPipeline.java:47) ~[classes/:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.process(MysqlPipeline.java:40) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:425) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: java.sql.SQLException: Column count doesn't match value count at row 1
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3536) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3468) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1957) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2107) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2086) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1365) ~[mysql-connector-java-5.1.8.jar:na]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:41) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:66) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:45) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:100) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:75) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:148) ~[mybatis-3.2.3.jar:3.2.3]
+	... 12 common frames omitted
+
+2016-10-09 11:27:28.155  WARN 38516 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:28 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:28 GMT
+2016-10-09 11:27:28.562  INFO 38516 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:27:28.582 ERROR 38516 --- [pool-2-thread-1] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29997.shtml', method='null', extras=null, priority=0} error
+
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+### The error may involve com.gy.wm.model.CrawlDataMapper.saveToMysql-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO crawlerdata_zktest(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+### Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:23) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:150) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:137) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:46) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:43) ~[mybatis-3.2.3.jar:3.2.3]
+	at com.sun.proxy.$Proxy70.saveToMysql(Unknown Source) ~[na:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.insertTosql(MysqlPipeline.java:47) ~[classes/:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.process(MysqlPipeline.java:40) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:425) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: java.sql.SQLException: Column count doesn't match value count at row 1
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3536) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3468) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1957) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2107) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2086) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1365) ~[mysql-connector-java-5.1.8.jar:na]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:41) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:66) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:45) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:100) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:75) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:148) ~[mybatis-3.2.3.jar:3.2.3]
+	... 12 common frames omitted
+
+2016-10-09 11:27:28.781  WARN 38516 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:29 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:29 GMT
+2016-10-09 11:27:29.379  INFO 38516 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:27:29.401 ERROR 38516 --- [pool-2-thread-1] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29983.shtml', method='null', extras=null, priority=0} error
+
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+### The error may involve com.gy.wm.model.CrawlDataMapper.saveToMysql-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO crawlerdata_zktest(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+### Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:23) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:150) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:137) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:46) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:43) ~[mybatis-3.2.3.jar:3.2.3]
+	at com.sun.proxy.$Proxy70.saveToMysql(Unknown Source) ~[na:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.insertTosql(MysqlPipeline.java:47) ~[classes/:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.process(MysqlPipeline.java:40) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:425) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: java.sql.SQLException: Column count doesn't match value count at row 1
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3536) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3468) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1957) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2107) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2086) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1365) ~[mysql-connector-java-5.1.8.jar:na]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:41) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:66) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:45) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:100) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:75) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:148) ~[mybatis-3.2.3.jar:3.2.3]
+	... 12 common frames omitted
+
+2016-10-09 11:27:29.612  WARN 38516 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:29 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:29 GMT
+2016-10-09 11:27:30.152  INFO 38516 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:27:30.170 ERROR 38516 --- [pool-2-thread-1] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29978.shtml', method='null', extras=null, priority=0} error
+
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+### The error may involve com.gy.wm.model.CrawlDataMapper.saveToMysql-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO crawlerdata_zktest(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+### Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:23) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:150) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:137) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:46) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:43) ~[mybatis-3.2.3.jar:3.2.3]
+	at com.sun.proxy.$Proxy70.saveToMysql(Unknown Source) ~[na:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.insertTosql(MysqlPipeline.java:47) ~[classes/:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.process(MysqlPipeline.java:40) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:425) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: java.sql.SQLException: Column count doesn't match value count at row 1
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3536) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3468) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1957) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2107) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2086) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1365) ~[mysql-connector-java-5.1.8.jar:na]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:41) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:66) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:45) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:100) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:75) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:148) ~[mybatis-3.2.3.jar:3.2.3]
+	... 12 common frames omitted
+
+2016-10-09 11:27:30.371  WARN 38516 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:30 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:30 GMT
+2016-10-09 11:27:30.971  INFO 38516 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:27:30.995 ERROR 38516 --- [pool-2-thread-1] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29976.shtml', method='null', extras=null, priority=0} error
+
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+### The error may involve com.gy.wm.model.CrawlDataMapper.saveToMysql-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO crawlerdata_zktest(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+### Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:23) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:150) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:137) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:46) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:43) ~[mybatis-3.2.3.jar:3.2.3]
+	at com.sun.proxy.$Proxy70.saveToMysql(Unknown Source) ~[na:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.insertTosql(MysqlPipeline.java:47) ~[classes/:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.process(MysqlPipeline.java:40) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:425) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: java.sql.SQLException: Column count doesn't match value count at row 1
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3536) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3468) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1957) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2107) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2086) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1365) ~[mysql-connector-java-5.1.8.jar:na]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:41) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:66) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:45) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:100) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:75) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:148) ~[mybatis-3.2.3.jar:3.2.3]
+	... 12 common frames omitted
+
+2016-10-09 11:27:31.299  WARN 38516 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:31 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:31 GMT
+2016-10-09 11:27:31.988  INFO 38516 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:27:32.009 ERROR 38516 --- [pool-2-thread-1] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29975.shtml', method='null', extras=null, priority=0} error
+
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+### The error may involve com.gy.wm.model.CrawlDataMapper.saveToMysql-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO crawlerdata_zktest(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+### Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:23) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:150) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:137) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:46) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:43) ~[mybatis-3.2.3.jar:3.2.3]
+	at com.sun.proxy.$Proxy70.saveToMysql(Unknown Source) ~[na:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.insertTosql(MysqlPipeline.java:47) ~[classes/:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.process(MysqlPipeline.java:40) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:425) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: java.sql.SQLException: Column count doesn't match value count at row 1
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3536) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3468) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1957) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2107) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2086) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1365) ~[mysql-connector-java-5.1.8.jar:na]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:41) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:66) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:45) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:100) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:75) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:148) ~[mybatis-3.2.3.jar:3.2.3]
+	... 12 common frames omitted
+
+2016-10-09 11:27:32.246  WARN 38516 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:32 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:32 GMT
+2016-10-09 11:27:32.890  INFO 38516 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:27:32.905 ERROR 38516 --- [pool-2-thread-1] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29956.shtml', method='null', extras=null, priority=0} error
+
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+### The error may involve com.gy.wm.model.CrawlDataMapper.saveToMysql-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO crawlerdata_zktest(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+### Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:23) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:150) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:137) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:46) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:43) ~[mybatis-3.2.3.jar:3.2.3]
+	at com.sun.proxy.$Proxy70.saveToMysql(Unknown Source) ~[na:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.insertTosql(MysqlPipeline.java:47) ~[classes/:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.process(MysqlPipeline.java:40) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:425) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: java.sql.SQLException: Column count doesn't match value count at row 1
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3536) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3468) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1957) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2107) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2086) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1365) ~[mysql-connector-java-5.1.8.jar:na]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:41) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:66) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:45) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:100) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:75) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:148) ~[mybatis-3.2.3.jar:3.2.3]
+	... 12 common frames omitted
+
+2016-10-09 11:27:33.112  WARN 38516 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:33 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:33 GMT
+2016-10-09 11:27:33.702  INFO 38516 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:27:33.716 ERROR 38516 --- [pool-2-thread-1] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29955.shtml', method='null', extras=null, priority=0} error
+
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+### The error may involve com.gy.wm.model.CrawlDataMapper.saveToMysql-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO crawlerdata_zktest(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+### Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:23) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:150) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:137) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:46) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:43) ~[mybatis-3.2.3.jar:3.2.3]
+	at com.sun.proxy.$Proxy70.saveToMysql(Unknown Source) ~[na:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.insertTosql(MysqlPipeline.java:47) ~[classes/:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.process(MysqlPipeline.java:40) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:425) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: java.sql.SQLException: Column count doesn't match value count at row 1
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3536) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3468) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1957) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2107) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2086) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1365) ~[mysql-connector-java-5.1.8.jar:na]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:41) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:66) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:45) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:100) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:75) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:148) ~[mybatis-3.2.3.jar:3.2.3]
+	... 12 common frames omitted
+
+2016-10-09 11:27:33.918  WARN 38516 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:34 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:34 GMT
+2016-10-09 11:27:34.386  INFO 38516 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:27:34.400 ERROR 38516 --- [pool-2-thread-1] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29943.shtml', method='null', extras=null, priority=0} error
+
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+### The error may involve com.gy.wm.model.CrawlDataMapper.saveToMysql-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO crawlerdata_zktest(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+### Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:23) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:150) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:137) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:46) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:43) ~[mybatis-3.2.3.jar:3.2.3]
+	at com.sun.proxy.$Proxy70.saveToMysql(Unknown Source) ~[na:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.insertTosql(MysqlPipeline.java:47) ~[classes/:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.process(MysqlPipeline.java:40) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:425) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: java.sql.SQLException: Column count doesn't match value count at row 1
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3536) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3468) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1957) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2107) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2086) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1365) ~[mysql-connector-java-5.1.8.jar:na]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:41) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:66) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:45) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:100) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:75) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:148) ~[mybatis-3.2.3.jar:3.2.3]
+	... 12 common frames omitted
+
+2016-10-09 11:27:34.601  WARN 38516 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:34 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:34 GMT
+2016-10-09 11:27:35.173  INFO 38516 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:27:35.201 ERROR 38516 --- [pool-2-thread-1] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29942.shtml', method='null', extras=null, priority=0} error
+
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+### The error may involve com.gy.wm.model.CrawlDataMapper.saveToMysql-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO crawlerdata_zktest(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+### Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:23) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:150) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:137) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:46) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:43) ~[mybatis-3.2.3.jar:3.2.3]
+	at com.sun.proxy.$Proxy70.saveToMysql(Unknown Source) ~[na:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.insertTosql(MysqlPipeline.java:47) ~[classes/:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.process(MysqlPipeline.java:40) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:425) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: java.sql.SQLException: Column count doesn't match value count at row 1
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3536) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3468) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1957) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2107) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2086) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1365) ~[mysql-connector-java-5.1.8.jar:na]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:41) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:66) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:45) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:100) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:75) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:148) ~[mybatis-3.2.3.jar:3.2.3]
+	... 12 common frames omitted
+
+2016-10-09 11:27:35.429  WARN 38516 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:35 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:35 GMT
+2016-10-09 11:30:28.301  INFO 5832 --- [main] com.gy.wm.service.ServiceTest            : Starting ServiceTest on Tijun-PC with PID 5832 (started by Administrator in E:\Workspaces\IDEA\ZKCrawler\ZKCrawler-Webmagic)
+2016-10-09 11:30:28.302  INFO 5832 --- [main] com.gy.wm.service.ServiceTest            : No active profile set, falling back to default profiles: default
+2016-10-09 11:30:28.396  INFO 5832 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@46c93749: startup date [Sun Oct 09 11:30:28 CST 2016]; root of context hierarchy
+2016-10-09 11:30:30.035  INFO 5832 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-10-09 11:30:31.099  INFO 5832 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@46c93749: startup date [Sun Oct 09 11:30:28 CST 2016]; root of context hierarchy
+2016-10-09 11:30:31.163  INFO 5832 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/test]}" onto public java.lang.String com.gy.wm.controller.API.test()
+2016-10-09 11:30:31.164  INFO 5832 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/startTask],methods=[POST],produces=[application/json]}" onto public java.lang.String com.gy.wm.controller.API.startTask(com.gy.wm.model.TaskParamModel)
+2016-10-09 11:30:31.164  INFO 5832 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/stopTask/{taskId}]}" onto public java.lang.String com.gy.wm.controller.API.stopTask(java.lang.String)
+2016-10-09 11:30:31.164  INFO 5832 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/cleanTaskRedis/{taskId}],methods=[POST]}" onto public java.lang.String com.gy.wm.controller.API.cleanTaskRedis(java.lang.String)
+2016-10-09 11:30:31.167  INFO 5832 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2016-10-09 11:30:31.167  INFO 5832 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2016-10-09 11:30:31.218  INFO 5832 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-09 11:30:31.218  INFO 5832 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-09 11:30:31.278  INFO 5832 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-09 11:30:31.711  INFO 5832 --- [main] com.gy.wm.service.ServiceTest            : Started ServiceTest in 4.232 seconds (JVM running for 5.595)
+2016-10-09 11:30:31.748  INFO 5832 --- [main] com.gy.wm.service.TaskService            : ===> get thread pool size: 50
+2016-10-09 11:30:31.783  INFO 5832 --- [main] com.gy.wm.service.TaskService            : ===> starting crawler task ......
+2016-10-09 11:30:31.784  INFO 5832 --- [pool-1-thread-1] com.gy.wm.controller.API                 : ==++==> starting task. taskId: acbrocdldrtfkauj9ertt29d67
+2016-10-09 11:30:32.023  INFO 5832 --- [pool-1-thread-1] com.gy.wm.entry.CrawlerWorkflowManager   : ****************************>>>>> domain:  qnz.com.cn
+2016-10-09 11:30:32.380  INFO 5832 --- [pool-1-thread-1] us.codecraft.webmagic.Spider             : Spider acbrocdldrtfkauj9ertt29d67 started!
+2016-10-09 11:30:34.055  WARN 5832 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:34 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:34 GMT
+2016-10-09 11:30:34.615  INFO 5832 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：50
+2016-10-09 11:30:36.937  INFO 5832 --- [pool-2-thread-1] o.apache.http.impl.execchain.RetryExec   : I/O exception (java.net.SocketException) caught when processing request to {}->http://www.qnz.com.cn:80: Connection reset
+2016-10-09 11:30:36.938  INFO 5832 --- [pool-2-thread-1] o.apache.http.impl.execchain.RetryExec   : Retrying request to {}->http://www.qnz.com.cn:80
+2016-10-09 11:30:43.292  WARN 5832 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:43 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:43 GMT
+2016-10-09 11:30:43.985  INFO 5832 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:30:44.191 ERROR 5832 --- [pool-2-thread-1] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-30001.shtml', method='null', extras=null, priority=0} error
+
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+### The error may involve com.gy.wm.model.CrawlDataMapper.saveToMysql-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO crawlerdata_zktest(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+### Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:23) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:150) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:137) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:46) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:43) ~[mybatis-3.2.3.jar:3.2.3]
+	at com.sun.proxy.$Proxy70.saveToMysql(Unknown Source) ~[na:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.insertTosql(MysqlPipeline.java:47) ~[classes/:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.process(MysqlPipeline.java:40) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:425) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: java.sql.SQLException: Column count doesn't match value count at row 1
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3536) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3468) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1957) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2107) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2086) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1365) ~[mysql-connector-java-5.1.8.jar:na]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:41) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:66) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:45) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:100) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:75) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:148) ~[mybatis-3.2.3.jar:3.2.3]
+	... 12 common frames omitted
+
+2016-10-09 11:30:45.614  WARN 5832 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:45 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:45 GMT
+2016-10-09 11:30:45.949  INFO 5832 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:30:45.961 ERROR 5832 --- [pool-2-thread-1] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29997.shtml', method='null', extras=null, priority=0} error
+
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+### The error may involve com.gy.wm.model.CrawlDataMapper.saveToMysql-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO crawlerdata_zktest(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+### Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:23) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:150) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:137) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:46) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:43) ~[mybatis-3.2.3.jar:3.2.3]
+	at com.sun.proxy.$Proxy70.saveToMysql(Unknown Source) ~[na:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.insertTosql(MysqlPipeline.java:47) ~[classes/:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.process(MysqlPipeline.java:40) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:425) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: java.sql.SQLException: Column count doesn't match value count at row 1
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3536) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3468) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1957) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2107) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2086) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1365) ~[mysql-connector-java-5.1.8.jar:na]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:41) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:66) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:45) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:100) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:75) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:148) ~[mybatis-3.2.3.jar:3.2.3]
+	... 12 common frames omitted
+
+2016-10-09 11:30:46.185  WARN 5832 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:46 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:46 GMT
+2016-10-09 11:30:46.819  INFO 5832 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:30:46.834 ERROR 5832 --- [pool-2-thread-1] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29983.shtml', method='null', extras=null, priority=0} error
+
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+### The error may involve com.gy.wm.model.CrawlDataMapper.saveToMysql-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO crawlerdata_zktest(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+### Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:23) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:150) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:137) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:46) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:43) ~[mybatis-3.2.3.jar:3.2.3]
+	at com.sun.proxy.$Proxy70.saveToMysql(Unknown Source) ~[na:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.insertTosql(MysqlPipeline.java:47) ~[classes/:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.process(MysqlPipeline.java:40) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:425) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: java.sql.SQLException: Column count doesn't match value count at row 1
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3536) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3468) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1957) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2107) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2086) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1365) ~[mysql-connector-java-5.1.8.jar:na]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:41) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:66) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:45) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:100) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:75) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:148) ~[mybatis-3.2.3.jar:3.2.3]
+	... 12 common frames omitted
+
+2016-10-09 11:30:47.050  WARN 5832 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:47 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:47 GMT
+2016-10-09 11:30:47.699  INFO 5832 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:30:47.722 ERROR 5832 --- [pool-2-thread-1] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29978.shtml', method='null', extras=null, priority=0} error
+
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+### The error may involve com.gy.wm.model.CrawlDataMapper.saveToMysql-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO crawlerdata_zktest(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+### Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:23) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:150) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:137) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:46) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:43) ~[mybatis-3.2.3.jar:3.2.3]
+	at com.sun.proxy.$Proxy70.saveToMysql(Unknown Source) ~[na:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.insertTosql(MysqlPipeline.java:47) ~[classes/:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.process(MysqlPipeline.java:40) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:425) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: java.sql.SQLException: Column count doesn't match value count at row 1
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3536) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3468) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1957) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2107) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2086) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1365) ~[mysql-connector-java-5.1.8.jar:na]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:41) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:66) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:45) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:100) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:75) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:148) ~[mybatis-3.2.3.jar:3.2.3]
+	... 12 common frames omitted
+
+2016-10-09 11:30:47.920  WARN 5832 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:48 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:48 GMT
+2016-10-09 11:30:48.466  INFO 5832 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:30:48.482 ERROR 5832 --- [pool-2-thread-1] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29976.shtml', method='null', extras=null, priority=0} error
+
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+### The error may involve com.gy.wm.model.CrawlDataMapper.saveToMysql-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO crawlerdata_zktest(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+### Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:23) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:150) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:137) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:46) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:43) ~[mybatis-3.2.3.jar:3.2.3]
+	at com.sun.proxy.$Proxy70.saveToMysql(Unknown Source) ~[na:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.insertTosql(MysqlPipeline.java:47) ~[classes/:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.process(MysqlPipeline.java:40) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:425) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: java.sql.SQLException: Column count doesn't match value count at row 1
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3536) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3468) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1957) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2107) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2086) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1365) ~[mysql-connector-java-5.1.8.jar:na]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:41) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:66) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:45) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:100) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:75) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:148) ~[mybatis-3.2.3.jar:3.2.3]
+	... 12 common frames omitted
+
+2016-10-09 11:30:48.690  WARN 5832 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:49 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:49 GMT
+2016-10-09 11:30:49.223  INFO 5832 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:30:49.240 ERROR 5832 --- [pool-2-thread-1] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29975.shtml', method='null', extras=null, priority=0} error
+
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+### The error may involve com.gy.wm.model.CrawlDataMapper.saveToMysql-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO crawlerdata_zktest(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+### Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:23) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:150) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:137) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:46) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:43) ~[mybatis-3.2.3.jar:3.2.3]
+	at com.sun.proxy.$Proxy70.saveToMysql(Unknown Source) ~[na:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.insertTosql(MysqlPipeline.java:47) ~[classes/:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.process(MysqlPipeline.java:40) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:425) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: java.sql.SQLException: Column count doesn't match value count at row 1
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3536) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3468) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1957) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2107) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2086) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1365) ~[mysql-connector-java-5.1.8.jar:na]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:41) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:66) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:45) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:100) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:75) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:148) ~[mybatis-3.2.3.jar:3.2.3]
+	... 12 common frames omitted
+
+2016-10-09 11:30:49.501  WARN 5832 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:49 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:49 GMT
+2016-10-09 11:30:50.021  INFO 5832 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:30:50.034 ERROR 5832 --- [pool-2-thread-1] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29956.shtml', method='null', extras=null, priority=0} error
+
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+### The error may involve com.gy.wm.model.CrawlDataMapper.saveToMysql-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO crawlerdata_zktest(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+### Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:23) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:150) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:137) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:46) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:43) ~[mybatis-3.2.3.jar:3.2.3]
+	at com.sun.proxy.$Proxy70.saveToMysql(Unknown Source) ~[na:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.insertTosql(MysqlPipeline.java:47) ~[classes/:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.process(MysqlPipeline.java:40) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:425) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: java.sql.SQLException: Column count doesn't match value count at row 1
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3536) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3468) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1957) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2107) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2086) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1365) ~[mysql-connector-java-5.1.8.jar:na]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:41) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:66) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:45) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:100) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:75) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:148) ~[mybatis-3.2.3.jar:3.2.3]
+	... 12 common frames omitted
+
+2016-10-09 11:30:50.255  WARN 5832 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:50 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:50 GMT
+2016-10-09 11:30:50.850  INFO 5832 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:30:50.873 ERROR 5832 --- [pool-2-thread-1] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29955.shtml', method='null', extras=null, priority=0} error
+
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+### The error may involve com.gy.wm.model.CrawlDataMapper.saveToMysql-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO crawlerdata_zktest(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+### Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:23) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:150) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:137) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:46) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:43) ~[mybatis-3.2.3.jar:3.2.3]
+	at com.sun.proxy.$Proxy70.saveToMysql(Unknown Source) ~[na:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.insertTosql(MysqlPipeline.java:47) ~[classes/:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.process(MysqlPipeline.java:40) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:425) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: java.sql.SQLException: Column count doesn't match value count at row 1
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3536) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3468) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1957) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2107) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2086) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1365) ~[mysql-connector-java-5.1.8.jar:na]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:41) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:66) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:45) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:100) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:75) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:148) ~[mybatis-3.2.3.jar:3.2.3]
+	... 12 common frames omitted
+
+2016-10-09 11:30:51.102  WARN 5832 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:51 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:51 GMT
+2016-10-09 11:30:51.693  INFO 5832 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:30:51.711 ERROR 5832 --- [pool-2-thread-1] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29943.shtml', method='null', extras=null, priority=0} error
+
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+### The error may involve com.gy.wm.model.CrawlDataMapper.saveToMysql-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO crawlerdata_zktest(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+### Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:23) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:150) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:137) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:46) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:43) ~[mybatis-3.2.3.jar:3.2.3]
+	at com.sun.proxy.$Proxy70.saveToMysql(Unknown Source) ~[na:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.insertTosql(MysqlPipeline.java:47) ~[classes/:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.process(MysqlPipeline.java:40) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:425) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: java.sql.SQLException: Column count doesn't match value count at row 1
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3536) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3468) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1957) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2107) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2086) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1365) ~[mysql-connector-java-5.1.8.jar:na]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:41) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:66) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:45) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:100) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:75) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:148) ~[mybatis-3.2.3.jar:3.2.3]
+	... 12 common frames omitted
+
+2016-10-09 11:30:51.926  WARN 5832 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:52 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:52 GMT
+2016-10-09 11:30:52.521  INFO 5832 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:30:52.533 ERROR 5832 --- [pool-2-thread-1] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29942.shtml', method='null', extras=null, priority=0} error
+
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+### The error may involve com.gy.wm.model.CrawlDataMapper.saveToMysql-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO crawlerdata_zktest(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+### Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:23) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:150) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:137) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:46) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:43) ~[mybatis-3.2.3.jar:3.2.3]
+	at com.sun.proxy.$Proxy70.saveToMysql(Unknown Source) ~[na:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.insertTosql(MysqlPipeline.java:47) ~[classes/:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.process(MysqlPipeline.java:40) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:425) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: java.sql.SQLException: Column count doesn't match value count at row 1
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3536) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3468) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1957) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2107) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2086) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1365) ~[mysql-connector-java-5.1.8.jar:na]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:41) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:66) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:45) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:100) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:75) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:148) ~[mybatis-3.2.3.jar:3.2.3]
+	... 12 common frames omitted
+
+2016-10-09 11:30:52.739  WARN 5832 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:53 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:53 GMT
+2016-10-09 11:30:53.275  INFO 5832 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:31:13.283 ERROR 5832 --- [pool-2-thread-1] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29928.shtml', method='null', extras=null, priority=0} error
+
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+### The error may involve com.gy.wm.model.CrawlDataMapper.saveToMysql-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO crawlerdata_zktest(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+### Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:23) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:150) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:137) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:46) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:43) ~[mybatis-3.2.3.jar:3.2.3]
+	at com.sun.proxy.$Proxy70.saveToMysql(Unknown Source) ~[na:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.insertTosql(MysqlPipeline.java:47) ~[classes/:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.process(MysqlPipeline.java:40) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:425) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: java.sql.SQLException: Column count doesn't match value count at row 1
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3536) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3468) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1957) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2107) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2086) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1365) ~[mysql-connector-java-5.1.8.jar:na]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:41) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:66) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:45) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:100) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:75) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:148) ~[mybatis-3.2.3.jar:3.2.3]
+	... 12 common frames omitted
+
+2016-10-09 11:31:13.585  WARN 5832 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:13 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:13 GMT
+2016-10-09 11:31:14.050  INFO 5832 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:31:14.055 ERROR 5832 --- [pool-2-thread-1] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29922.shtml', method='null', extras=null, priority=0} error
+
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+### The error may involve com.gy.wm.model.CrawlDataMapper.saveToMysql-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO crawlerdata_zktest(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+### Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:23) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:150) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:137) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:46) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:43) ~[mybatis-3.2.3.jar:3.2.3]
+	at com.sun.proxy.$Proxy70.saveToMysql(Unknown Source) ~[na:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.insertTosql(MysqlPipeline.java:47) ~[classes/:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.process(MysqlPipeline.java:40) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:425) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: java.sql.SQLException: Column count doesn't match value count at row 1
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3536) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3468) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1957) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2107) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2086) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1365) ~[mysql-connector-java-5.1.8.jar:na]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:41) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:66) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:45) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:100) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:75) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:148) ~[mybatis-3.2.3.jar:3.2.3]
+	... 12 common frames omitted
+
+2016-10-09 11:31:15.967  WARN 5832 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:16 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:16 GMT
+2016-10-09 11:31:16.372  INFO 5832 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:31:16.376 ERROR 5832 --- [pool-2-thread-1] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29911.shtml', method='null', extras=null, priority=0} error
+
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+### The error may involve com.gy.wm.model.CrawlDataMapper.saveToMysql-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO crawlerdata_zktest(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+### Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:23) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:150) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:137) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:46) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:43) ~[mybatis-3.2.3.jar:3.2.3]
+	at com.sun.proxy.$Proxy70.saveToMysql(Unknown Source) ~[na:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.insertTosql(MysqlPipeline.java:47) ~[classes/:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.process(MysqlPipeline.java:40) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:425) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: java.sql.SQLException: Column count doesn't match value count at row 1
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3536) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3468) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1957) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2107) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2086) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1365) ~[mysql-connector-java-5.1.8.jar:na]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:41) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:66) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:45) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:100) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:75) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:148) ~[mybatis-3.2.3.jar:3.2.3]
+	... 12 common frames omitted
+
+2016-10-09 11:31:17.203  WARN 5832 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:17 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:17 GMT
+2016-10-09 11:31:17.699  INFO 5832 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:31:17.704 ERROR 5832 --- [pool-2-thread-1] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29906.shtml', method='null', extras=null, priority=0} error
+
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+### The error may involve com.gy.wm.model.CrawlDataMapper.saveToMysql-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO crawlerdata_zktest(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+### Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:23) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:150) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:137) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:46) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:43) ~[mybatis-3.2.3.jar:3.2.3]
+	at com.sun.proxy.$Proxy70.saveToMysql(Unknown Source) ~[na:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.insertTosql(MysqlPipeline.java:47) ~[classes/:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.process(MysqlPipeline.java:40) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:425) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: java.sql.SQLException: Column count doesn't match value count at row 1
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3536) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3468) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1957) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2107) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2086) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1365) ~[mysql-connector-java-5.1.8.jar:na]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:41) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:66) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:45) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:100) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:75) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:148) ~[mybatis-3.2.3.jar:3.2.3]
+	... 12 common frames omitted
+
+2016-10-09 11:31:18.270  WARN 5832 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:18 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:18 GMT
+2016-10-09 11:31:18.804  INFO 5832 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:31:18.811 ERROR 5832 --- [pool-2-thread-1] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29891.shtml', method='null', extras=null, priority=0} error
+
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+### The error may involve com.gy.wm.model.CrawlDataMapper.saveToMysql-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO crawlerdata_zktest(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+### Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:23) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:150) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:137) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:46) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:43) ~[mybatis-3.2.3.jar:3.2.3]
+	at com.sun.proxy.$Proxy70.saveToMysql(Unknown Source) ~[na:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.insertTosql(MysqlPipeline.java:47) ~[classes/:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.process(MysqlPipeline.java:40) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:425) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: java.sql.SQLException: Column count doesn't match value count at row 1
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3536) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3468) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1957) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2107) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2086) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1365) ~[mysql-connector-java-5.1.8.jar:na]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:41) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:66) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:45) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:100) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:75) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:148) ~[mybatis-3.2.3.jar:3.2.3]
+	... 12 common frames omitted
+
+2016-10-09 11:31:19.041  WARN 5832 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:19 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:19 GMT
+2016-10-09 11:31:19.794  INFO 5832 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:31:19.806 ERROR 5832 --- [pool-2-thread-1] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29890.shtml', method='null', extras=null, priority=0} error
+
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+### The error may involve com.gy.wm.model.CrawlDataMapper.saveToMysql-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO crawlerdata_zktest(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+### Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:23) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:150) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:137) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:46) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:43) ~[mybatis-3.2.3.jar:3.2.3]
+	at com.sun.proxy.$Proxy70.saveToMysql(Unknown Source) ~[na:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.insertTosql(MysqlPipeline.java:47) ~[classes/:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.process(MysqlPipeline.java:40) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:425) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: java.sql.SQLException: Column count doesn't match value count at row 1
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3536) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3468) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1957) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2107) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2086) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1365) ~[mysql-connector-java-5.1.8.jar:na]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:41) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:66) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:45) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:100) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:75) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:148) ~[mybatis-3.2.3.jar:3.2.3]
+	... 12 common frames omitted
+
+2016-10-09 11:31:20.073  WARN 5832 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:20 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:20 GMT
+2016-10-09 11:31:20.700  INFO 5832 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:31:20.709 ERROR 5832 --- [pool-2-thread-1] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29884.shtml', method='null', extras=null, priority=0} error
+
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+### The error may involve com.gy.wm.model.CrawlDataMapper.saveToMysql-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO crawlerdata_zktest(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+### Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:23) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:150) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:137) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:46) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:43) ~[mybatis-3.2.3.jar:3.2.3]
+	at com.sun.proxy.$Proxy70.saveToMysql(Unknown Source) ~[na:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.insertTosql(MysqlPipeline.java:47) ~[classes/:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.process(MysqlPipeline.java:40) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:425) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: java.sql.SQLException: Column count doesn't match value count at row 1
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3536) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3468) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1957) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2107) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2086) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1365) ~[mysql-connector-java-5.1.8.jar:na]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:41) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:66) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:45) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:100) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:75) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:148) ~[mybatis-3.2.3.jar:3.2.3]
+	... 12 common frames omitted
+
+2016-10-09 11:31:21.727  WARN 5832 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:21 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:21 GMT
+2016-10-09 11:31:22.806  INFO 5832 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:31:22.813 ERROR 5832 --- [pool-2-thread-1] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29881.shtml', method='null', extras=null, priority=0} error
+
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+### The error may involve com.gy.wm.model.CrawlDataMapper.saveToMysql-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO crawlerdata_zktest(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+### Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:23) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:150) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:137) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:46) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:43) ~[mybatis-3.2.3.jar:3.2.3]
+	at com.sun.proxy.$Proxy70.saveToMysql(Unknown Source) ~[na:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.insertTosql(MysqlPipeline.java:47) ~[classes/:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.process(MysqlPipeline.java:40) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:425) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: java.sql.SQLException: Column count doesn't match value count at row 1
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3536) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3468) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1957) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2107) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2086) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1365) ~[mysql-connector-java-5.1.8.jar:na]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:41) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:66) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:45) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:100) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:75) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:148) ~[mybatis-3.2.3.jar:3.2.3]
+	... 12 common frames omitted
+
+2016-10-09 11:31:23.146  WARN 5832 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:23 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:23 GMT
+2016-10-09 11:31:24.127  INFO 5832 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:31:24.132 ERROR 5832 --- [pool-2-thread-1] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29879.shtml', method='null', extras=null, priority=0} error
+
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+### The error may involve com.gy.wm.model.CrawlDataMapper.saveToMysql-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO crawlerdata_zktest(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+### Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:23) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:150) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:137) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:46) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:43) ~[mybatis-3.2.3.jar:3.2.3]
+	at com.sun.proxy.$Proxy70.saveToMysql(Unknown Source) ~[na:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.insertTosql(MysqlPipeline.java:47) ~[classes/:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.process(MysqlPipeline.java:40) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:425) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: java.sql.SQLException: Column count doesn't match value count at row 1
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3536) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3468) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1957) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2107) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2086) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1365) ~[mysql-connector-java-5.1.8.jar:na]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:41) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:66) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:45) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:100) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:75) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:148) ~[mybatis-3.2.3.jar:3.2.3]
+	... 12 common frames omitted
+
+2016-10-09 11:31:24.385  WARN 5832 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:24 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:24 GMT
+2016-10-09 11:31:24.915  INFO 5832 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:31:24.925 ERROR 5832 --- [pool-2-thread-1] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29871.shtml', method='null', extras=null, priority=0} error
+
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+### The error may involve com.gy.wm.model.CrawlDataMapper.saveToMysql-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO crawlerdata_zktest(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+### Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:23) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:150) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:137) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:46) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:43) ~[mybatis-3.2.3.jar:3.2.3]
+	at com.sun.proxy.$Proxy70.saveToMysql(Unknown Source) ~[na:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.insertTosql(MysqlPipeline.java:47) ~[classes/:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.process(MysqlPipeline.java:40) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:425) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: java.sql.SQLException: Column count doesn't match value count at row 1
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3536) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3468) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1957) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2107) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2086) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1365) ~[mysql-connector-java-5.1.8.jar:na]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:41) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:66) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:45) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:100) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:75) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:148) ~[mybatis-3.2.3.jar:3.2.3]
+	... 12 common frames omitted
+
+2016-10-09 11:31:25.426  WARN 5832 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:25 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:25 GMT
+2016-10-09 11:31:25.945  INFO 5832 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:31:45.954 ERROR 5832 --- [pool-2-thread-1] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29865.shtml', method='null', extras=null, priority=0} error
+
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+### The error may involve com.gy.wm.model.CrawlDataMapper.saveToMysql-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO crawlerdata_zktest(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+### Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:23) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:150) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:137) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:46) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:43) ~[mybatis-3.2.3.jar:3.2.3]
+	at com.sun.proxy.$Proxy70.saveToMysql(Unknown Source) ~[na:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.insertTosql(MysqlPipeline.java:47) ~[classes/:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.process(MysqlPipeline.java:40) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:425) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: java.sql.SQLException: Column count doesn't match value count at row 1
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3536) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3468) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1957) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2107) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2086) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1365) ~[mysql-connector-java-5.1.8.jar:na]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:41) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:66) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:45) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:100) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:75) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:148) ~[mybatis-3.2.3.jar:3.2.3]
+	... 12 common frames omitted
+
+2016-10-09 11:31:46.533  WARN 5832 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:46 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:46 GMT
+2016-10-09 11:31:47.167  INFO 5832 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:31:47.174 ERROR 5832 --- [pool-2-thread-1] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29863.shtml', method='null', extras=null, priority=0} error
+
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+### The error may involve com.gy.wm.model.CrawlDataMapper.saveToMysql-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO crawlerdata_zktest(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+### Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:23) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:150) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:137) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:46) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:43) ~[mybatis-3.2.3.jar:3.2.3]
+	at com.sun.proxy.$Proxy70.saveToMysql(Unknown Source) ~[na:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.insertTosql(MysqlPipeline.java:47) ~[classes/:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.process(MysqlPipeline.java:40) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:425) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: java.sql.SQLException: Column count doesn't match value count at row 1
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3536) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3468) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1957) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2107) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2086) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1365) ~[mysql-connector-java-5.1.8.jar:na]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:41) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:66) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:45) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:100) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:75) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:148) ~[mybatis-3.2.3.jar:3.2.3]
+	... 12 common frames omitted
+
+2016-10-09 11:31:47.599  WARN 5832 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:47 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:47 GMT
+2016-10-09 11:31:48.071  INFO 5832 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:31:48.077 ERROR 5832 --- [pool-2-thread-1] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29843.shtml', method='null', extras=null, priority=0} error
+
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+### The error may involve com.gy.wm.model.CrawlDataMapper.saveToMysql-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO crawlerdata_zktest(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+### Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:23) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:150) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:137) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:46) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:43) ~[mybatis-3.2.3.jar:3.2.3]
+	at com.sun.proxy.$Proxy70.saveToMysql(Unknown Source) ~[na:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.insertTosql(MysqlPipeline.java:47) ~[classes/:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.process(MysqlPipeline.java:40) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:425) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: java.sql.SQLException: Column count doesn't match value count at row 1
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3536) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3468) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1957) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2107) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2086) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1365) ~[mysql-connector-java-5.1.8.jar:na]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:41) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:66) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:45) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:100) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:75) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:148) ~[mybatis-3.2.3.jar:3.2.3]
+	... 12 common frames omitted
+
+2016-10-09 11:31:48.283  WARN 5832 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:48 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:48 GMT
+2016-10-09 11:31:49.004  INFO 5832 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:31:49.011 ERROR 5832 --- [pool-2-thread-1] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29837.shtml', method='null', extras=null, priority=0} error
+
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+### The error may involve com.gy.wm.model.CrawlDataMapper.saveToMysql-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO crawlerdata_zktest(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+### Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:23) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:150) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:137) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:46) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:43) ~[mybatis-3.2.3.jar:3.2.3]
+	at com.sun.proxy.$Proxy70.saveToMysql(Unknown Source) ~[na:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.insertTosql(MysqlPipeline.java:47) ~[classes/:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.process(MysqlPipeline.java:40) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:425) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: java.sql.SQLException: Column count doesn't match value count at row 1
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3536) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3468) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1957) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2107) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2086) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1365) ~[mysql-connector-java-5.1.8.jar:na]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:41) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:66) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:45) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:100) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:75) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:148) ~[mybatis-3.2.3.jar:3.2.3]
+	... 12 common frames omitted
+
+2016-10-09 11:31:49.230  WARN 5832 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:49 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:49 GMT
+2016-10-09 11:31:49.716  INFO 5832 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:31:49.721 ERROR 5832 --- [pool-2-thread-1] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29831.shtml', method='null', extras=null, priority=0} error
+
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+### The error may involve com.gy.wm.model.CrawlDataMapper.saveToMysql-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO crawlerdata_zktest(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+### Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:23) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:150) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:137) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:46) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:43) ~[mybatis-3.2.3.jar:3.2.3]
+	at com.sun.proxy.$Proxy70.saveToMysql(Unknown Source) ~[na:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.insertTosql(MysqlPipeline.java:47) ~[classes/:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.process(MysqlPipeline.java:40) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:425) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: java.sql.SQLException: Column count doesn't match value count at row 1
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3536) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3468) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1957) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2107) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2086) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1365) ~[mysql-connector-java-5.1.8.jar:na]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:41) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:66) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:45) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:100) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:75) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:148) ~[mybatis-3.2.3.jar:3.2.3]
+	... 12 common frames omitted
+
+2016-10-09 11:31:50.317  WARN 5832 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:50 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:50 GMT
+2016-10-09 11:31:50.728  INFO 5832 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:31:50.734 ERROR 5832 --- [pool-2-thread-1] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29827.shtml', method='null', extras=null, priority=0} error
+
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+### The error may involve com.gy.wm.model.CrawlDataMapper.saveToMysql-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO crawlerdata_zktest(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+### Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:23) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:150) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:137) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:46) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:43) ~[mybatis-3.2.3.jar:3.2.3]
+	at com.sun.proxy.$Proxy70.saveToMysql(Unknown Source) ~[na:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.insertTosql(MysqlPipeline.java:47) ~[classes/:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.process(MysqlPipeline.java:40) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:425) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: java.sql.SQLException: Column count doesn't match value count at row 1
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3536) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3468) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1957) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2107) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2086) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1365) ~[mysql-connector-java-5.1.8.jar:na]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:41) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:66) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:45) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:100) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:75) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:148) ~[mybatis-3.2.3.jar:3.2.3]
+	... 12 common frames omitted
+
+2016-10-09 11:31:50.991  WARN 5832 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:51 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:51 GMT
+2016-10-09 11:31:51.629  INFO 5832 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:31:51.635 ERROR 5832 --- [pool-2-thread-1] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29826.shtml', method='null', extras=null, priority=0} error
+
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+### The error may involve com.gy.wm.model.CrawlDataMapper.saveToMysql-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO crawlerdata_zktest(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+### Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:23) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:150) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:137) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:46) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:43) ~[mybatis-3.2.3.jar:3.2.3]
+	at com.sun.proxy.$Proxy70.saveToMysql(Unknown Source) ~[na:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.insertTosql(MysqlPipeline.java:47) ~[classes/:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.process(MysqlPipeline.java:40) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:425) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: java.sql.SQLException: Column count doesn't match value count at row 1
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3536) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3468) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1957) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2107) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2086) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1365) ~[mysql-connector-java-5.1.8.jar:na]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:41) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:66) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:45) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:100) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:75) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:148) ~[mybatis-3.2.3.jar:3.2.3]
+	... 12 common frames omitted
+
+2016-10-09 11:31:51.842  WARN 5832 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:52 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:52 GMT
+2016-10-09 11:31:52.380  INFO 5832 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:31:52.385 ERROR 5832 --- [pool-2-thread-1] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29818.shtml', method='null', extras=null, priority=0} error
+
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+### The error may involve com.gy.wm.model.CrawlDataMapper.saveToMysql-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO crawlerdata_zktest(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+### Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:23) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:150) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:137) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:46) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:43) ~[mybatis-3.2.3.jar:3.2.3]
+	at com.sun.proxy.$Proxy70.saveToMysql(Unknown Source) ~[na:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.insertTosql(MysqlPipeline.java:47) ~[classes/:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.process(MysqlPipeline.java:40) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:425) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: java.sql.SQLException: Column count doesn't match value count at row 1
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3536) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3468) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1957) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2107) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2086) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1365) ~[mysql-connector-java-5.1.8.jar:na]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:41) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:66) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:45) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:100) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:75) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:148) ~[mybatis-3.2.3.jar:3.2.3]
+	... 12 common frames omitted
+
+2016-10-09 11:31:52.733  WARN 5832 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:53 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:53 GMT
+2016-10-09 11:31:53.089  INFO 5832 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:31:53.093 ERROR 5832 --- [pool-2-thread-1] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29809.shtml', method='null', extras=null, priority=0} error
+
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+### The error may involve com.gy.wm.model.CrawlDataMapper.saveToMysql-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO crawlerdata_zktest(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+### Cause: java.sql.SQLException: Column count doesn't match value count at row 1
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:23) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:150) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:137) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:46) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:43) ~[mybatis-3.2.3.jar:3.2.3]
+	at com.sun.proxy.$Proxy70.saveToMysql(Unknown Source) ~[na:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.insertTosql(MysqlPipeline.java:47) ~[classes/:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.process(MysqlPipeline.java:40) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:425) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: java.sql.SQLException: Column count doesn't match value count at row 1
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3536) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3468) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1957) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2107) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2086) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1365) ~[mysql-connector-java-5.1.8.jar:na]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:41) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:66) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:45) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:100) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:75) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:148) ~[mybatis-3.2.3.jar:3.2.3]
+	... 12 common frames omitted
+
+2016-10-09 11:31:53.705  WARN 5832 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:54 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:54 GMT
