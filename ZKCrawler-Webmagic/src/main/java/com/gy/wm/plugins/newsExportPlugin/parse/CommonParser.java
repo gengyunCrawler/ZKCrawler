@@ -66,7 +66,7 @@ public class CommonParser implements PageParser {
         }
         //parsing data from html
         if (isContentHtml(crawlData.getUrl())) {
-            crawlDatas.add(parseData(new Html(crawlData.getHtml()), crawlData, config.getFileds()));
+            crawlDatas.add(parseData(new Html(crawlData.getHtml()), crawlData, config));
         }
 
         return crawlDatas;
@@ -78,11 +78,11 @@ public class CommonParser implements PageParser {
      *
      * @param html
      * @param crawlData
-     * @param htmlFields
+     * @param config
      * @return CrawlerData
      * @version 1.0
      */
-    private CrawlData parseData(Html html, CrawlData crawlData, List<HtmlField> htmlFields) {
+    private CrawlData parseData(Html html, CrawlData crawlData, ParserConfig config) {
 
 
         String title=null;
@@ -93,7 +93,7 @@ public class CommonParser implements PageParser {
 
         String sourceName=null;
         String source=null;
-
+        List<HtmlField> htmlFields=config.getFileds();
         for (HtmlField htmlField:htmlFields){
             if (htmlField.getFieldName().equals("title")){
                 title=byXpaths(html,htmlField.getXpaths());
@@ -101,6 +101,12 @@ public class CommonParser implements PageParser {
 
             if (htmlField.getFieldName().equals("content")){
                 contentHtml=byXpaths(html,htmlField.getXpaths());
+                if (contentHtml!=null){
+                    if (config.getImagePrefix()!=null){
+                        contentHtml= contentHtml.replace("src=\"","src=\""+config.getImagePrefix());
+                    }
+
+                }
             }if (htmlField.getFieldName().equals("source")){
                 source =byXpaths(html,htmlField.getXpaths());
                 if (source!=null){

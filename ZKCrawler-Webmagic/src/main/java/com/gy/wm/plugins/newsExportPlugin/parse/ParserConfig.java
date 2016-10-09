@@ -20,6 +20,16 @@ public class ParserConfig {
     private int id;
     private String taskId;
 
+    private String imagePrefix;
+
+    public String getImagePrefix() {
+        return imagePrefix;
+    }
+
+    public void setImagePrefix(String imagePrefix) {
+        this.imagePrefix = imagePrefix;
+    }
+
     public List<HtmlField> getFileds() {
         return fileds;
     }
