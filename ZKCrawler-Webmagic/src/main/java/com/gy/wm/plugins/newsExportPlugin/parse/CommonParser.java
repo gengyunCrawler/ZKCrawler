@@ -85,27 +85,35 @@ public class CommonParser implements PageParser {
     private CrawlData parseData(Html html, CrawlData crawlData, List<HtmlField> htmlFields) {
 
 
-        String title = null;
-        String contentHtml = null;
-        String author = null;
-        String sourceName = null;
-        /**
-         * this is for all fields that we need to gain data extracted by xpathes,this is no need at version 2.0
-         *
-         */
-        for (HtmlField htmlField : htmlFields) {
-            if (htmlField.getFieldName().equals("title")) {
-                title = byXpaths(html, htmlField.getXpaths());
+        String title=null;
+        //包含html格式的文章段落
+        String contentHtml=null;
+        //来源和作者字段
+        String author=null;
+
+        String sourceName=null;
+        String source=null;
+
+        for (HtmlField htmlField:htmlFields){
+            if (htmlField.getFieldName().equals("title")){
+                title=byXpaths(html,htmlField.getXpaths());
             }
 
-            if (htmlField.getFieldName().equals("content")) {
-                contentHtml = byXpaths(html, htmlField.getXpaths());
-            }
-            if (htmlField.getFieldName().equals("author")) {
-                author = byXpaths(html, htmlField.getXpaths());
-            }
-            if (htmlField.getFieldName().equals("sourceName")) {
-                sourceName = byXpaths(html, htmlField.getXpaths());
+            if (htmlField.getFieldName().equals("content")){
+                contentHtml=byXpaths(html,htmlField.getXpaths());
+            }if (htmlField.getFieldName().equals("source")){
+                source =byXpaths(html,htmlField.getXpaths());
+                if (source!=null){
+                    String [] arr=source.split(" ");
+                    for (String content:arr){
+                        if (content.contains("作者")){
+                            author=content.split("：")[1];
+                        }
+                        if (content.contains("来源")){
+                            sourceName=content.split("：")[1];
+                        }
+                    }
+                }
             }
         }
 

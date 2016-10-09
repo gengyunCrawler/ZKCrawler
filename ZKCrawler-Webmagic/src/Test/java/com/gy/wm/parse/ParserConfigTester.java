@@ -43,10 +43,11 @@ public class ParserConfigTester
 
         com.gy.wm.plugins.newsExportPlugin.parse.HtmlField field3=new  com.gy.wm.plugins.newsExportPlugin.parse.HtmlField();
         List<String> list=new ArrayList<>();
+
         list.add("/html/body/table[5]/tbody/tr/td/table/tbody/tr/td/table[3]/tbody/tr/td[1]/table[3]/tbody/tr[1]/td");
         list.add("//div[@class='hhg']");
         field3.setXpaths(list);
-
+        field3.setFieldName("source");
         fileds.add(filed1);
         fileds.add(filed2);
         fileds.add(field3);
