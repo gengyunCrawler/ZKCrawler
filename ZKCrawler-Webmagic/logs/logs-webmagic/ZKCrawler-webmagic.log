@@ -11324,3 +11324,45 @@ java.lang.NullPointerException: null
 2016-10-08 17:58:52.358  INFO 9988 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : Retrying request
 2016-10-08 17:58:53.361  INFO 9988 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : I/O exception (java.net.ConnectException) caught when processing request: Connection refused: connect
 2016-10-08 17:58:53.361  INFO 9988 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : Retrying request
+2016-10-08 18:30:00.425  INFO 13276 --- [main] com.gy.wm.service.ServiceTest            : Starting ServiceTest on DESKTOP-I5VPLTQ with PID 13276 (started by karel in D:\IdeaProjects\ZKCrawler\ZKCrawler-Webmagic)
+2016-10-08 18:30:00.426  INFO 13276 --- [main] com.gy.wm.service.ServiceTest            : No active profile set, falling back to default profiles: default
+2016-10-08 18:30:00.575  INFO 13276 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@53b10504: startup date [Sat Oct 08 18:30:00 CST 2016]; root of context hierarchy
+2016-10-08 18:30:37.636  INFO 12032 --- [main] com.gy.wm.service.ServiceTest            : Starting ServiceTest on DESKTOP-I5VPLTQ with PID 12032 (started by karel in D:\IdeaProjects\ZKCrawler\ZKCrawler-Webmagic)
+2016-10-08 18:30:37.637  INFO 12032 --- [main] com.gy.wm.service.ServiceTest            : No active profile set, falling back to default profiles: default
+2016-10-08 18:30:37.842  INFO 12032 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@4f48aa44: startup date [Sat Oct 08 18:30:37 CST 2016]; root of context hierarchy
+2016-10-08 18:30:39.647  INFO 12032 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-10-08 18:30:40.786  INFO 12032 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@4f48aa44: startup date [Sat Oct 08 18:30:37 CST 2016]; root of context hierarchy
+2016-10-08 18:30:40.892  INFO 12032 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/test]}" onto public java.lang.String com.gy.wm.controller.API.test()
+2016-10-08 18:30:40.894  INFO 12032 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/startTask],methods=[POST],produces=[application/json]}" onto public java.lang.String com.gy.wm.controller.API.startTask(com.gy.wm.model.TaskParamModel)
+2016-10-08 18:30:40.894  INFO 12032 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/cleanTaskRedis/{taskId}],methods=[POST]}" onto public java.lang.String com.gy.wm.controller.API.cleanTaskRedis(java.lang.String)
+2016-10-08 18:30:40.895  INFO 12032 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/stopTask/{taskId}]}" onto public java.lang.String com.gy.wm.controller.API.stopTask(java.lang.String)
+2016-10-08 18:30:40.899  INFO 12032 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2016-10-08 18:30:40.899  INFO 12032 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2016-10-08 18:30:40.966  INFO 12032 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-08 18:30:40.966  INFO 12032 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-08 18:30:41.076  INFO 12032 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-08 18:30:41.669  INFO 12032 --- [main] com.gy.wm.service.ServiceTest            : Started ServiceTest in 5.37 seconds (JVM running for 6.693)
+2016-10-08 18:30:41.722  INFO 12032 --- [main] com.gy.wm.service.TaskService            : ===> get thread pool size: 50
+2016-10-08 18:30:41.773  INFO 12032 --- [main] com.gy.wm.service.TaskService            : ===> starting crawler task ......
+2016-10-08 18:30:41.773  INFO 12032 --- [pool-1-thread-1] com.gy.wm.controller.API                 : ==++==> starting task. taskId: acbrocdldrtfkauj9ertt29d67
+2016-10-08 18:30:42.069  INFO 12032 --- [pool-1-thread-1] com.gy.wm.entry.CrawlerWorkflowManager   : ****************************>>>>> domain:  qnz.com.cn
+2016-10-08 18:30:42.383  INFO 12032 --- [pool-1-thread-1] us.codecraft.webmagic.Spider             : Spider acbrocdldrtfkauj9ertt29d67 started!
+2016-10-08 18:30:44.827 ERROR 12032 --- [pool-2-thread-1] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newslist-0-12.shtml', method='null', extras=null, priority=0} error
+
+java.lang.NullPointerException: null
+	at com.gy.wm.service.CustomPageProcessor.process(CustomPageProcessor.java:87) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:421) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_80]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_80]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_80]
+
+2016-10-08 18:30:57.389  INFO 12032 --- [pool-1-thread-1] com.gy.wm.entry.Crawl                    : ***********************************task finished******************************************
+2016-10-08 18:30:57.389  INFO 12032 --- [pool-1-thread-1] com.gy.wm.entry.Crawl                    : time elapse(seconds):15.615
+2016-10-08 18:30:58.465  INFO 12032 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : I/O exception (java.net.ConnectException) caught when processing request: Connection refused: connect
+2016-10-08 18:30:58.465  INFO 12032 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : Retrying request
+2016-10-08 18:30:59.468  INFO 12032 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : I/O exception (java.net.ConnectException) caught when processing request: Connection refused: connect
+2016-10-08 18:30:59.468  INFO 12032 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : Retrying request
+2016-10-08 18:31:00.471  INFO 12032 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : I/O exception (java.net.ConnectException) caught when processing request: Connection refused: connect
+2016-10-08 18:31:00.472  INFO 12032 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : Retrying request
