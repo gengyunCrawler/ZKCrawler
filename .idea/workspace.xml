@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f80612aa-7060-4aab-872b-8b78d4511402" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ZKCrawler-Webmagic/logs/logs-webmagic/ZKCrawler-webmagic.log" afterPath="$PROJECT_DIR$/ZKCrawler-Webmagic/logs/logs-webmagic/ZKCrawler-webmagic.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/resources/config.properties" afterPath="$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/resources/config.properties" />
     </list>
     <ignored path="ZKCrawler.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,21 +42,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ServiceTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ServiceTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/Test/java/com/gy/wm/service/ServiceTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+            <state relative-caret-position="137">
+              <caret line="55" column="62" selection-start-line="55" selection-start-column="62" selection-end-line="55" selection-end-column="62" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config.properties" pinned="false" current-in-tab="true">
+      <file leaf-file-name="config.properties" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/resources/config.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+            <state relative-caret-position="-152">
+              <caret line="26" column="73" selection-start-line="26" selection-start-column="73" selection-end-line="26" selection-end-column="73" />
               <folding />
             </state>
           </provider>
@@ -65,9 +65,12 @@
       <file leaf-file-name="ParserConfigTester.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/Test/java/com/gy/wm/parse/ParserConfigTester.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="722">
+              <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+              <folding>
+                <marker date="1475983208608" expanded="false" signature="33:111" ph="..." />
+                <marker date="1475983208608" expanded="true" signature="4225:4233" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -77,7 +80,20 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="95">
               <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-              <folding />
+              <folding>
+                <element signature="e#199#200#0" expanded="false" />
+                <element signature="e#224#225#0" expanded="false" />
+                <element signature="e#257#258#0" expanded="false" />
+                <element signature="e#285#286#0" expanded="false" />
+                <element signature="e#318#319#0" expanded="false" />
+                <element signature="e#347#348#0" expanded="false" />
+                <element signature="e#391#392#0" expanded="false" />
+                <element signature="e#427#428#0" expanded="false" />
+                <element signature="e#457#458#0" expanded="false" />
+                <element signature="e#483#484#0" expanded="false" />
+                <element signature="e#521#522#0" expanded="false" />
+                <element signature="e#551#552#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -87,7 +103,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="95">
               <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-              <folding />
+              <folding>
+                <element signature="e#316#317#0" expanded="false" />
+                <element signature="e#344#345#0" expanded="false" />
+                <element signature="e#386#387#0" expanded="false" />
+                <element signature="e#420#421#0" expanded="false" />
+                <element signature="e#451#452#0" expanded="false" />
+                <element signature="e#478#479#0" expanded="false" />
+                <element signature="e#518#519#0" expanded="false" />
+                <element signature="e#550#551#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -97,7 +122,24 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="152">
               <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-              <folding />
+              <folding>
+                <element signature="e#698#699#0" expanded="false" />
+                <element signature="e#727#728#0" expanded="false" />
+                <element signature="e#780#781#0" expanded="false" />
+                <element signature="e#816#817#0" expanded="false" />
+                <element signature="e#864#865#0" expanded="false" />
+                <element signature="e#898#899#0" expanded="false" />
+                <element signature="e#962#963#0" expanded="false" />
+                <element signature="e#1008#1009#0" expanded="false" />
+                <element signature="e#1034#1035#0" expanded="false" />
+                <element signature="e#1059#1060#0" expanded="false" />
+                <element signature="e#1092#1093#0" expanded="false" />
+                <element signature="e#1120#1121#0" expanded="false" />
+                <element signature="e#1153#1154#0" expanded="false" />
+                <element signature="e#1182#1183#0" expanded="false" />
+                <element signature="e#1226#1227#0" expanded="false" />
+                <element signature="e#1262#1263#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -106,9 +148,14 @@
         <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/Test/java/com/gy/wm/parse/CommonParser.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="228">
-              <caret line="21" column="56" selection-start-line="21" selection-start-column="56" selection-end-line="21" selection-end-column="56" />
+              <caret line="40" column="56" selection-start-line="40" selection-start-column="56" selection-end-line="40" selection-end-column="56" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <marker date="1475983043620" expanded="true" signature="33:337" ph="..." />
+                <marker date="1475983043620" expanded="true" signature="339:401" ph="/**...*/" />
+                <marker date="1475983043620" expanded="true" signature="728:2796" ph="{...}" />
+                <marker date="1475983043620" expanded="true" signature="1845:1925" ph="//..." />
+                <marker date="1475983043620" expanded="true" signature="2802:2964" ph="/**...*/" />
+                <marker date="1475983043620" expanded="true" signature="3054:4582" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -119,7 +166,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="152">
               <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -129,7 +178,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="133">
               <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -139,7 +190,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="38">
               <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-              <folding />
+              <folding>
+                <element signature="e#0#392#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -248,10 +301,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="115" />
-    <option name="y" value="21" />
-    <option name="width" value="1932" />
-    <option name="height" value="976" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -1427,6 +1480,124 @@
       <recent name="D:\IdeaProjects\ZKCrawler\ZKCrawler-Webmagic\src\main\java\com\gy\wm" />
     </key>
   </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/dataSources.local.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-Webmagic/src/Test/java/com/gy/wm/parse/CommonParser.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-Webmagic/src/Test/java/com/gy/wm/parse/ParserConfigTester.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/dao/ParserDao.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/mapper/ParserMapper.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/model/CrawlData.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/plugins/newsExportPlugin/parse/CommonParser.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/plugins/newsExportPlugin/parse/HtmlField.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/plugins/newsExportPlugin/parse/UrlPattern.java</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
+  </component>
   <component name="RunManager" selected="JUnit.ServiceTest.testStartTask">
     <configuration default="false" name="ServiceTest.testStartTask" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
@@ -2017,7 +2188,7 @@
       <workItem from="1475113601337" duration="20324000" />
       <workItem from="1475912070874" duration="1999000" />
       <workItem from="1475917947713" duration="4882000" />
-      <workItem from="1475982943843" duration="20000" />
+      <workItem from="1475982943843" duration="1095000" />
     </task>
     <task id="LOCAL-00001" summary="first init">
       <created>1472713688029</created>
@@ -2271,13 +2442,17 @@
       <option name="project" value="LOCAL" />
       <updated>1475922407788</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="fix &#10;by Huanghai_2016-10-9 11:16:45">
+      <created>1475983032852</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1475983032852</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ServiceTest_testStartTask - 2016.09.27 at 16h 25m 08s.xml">
-      <configuration name="ServiceTest.testStartTask" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="ServiceTest_testStartTask - 2016.09.28 at 18h 07m 33s.xml">
       <configuration name="ServiceTest.testStartTask" configurationId="JUnit" />
     </history-entry>
@@ -2305,9 +2480,12 @@
     <history-entry file="ServiceTest_testStartTask - 2016.10.08 at 18h 30m 01s.xml">
       <configuration name="ServiceTest.testStartTask" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="ServiceTest_testStartTask - 2016.10.09 at 11h 23m 39s.xml">
+      <configuration name="ServiceTest.testStartTask" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="359141000" />
+    <option name="totallyTimeSpent" value="360216000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -2319,23 +2497,24 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="115" y="21" width="1932" height="976" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32923833" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42407808" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.5021322" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.095619656" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.77006507" sideWeight="0.4978678" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.57719713" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.09541578" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39904988" sideWeight="0.4978678" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.527115" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329718" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30585682" sideWeight="0.4978678" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19711539" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19669509" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15473609" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -2347,7 +2526,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42407808" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44360086" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
@@ -2397,8 +2575,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="加了任务回写同步锁。" />
-    <MESSAGE value="webmagic Spring Boot启动异常解决_2016-09-09 10:47:16" />
     <MESSAGE value="TaskEntity添加到webmagic" />
     <MESSAGE value="解析过程plugin化，pending_byHuanghai" />
     <MESSAGE value="Spring Boot Controller层下单元测试" />
@@ -2422,7 +2598,9 @@
     <MESSAGE value="fix_2016-10-08 17:46:34" />
     <MESSAGE value="fix_2016-10-08 18:19:00" />
     <MESSAGE value="fix_2016-10-08 18:26:31" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix_2016-10-08 18:26:31" />
+    <MESSAGE value="添加作者和文章等解析字段&#10;by Huanghai_2016-10-9 11:16:45" />
+    <MESSAGE value="fix &#10;by Huanghai_2016-10-9 11:16:45" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix &#10;by Huanghai_2016-10-9 11:16:45" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2694,76 +2872,76 @@
         <state relative-caret-position="2185">
           <caret line="191" column="19" selection-start-line="191" selection-start-column="19" selection-end-line="191" selection-end-column="19" />
           <folding>
-            <element signature="e#4223#4224#0" expanded="false" />
-            <element signature="e#4261#4262#0" expanded="false" />
-            <marker date="1475920034791" expanded="false" signature="33:77" ph="..." />
-            <marker date="1475920034791" expanded="true" signature="1333:1838" ph="{...}" />
-            <marker date="1475920034791" expanded="false" signature="1866:1877" ph=" { " />
-            <marker date="1475920034791" expanded="false" signature="1888:1894" ph=" }" />
-            <marker date="1475920034791" expanded="false" signature="1930:1941" ph=" { " />
-            <marker date="1475920034791" expanded="false" signature="1956:1962" ph=" }" />
-            <marker date="1475920034791" expanded="false" signature="1990:2001" ph=" { " />
-            <marker date="1475920034791" expanded="false" signature="2012:2018" ph=" }" />
-            <marker date="1475920034791" expanded="false" signature="2054:2065" ph=" { " />
-            <marker date="1475920034791" expanded="false" signature="2080:2086" ph=" }" />
-            <marker date="1475920034791" expanded="false" signature="2118:2129" ph=" { " />
-            <marker date="1475920034791" expanded="false" signature="2147:2153" ph=" }" />
-            <marker date="1475920034791" expanded="false" signature="2200:2211" ph=" { " />
-            <marker date="1475920034791" expanded="false" signature="2240:2246" ph=" }" />
-            <marker date="1475920034791" expanded="false" signature="2272:2283" ph=" { " />
-            <marker date="1475920034791" expanded="false" signature="2295:2301" ph=" }" />
-            <marker date="1475920034791" expanded="false" signature="2336:2347" ph=" { " />
-            <marker date="1475920034791" expanded="false" signature="2364:2370" ph=" }" />
-            <marker date="1475920034791" expanded="false" signature="2399:2410" ph=" { " />
-            <marker date="1475920034791" expanded="false" signature="2422:2428" ph=" }" />
-            <marker date="1475920034791" expanded="false" signature="2466:2477" ph=" { " />
-            <marker date="1475920034791" expanded="false" signature="2494:2500" ph=" }" />
-            <marker date="1475920034791" expanded="false" signature="2532:2543" ph=" { " />
-            <marker date="1475920034791" expanded="false" signature="2558:2564" ph=" }" />
-            <marker date="1475920034791" expanded="false" signature="2608:2619" ph=" { " />
-            <marker date="1475920034791" expanded="false" signature="2642:2648" ph=" }" />
-            <marker date="1475920034791" expanded="false" signature="2680:2691" ph=" { " />
-            <marker date="1475920034791" expanded="false" signature="2706:2712" ph=" }" />
-            <marker date="1475920034791" expanded="false" signature="2756:2767" ph=" { " />
-            <marker date="1475920034791" expanded="false" signature="2790:2796" ph=" }" />
-            <marker date="1475920034791" expanded="false" signature="2825:2836" ph=" { " />
-            <marker date="1475920034791" expanded="false" signature="2848:2854" ph=" }" />
-            <marker date="1475920034791" expanded="false" signature="2892:2903" ph=" { " />
-            <marker date="1475920034791" expanded="false" signature="2920:2926" ph=" }" />
-            <marker date="1475920034791" expanded="false" signature="2955:2966" ph=" { " />
-            <marker date="1475920034791" expanded="false" signature="2978:2984" ph=" }" />
-            <marker date="1475920034791" expanded="false" signature="3022:3033" ph=" { " />
-            <marker date="1475920034791" expanded="false" signature="3050:3056" ph=" }" />
-            <marker date="1475920034791" expanded="false" signature="3086:3097" ph=" { " />
-            <marker date="1475920034791" expanded="false" signature="3110:3116" ph=" }" />
-            <marker date="1475920034791" expanded="false" signature="3156:3167" ph=" { " />
-            <marker date="1475920034791" expanded="false" signature="3186:3192" ph=" }" />
-            <marker date="1475920034791" expanded="false" signature="3226:3237" ph=" { " />
-            <marker date="1475920034791" expanded="false" signature="3254:3260" ph=" }" />
-            <marker date="1475920034791" expanded="false" signature="3308:3319" ph=" { " />
-            <marker date="1475920034791" expanded="false" signature="3346:3352" ph=" }" />
-            <marker date="1475920034791" expanded="false" signature="3384:3395" ph=" { " />
-            <marker date="1475920034791" expanded="false" signature="3412:3418" ph=" }" />
-            <marker date="1475920034791" expanded="false" signature="3464:3475" ph=" { " />
-            <marker date="1475920034791" expanded="false" signature="3502:3508" ph=" }" />
-            <marker date="1475920034791" expanded="false" signature="3542:3553" ph=" { " />
-            <marker date="1475920034791" expanded="false" signature="3572:3578" ph=" }" />
-            <marker date="1475920034791" expanded="false" signature="3628:3639" ph=" { " />
-            <marker date="1475920034791" expanded="false" signature="3670:3676" ph=" }" />
-            <marker date="1475920034791" expanded="false" signature="3712:3723" ph=" { " />
-            <marker date="1475920034791" expanded="false" signature="3744:3750" ph=" }" />
-            <marker date="1475920034791" expanded="false" signature="3804:3815" ph=" { " />
-            <marker date="1475920034791" expanded="false" signature="3850:3856" ph=" }" />
-            <marker date="1475920034791" expanded="false" signature="3884:3895" ph=" { " />
-            <marker date="1475920034791" expanded="false" signature="3906:3912" ph=" }" />
-            <marker date="1475920034791" expanded="false" signature="3949:3960" ph=" { " />
-            <marker date="1475920034791" expanded="false" signature="3975:3981" ph=" }" />
-            <marker date="1475920034791" expanded="false" signature="4009:4020" ph=" { " />
-            <marker date="1475920034791" expanded="false" signature="4033:4039" ph=" }" />
-            <marker date="1475920034791" expanded="false" signature="4077:4088" ph=" { " />
-            <marker date="1475920034791" expanded="false" signature="4107:4113" ph=" }" />
-            <marker date="1475920034791" expanded="true" signature="4145:4156" ph=" { " />
-            <marker date="1475920034791" expanded="true" signature="4171:4177" ph=" }" />
+            <element signature="e#4590#4591#0" expanded="false" />
+            <element signature="e#4628#4629#0" expanded="false" />
+            <marker date="1475983043516" expanded="false" signature="33:77" ph="..." />
+            <marker date="1475983043516" expanded="true" signature="1700:2205" ph="{...}" />
+            <marker date="1475983043516" expanded="false" signature="2233:2244" ph=" { " />
+            <marker date="1475983043516" expanded="false" signature="2255:2261" ph=" }" />
+            <marker date="1475983043516" expanded="false" signature="2297:2308" ph=" { " />
+            <marker date="1475983043516" expanded="false" signature="2323:2329" ph=" }" />
+            <marker date="1475983043516" expanded="false" signature="2357:2368" ph=" { " />
+            <marker date="1475983043516" expanded="false" signature="2379:2385" ph=" }" />
+            <marker date="1475983043516" expanded="false" signature="2421:2432" ph=" { " />
+            <marker date="1475983043516" expanded="false" signature="2447:2453" ph=" }" />
+            <marker date="1475983043516" expanded="false" signature="2485:2496" ph=" { " />
+            <marker date="1475983043516" expanded="false" signature="2514:2520" ph=" }" />
+            <marker date="1475983043516" expanded="false" signature="2567:2578" ph=" { " />
+            <marker date="1475983043516" expanded="false" signature="2607:2613" ph=" }" />
+            <marker date="1475983043516" expanded="false" signature="2639:2650" ph=" { " />
+            <marker date="1475983043516" expanded="false" signature="2662:2668" ph=" }" />
+            <marker date="1475983043516" expanded="false" signature="2703:2714" ph=" { " />
+            <marker date="1475983043516" expanded="false" signature="2731:2737" ph=" }" />
+            <marker date="1475983043516" expanded="false" signature="2766:2777" ph=" { " />
+            <marker date="1475983043516" expanded="false" signature="2789:2795" ph=" }" />
+            <marker date="1475983043516" expanded="false" signature="2833:2844" ph=" { " />
+            <marker date="1475983043516" expanded="false" signature="2861:2867" ph=" }" />
+            <marker date="1475983043516" expanded="false" signature="2899:2910" ph=" { " />
+            <marker date="1475983043516" expanded="false" signature="2925:2931" ph=" }" />
+            <marker date="1475983043516" expanded="false" signature="2975:2986" ph=" { " />
+            <marker date="1475983043516" expanded="false" signature="3009:3015" ph=" }" />
+            <marker date="1475983043516" expanded="false" signature="3047:3058" ph=" { " />
+            <marker date="1475983043516" expanded="false" signature="3073:3079" ph=" }" />
+            <marker date="1475983043516" expanded="false" signature="3123:3134" ph=" { " />
+            <marker date="1475983043516" expanded="false" signature="3157:3163" ph=" }" />
+            <marker date="1475983043516" expanded="false" signature="3192:3203" ph=" { " />
+            <marker date="1475983043516" expanded="false" signature="3215:3221" ph=" }" />
+            <marker date="1475983043516" expanded="false" signature="3259:3270" ph=" { " />
+            <marker date="1475983043516" expanded="false" signature="3287:3293" ph=" }" />
+            <marker date="1475983043516" expanded="false" signature="3322:3333" ph=" { " />
+            <marker date="1475983043516" expanded="false" signature="3345:3351" ph=" }" />
+            <marker date="1475983043516" expanded="false" signature="3389:3400" ph=" { " />
+            <marker date="1475983043516" expanded="false" signature="3417:3423" ph=" }" />
+            <marker date="1475983043516" expanded="false" signature="3453:3464" ph=" { " />
+            <marker date="1475983043516" expanded="false" signature="3477:3483" ph=" }" />
+            <marker date="1475983043516" expanded="false" signature="3523:3534" ph=" { " />
+            <marker date="1475983043516" expanded="false" signature="3553:3559" ph=" }" />
+            <marker date="1475983043516" expanded="false" signature="3593:3604" ph=" { " />
+            <marker date="1475983043516" expanded="false" signature="3621:3627" ph=" }" />
+            <marker date="1475983043516" expanded="false" signature="3675:3686" ph=" { " />
+            <marker date="1475983043516" expanded="false" signature="3713:3719" ph=" }" />
+            <marker date="1475983043516" expanded="false" signature="3751:3762" ph=" { " />
+            <marker date="1475983043516" expanded="false" signature="3779:3785" ph=" }" />
+            <marker date="1475983043516" expanded="false" signature="3831:3842" ph=" { " />
+            <marker date="1475983043516" expanded="false" signature="3869:3875" ph=" }" />
+            <marker date="1475983043516" expanded="false" signature="3909:3920" ph=" { " />
+            <marker date="1475983043516" expanded="false" signature="3939:3945" ph=" }" />
+            <marker date="1475983043516" expanded="false" signature="3995:4006" ph=" { " />
+            <marker date="1475983043516" expanded="false" signature="4037:4043" ph=" }" />
+            <marker date="1475983043516" expanded="false" signature="4079:4090" ph=" { " />
+            <marker date="1475983043516" expanded="false" signature="4111:4117" ph=" }" />
+            <marker date="1475983043516" expanded="false" signature="4171:4182" ph=" { " />
+            <marker date="1475983043516" expanded="false" signature="4217:4223" ph=" }" />
+            <marker date="1475983043516" expanded="false" signature="4251:4262" ph=" { " />
+            <marker date="1475983043516" expanded="false" signature="4273:4279" ph=" }" />
+            <marker date="1475983043516" expanded="false" signature="4316:4327" ph=" { " />
+            <marker date="1475983043516" expanded="false" signature="4342:4348" ph=" }" />
+            <marker date="1475983043516" expanded="false" signature="4376:4387" ph=" { " />
+            <marker date="1475983043516" expanded="false" signature="4400:4406" ph=" }" />
+            <marker date="1475983043516" expanded="false" signature="4444:4455" ph=" { " />
+            <marker date="1475983043516" expanded="false" signature="4474:4480" ph=" }" />
+            <marker date="1475983043516" expanded="true" signature="4512:4523" ph=" { " />
+            <marker date="1475983043516" expanded="true" signature="4538:4544" ph=" }" />
           </folding>
         </state>
       </provider>
@@ -2819,7 +2997,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2827,7 +3007,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
           <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-          <folding />
+          <folding>
+            <element signature="e#0#392#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2835,7 +3017,24 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="e#698#699#0" expanded="false" />
+            <element signature="e#727#728#0" expanded="false" />
+            <element signature="e#780#781#0" expanded="false" />
+            <element signature="e#816#817#0" expanded="false" />
+            <element signature="e#864#865#0" expanded="false" />
+            <element signature="e#898#899#0" expanded="false" />
+            <element signature="e#962#963#0" expanded="false" />
+            <element signature="e#1008#1009#0" expanded="false" />
+            <element signature="e#1034#1035#0" expanded="false" />
+            <element signature="e#1059#1060#0" expanded="false" />
+            <element signature="e#1092#1093#0" expanded="false" />
+            <element signature="e#1120#1121#0" expanded="false" />
+            <element signature="e#1153#1154#0" expanded="false" />
+            <element signature="e#1182#1183#0" expanded="false" />
+            <element signature="e#1226#1227#0" expanded="false" />
+            <element signature="e#1262#1263#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2843,7 +3042,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="e#199#200#0" expanded="false" />
+            <element signature="e#224#225#0" expanded="false" />
+            <element signature="e#257#258#0" expanded="false" />
+            <element signature="e#285#286#0" expanded="false" />
+            <element signature="e#318#319#0" expanded="false" />
+            <element signature="e#347#348#0" expanded="false" />
+            <element signature="e#391#392#0" expanded="false" />
+            <element signature="e#427#428#0" expanded="false" />
+            <element signature="e#457#458#0" expanded="false" />
+            <element signature="e#483#484#0" expanded="false" />
+            <element signature="e#521#522#0" expanded="false" />
+            <element signature="e#551#552#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2851,24 +3063,41 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="e#316#317#0" expanded="false" />
+            <element signature="e#344#345#0" expanded="false" />
+            <element signature="e#386#387#0" expanded="false" />
+            <element signature="e#420#421#0" expanded="false" />
+            <element signature="e#451#452#0" expanded="false" />
+            <element signature="e#478#479#0" expanded="false" />
+            <element signature="e#518#519#0" expanded="false" />
+            <element signature="e#550#551#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/Test/java/com/gy/wm/parse/ParserConfigTester.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="722">
+          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding>
+            <marker date="1475983208608" expanded="false" signature="33:111" ph="..." />
+            <marker date="1475983208608" expanded="true" signature="4225:4233" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/Test/java/com/gy/wm/parse/CommonParser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
-          <caret line="21" column="56" selection-start-line="21" selection-start-column="56" selection-end-line="21" selection-end-column="56" />
+          <caret line="40" column="56" selection-start-line="40" selection-start-column="56" selection-end-line="40" selection-end-column="56" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <marker date="1475983043620" expanded="true" signature="33:337" ph="..." />
+            <marker date="1475983043620" expanded="true" signature="339:401" ph="/**...*/" />
+            <marker date="1475983043620" expanded="true" signature="728:2796" ph="{...}" />
+            <marker date="1475983043620" expanded="true" signature="1845:1925" ph="//..." />
+            <marker date="1475983043620" expanded="true" signature="2802:2964" ph="/**...*/" />
+            <marker date="1475983043620" expanded="true" signature="3054:4582" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -2877,22 +3106,24 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/resources/config.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-152">
+          <caret line="26" column="73" selection-start-line="26" selection-start-column="73" selection-end-line="26" selection-end-column="73" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/Test/java/com/gy/wm/service/ServiceTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/resources/config.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+        <state relative-caret-position="137">
+          <caret line="55" column="62" selection-start-line="55" selection-start-column="62" selection-end-line="55" selection-end-column="62" />
           <folding />
         </state>
       </provider>
