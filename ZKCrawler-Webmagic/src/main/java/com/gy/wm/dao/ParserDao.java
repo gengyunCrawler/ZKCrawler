@@ -37,4 +37,13 @@ public class ParserDao {
         ParserMapper mapper=getMapper(ParserMapper.class);
         return   mapper.find(tid);
     }
+
+    public void insert(ParserEntity entity){
+        SqlSession session= sqlSessionFactory.openSession();
+        ParserMapper mapper= session.getMapper(ParserMapper.class);
+        mapper.insert(entity);
+        session.commit();
+        session.close();
+
+    }
 }

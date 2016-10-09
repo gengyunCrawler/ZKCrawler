@@ -1,7 +1,8 @@
 package com.gy.wm.plugins.newsExportPlugin.parse;
 
 /**
- * Created by Administrator on 2016/9/30.
+ * Created by Tijun on 2016/9/30.
+ * @author TijunWang
  */
 public class UrlPattern {
     private String regex;

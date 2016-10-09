@@ -3,7 +3,9 @@ package com.gy.wm.plugins.newsExportPlugin.parse;
 import java.util.List;
 
 /**
- * Created by Administrator on 2016/9/30.
+ *
+ * Created by Tijun on 2016/9/30.
+ * @author  TijunWang
  */
 public class HtmlField {
     private String fieldName;
