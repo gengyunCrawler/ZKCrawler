@@ -5767,3 +5767,1111 @@ Caused by: java.sql.SQLException: Column count doesn't match value count at row 
 	... 12 common frames omitted
 
 2016-10-09 11:31:53.705  WARN 5832 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:54 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:54 GMT
+2016-10-09 11:34:47.069  INFO 38448 --- [main] com.gy.wm.service.ServiceTest            : Starting ServiceTest on Tijun-PC with PID 38448 (started by Administrator in E:\Workspaces\IDEA\ZKCrawler\ZKCrawler-Webmagic)
+2016-10-09 11:34:47.070  INFO 38448 --- [main] com.gy.wm.service.ServiceTest            : No active profile set, falling back to default profiles: default
+2016-10-09 11:34:47.165  INFO 38448 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@5c4d2a5a: startup date [Sun Oct 09 11:34:47 CST 2016]; root of context hierarchy
+2016-10-09 11:34:48.714  INFO 38448 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-10-09 11:34:49.707  INFO 38448 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@5c4d2a5a: startup date [Sun Oct 09 11:34:47 CST 2016]; root of context hierarchy
+2016-10-09 11:34:49.769  INFO 38448 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/test]}" onto public java.lang.String com.gy.wm.controller.API.test()
+2016-10-09 11:34:49.770  INFO 38448 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/startTask],methods=[POST],produces=[application/json]}" onto public java.lang.String com.gy.wm.controller.API.startTask(com.gy.wm.model.TaskParamModel)
+2016-10-09 11:34:49.770  INFO 38448 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/stopTask/{taskId}]}" onto public java.lang.String com.gy.wm.controller.API.stopTask(java.lang.String)
+2016-10-09 11:34:49.770  INFO 38448 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/cleanTaskRedis/{taskId}],methods=[POST]}" onto public java.lang.String com.gy.wm.controller.API.cleanTaskRedis(java.lang.String)
+2016-10-09 11:34:49.773  INFO 38448 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2016-10-09 11:34:49.773  INFO 38448 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2016-10-09 11:34:49.817  INFO 38448 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-09 11:34:49.817  INFO 38448 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-09 11:34:49.883  INFO 38448 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-09 11:34:50.432  INFO 38448 --- [main] com.gy.wm.service.ServiceTest            : Started ServiceTest in 4.085 seconds (JVM running for 5.297)
+2016-10-09 11:34:50.458  INFO 38448 --- [main] com.gy.wm.service.TaskService            : ===> get thread pool size: 50
+2016-10-09 11:34:50.499  INFO 38448 --- [main] com.gy.wm.service.TaskService            : ===> starting crawler task ......
+2016-10-09 11:34:50.500  INFO 38448 --- [pool-1-thread-1] com.gy.wm.controller.API                 : ==++==> starting task. taskId: acbrocdldrtfkauj9ertt29d67
+2016-10-09 11:34:50.761  INFO 38448 --- [pool-1-thread-1] com.gy.wm.entry.CrawlerWorkflowManager   : ****************************>>>>> domain:  qnz.com.cn
+2016-10-09 11:34:51.115  INFO 38448 --- [pool-1-thread-1] us.codecraft.webmagic.Spider             : Spider acbrocdldrtfkauj9ertt29d67 started!
+2016-10-09 11:34:51.796  WARN 38448 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:51 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:51 GMT
+2016-10-09 11:34:52.478  INFO 38448 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：50
+2016-10-09 11:34:54.057  WARN 38448 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:54 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:54 GMT
+2016-10-09 11:34:54.611  INFO 38448 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:34:54.827 ERROR 38448 --- [pool-2-thread-1] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-30001.shtml', method='null', extras=null, priority=0} error
+
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'souceName' in 'field list'
+### The error may involve com.gy.wm.model.CrawlDataMapper.saveToMysql-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO crawlerdata_zktest(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched,author,souceName) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+### Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'souceName' in 'field list'
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:23) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:150) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:137) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:46) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:43) ~[mybatis-3.2.3.jar:3.2.3]
+	at com.sun.proxy.$Proxy70.saveToMysql(Unknown Source) ~[na:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.insertTosql(MysqlPipeline.java:47) ~[classes/:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.process(MysqlPipeline.java:40) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:425) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'souceName' in 'field list'
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.7.0_79]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57) ~[na:1.7.0_79]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.7.0_79]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:526) ~[na:1.7.0_79]
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:406) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.Util.getInstance(Util.java:381) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1030) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3536) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3468) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1957) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2107) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2086) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1365) ~[mysql-connector-java-5.1.8.jar:na]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:41) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:66) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:45) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:100) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:75) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:148) ~[mybatis-3.2.3.jar:3.2.3]
+	... 12 common frames omitted
+
+2016-10-09 11:34:55.178  WARN 38448 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:55 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:55 GMT
+2016-10-09 11:34:55.590  INFO 38448 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:34:55.611 ERROR 38448 --- [pool-2-thread-1] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29997.shtml', method='null', extras=null, priority=0} error
+
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'souceName' in 'field list'
+### The error may involve com.gy.wm.model.CrawlDataMapper.saveToMysql-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO crawlerdata_zktest(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched,author,souceName) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+### Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'souceName' in 'field list'
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:23) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:150) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:137) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:46) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:43) ~[mybatis-3.2.3.jar:3.2.3]
+	at com.sun.proxy.$Proxy70.saveToMysql(Unknown Source) ~[na:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.insertTosql(MysqlPipeline.java:47) ~[classes/:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.process(MysqlPipeline.java:40) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:425) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'souceName' in 'field list'
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.7.0_79]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57) ~[na:1.7.0_79]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.7.0_79]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:526) ~[na:1.7.0_79]
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:406) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.Util.getInstance(Util.java:381) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1030) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3536) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3468) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1957) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2107) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2086) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1365) ~[mysql-connector-java-5.1.8.jar:na]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:41) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:66) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:45) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:100) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:75) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:148) ~[mybatis-3.2.3.jar:3.2.3]
+	... 12 common frames omitted
+
+2016-10-09 11:34:55.839  WARN 38448 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:56 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:56 GMT
+2016-10-09 11:34:56.447  INFO 38448 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:34:56.462 ERROR 38448 --- [pool-2-thread-1] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29983.shtml', method='null', extras=null, priority=0} error
+
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'souceName' in 'field list'
+### The error may involve com.gy.wm.model.CrawlDataMapper.saveToMysql-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO crawlerdata_zktest(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched,author,souceName) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+### Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'souceName' in 'field list'
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:23) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:150) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:137) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:46) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:43) ~[mybatis-3.2.3.jar:3.2.3]
+	at com.sun.proxy.$Proxy70.saveToMysql(Unknown Source) ~[na:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.insertTosql(MysqlPipeline.java:47) ~[classes/:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.process(MysqlPipeline.java:40) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:425) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'souceName' in 'field list'
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.7.0_79]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57) ~[na:1.7.0_79]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.7.0_79]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:526) ~[na:1.7.0_79]
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:406) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.Util.getInstance(Util.java:381) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1030) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3536) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3468) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1957) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2107) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2086) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1365) ~[mysql-connector-java-5.1.8.jar:na]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:41) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:66) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:45) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:100) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:75) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:148) ~[mybatis-3.2.3.jar:3.2.3]
+	... 12 common frames omitted
+
+2016-10-09 11:34:56.675  WARN 38448 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:56 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:56 GMT
+2016-10-09 11:34:57.234  INFO 38448 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:34:57.251 ERROR 38448 --- [pool-2-thread-1] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29978.shtml', method='null', extras=null, priority=0} error
+
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'souceName' in 'field list'
+### The error may involve com.gy.wm.model.CrawlDataMapper.saveToMysql-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO crawlerdata_zktest(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched,author,souceName) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+### Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'souceName' in 'field list'
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:23) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:150) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:137) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:46) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:43) ~[mybatis-3.2.3.jar:3.2.3]
+	at com.sun.proxy.$Proxy70.saveToMysql(Unknown Source) ~[na:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.insertTosql(MysqlPipeline.java:47) ~[classes/:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.process(MysqlPipeline.java:40) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:425) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'souceName' in 'field list'
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.7.0_79]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57) ~[na:1.7.0_79]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.7.0_79]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:526) ~[na:1.7.0_79]
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:406) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.Util.getInstance(Util.java:381) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1030) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3536) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3468) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1957) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2107) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2086) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1365) ~[mysql-connector-java-5.1.8.jar:na]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:41) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:66) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:45) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:100) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:75) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:148) ~[mybatis-3.2.3.jar:3.2.3]
+	... 12 common frames omitted
+
+2016-10-09 11:34:57.465  WARN 38448 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:57 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:57 GMT
+2016-10-09 11:34:57.940  INFO 38448 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:34:57.960 ERROR 38448 --- [pool-2-thread-1] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29976.shtml', method='null', extras=null, priority=0} error
+
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'souceName' in 'field list'
+### The error may involve com.gy.wm.model.CrawlDataMapper.saveToMysql-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO crawlerdata_zktest(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched,author,souceName) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+### Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'souceName' in 'field list'
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:23) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:150) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:137) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:46) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:43) ~[mybatis-3.2.3.jar:3.2.3]
+	at com.sun.proxy.$Proxy70.saveToMysql(Unknown Source) ~[na:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.insertTosql(MysqlPipeline.java:47) ~[classes/:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.process(MysqlPipeline.java:40) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:425) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'souceName' in 'field list'
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.7.0_79]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57) ~[na:1.7.0_79]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.7.0_79]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:526) ~[na:1.7.0_79]
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:406) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.Util.getInstance(Util.java:381) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1030) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3536) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3468) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1957) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2107) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2086) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1365) ~[mysql-connector-java-5.1.8.jar:na]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:41) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:66) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:45) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:100) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:75) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:148) ~[mybatis-3.2.3.jar:3.2.3]
+	... 12 common frames omitted
+
+2016-10-09 11:34:58.169  WARN 38448 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:58 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:58 GMT
+2016-10-09 11:34:58.749  INFO 38448 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:34:58.767 ERROR 38448 --- [pool-2-thread-1] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29975.shtml', method='null', extras=null, priority=0} error
+
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'souceName' in 'field list'
+### The error may involve com.gy.wm.model.CrawlDataMapper.saveToMysql-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO crawlerdata_zktest(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched,author,souceName) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+### Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'souceName' in 'field list'
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:23) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:150) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:137) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:46) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:43) ~[mybatis-3.2.3.jar:3.2.3]
+	at com.sun.proxy.$Proxy70.saveToMysql(Unknown Source) ~[na:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.insertTosql(MysqlPipeline.java:47) ~[classes/:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.process(MysqlPipeline.java:40) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:425) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'souceName' in 'field list'
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.7.0_79]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57) ~[na:1.7.0_79]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.7.0_79]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:526) ~[na:1.7.0_79]
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:406) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.Util.getInstance(Util.java:381) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1030) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3536) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3468) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1957) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2107) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2086) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1365) ~[mysql-connector-java-5.1.8.jar:na]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:41) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:66) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:45) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:100) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:75) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:148) ~[mybatis-3.2.3.jar:3.2.3]
+	... 12 common frames omitted
+
+2016-10-09 11:34:58.976  WARN 38448 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:59 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:59 GMT
+2016-10-09 11:34:59.567  INFO 38448 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:34:59.582 ERROR 38448 --- [pool-2-thread-1] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29956.shtml', method='null', extras=null, priority=0} error
+
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'souceName' in 'field list'
+### The error may involve com.gy.wm.model.CrawlDataMapper.saveToMysql-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO crawlerdata_zktest(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched,author,souceName) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+### Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'souceName' in 'field list'
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:23) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:150) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:137) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:46) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:43) ~[mybatis-3.2.3.jar:3.2.3]
+	at com.sun.proxy.$Proxy70.saveToMysql(Unknown Source) ~[na:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.insertTosql(MysqlPipeline.java:47) ~[classes/:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.process(MysqlPipeline.java:40) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:425) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'souceName' in 'field list'
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.7.0_79]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57) ~[na:1.7.0_79]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.7.0_79]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:526) ~[na:1.7.0_79]
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:406) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.Util.getInstance(Util.java:381) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1030) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3536) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3468) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1957) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2107) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2086) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1365) ~[mysql-connector-java-5.1.8.jar:na]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:41) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:66) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:45) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:100) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:75) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:148) ~[mybatis-3.2.3.jar:3.2.3]
+	... 12 common frames omitted
+
+2016-10-09 11:34:59.784  WARN 38448 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:00 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:00 GMT
+2016-10-09 11:35:00.305  INFO 38448 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:35:00.320 ERROR 38448 --- [pool-2-thread-1] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29955.shtml', method='null', extras=null, priority=0} error
+
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'souceName' in 'field list'
+### The error may involve com.gy.wm.model.CrawlDataMapper.saveToMysql-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO crawlerdata_zktest(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched,author,souceName) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+### Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'souceName' in 'field list'
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:23) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:150) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:137) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:46) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:43) ~[mybatis-3.2.3.jar:3.2.3]
+	at com.sun.proxy.$Proxy70.saveToMysql(Unknown Source) ~[na:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.insertTosql(MysqlPipeline.java:47) ~[classes/:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.process(MysqlPipeline.java:40) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:425) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'souceName' in 'field list'
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.7.0_79]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57) ~[na:1.7.0_79]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.7.0_79]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:526) ~[na:1.7.0_79]
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:406) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.Util.getInstance(Util.java:381) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1030) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3536) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3468) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1957) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2107) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2086) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1365) ~[mysql-connector-java-5.1.8.jar:na]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:41) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:66) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:45) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:100) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:75) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:148) ~[mybatis-3.2.3.jar:3.2.3]
+	... 12 common frames omitted
+
+2016-10-09 11:35:00.536  WARN 38448 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:00 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:00 GMT
+2016-10-09 11:35:01.105  INFO 38448 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:35:01.118 ERROR 38448 --- [pool-2-thread-1] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29943.shtml', method='null', extras=null, priority=0} error
+
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'souceName' in 'field list'
+### The error may involve com.gy.wm.model.CrawlDataMapper.saveToMysql-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO crawlerdata_zktest(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched,author,souceName) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+### Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'souceName' in 'field list'
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:23) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:150) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:137) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:46) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:43) ~[mybatis-3.2.3.jar:3.2.3]
+	at com.sun.proxy.$Proxy70.saveToMysql(Unknown Source) ~[na:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.insertTosql(MysqlPipeline.java:47) ~[classes/:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.process(MysqlPipeline.java:40) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:425) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'souceName' in 'field list'
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.7.0_79]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57) ~[na:1.7.0_79]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.7.0_79]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:526) ~[na:1.7.0_79]
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:406) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.Util.getInstance(Util.java:381) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1030) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3536) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3468) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1957) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2107) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2086) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1365) ~[mysql-connector-java-5.1.8.jar:na]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:41) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:66) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:45) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:100) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:75) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:148) ~[mybatis-3.2.3.jar:3.2.3]
+	... 12 common frames omitted
+
+2016-10-09 11:35:01.327  WARN 38448 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:01 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:01 GMT
+2016-10-09 11:35:01.959  INFO 38448 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:35:01.974 ERROR 38448 --- [pool-2-thread-1] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29942.shtml', method='null', extras=null, priority=0} error
+
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'souceName' in 'field list'
+### The error may involve com.gy.wm.model.CrawlDataMapper.saveToMysql-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO crawlerdata_zktest(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched,author,souceName) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+### Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'souceName' in 'field list'
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:23) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:150) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:137) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:46) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:43) ~[mybatis-3.2.3.jar:3.2.3]
+	at com.sun.proxy.$Proxy70.saveToMysql(Unknown Source) ~[na:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.insertTosql(MysqlPipeline.java:47) ~[classes/:na]
+	at com.gy.wm.dbpipeline.impl.MysqlPipeline.process(MysqlPipeline.java:40) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:425) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'souceName' in 'field list'
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.7.0_79]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57) ~[na:1.7.0_79]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.7.0_79]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:526) ~[na:1.7.0_79]
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:406) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.Util.getInstance(Util.java:381) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1030) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3536) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3468) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1957) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2107) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2086) ~[mysql-connector-java-5.1.8.jar:na]
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1365) ~[mysql-connector-java-5.1.8.jar:na]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:41) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:66) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:45) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:100) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:75) ~[mybatis-3.2.3.jar:3.2.3]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:148) ~[mybatis-3.2.3.jar:3.2.3]
+	... 12 common frames omitted
+
+2016-10-09 11:35:02.187  WARN 38448 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:02 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:02 GMT
+2016-10-09 11:35:02.922  INFO 38448 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:36:00.084  INFO 39776 --- [main] com.gy.wm.service.ServiceTest            : Starting ServiceTest on Tijun-PC with PID 39776 (started by Administrator in E:\Workspaces\IDEA\ZKCrawler\ZKCrawler-Webmagic)
+2016-10-09 11:36:00.085  INFO 39776 --- [main] com.gy.wm.service.ServiceTest            : No active profile set, falling back to default profiles: default
+2016-10-09 11:36:00.173  INFO 39776 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@3cab8cf5: startup date [Sun Oct 09 11:36:00 CST 2016]; root of context hierarchy
+2016-10-09 11:36:01.632  INFO 39776 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-10-09 11:36:02.564  INFO 39776 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@3cab8cf5: startup date [Sun Oct 09 11:36:00 CST 2016]; root of context hierarchy
+2016-10-09 11:36:02.637  INFO 39776 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/test]}" onto public java.lang.String com.gy.wm.controller.API.test()
+2016-10-09 11:36:02.638  INFO 39776 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/startTask],methods=[POST],produces=[application/json]}" onto public java.lang.String com.gy.wm.controller.API.startTask(com.gy.wm.model.TaskParamModel)
+2016-10-09 11:36:02.639  INFO 39776 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/cleanTaskRedis/{taskId}],methods=[POST]}" onto public java.lang.String com.gy.wm.controller.API.cleanTaskRedis(java.lang.String)
+2016-10-09 11:36:02.639  INFO 39776 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/stopTask/{taskId}]}" onto public java.lang.String com.gy.wm.controller.API.stopTask(java.lang.String)
+2016-10-09 11:36:02.642  INFO 39776 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2016-10-09 11:36:02.643  INFO 39776 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2016-10-09 11:36:02.702  INFO 39776 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-09 11:36:02.702  INFO 39776 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-09 11:36:02.764  INFO 39776 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-09 11:36:03.112  INFO 39776 --- [main] com.gy.wm.service.ServiceTest            : Started ServiceTest in 3.893 seconds (JVM running for 4.941)
+2016-10-09 11:36:03.133  INFO 39776 --- [main] com.gy.wm.service.TaskService            : ===> get thread pool size: 50
+2016-10-09 11:36:03.174  INFO 39776 --- [main] com.gy.wm.service.TaskService            : ===> starting crawler task ......
+2016-10-09 11:36:03.174  INFO 39776 --- [pool-1-thread-1] com.gy.wm.controller.API                 : ==++==> starting task. taskId: acbrocdldrtfkauj9ertt29d67
+2016-10-09 11:36:03.348  INFO 39776 --- [pool-1-thread-1] com.gy.wm.entry.CrawlerWorkflowManager   : ****************************>>>>> domain:  qnz.com.cn
+2016-10-09 11:36:03.667  INFO 39776 --- [pool-1-thread-1] us.codecraft.webmagic.Spider             : Spider acbrocdldrtfkauj9ertt29d67 started!
+2016-10-09 11:36:04.205  WARN 39776 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:04 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:04 GMT
+2016-10-09 11:36:04.880  INFO 39776 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：50
+2016-10-09 11:36:06.454  WARN 39776 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:06 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:06 GMT
+2016-10-09 11:36:07.071  INFO 39776 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:36:08.675  WARN 39776 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:08 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:08 GMT
+2016-10-09 11:36:09.125  INFO 39776 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:36:10.400  WARN 39776 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:10 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:10 GMT
+2016-10-09 11:36:10.937  INFO 39776 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:36:12.279  WARN 39776 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:12 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:12 GMT
+2016-10-09 11:36:12.792  INFO 39776 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:36:14.069  WARN 39776 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:14 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:14 GMT
+2016-10-09 11:36:14.639  INFO 39776 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:36:15.893  WARN 39776 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:16 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:16 GMT
+2016-10-09 11:36:16.419  INFO 39776 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:36:17.673  WARN 39776 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:17 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:17 GMT
+2016-10-09 11:36:18.225  INFO 39776 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:36:19.734  WARN 39776 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:20 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:20 GMT
+2016-10-09 11:36:20.343  INFO 39776 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:36:21.650  WARN 39776 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:21 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:21 GMT
+2016-10-09 11:36:22.234  INFO 39776 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:36:23.501  WARN 39776 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:23 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:23 GMT
+2016-10-09 11:36:24.265  INFO 39776 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:36:25.548  WARN 39776 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:25 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:25 GMT
+2016-10-09 11:36:26.125  INFO 39776 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:36:27.463  WARN 39776 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:27 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:27 GMT
+2016-10-09 11:36:27.874  INFO 39776 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:36:30.872  WARN 39776 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:31 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:31 GMT
+2016-10-09 11:36:31.274  INFO 39776 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:36:32.547  WARN 39776 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:32 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:32 GMT
+2016-10-09 11:36:33.060  INFO 39776 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:36:34.439  WARN 39776 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:34 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:34 GMT
+2016-10-09 11:36:35.320  INFO 39776 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:36:36.578  WARN 39776 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:36 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:36 GMT
+2016-10-09 11:36:37.172  INFO 39776 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:36:38.473  WARN 39776 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:38 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:38 GMT
+2016-10-09 11:36:39.036  INFO 39776 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:36:40.436  WARN 39776 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:40 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:40 GMT
+2016-10-09 11:36:40.969  INFO 39776 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:36:42.481  WARN 39776 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:42 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:42 GMT
+2016-10-09 11:36:43.031  INFO 39776 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:36:44.318  WARN 39776 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:44 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:44 GMT
+2016-10-09 11:36:44.886  INFO 39776 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:36:46.154  WARN 39776 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:46 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:46 GMT
+2016-10-09 11:36:46.652  INFO 39776 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:36:47.997  WARN 39776 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:48 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:48 GMT
+2016-10-09 11:36:48.631  INFO 39776 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:36:49.915  WARN 39776 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:50 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:50 GMT
+2016-10-09 11:36:50.448  INFO 39776 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:36:51.739  WARN 39776 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:52 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:52 GMT
+2016-10-09 11:36:52.302  INFO 39776 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:36:53.675  WARN 39776 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:53 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:53 GMT
+2016-10-09 11:36:54.165  INFO 39776 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:36:55.414  WARN 39776 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:55 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:55 GMT
+2016-10-09 11:36:55.904  INFO 39776 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:36:57.195  WARN 39776 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:57 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:57 GMT
+2016-10-09 11:36:57.789  INFO 39776 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:36:59.088  WARN 39776 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:59 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:59 GMT
+2016-10-09 11:36:59.656  INFO 39776 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:37:01.630  WARN 39776 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:01 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:01 GMT
+2016-10-09 11:37:01.903  INFO 39776 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:37:03.427  WARN 39776 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:03 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:03 GMT
+2016-10-09 11:37:03.835 ERROR 39776 --- [pool-2-thread-1] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29802.shtml', method='null', extras=null, priority=0} error
+
+java.lang.NullPointerException: null
+	at java.util.regex.Matcher.getTextLength(Matcher.java:1234) ~[na:1.7.0_79]
+	at java.util.regex.Matcher.reset(Matcher.java:308) ~[na:1.7.0_79]
+	at java.util.regex.Matcher.<init>(Matcher.java:228) ~[na:1.7.0_79]
+	at java.util.regex.Pattern.matcher(Pattern.java:1088) ~[na:1.7.0_79]
+	at us.codecraft.webmagic.utils.UrlUtils.replaceByPattern(UrlUtils.java:104) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.utils.UrlUtils.fixAllRelativeHrefs(UrlUtils.java:97) ~[webmagic-core-0.5.3.jar:na]
+	at com.gy.wm.downloader.HttpClientDownloader.download(HttpClientDownloader.java:45) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:409) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+
+2016-10-09 11:37:10.288  WARN 39776 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:10 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:10 GMT
+2016-10-09 11:37:10.639  INFO 39776 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:37:12.299  WARN 39776 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:12 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:12 GMT
+2016-10-09 11:37:12.844  INFO 39776 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:37:14.118  WARN 39776 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:14 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:14 GMT
+2016-10-09 11:37:14.701  INFO 39776 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:37:16.046  WARN 39776 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:16 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:16 GMT
+2016-10-09 11:37:16.627  INFO 39776 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:37:17.927  WARN 39776 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:18 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:18 GMT
+2016-10-09 11:37:18.437  INFO 39776 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:37:19.894  WARN 39776 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:20 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:20 GMT
+2016-10-09 11:37:20.318  INFO 39776 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:37:21.606  WARN 39776 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:21 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:21 GMT
+2016-10-09 11:37:22.110  INFO 39776 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:38:29.375  INFO 39896 --- [main] com.gy.wm.service.ServiceTest            : Starting ServiceTest on Tijun-PC with PID 39896 (started by Administrator in E:\Workspaces\IDEA\ZKCrawler\ZKCrawler-Webmagic)
+2016-10-09 11:38:29.377  INFO 39896 --- [main] com.gy.wm.service.ServiceTest            : No active profile set, falling back to default profiles: default
+2016-10-09 11:38:29.472  INFO 39896 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@523225c9: startup date [Sun Oct 09 11:38:29 CST 2016]; root of context hierarchy
+2016-10-09 11:38:30.934  INFO 39896 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-10-09 11:38:31.906  INFO 39896 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@523225c9: startup date [Sun Oct 09 11:38:29 CST 2016]; root of context hierarchy
+2016-10-09 11:38:31.969  INFO 39896 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/test]}" onto public java.lang.String com.gy.wm.controller.API.test()
+2016-10-09 11:38:31.970  INFO 39896 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/startTask],methods=[POST],produces=[application/json]}" onto public java.lang.String com.gy.wm.controller.API.startTask(com.gy.wm.model.TaskParamModel)
+2016-10-09 11:38:31.970  INFO 39896 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/cleanTaskRedis/{taskId}],methods=[POST]}" onto public java.lang.String com.gy.wm.controller.API.cleanTaskRedis(java.lang.String)
+2016-10-09 11:38:31.970  INFO 39896 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/stopTask/{taskId}]}" onto public java.lang.String com.gy.wm.controller.API.stopTask(java.lang.String)
+2016-10-09 11:38:31.973  INFO 39896 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2016-10-09 11:38:31.973  INFO 39896 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2016-10-09 11:38:32.018  INFO 39896 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-09 11:38:32.018  INFO 39896 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-09 11:38:32.072  INFO 39896 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-09 11:38:32.526  INFO 39896 --- [main] com.gy.wm.service.ServiceTest            : Started ServiceTest in 4.014 seconds (JVM running for 5.055)
+2016-10-09 11:38:32.558  INFO 39896 --- [main] com.gy.wm.service.TaskService            : ===> get thread pool size: 50
+2016-10-09 11:38:32.603  INFO 39896 --- [main] com.gy.wm.service.TaskService            : ===> starting crawler task ......
+2016-10-09 11:38:32.603  INFO 39896 --- [pool-1-thread-1] com.gy.wm.controller.API                 : ==++==> starting task. taskId: acbrocdldrtfkauj9ertt29d67
+2016-10-09 11:38:32.826  INFO 39896 --- [pool-1-thread-1] com.gy.wm.entry.CrawlerWorkflowManager   : ****************************>>>>> domain:  qnz.com.cn
+2016-10-09 11:38:32.994  INFO 39896 --- [pool-1-thread-1] us.codecraft.webmagic.Spider             : Spider acbrocdldrtfkauj9ertt29d67 started!
+2016-10-09 11:38:33.559  WARN 39896 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:33 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:33 GMT
+2016-10-09 11:38:34.237  INFO 39896 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:38:36.807  WARN 39896 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:37 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:37 GMT
+2016-10-09 11:38:37.425  INFO 39896 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:38:39.186  WARN 39896 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:39 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:39 GMT
+2016-10-09 11:38:39.679  INFO 39896 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：50
+2016-10-09 11:38:53.487  INFO 39896 --- [pool-1-thread-1] com.gy.wm.entry.Crawl                    : ***********************************task finished******************************************
+2016-10-09 11:38:53.487  INFO 39896 --- [pool-1-thread-1] com.gy.wm.entry.Crawl                    : time elapse(seconds):20.883
+2016-10-09 11:38:54.538  INFO 39896 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : I/O exception (java.net.ConnectException) caught when processing request: Connection refused: connect
+2016-10-09 11:38:54.539  INFO 39896 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : Retrying request
+2016-10-09 11:38:55.543  INFO 39896 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : I/O exception (java.net.ConnectException) caught when processing request: Connection refused: connect
+2016-10-09 11:38:55.543  INFO 39896 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : Retrying request
+2016-10-09 11:38:56.551  INFO 39896 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : I/O exception (java.net.ConnectException) caught when processing request: Connection refused: connect
+2016-10-09 11:38:56.551  INFO 39896 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : Retrying request
+2016-10-09 11:39:21.676  INFO 38820 --- [main] com.gy.wm.service.ServiceTest            : Starting ServiceTest on Tijun-PC with PID 38820 (started by Administrator in E:\Workspaces\IDEA\ZKCrawler\ZKCrawler-Webmagic)
+2016-10-09 11:39:21.677  INFO 38820 --- [main] com.gy.wm.service.ServiceTest            : No active profile set, falling back to default profiles: default
+2016-10-09 11:39:21.776  INFO 38820 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@4c082ab3: startup date [Sun Oct 09 11:39:21 CST 2016]; root of context hierarchy
+2016-10-09 11:39:23.557  INFO 38820 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-10-09 11:39:24.896  INFO 38820 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@4c082ab3: startup date [Sun Oct 09 11:39:21 CST 2016]; root of context hierarchy
+2016-10-09 11:39:24.995  INFO 38820 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/test]}" onto public java.lang.String com.gy.wm.controller.API.test()
+2016-10-09 11:39:24.996  INFO 38820 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/startTask],methods=[POST],produces=[application/json]}" onto public java.lang.String com.gy.wm.controller.API.startTask(com.gy.wm.model.TaskParamModel)
+2016-10-09 11:39:24.996  INFO 38820 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/cleanTaskRedis/{taskId}],methods=[POST]}" onto public java.lang.String com.gy.wm.controller.API.cleanTaskRedis(java.lang.String)
+2016-10-09 11:39:24.996  INFO 38820 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/stopTask/{taskId}]}" onto public java.lang.String com.gy.wm.controller.API.stopTask(java.lang.String)
+2016-10-09 11:39:24.998  INFO 38820 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2016-10-09 11:39:24.999  INFO 38820 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2016-10-09 11:39:25.070  INFO 38820 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-09 11:39:25.070  INFO 38820 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-09 11:39:25.167  INFO 38820 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-09 11:39:25.560  INFO 38820 --- [main] com.gy.wm.service.ServiceTest            : Started ServiceTest in 4.322 seconds (JVM running for 6.879)
+2016-10-09 11:39:25.599  INFO 38820 --- [main] com.gy.wm.service.TaskService            : ===> get thread pool size: 50
+2016-10-09 11:39:25.640  INFO 38820 --- [main] com.gy.wm.service.TaskService            : ===> starting crawler task ......
+2016-10-09 11:39:25.642  INFO 38820 --- [pool-1-thread-1] com.gy.wm.controller.API                 : ==++==> starting task. taskId: acbrocdldrtfkauj9ertt29d67
+2016-10-09 11:39:25.855  INFO 38820 --- [pool-1-thread-1] com.gy.wm.entry.CrawlerWorkflowManager   : ****************************>>>>> domain:  qnz.com.cn
+2016-10-09 11:39:26.225  INFO 38820 --- [pool-1-thread-1] us.codecraft.webmagic.Spider             : Spider acbrocdldrtfkauj9ertt29d67 started!
+2016-10-09 11:39:26.915  WARN 38820 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:27 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:27 GMT
+2016-10-09 11:39:27.734  INFO 38820 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：50
+2016-10-09 11:39:29.362  WARN 38820 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:29 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:29 GMT
+2016-10-09 11:39:30.062  INFO 38820 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:39:31.676  WARN 38820 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:31 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:31 GMT
+2016-10-09 11:39:32.176  INFO 38820 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:39:33.477  WARN 38820 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:33 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:33 GMT
+2016-10-09 11:39:34.095  INFO 38820 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:39:35.354  WARN 38820 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:35 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:35 GMT
+2016-10-09 11:39:35.980  INFO 38820 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:39:37.259  WARN 38820 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:37 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:37 GMT
+2016-10-09 11:39:37.868  INFO 38820 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:39:39.119  WARN 38820 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:39 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:39 GMT
+2016-10-09 11:39:39.636  INFO 38820 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:39:41.005  WARN 38820 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:41 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:41 GMT
+2016-10-09 11:39:41.507  INFO 38820 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:39:42.772  WARN 38820 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:43 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:43 GMT
+2016-10-09 11:39:43.267  INFO 38820 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:39:44.537  WARN 38820 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:44 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:44 GMT
+2016-10-09 11:39:45.083  INFO 38820 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:39:46.362  WARN 38820 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:46 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:46 GMT
+2016-10-09 11:39:46.943  INFO 38820 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:39:48.216  WARN 38820 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:48 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:48 GMT
+2016-10-09 11:39:48.766  INFO 38820 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:39:51.014  WARN 38820 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:51 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:51 GMT
+2016-10-09 11:39:51.508  INFO 38820 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:39:54.524  WARN 38820 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:54 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:54 GMT
+2016-10-09 11:39:54.955  INFO 38820 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:39:56.305  WARN 38820 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:56 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:56 GMT
+2016-10-09 11:39:56.948  INFO 38820 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:39:58.221  WARN 38820 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:58 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:58 GMT
+2016-10-09 11:39:58.784  INFO 38820 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:40:00.056  WARN 38820 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:00 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:00 GMT
+2016-10-09 11:40:00.574  INFO 38820 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:40:01.867  WARN 38820 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:02 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:02 GMT
+2016-10-09 11:40:02.395  INFO 38820 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:40:03.782  WARN 38820 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:04 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:04 GMT
+2016-10-09 11:40:04.335  INFO 38820 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:40:05.686  WARN 38820 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:05 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:05 GMT
+2016-10-09 11:40:06.211  INFO 38820 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:40:07.477  WARN 38820 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:07 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:07 GMT
+2016-10-09 11:40:07.986  INFO 38820 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:40:09.280  WARN 38820 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:09 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:09 GMT
+2016-10-09 11:40:09.862  INFO 38820 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:40:11.147  WARN 38820 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:11 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:11 GMT
+2016-10-09 11:40:11.683  INFO 38820 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:40:12.972  WARN 38820 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:13 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:13 GMT
+2016-10-09 11:40:13.446  INFO 38820 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:40:14.721  WARN 38820 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:15 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:15 GMT
+2016-10-09 11:40:15.261  INFO 38820 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:40:16.537  WARN 38820 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:16 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:16 GMT
+2016-10-09 11:40:17.059  INFO 38820 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:40:18.399  WARN 38820 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:18 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:18 GMT
+2016-10-09 11:40:18.886  INFO 38820 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:40:20.550  WARN 38820 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:20 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:20 GMT
+2016-10-09 11:40:21.138  INFO 38820 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:40:22.564  WARN 38820 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:22 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:22 GMT
+2016-10-09 11:40:23.160  INFO 38820 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:40:24.621  WARN 38820 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:24 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:24 GMT
+2016-10-09 11:40:24.998  INFO 38820 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:40:26.357  WARN 38820 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:26 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:26 GMT
+2016-10-09 11:40:26.869  INFO 38820 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:40:28.579  WARN 38820 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:28 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:28 GMT
+2016-10-09 11:40:28.994  INFO 38820 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:40:31.028  WARN 38820 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:31 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:31 GMT
+2016-10-09 11:40:31.608  INFO 38820 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:40:32.907  WARN 38820 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:33 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:33 GMT
+2016-10-09 11:40:33.544  INFO 38820 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:40:34.867  WARN 38820 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:35 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:35 GMT
+2016-10-09 11:40:35.374  INFO 38820 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:40:36.682  WARN 38820 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:36 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:36 GMT
+2016-10-09 11:40:37.129  INFO 38820 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:40:38.545  WARN 38820 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:38 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:38 GMT
+2016-10-09 11:40:38.828  INFO 38820 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:40:40.114  WARN 38820 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:40 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:40 GMT
+2016-10-09 11:40:40.716  INFO 38820 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:40:42.555  WARN 38820 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:42 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:42 GMT
+2016-10-09 11:40:43.128  INFO 38820 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:40:44.590  WARN 38820 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:44 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:44 GMT
+2016-10-09 11:40:45.121  INFO 38820 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:40:46.378  WARN 38820 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:46 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:46 GMT
+2016-10-09 11:40:46.867  INFO 38820 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:41:01.175  INFO 38820 --- [pool-1-thread-1] com.gy.wm.entry.Crawl                    : ***********************************task finished******************************************
+2016-10-09 11:41:01.175  INFO 38820 --- [pool-1-thread-1] com.gy.wm.entry.Crawl                    : time elapse(seconds):95.531
+2016-10-09 11:41:02.268  INFO 38820 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : I/O exception (java.net.ConnectException) caught when processing request: Connection refused: connect
+2016-10-09 11:41:02.269  INFO 38820 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : Retrying request
+2016-10-09 11:41:03.272  INFO 38820 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : I/O exception (java.net.ConnectException) caught when processing request: Connection refused: connect
+2016-10-09 11:41:03.273  INFO 38820 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : Retrying request
+2016-10-09 11:41:04.274  INFO 38820 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : I/O exception (java.net.ConnectException) caught when processing request: Connection refused: connect
+2016-10-09 11:41:04.275  INFO 38820 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : Retrying request
+2016-10-09 11:45:35.606  INFO 38920 --- [main] com.gy.wm.service.ServiceTest            : Starting ServiceTest on Tijun-PC with PID 38920 (started by Administrator in E:\Workspaces\IDEA\ZKCrawler\ZKCrawler-Webmagic)
+2016-10-09 11:45:35.607  INFO 38920 --- [main] com.gy.wm.service.ServiceTest            : No active profile set, falling back to default profiles: default
+2016-10-09 11:45:35.722  INFO 38920 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@3d01e5eb: startup date [Sun Oct 09 11:45:35 CST 2016]; root of context hierarchy
+2016-10-09 11:45:37.301  INFO 38920 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-10-09 11:45:38.400  INFO 38920 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@3d01e5eb: startup date [Sun Oct 09 11:45:35 CST 2016]; root of context hierarchy
+2016-10-09 11:45:38.475  INFO 38920 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/test]}" onto public java.lang.String com.gy.wm.controller.API.test()
+2016-10-09 11:45:38.476  INFO 38920 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/startTask],methods=[POST],produces=[application/json]}" onto public java.lang.String com.gy.wm.controller.API.startTask(com.gy.wm.model.TaskParamModel)
+2016-10-09 11:45:38.477  INFO 38920 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/stopTask/{taskId}]}" onto public java.lang.String com.gy.wm.controller.API.stopTask(java.lang.String)
+2016-10-09 11:45:38.477  INFO 38920 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/cleanTaskRedis/{taskId}],methods=[POST]}" onto public java.lang.String com.gy.wm.controller.API.cleanTaskRedis(java.lang.String)
+2016-10-09 11:45:38.479  INFO 38920 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2016-10-09 11:45:38.480  INFO 38920 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2016-10-09 11:45:38.531  INFO 38920 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-09 11:45:38.531  INFO 38920 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-09 11:45:38.599  INFO 38920 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-09 11:45:39.080  INFO 38920 --- [main] com.gy.wm.service.ServiceTest            : Started ServiceTest in 4.553 seconds (JVM running for 5.588)
+2016-10-09 11:45:39.106  INFO 38920 --- [main] com.gy.wm.service.TaskService            : ===> get thread pool size: 50
+2016-10-09 11:45:39.158  INFO 38920 --- [main] com.gy.wm.service.TaskService            : ===> starting crawler task ......
+2016-10-09 11:45:39.161  INFO 38920 --- [pool-1-thread-1] com.gy.wm.controller.API                 : ==++==> starting task. taskId: acbrocdldrtfkauj9ertt29d67
+2016-10-09 11:45:39.672  INFO 38920 --- [pool-1-thread-1] com.gy.wm.entry.CrawlerWorkflowManager   : ****************************>>>>> domain:  qnz.com.cn
+2016-10-09 11:45:39.977  INFO 38920 --- [pool-1-thread-1] us.codecraft.webmagic.Spider             : Spider acbrocdldrtfkauj9ertt29d67 started!
+2016-10-09 11:45:40.483  WARN 38920 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:40 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:40 GMT
+2016-10-09 11:45:41.117  INFO 38920 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：50
+2016-10-09 11:45:42.674  WARN 38920 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:42 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:42 GMT
+2016-10-09 11:45:43.205  INFO 38920 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:45:44.798  WARN 38920 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:45 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:45 GMT
+2016-10-09 11:45:45.282  INFO 38920 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:45:46.606  WARN 38920 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:46 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:46 GMT
+2016-10-09 11:45:47.336  INFO 38920 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:45:48.635  WARN 38920 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:48 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:48 GMT
+2016-10-09 11:45:49.180  INFO 38920 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:45:50.453  WARN 38920 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:50 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:50 GMT
+2016-10-09 11:45:51.116  INFO 38920 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:45:52.379  WARN 38920 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:52 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:52 GMT
+2016-10-09 11:45:52.947  INFO 38920 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:45:54.224  WARN 38920 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:54 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:54 GMT
+2016-10-09 11:45:54.854  INFO 38920 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:45:56.150  WARN 38920 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:56 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:56 GMT
+2016-10-09 11:45:56.673  INFO 38920 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:45:57.939  WARN 38920 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:58 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:58 GMT
+2016-10-09 11:45:58.414  INFO 38920 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:45:59.677  WARN 38920 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:59 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:59 GMT
+2016-10-09 11:46:00.254  INFO 38920 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:46:01.547  WARN 38920 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:01 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:01 GMT
+2016-10-09 11:46:02.124  INFO 38920 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:46:03.558  WARN 38920 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:03 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:03 GMT
+2016-10-09 11:46:04.055  INFO 38920 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:46:46.048  INFO 38784 --- [main] com.gy.wm.service.ServiceTest            : Starting ServiceTest on Tijun-PC with PID 38784 (started by Administrator in E:\Workspaces\IDEA\ZKCrawler\ZKCrawler-Webmagic)
+2016-10-09 11:46:46.051  INFO 38784 --- [main] com.gy.wm.service.ServiceTest            : No active profile set, falling back to default profiles: default
+2016-10-09 11:46:46.158  INFO 38784 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@55dca88e: startup date [Sun Oct 09 11:46:46 CST 2016]; root of context hierarchy
+2016-10-09 11:46:48.059  INFO 38784 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-10-09 11:46:49.193  INFO 38784 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@55dca88e: startup date [Sun Oct 09 11:46:46 CST 2016]; root of context hierarchy
+2016-10-09 11:46:49.282  INFO 38784 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/test]}" onto public java.lang.String com.gy.wm.controller.API.test()
+2016-10-09 11:46:49.284  INFO 38784 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/startTask],methods=[POST],produces=[application/json]}" onto public java.lang.String com.gy.wm.controller.API.startTask(com.gy.wm.model.TaskParamModel)
+2016-10-09 11:46:49.284  INFO 38784 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/stopTask/{taskId}]}" onto public java.lang.String com.gy.wm.controller.API.stopTask(java.lang.String)
+2016-10-09 11:46:49.284  INFO 38784 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/cleanTaskRedis/{taskId}],methods=[POST]}" onto public java.lang.String com.gy.wm.controller.API.cleanTaskRedis(java.lang.String)
+2016-10-09 11:46:49.286  INFO 38784 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2016-10-09 11:46:49.286  INFO 38784 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2016-10-09 11:46:49.345  INFO 38784 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-09 11:46:49.345  INFO 38784 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-09 11:46:49.459  INFO 38784 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-09 11:46:49.918  INFO 38784 --- [main] com.gy.wm.service.ServiceTest            : Started ServiceTest in 4.711 seconds (JVM running for 6.487)
+2016-10-09 11:46:49.950  INFO 38784 --- [main] com.gy.wm.service.TaskService            : ===> get thread pool size: 50
+2016-10-09 11:46:50.002  INFO 38784 --- [main] com.gy.wm.service.TaskService            : ===> starting crawler task ......
+2016-10-09 11:46:50.004  INFO 38784 --- [pool-1-thread-1] com.gy.wm.controller.API                 : ==++==> starting task. taskId: acbrocdldrtfkauj9ertt29d67
+2016-10-09 11:46:50.221  INFO 38784 --- [pool-1-thread-1] com.gy.wm.entry.CrawlerWorkflowManager   : ****************************>>>>> domain:  qnz.com.cn
+2016-10-09 11:46:50.447  INFO 38784 --- [pool-1-thread-1] us.codecraft.webmagic.Spider             : Spider acbrocdldrtfkauj9ertt29d67 started!
+2016-10-09 11:46:51.231  WARN 38784 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:51 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:51 GMT
+2016-10-09 11:46:52.029  INFO 38784 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:46:53.579  WARN 38784 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:53 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:53 GMT
+2016-10-09 11:46:54.069  INFO 38784 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:46:55.476  WARN 38784 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:55 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:55 GMT
+2016-10-09 11:46:56.070  INFO 38784 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:46:57.344  WARN 38784 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:57 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:57 GMT
+2016-10-09 11:46:57.898  INFO 38784 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:46:59.357  WARN 38784 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:59 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:59 GMT
+2016-10-09 11:46:59.947  INFO 38784 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:47:01.212  WARN 38784 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:01 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:01 GMT
+2016-10-09 11:47:01.759  INFO 38784 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:47:03.019  WARN 38784 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:03 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:03 GMT
+2016-10-09 11:47:03.482  INFO 38784 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:47:04.798  WARN 38784 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:05 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:05 GMT
+2016-10-09 11:47:05.337  INFO 38784 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:47:06.605  WARN 38784 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:06 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:06 GMT
+2016-10-09 11:47:07.203  INFO 38784 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:47:08.464  WARN 38784 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:08 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:08 GMT
+2016-10-09 11:47:08.986  INFO 38784 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:47:10.238  WARN 38784 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:10 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:10 GMT
+2016-10-09 11:47:10.785  INFO 38784 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:47:12.072  WARN 38784 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:12 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:12 GMT
+2016-10-09 11:47:12.600  INFO 38784 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:47:13.881  WARN 38784 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:14 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:14 GMT
+2016-10-09 11:47:14.456  INFO 38784 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:47:15.718  WARN 38784 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:16 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:16 GMT
+2016-10-09 11:47:16.257  INFO 38784 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:47:17.547  WARN 38784 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:17 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:17 GMT
+2016-10-09 11:47:43.699  INFO 40288 --- [main] com.gy.wm.service.ServiceTest            : Starting ServiceTest on Tijun-PC with PID 40288 (started by Administrator in E:\Workspaces\IDEA\ZKCrawler\ZKCrawler-Webmagic)
+2016-10-09 11:47:43.701  INFO 40288 --- [main] com.gy.wm.service.ServiceTest            : No active profile set, falling back to default profiles: default
+2016-10-09 11:47:43.825  INFO 40288 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@38d8713: startup date [Sun Oct 09 11:47:43 CST 2016]; root of context hierarchy
+2016-10-09 11:47:46.129  INFO 40288 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-10-09 11:47:47.452  INFO 40288 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@38d8713: startup date [Sun Oct 09 11:47:43 CST 2016]; root of context hierarchy
+2016-10-09 11:47:47.536  INFO 40288 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/test]}" onto public java.lang.String com.gy.wm.controller.API.test()
+2016-10-09 11:47:47.539  INFO 40288 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/startTask],methods=[POST],produces=[application/json]}" onto public java.lang.String com.gy.wm.controller.API.startTask(com.gy.wm.model.TaskParamModel)
+2016-10-09 11:47:47.540  INFO 40288 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/stopTask/{taskId}]}" onto public java.lang.String com.gy.wm.controller.API.stopTask(java.lang.String)
+2016-10-09 11:47:47.540  INFO 40288 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/cleanTaskRedis/{taskId}],methods=[POST]}" onto public java.lang.String com.gy.wm.controller.API.cleanTaskRedis(java.lang.String)
+2016-10-09 11:47:47.544  INFO 40288 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2016-10-09 11:47:47.545  INFO 40288 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2016-10-09 11:47:47.608  INFO 40288 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-09 11:47:47.609  INFO 40288 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-09 11:47:47.684  INFO 40288 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-09 11:47:48.119  INFO 40288 --- [main] com.gy.wm.service.ServiceTest            : Started ServiceTest in 5.299 seconds (JVM running for 6.799)
+2016-10-09 11:47:48.154  INFO 40288 --- [main] com.gy.wm.service.TaskService            : ===> get thread pool size: 50
+2016-10-09 11:47:48.210  INFO 40288 --- [main] com.gy.wm.service.TaskService            : ===> starting crawler task ......
+2016-10-09 11:47:48.211  INFO 40288 --- [pool-1-thread-1] com.gy.wm.controller.API                 : ==++==> starting task. taskId: acbrocdldrtfkauj9ertt29d67
+2016-10-09 11:47:48.445  INFO 40288 --- [pool-1-thread-1] com.gy.wm.entry.CrawlerWorkflowManager   : ****************************>>>>> domain:  qnz.com.cn
+2016-10-09 11:47:48.813  INFO 40288 --- [pool-1-thread-1] us.codecraft.webmagic.Spider             : Spider acbrocdldrtfkauj9ertt29d67 started!
+2016-10-09 11:47:49.426  WARN 40288 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:49 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:49 GMT
+2016-10-09 11:47:50.031  INFO 40288 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：50
+2016-10-09 11:47:51.590  WARN 40288 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:51 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:51 GMT
+2016-10-09 11:47:52.220  INFO 40288 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:47:55.298  WARN 40288 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:55 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:55 GMT
+2016-10-09 11:47:55.781  INFO 40288 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:48:10.035  WARN 40288 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:10 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:10 GMT
+2016-10-09 11:48:10.785  INFO 40288 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:48:12.216  WARN 40288 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:12 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:12 GMT
+2016-10-09 11:48:13.157  INFO 40288 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:48:14.532  WARN 40288 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:14 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:14 GMT
+2016-10-09 11:48:15.181  INFO 40288 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:48:16.479  WARN 40288 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:16 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:16 GMT
+2016-10-09 11:48:17.049  INFO 40288 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:48:18.364  WARN 40288 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:18 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:18 GMT
+2016-10-09 11:48:18.790  INFO 40288 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:48:20.043  WARN 40288 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:20 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:20 GMT
+2016-10-09 11:48:20.615  INFO 40288 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:48:21.946  WARN 40288 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:22 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:22 GMT
+2016-10-09 11:48:22.458  INFO 40288 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:48:23.696  WARN 40288 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:23 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:23 GMT
+2016-10-09 11:48:24.280  INFO 40288 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:48:25.551  WARN 40288 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:25 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:25 GMT
+2016-10-09 11:48:26.019  INFO 40288 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:48:27.361  WARN 40288 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:27 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:27 GMT
+2016-10-09 11:48:27.796  INFO 40288 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:48:30.863  WARN 40288 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:31 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:31 GMT
+2016-10-09 11:48:31.212  INFO 40288 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:48:32.509  WARN 40288 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:32 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:32 GMT
+2016-10-09 11:48:33.076  INFO 40288 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:48:34.449  WARN 40288 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:34 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:34 GMT
+2016-10-09 11:48:34.895  INFO 40288 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:48:36.141  WARN 40288 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:36 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:36 GMT
+2016-10-09 11:48:36.643  INFO 40288 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:48:37.911  WARN 40288 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:38 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:38 GMT
+2016-10-09 11:48:38.437  INFO 40288 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:48:39.800  WARN 40288 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:40 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:40 GMT
+2016-10-09 11:48:40.304  INFO 40288 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:48:41.557  WARN 40288 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:41 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:41 GMT
+2016-10-09 11:48:42.072  INFO 40288 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:48:43.336  WARN 40288 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:43 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:43 GMT
+2016-10-09 11:48:43.907  INFO 40288 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:50:08.908  INFO 39960 --- [main] com.gy.wm.service.ServiceTest            : Starting ServiceTest on Tijun-PC with PID 39960 (started by Administrator in E:\Workspaces\IDEA\ZKCrawler\ZKCrawler-Webmagic)
+2016-10-09 11:50:08.910  INFO 39960 --- [main] com.gy.wm.service.ServiceTest            : No active profile set, falling back to default profiles: default
+2016-10-09 11:50:09.087  INFO 39960 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@76e992d: startup date [Sun Oct 09 11:50:09 CST 2016]; root of context hierarchy
+2016-10-09 11:50:10.674  INFO 39960 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-10-09 11:50:11.678  INFO 39960 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@76e992d: startup date [Sun Oct 09 11:50:09 CST 2016]; root of context hierarchy
+2016-10-09 11:50:11.754  INFO 39960 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/test]}" onto public java.lang.String com.gy.wm.controller.API.test()
+2016-10-09 11:50:11.755  INFO 39960 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/startTask],methods=[POST],produces=[application/json]}" onto public java.lang.String com.gy.wm.controller.API.startTask(com.gy.wm.model.TaskParamModel)
+2016-10-09 11:50:11.756  INFO 39960 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/cleanTaskRedis/{taskId}],methods=[POST]}" onto public java.lang.String com.gy.wm.controller.API.cleanTaskRedis(java.lang.String)
+2016-10-09 11:50:11.756  INFO 39960 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/stopTask/{taskId}]}" onto public java.lang.String com.gy.wm.controller.API.stopTask(java.lang.String)
+2016-10-09 11:50:11.759  INFO 39960 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2016-10-09 11:50:11.760  INFO 39960 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2016-10-09 11:50:11.821  INFO 39960 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-09 11:50:11.822  INFO 39960 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-09 11:50:11.906  INFO 39960 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-09 11:50:12.428  INFO 39960 --- [main] com.gy.wm.service.ServiceTest            : Started ServiceTest in 4.345 seconds (JVM running for 5.531)
+2016-10-09 11:50:12.457  INFO 39960 --- [main] com.gy.wm.service.TaskService            : ===> get thread pool size: 50
+2016-10-09 11:50:12.496  INFO 39960 --- [main] com.gy.wm.service.TaskService            : ===> starting crawler task ......
+2016-10-09 11:50:12.497  INFO 39960 --- [pool-1-thread-1] com.gy.wm.controller.API                 : ==++==> starting task. taskId: acbrocdldrtfkauj9ertt29d67
+2016-10-09 11:50:12.762  INFO 39960 --- [pool-1-thread-1] com.gy.wm.entry.CrawlerWorkflowManager   : ****************************>>>>> domain:  qnz.com.cn
+2016-10-09 11:50:13.100  INFO 39960 --- [pool-1-thread-1] us.codecraft.webmagic.Spider             : Spider acbrocdldrtfkauj9ertt29d67 started!
+2016-10-09 11:50:13.787  WARN 39960 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:14 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:14 GMT
+2016-10-09 11:50:14.348  INFO 39960 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：50
+2016-10-09 11:50:16.218  WARN 39960 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:16 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:16 GMT
+2016-10-09 11:50:17.186  INFO 39960 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:50:18.837  WARN 39960 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:19 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:19 GMT
+2016-10-09 11:50:19.298  INFO 39960 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:50:20.555  WARN 39960 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:20 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:20 GMT
+2016-10-09 11:50:21.081  INFO 39960 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:50:22.342  WARN 39960 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:22 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:22 GMT
+2016-10-09 11:50:22.924  INFO 39960 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:50:24.228  WARN 39960 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:24 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:24 GMT
+2016-10-09 11:50:24.862  INFO 39960 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:50:26.161  WARN 39960 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:26 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:26 GMT
+2016-10-09 11:50:26.618  INFO 39960 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:50:36.500  WARN 39960 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:36 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:36 GMT
+2016-10-09 11:50:36.979  INFO 39960 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:50:39.079  WARN 39960 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:39 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:39 GMT
+2016-10-09 11:50:39.800  INFO 39960 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:50:41.206  WARN 39960 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:41 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:41 GMT
+2016-10-09 11:50:41.818  INFO 39960 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:50:43.079  WARN 39960 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:43 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:43 GMT
+2016-10-09 11:50:43.566  INFO 39960 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:50:44.835  WARN 39960 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:45 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:45 GMT
+2016-10-09 11:50:45.386  INFO 39960 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:50:46.734  WARN 39960 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:47 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:47 GMT
+2016-10-09 11:50:47.244  INFO 39960 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:50:49.213  WARN 39960 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:49 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:49 GMT
+2016-10-09 11:50:49.652  INFO 39960 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:50:50.967  WARN 39960 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:51 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:51 GMT
+2016-10-09 11:50:51.610  INFO 39960 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:50:53.063  WARN 39960 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:53 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:53 GMT
+2016-10-09 11:50:53.547  INFO 39960 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:50:54.817  WARN 39960 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:55 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:55 GMT
+2016-10-09 11:50:55.419  INFO 39960 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:50:56.758  WARN 39960 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:57 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:57 GMT
+2016-10-09 11:50:57.332  INFO 39960 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:50:58.838  WARN 39960 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:59 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:59 GMT
+2016-10-09 11:50:59.317  INFO 39960 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:51:00.592  WARN 39960 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:00 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:00 GMT
+2016-10-09 11:51:01.180  INFO 39960 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:51:02.535  WARN 39960 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:02 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:02 GMT
+2016-10-09 11:51:03.056  INFO 39960 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:51:04.370  WARN 39960 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:04 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:04 GMT
+2016-10-09 11:51:04.899  INFO 39960 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:51:06.192  WARN 39960 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:06 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:06 GMT
+2016-10-09 11:51:06.732  INFO 39960 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:51:08.003  WARN 39960 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:08 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:08 GMT
+2016-10-09 11:51:08.504  INFO 39960 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:51:09.806  WARN 39960 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:10 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:10 GMT
+2016-10-09 11:51:10.371  INFO 39960 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:51:11.658  WARN 39960 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:11 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:11 GMT
+2016-10-09 11:51:12.233  INFO 39960 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:51:13.522  WARN 39960 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:13 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:13 GMT
+2016-10-09 11:51:14.036  INFO 39960 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:51:15.336  WARN 39960 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:15 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:15 GMT
+2016-10-09 11:51:15.915  INFO 39960 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:51:17.170  WARN 39960 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:17 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:17 GMT
+2016-10-09 11:51:17.768  INFO 39960 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:51:19.188  WARN 39960 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:19 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:19 GMT
+2016-10-09 11:51:19.546  INFO 39960 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:51:20.895  WARN 39960 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:21 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:21 GMT
+2016-10-09 11:51:21.360  INFO 39960 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:51:22.741  WARN 39960 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:23 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:23 GMT
+2016-10-09 11:51:23.053  INFO 39960 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:51:24.950  WARN 39960 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:25 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:25 GMT
+2016-10-09 11:51:25.432  INFO 39960 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:51:27.525  WARN 39960 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:27 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:27 GMT
+2016-10-09 11:51:28.086  INFO 39960 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:51:29.800  WARN 39960 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:30 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:30 GMT
+2016-10-09 11:51:30.369  INFO 39960 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:51:32.138  WARN 39960 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:32 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:32 GMT
+2016-10-09 11:51:32.724  INFO 39960 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:51:37.461  INFO 40420 --- [main] com.gy.wm.service.ServiceTest            : Starting ServiceTest on Tijun-PC with PID 40420 (started by Administrator in E:\Workspaces\IDEA\ZKCrawler\ZKCrawler-Webmagic)
+2016-10-09 11:51:37.462  INFO 40420 --- [main] com.gy.wm.service.ServiceTest            : No active profile set, falling back to default profiles: default
+2016-10-09 11:51:37.539  INFO 40420 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@768ed221: startup date [Sun Oct 09 11:51:37 CST 2016]; root of context hierarchy
+2016-10-09 11:51:39.006  INFO 40420 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-10-09 11:51:40.181  INFO 40420 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@768ed221: startup date [Sun Oct 09 11:51:37 CST 2016]; root of context hierarchy
+2016-10-09 11:51:40.268  INFO 40420 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/test]}" onto public java.lang.String com.gy.wm.controller.API.test()
+2016-10-09 11:51:40.269  INFO 40420 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/startTask],methods=[POST],produces=[application/json]}" onto public java.lang.String com.gy.wm.controller.API.startTask(com.gy.wm.model.TaskParamModel)
+2016-10-09 11:51:40.270  INFO 40420 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/cleanTaskRedis/{taskId}],methods=[POST]}" onto public java.lang.String com.gy.wm.controller.API.cleanTaskRedis(java.lang.String)
+2016-10-09 11:51:40.270  INFO 40420 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/stopTask/{taskId}]}" onto public java.lang.String com.gy.wm.controller.API.stopTask(java.lang.String)
+2016-10-09 11:51:40.273  INFO 40420 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2016-10-09 11:51:40.273  INFO 40420 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2016-10-09 11:51:40.328  INFO 40420 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-09 11:51:40.329  INFO 40420 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-09 11:51:40.391  INFO 40420 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-09 11:51:40.780  INFO 40420 --- [main] com.gy.wm.service.ServiceTest            : Started ServiceTest in 3.945 seconds (JVM running for 5.635)
+2016-10-09 11:51:40.808  INFO 40420 --- [main] com.gy.wm.service.TaskService            : ===> get thread pool size: 50
+2016-10-09 11:51:40.851  INFO 40420 --- [main] com.gy.wm.service.TaskService            : ===> starting crawler task ......
+2016-10-09 11:51:40.851  INFO 40420 --- [pool-1-thread-1] com.gy.wm.controller.API                 : ==++==> starting task. taskId: acbrocdldrtfkauj9ertt29d67
+2016-10-09 11:51:41.066  INFO 40420 --- [pool-1-thread-1] com.gy.wm.entry.CrawlerWorkflowManager   : ****************************>>>>> domain:  qnz.com.cn
+2016-10-09 11:51:41.504  INFO 40420 --- [pool-1-thread-1] us.codecraft.webmagic.Spider             : Spider acbrocdldrtfkauj9ertt29d67 started!
+2016-10-09 11:51:42.137  WARN 40420 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:42 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:42 GMT
+2016-10-09 11:51:42.740  INFO 40420 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：50
+2016-10-09 11:51:44.370  WARN 40420 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:44 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:44 GMT
+2016-10-09 11:51:44.937  INFO 40420 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:51:46.557  WARN 40420 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:46 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:46 GMT
+2016-10-09 11:51:47.051  INFO 40420 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:51:48.400  WARN 40420 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:48 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:48 GMT
+2016-10-09 11:51:48.897  INFO 40420 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:51:50.886  WARN 40420 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:50 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:50 GMT
+2016-10-09 11:51:52.585  INFO 40420 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:51:54.211  WARN 40420 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:54 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:54 GMT
+2016-10-09 11:51:55.584  INFO 40420 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:51:57.273  WARN 40420 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:57 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:57 GMT
+2016-10-09 11:51:58.599  INFO 40420 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:52:00.415  WARN 40420 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:00 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:00 GMT
+2016-10-09 11:52:01.599  INFO 40420 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:52:03.396  WARN 40420 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:03 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:03 GMT
+2016-10-09 11:52:04.837  INFO 40420 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:52:06.372  WARN 40420 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:06 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:06 GMT
+2016-10-09 11:52:07.766  INFO 40420 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:52:09.412  WARN 40420 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:09 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:09 GMT
+2016-10-09 11:52:10.762  INFO 40420 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:52:12.332  WARN 40420 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:12 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:12 GMT
+2016-10-09 11:52:35.410  INFO 40548 --- [main] com.gy.wm.service.ServiceTest            : Starting ServiceTest on Tijun-PC with PID 40548 (started by Administrator in E:\Workspaces\IDEA\ZKCrawler\ZKCrawler-Webmagic)
+2016-10-09 11:52:35.411  INFO 40548 --- [main] com.gy.wm.service.ServiceTest            : No active profile set, falling back to default profiles: default
+2016-10-09 11:52:35.512  INFO 40548 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@34741c9d: startup date [Sun Oct 09 11:52:35 CST 2016]; root of context hierarchy
+2016-10-09 11:52:37.496  INFO 40548 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-10-09 11:52:38.713  INFO 40548 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@34741c9d: startup date [Sun Oct 09 11:52:35 CST 2016]; root of context hierarchy
+2016-10-09 11:52:38.798  INFO 40548 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/test]}" onto public java.lang.String com.gy.wm.controller.API.test()
+2016-10-09 11:52:38.799  INFO 40548 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/startTask],methods=[POST],produces=[application/json]}" onto public java.lang.String com.gy.wm.controller.API.startTask(com.gy.wm.model.TaskParamModel)
+2016-10-09 11:52:38.800  INFO 40548 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/cleanTaskRedis/{taskId}],methods=[POST]}" onto public java.lang.String com.gy.wm.controller.API.cleanTaskRedis(java.lang.String)
+2016-10-09 11:52:38.800  INFO 40548 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/stopTask/{taskId}]}" onto public java.lang.String com.gy.wm.controller.API.stopTask(java.lang.String)
+2016-10-09 11:52:38.802  INFO 40548 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2016-10-09 11:52:38.803  INFO 40548 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2016-10-09 11:52:38.877  INFO 40548 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-09 11:52:38.878  INFO 40548 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-09 11:52:38.952  INFO 40548 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-09 11:52:39.358  INFO 40548 --- [main] com.gy.wm.service.ServiceTest            : Started ServiceTest in 4.876 seconds (JVM running for 6.293)
+2016-10-09 11:52:39.391  INFO 40548 --- [main] com.gy.wm.service.TaskService            : ===> get thread pool size: 50
+2016-10-09 11:52:39.443  INFO 40548 --- [main] com.gy.wm.service.TaskService            : ===> starting crawler task ......
+2016-10-09 11:52:39.445  INFO 40548 --- [pool-1-thread-1] com.gy.wm.controller.API                 : ==++==> starting task. taskId: acbrocdldrtfkauj9ertt29d67
+2016-10-09 11:52:39.649  INFO 40548 --- [pool-1-thread-1] com.gy.wm.entry.CrawlerWorkflowManager   : ****************************>>>>> domain:  qnz.com.cn
+2016-10-09 11:52:40.039  INFO 40548 --- [pool-1-thread-1] us.codecraft.webmagic.Spider             : Spider acbrocdldrtfkauj9ertt29d67 started!
+2016-10-09 11:52:40.887  WARN 40548 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:41 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:41 GMT
+2016-10-09 11:52:42.127  INFO 40548 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：50
+2016-10-09 11:52:44.623  WARN 40548 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:44 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:44 GMT
+2016-10-09 11:52:46.083  INFO 40548 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:52:48.298  WARN 40548 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:48 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:48 GMT
+2016-10-09 11:52:49.267  INFO 40548 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:52:50.762  WARN 40548 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:50 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:50 GMT
+2016-10-09 11:52:52.059  INFO 40548 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:52:53.595  WARN 40548 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:53 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:53 GMT
+2016-10-09 11:52:54.798  INFO 40548 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:52:56.428  WARN 40548 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:56 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:56 GMT
+2016-10-09 11:52:57.799  INFO 40548 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:52:59.488  WARN 40548 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:59 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:59 GMT
+2016-10-09 11:53:00.829  INFO 40548 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:53:02.396  WARN 40548 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:02 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:02 GMT
+2016-10-09 11:53:03.717  INFO 40548 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:53:05.312  WARN 40548 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:05 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:05 GMT
+2016-10-09 11:53:06.752  INFO 40548 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:53:08.265  WARN 40548 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:08 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:08 GMT
+2016-10-09 11:53:09.532  INFO 40548 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:53:11.095  WARN 40548 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:11 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:11 GMT
+2016-10-09 11:53:12.147  INFO 40548 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:53:13.680  WARN 40548 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:13 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:13 GMT
+2016-10-09 11:53:14.995  INFO 40548 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:53:16.751  WARN 40548 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:16 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:16 GMT
+2016-10-09 11:53:17.737  INFO 40548 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:53:21.136  WARN 40548 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:21 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:21 GMT
+2016-10-09 11:53:22.550  INFO 40548 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:53:24.058  WARN 40548 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:24 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:24 GMT
+2016-10-09 11:53:25.506  INFO 40548 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:53:27.142  WARN 40548 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:27 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:27 GMT
+2016-10-09 11:53:28.178  INFO 40548 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:53:29.675  WARN 40548 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 16:00:29 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 16:00:29 GMT
+2016-10-09 11:53:30.924  INFO 40548 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 11:53:32.465  WARN 40548 --- [pool-2-thread-1] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: "Set-Cookie: safedog-flow-item=49FE8D4B446ECCD49CC3600631CD4918; expires=Dec, 9-Oct-2016 15:59:32 GMT; domain=qnz.com.cn; path=/". Invalid 'expires' attribute: Dec, 9-Oct-2016 15:59:32 GMT
+2016-10-09 11:53:33.633  INFO 40548 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
