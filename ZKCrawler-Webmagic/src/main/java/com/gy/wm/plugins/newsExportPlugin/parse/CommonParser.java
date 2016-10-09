@@ -1,4 +1,4 @@
-package com.gy.wm.parse;
+package com.gy.wm.plugins.newsExportPlugin.parse;
 
 import com.alibaba.fastjson.JSONObject;
 import com.gy.wm.dao.ParserDao;
@@ -16,32 +16,32 @@ import java.util.List;
  * @author TijunWang
  */
 public class CommonParser implements PageParser {
-    private ParserConfig config=null;
-    private ParserDao parserDao =new ParserDao();
-    private List<String> contentLinkRegexs=new ArrayList<>();
-    private List<String> columnRegexs=new ArrayList<>();
+    private ParserConfig config = null;
+    private ParserDao parserDao = new ParserDao();
+    private List<String> contentLinkRegexs = new ArrayList<>();
+    private List<String> columnRegexs = new ArrayList<>();
 
     @Override
     public List<CrawlData> parse(CrawlData crawlData) {
-        System.out.printf(crawlData.toString());
-        List<CrawlData> crawlDatas=new ArrayList<>();
+        System.out.println(crawlData.toString());
+        List<CrawlData> crawlDatas = new ArrayList<>();
         //obtain crawler config from MySQL ,one task one config(json),so for a task ,it just accesses database once
-        if(config==null){
-            /*ParserEntity entity= parserDao.find(crawlData.getTid());
-            if (entity==null){
+        if (config == null) {
+            ParserEntity entity = parserDao.find(crawlData.getTid());
+            if (entity == null) {
                 try {
-                    throw new Exception("ERROR:couldn't find config by tid='"+crawlData.getTid()+"'");
+                    throw new Exception("ERROR:couldn't find config by tid='" + crawlData.getTid() + "'");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-            }*/
-            config= JSONObject.parseObject(testConfig,ParserConfig.class);
-           // config=testConfig;
-            for(UrlPattern pattern:config.getUrlPatterns()){
-                if (pattern.getType().equals(ParserConfig.HTML_LINK_REGEX)){
+            }
+            config = JSONObject.parseObject(entity.getConfig(), ParserConfig.class);
+            //grouped urlPatterns
+            for (UrlPattern pattern : config.getUrlPatterns()) {
+                if (pattern.getType().equals(ParserConfig.HTML_LINK_REGEX)) {
                     contentLinkRegexs.add(pattern.getRegex());
                 }
-                if (pattern.getType().equals(ParserConfig.URL_PARTTERN_TYPE_COLUMN_REGEX)){
+                if (pattern.getType().equals(ParserConfig.URL_PARTTERN_TYPE_COLUMN_REGEX)) {
                     columnRegexs.add(pattern.getRegex());
                 }
             }
@@ -49,12 +49,12 @@ public class CommonParser implements PageParser {
         }
         //discovery links
         //judge current page class(links page or content page)
-        if(isColumnHtml(crawlData.getUrl())){
-            List<String> urls=new Html(crawlData.getHtml()).xpath("//a/@href").all();
-            for (String url:urls){
-                if(isContentHtml(url)){
-                    System.out.printf("url---:"+url);
-                    CrawlData data=new CrawlData();
+        if (isColumnHtml(crawlData.getUrl())) {
+            List<String> urls = new Html(crawlData.getHtml()).xpath("//a/@href").all();
+            for (String url : urls) {
+                if (isContentHtml(url)) {
+                    System.out.printf("url---:" + url);
+                    CrawlData data = new CrawlData();
                     data.setUrl(url);
                     data.setTid(crawlData.getTid());
                     data.setFromUrl(crawlData.getUrl());
@@ -64,23 +64,25 @@ public class CommonParser implements PageParser {
                 }
             }
         }
-
         //parsing data from html
-        if (isContentHtml(crawlData.getUrl())){
-            crawlDatas.add(parseData(new Html(crawlData.getHtml()),crawlData,config.getFileds()));
+        if (isContentHtml(crawlData.getUrl())) {
+            crawlDatas.add(parseData(new Html(crawlData.getHtml()), crawlData, config.getFileds()));
         }
 
         return crawlDatas;
     }
 
     /**
-     *Parsing data from html and result in crawlerData
+     * Parsing data from html and result in crawlerData,this is just version 1.0,but at version 2.0
+     * we needn't to know which field is,we just put all field in a mup,and then stored in mysql,hbase and other systems
+     *
      * @param html
      * @param crawlData
      * @param htmlFields
-     * @return  CrawlerData
+     * @return CrawlerData
+     * @version 1.0
      */
-    private CrawlData parseData(Html html,CrawlData crawlData,List<HtmlField> htmlFields){
+    private CrawlData parseData(Html html, CrawlData crawlData, List<HtmlField> htmlFields) {
 
 
         String title=null;
@@ -94,13 +96,13 @@ public class CommonParser implements PageParser {
 
         for (HtmlField htmlField:htmlFields){
             if (htmlField.getFieldName().equals("title")){
-               title=byXpaths(html,htmlField.getXpaths());
+                title=byXpaths(html,htmlField.getXpaths());
             }
 
             if (htmlField.getFieldName().equals("content")){
                 contentHtml=byXpaths(html,htmlField.getXpaths());
             }if (htmlField.getFieldName().equals("source")){
-               source =byXpaths(html,htmlField.getXpaths());
+                source =byXpaths(html,htmlField.getXpaths());
                 if (source!=null){
                     String [] arr=source.split(" ");
                     for (String content:arr){
@@ -118,41 +120,59 @@ public class CommonParser implements PageParser {
         crawlData.setTid(crawlData.getTid());
         crawlData.setTitle(title);
         crawlData.setHtml(html.toString());
-        crawlData.setDepthfromSeed(crawlData.getDepthfromSeed()+1);
+        crawlData.setDepthfromSeed(crawlData.getDepthfromSeed() + 1);
         crawlData.setFetched(true);
         crawlData.setCrawlTime(new Date());
         crawlData.setText(contentHtml);
-        crawlData.setSourceName(sourceName);
         crawlData.setAuthor(author);
+        crawlData.setSourceName(sourceName);
 
         return crawlData;
     }
 
-    private boolean isContentHtml(String url){
-        for (String urlRegex:contentLinkRegexs){
-            if (url.matches(urlRegex)){
+    /**
+     * judge the url which is the final content html
+     * @param url
+     * @return
+     */
+    private boolean isContentHtml(String url) {
+        for (String urlRegex : contentLinkRegexs) {
+            if (url.matches(urlRegex)) {
                 return true;
             }
         }
         return false;
     }
 
-    private boolean isColumnHtml(String url){
-        for (String urlRegex:columnRegexs){
-            if (url.matches(urlRegex)){
+    /**
+     * judge the url which is a column page url
+     *
+     * @param url
+     * @return
+     */
+    private boolean isColumnHtml(String url) {
+        for (String urlRegex : columnRegexs) {
+            if (url.matches(urlRegex)) {
                 return true;
             }
         }
         return false;
     }
-    private String byXpaths(Html html,List<String> xpaths){
-        for (String xpath:xpaths){
-           Selectable selectable= html.xpath(xpath);
-            if (selectable!=null){
+
+    /**
+     * get data from html by xpathes
+     *
+     * @param html
+     * @param xpaths
+     * @return
+     */
+    private String byXpaths(Html html, List<String> xpaths) {
+        for (String xpath : xpaths) {
+            Selectable selectable = html.xpath(xpath);
+            if (selectable != null) {
                 return selectable.toString();
             }
         }
         return null;
     }
-    private static String testConfig="{\"fileds\":[{\"fieldName\":\"title\",\"xpaths\":[\"/html/body/table[5]/tbody/tr/td/table/tbody/tr/td/table[3]/tbody/tr/td[1]/table[2]/tbody/tr/td/text()\"]},{\"fieldName\":\"content\",\"xpaths\":[\"//td[@class='newstext']\"]}],\"id\":3434,\"taskId\":\"task222\",\"urlPatterns\":[{\"regex\":\"http://www.qnz.com.cn/news/newslist-0-\\\\d.shtml\",\"type\":\"COLUMN_REGEX\"},{\"regex\":\"http://www.qnz.com.cn/news/newsshow-\\\\d.shtml\",\"type\":\"CONTENT_LINK_REGEX\"}]}";
 }

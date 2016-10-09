@@ -34,6 +34,7 @@ public class HttpClientDownloader implements Downloader {
         String content= null;
         try {
             content = EntityUtils.toString(response.getEntity());
+
         } catch (IOException e) {
             e.printStackTrace();
         }
