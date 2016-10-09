@@ -41,8 +41,15 @@ public class ParserConfigTester
         list2.add("//td[@class='newstext']");
         filed2.setXpaths(list2);
 
+        com.gy.wm.plugins.newsExportPlugin.parse.HtmlField field3=new  com.gy.wm.plugins.newsExportPlugin.parse.HtmlField();
+        List<String> list=new ArrayList<>();
+        list.add("/html/body/table[5]/tbody/tr/td/table/tbody/tr/td/table[3]/tbody/tr/td[1]/table[3]/tbody/tr[1]/td");
+        list.add("//div[@class='hhg']");
+        field3.setXpaths(list);
+
         fileds.add(filed1);
         fileds.add(filed2);
+        fileds.add(field3);
         com.gy.wm.plugins.newsExportPlugin.parse.ParserConfig config=new com.gy.wm.plugins.newsExportPlugin.parse.ParserConfig();
         config.setFileds(fileds);
         config.setId(3434);
@@ -52,6 +59,7 @@ public class ParserConfigTester
         System.out.printf(s);
 
     }
+
 
     @Test
     public void test4Conig(){

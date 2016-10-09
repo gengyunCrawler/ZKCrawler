@@ -87,6 +87,10 @@ public class CommonParser implements PageParser {
         //包含html格式的文章段落
         String contentHtml=null;
         //来源和作者字段
+        String author=null;
+
+        String sourceName=null;
+        String source=null;
 
         for (HtmlField htmlField:htmlFields){
             if (htmlField.getFieldName().equals("title")){
@@ -95,6 +99,19 @@ public class CommonParser implements PageParser {
 
             if (htmlField.getFieldName().equals("content")){
                 contentHtml=byXpaths(html,htmlField.getXpaths());
+            }if (htmlField.getFieldName().equals("source")){
+               source =byXpaths(html,htmlField.getXpaths());
+                if (source!=null){
+                    String [] arr=source.split(" ");
+                    for (String content:arr){
+                        if (content.contains("作者")){
+                            author=content.split("：")[1];
+                        }
+                        if (content.contains("来源")){
+                            sourceName=content.split("：")[1];
+                        }
+                    }
+                }
             }
         }
 
@@ -105,6 +122,8 @@ public class CommonParser implements PageParser {
         crawlData.setFetched(true);
         crawlData.setCrawlTime(new Date());
         crawlData.setText(contentHtml);
+        crawlData.setSourceName(sourceName);
+        crawlData.setAuthor(author);
 
         return crawlData;
     }

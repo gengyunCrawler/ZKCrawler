@@ -2556,3 +2556,1528 @@ java.lang.NullPointerException: null
 2016-10-08 17:50:45.880  INFO 29764 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : I/O exception (java.net.ConnectException) caught when processing request: Connection refused: connect
 2016-10-08 17:50:45.881  INFO 29764 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : Retrying request
 2016-10-08 18:05:20.841  INFO 26400 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-10-09 09:09:50.624 ERROR 16856 --- [pool-2-thread-1] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29871.shtml', method='null', extras=null, priority=0} error
+
+org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+Session ID: e30edc00-8d2f-11e6-a61d-e5ca3266120f
+Capabilities [{platform=XP, acceptSslCerts=false, javascriptEnabled=true, browserName=phantomjs, rotatable=false, driverVersion=1.2.0, locationContextEnabled=false, version=2.1.1, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=false, browserConnectionEnabled=false, proxy={proxyType=direct}, nativeEvents=true, webStorageEnabled=false, driverName=ghostdriver, applicationCacheEnabled=false, takesScreenshot=true}]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:665) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:316) ~[selenium-remote-driver-2.53.1.jar:na]
+	at com.gy.wm.downloader.SeleniumDownloader.download(SeleniumDownloader.java:107) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:409) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: org.openqa.selenium.WebDriverException: java.net.SocketException: Connection reset
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:91) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:644) ~[selenium-remote-driver-2.53.1.jar:na]
+	... 8 common frames omitted
+Caused by: java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:196) ~[na:1.7.0_79]
+	at java.net.SocketInputStream.read(SocketInputStream.java:122) ~[na:1.7.0_79]
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:282) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:140) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:57) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:167) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:271) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:71) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:144) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:90) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:142) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:82) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	... 9 common frames omitted
+
+2016-10-09 09:09:50.624 ERROR 16856 --- [pool-2-thread-17] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29890.shtml', method='null', extras=null, priority=0} error
+
+org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+Session ID: e30edc00-8d2f-11e6-a61d-e5ca3266120f
+Capabilities [{platform=XP, acceptSslCerts=false, javascriptEnabled=true, browserName=phantomjs, rotatable=false, driverVersion=1.2.0, locationContextEnabled=false, version=2.1.1, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=false, browserConnectionEnabled=false, proxy={proxyType=direct}, nativeEvents=true, webStorageEnabled=false, driverName=ghostdriver, applicationCacheEnabled=false, takesScreenshot=true}]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:665) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:316) ~[selenium-remote-driver-2.53.1.jar:na]
+	at com.gy.wm.downloader.SeleniumDownloader.download(SeleniumDownloader.java:107) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:409) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: org.openqa.selenium.WebDriverException: java.net.SocketException: Connection reset
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:91) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:644) ~[selenium-remote-driver-2.53.1.jar:na]
+	... 8 common frames omitted
+Caused by: java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:196) ~[na:1.7.0_79]
+	at java.net.SocketInputStream.read(SocketInputStream.java:122) ~[na:1.7.0_79]
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:282) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:140) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:57) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:167) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:271) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:71) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:144) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:90) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:142) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:82) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	... 9 common frames omitted
+
+2016-10-09 09:09:50.624 ERROR 16856 --- [pool-2-thread-20] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29879.shtml', method='null', extras=null, priority=0} error
+
+org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+Session ID: e30edc00-8d2f-11e6-a61d-e5ca3266120f
+Capabilities [{platform=XP, acceptSslCerts=false, javascriptEnabled=true, browserName=phantomjs, rotatable=false, driverVersion=1.2.0, locationContextEnabled=false, version=2.1.1, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=false, browserConnectionEnabled=false, proxy={proxyType=direct}, nativeEvents=true, webStorageEnabled=false, driverName=ghostdriver, applicationCacheEnabled=false, takesScreenshot=true}]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:665) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:316) ~[selenium-remote-driver-2.53.1.jar:na]
+	at com.gy.wm.downloader.SeleniumDownloader.download(SeleniumDownloader.java:107) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:409) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: org.openqa.selenium.WebDriverException: java.net.SocketException: Connection reset
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:91) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:644) ~[selenium-remote-driver-2.53.1.jar:na]
+	... 8 common frames omitted
+Caused by: java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:196) ~[na:1.7.0_79]
+	at java.net.SocketInputStream.read(SocketInputStream.java:122) ~[na:1.7.0_79]
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:282) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:140) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:57) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:167) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:271) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:71) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:144) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:90) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:142) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:82) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	... 9 common frames omitted
+
+2016-10-09 09:09:50.624 ERROR 16856 --- [pool-2-thread-12] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29928.shtml', method='null', extras=null, priority=0} error
+
+org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+Session ID: e30edc00-8d2f-11e6-a61d-e5ca3266120f
+Capabilities [{platform=XP, acceptSslCerts=false, javascriptEnabled=true, browserName=phantomjs, rotatable=false, driverVersion=1.2.0, locationContextEnabled=false, version=2.1.1, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=false, browserConnectionEnabled=false, proxy={proxyType=direct}, nativeEvents=true, webStorageEnabled=false, driverName=ghostdriver, applicationCacheEnabled=false, takesScreenshot=true}]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:665) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:316) ~[selenium-remote-driver-2.53.1.jar:na]
+	at com.gy.wm.downloader.SeleniumDownloader.download(SeleniumDownloader.java:107) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:409) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: org.openqa.selenium.WebDriverException: java.net.SocketException: Connection reset
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:91) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:644) ~[selenium-remote-driver-2.53.1.jar:na]
+	... 8 common frames omitted
+Caused by: java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:196) ~[na:1.7.0_79]
+	at java.net.SocketInputStream.read(SocketInputStream.java:122) ~[na:1.7.0_79]
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:282) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:140) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:57) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:167) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:271) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:71) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:144) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:90) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:142) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:82) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	... 9 common frames omitted
+
+2016-10-09 09:09:50.693 ERROR 16856 --- [pool-2-thread-19] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29881.shtml', method='null', extras=null, priority=0} error
+
+org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+Session ID: e30edc00-8d2f-11e6-a61d-e5ca3266120f
+Capabilities [{platform=XP, acceptSslCerts=false, javascriptEnabled=true, browserName=phantomjs, rotatable=false, driverVersion=1.2.0, locationContextEnabled=false, version=2.1.1, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=false, browserConnectionEnabled=false, proxy={proxyType=direct}, nativeEvents=true, webStorageEnabled=false, driverName=ghostdriver, applicationCacheEnabled=false, takesScreenshot=true}]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:665) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:316) ~[selenium-remote-driver-2.53.1.jar:na]
+	at com.gy.wm.downloader.SeleniumDownloader.download(SeleniumDownloader.java:107) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:409) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: org.openqa.selenium.WebDriverException: java.net.SocketException: Connection reset
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:91) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:644) ~[selenium-remote-driver-2.53.1.jar:na]
+	... 8 common frames omitted
+Caused by: java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:196) ~[na:1.7.0_79]
+	at java.net.SocketInputStream.read(SocketInputStream.java:122) ~[na:1.7.0_79]
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:282) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:140) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:57) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:167) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:271) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:71) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:144) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:90) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:142) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:82) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	... 9 common frames omitted
+
+2016-10-09 09:09:50.693 ERROR 16856 --- [pool-2-thread-15] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29906.shtml', method='null', extras=null, priority=0} error
+
+org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+Session ID: e30edc00-8d2f-11e6-a61d-e5ca3266120f
+Capabilities [{platform=XP, acceptSslCerts=false, javascriptEnabled=true, browserName=phantomjs, rotatable=false, driverVersion=1.2.0, locationContextEnabled=false, version=2.1.1, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=false, browserConnectionEnabled=false, proxy={proxyType=direct}, nativeEvents=true, webStorageEnabled=false, driverName=ghostdriver, applicationCacheEnabled=false, takesScreenshot=true}]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:665) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:316) ~[selenium-remote-driver-2.53.1.jar:na]
+	at com.gy.wm.downloader.SeleniumDownloader.download(SeleniumDownloader.java:107) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:409) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: org.openqa.selenium.WebDriverException: java.net.SocketException: Connection reset
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:91) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:644) ~[selenium-remote-driver-2.53.1.jar:na]
+	... 8 common frames omitted
+Caused by: java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:196) ~[na:1.7.0_79]
+	at java.net.SocketInputStream.read(SocketInputStream.java:122) ~[na:1.7.0_79]
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:282) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:140) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:57) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:167) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:271) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:71) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:144) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:90) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:142) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:82) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	... 9 common frames omitted
+
+2016-10-09 09:09:50.693 ERROR 16856 --- [pool-2-thread-16] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29891.shtml', method='null', extras=null, priority=0} error
+
+org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+Session ID: e30edc00-8d2f-11e6-a61d-e5ca3266120f
+Capabilities [{platform=XP, acceptSslCerts=false, javascriptEnabled=true, browserName=phantomjs, rotatable=false, driverVersion=1.2.0, locationContextEnabled=false, version=2.1.1, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=false, browserConnectionEnabled=false, proxy={proxyType=direct}, nativeEvents=true, webStorageEnabled=false, driverName=ghostdriver, applicationCacheEnabled=false, takesScreenshot=true}]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:665) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:316) ~[selenium-remote-driver-2.53.1.jar:na]
+	at com.gy.wm.downloader.SeleniumDownloader.download(SeleniumDownloader.java:107) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:409) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: org.openqa.selenium.WebDriverException: java.net.SocketException: Connection reset
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:91) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:644) ~[selenium-remote-driver-2.53.1.jar:na]
+	... 8 common frames omitted
+Caused by: java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:196) ~[na:1.7.0_79]
+	at java.net.SocketInputStream.read(SocketInputStream.java:122) ~[na:1.7.0_79]
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:282) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:140) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:57) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:167) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:271) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:71) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:144) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:90) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:142) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:82) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	... 9 common frames omitted
+
+2016-10-09 09:09:50.694 ERROR 16856 --- [pool-2-thread-18] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29884.shtml', method='null', extras=null, priority=0} error
+
+org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+Session ID: e30edc00-8d2f-11e6-a61d-e5ca3266120f
+Capabilities [{platform=XP, acceptSslCerts=false, javascriptEnabled=true, browserName=phantomjs, rotatable=false, driverVersion=1.2.0, locationContextEnabled=false, version=2.1.1, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=false, browserConnectionEnabled=false, proxy={proxyType=direct}, nativeEvents=true, webStorageEnabled=false, driverName=ghostdriver, applicationCacheEnabled=false, takesScreenshot=true}]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:665) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:316) ~[selenium-remote-driver-2.53.1.jar:na]
+	at com.gy.wm.downloader.SeleniumDownloader.download(SeleniumDownloader.java:107) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:409) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: org.openqa.selenium.WebDriverException: java.net.SocketException: Connection reset
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:91) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:644) ~[selenium-remote-driver-2.53.1.jar:na]
+	... 8 common frames omitted
+Caused by: java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:196) ~[na:1.7.0_79]
+	at java.net.SocketInputStream.read(SocketInputStream.java:122) ~[na:1.7.0_79]
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:282) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:140) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:57) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:167) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:271) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:71) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:144) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:90) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:142) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:82) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	... 9 common frames omitted
+
+2016-10-09 09:09:50.694 ERROR 16856 --- [pool-2-thread-14] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29911.shtml', method='null', extras=null, priority=0} error
+
+org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+Session ID: e30edc00-8d2f-11e6-a61d-e5ca3266120f
+Capabilities [{platform=XP, acceptSslCerts=false, javascriptEnabled=true, browserName=phantomjs, rotatable=false, driverVersion=1.2.0, locationContextEnabled=false, version=2.1.1, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=false, browserConnectionEnabled=false, proxy={proxyType=direct}, nativeEvents=true, webStorageEnabled=false, driverName=ghostdriver, applicationCacheEnabled=false, takesScreenshot=true}]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:665) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:316) ~[selenium-remote-driver-2.53.1.jar:na]
+	at com.gy.wm.downloader.SeleniumDownloader.download(SeleniumDownloader.java:107) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:409) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: org.openqa.selenium.WebDriverException: java.net.SocketException: Connection reset
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:91) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:644) ~[selenium-remote-driver-2.53.1.jar:na]
+	... 8 common frames omitted
+Caused by: java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:196) ~[na:1.7.0_79]
+	at java.net.SocketInputStream.read(SocketInputStream.java:122) ~[na:1.7.0_79]
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:282) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:140) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:57) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:167) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:271) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:71) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:144) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:90) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:142) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:82) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	... 9 common frames omitted
+
+2016-10-09 09:09:50.694 ERROR 16856 --- [pool-2-thread-13] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29922.shtml', method='null', extras=null, priority=0} error
+
+org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+Session ID: e30edc00-8d2f-11e6-a61d-e5ca3266120f
+Capabilities [{platform=XP, acceptSslCerts=false, javascriptEnabled=true, browserName=phantomjs, rotatable=false, driverVersion=1.2.0, locationContextEnabled=false, version=2.1.1, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=false, browserConnectionEnabled=false, proxy={proxyType=direct}, nativeEvents=true, webStorageEnabled=false, driverName=ghostdriver, applicationCacheEnabled=false, takesScreenshot=true}]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:665) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:316) ~[selenium-remote-driver-2.53.1.jar:na]
+	at com.gy.wm.downloader.SeleniumDownloader.download(SeleniumDownloader.java:107) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:409) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: org.openqa.selenium.WebDriverException: java.net.SocketException: Connection reset
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:91) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:644) ~[selenium-remote-driver-2.53.1.jar:na]
+	... 8 common frames omitted
+Caused by: java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:196) ~[na:1.7.0_79]
+	at java.net.SocketInputStream.read(SocketInputStream.java:122) ~[na:1.7.0_79]
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:282) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:140) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:57) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:167) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:271) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:71) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:144) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:90) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:142) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:82) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	... 9 common frames omitted
+
+2016-10-09 09:09:51.452 ERROR 25412 --- [pool-2-thread-20] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29879.shtml', method='null', extras=null, priority=0} error
+
+org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+Session ID: ec79df30-8d32-11e6-912b-35d469605959
+Capabilities [{platform=XP, acceptSslCerts=false, javascriptEnabled=true, browserName=phantomjs, rotatable=false, driverVersion=1.2.0, locationContextEnabled=false, version=2.1.1, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=false, browserConnectionEnabled=false, proxy={proxyType=direct}, nativeEvents=true, webStorageEnabled=false, driverName=ghostdriver, applicationCacheEnabled=false, takesScreenshot=true}]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:665) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:316) ~[selenium-remote-driver-2.53.1.jar:na]
+	at com.gy.wm.downloader.SeleniumDownloader.download(SeleniumDownloader.java:107) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:409) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: org.openqa.selenium.WebDriverException: java.net.SocketException: Connection reset
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:91) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:644) ~[selenium-remote-driver-2.53.1.jar:na]
+	... 8 common frames omitted
+Caused by: java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:196) ~[na:1.7.0_79]
+	at java.net.SocketInputStream.read(SocketInputStream.java:122) ~[na:1.7.0_79]
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:282) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:140) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:57) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:167) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:271) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:71) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:144) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:90) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:142) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:82) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	... 9 common frames omitted
+
+2016-10-09 09:09:51.452 ERROR 25412 --- [pool-2-thread-10] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29943.shtml', method='null', extras=null, priority=0} error
+
+org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+Session ID: ec79df30-8d32-11e6-912b-35d469605959
+Capabilities [{platform=XP, acceptSslCerts=false, javascriptEnabled=true, browserName=phantomjs, rotatable=false, driverVersion=1.2.0, locationContextEnabled=false, version=2.1.1, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=false, browserConnectionEnabled=false, proxy={proxyType=direct}, nativeEvents=true, webStorageEnabled=false, driverName=ghostdriver, applicationCacheEnabled=false, takesScreenshot=true}]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:665) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:316) ~[selenium-remote-driver-2.53.1.jar:na]
+	at com.gy.wm.downloader.SeleniumDownloader.download(SeleniumDownloader.java:107) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:409) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: org.openqa.selenium.WebDriverException: java.net.SocketException: Connection reset
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:91) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:644) ~[selenium-remote-driver-2.53.1.jar:na]
+	... 8 common frames omitted
+Caused by: java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:196) ~[na:1.7.0_79]
+	at java.net.SocketInputStream.read(SocketInputStream.java:122) ~[na:1.7.0_79]
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:282) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:140) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:57) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:167) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:271) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:71) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:144) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:90) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:142) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:82) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	... 9 common frames omitted
+
+2016-10-09 09:09:51.452 ERROR 25412 --- [pool-2-thread-13] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29922.shtml', method='null', extras=null, priority=0} error
+
+org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+Session ID: ec79df30-8d32-11e6-912b-35d469605959
+Capabilities [{platform=XP, acceptSslCerts=false, javascriptEnabled=true, browserName=phantomjs, rotatable=false, driverVersion=1.2.0, locationContextEnabled=false, version=2.1.1, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=false, browserConnectionEnabled=false, proxy={proxyType=direct}, nativeEvents=true, webStorageEnabled=false, driverName=ghostdriver, applicationCacheEnabled=false, takesScreenshot=true}]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:665) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:316) ~[selenium-remote-driver-2.53.1.jar:na]
+	at com.gy.wm.downloader.SeleniumDownloader.download(SeleniumDownloader.java:107) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:409) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: org.openqa.selenium.WebDriverException: java.net.SocketException: Connection reset
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:91) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:644) ~[selenium-remote-driver-2.53.1.jar:na]
+	... 8 common frames omitted
+Caused by: java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:196) ~[na:1.7.0_79]
+	at java.net.SocketInputStream.read(SocketInputStream.java:122) ~[na:1.7.0_79]
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:282) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:140) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:57) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:167) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:271) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:71) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:144) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:90) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:142) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:82) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	... 9 common frames omitted
+
+2016-10-09 09:09:51.452 ERROR 25412 --- [pool-2-thread-12] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29928.shtml', method='null', extras=null, priority=0} error
+
+org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+Session ID: ec79df30-8d32-11e6-912b-35d469605959
+Capabilities [{platform=XP, acceptSslCerts=false, javascriptEnabled=true, browserName=phantomjs, rotatable=false, driverVersion=1.2.0, locationContextEnabled=false, version=2.1.1, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=false, browserConnectionEnabled=false, proxy={proxyType=direct}, nativeEvents=true, webStorageEnabled=false, driverName=ghostdriver, applicationCacheEnabled=false, takesScreenshot=true}]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:665) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:316) ~[selenium-remote-driver-2.53.1.jar:na]
+	at com.gy.wm.downloader.SeleniumDownloader.download(SeleniumDownloader.java:107) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:409) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: org.openqa.selenium.WebDriverException: java.net.SocketException: Connection reset
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:91) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:644) ~[selenium-remote-driver-2.53.1.jar:na]
+	... 8 common frames omitted
+Caused by: java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:196) ~[na:1.7.0_79]
+	at java.net.SocketInputStream.read(SocketInputStream.java:122) ~[na:1.7.0_79]
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:282) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:140) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:57) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:167) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:271) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:71) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:144) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:90) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:142) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:82) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	... 9 common frames omitted
+
+2016-10-09 09:09:51.453 ERROR 25412 --- [pool-2-thread-17] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29890.shtml', method='null', extras=null, priority=0} error
+
+org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+Session ID: ec79df30-8d32-11e6-912b-35d469605959
+Capabilities [{platform=XP, acceptSslCerts=false, javascriptEnabled=true, browserName=phantomjs, rotatable=false, driverVersion=1.2.0, locationContextEnabled=false, version=2.1.1, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=false, browserConnectionEnabled=false, proxy={proxyType=direct}, nativeEvents=true, webStorageEnabled=false, driverName=ghostdriver, applicationCacheEnabled=false, takesScreenshot=true}]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:665) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:316) ~[selenium-remote-driver-2.53.1.jar:na]
+	at com.gy.wm.downloader.SeleniumDownloader.download(SeleniumDownloader.java:107) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:409) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: org.openqa.selenium.WebDriverException: java.net.SocketException: Connection reset
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:91) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:644) ~[selenium-remote-driver-2.53.1.jar:na]
+	... 8 common frames omitted
+Caused by: java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:196) ~[na:1.7.0_79]
+	at java.net.SocketInputStream.read(SocketInputStream.java:122) ~[na:1.7.0_79]
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:282) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:140) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:57) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:167) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:271) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:71) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:144) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:90) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:142) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:82) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	... 9 common frames omitted
+
+2016-10-09 09:09:51.453 ERROR 25412 --- [pool-2-thread-18] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29884.shtml', method='null', extras=null, priority=0} error
+
+org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+Session ID: ec79df30-8d32-11e6-912b-35d469605959
+Capabilities [{platform=XP, acceptSslCerts=false, javascriptEnabled=true, browserName=phantomjs, rotatable=false, driverVersion=1.2.0, locationContextEnabled=false, version=2.1.1, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=false, browserConnectionEnabled=false, proxy={proxyType=direct}, nativeEvents=true, webStorageEnabled=false, driverName=ghostdriver, applicationCacheEnabled=false, takesScreenshot=true}]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:665) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:316) ~[selenium-remote-driver-2.53.1.jar:na]
+	at com.gy.wm.downloader.SeleniumDownloader.download(SeleniumDownloader.java:107) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:409) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: org.openqa.selenium.WebDriverException: java.net.SocketException: Connection reset
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:91) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:644) ~[selenium-remote-driver-2.53.1.jar:na]
+	... 8 common frames omitted
+Caused by: java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:196) ~[na:1.7.0_79]
+	at java.net.SocketInputStream.read(SocketInputStream.java:122) ~[na:1.7.0_79]
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:282) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:140) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:57) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:167) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:271) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:71) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:144) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:90) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:142) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:82) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	... 9 common frames omitted
+
+2016-10-09 09:09:51.453 ERROR 25412 --- [pool-2-thread-14] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29911.shtml', method='null', extras=null, priority=0} error
+
+org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+Session ID: ec79df30-8d32-11e6-912b-35d469605959
+Capabilities [{platform=XP, acceptSslCerts=false, javascriptEnabled=true, browserName=phantomjs, rotatable=false, driverVersion=1.2.0, locationContextEnabled=false, version=2.1.1, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=false, browserConnectionEnabled=false, proxy={proxyType=direct}, nativeEvents=true, webStorageEnabled=false, driverName=ghostdriver, applicationCacheEnabled=false, takesScreenshot=true}]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:665) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:316) ~[selenium-remote-driver-2.53.1.jar:na]
+	at com.gy.wm.downloader.SeleniumDownloader.download(SeleniumDownloader.java:107) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:409) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: org.openqa.selenium.WebDriverException: java.net.SocketException: Connection reset
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:91) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:644) ~[selenium-remote-driver-2.53.1.jar:na]
+	... 8 common frames omitted
+Caused by: java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:196) ~[na:1.7.0_79]
+	at java.net.SocketInputStream.read(SocketInputStream.java:122) ~[na:1.7.0_79]
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:282) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:140) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:57) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:167) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:271) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:71) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:144) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:90) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:142) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:82) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	... 9 common frames omitted
+
+2016-10-09 09:09:51.467 ERROR 25412 --- [pool-2-thread-19] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29881.shtml', method='null', extras=null, priority=0} error
+
+org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+Session ID: ec79df30-8d32-11e6-912b-35d469605959
+Capabilities [{platform=XP, acceptSslCerts=false, javascriptEnabled=true, browserName=phantomjs, rotatable=false, driverVersion=1.2.0, locationContextEnabled=false, version=2.1.1, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=false, browserConnectionEnabled=false, proxy={proxyType=direct}, nativeEvents=true, webStorageEnabled=false, driverName=ghostdriver, applicationCacheEnabled=false, takesScreenshot=true}]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:665) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:316) ~[selenium-remote-driver-2.53.1.jar:na]
+	at com.gy.wm.downloader.SeleniumDownloader.download(SeleniumDownloader.java:107) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:409) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: org.openqa.selenium.WebDriverException: java.net.SocketException: Connection reset
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:91) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:644) ~[selenium-remote-driver-2.53.1.jar:na]
+	... 8 common frames omitted
+Caused by: java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:196) ~[na:1.7.0_79]
+	at java.net.SocketInputStream.read(SocketInputStream.java:122) ~[na:1.7.0_79]
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:282) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:140) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:57) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:167) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:271) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:71) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:144) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:90) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:142) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:82) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	... 9 common frames omitted
+
+2016-10-09 09:09:51.474 ERROR 25412 --- [pool-2-thread-16] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29891.shtml', method='null', extras=null, priority=0} error
+
+org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+Session ID: ec79df30-8d32-11e6-912b-35d469605959
+Capabilities [{platform=XP, acceptSslCerts=false, javascriptEnabled=true, browserName=phantomjs, rotatable=false, driverVersion=1.2.0, locationContextEnabled=false, version=2.1.1, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=false, browserConnectionEnabled=false, proxy={proxyType=direct}, nativeEvents=true, webStorageEnabled=false, driverName=ghostdriver, applicationCacheEnabled=false, takesScreenshot=true}]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:665) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:316) ~[selenium-remote-driver-2.53.1.jar:na]
+	at com.gy.wm.downloader.SeleniumDownloader.download(SeleniumDownloader.java:107) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:409) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: org.openqa.selenium.WebDriverException: java.net.SocketException: Connection reset
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:91) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:644) ~[selenium-remote-driver-2.53.1.jar:na]
+	... 8 common frames omitted
+Caused by: java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:196) ~[na:1.7.0_79]
+	at java.net.SocketInputStream.read(SocketInputStream.java:122) ~[na:1.7.0_79]
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:282) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:140) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:57) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:167) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:271) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:71) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:144) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:90) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:142) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:82) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	... 9 common frames omitted
+
+2016-10-09 09:09:51.476 ERROR 25412 --- [pool-2-thread-15] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29906.shtml', method='null', extras=null, priority=0} error
+
+org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+Session ID: ec79df30-8d32-11e6-912b-35d469605959
+Capabilities [{platform=XP, acceptSslCerts=false, javascriptEnabled=true, browserName=phantomjs, rotatable=false, driverVersion=1.2.0, locationContextEnabled=false, version=2.1.1, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=false, browserConnectionEnabled=false, proxy={proxyType=direct}, nativeEvents=true, webStorageEnabled=false, driverName=ghostdriver, applicationCacheEnabled=false, takesScreenshot=true}]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:665) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:316) ~[selenium-remote-driver-2.53.1.jar:na]
+	at com.gy.wm.downloader.SeleniumDownloader.download(SeleniumDownloader.java:107) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:409) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: org.openqa.selenium.WebDriverException: java.net.SocketException: Connection reset
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:91) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:644) ~[selenium-remote-driver-2.53.1.jar:na]
+	... 8 common frames omitted
+Caused by: java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:196) ~[na:1.7.0_79]
+	at java.net.SocketInputStream.read(SocketInputStream.java:122) ~[na:1.7.0_79]
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:282) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:140) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:57) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:167) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:271) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:71) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:144) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:90) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:142) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:82) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	... 9 common frames omitted
+
+2016-10-09 09:09:53.630 ERROR 26400 --- [pool-2-thread-2] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29922.shtml', method='null', extras=null, priority=0} error
+
+org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+Session ID: 7786d640-8d34-11e6-b4fc-8781fc2da5fe
+Capabilities [{platform=XP, acceptSslCerts=false, javascriptEnabled=true, browserName=phantomjs, rotatable=false, driverVersion=1.2.0, locationContextEnabled=false, version=2.1.1, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=false, browserConnectionEnabled=false, proxy={proxyType=direct}, nativeEvents=true, webStorageEnabled=false, driverName=ghostdriver, applicationCacheEnabled=false, takesScreenshot=true}]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:665) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:316) ~[selenium-remote-driver-2.53.1.jar:na]
+	at com.gy.wm.downloader.SeleniumDownloader.download(SeleniumDownloader.java:107) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:409) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: org.openqa.selenium.WebDriverException: java.net.SocketException: Connection reset
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:91) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:644) ~[selenium-remote-driver-2.53.1.jar:na]
+	... 8 common frames omitted
+Caused by: java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:196) ~[na:1.7.0_79]
+	at java.net.SocketInputStream.read(SocketInputStream.java:122) ~[na:1.7.0_79]
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:282) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:140) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:57) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:167) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:271) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:71) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:144) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:90) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:142) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:82) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	... 9 common frames omitted
+
+2016-10-09 09:09:53.630 ERROR 26400 --- [pool-2-thread-9] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29879.shtml', method='null', extras=null, priority=0} error
+
+org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+Session ID: 7786d640-8d34-11e6-b4fc-8781fc2da5fe
+Capabilities [{platform=XP, acceptSslCerts=false, javascriptEnabled=true, browserName=phantomjs, rotatable=false, driverVersion=1.2.0, locationContextEnabled=false, version=2.1.1, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=false, browserConnectionEnabled=false, proxy={proxyType=direct}, nativeEvents=true, webStorageEnabled=false, driverName=ghostdriver, applicationCacheEnabled=false, takesScreenshot=true}]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:665) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:316) ~[selenium-remote-driver-2.53.1.jar:na]
+	at com.gy.wm.downloader.SeleniumDownloader.download(SeleniumDownloader.java:107) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:409) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: org.openqa.selenium.WebDriverException: java.net.SocketException: Connection reset
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:91) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:644) ~[selenium-remote-driver-2.53.1.jar:na]
+	... 8 common frames omitted
+Caused by: java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:196) ~[na:1.7.0_79]
+	at java.net.SocketInputStream.read(SocketInputStream.java:122) ~[na:1.7.0_79]
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:282) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:140) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:57) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:167) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:271) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:71) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:144) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:90) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:142) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:82) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	... 9 common frames omitted
+
+2016-10-09 09:09:53.630 ERROR 26400 --- [pool-2-thread-10] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29871.shtml', method='null', extras=null, priority=0} error
+
+org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+Session ID: 7786d640-8d34-11e6-b4fc-8781fc2da5fe
+Capabilities [{platform=XP, acceptSslCerts=false, javascriptEnabled=true, browserName=phantomjs, rotatable=false, driverVersion=1.2.0, locationContextEnabled=false, version=2.1.1, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=false, browserConnectionEnabled=false, proxy={proxyType=direct}, nativeEvents=true, webStorageEnabled=false, driverName=ghostdriver, applicationCacheEnabled=false, takesScreenshot=true}]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:665) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:316) ~[selenium-remote-driver-2.53.1.jar:na]
+	at com.gy.wm.downloader.SeleniumDownloader.download(SeleniumDownloader.java:107) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:409) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: org.openqa.selenium.WebDriverException: java.net.SocketException: Connection reset
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:91) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:644) ~[selenium-remote-driver-2.53.1.jar:na]
+	... 8 common frames omitted
+Caused by: java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:196) ~[na:1.7.0_79]
+	at java.net.SocketInputStream.read(SocketInputStream.java:122) ~[na:1.7.0_79]
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:282) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:140) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:57) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:167) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:271) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:71) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:144) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:90) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:142) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:82) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	... 9 common frames omitted
+
+2016-10-09 09:09:53.630 ERROR 26400 --- [pool-2-thread-3] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29911.shtml', method='null', extras=null, priority=0} error
+
+org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+Session ID: 7786d640-8d34-11e6-b4fc-8781fc2da5fe
+Capabilities [{platform=XP, acceptSslCerts=false, javascriptEnabled=true, browserName=phantomjs, rotatable=false, driverVersion=1.2.0, locationContextEnabled=false, version=2.1.1, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=false, browserConnectionEnabled=false, proxy={proxyType=direct}, nativeEvents=true, webStorageEnabled=false, driverName=ghostdriver, applicationCacheEnabled=false, takesScreenshot=true}]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:665) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:316) ~[selenium-remote-driver-2.53.1.jar:na]
+	at com.gy.wm.downloader.SeleniumDownloader.download(SeleniumDownloader.java:107) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:409) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: org.openqa.selenium.WebDriverException: java.net.SocketException: Connection reset
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:91) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:644) ~[selenium-remote-driver-2.53.1.jar:na]
+	... 8 common frames omitted
+Caused by: java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:196) ~[na:1.7.0_79]
+	at java.net.SocketInputStream.read(SocketInputStream.java:122) ~[na:1.7.0_79]
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:282) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:140) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:57) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:167) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:271) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:71) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:144) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:90) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:142) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:82) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	... 9 common frames omitted
+
+2016-10-09 09:09:53.630 ERROR 26400 --- [pool-2-thread-6] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29890.shtml', method='null', extras=null, priority=0} error
+
+org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+Session ID: 7786d640-8d34-11e6-b4fc-8781fc2da5fe
+Capabilities [{platform=XP, acceptSslCerts=false, javascriptEnabled=true, browserName=phantomjs, rotatable=false, driverVersion=1.2.0, locationContextEnabled=false, version=2.1.1, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=false, browserConnectionEnabled=false, proxy={proxyType=direct}, nativeEvents=true, webStorageEnabled=false, driverName=ghostdriver, applicationCacheEnabled=false, takesScreenshot=true}]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:665) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:316) ~[selenium-remote-driver-2.53.1.jar:na]
+	at com.gy.wm.downloader.SeleniumDownloader.download(SeleniumDownloader.java:107) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:409) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: org.openqa.selenium.WebDriverException: java.net.SocketException: Connection reset
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:91) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:644) ~[selenium-remote-driver-2.53.1.jar:na]
+	... 8 common frames omitted
+Caused by: java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:196) ~[na:1.7.0_79]
+	at java.net.SocketInputStream.read(SocketInputStream.java:122) ~[na:1.7.0_79]
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:282) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:140) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:57) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:167) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:271) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:71) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:144) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:90) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:142) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:82) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	... 9 common frames omitted
+
+2016-10-09 09:09:53.630 ERROR 26400 --- [pool-2-thread-8] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29881.shtml', method='null', extras=null, priority=0} error
+
+org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+Session ID: 7786d640-8d34-11e6-b4fc-8781fc2da5fe
+Capabilities [{platform=XP, acceptSslCerts=false, javascriptEnabled=true, browserName=phantomjs, rotatable=false, driverVersion=1.2.0, locationContextEnabled=false, version=2.1.1, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=false, browserConnectionEnabled=false, proxy={proxyType=direct}, nativeEvents=true, webStorageEnabled=false, driverName=ghostdriver, applicationCacheEnabled=false, takesScreenshot=true}]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:665) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:316) ~[selenium-remote-driver-2.53.1.jar:na]
+	at com.gy.wm.downloader.SeleniumDownloader.download(SeleniumDownloader.java:107) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:409) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: org.openqa.selenium.WebDriverException: java.net.SocketException: Connection reset
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:91) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:644) ~[selenium-remote-driver-2.53.1.jar:na]
+	... 8 common frames omitted
+Caused by: java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:196) ~[na:1.7.0_79]
+	at java.net.SocketInputStream.read(SocketInputStream.java:122) ~[na:1.7.0_79]
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:282) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:140) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:57) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:167) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:271) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:71) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:144) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:90) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:142) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:82) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	... 9 common frames omitted
+
+2016-10-09 09:09:53.630 ERROR 26400 --- [pool-2-thread-4] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29906.shtml', method='null', extras=null, priority=0} error
+
+org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+Session ID: 7786d640-8d34-11e6-b4fc-8781fc2da5fe
+Capabilities [{platform=XP, acceptSslCerts=false, javascriptEnabled=true, browserName=phantomjs, rotatable=false, driverVersion=1.2.0, locationContextEnabled=false, version=2.1.1, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=false, browserConnectionEnabled=false, proxy={proxyType=direct}, nativeEvents=true, webStorageEnabled=false, driverName=ghostdriver, applicationCacheEnabled=false, takesScreenshot=true}]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:665) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:316) ~[selenium-remote-driver-2.53.1.jar:na]
+	at com.gy.wm.downloader.SeleniumDownloader.download(SeleniumDownloader.java:107) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:409) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: org.openqa.selenium.WebDriverException: java.net.SocketException: Unrecognized Windows Sockets error: 0: recv failed
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:91) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:644) ~[selenium-remote-driver-2.53.1.jar:na]
+	... 8 common frames omitted
+Caused by: java.net.SocketException: Unrecognized Windows Sockets error: 0: recv failed
+	at java.net.SocketInputStream.socketRead0(Native Method) ~[na:1.7.0_79]
+	at java.net.SocketInputStream.read(SocketInputStream.java:152) ~[na:1.7.0_79]
+	at java.net.SocketInputStream.read(SocketInputStream.java:122) ~[na:1.7.0_79]
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:282) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:140) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:57) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:167) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:271) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:71) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:144) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:90) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:142) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:82) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	... 9 common frames omitted
+
+2016-10-09 09:09:53.630 ERROR 26400 --- [pool-2-thread-11] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29865.shtml', method='null', extras=null, priority=0} error
+
+org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+Session ID: 7786d640-8d34-11e6-b4fc-8781fc2da5fe
+Capabilities [{platform=XP, acceptSslCerts=false, javascriptEnabled=true, browserName=phantomjs, rotatable=false, driverVersion=1.2.0, locationContextEnabled=false, version=2.1.1, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=false, browserConnectionEnabled=false, proxy={proxyType=direct}, nativeEvents=true, webStorageEnabled=false, driverName=ghostdriver, applicationCacheEnabled=false, takesScreenshot=true}]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:665) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:316) ~[selenium-remote-driver-2.53.1.jar:na]
+	at com.gy.wm.downloader.SeleniumDownloader.download(SeleniumDownloader.java:107) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:409) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: org.openqa.selenium.WebDriverException: java.net.SocketException: Connection reset
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:91) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:644) ~[selenium-remote-driver-2.53.1.jar:na]
+	... 8 common frames omitted
+Caused by: java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:196) ~[na:1.7.0_79]
+	at java.net.SocketInputStream.read(SocketInputStream.java:122) ~[na:1.7.0_79]
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:282) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:140) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:57) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:167) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:271) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:71) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:144) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:90) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:142) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:82) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	... 9 common frames omitted
+
+2016-10-09 09:09:53.631 ERROR 26400 --- [pool-2-thread-7] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29884.shtml', method='null', extras=null, priority=0} error
+
+org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+Session ID: 7786d640-8d34-11e6-b4fc-8781fc2da5fe
+Capabilities [{platform=XP, acceptSslCerts=false, javascriptEnabled=true, browserName=phantomjs, rotatable=false, driverVersion=1.2.0, locationContextEnabled=false, version=2.1.1, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=false, browserConnectionEnabled=false, proxy={proxyType=direct}, nativeEvents=true, webStorageEnabled=false, driverName=ghostdriver, applicationCacheEnabled=false, takesScreenshot=true}]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:665) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:316) ~[selenium-remote-driver-2.53.1.jar:na]
+	at com.gy.wm.downloader.SeleniumDownloader.download(SeleniumDownloader.java:107) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:409) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: org.openqa.selenium.WebDriverException: java.net.SocketException: Connection reset
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:91) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:644) ~[selenium-remote-driver-2.53.1.jar:na]
+	... 8 common frames omitted
+Caused by: java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:196) ~[na:1.7.0_79]
+	at java.net.SocketInputStream.read(SocketInputStream.java:122) ~[na:1.7.0_79]
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:282) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:140) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:57) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:167) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:271) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:71) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:144) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:90) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:142) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:82) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	... 9 common frames omitted
+
+2016-10-09 09:09:53.631 ERROR 26400 --- [pool-2-thread-5] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qnz.com.cn/news/newsshow-29891.shtml', method='null', extras=null, priority=0} error
+
+org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+Session ID: 7786d640-8d34-11e6-b4fc-8781fc2da5fe
+Capabilities [{platform=XP, acceptSslCerts=false, javascriptEnabled=true, browserName=phantomjs, rotatable=false, driverVersion=1.2.0, locationContextEnabled=false, version=2.1.1, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=false, browserConnectionEnabled=false, proxy={proxyType=direct}, nativeEvents=true, webStorageEnabled=false, driverName=ghostdriver, applicationCacheEnabled=false, takesScreenshot=true}]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:665) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:316) ~[selenium-remote-driver-2.53.1.jar:na]
+	at com.gy.wm.downloader.SeleniumDownloader.download(SeleniumDownloader.java:107) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:409) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: org.openqa.selenium.WebDriverException: java.net.SocketException: Connection reset
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'Tijun-PC', ip: '118.118.118.230', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:91) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:644) ~[selenium-remote-driver-2.53.1.jar:na]
+	... 8 common frames omitted
+Caused by: java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:196) ~[na:1.7.0_79]
+	at java.net.SocketInputStream.read(SocketInputStream.java:122) ~[na:1.7.0_79]
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:282) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:140) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:57) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:167) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:271) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:71) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:144) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:90) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:142) ~[selenium-remote-driver-2.53.1.jar:na]
+	at org.openqa.selenium.phantomjs.PhantomJSCommandExecutor.execute(PhantomJSCommandExecutor.java:82) ~[phantomjsdriver-1.2.1.jar:1.2.1]
+	... 9 common frames omitted
+
+2016-10-09 09:10:07.765  INFO 16856 --- [pool-1-thread-1] com.gy.wm.entry.Crawl                    : ***********************************task finished******************************************
+2016-10-09 09:10:07.765  INFO 16856 --- [pool-1-thread-1] com.gy.wm.entry.Crawl                    : time elapse(seconds):60661.066
+2016-10-09 09:10:08.736  INFO 25412 --- [pool-1-thread-1] com.gy.wm.entry.Crawl                    : ***********************************task finished******************************************
+2016-10-09 09:10:08.752  INFO 25412 --- [pool-1-thread-1] com.gy.wm.entry.Crawl                    : time elapse(seconds):59357.69
+2016-10-09 09:10:08.972  INFO 16856 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : I/O exception (java.net.ConnectException) caught when processing request: Connection refused: connect
+2016-10-09 09:10:08.972  INFO 16856 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : Retrying request
+2016-10-09 09:10:09.434  INFO 26400 --- [pool-1-thread-1] com.gy.wm.entry.Crawl                    : ***********************************task finished******************************************
+2016-10-09 09:10:09.451  INFO 26400 --- [pool-1-thread-1] com.gy.wm.entry.Crawl                    : time elapse(seconds):58697.994
+2016-10-09 09:10:09.973  INFO 16856 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : I/O exception (java.net.ConnectException) caught when processing request: Connection refused: connect
+2016-10-09 09:10:09.973  INFO 16856 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : Retrying request
+2016-10-09 09:10:10.975  INFO 16856 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : I/O exception (java.net.ConnectException) caught when processing request: Connection refused: connect
+2016-10-09 09:10:10.975  INFO 16856 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : Retrying request
+2016-10-09 09:10:13.336  INFO 25412 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : I/O exception (java.net.ConnectException) caught when processing request: Connection refused: connect
+2016-10-09 09:10:13.336  INFO 25412 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : Retrying request
+2016-10-09 09:10:14.337  INFO 25412 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : I/O exception (java.net.ConnectException) caught when processing request: Connection refused: connect
+2016-10-09 09:10:14.338  INFO 25412 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : Retrying request
+2016-10-09 09:10:15.340  INFO 25412 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : I/O exception (java.net.ConnectException) caught when processing request: Connection refused: connect
+2016-10-09 09:10:15.341  INFO 25412 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : Retrying request
+2016-10-09 09:10:17.365  INFO 26400 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : I/O exception (java.net.ConnectException) caught when processing request: Connection refused: connect
+2016-10-09 09:10:17.365  INFO 26400 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : Retrying request
+2016-10-09 09:10:18.371  INFO 26400 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : I/O exception (java.net.ConnectException) caught when processing request: Connection refused: connect
+2016-10-09 09:10:18.371  INFO 26400 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : Retrying request
+2016-10-09 09:10:19.392  INFO 26400 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : I/O exception (java.net.ConnectException) caught when processing request: Connection refused: connect
+2016-10-09 09:10:19.392  INFO 26400 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : Retrying request
