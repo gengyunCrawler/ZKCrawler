@@ -191,6 +191,13 @@ public class CommonParser implements PageParser {
         return null;
     }
 
+    /**
+     * fix img src--->url missing domain
+     * @param contentHtml
+     * @param imgSrcs
+     * @param domain
+     * @return
+     */
     private String imgUrlPrefix(String contentHtml,List<String> imgSrcs,String domain){
         for (String url:imgSrcs){
             if (url.startsWith("/")){
