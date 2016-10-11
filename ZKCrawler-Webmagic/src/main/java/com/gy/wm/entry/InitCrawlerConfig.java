@@ -2,6 +2,7 @@ package com.gy.wm.entry;
 
 import com.gy.wm.plugins.topicPlugin.analysis.BaseTemplate;
 import com.gy.wm.util.BloomFilter;
+import com.kenai.jaffl.annotations.In;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -18,6 +19,7 @@ public class InitCrawlerConfig {
     private static List<String> protocols;
     private static int recalldepth;
     private static BloomFilter sparkBloomFilter;
+    private static int depth;
 
     public List<String> getPostRegex() {
         return postRegex;
@@ -67,31 +69,64 @@ public class InitCrawlerConfig {
         InitCrawlerConfig.sparkBloomFilter = sparkBloomFilter;
     }
 
+    public static int getDepth() {
+        return depth;
+    }
 
-    public InitCrawlerConfig(String appname, int recalldepth, String templatesDir, String clickregexDir, String protocolDir, String postregexDir)   {
+    public static void setDepth(int depth) {
+        InitCrawlerConfig.depth = depth;
+    }
+
+
+    public InitCrawlerConfig(String appname, int depth, List<String> templateList, List<String> clickregexDir, List<String> protocolList, List<String> postregexDir)   {
 
         //读取模板
-        listTemplate = new ArrayList<>();
         String str;
-        File files = new File(templatesDir);
-        File[] templateFiles = files.listFiles();
-        List<File> fileList = new ArrayList<>();
-        for(File templateFile : templateFiles)    {
-            List<String> tokens = new ArrayList<>();
-            String domain = new String();
-            try {
-                InputStream in = new FileInputStream(templateFile);
-                BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-                domain = reader.readLine();
-                while ((str = reader.readLine()) != null) tokens.add(str);
-                reader.close();
-                listTemplate.add(new BaseTemplate(domain,tokens));
-            } catch (IOException e) {
-                e.printStackTrace();
+        if(null != templateList)    {
+            for (String template : templateList) {
+                List<String> tokens = new ArrayList<>();
+                String domain = new String();
+                try {
+                    InputStream in = new ByteArrayInputStream(template.getBytes("UTF-8"));
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+                    domain = reader.readLine();
+                    while ((str = reader.readLine()) != null)   {
+                        tokens.add(str);
+                    }
+                    reader.close();
+                    if(null != domain && tokens.size() > 0) {
+                        listTemplate.add(new BaseTemplate(domain,tokens));
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
+            setListTemplate(listTemplate);
         }
 
-        setListTemplate(listTemplate);
+        //设置爬取深度
+        setDepth(depth);
+        //读取协议过滤
+        //读取后缀过滤
+
+    }
+
+    //测试
+    public static void main(String[] args) {
+        String str = "http://www.gog.cn/" +
+                "\n"+"hello,world!";
+        try {
+            InputStream in = new ByteArrayInputStream(str.getBytes("UTF-8"));
+            BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+            String domain = reader.readLine();
+            System.out.println("domain: " +domain);
+            while ((str = reader.readLine()) != null)   {
+                System.out.println("content: " +str);
+            }
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 }

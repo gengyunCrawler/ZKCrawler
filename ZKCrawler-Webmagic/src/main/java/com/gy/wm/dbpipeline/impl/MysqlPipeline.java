@@ -6,6 +6,8 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import us.codecraft.webmagic.ResultItems;
 import us.codecraft.webmagic.Task;
 import us.codecraft.webmagic.pipeline.Pipeline;
@@ -20,6 +22,7 @@ import java.io.Reader;
 public class MysqlPipeline implements Pipeline {
     private static Reader reader;
     private static SqlSessionFactory sqlSessionFactory;
+    private static final Logger LOG = LoggerFactory.getLogger(MysqlPipeline.class);
 
     static {
         try {
@@ -33,8 +36,9 @@ public class MysqlPipeline implements Pipeline {
     @Override
     public void process(ResultItems resultItems, Task task) {
         CrawlData crawlData = resultItems.get("crawlerData");
-
-        insertTosql(crawlData);
+        if(null != crawlData)   {
+            insertTosql(crawlData);
+        }
     }
 
     public void insertTosql(CrawlData crawlData)   {

@@ -1,32 +1,26 @@
 package com.gy.wm.entry;
 
-import com.gy.wm.dbpipeline.PipelineBloomFilter;
-import com.gy.wm.dbpipeline.impl.EsPipeline;
-import com.gy.wm.dbpipeline.impl.HbaseEsPipeline;
-import com.gy.wm.dbpipeline.impl.HbasePipeline;
 import com.gy.wm.dbpipeline.impl.MysqlPipeline;
 import com.gy.wm.model.CrawlData;
-import com.gy.wm.plugins.wholesitePlugin.analysis.WholesiteTextAnalysis;
 import com.gy.wm.queue.RedisCrawledQue;
 import com.gy.wm.queue.RedisToCrawlQue;
 import com.gy.wm.schedular.RedisScheduler;
-import com.gy.wm.service.CustomPageProcessor;
 import com.gy.wm.util.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import us.codecraft.webmagic.Spider;
-import us.codecraft.webmagic.downloader.HttpClientDownloader;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ResourceBundle;
 
 /**
  * Created by Administrator on 2016/5/18.
  */
 public class CrawlerWorkflowManager {
-    private LogManager logger = new LogManager(CrawlerWorkflowManager.class);
+    private static final Logger LOG= LoggerFactory.getLogger(CrawlerWorkflowManager.class);
     //待爬取队列
     private RedisToCrawlQue nextQueue = InstanceFactory.getRedisToCrawlQue();
     //已爬取队列
@@ -37,8 +31,6 @@ public class CrawlerWorkflowManager {
     private String appname;
 
     private String domain;
-
-    private static final String DOWNLOAD_PLUGIN_NAME = ResourceBundle.getBundle("config").getString("donwloadPluginName");
 
     public CrawlerWorkflowManager(String tid, String appname) {
         this.tid = tid;
@@ -52,27 +44,20 @@ public class CrawlerWorkflowManager {
         Jedis jedis = pool.getResource();
         domain = GetDomain.getDomain(seeds.get(0).getUrl());
 
-        System.out.println("**********domain************: " + domain);
+        LOG.info("****************************>>>>> domain:  " + domain);
         try {
             nextQueue.putNextUrls(seeds, jedis, tid);
         } finally {
             pool.returnResource(jedis);
         }
 
-        //初始化布隆过滤hash表
+        //初始化布隆过滤HASH表
         BloomFilter bloomFilter = new BloomFilter(jedis, 1000, 0.001f, (int) Math.pow(2, 31));
         for (CrawlData seed : seeds) {
             bloomFilter.add("redis:bloomfilter:" + tid, seed.getUrl());
         }
         //初始化webMagic的Spider程序
         initSpider(seeds, domain);
-
-        //结束之后清空对应任务的redis
-//        jedis.del("redis:bloomfilter:" + tid);
-//        jedis.del("queue_" + tid);
-//        jedis.del("webmagicCrawler::ToCrawl::" + tid);
-//        jedis.del("webmagicCrawler::Crawled::" + tid);
-
     }
 
     protected void initSpider(List<CrawlData> seeds, String domain) {
@@ -81,18 +66,17 @@ public class CrawlerWorkflowManager {
             seedList.add(crawlData.getUrl());
         }
         String[] urlArray = seedList.toArray(new String[seedList.size()]);
-        /* set the pipeline filter key */
-        PipelineBloomFilter.setKeyInRedis(tid);
 
+        //Spider抓取类初始化设置
         Spider spider = null;
         try {
-            spider = PluginUtil.excutePluginDownload(tid,domain);
+            //反射机制取得下载插件，PluginUtil为反射工具类
+            spider = new PluginUtil().excutePluginDownload(tid,domain);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        spider.create(new CustomPageProcessor(tid, domain))
-                .setScheduler(new RedisScheduler(domain)).setUUID(tid)
+        spider.setScheduler(new RedisScheduler(domain)).setUUID(tid)
                 //从seed开始抓
                 .addUrl(urlArray)
                 .addPipeline(new MysqlPipeline())
@@ -100,7 +84,7 @@ public class CrawlerWorkflowManager {
 //                .addPipeline(new HbaseEsPipeline())
 //                .addPipeline(new HbasePipeline())
                         //开启5个线程抓取
-                .thread(20)
+                .thread(1)
                         //启动爬虫
                 .run();
     }

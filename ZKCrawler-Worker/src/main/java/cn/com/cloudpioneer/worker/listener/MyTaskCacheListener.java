@@ -53,12 +53,12 @@ public class MyTaskCacheListener implements TreeCacheListener {
         try {
 
             String treeChildren = treeCacheEvent.getData().getPath();
-            String taskPath = Worker.TASKS_ROOT_PATH;
+            String taskPath = Worker.ROOT_PATH_TASKS;
 
             switch (treeCacheEvent.getType()) {
 
                 case NODE_ADDED:
-                    Pattern taskInMyWorker = Pattern.compile(Worker.WORKERS_ROOT_PATH + "/" + worker.getWorkerId() + "/task-.*");
+                    Pattern taskInMyWorker = Pattern.compile(Worker.ROOT_PATH_WORKERS + "/" + worker.getWorkerId() + "/task-.*");
 
                     LOGGER.info("znode add event, treeChildren: " + treeChildren);
 
@@ -76,6 +76,7 @@ public class MyTaskCacheListener implements TreeCacheListener {
 
                         TaskModel taskModel = new TaskModel(taskPath, taskData);
                         taskModel.getEntity().setTimeStart(new Date());
+                        taskModel.getEntity().setTimeLastCrawl(new Date());
                         GetTaskConfig getTaskConfig = new GetTaskConfig();
                         taskModel.setConfigs(GetTaskConfig.configsParser(getTaskConfig.findConfigs(taskModel.getEntity().getId())));
                         worker.addTaskToRunning(taskModel);
@@ -92,7 +93,7 @@ public class MyTaskCacheListener implements TreeCacheListener {
                 case NODE_REMOVED:
                    /* ignore this case */
                     LOGGER.info("node removed event， treeChildren: " + treeChildren);
-                    Pattern taskRemove = Pattern.compile(Worker.WORKERS_ROOT_PATH + "/" + worker.getWorkerId() + "/task-.*");
+                    Pattern taskRemove = Pattern.compile(Worker.ROOT_PATH_WORKERS + "/" + worker.getWorkerId() + "/task-.*");
                     if (taskRemove.matcher(treeChildren).matches()) {
 
                         taskPath += "/" + treeChildren.split("/")[3];
@@ -100,12 +101,16 @@ public class MyTaskCacheListener implements TreeCacheListener {
                         byte[] taskData = worker.getZnodeData(taskPath);
 
                         if (taskData == null) {
-                            LOGGER.error("get task data from znode error, task will not start, return this Event Handler.");
+                            LOGGER.error("get task data from znode error, task will not stop, return this Event Handler.");
                             return;
                         }
 
                         TaskModel taskModel = new TaskModel(taskPath, taskData);
-                        worker.myTaskWirteBack(taskModel.getEntity().getId());
+                        if (!worker.containsTask(taskModel.getEntity().getId())) {
+                            LOGGER.info("==> the removed task not in myTasks, return this Event Handler.");
+                            return;
+                        }
+                        worker.myTaskWriteBack(taskModel.getEntity().getId());
                         worker.removeTaskInRunning(taskModel);
 
                     } else

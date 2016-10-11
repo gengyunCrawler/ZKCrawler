@@ -22,35 +22,6 @@ public class TaskEntity implements Serializable {
     //爬虫任务描述
     private String remark;
 
-/********************************************************
-    //爬取的种子入口列表，格式为JSON数组
-    private String seedUrls;
-
-    //存放模板文件路径
-    private String pathTemplates;
-
-    //标签文件路径，存放文件夹地址
-    private String pathTag;
-
-    //种子文件路径
-    private String pathSeeds;
-
-    //配置文件路径
-    private String pathConfigs;
-
-    //点击正则配置文件路径
-    private String pathClickRegex;
-
-    //正则过滤配置文件路径
-    private String pathRegexFilter;
-
-    //协议过滤配置文件地址
-    private String pathProtocolFilter;
-
-    //后缀过滤配置文件地址
-    private String pathSuffixFilter;
-*******************************************************/
-
     //爬虫任务类型
     private int type;
 
@@ -133,82 +104,6 @@ public class TaskEntity implements Serializable {
     public void setRemark(String remark) {
         this.remark = remark;
     }
-
-
-/**************************************************************
-    public String getSeedUrls() {
-        return seedUrls;
-    }
-
-    public void setSeedUrls(String seedUrls) {
-        this.seedUrls = seedUrls;
-    }
-
-    public String getPathTemplates() {
-        return pathTemplates;
-    }
-
-    public void setPathTemplates(String pathTemplates) {
-        this.pathTemplates = pathTemplates;
-    }
-
-    public String getPathTag() {
-        return pathTag;
-    }
-
-    public void setPathTag(String pathTag) {
-        this.pathTag = pathTag;
-    }
-
-    public String getPathSeeds() {
-        return pathSeeds;
-    }
-
-    public void setPathSeeds(String pathSeeds) {
-        this.pathSeeds = pathSeeds;
-    }
-
-    public String getPathConfigs() {
-        return pathConfigs;
-    }
-
-    public void setPathConfigs(String pathConfigs) {
-        this.pathConfigs = pathConfigs;
-    }
-
-    public String getPathClickRegex() {
-        return pathClickRegex;
-    }
-
-    public void setPathClickRegex(String pathClickRegex) {
-        this.pathClickRegex = pathClickRegex;
-    }
-
-    public String getPathRegexFilter() {
-        return pathRegexFilter;
-    }
-
-    public void setPathRegexFilter(String pathRegexFilter) {
-        this.pathRegexFilter = pathRegexFilter;
-    }
-
-    public String getPathProtocolFilter() {
-        return pathProtocolFilter;
-    }
-
-    public void setPathProtocolFilter(String pathProtocolFilter) {
-        this.pathProtocolFilter = pathProtocolFilter;
-    }
-
-    public String getPathSuffixFilter() {
-        return pathSuffixFilter;
-    }
-
-    public void setPathSuffixFilter(String pathSuffixFilter) {
-        this.pathSuffixFilter = pathSuffixFilter;
-    }
-
-*****************************************************************/
 
     public int getType() {
         return type;
@@ -338,11 +233,11 @@ public class TaskEntity implements Serializable {
         this.workNum = workNum;
     }
 
-    public Date getCreateTime() {
+    public Date getCreateDate() {
         return createDate;
     }
 
-    public void setCreateTime(Date createDate) {
+    public void setCreateDate(Date createDate) {
         this.createDate = createDate;
     }
 

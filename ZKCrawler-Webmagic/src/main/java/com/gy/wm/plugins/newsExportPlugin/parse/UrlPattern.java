@@ -1,0 +1,32 @@
+package com.gy.wm.plugins.newsExportPlugin.parse;
+
+/**
+ * Created by Tijun on 2016/9/30.
+ * @author TijunWang
+ */
+public class UrlPattern {
+    private String regex;
+    private String type;
+
+    public UrlPattern(){}
+
+    public  UrlPattern(String regex,String type){
+        this.regex=regex;
+        this.type=type;
+    }
+    public String getRegex() {
+        return regex;
+    }
+
+    public void setRegex(String regex) {
+        this.regex = regex;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+}

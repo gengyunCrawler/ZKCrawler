@@ -2,7 +2,7 @@
 
 爬虫任务模型，两张表，
 第一张为基本描述，
-第二张为配置。
+第二张为任务配置。
 
  */
 
@@ -12,17 +12,6 @@ CREATE TABLE tbCrawlerTask(
   `idUser` BIGINT COMMENT   '用户id，表明此任务属于哪个用户的任务。默认值为NULL。',
   `name` VARCHAR(512) CHARACTER SET utf8 DEFAULT '' COMMENT '爬虫任务名称。默认值为空字符串。',
   `remark` VARCHAR(1024)  CHARACTER SET utf8 DEFAULT '' COMMENT '爬虫任务描述',
-/**
-  `seedUrls` TEXT CHARACTER SET utf8 COMMENT '爬取种子入口列表，JSON字符串数组，如：[“url-01”,”url-02”,”url-03”]，对于全站类型的爬虫任务，种子可以在此字段上配置即可。默认值为空字符串。',
-  `pathTemplates` VARCHAR(512) CHARACTER SET utf8 DEFAULT '' COMMENT '解析模板文件路径，即存放解析模板文件的路径地址，目录地址。默认值为空字符串。',
-  `pathTag` VARCHAR(512) CHARACTER SET utf8 DEFAULT '' COMMENT '标签文件路径，文件夹地址。默认值为空字符串。',
-  `pathSeeds` VARCHAR(512) CHARACTER SET utf8 DEFAULT '' COMMENT '种子文件路径，是文件名称，文件地址。',
-  `pathConfigs`  VARCHAR(512) CHARACTER SET utf8 DEFAULT '' COMMENT '配置文件路径，是文件名，文件地址。默认值为空字符串。',
-  `pathClickRegex` VARCHAR(512) CHARACTER SET utf8 DEFAULT '' COMMENT '点击正则配置文件路径，目录地址。',
-  `pathRegexFilter` VARCHAR(512) CHARACTER SET utf8 DEFAULT '' COMMENT '正则过滤配置文件路径，目录地址。',
-  `pathProtocolFilter` VARCHAR(512) CHARACTER SET utf8 DEFAULT ''COMMENT '协议过滤配置文件地址，目录地址。',
-  `pathSuffixFilter` VARCHAR(512)  CHARACTER SET utf8 DEFAULT ''  COMMENT '后缀过滤配置文件地址，目录地址。',
-**/
   `type` INT DEFAULT 0 COMMENT  '爬虫任务类型，如：全站任务或栏目任务',
   `depthCrawl` INT  DEFAULT 3 COMMENT '爬取深度',
   `depthDynamic` INT DEFAULT 3 COMMENT   '动态爬取深度',
@@ -50,7 +39,8 @@ CREATE TABLE tbCrawlerTaskConfig(
   `id` BIGINT  AUTO_INCREMENT COMMENT '配置项id',
   `idTask` VARCHAR(64) CHARACTER SET utf8 COMMENT '爬虫任务的id，外键，参考表 tbCrawlerTask',
   `confName` VARCHAR(512) CHARACTER SET utf8 DEFAULT NULL COMMENT '配置项名称',
-  `confType` ENUM('undefine','seedUrls','templates','tags','configs','clickRegex','regexFilter','protocolFilter','suffixFilter') CHARACTER SET utf8 DEFAULT 'undefine' COMMENT '配置类型',
+  `confType` ENUM('undefine','seedUrls','templates','tags','configs','clickRegex','regexFilter','protocolFilter','suffixFilter',
+                  'downloader','urlParser','pageParser','proxy') CHARACTER SET utf8 DEFAULT 'undefine' COMMENT '配置类型',
   `confValue` LONGTEXT CHARACTER SET utf8,
   `addDate` DATETIME DEFAULT NULL COMMENT '配置项添加或修改的时间',
 

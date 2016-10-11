@@ -93,9 +93,31 @@ public class GetTaskConfig {
                         configs.put(ConfigType.SUFFIX_FILTER, new ArrayList<TaskConfigEntity>());
                     configs.get(ConfigType.SUFFIX_FILTER).add(item);
                     break;
-                case ConfigType.UNDEFINE:
+                case ConfigType.DOWNLOADER:
+                    if (configs.get(ConfigType.DOWNLOADER) == null)
+                        configs.put(ConfigType.DOWNLOADER, new ArrayList<TaskConfigEntity>());
+                    configs.get(ConfigType.DOWNLOADER).add(item);
                     break;
+                case ConfigType.URL_PARSER:
+                    if (configs.get(ConfigType.URL_PARSER) == null)
+                        configs.put(ConfigType.URL_PARSER, new ArrayList<TaskConfigEntity>());
+                    configs.get(ConfigType.URL_PARSER).add(item);
+                    break;
+                case ConfigType.PAGE_PARSER:
+                    if (configs.get(ConfigType.PAGE_PARSER) == null)
+                        configs.put(ConfigType.PAGE_PARSER, new ArrayList<TaskConfigEntity>());
+                    configs.get(ConfigType.PAGE_PARSER).add(item);
+                    break;
+                case ConfigType.PROXY:
+                    if (configs.get(ConfigType.PROXY) == null)
+                        configs.put(ConfigType.PROXY, new ArrayList<TaskConfigEntity>());
+                    configs.get(ConfigType.PROXY).add(item);
+                    break;
+                case ConfigType.UNDEFINE:
                 default:
+                    if (configs.get(ConfigType.UNDEFINE) == null)
+                        configs.put(ConfigType.UNDEFINE, new ArrayList<TaskConfigEntity>());
+                    configs.get(ConfigType.UNDEFINE).add(item);
                     break;
             }
         }
