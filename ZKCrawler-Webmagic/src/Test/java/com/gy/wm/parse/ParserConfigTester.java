@@ -2,6 +2,8 @@ package com.gy.wm.parse;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.gargoylesoftware.htmlunit.WebClient;
+import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import com.gy.wm.dao.ParserDao;
 import com.gy.wm.plugins.newsExportPlugin.parse.*;
 import com.gy.wm.plugins.newsExportPlugin.parse.HtmlField;
@@ -10,6 +12,8 @@ import com.sun.jna.platform.win32.OaIdl;
 import org.junit.Test;
 import us.codecraft.webmagic.selector.Html;
 import us.codecraft.webmagic.selector.Selectable;
+import us.codecraft.webmagic.selector.Selectors;
+import us.codecraft.webmagic.selector.SmartContentSelector;
 
 import java.io.BufferedInputStream;
 import java.io.InputStream;
@@ -27,6 +31,26 @@ public class ParserConfigTester
 {
 
 
+    @Test
+    public void testSmartContent(){
+        String content="<div class=\"hhg\">\n" +
+                "  来源：黔南热线-黔南日报 \n" +
+                " <span class=\"NewsAuthor\">作者：徐朦</span> \n" +
+                " <span class=\"NewsDate\">2016-10-11 9:55:50</span>　 \n" +
+                " <br> 投稿邮箱：qnrx999@163.com 新闻热线: 0854-8221848 \n" +
+                " <span class=\"auth\"><script language=\"javascript\" type=\"text/javascript\">\n" +
+                "function ContentSize(size)\n" +
+                "{document.getElementById('MyContent').style.fontSize=size+'px';}\n" +
+                "</script> 【字体：<a href=\"\">大</a> <a href=\"\">中</a> <a href=\"\">小</a>】 </span> 　 \n" +
+                "</div>";
+        SmartContentSelector selector=Selectors.smartContent();
+        Html html=new Html(content);
+      //  HtmlPage htmlPag=new HtmlPage()
+        System.out.println(html.xpath("//div").smartContent());
+
+
+
+    }
     @Test
     public void testUrl(){
         String url="http://www.qnz.com.cn/news/newslist-0-12.shtml";
@@ -114,9 +138,29 @@ public class ParserConfigTester
         list.add("//div[@class='hhg']");
         field3.setXpaths(list);
         field3.setFieldName("source");
+
+
+        com.gy.wm.plugins.newsExportPlugin.parse.HtmlField field4=new  com.gy.wm.plugins.newsExportPlugin.parse.HtmlField();
+        List<String> list4=new ArrayList<>();
+
+        list4.add("//div[@class='hhg']/text()");
+
+        field4.setXpaths(list4);
+        field4.setFieldName("sourceName");
+
+        com.gy.wm.plugins.newsExportPlugin.parse.HtmlField field5=new  com.gy.wm.plugins.newsExportPlugin.parse.HtmlField();
+        List<String> list5=new ArrayList<>();
+
+        list5.add("//div[@class='hhg']/span[@class='NewsAuthor']/text()");
+
+        field5.setXpaths(list5);
+        field5.setFieldName("author");
         fileds.add(filed1);
         fileds.add(filed2);
         fileds.add(field3);
+        fileds.add(field4);
+        fileds.add(field5);
+
         com.gy.wm.plugins.newsExportPlugin.parse.ParserConfig config=new com.gy.wm.plugins.newsExportPlugin.parse.ParserConfig();
         config.setFileds(fileds);
         config.setId(3434);

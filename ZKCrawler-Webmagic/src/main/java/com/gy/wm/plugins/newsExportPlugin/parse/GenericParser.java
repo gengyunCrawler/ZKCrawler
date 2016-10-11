@@ -15,9 +15,9 @@ import java.util.regex.Pattern;
 /**
  * Created by tijun on 2016/10/8.
  * @author TijunWang
+ * @version 1.0
  */
-@Deprecated
-public class CommonParser implements PageParser {
+public class GenericParser implements PageParser {
     private ParserConfig config = null;
     private ParserDao parserDao = new ParserDao();
     private List<String> contentLinkRegexs = new ArrayList<>();
@@ -74,7 +74,7 @@ public class CommonParser implements PageParser {
     }
 
     /**
-     * Parsing data from html and result in crawlerData,this is just version 1.0,but at version 2.0
+     * Parsing data from html and result in crawlerData,
      * we needn't to know which field is,we just put all field in a mup,and then stored in mysql,hbase and other systems
      *
      * @param html
@@ -86,67 +86,35 @@ public class CommonParser implements PageParser {
     private CrawlData parseData(Html html, CrawlData crawlData, List<HtmlField> htmlFields) {
 
 
-        String title=null;
-        //包含html格式的文章段落
-        String contentHtml=null;
-        //来源和作者字段
-        String author=null;
-
-        String sourceName=null;
-        String source=null;
-
-
-        for (HtmlField htmlField:htmlFields){
-            if (htmlField.getFieldName().equals("title")){
-                title=byXpaths(html,htmlField.getXpaths());
-            } else if (htmlField.getFieldName().equals("content")){
-                contentHtml=byXpaths(html,htmlField.getXpaths());
-                Html newContentHtml=new Html("<html>"+contentHtml+"</html>");
-                List<String> imgSrcs=newContentHtml.xpath("//img/@src").all();
-                String domain="";
-               String []arr= crawlData.getRootUrl().split("/");
-                domain=arr[0]+"//"+arr[2];
-               contentHtml= imgUrlPrefix(contentHtml,imgSrcs,domain);
-
-
-            } else if (htmlField.getFieldName().equals("author")){
-                 author=byXpaths(html,htmlField.getXpaths()).split("：")[1];
-
-            }else if (htmlField.getFieldName().equals("sourceName")){
-                sourceName=byXpaths(html,htmlField.getXpaths()).split("：")[1];
-            }
-
-            if (htmlField.getFieldName().equals("source")&&author==null&&sourceName==null){
-                source =byXpaths(html,htmlField.getXpaths());
-
-                if (source!=null){
-                    String [] arr=source.split(" ");
-                    for (String content:arr){
-                        if (content.contains("作者")){
-                            author=content.split("：")[1];
-                        }
-                        if (content.contains("来源")){
-                            sourceName=content.split("：")[1];
-                        }
-                    }
-                }
-            }
-        }
 
         crawlData.setTid(crawlData.getTid());
-        crawlData.setTitle(title);
+
         crawlData.setHtml(html.toString());
         crawlData.setDepthfromSeed(crawlData.getDepthfromSeed() + 1);
         crawlData.setFetched(true);
         crawlData.setCrawlTime(new Date());
-        crawlData.setText(contentHtml);
-        crawlData.setAuthor(author);
-        crawlData.setSourceName(sourceName);
+
         //put all fields into mup
         Map<String,String> fieldMap=new HashMap<>();
         for (HtmlField htmlField:htmlFields){
+            String fieldValue=byXpaths(html,htmlField.getXpaths());
+            if (fieldValue!=null){
+                if (fieldValue.contains("<img")){
+                    Html newContentHtml=new Html(fieldValue);
 
+                    List<String> imgSrcs=newContentHtml.xpath("//img/@src").all();
+                    String domain="";
+                    String []arr= crawlData.getRootUrl().split("/");
+                    domain=arr[0]+"//"+arr[2];
+                    fieldValue= imgUrlPrefix(fieldValue,imgSrcs,domain);
+                }
+
+            }
+
+            fieldMap.put(htmlField.getFieldName(),fieldValue);
         }
+
+        crawlData.setCrawlerdata(fieldMap);
 
         return crawlData;
     }
@@ -209,9 +177,9 @@ public class CommonParser implements PageParser {
     private String imgUrlPrefix(String contentHtml,List<String> imgSrcs,String domain){
         for (String url:imgSrcs){
             if (url.startsWith("/")){
-              contentHtml= contentHtml.replace(url,domain+url);
+                contentHtml= contentHtml.replace(url,domain+url);
             }
-            }
+        }
         return contentHtml;
 
     }

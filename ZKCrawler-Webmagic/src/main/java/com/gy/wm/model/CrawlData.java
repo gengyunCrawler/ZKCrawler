@@ -1,7 +1,10 @@
 package com.gy.wm.model;
 
+import com.alibaba.fastjson.JSON;
+
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -30,6 +33,30 @@ public class CrawlData implements Serializable {
     private boolean fetched;
     private String author;
     private String sourceName;
+    private String jsonData;
+
+    public String getJsonData() {
+        return jsonData;
+    }
+
+    public void setJsonData(String jsonData) {
+        this.jsonData = jsonData;
+    }
+
+    private Map<String,String> crawlerdata=new HashMap<>();
+
+    public Map<String, String> getCrawlerdata() {
+        return crawlerdata;
+    }
+
+    public void setCrawlerdata(Map<String, String> crawlerdata) {
+
+        if (crawlerdata!=null){
+            this.crawlerdata = crawlerdata;
+            this.jsonData= JSON.toJSONString(crawlerdata);
+        }
+
+    }
 
     public String getAuthor() {
         return author;
