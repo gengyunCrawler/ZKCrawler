@@ -10,6 +10,8 @@ import us.codecraft.webmagic.selector.Selectable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by tijun on 2016/10/8.
@@ -20,6 +22,7 @@ public class CommonParser implements PageParser {
     private ParserDao parserDao = new ParserDao();
     private List<String> contentLinkRegexs = new ArrayList<>();
     private List<String> columnRegexs = new ArrayList<>();
+    private  Pattern pattern=Pattern.compile("(\\w+.*://\\w+.*)/(\\w+.*)");
 
     @Override
     public List<CrawlData> parse(CrawlData crawlData) {
@@ -66,7 +69,7 @@ public class CommonParser implements PageParser {
         }
         //parsing data from html
         if (isContentHtml(crawlData.getUrl())) {
-            crawlDatas.add(parseData(new Html(crawlData.getHtml()), crawlData, config));
+            crawlDatas.add(parseData(new Html(crawlData.getHtml()), crawlData, config.getFileds()));
         }
 
         return crawlDatas;
@@ -78,11 +81,11 @@ public class CommonParser implements PageParser {
      *
      * @param html
      * @param crawlData
-     * @param config
+     * @param htmlFields
      * @return CrawlerData
      * @version 1.0
      */
-    private CrawlData parseData(Html html, CrawlData crawlData, ParserConfig config) {
+    private CrawlData parseData(Html html, CrawlData crawlData, List<HtmlField> htmlFields) {
 
 
         String title=null;
@@ -93,7 +96,8 @@ public class CommonParser implements PageParser {
 
         String sourceName=null;
         String source=null;
-        List<HtmlField> htmlFields=config.getFileds();
+
+
         for (HtmlField htmlField:htmlFields){
             if (htmlField.getFieldName().equals("title")){
                 title=byXpaths(html,htmlField.getXpaths());
@@ -101,12 +105,14 @@ public class CommonParser implements PageParser {
 
             if (htmlField.getFieldName().equals("content")){
                 contentHtml=byXpaths(html,htmlField.getXpaths());
-                if (contentHtml!=null){
-                    if (config.getImagePrefix()!=null){
-                        contentHtml= contentHtml.replace("src=\"","src=\""+config.getImagePrefix());
-                    }
+                Html newContentHtml=new Html("<html>"+contentHtml+"</html>");
+                List<String> imgSrcs=newContentHtml.xpath("//img/@src").all();
+                String domain="";
+               String []arr= crawlData.getRootUrl().split("/");
+                domain=arr[0]+"//"+arr[2];
+               contentHtml= imgUrlPrefix(contentHtml,imgSrcs,domain);
 
-                }
+
             }if (htmlField.getFieldName().equals("source")){
                 source =byXpaths(html,htmlField.getXpaths());
                 if (source!=null){
@@ -175,10 +181,23 @@ public class CommonParser implements PageParser {
     private String byXpaths(Html html, List<String> xpaths) {
         for (String xpath : xpaths) {
             Selectable selectable = html.xpath(xpath);
+            System.out.println("SELECTABLE:"+selectable.toString());
             if (selectable != null) {
-                return selectable.toString();
+                if (selectable.toString()!=null){
+                    return selectable.toString();
+                }
             }
         }
         return null;
+    }
+
+    private String imgUrlPrefix(String contentHtml,List<String> imgSrcs,String domain){
+        for (String url:imgSrcs){
+            if (url.startsWith("/")){
+              contentHtml= contentHtml.replace(url,domain+url);
+            }
+            }
+        return contentHtml;
+
     }
 }

@@ -8,15 +8,81 @@ import com.gy.wm.plugins.newsExportPlugin.parse.HtmlField;
 import com.sun.corba.se.spi.orb.ParserData;
 import com.sun.jna.platform.win32.OaIdl;
 import org.junit.Test;
+import us.codecraft.webmagic.selector.Html;
+import us.codecraft.webmagic.selector.Selectable;
 
+import java.io.BufferedInputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by Administrator on 2016/9/30.
  */
 public class ParserConfigTester
 {
+
+
+    @Test
+    public void testUrl(){
+        String url="http://www.qnz.com.cn/news/newslist-0-12.shtml";
+        String [] arr=url.split("/");
+        int i=0;
+        for (String a:arr){
+            System.out.println(i+"----"+a);
+            i++;
+        }
+        System.out.println(arr[0]+"/"+arr[2]);
+
+    }
+    @Test
+    public void testImgSufix(){
+        String url="http://www.qnz.com.cn/news/newslist-0-12.shtml";
+       // for (){}
+        Pattern pattern=Pattern.compile("(\\w+.*://\\w+.*)/(\\w+.*)?");
+        Matcher matcher= pattern.matcher(url);
+        while (matcher.find()){
+            System.out.println("0:"+matcher.group(0));
+            System.out.println("1:"+matcher.group(1));
+            System.out.println("2:"+matcher.group(2));
+        }
+        String s="11111<img class src=\"/dap/dxeditor.output.f?pkid=01120316032104947034\" width=62 height=62>测试<img src=\"/192.168.1.4:8080/dap/dxeditor.output.f?pkid=01120316032104947034\">222222<img src=\"/dd\">";
+        Pattern pattern1 = Pattern.compile("<img.*src=\"/(.*)\".*>??");
+        Matcher matcher1=pattern1.matcher(s);
+        while (matcher1.find()){
+            String src="http://www.baidu.com";
+            System.out.println(matcher1.group());
+//            System.out.println(matcher1.group(0));
+//            System.out.println(matcher1.group(1));
+//          String content=  matcher1.group().replace("src=\"","src=\""+src);
+//            System.out.println("content:"+content);
+
+        }
+
+    }
+
+    @Test
+    public void testPartSelectable(){
+        InputStream is=this.getClass().getResourceAsStream("/selectableTest.html");
+        InputStreamReader reader=new InputStreamReader(is);
+        BufferedInputStream bufferedInputStream=new BufferedInputStream(is);
+
+
+    }
+
+    private String byXpaths(Html html, List<String> xpaths){
+        for (String xpath:xpaths){
+            Selectable selectable= html.xpath(xpath);
+            if (selectable!=null){
+                return selectable.toString();
+            }
+        }
+        return null;
+    }
     @Test
 
     public void testConfig(){
