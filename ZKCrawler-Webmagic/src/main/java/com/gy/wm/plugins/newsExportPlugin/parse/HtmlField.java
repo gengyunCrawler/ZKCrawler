@@ -12,6 +12,15 @@ public class HtmlField {
     private List<String> xpaths;
     private String regex;
     private String occur;
+    private boolean containsHtml;
+
+    public boolean isContainsHtml() {
+        return containsHtml;
+    }
+
+    public void setContainsHtml(boolean containsHtml) {
+        this.containsHtml = containsHtml;
+    }
 
     public String getFieldName() {
         return fieldName;

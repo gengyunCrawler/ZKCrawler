@@ -110,6 +110,17 @@ public class GenericParser implements PageParser {
                 }
 
             }
+            if (htmlField.isContainsHtml()==false){
+                Html fieldHtml = new Html(fieldValue);
+                List<String> fieldValues = fieldHtml.xpath("//*/text()").all();
+                StringBuffer buffer = new StringBuffer();
+                for (String value:fieldValues){
+                    buffer.append(value);
+                }
+                fieldValue=buffer.toString();
+
+
+            }
 
             fieldMap.put(htmlField.getFieldName(),fieldValue);
         }
@@ -160,6 +171,7 @@ public class GenericParser implements PageParser {
             Selectable selectable = html.xpath(xpath);
             if (selectable != null) {
                 if (selectable.toString()!=null){
+
                     return selectable.toString();
                 }
             }
