@@ -13,6 +13,15 @@ public class HtmlField {
     private String regex;
     private String occur;
     private boolean containsHtml;
+    private List<String> excludeXpaths;
+
+    public List<String> getExcludeXpaths() {
+        return excludeXpaths;
+    }
+
+    public void setExcludeXpaths(List<String> excludeXpaths) {
+        this.excludeXpaths = excludeXpaths;
+    }
 
     public boolean isContainsHtml() {
         return containsHtml;

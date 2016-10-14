@@ -98,7 +98,9 @@ public class GenericParser implements PageParser {
         Map<String,String> fieldMap=new HashMap<>();
         for (HtmlField htmlField:htmlFields){
             String fieldValue=byXpaths(html,htmlField.getXpaths());
+
             if (fieldValue!=null){
+
                 if (fieldValue.contains("<img")){
                     Html newContentHtml=new Html(fieldValue);
 
@@ -110,6 +112,7 @@ public class GenericParser implements PageParser {
                 }
 
             }
+
             if (htmlField.isContainsHtml()==false){
                 Html fieldHtml = new Html(fieldValue);
                 List<String> fieldValues = fieldHtml.xpath("//*/text()").all();
@@ -119,9 +122,13 @@ public class GenericParser implements PageParser {
                 }
                 fieldValue=buffer.toString();
 
+            }
+            //remove elements that is needn't
+            List<String> excludesXpaths=htmlField.getExcludeXpaths();
+            if (excludesXpaths!=null&&excludesXpaths.size()>0){
+               fieldValue=byExcludesXpaths(fieldValue,excludesXpaths);
 
             }
-
             fieldMap.put(htmlField.getFieldName(),fieldValue);
         }
 
@@ -171,12 +178,41 @@ public class GenericParser implements PageParser {
             Selectable selectable = html.xpath(xpath);
             if (selectable != null) {
                 if (selectable.toString()!=null){
-
-                    return selectable.toString();
+                    List<String> contents=selectable.all();
+                    StringBuffer buffer=new StringBuffer();
+                    for (String content:contents){
+                        buffer.append(content);
+                    }
+                    return buffer.toString();
                 }
             }
         }
         return null;
+    }
+
+    /**
+     * remove elements that matches xpathes
+     * @param contentHtml
+     * @param xpaths
+     * @return
+     */
+    private String byExcludesXpaths(String contentHtml, List<String> xpaths) {
+        String regex=">\\s*<";
+        Html html = new Html(contentHtml);
+        for (String xpath : xpaths) {
+            Selectable selectable = html.xpath(xpath);
+            if (selectable != null) {
+                if (selectable.toString() != null){
+                    List<String> contents=selectable.all();
+                        for (String content:contents){
+                            content=content.replace("\n","").replace("\t","").replaceAll(regex,"><");
+                            contentHtml=html.xpath("/html/body/*").toString().replaceAll(regex,"><").replace(content,"");
+                           }
+                        }
+                }
+            }
+
+        return contentHtml;
     }
 
     /**
@@ -195,4 +231,6 @@ public class GenericParser implements PageParser {
         return contentHtml;
 
     }
+
+
 }
