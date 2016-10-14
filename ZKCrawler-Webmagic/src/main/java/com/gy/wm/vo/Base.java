@@ -13,79 +13,120 @@ import java.util.Date;
  **/
 @Component
 public class Base {
-    private int completeTimes;
 
-    private int costLastCrawl;
-
-    private int cycleRecrawl;
-
-    private boolean deleteFlag;
-
-    private int depthCrawl;
-
-    private int depthDynamic;
-
+    //爬虫的任务id，唯一
     private String id;
 
-    //idUser为保留字段
-    private Long idUser;
+    //用户id，表明任务属于哪个用户，保留字段
+    private long idUser = 0;
 
-    private String name;
+    //爬虫的任务名
+    private String name = "";
 
-    private int pass;
+    //爬虫任务描述
+    private String remark = "";
 
-    private String remark;
+    //爬虫任务类型
+    private int type = 0;
 
-    private int scheduleType;
+    //爬取深度
+    private int depthCrawl = 3;
 
-    private int status;
+    //动态爬取深度
+    private int depthDynamic = 3;
 
-    private int threads;
+    //爬取遍数,默认为0
+    private int pass = 0;
 
-    private Date timeLastCrawl;
+    //任务权重，默认为0
+    private int weight = 0;
 
+    //任务爬取时的线程数，大于0，默认为1
+    private int threads = 1;
+
+    //爬取任务完成的次数
+    private int completeTimes = 0;
+
+    //任务爬取周期 单位为小时，默认为72
+    private int cycleRecrawl = 72;
+
+    //数字标识任务状态，默认为0
+    private int status = 0;
+
+    //任务的软删除标识，为true时不能进行爬取，相当于删除，默认为false
+    private boolean deleteFlag =false;
+
+    // 任务的激活标识，为 false 时不进行爬取。默认 true
+    private boolean activeFlag = true;
+
+    //爬取任务启动的时间
     private Date timeStart;
 
+    //爬取任务的停止时间
     private Date timeStop;
 
-    private int type;
+    //任务最后一次爬取的时间
+    private Date timeLastCrawl;
 
-    private int weight;
+    //上次爬取消耗的时间，单位为分钟
+    private int costLastCrawl = 0;
 
-    private int workNum;
+    //调度类型
+    private int scheduleType = 0;
 
+    //每个任务对应的work数量
+    private int workerNumber = 0;
+
+    //任务创建的时间
     private Date createDate;
 
-    public int getCompleteTimes() {
-        return completeTimes;
+    // 下载器
+    private String downloader = "";
+
+    // 解析器
+    private String parser = "";
+
+    // 标签
+    private String tags = "[]";
+
+    public String getId() {
+        return id;
     }
 
-    public void setCompleteTimes(int completeTimes) {
-        this.completeTimes = completeTimes;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public int getCostLastCrawl() {
-        return costLastCrawl;
+    public long getIdUser() {
+        return idUser;
     }
 
-    public void setCostLastCrawl(int costLastCrawl) {
-        this.costLastCrawl = costLastCrawl;
+    public void setIdUser(long idUser) {
+        this.idUser = idUser;
     }
 
-    public int getCycleRecrawl() {
-        return cycleRecrawl;
+    public String getName() {
+        return name;
     }
 
-    public void setCycleRecrawl(int cycleRecrawl) {
-        this.cycleRecrawl = cycleRecrawl;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public boolean isDeleteFlag() {
-        return deleteFlag;
+    public String getRemark() {
+        return remark;
     }
 
-    public void setDeleteFlag(boolean deleteFlag) {
-        this.deleteFlag = deleteFlag;
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
     }
 
     public int getDepthCrawl() {
@@ -104,30 +145,6 @@ public class Base {
         this.depthDynamic = depthDynamic;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public Long getIdUser() {
-        return idUser;
-    }
-
-    public void setIdUser(Long idUser) {
-        this.idUser = idUser;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public int getPass() {
         return pass;
     }
@@ -136,28 +153,12 @@ public class Base {
         this.pass = pass;
     }
 
-    public String getRemark() {
-        return remark;
+    public int getWeight() {
+        return weight;
     }
 
-    public void setRemark(String remark) {
-        this.remark = remark;
-    }
-
-    public int getScheduleType() {
-        return scheduleType;
-    }
-
-    public void setScheduleType(int scheduleType) {
-        this.scheduleType = scheduleType;
-    }
-
-    public int getStatus() {
-        return status;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
+    public void setWeight(int weight) {
+        this.weight = weight;
     }
 
     public int getThreads() {
@@ -168,12 +169,44 @@ public class Base {
         this.threads = threads;
     }
 
-    public Date getTimeLastCrawl() {
-        return timeLastCrawl;
+    public int getCompleteTimes() {
+        return completeTimes;
     }
 
-    public void setTimeLastCrawl(Date timeLastCrawl) {
-        this.timeLastCrawl = timeLastCrawl;
+    public void setCompleteTimes(int completeTimes) {
+        this.completeTimes = completeTimes;
+    }
+
+    public int getCycleRecrawl() {
+        return cycleRecrawl;
+    }
+
+    public void setCycleRecrawl(int cycleRecrawl) {
+        this.cycleRecrawl = cycleRecrawl;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public boolean isDeleteFlag() {
+        return deleteFlag;
+    }
+
+    public void setDeleteFlag(boolean deleteFlag) {
+        this.deleteFlag = deleteFlag;
+    }
+
+    public boolean isActiveFlag() {
+        return activeFlag;
+    }
+
+    public void setActiveFlag(boolean activeFlag) {
+        this.activeFlag = activeFlag;
     }
 
     public Date getTimeStart() {
@@ -192,28 +225,36 @@ public class Base {
         this.timeStop = timeStop;
     }
 
-    public int getType() {
-        return type;
+    public Date getTimeLastCrawl() {
+        return timeLastCrawl;
     }
 
-    public void setType(int type) {
-        this.type = type;
+    public void setTimeLastCrawl(Date timeLastCrawl) {
+        this.timeLastCrawl = timeLastCrawl;
     }
 
-    public int getWeight() {
-        return weight;
+    public int getCostLastCrawl() {
+        return costLastCrawl;
     }
 
-    public void setWeight(int weight) {
-        this.weight = weight;
+    public void setCostLastCrawl(int costLastCrawl) {
+        this.costLastCrawl = costLastCrawl;
     }
 
-    public int getWorkNum() {
-        return workNum;
+    public int getScheduleType() {
+        return scheduleType;
     }
 
-    public void setWorkNum(int workNum) {
-        this.workNum = workNum;
+    public void setScheduleType(int scheduleType) {
+        this.scheduleType = scheduleType;
+    }
+
+    public int getWorkerNumber() {
+        return workerNumber;
+    }
+
+    public void setWorkerNumber(int workerNumber) {
+        this.workerNumber = workerNumber;
     }
 
     public Date getCreateDate() {
@@ -222,5 +263,29 @@ public class Base {
 
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
+    }
+
+    public String getDownloader() {
+        return downloader;
+    }
+
+    public void setDownloader(String downloader) {
+        this.downloader = downloader;
+    }
+
+    public String getParser() {
+        return parser;
+    }
+
+    public void setParser(String parser) {
+        this.parser = parser;
+    }
+
+    public String getTags() {
+        return tags;
+    }
+
+    public void setTags(String tags) {
+        this.tags = tags;
     }
 }
