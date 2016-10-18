@@ -1,4 +1,4 @@
-package cn.com.cloudpioneer.zkcrawlerAPI.app.controller;
+package cn.com.cloudpioneer.zkcrawlerAPI.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

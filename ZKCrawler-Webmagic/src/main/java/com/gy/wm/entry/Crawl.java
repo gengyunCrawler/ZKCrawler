@@ -69,7 +69,7 @@ public class Crawl {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        LOG.info("*********************************** task finished ******************************************");
+        LOG.info("****************************==>> task finished, domain: " + GetDomain.getDomain(seedList.get(0)) + ", taskId: " + tid);
         long end_time = System.currentTimeMillis();
         LOG.info("time elapse(seconds):" + ((end_time - start_time) / 1000.00));
         // 向worker发送任务结束信息
