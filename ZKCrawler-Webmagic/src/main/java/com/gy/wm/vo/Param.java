@@ -13,8 +13,6 @@ import java.util.List;
  **/
 @Component
 public class Param {
-    //tags为保留字段
-    List<String> tags;
 
     List<String> configs;
 
@@ -30,21 +28,8 @@ public class Param {
 
     List<String> protocolFilter;
 
-    List<String> downloader;
-
-    List<String> urlParser;
-
-    List<String> pageParser;
-
     List<String> proxy;
 
-    public List<String> getTags() {
-        return tags;
-    }
-
-    public void setTags(List<String> tags) {
-        this.tags = tags;
-    }
 
     public List<String> getConfigs() {
         return configs;
@@ -100,30 +85,6 @@ public class Param {
 
     public void setProtocolFilter(List<String> protocolFilter) {
         this.protocolFilter = protocolFilter;
-    }
-
-    public List<String> getDownloader() {
-        return downloader;
-    }
-
-    public void setDownloader(List<String> downloader) {
-        this.downloader = downloader;
-    }
-
-    public List<String> getUrlParser() {
-        return urlParser;
-    }
-
-    public void setUrlParser(List<String> urlParser) {
-        this.urlParser = urlParser;
-    }
-
-    public List<String> getPageParser() {
-        return pageParser;
-    }
-
-    public void setPageParser(List<String> pageParser) {
-        this.pageParser = pageParser;
     }
 
     public List<String> getProxy() {

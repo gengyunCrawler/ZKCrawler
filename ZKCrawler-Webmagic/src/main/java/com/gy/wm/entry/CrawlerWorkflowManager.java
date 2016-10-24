@@ -44,7 +44,7 @@ public class CrawlerWorkflowManager {
         Jedis jedis = pool.getResource();
         domain = GetDomain.getDomain(seeds.get(0).getUrl());
 
-        LOG.info("****************************>>>>> domain:  " + domain);
+        LOG.info("****************************==>> task started, domain:  " + domain + ", taskId: " + tid);
         try {
             nextQueue.putNextUrls(seeds, jedis, tid);
         } finally {
@@ -84,7 +84,7 @@ public class CrawlerWorkflowManager {
 //                .addPipeline(new HbaseEsPipeline())
 //                .addPipeline(new HbasePipeline())
                         //开启5个线程抓取
-                .thread(1)
+                .thread(10)
                         //启动爬虫
                 .run();
     }

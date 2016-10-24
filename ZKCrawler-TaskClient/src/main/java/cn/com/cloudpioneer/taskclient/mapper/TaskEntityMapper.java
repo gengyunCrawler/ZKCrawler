@@ -30,12 +30,14 @@ public interface TaskEntityMapper {
     @Insert("INSERT  INTO  tbCrawlerTask " +
             "(id,idUser,name,remark,type,depthCrawl,depthDynamic,pass,weight," +
             "threads,completeTimes,cycleRecrawl,status,deleteFlag,timeStart," +
-            "timeStop,timeLastCrawl,costLastCrawl,scheduleType,workNum,createDate)" +
+            "timeStop,timeLastCrawl,costLastCrawl,scheduleType,workerNumber,createDate," +
+            "downloader,parser,tags)" +
             "VALUES(" +
             "#{id},#{idUser},#{name},#{remark},#{type},#{depthCrawl}," +
             "#{depthDynamic},#{pass},#{weight},#{threads},#{completeTimes}," +
             "#{cycleRecrawl},#{status},#{deleteFlag},#{timeStart},#{timeStop}," +
-            "#{timeLastCrawl},#{costLastCrawl},#{scheduleType},#{workNum},#{createDate}" +
+            "#{timeLastCrawl},#{costLastCrawl},#{scheduleType},#{workerNumber},#{createDate}," +
+            "#{downloader},#{parser},#{tags}" +
             ")")
     Integer insertTaskEntity(TaskEntity taskEntity);
 
@@ -67,8 +69,8 @@ public interface TaskEntityMapper {
             "weight=#{weight},threads=#{threads},completeTimes=#{completeTimes}," +
             "cycleRecrawl=#{cycleRecrawl},status=#{status},deleteFlag=#{deleteFlag}," +
             "timeStart=#{timeStart},timeStop=#{timeStop},timeLastCrawl=#{timeLastCrawl}," +
-            "costLastCrawl=#{costLastCrawl},scheduleType=#{scheduleType},workNum=#{workNum}," +
-            "createDate=#{createDate} WHERE id=#{id}")
+            "costLastCrawl=#{costLastCrawl},scheduleType=#{scheduleType},workerNumber=#{workerNumber}," +
+            "createDate=#{createDate},downloader=#{downloader},parser=#{parser},tags=#{tags} WHERE id=#{id}")
     Integer updateTaskEntityById(TaskEntity taskEntity);
 
 

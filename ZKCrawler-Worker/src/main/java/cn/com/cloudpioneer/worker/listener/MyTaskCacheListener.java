@@ -1,6 +1,6 @@
 package cn.com.cloudpioneer.worker.listener;
 
-import cn.com.cloudpioneer.worker.app.GetTaskConfig;
+import cn.com.cloudpioneer.worker.app.GetTaskConfigs;
 import cn.com.cloudpioneer.worker.app.Worker;
 import cn.com.cloudpioneer.worker.model.TaskModel;
 import org.apache.curator.framework.CuratorFramework;
@@ -77,8 +77,8 @@ public class MyTaskCacheListener implements TreeCacheListener {
                         TaskModel taskModel = new TaskModel(taskPath, taskData);
                         taskModel.getEntity().setTimeStart(new Date());
                         taskModel.getEntity().setTimeLastCrawl(new Date());
-                        GetTaskConfig getTaskConfig = new GetTaskConfig();
-                        taskModel.setConfigs(GetTaskConfig.configsParser(getTaskConfig.findConfigs(taskModel.getEntity().getId())));
+                        GetTaskConfigs getTaskConfigs = new GetTaskConfigs();
+                        taskModel.setConfigs(GetTaskConfigs.configsParser(getTaskConfigs.findConfigs(taskModel.getEntity().getId())));
                         worker.addTaskToRunning(taskModel);
 
                     } else

@@ -217,15 +217,11 @@ public class TaskModel implements Serializable {
 
         objectA.put(ConfigType.SEED_URLS, getConfigs(ConfigType.SEED_URLS));
         objectA.put(ConfigType.TEMPLATES, getConfigs(ConfigType.TEMPLATES));
-        objectA.put(ConfigType.TAGS, getConfigs(ConfigType.TAGS));
         objectA.put(ConfigType.CONFIGS, getConfigs(ConfigType.CONFIGS));
         objectA.put(ConfigType.CLICK_REGEX, getConfigs(ConfigType.CLICK_REGEX));
         objectA.put(ConfigType.PROTOCOL_FILTER, getConfigs(ConfigType.PROTOCOL_FILTER));
         objectA.put(ConfigType.REGEX_FILTER, getConfigs(ConfigType.REGEX_FILTER));
         objectA.put(ConfigType.SUFFIX_FILTER, getConfigs(ConfigType.SUFFIX_FILTER));
-        objectA.put(ConfigType.DOWNLOADER, getConfigs(ConfigType.DOWNLOADER));
-        objectA.put(ConfigType.URL_PARSER, getConfigs(ConfigType.URL_PARSER));
-        objectA.put(ConfigType.PAGE_PARSER, getConfigs(ConfigType.PAGE_PARSER));
         objectA.put(ConfigType.PROXY, getConfigs(ConfigType.PROXY));
 
         objectB.put("base", this.entity);
