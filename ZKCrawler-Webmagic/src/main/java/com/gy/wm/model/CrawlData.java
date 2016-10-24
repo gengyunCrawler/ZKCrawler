@@ -60,7 +60,7 @@ public class CrawlData implements Serializable {
     public CrawlData() {}
 
     public CrawlData(String url, int statusCode, int pass, String type, String rootUrl, String fromUrl, String text, String html, String title,
-                     String startTime, Date crawlTime, Date publishTime, long depthfromSeed, boolean tag, long count, boolean fetched)  {
+                     String startTime, Date crawlTime, Date publishTime, long depthfromSeed, boolean tag, long count, boolean fetched, String author, String sourceName)  {
         this.url = url;
         this.statusCode = statusCode;
         this.pass = pass;
@@ -77,6 +77,9 @@ public class CrawlData implements Serializable {
         this.tag = tag;
         this.count = count;
         this.fetched = fetched;
+        this.author = author;
+        this.sourceName = sourceName;
+
     }
 
     public String getTid() {

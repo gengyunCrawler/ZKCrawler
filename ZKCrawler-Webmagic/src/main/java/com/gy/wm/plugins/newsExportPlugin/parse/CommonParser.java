@@ -6,6 +6,7 @@ import com.gy.wm.model.CrawlData;
 import com.gy.wm.service.PageParser;
 import us.codecraft.webmagic.selector.Html;
 import us.codecraft.webmagic.selector.Selectable;
+import us.codecraft.webmagic.selector.Selector;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -84,7 +85,6 @@ public class CommonParser implements PageParser {
      */
     private CrawlData parseData(Html html, CrawlData crawlData, List<HtmlField> htmlFields) {
 
-
         String title=null;
         //包含html格式的文章段落
         String contentHtml=null;
@@ -103,11 +103,14 @@ public class CommonParser implements PageParser {
                 contentHtml=byXpaths(html,htmlField.getXpaths());
             }if (htmlField.getFieldName().equals("source")){
                 source =byXpaths(html,htmlField.getXpaths());
+                System.out.println(htmlField.getXpaths());
                 if (source!=null){
                     String [] arr=source.split(" ");
                     for (String content:arr){
                         if (content.contains("作者")){
                             author=content.split("：")[1];
+                            Html tempHtml=new Html("<html><span>"+author+"</span></html>");
+                            author= tempHtml.xpath("//span/text()").toString();
                         }
                         if (content.contains("来源")){
                             sourceName=content.split("：")[1];
@@ -159,7 +162,7 @@ public class CommonParser implements PageParser {
         return false;
     }
 
-    /**
+    /**MySQL - crawlerdata@118.118.118.201
      * get data from html by xpathes
      *
      * @param html
@@ -169,10 +172,16 @@ public class CommonParser implements PageParser {
     private String byXpaths(Html html, List<String> xpaths) {
         for (String xpath : xpaths) {
             Selectable selectable = html.xpath(xpath);
-            if (selectable != null) {
+            if (null == selectable || selectable.equals("null")) {
+
+            }else {
                 return selectable.toString();
             }
         }
         return null;
+    }
+
+    public static void main(String[] args) {
+
     }
 }
