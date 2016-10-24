@@ -39,7 +39,6 @@ public class HtmlField {
         this.fieldName = fieldName;
     }
 
-
     public List<String> getXpaths() {
         return xpaths;
     }
@@ -55,8 +54,6 @@ public class HtmlField {
     public void setRegex(String regex) {
         this.regex = regex;
     }
-
-
 
     public String getOccur() {
         return occur;
