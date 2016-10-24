@@ -12,6 +12,24 @@ public class HtmlField {
     private List<String> xpaths;
     private String regex;
     private String occur;
+    private boolean containsHtml;
+    private List<String> excludeXpaths;
+
+    public List<String> getExcludeXpaths() {
+        return excludeXpaths;
+    }
+
+    public void setExcludeXpaths(List<String> excludeXpaths) {
+        this.excludeXpaths = excludeXpaths;
+    }
+
+    public boolean isContainsHtml() {
+        return containsHtml;
+    }
+
+    public void setContainsHtml(boolean containsHtml) {
+        this.containsHtml = containsHtml;
+    }
 
     public String getFieldName() {
         return fieldName;

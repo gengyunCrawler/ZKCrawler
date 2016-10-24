@@ -8,10 +8,15 @@ public interface MasterService {
 
     boolean isLeader();
 
+    String getMasterId();
+
 
     String  workersTree();
 
 
     String  tasksTree();
+
+
+    String  workersAndTasksTree();
 
 }

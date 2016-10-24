@@ -16,9 +16,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by Administrator on 2016/9/19.
+ * Created by TianyuanPan on 2016/9/19.
  */
-public class GetTaskConfig {
+public class GetTaskConfigs {
 
     private static Reader reader;
     private static SqlSessionFactory sqlSessionFactory;
@@ -63,11 +63,6 @@ public class GetTaskConfig {
                         configs.put(ConfigType.TEMPLATES, new ArrayList<TaskConfigEntity>());
                     configs.get(ConfigType.TEMPLATES).add(item);
                     break;
-                case ConfigType.TAGS:
-                    if (configs.get(ConfigType.TAGS) == null)
-                        configs.put(ConfigType.TAGS, new ArrayList<TaskConfigEntity>());
-                    configs.get(ConfigType.TAGS).add(item);
-                    break;
                 case ConfigType.CONFIGS:
                     if (configs.get(ConfigType.CONFIGS) == null)
                         configs.put(ConfigType.CONFIGS, new ArrayList<TaskConfigEntity>());
@@ -92,21 +87,6 @@ public class GetTaskConfig {
                     if (configs.get(ConfigType.SUFFIX_FILTER) == null)
                         configs.put(ConfigType.SUFFIX_FILTER, new ArrayList<TaskConfigEntity>());
                     configs.get(ConfigType.SUFFIX_FILTER).add(item);
-                    break;
-                case ConfigType.DOWNLOADER:
-                    if (configs.get(ConfigType.DOWNLOADER) == null)
-                        configs.put(ConfigType.DOWNLOADER, new ArrayList<TaskConfigEntity>());
-                    configs.get(ConfigType.DOWNLOADER).add(item);
-                    break;
-                case ConfigType.URL_PARSER:
-                    if (configs.get(ConfigType.URL_PARSER) == null)
-                        configs.put(ConfigType.URL_PARSER, new ArrayList<TaskConfigEntity>());
-                    configs.get(ConfigType.URL_PARSER).add(item);
-                    break;
-                case ConfigType.PAGE_PARSER:
-                    if (configs.get(ConfigType.PAGE_PARSER) == null)
-                        configs.put(ConfigType.PAGE_PARSER, new ArrayList<TaskConfigEntity>());
-                    configs.get(ConfigType.PAGE_PARSER).add(item);
                     break;
                 case ConfigType.PROXY:
                     if (configs.get(ConfigType.PROXY) == null)

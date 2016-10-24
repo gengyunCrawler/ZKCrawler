@@ -166,6 +166,16 @@ public class CuratorMaster implements Closeable, LeaderSelectorListener {
 
 
     /**
+     * 获取 Master 的 ID。
+     *
+     * @return 此 master 的 ID。
+     */
+    public String getMyId() {
+
+        return this.myId;
+    }
+
+    /**
      * 启动连接客户端，进行 zookeeper 的链接。
      */
     public void startZK() throws Exception {

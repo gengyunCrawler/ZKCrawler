@@ -1,7 +1,7 @@
 package cn.com.cloudpioneer.taskclient.model;
 
 /**
- * Created by Administrator on 2016/9/20.
+ * Created by TianyuanPan on 2016/9/20.
  */
 public final class TaskStatusItem {
 

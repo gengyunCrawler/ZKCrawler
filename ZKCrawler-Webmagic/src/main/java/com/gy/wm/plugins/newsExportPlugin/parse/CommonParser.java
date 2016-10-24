@@ -6,25 +6,26 @@ import com.gy.wm.model.CrawlData;
 import com.gy.wm.service.PageParser;
 import us.codecraft.webmagic.selector.Html;
 import us.codecraft.webmagic.selector.Selectable;
-import us.codecraft.webmagic.selector.Selector;
+import us.codecraft.webmagic.selector.SmartContentSelector;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by tijun on 2016/10/8.
  * @author TijunWang
  */
+@Deprecated
 public class CommonParser implements PageParser {
     private ParserConfig config = null;
     private ParserDao parserDao = new ParserDao();
     private List<String> contentLinkRegexs = new ArrayList<>();
     private List<String> columnRegexs = new ArrayList<>();
+    private  Pattern pattern=Pattern.compile("(\\w+.*://\\w+.*)/(\\w+.*)");
 
     @Override
     public List<CrawlData> parse(CrawlData crawlData) {
-        System.out.println(crawlData.toString());
         List<CrawlData> crawlDatas = new ArrayList<>();
         //obtain crawler config from MySQL ,one task one config(json),so for a task ,it just accesses database once
         if (config == null) {
@@ -54,7 +55,6 @@ public class CommonParser implements PageParser {
             List<String> urls = new Html(crawlData.getHtml()).xpath("//a/@href").all();
             for (String url : urls) {
                 if (isContentHtml(url)) {
-                    System.out.printf("url---:" + url);
                     CrawlData data = new CrawlData();
                     data.setUrl(url);
                     data.setTid(crawlData.getTid());
@@ -67,7 +67,7 @@ public class CommonParser implements PageParser {
         }
         //parsing data from html
         if (isContentHtml(crawlData.getUrl())) {
-            crawlDatas.add(parseData(new Html(crawlData.getHtml()), crawlData, config.getFileds()));
+            crawlDatas.add(parseData(new Html(crawlData.getHtml()), crawlData, config.getFields()));
         }
 
         return crawlDatas;
@@ -85,6 +85,7 @@ public class CommonParser implements PageParser {
      */
     private CrawlData parseData(Html html, CrawlData crawlData, List<HtmlField> htmlFields) {
 
+
         String title=null;
         //包含html格式的文章段落
         String contentHtml=null;
@@ -94,23 +95,35 @@ public class CommonParser implements PageParser {
         String sourceName=null;
         String source=null;
 
+
         for (HtmlField htmlField:htmlFields){
             if (htmlField.getFieldName().equals("title")){
                 title=byXpaths(html,htmlField.getXpaths());
+            } else if (htmlField.getFieldName().equals("content")){
+                contentHtml=byXpaths(html,htmlField.getXpaths());
+                Html newContentHtml=new Html("<html>"+contentHtml+"</html>");
+                List<String> imgSrcs=newContentHtml.xpath("//img/@src").all();
+                String domain="";
+               String []arr= crawlData.getRootUrl().split("/");
+                domain=arr[0]+"//"+arr[2];
+               contentHtml= imgUrlPrefix(contentHtml,imgSrcs,domain);
+
+
+            } else if (htmlField.getFieldName().equals("author")){
+                 author=byXpaths(html,htmlField.getXpaths()).split("：")[1];
+
+            }else if (htmlField.getFieldName().equals("sourceName")){
+                sourceName=byXpaths(html,htmlField.getXpaths()).split("：")[1];
             }
 
-            if (htmlField.getFieldName().equals("content")){
-                contentHtml=byXpaths(html,htmlField.getXpaths());
-            }if (htmlField.getFieldName().equals("source")){
+            if (htmlField.getFieldName().equals("source")&&author==null&&sourceName==null){
                 source =byXpaths(html,htmlField.getXpaths());
-                System.out.println(htmlField.getXpaths());
+
                 if (source!=null){
                     String [] arr=source.split(" ");
                     for (String content:arr){
                         if (content.contains("作者")){
                             author=content.split("：")[1];
-                            Html tempHtml=new Html("<html><span>"+author+"</span></html>");
-                            author= tempHtml.xpath("//span/text()").toString();
                         }
                         if (content.contains("来源")){
                             sourceName=content.split("：")[1];
@@ -129,6 +142,11 @@ public class CommonParser implements PageParser {
         crawlData.setText(contentHtml);
         crawlData.setAuthor(author);
         crawlData.setSourceName(sourceName);
+        //put all fields into mup
+        Map<String,String> fieldMap=new HashMap<>();
+        for (HtmlField htmlField:htmlFields){
+
+        }
 
         return crawlData;
     }
@@ -162,7 +180,7 @@ public class CommonParser implements PageParser {
         return false;
     }
 
-    /**MySQL - crawlerdata@118.118.118.201
+    /**
      * get data from html by xpathes
      *
      * @param html
@@ -172,16 +190,29 @@ public class CommonParser implements PageParser {
     private String byXpaths(Html html, List<String> xpaths) {
         for (String xpath : xpaths) {
             Selectable selectable = html.xpath(xpath);
-            if (null == selectable || selectable.equals("null")) {
-
-            }else {
-                return selectable.toString();
+            if (selectable != null) {
+                if (selectable.toString()!=null){
+                    return selectable.toString();
+                }
             }
         }
         return null;
     }
 
-    public static void main(String[] args) {
+    /**
+     * fix img src--->url missing domain
+     * @param contentHtml
+     * @param imgSrcs
+     * @param domain
+     * @return
+     */
+    private String imgUrlPrefix(String contentHtml,List<String> imgSrcs,String domain){
+        for (String url:imgSrcs){
+            if (url.startsWith("/")){
+              contentHtml= contentHtml.replace(url,domain+url);
+            }
+            }
+        return contentHtml;
 
     }
 }

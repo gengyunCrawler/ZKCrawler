@@ -183,7 +183,7 @@ public class Worker implements Closeable, ConnectionStateListener {
     private synchronized boolean isGetTaskLock(String taskId) {
 
         try {
-            client.create().withMode(CreateMode.EPHEMERAL).forPath(ROOT_PATH_LOCK + "/" + taskId);
+            client.create().withMode(CreateMode.EPHEMERAL).forPath(ROOT_PATH_LOCK + "/" + taskId, "Worker".getBytes());
         } catch (Exception e) {
             LOGGER.warn("get lock: " + taskId + " Failed. return false.");
             return false;

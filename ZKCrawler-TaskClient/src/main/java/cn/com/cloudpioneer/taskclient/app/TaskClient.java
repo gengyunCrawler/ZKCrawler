@@ -185,7 +185,7 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
     private synchronized boolean isGetTaskLock(String taskId) {
 
         try {
-            client.create().withMode(CreateMode.EPHEMERAL).forPath(ROOT_PATH_LOCK + "/" + taskId);
+            client.create().withMode(CreateMode.EPHEMERAL).forPath(ROOT_PATH_LOCK + "/" + taskId, "TaskClient".getBytes());
         } catch (Exception e) {
             LOGGER.warn("get lock: " + taskId + " Failed. return false.");
             return false;
@@ -241,6 +241,12 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
 
         if (thisTaskClient == null)
             thisTaskClient = new TaskClient(hostPort, retryPolicy, myId, schedulePolicy, chooserPolicy, configFileName);
+        try {
+            thisTaskClient.startZK();
+        } catch (Exception e) {
+            e.printStackTrace();
+            LOGGER.error("taskClient start error!!!!");
+        }
         return thisTaskClient;
 
     }
@@ -678,14 +684,25 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
 
                     } catch (Exception ex) {
 
+                        ex.printStackTrace();
                         LOGGER.error("--++--++--> task create error, taskId = " + taskId);
-                        taskDelete(ROOT_PATH_TASKS + "/task-" + taskId);
-                        taskModel.getEntity().setStatus(TaskStatusItem.TASK_STATUS_COMPLETED);
-                        taskWriteBack(taskModel.getEntity());
+                        try {
+                            //taskDelete(ROOT_PATH_TASKS + "/task-" + taskId);
 
-                    } finally {
-                        releaseTaskLock(taskId);
+                            List<String> children = client.getChildren().forPath(ROOT_PATH_TASKS + "/task-" + taskId);
+                            for (String ch : children)
+                                client.delete().forPath(ROOT_PATH_TASKS + "/task-" + taskId + "/" + ch);
+                            client.delete().forPath(ROOT_PATH_TASKS + "/task-" + taskId);
+
+                            taskModel.getEntity().setStatus(TaskStatusItem.TASK_STATUS_COMPLETED);
+                            taskWriteBack(taskModel.getEntity());
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+
                     }
+
+                    releaseTaskLock(taskId);
                 }
             }
         });
@@ -863,7 +880,7 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
      */
     public void startTaskClient() throws Exception {
 
-        this.startZK();
+//        this.startZK();
         this.bootsrap();
         this.runForTaskClient();
         this.awaitLeadership();
