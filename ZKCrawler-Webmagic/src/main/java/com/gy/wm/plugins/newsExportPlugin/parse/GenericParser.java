@@ -67,7 +67,7 @@ public class GenericParser implements PageParser {
         }
         //parsing data from html
         if (isContentHtml(crawlData.getUrl())) {
-            crawlDatas.add(parseData(new Html(crawlData.getHtml()), crawlData, config.getFileds()));
+            crawlDatas.add(parseData(new Html(crawlData.getHtml()), crawlData, config.getFields()));
         }
 
         return crawlDatas;
