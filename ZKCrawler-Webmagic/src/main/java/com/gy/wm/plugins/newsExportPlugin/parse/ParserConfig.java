@@ -14,7 +14,7 @@ public class ParserConfig {
     //judge the page is our content page
     public static final String HTML_LINK_REGEX="CONTENT_LINK_REGEX";
     //all fieds are needed to find from html
-    private List<HtmlField> fileds;
+    private List<HtmlField>fields ;
     //start url and url regex
     private List<UrlPattern> urlPatterns;
     private int id;
@@ -30,12 +30,13 @@ public class ParserConfig {
         this.imagePrefix = imagePrefix;
     }
 
-    public List<HtmlField> getFileds() {
-        return fileds;
+
+    public List<HtmlField> getFields() {
+        return fields;
     }
 
-    public void setFileds(List<HtmlField> fileds) {
-        this.fileds = fileds;
+    public void setFields(List<HtmlField> fields) {
+        this.fields = fields;
     }
 
     public List<UrlPattern> getUrlPatterns() {

@@ -3,7 +3,9 @@ package com.gy.wm.parse;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.gy.wm.dao.ParserDao;
+import com.gy.wm.plugins.newsExportPlugin.parse.*;
 import com.gy.wm.plugins.newsExportPlugin.parse.HtmlField;
+import com.gy.wm.plugins.newsExportPlugin.parse.ParserEntity;
 import org.junit.Test;
 import us.codecraft.webmagic.selector.Html;
 import us.codecraft.webmagic.selector.Selectable;
@@ -103,7 +105,6 @@ public class ParserConfigTester {
     }
 
     @Test
-
     public void testConfig() {
         List<com.gy.wm.plugins.newsExportPlugin.parse.UrlPattern> urlPatterns = new ArrayList<>();
         List<com.gy.wm.plugins.newsExportPlugin.parse.HtmlField> fileds = new ArrayList<>();
@@ -163,6 +164,12 @@ public class ParserConfigTester {
         config.setUrlPatterns(urlPatterns);
         String s = JSON.toJSONString(config);
         System.out.printf(s);
+        ParserDao dao = new ParserDao();
+        com.gy.wm.plugins.newsExportPlugin.parse.ParserEntity entity = new ParserEntity();
+        entity.setConfig(s);
+        entity.setId(2);
+        entity.setTid("news.qq.com");
+        dao.insert(entity);
 
     }
 

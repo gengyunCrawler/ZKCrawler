@@ -69,7 +69,7 @@ public class GenerateConfig {
         fileds.add(author);
 
         ParserConfig config = new ParserConfig();
-        config.setFileds(fileds);
+        config.setFields(fileds);
         config.setId(3434);
         config.setTaskId("task222");
         config.setUrlPatterns(urlPatterns);
