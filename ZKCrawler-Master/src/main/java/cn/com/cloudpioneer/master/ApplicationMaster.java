@@ -18,9 +18,11 @@ public class ApplicationMaster {
     private static String zkHostPort = ResourceBundle.getBundle("config").getString("ZK_CONNECTION_STRING");
 
 
+    private static CuratorMaster master = CuratorMaster.initializeMaster(zkHostPort, new ExponentialBackoffRetry(1000, 5), null);
+
+
     public static void main(String[] args) throws Exception {
 
-        CuratorMaster master = CuratorMaster.initializeMaster(zkHostPort, new ExponentialBackoffRetry(1000, 5), null);
 
         SpringApplication.run(ApplicationMaster.class, args);
 

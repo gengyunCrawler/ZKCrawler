@@ -22,7 +22,10 @@ public class ApplicationWorker {
      */
     private static String zkHostPort = ResourceBundle.getBundle("config").getString("ZK_CONNECTION_STRING");
 
-
+    /**
+     * 初始化 worker。
+     */
+    private static Worker worker = Worker.initializeWorker(zkHostPort, new ExponentialBackoffRetry(1000, 5));
     /**
      * 主函数。
      *
@@ -31,10 +34,6 @@ public class ApplicationWorker {
      */
     public static void main(String[] args) throws InterruptedException {
 
-        /**
-         * 初始化 worker。
-         */
-        Worker worker = Worker.initializeWorker(zkHostPort, new ExponentialBackoffRetry(1000, 5));
 
         /**
          * 启动 spring boot 服务。
@@ -45,6 +44,7 @@ public class ApplicationWorker {
          * 启动 worker。
          */
         worker.workerStart();
+
     }
 
 }
