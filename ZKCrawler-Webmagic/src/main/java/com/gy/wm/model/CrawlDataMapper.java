@@ -15,7 +15,7 @@ public interface CrawlDataMapper {
     public void saveToMysql(CrawlData crawlData);
 
     */
-    @Insert("INSERT INTO crawlerdata(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched,author,sourceName,jsonData) VALUES " +
+    @Insert("INSERT INTO crawlerdata_test(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched,author,sourceName,jsonData) VALUES " +
             "(#{tid},#{url},#{statusCode},#{pass},#{type},#{rootUrl},#{fromUrl},#{text},#{html},#{title},#{startTime},#{crawlTime},#{publishTime},#{depthfromSeed},#{count},#{tag},#{fetched},#{author},#{sourceName},#{jsonData})")
     public void saveToMysql(CrawlData crawlData);
 }

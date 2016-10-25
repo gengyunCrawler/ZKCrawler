@@ -22,64 +22,60 @@ public class GenerateConfig {
     public void testConfig() {
         List<UrlPattern> urlPatterns = new ArrayList<>();
         List<HtmlField> fileds = new ArrayList<>();
-        urlPatterns.add(new UrlPattern("http://news.qq.com/newsgn/gdxw/gedixinwen.htm", "COLUMN_REGEX"));
-        urlPatterns.add(new UrlPattern("http://news.qq.com/newsgn/zhxw/shizhengxinwen.htm", "COLUMN_REGEX"));
-        urlPatterns.add(new UrlPattern("http://news.qq.com/newssh/shwx/shehuiwanxiang.htm", "COLUMN_REGEX"));
-        urlPatterns.add(new UrlPattern("http://roll.news.qq.com/", "COLUMN_REGEX"));
-        urlPatterns.add(new UrlPattern("http://news.qq.com/a/\\d.*/\\d.*.htm", "CONTENT_LINK_REGEX"));
+        urlPatterns.add(new UrlPattern("http://www.zunyi.gov.cn/sy/\\w+/", "COLUMN_REGEX"));
 
-
+        urlPatterns.add(new UrlPattern("http://www.zunyi.gov.cn/sy/\\w+/\\d+/(\\w|_)*.html", "CONTENT_LINK_REGEX"));
+        //标题
         HtmlField title = new HtmlField();
-        title.setFieldName("title");
         List<String> list1 = new ArrayList<>();
-        list1.add("//div[@class='qq_article']/div[@class='hd']/h1");
-
+        list1.add("//div[@class='middletext']/p[@class='middle_title']");
         title.setXpaths(list1);
-
-
-        HtmlField content = new HtmlField();
-        content.setFieldName("content");
-        List<String> list2 = new ArrayList<>();
-        list2.add("//div[@id='Cnt-Main-Article-QQ']");
-
+        title.setFieldName("title");
+        //正文
         //设置为包含标签
-        content.setContainsHtml(true);
+//        content.setContainsHtml(true);
+        HtmlField content = new HtmlField();
+        List<String> list2 = new ArrayList<>();
+        list2.add("//div[@class='TRS_Editor']");
         content.setXpaths(list2);
+        content.setFieldName("content");
 
-
-
-       HtmlField sourceName = new HtmlField();
+        //设置来源
+        HtmlField sourceName = new HtmlField();
         List<String> list4 = new ArrayList<>();
-
-        list4.add("//span[@class='a_source']/a");
-
+        list4.add("//p[@class='middlebiaoti left'][2]");
         sourceName.setXpaths(list4);
         sourceName.setFieldName("sourceName");
 
+        //设置作者
         HtmlField author = new HtmlField();
         List<String> list5 = new ArrayList<>();
-
-        list5.add("//span[@class='a_author']");
-
+        list5.add("//p[@class='middlebiaoti left'][3]");
         author.setXpaths(list5);
         author.setFieldName("author");
+
+        //设置属性块整块提取
+        HtmlField infoBar = new HtmlField();
+        List<String> list6 = new ArrayList<>();
+        author.setFieldName("infoBar");
+
         fileds.add(title);
         fileds.add(content);
         fileds.add(sourceName);
         fileds.add(author);
+        fileds.add(infoBar);
 
         ParserConfig config = new ParserConfig();
         config.setFields(fileds);
-        config.setId(3434);
-        config.setTaskId("task222");
+        config.setId(2227);
+        config.setTaskId("http://www.zunyi.gov.cn/");
         config.setUrlPatterns(urlPatterns);
         String s = JSON.toJSONString(config);
         System.out.printf(s);
         ParserDao dao = new ParserDao();
         com.gy.wm.plugins.newsExportPlugin.parse.ParserEntity entity = new ParserEntity();
         entity.setConfig(s);
-        entity.setId(2);
-        entity.setTid("news.qq.com");
+        entity.setTid("http://www.zunyi.gov.cn/");
         dao.insert(entity);
 
     }

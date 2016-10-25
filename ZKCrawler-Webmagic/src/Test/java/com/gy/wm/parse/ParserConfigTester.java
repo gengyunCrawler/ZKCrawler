@@ -158,7 +158,7 @@ public class ParserConfigTester {
         fileds.add(field5);
 
         com.gy.wm.plugins.newsExportPlugin.parse.ParserConfig config = new com.gy.wm.plugins.newsExportPlugin.parse.ParserConfig();
-        config.setFileds(fileds);
+//        config.setFileds(fileds);
         config.setId(3434);
         config.setTaskId("task222");
         config.setUrlPatterns(urlPatterns);

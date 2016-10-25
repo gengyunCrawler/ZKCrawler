@@ -20,7 +20,7 @@ public class ProxyTest {
     public static int proxyPort []  = {80};
 
     CloseableHttpClient httpClient = HttpClients.createDefault();
-    try {
+    /*try {
         HttpHost target = new HttpHost("localhost", 443, "https");
         HttpHost proxy = new HttpHost("127.0.0.1", 8080, "http");
 
@@ -42,5 +42,5 @@ public class ProxyTest {
         }
     } finally {
         httpclient.close();
-    }
+    }*/
 }

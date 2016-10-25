@@ -46,28 +46,25 @@ public  class ServiceTest {
     public void test() throws Exception{
     }
 
+    //启动任务单元测试
     @Test
     public void testStartTask() {
 //        List<String> templateList = new ArrayList<>();
 //        templateList.add("");
         List<String> seedUrls = new ArrayList<>();
 
-
-        String seed1 = "http://www.qnz.com.cn/news/newslist-0-12.shtml";
-//        String seed2 = "http://www.qnz.com.cn/news/newslist-0-13.shtml";
-//        String seed3 = "http://www.qnz.com.cn/news/newsshow-29863.shtml";
-//        String seed4 = "http://www.gygov.gov.cn/col/col10683/index.html";
-      //  String seed5 = "http://www.gog.cn/";
-
-        seedUrls.add(seed1);
-//        seedUrls.add(seed2);
-//        param.setTemplates(templateList);
+        seedUrls.add("http://www.zunyi.gov.cn/sy/ttxw/");
+        seedUrls.add("http://www.zunyi.gov.cn/sy/zyyw/");
+        seedUrls.add("http://www.zunyi.gov.cn/sy/qxdt/");
+        seedUrls.add("http://www.zunyi.gov.cn/sy/bmdt/");
+        seedUrls.add("http://www.zunyi.gov.cn/sy/mtgz/");
+        seedUrls.add("http://www.zunyi.gov.cn/sy/gggs/");
         param.setSeedUrls(seedUrls);
 
 //        templateList.add(guiyangTemplate);
 //        param.setTemplates(templateList);
 
-        base.setId("acbrocdldrtfkauj9ertt29d67");
+        base.setId("http://www.zunyi.gov.cn/");
         base.setDepthCrawl(1);
 
         taskParamModel.setParam(param);
