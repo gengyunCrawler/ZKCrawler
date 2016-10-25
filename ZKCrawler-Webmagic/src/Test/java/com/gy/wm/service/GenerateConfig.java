@@ -6,6 +6,8 @@ import com.gy.wm.plugins.newsExportPlugin.parse.HtmlField;
 import com.gy.wm.plugins.newsExportPlugin.parse.ParserConfig;
 import com.gy.wm.plugins.newsExportPlugin.parse.ParserEntity;
 import com.gy.wm.plugins.newsExportPlugin.parse.UrlPattern;
+import com.gy.wm.util.RandomStringCreator;
+import com.gy.wm.util.RandomUtils;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -20,78 +22,65 @@ public class GenerateConfig {
 
     @Test
     public void testConfig() {
-
         List<UrlPattern> urlPatterns = new ArrayList<>();
         List<HtmlField> fileds = new ArrayList<>();
+        urlPatterns.add(new UrlPattern("http://news.ifeng.com/listpage/\\d+/\\d+/\\d+/\\w+.shtml", "COLUMN_REGEX"));
 
-        urlPatterns.add(new UrlPattern("http://www.gaxq.gov.cn/xwdt/\\w+/index.shtml", "COLUMN_REGEX"));
-
-
-
-        //urlPatterns.add(new UrlPattern("http://www.anshun.gov.cn/list.jsp?cItemId=172&itemId=7", "COLUMN_REGEX"));
-        //urlPatterns.add(new UrlPattern("http://www.anshun.gov.cn/list.jsp?cItemId=173&itemId=7&page=1", "COLUMN_REGEX"));
-        //urlPatterns.add(new UrlPattern("http://www.anshun.gov.cn/list.jsp?cItemId=174&itemId=7&page=1", "COLUMN_REGEX"));
+        urlPatterns.add(new UrlPattern("http://news.ifeng.com/a/\\d+/\\d+_\\d+.shtml", "CONTENT_LINK_REGEX"));
 
 
 
-        //urlPatterns.add(new UrlPattern("http://news.qq.com/a/\\d.*/\\d.*.htm", "CONTENT_LINK_REGEX"));
-        urlPatterns.add(new UrlPattern("http://www.gaxq.gov.cn/xwdt/\\w+/\\d+.shtml", "CONTENT_LINK_REGEX"));
 
-
-        /**
-         * title field
-         */
         HtmlField title = new HtmlField();
-        List<String> listTitle = new ArrayList<>();
         title.setFieldName("title");
-
-        listTitle.add("html/body/table/tbody/tr[2]/td[2]/table/tbody/tr/td/table/tbody/tr[3]/td/table[1]/tbody/tr[1]/td/h1");
-
-        title.setXpaths(listTitle);
+        List<String> list1 = new ArrayList<>();
+        list1.add("//h1[@id='artical_topic']");
 
 
-        /**
-         * content field
-         */
+
+
+
+        title.setXpaths(list1);
+
+
         HtmlField content = new HtmlField();
-        List<String> listContent = new ArrayList<>();
         content.setFieldName("content");
+        List<String> list2 = new ArrayList<>();
+        list2.add("//div[@id='main_content']");
 
-        listContent.add("html/body/table/tbody/tr[2]/td[2]/table/tbody/tr/td/table/tbody/tr[3]/td/table[1]/tbody/tr[3]/td");
+        List<String> exPaths=new ArrayList<>();
+        exPaths.add("//div[@id='embed_hzh_div']");
 
-        //设置为包含标签
-        content.setContainsHtml(true);
-        content.setXpaths(listContent);
+        content.setExcludeXpaths(exPaths);
 
 
-        /**
-         * source field
-         */
-        HtmlField sourceName = new HtmlField();
-        List<String> listSourceName = new ArrayList<>();
+        content.setXpaths(list2);
+
+
+
+       HtmlField sourceName = new HtmlField();
+        List<String> list4 = new ArrayList<>();
+        list4.add("//p[@class='p_time']/span[3]/span[@class='ss03']/a");
+
+
+        sourceName.setXpaths(list4);
         sourceName.setFieldName("sourceName");
 
 
-        listSourceName.add("html/body/table/tbody/tr[2]/td[2]/table/tbody/tr/td/table/tbody/tr[3]/td/table[1]/tbody/tr[1]/td/p");
-
-        sourceName.setXpaths(listSourceName);
-
-
-        /**
-         * author field
-         */
         HtmlField author = new HtmlField();
-        List<String> listAuthor = new ArrayList<>();
+        List<String> list5 = new ArrayList<>();
+        list5.add("//span[@class='a_author']");
+
+        HtmlField inforBar = new HtmlField();
+        List<String> list6 = new ArrayList<>();
+        list6.add("//div[@class='ep-source cDGray']");
+        list6.add("//div[@class='source']");
+        inforBar.setFieldName("infoBar");
+        inforBar.setXpaths(list6);
+
+
+        author.setXpaths(list5);
         author.setFieldName("author");
-
-        listAuthor.add("html/body/table/tbody/tr[2]/td[2]/table/tbody/tr/td/table/tbody/tr[3]/td/table[1]/tbody/tr[1]/td/p");
-
-        author.setXpaths(listAuthor);
-
-
-
-
-
         fileds.add(title);
         fileds.add(content);
         fileds.add(sourceName);
@@ -103,20 +92,19 @@ public class GenerateConfig {
         config.setTaskId("task222");
         config.setUrlPatterns(urlPatterns);
         String s = JSON.toJSONString(config);
-        System.out.printf("THE RESULT:\n" + s);
+        System.out.printf(s);
         ParserDao dao = new ParserDao();
-        ParserEntity entity = new ParserEntity();
+        com.gy.wm.plugins.newsExportPlugin.parse.ParserEntity entity = new ParserEntity();
         entity.setConfig(s);
-        entity.setId(2);
-        entity.setTid("gaxq.gov.cn");
+        entity.setTid("http://news.ifeng.com/");
         dao.insert(entity);
 
     }
     @Test
     public void testUrlMatch(){
-        String url="http://www.gaxq.gov.cn/xwdt/\\w+/\\d+.shtml";
+        String url="http://[a-z|A-Z]+.sohu.com/\\d+/n\\d+.shtml";
         Pattern pattern = Pattern.compile(url);
-      Matcher matcher = pattern.matcher("http://www.gaxq.gov.cn/xwdt/ddaa4522d/12560.shtml");
+      Matcher matcher = pattern.matcher("http://.sohu.com/20161025/n471221370.shtml");
         System.out.println(matcher.find());
     }
 }

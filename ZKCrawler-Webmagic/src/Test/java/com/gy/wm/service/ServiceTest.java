@@ -59,7 +59,10 @@ public  class ServiceTest {
 //        String seed4 = "http://www.gygov.gov.cn/col/col10683/index.html";
       //  String seed5 = "http://www.gog.cn/";
 
-        seedUrls.add(seed1);
+        seedUrls.add("http://news.qq.com/newsgn/gdxw/gedixinwen.htm");
+        seedUrls.add("http://news.qq.com/newsgn/zhxw/shizhengxinwen.htm");
+        seedUrls.add("http://news.qq.com/newssh/shwx/shehuiwanxiang.htm");
+        seedUrls.add("http://roll.news.qq.com/#");
 //        seedUrls.add(seed2);
 //        param.setTemplates(templateList);
         param.setSeedUrls(seedUrls);
@@ -67,7 +70,7 @@ public  class ServiceTest {
 //        templateList.add(guiyangTemplate);
 //        param.setTemplates(templateList);
 
-        base.setId("acbrocdldrtfkauj9ertt29d67");
+        base.setId("news.qq.com");
         base.setDepthCrawl(1);
 
         taskParamModel.setParam(param);

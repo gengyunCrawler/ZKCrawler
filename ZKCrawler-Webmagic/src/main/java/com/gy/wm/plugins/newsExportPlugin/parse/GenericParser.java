@@ -111,24 +111,25 @@ public class GenericParser implements PageParser {
                     fieldValue= imgUrlPrefix(fieldValue,imgSrcs,domain);
                 }
 
-            }
+                if (htmlField.isContainsHtml()==false){
+                    Html fieldHtml = new Html(fieldValue);
+                    List<String> fieldValues = fieldHtml.xpath("//*/text()").all();
+                    StringBuffer buffer = new StringBuffer();
+                    for (String value:fieldValues){
+                        buffer.append(value);
+                    }
+                    fieldValue=buffer.toString();
 
-            if (htmlField.isContainsHtml()==false){
-                Html fieldHtml = new Html(fieldValue);
-                List<String> fieldValues = fieldHtml.xpath("//*/text()").all();
-                StringBuffer buffer = new StringBuffer();
-                for (String value:fieldValues){
-                    buffer.append(value);
                 }
-                fieldValue=buffer.toString();
+                //remove elements that is needn't
+                List<String> excludesXpaths=htmlField.getExcludeXpaths();
+                if (excludesXpaths!=null&&excludesXpaths.size()>0){
+                    fieldValue=byExcludesXpaths(fieldValue,excludesXpaths);
 
+                }
             }
-            //remove elements that is needn't
-            List<String> excludesXpaths=htmlField.getExcludeXpaths();
-            if (excludesXpaths!=null&&excludesXpaths.size()>0){
-               fieldValue=byExcludesXpaths(fieldValue,excludesXpaths);
 
-            }
+
             fieldMap.put(htmlField.getFieldName(),fieldValue);
         }
 

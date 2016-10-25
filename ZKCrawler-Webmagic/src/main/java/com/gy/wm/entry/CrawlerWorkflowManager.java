@@ -1,5 +1,6 @@
 package com.gy.wm.entry;
 
+import com.gy.wm.dbpipeline.impl.HDFSPipeline;
 import com.gy.wm.dbpipeline.impl.MysqlPipeline;
 import com.gy.wm.model.CrawlData;
 import com.gy.wm.queue.RedisCrawledQue;
@@ -78,8 +79,9 @@ public class CrawlerWorkflowManager {
 
         spider.setScheduler(new RedisScheduler(domain)).setUUID(tid)
                 //从seed开始抓
+
                 .addUrl(urlArray)
-                .addPipeline(new MysqlPipeline())
+                .addPipeline(new HDFSPipeline("/user/root/icp"))
 //                .addPipeline(new EsPipeline())
 //                .addPipeline(new HbaseEsPipeline())
 //                .addPipeline(new HbasePipeline())
