@@ -3,7 +3,7 @@ package com.gy.wm.parse;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.gy.wm.dao.ParserDao;
-import com.gy.wm.plugins.newsExportPlugin.parse.*;
+import com.gy.wm.plugins.newsExportPlugin.parse.ParserConfig;
 import com.gy.wm.plugins.newsExportPlugin.parse.HtmlField;
 import com.gy.wm.plugins.newsExportPlugin.parse.ParserEntity;
 import org.junit.Test;
@@ -157,8 +157,8 @@ public class ParserConfigTester {
         fileds.add(field4);
         fileds.add(field5);
 
-        com.gy.wm.plugins.newsExportPlugin.parse.ParserConfig config = new com.gy.wm.plugins.newsExportPlugin.parse.ParserConfig();
-//        config.setFileds(fileds);
+        ParserConfig config = new ParserConfig();
+        config.setFields(fileds);
         config.setId(3434);
         config.setTaskId("task222");
         config.setUrlPatterns(urlPatterns);

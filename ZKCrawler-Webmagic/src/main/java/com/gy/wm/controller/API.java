@@ -53,8 +53,8 @@ public class API implements Runnable {
      * @param taskId
      * @return
      */
-    @RequestMapping("/stopTask/{taskId}")
-    public String stopTask(@PathVariable("taskId") String taskId) {
+    @RequestMapping("/stopTask")
+    public String stopTask(@RequestParam("taskId") String taskId) {
 
         return taskId;
     }
@@ -65,8 +65,8 @@ public class API implements Runnable {
      * @param taskId
      * @return String
      */
-    @RequestMapping(value = "/cleanTaskRedis/{taskId}", method = RequestMethod.POST)
-    public String cleanTaskRedis(@PathVariable("taskId") final String taskId) {
+    @RequestMapping(value = "/cleanTaskRedis", method = RequestMethod.POST)
+    public String cleanTaskRedis(@RequestParam("taskId") final String taskId) {
         TaskService.taskExecutor(new Runnable() {
             @Override
             public void run() {

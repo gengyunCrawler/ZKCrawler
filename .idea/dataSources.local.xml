@@ -7,6 +7,8 @@
       <introspection-scope>wifi_ac:</introspection-scope>
       <resolve-scope>wifi_ac:</resolve-scope>
     </data-source>
-    <data-source name="MySQL - crawlerdata@118.118.118.201" uuid="f26038fc-8bad-43f9-a40a-599ecd5e779a" />
+    <data-source name="MySQL - crawlerdata@118.118.118.201" uuid="f26038fc-8bad-43f9-a40a-599ecd5e779a">
+      <user-name>root</user-name>
+    </data-source>
   </component>
 </project>

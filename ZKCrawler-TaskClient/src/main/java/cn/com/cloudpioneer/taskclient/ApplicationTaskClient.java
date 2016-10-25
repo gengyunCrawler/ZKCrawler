@@ -24,6 +24,14 @@ public class ApplicationTaskClient {
 
 
     /**
+     * 初始化 task client。
+     */
+    private static TaskClient taskClient = TaskClient.initializeTaskClient(zkHostPort, new RetryNTimes(5, 1000), null, null, null, null);
+
+
+
+
+    /**
      * 主函数。
      *
      * @param args
@@ -32,19 +40,17 @@ public class ApplicationTaskClient {
     public static void main(String[] args) throws Exception {
 
         /**
-         * 初始化 task client。
-         */
-        TaskClient taskClient = TaskClient.initializeTaskClient(zkHostPort, new RetryNTimes(5, 1000), null, null, null, null);
-
-        /**
          * 启动 spring boot 服务。
          */
         SpringApplication.run(ApplicationTaskClient.class, args);
+
 
         /**
          * 启动 task client。
          */
         taskClient.startTaskClient();
+
+
     }
 
 }

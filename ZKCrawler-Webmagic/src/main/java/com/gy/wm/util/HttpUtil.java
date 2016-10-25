@@ -33,6 +33,6 @@ public class HttpUtil {
     }
 
     public static void main(String[] args) {
-        postMethod("http://localhost:10084/worker/taskWriteBack/12345678");
+        postMethod("http://localhost:10084/worker/taskWriteBack?taskId=12345678");
     }
 }

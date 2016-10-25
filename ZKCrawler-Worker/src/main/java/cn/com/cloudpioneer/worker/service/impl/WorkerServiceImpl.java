@@ -15,7 +15,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class WorkerServiceImpl implements WorkerService {
 
-    private Worker worker = Worker.getThisWorker();
 
     @Override
     public boolean statusWriteBack(@Nullable String taskId) {
@@ -25,6 +24,8 @@ public class WorkerServiceImpl implements WorkerService {
     @Override
     public void taskWriteBack(String taskId) {
 
+        Worker worker = Worker.getThisWorker();
+
         worker.myTaskWriteBack(taskId);
 
     }
@@ -32,6 +33,8 @@ public class WorkerServiceImpl implements WorkerService {
 
     @Override
     public String getCurrentTasks() {
+
+        Worker worker = Worker.getThisWorker();
 
         return JSONArray.toJSONString(worker.getMyTasks());
     }

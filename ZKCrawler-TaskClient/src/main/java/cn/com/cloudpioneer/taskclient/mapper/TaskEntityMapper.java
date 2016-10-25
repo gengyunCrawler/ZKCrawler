@@ -19,23 +19,23 @@ public interface TaskEntityMapper {
     List<TaskEntity> findAll();
 
 
-    @Select("SELECT * FROM tbCrawlerTask WHERE deleteFlag = false")
+    @Select("SELECT * FROM tbCrawlerTask WHERE deleteFlag = false AND activeFlag = true")
     List<TaskEntity> findAllValid();
 
 
-    @Select("SELECT * FROM tbCrawlerTask WHERE deleteFlag = false AND status = #{status}")
+    @Select("SELECT * FROM tbCrawlerTask WHERE deleteFlag = false AND activeFlag = true AND status = #{status}")
     List<TaskEntity> findAllValidByStatus(@Param("status") int status);
 
     //添加数据
     @Insert("INSERT  INTO  tbCrawlerTask " +
             "(id,idUser,name,remark,type,depthCrawl,depthDynamic,pass,weight," +
-            "threads,completeTimes,cycleRecrawl,status,deleteFlag,timeStart," +
+            "threads,completeTimes,cycleRecrawl,status,deleteFlag,activeFlag,timeStart," +
             "timeStop,timeLastCrawl,costLastCrawl,scheduleType,workerNumber,createDate," +
             "downloader,parser,tags)" +
             "VALUES(" +
             "#{id},#{idUser},#{name},#{remark},#{type},#{depthCrawl}," +
             "#{depthDynamic},#{pass},#{weight},#{threads},#{completeTimes}," +
-            "#{cycleRecrawl},#{status},#{deleteFlag},#{timeStart},#{timeStop}," +
+            "#{cycleRecrawl},#{status},#{deleteFlag},#{activeFlag},#{timeStart},#{timeStop}," +
             "#{timeLastCrawl},#{costLastCrawl},#{scheduleType},#{workerNumber},#{createDate}," +
             "#{downloader},#{parser},#{tags}" +
             ")")
@@ -67,7 +67,7 @@ public interface TaskEntityMapper {
             "idUser=#{idUser},name=#{name},remark=#{remark},type=#{type}," +
             "depthCrawl=#{depthCrawl},depthDynamic=#{depthDynamic},pass=#{pass}," +
             "weight=#{weight},threads=#{threads},completeTimes=#{completeTimes}," +
-            "cycleRecrawl=#{cycleRecrawl},status=#{status},deleteFlag=#{deleteFlag}," +
+            "cycleRecrawl=#{cycleRecrawl},status=#{status},deleteFlag=#{deleteFlag},activeFlag=#{activeFlag}," +
             "timeStart=#{timeStart},timeStop=#{timeStop},timeLastCrawl=#{timeLastCrawl}," +
             "costLastCrawl=#{costLastCrawl},scheduleType=#{scheduleType},workerNumber=#{workerNumber}," +
             "createDate=#{createDate},downloader=#{downloader},parser=#{parser},tags=#{tags} WHERE id=#{id}")
