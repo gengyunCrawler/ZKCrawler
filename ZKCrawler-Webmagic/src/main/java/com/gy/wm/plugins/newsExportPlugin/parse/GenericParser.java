@@ -53,6 +53,10 @@ public class GenericParser implements PageParser {
         //judge current page class(links page or content page)
         if (isColumnHtml(crawlData.getUrl())) {
             List<String> urls = new Html(crawlData.getHtml()).xpath("//a/@href").all();
+            String domain="";
+            String []arr= crawlData.getRootUrl().split("/");
+            domain=arr[0]+"//"+arr[2];
+            urls=hrefPrifix(urls,domain);
             for (String url : urls) {
                 if (isContentHtml(url)) {
                     CrawlData data = new CrawlData();
@@ -144,8 +148,10 @@ public class GenericParser implements PageParser {
      * @return
      */
     private boolean isContentHtml(String url) {
+
         for (String urlRegex : contentLinkRegexs) {
-            if (url.matches(urlRegex)) {
+            Pattern pattern = Pattern.compile(urlRegex);
+            if (pattern.matcher(url).find()) {
                 return true;
             }
         }
@@ -160,7 +166,8 @@ public class GenericParser implements PageParser {
      */
     private boolean isColumnHtml(String url) {
         for (String urlRegex : columnRegexs) {
-            if (url.matches(urlRegex)) {
+            Pattern pattern = Pattern.compile(urlRegex);
+            if (pattern.matcher(url).find()) {
                 return true;
             }
         }
@@ -232,6 +239,18 @@ public class GenericParser implements PageParser {
         return contentHtml;
 
     }
-
+    private List<String> hrefPrifix(List<String> urls,String domain){
+        if (urls==null){
+            return null;
+        }
+        for (int i=0;i<urls.size(); i++){
+            String url = urls.get(i);
+            if (!url.startsWith("http")){
+                url=domain + "/" + url;
+                urls.set(i,url);
+            }
+        }
+        return urls;
+    }
 
 }

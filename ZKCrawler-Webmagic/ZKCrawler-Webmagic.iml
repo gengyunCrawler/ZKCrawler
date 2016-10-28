@@ -283,5 +283,6 @@
     <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpclient:4.5.2" level="project" />
     <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpcore:4.4.5" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.mockito:mockito-all:1.8.5" level="project" />
+    <orderEntry type="library" name="Maven: com.h2database:h2:1.4.191" level="project" />
   </component>
 </module>

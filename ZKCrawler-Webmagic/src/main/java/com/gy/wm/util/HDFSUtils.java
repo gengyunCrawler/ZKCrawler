@@ -24,7 +24,7 @@ public class HDFSUtils {
 
         //两个方法都用于文件写入，好像一般多使用后者
        // out.writeBytes(words);
-        out.write(words.getBytes());
+        out.write(words.getBytes("UTF-8"));
 
         out.close();
 
@@ -38,7 +38,12 @@ public class HDFSUtils {
         return fs.exists(path);
 
     }
-
+    public static synchronized  void   uploadFile(String src,String file) throws IOException {
+        Configuration conf = new Configuration();
+        Path destPath = new Path(file);
+        FileSystem fs = destPath.getFileSystem(conf);
+        fs.copyFromLocalFile(false,new Path(src),destPath);
+    }
 
     public static synchronized   void writeByAppend(String file,String worlds){
 
@@ -48,7 +53,7 @@ public class HDFSUtils {
         try {
             fs = FileSystem.get(URI.create(file), conf);
             //要追加的文件流，inpath为文件
-            InputStream in = new ByteArrayInputStream(worlds.getBytes());
+            InputStream in = new ByteArrayInputStream(worlds.getBytes("UTF-8"));
             OutputStream out = fs.append(new Path(file));
             IOUtils.copyBytes(in, out, 4096, true);
         } catch (IOException e) {

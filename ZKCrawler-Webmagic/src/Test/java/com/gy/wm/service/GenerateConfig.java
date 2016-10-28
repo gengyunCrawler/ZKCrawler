@@ -102,9 +102,16 @@ public class GenerateConfig {
     }
     @Test
     public void testUrlMatch(){
-        String url="http://[a-z|A-Z]+.sohu.com/\\d+/n\\d+.shtml";
+        String url="http://(politics|world|news|mil).gmw.cn/node_\\d+";
         Pattern pattern = Pattern.compile(url);
-      Matcher matcher = pattern.matcher("http://.sohu.com/20161025/n471221370.shtml");
+      Matcher matcher = pattern.matcher("http://politics.gmw.cn/node_9844.htm");
         System.out.println(matcher.find());
+    }
+    @Test
+    public void testRegex(){
+        String urlre="http://(politics|world|news|mil).gmw.cn/node_\\d+";
+
+        String url = "http://politics.gmw.cn/node_9844.htm";
+        System.out.println(url.matches(urlre));
     }
 }

@@ -52,26 +52,16 @@ public  class ServiceTest {
 //        templateList.add("");
         List<String> seedUrls = new ArrayList<>();
 
+        seedUrls.add("http://www.qxn.gov.cn/ListArtGovPublic/QxnInfo.9/1.html");
 
-        String seed1 = "http://www.qnz.com.cn/news/newslist-0-12.shtml";
-//        String seed2 = "http://www.qnz.com.cn/news/newslist-0-13.shtml";
-//        String seed3 = "http://www.qnz.com.cn/news/newsshow-29863.shtml";
-//        String seed4 = "http://www.gygov.gov.cn/col/col10683/index.html";
-      //  String seed5 = "http://www.gog.cn/";
-
-        seedUrls.add("http://news.qq.com/newsgn/gdxw/gedixinwen.htm");
-        seedUrls.add("http://news.qq.com/newsgn/zhxw/shizhengxinwen.htm");
-        seedUrls.add("http://news.qq.com/newssh/shwx/shehuiwanxiang.htm");
-        seedUrls.add("http://roll.news.qq.com/#");
-//        seedUrls.add(seed2);
-//        param.setTemplates(templateList);
         param.setSeedUrls(seedUrls);
 
 //        templateList.add(guiyangTemplate);
 //        param.setTemplates(templateList);
 
-        base.setId("news.qq.com");
+        base.setId("http://www.qxn.gov.cn/");
         base.setDepthCrawl(1);
+
 
         taskParamModel.setParam(param);
         taskParamModel.setBase(base);

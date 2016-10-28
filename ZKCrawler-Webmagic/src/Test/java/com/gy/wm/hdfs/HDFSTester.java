@@ -10,6 +10,8 @@ import org.junit.Test;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 /**
  * Created by Administrator on 2016/10/25.
@@ -51,12 +53,23 @@ public class HDFSTester
 
     @Test
     public void delete() throws IOException {
-        HDFSUtils.delete("/user/root/icp/test.txt");
+        HDFSUtils.delete("/user/root/icp/news-20161027.txt");
     }
 
     @Test
     public void testCheck() throws IOException, URISyntaxException {
-       boolean b= HDFSUtils.fileIsExist("/user/root/icp/tesdt.txt");
+       boolean b= HDFSUtils.fileIsExist("/user/root/icp/news-20161027.txt");
         System.out.println(b);
+    }
+    @Test
+    public void testGet(){
+      Calendar calendar=  Calendar.getInstance();
+        String d=new SimpleDateFormat("yyyyMMdd").format(Calendar.getInstance().getTime());
+        System.out.println(d);
+
+    }
+    @Test
+    public void testUpload() throws IOException {
+     HDFSUtils.uploadFile("d:/news-20161027.txt","/user/root/icp/");
     }
 }

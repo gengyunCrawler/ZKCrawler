@@ -215,4 +215,14 @@ public class ParserConfigTester {
         ParserDao dao = new ParserDao();
         dao.find("");
     }
+
+    @Test
+    public void testRegx(){
+        String s = "<span class=\"time-source xh-highlight\" id=\"navtimeSource\">2016年10月26日01:39\t\t<span>\n" +
+                "<span data-sudaclick=\"media_name\"><a href=\"http://epaper.jinghua.cn/html/2016-10/26/content_342030.htm\" target=\"_blank\" rel=\"nofollow\">京华时报</a></span></span>\n" +
+                "\t</span>";
+        Html html = new Html(s);
+       String ss= html.xpath("//span[@id='navtimeSource']/text()//*/text()").toString();
+        System.out.println(ss);
+    }
 }
