@@ -1,8 +1,5 @@
 package com.gy.wm.service;
 
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gy.wm.ApplicationWebmagic;
 import com.gy.wm.controller.API;
 import com.gy.wm.util.JSONUtil;
@@ -83,11 +80,5 @@ public  class ServiceTest {
         jsonObject.put("column",column);
         System.out.println(JSONUtil.object2JacksonString(jsonObject));
         return JSONUtil.object2JacksonString(jsonObject);
-    }
-
-    @Test
-    public void validateRegex()  {
-        String str = "http://www.gzgov.gov.cn/xwzx/gzxw/201610/t20161025_652161.html";
-        System.out.println(str.matches("http://www.gzgov.gov.cn/xwzx/(qgyw|gzxw|mtkgz|gszdt)(/\\w+)*/\\d+/(\\w|-)+.html"));
     }
 }

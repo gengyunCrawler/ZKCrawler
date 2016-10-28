@@ -1,4 +1,4 @@
-<!--Mon Jun 27 18:12:16 2016-->
+<!--Mon Oct 24 11:30:33 2016-->
     <configuration>
     
     <property>
@@ -17,6 +17,11 @@
     </property>
     
     <property>
+      <name>dfs.client.file-block-storage-locations.timeout</name>
+      <value>30000</value>
+    </property>
+    
+    <property>
       <name>dfs.client.read.shortcircuit</name>
       <value>true</value>
     </property>
@@ -28,7 +33,7 @@
     
     <property>
       <name>dfs.cluster.administrators</name>
-      <value> hdfs</value>
+      <value>hdfs</value>
     </property>
     
     <property>
@@ -43,7 +48,7 @@
     
     <property>
       <name>dfs.datanode.data.dir</name>
-      <value>/crawlerdata/hadoop/hdfs/data</value>
+      <value>/hadoop/hdfs/data</value>
     </property>
     
     <property>
@@ -59,6 +64,11 @@
     <property>
       <name>dfs.datanode.failed.volumes.tolerated</name>
       <value>0</value>
+    </property>
+    
+    <property>
+      <name>dfs.datanode.hdfs-blocks-metadata.enabled</name>
+      <value>true</value>
     </property>
     
     <property>
@@ -138,7 +148,7 @@
     
     <property>
       <name>dfs.namenode.checkpoint.dir</name>
-      <value>/crawlerdata/hadoop/hdfs/namesecondary</value>
+      <value>/hadoop/hdfs/namesecondary</value>
     </property>
     
     <property>
@@ -163,18 +173,18 @@
     
     <property>
       <name>dfs.namenode.http-address</name>
-      <value>crawler-20:50070</value>
+      <value>hdp-master:50070</value>
       <final>true</final>
     </property>
     
     <property>
       <name>dfs.namenode.https-address</name>
-      <value>crawler-20:50470</value>
+      <value>hdp-master:50470</value>
     </property>
     
     <property>
       <name>dfs.namenode.name.dir</name>
-      <value>/crawlerdata/hadoop/hdfs/namenode</value>
+      <value>/hadoop/hdfs/namenode</value>
     </property>
     
     <property>
@@ -184,12 +194,12 @@
     
     <property>
       <name>dfs.namenode.safemode.threshold-pct</name>
-      <value>0.99f</value>
+      <value>1.0f</value>
     </property>
     
     <property>
       <name>dfs.namenode.secondary.http-address</name>
-      <value>crawler-30:50090</value>
+      <value>hdp-slave1:50090</value>
     </property>
     
     <property>
@@ -209,7 +219,7 @@
     
     <property>
       <name>dfs.permissions.enabled</name>
-      <value>true</value>
+      <value>false</value>
     </property>
     
     <property>
