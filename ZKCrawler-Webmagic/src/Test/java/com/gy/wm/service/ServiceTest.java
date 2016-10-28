@@ -1,7 +1,11 @@
 package com.gy.wm.service;
 
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gy.wm.ApplicationWebmagic;
 import com.gy.wm.controller.API;
+import com.gy.wm.util.JSONUtil;
 import com.gy.wm.vo.Base;
 import com.gy.wm.vo.Param;
 import com.gy.wm.model.TaskParamModel;
@@ -53,20 +57,16 @@ public  class ServiceTest {
 //        templateList.add("");
         List<String> seedUrls = new ArrayList<>();
 
-        seedUrls.add("http://www.zunyi.gov.cn/sy/ttxw/");
-        seedUrls.add("http://www.zunyi.gov.cn/sy/zyyw/");
-        seedUrls.add("http://www.zunyi.gov.cn/sy/qxdt/");
-        seedUrls.add("http://www.zunyi.gov.cn/sy/bmdt/");
-        seedUrls.add("http://www.zunyi.gov.cn/sy/mtgz/");
-        seedUrls.add("http://www.zunyi.gov.cn/sy/gggs/");
+        seedUrls.add("http://www.gzgov.gov.cn/xwzx/gzxw/");
         param.setSeedUrls(seedUrls);
 
 //        templateList.add(guiyangTemplate);
 //        param.setTemplates(templateList);
 
-        base.setId("http://www.zunyi.gov.cn/");
-        base.setDepthCrawl(1);
+        base.setId("http://www.gzgov.gov.cn");
+        base.setTags(setTag("贵州","贵州新闻"));
 
+        /*base.setDepthCrawl(1);
         taskParamModel.setParam(param);
         taskParamModel.setBase(base);
         System.out.println(api.startTask(taskParamModel));
@@ -74,6 +74,20 @@ public  class ServiceTest {
             Thread.sleep(Long.MAX_VALUE);
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }
+        }*/
+    }
+
+    public String setTag(String area,String column)    {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("area",area);
+        jsonObject.put("column",column);
+        System.out.println(JSONUtil.object2JacksonString(jsonObject));
+        return JSONUtil.object2JacksonString(jsonObject);
+    }
+
+    @Test
+    public void validateRegex()  {
+        String str = "http://www.gzgov.gov.cn/xwzx/gzxw/201610/t20161025_652161.html";
+        System.out.println(str.matches("http://www.gzgov.gov.cn/xwzx/(qgyw|gzxw|mtkgz|gszdt)(/\\w+)*/\\d+/(\\w|-)+.html"));
     }
 }

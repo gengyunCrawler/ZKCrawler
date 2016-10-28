@@ -29,18 +29,18 @@ public class CrawlData implements Serializable {
     private Date publishTime;
     private long depthfromSeed;//层数
     private long count;
-    private boolean tag;//true：文章，fallse：导航
+    private String tag;//爬虫带的原始标签，比如地域area
     private boolean fetched;
     private String author;
     private String sourceName;
-    private String jsonData;
+    private String parsedData;
 
-    public String getJsonData() {
-        return jsonData;
+    public String getParsedData() {
+        return parsedData;
     }
 
-    public void setJsonData(String jsonData) {
-        this.jsonData = jsonData;
+    public void setParsedData(String parsedData) {
+        this.parsedData = parsedData;
     }
 
     private Map<String,String> crawlerdata=new HashMap<>();
@@ -50,12 +50,10 @@ public class CrawlData implements Serializable {
     }
 
     public void setCrawlerdata(Map<String, String> crawlerdata) {
-
         if (crawlerdata!=null){
             this.crawlerdata = crawlerdata;
-            this.jsonData= JSON.toJSONString(crawlerdata);
+            this.parsedData = JSON.toJSONString(crawlerdata);
         }
-
     }
 
     public String getAuthor() {
@@ -87,7 +85,7 @@ public class CrawlData implements Serializable {
     public CrawlData() {}
 
     public CrawlData(String url, int statusCode, int pass, String type, String rootUrl, String fromUrl, String text, String html, String title,
-                     String startTime, Date crawlTime, Date publishTime, long depthfromSeed, boolean tag, long count, boolean fetched, String author, String sourceName)  {
+                     String startTime, Date crawlTime, Date publishTime, long depthfromSeed, String tag, long count, boolean fetched, String author, String sourceName)  {
         this.url = url;
         this.statusCode = statusCode;
         this.pass = pass;
@@ -106,7 +104,6 @@ public class CrawlData implements Serializable {
         this.fetched = fetched;
         this.author = author;
         this.sourceName = sourceName;
-
     }
 
     public String getTid() {
@@ -221,11 +218,11 @@ public class CrawlData implements Serializable {
         this.depthfromSeed = depthfromSeed;
     }
 
-    public boolean isTag() {
+    public String getTag() {
         return tag;
     }
 
-    public void setTag(boolean tag) {
+    public void setTag(String tag) {
         this.tag = tag;
     }
 

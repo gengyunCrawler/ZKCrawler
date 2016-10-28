@@ -85,8 +85,6 @@ public class GenericParser implements PageParser {
      */
     private CrawlData parseData(Html html, CrawlData crawlData, List<HtmlField> htmlFields) {
 
-
-
         crawlData.setTid(crawlData.getTid());
 
         crawlData.setHtml(html.toString());
@@ -113,7 +111,7 @@ public class GenericParser implements PageParser {
 
             }
 
-            if (htmlField.isContainsHtml()==false){
+            if (htmlField.isContainsHtml()==false&& fieldValue != null){
                 Html fieldHtml = new Html(fieldValue);
                 List<String> fieldValues = fieldHtml.xpath("//*/text()").all();
                 StringBuffer buffer = new StringBuffer();

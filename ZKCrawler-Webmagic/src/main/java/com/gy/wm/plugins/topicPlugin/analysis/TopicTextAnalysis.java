@@ -75,7 +75,6 @@ public class TopicTextAnalysis implements Serializable,PageParser {
                     newCrawlData.setHtml(baseAnalysisURL.getHtml());
                     newCrawlData.setText(baseAnalysisURL.getText());
                     newCrawlData.setFetched(false);
-                    newCrawlData.setTag(false);
 
                     crawlDataList.add(newCrawlData);
                 }
@@ -100,7 +99,6 @@ public class TopicTextAnalysis implements Serializable,PageParser {
             crawlData.setText(oldUrl.getText());
             crawlData.setHtml(oldUrl.getHtml());
             crawlData.setFetched(true);
-            crawlData.setTag(true);
 
             crawlDataList.add(crawlData);
         }

@@ -10,8 +10,8 @@ import org.apache.ibatis.annotations.Select;
  * @author TijunWang
  */
 public interface ParserMapper {
-    @Select("SELECT id,tid,config FROM crawlerConfig WHERE tid=#{tid}")
+    @Select("SELECT id,tid,config FROM article_parse_config WHERE tid=#{tid}")
     ParserEntity find(@Param("tid") String tid);
-    @Insert("insert into crawlerConfig(tid,config) VALUES(#{tid},#{config})")
+    @Insert("insert into article_parse_config(tid,config) VALUES(#{tid},#{config})")
     void  insert(ParserEntity entity);
 }
