@@ -17,7 +17,7 @@ import java.util.Map;
 /**
  * Created by TianyuanPan on 5/18/16.
  */
-public class HbaseClient extends AbstractDBClient {
+public class HbaseClient{
 
 
     private String tableName;
@@ -42,17 +42,6 @@ public class HbaseClient extends AbstractDBClient {
         return columnFamilyName;
     }
 
-    @Override
-    public Object getConnection() {
-        return null;
-    }
-
-    @Override
-    public void closeConnection() {
-
-    }
-
-    @Override
     public int doSetInsert() {
         int count = 0;
         int size = dataList.size();
@@ -61,7 +50,6 @@ public class HbaseClient extends AbstractDBClient {
             try {
                 count += this.insertRecord(tableName, RandomUtils.getRandomString(50) + "_" + new Date().getTime(), columnFamilyName, dataList.get(i));
             } catch (Exception ex) {
-                logger.warn("HbaseClient doSetInsert Exception!!! Message: " + ex.getMessage());
                 ex.printStackTrace();
             }
         }
@@ -69,12 +57,6 @@ public class HbaseClient extends AbstractDBClient {
 
         return count;
     }
-
-    @Override
-    public boolean isConnOpen() {
-        return false;
-    }
-
 
     public void add(CrawlData data) {
 
@@ -120,8 +102,6 @@ public class HbaseClient extends AbstractDBClient {
                     }
 
                 } catch (Exception ex) {
-
-                    logger.warn("get data Exception! columnQualifier = " + columnQualifier + ", value = " + value);
                     ex.printStackTrace();
 
                 }
@@ -142,11 +122,8 @@ public class HbaseClient extends AbstractDBClient {
             try {
                 myTable.close();
             } catch (Exception exc) {
-                logger.warn("Hbase table is close() or connection is close() error!!! Message: " + exc.getMessage());
                 exc.printStackTrace();
             }
-
-            logger.warn("HBase Put data Exception!!! Message: " + ex.getMessage());
             ex.printStackTrace();
             return 0;
         }
@@ -157,11 +134,8 @@ public class HbaseClient extends AbstractDBClient {
             myTable.close();
 
         } catch (Exception ex) {
-            logger.warn("Hbase table.close() or connection,close() error!!! Message: " + ex.getMessage());
             ex.printStackTrace();
         }
-
-
         return 1;
     }
 

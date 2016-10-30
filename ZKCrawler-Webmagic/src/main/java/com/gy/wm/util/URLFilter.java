@@ -5,7 +5,7 @@ package com.gy.wm.util;
  */
 public class URLFilter {
     public static boolean matchDomain(String url,String domain) {
-        String pattern = "(http|https)(://)(" + domain +")(.*)";
+        String pattern = "(http|https)(://.*)(" + domain +")(.*)";
         return url.matches(pattern);
     }
 

@@ -1,6 +1,12 @@
 package com.gy.wm.model;
 
+import com.alibaba.fastjson.JSON;
+
 import java.io.Serializable;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Administrator on 2016/4/29.
@@ -19,18 +25,67 @@ public class CrawlData implements Serializable {
     private String html;
     private String title;
     private String startTime;
-    private long crawlTime;
-    private long publishTime;
+    private Date crawlTime;
+    private Date publishTime;
     private long depthfromSeed;//层数
     private long count;
-    private boolean tag;//true：文章，fallse：导航
+    private String tag;//爬虫带的原始标签，比如地域area
     private boolean fetched;
+    private String author;
+    private String sourceName;
+    private String parsedData;
 
+    public String getParsedData() {
+        return parsedData;
+    }
+
+    public void setParsedData(String parsedData) {
+        this.parsedData = parsedData;
+    }
+
+    private Map<String,String> crawlerdata=new HashMap<>();
+
+    public Map<String, String> getCrawlerdata() {
+        return crawlerdata;
+    }
+
+    public void setCrawlerdata(Map<String, String> crawlerdata) {
+        if (crawlerdata!=null){
+            this.crawlerdata = crawlerdata;
+            this.parsedData = JSON.toJSONString(crawlerdata);
+        }
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getSourceName() {
+        return sourceName;
+    }
+
+    public void setSourceName(String sourceName) {
+        this.sourceName = sourceName;
+    }
+
+    private List<Map<String,String>> fieldsMap;
+
+    public List<Map<String, String>> getFieldsMap() {
+        return fieldsMap;
+    }
+
+    public void setFieldsMap(List<Map<String, String>> fieldsMap) {
+        this.fieldsMap = fieldsMap;
+    }
 
     public CrawlData() {}
 
     public CrawlData(String url, int statusCode, int pass, String type, String rootUrl, String fromUrl, String text, String html, String title,
-                     String startTime, long crawlTime, long publishTime, long depthfromSeed, boolean tag, long count, boolean fetched)  {
+                     String startTime, Date crawlTime, Date publishTime, long depthfromSeed, String tag, long count, boolean fetched, String author, String sourceName)  {
         this.url = url;
         this.statusCode = statusCode;
         this.pass = pass;
@@ -47,6 +102,8 @@ public class CrawlData implements Serializable {
         this.tag = tag;
         this.count = count;
         this.fetched = fetched;
+        this.author = author;
+        this.sourceName = sourceName;
     }
 
     public String getTid() {
@@ -137,19 +194,19 @@ public class CrawlData implements Serializable {
         this.startTime = startTime;
     }
 
-    public long getCrawlTime() {
+    public Date getCrawlTime() {
         return crawlTime;
     }
 
-    public void setCrawlTime(long crawlTime) {
+    public void setCrawlTime(Date crawlTime) {
         this.crawlTime = crawlTime;
     }
 
-    public long getPublishTime() {
+    public Date getPublishTime() {
         return publishTime;
     }
 
-    public void setPublishTime(long publishTime) {
+    public void setPublishTime(Date publishTime) {
         this.publishTime = publishTime;
     }
 
@@ -161,11 +218,11 @@ public class CrawlData implements Serializable {
         this.depthfromSeed = depthfromSeed;
     }
 
-    public boolean isTag() {
+    public String getTag() {
         return tag;
     }
 
-    public void setTag(boolean tag) {
+    public void setTag(String tag) {
         this.tag = tag;
     }
 

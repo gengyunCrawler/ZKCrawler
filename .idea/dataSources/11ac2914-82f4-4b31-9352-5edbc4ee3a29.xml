@@ -1,0 +1,1201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="MySQL - wifi_ac@108.108.108.8">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="2.6">
+    <schema id="1" name="wifi_ac">
+      <visible>1</visible>
+    </schema>
+    <schema id="2" name="bazhuadata"/>
+    <schema id="3" name="bigdata"/>
+    <schema id="4" name="builder"/>
+    <schema id="5" name="cmbclottery"/>
+    <schema id="6" name="cms_serve"/>
+    <schema id="7" name="datastory"/>
+    <schema id="8" name="db1"/>
+    <schema id="9" name="ddp"/>
+    <schema id="10" name="ddp_project"/>
+    <schema id="11" name="ddp_task_monitor"/>
+    <schema id="12" name="gy_wxedit"/>
+    <schema id="13" name="h5_test"/>
+    <schema id="14" name="hive"/>
+    <schema id="15" name="hue_test"/>
+    <schema id="16" name="information_schema"/>
+    <schema id="17" name="ip"/>
+    <schema id="18" name="ips"/>
+    <schema id="19" name="logfilter"/>
+    <schema id="20" name="micrositebuilder"/>
+    <schema id="21" name="micrositedisplay"/>
+    <schema id="22" name="model_for_city"/>
+    <schema id="23" name="mysql"/>
+    <schema id="24" name="netoffice"/>
+    <schema id="25" name="octo_h5"/>
+    <schema id="26" name="oozie"/>
+    <schema id="27" name="oozie_super"/>
+    <schema id="28" name="pai_ai_gui_yang"/>
+    <schema id="29" name="performance_schema"/>
+    <schema id="30" name="teamwork"/>
+    <schema id="31" name="test"/>
+    <schema id="32" name="tourist_host"/>
+    <schema id="33" name="webanalysis"/>
+    <schema id="34" name="webanalytics"/>
+    <schema id="35" name="wechatservice"/>
+    <schema id="36" name="wifimanagerweb"/>
+    <schema id="37" name="wifiprobe"/>
+    <schema id="38" name="wifisurfing"/>
+    <schema id="39" name="wifi_log"/>
+    <schema id="40" name="wifi_manage"/>
+    <schema id="41" name="wifi_pingzhai"/>
+    <schema id="42" name="wifi_sign_system"/>
+    <schema id="43" name="wifi_zhihui"/>
+    <schema id="44" name="yp_test"/>
+    <schema id="45" name="zunyi_release"/>
+    <table id="46" parent="1" name="category"/>
+    <table id="47" parent="1" name="crawlerdata"/>
+    <table id="48" parent="1" name="t_cmd"/>
+    <table id="49" parent="1" name="t_device"/>
+    <table id="50" parent="1" name="t_user"/>
+    <table id="51" parent="1" name="tbCllgInfo"/>
+    <table id="52" parent="1" name="tbCrawlerTask"/>
+    <table id="53" parent="1" name="tbCrawlerTaskConfig"/>
+    <table id="54" parent="1" name="tbCrdt"/>
+    <table id="55" parent="1" name="tbCrdtLog"/>
+    <table id="56" parent="1" name="tbCrsInfo"/>
+    <table id="57" parent="1" name="tbExpns"/>
+    <table id="58" parent="1" name="tbMsgJob"/>
+    <table id="59" parent="1" name="tbMsgTask"/>
+    <table id="60" parent="1" name="tbPay"/>
+    <table id="61" parent="1" name="tbRgstrLog"/>
+    <table id="62" parent="1" name="tbRole"/>
+    <table id="63" parent="1" name="tbSchlInfo"/>
+    <table id="64" parent="1" name="tbSys"/>
+    <table id="65" parent="1" name="tbUser"/>
+    <table id="66" parent="1" name="tb_crawler"/>
+    <table id="67" parent="1" name="tb_fbird"/>
+    <table id="68" parent="1" name="wechatdata"/>
+    <table id="69" parent="1" name="weibo"/>
+    <column id="70" parent="46" name="categoryId">
+      <data-type>varchar(64)|0</data-type>
+    </column>
+    <column id="71" parent="46" name="categoryName">
+      <data-type>varchar(64)|0</data-type>
+    </column>
+    <column id="72" parent="47" name="seqeueID">
+      <mandatory>1</mandatory>
+      <data-type>int(10)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="73" parent="47" name="tid">
+      <mandatory>1</mandatory>
+      <data-type>varchar(32)|0</data-type>
+    </column>
+    <column id="74" parent="47" name="url">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="75" parent="47" name="statusCode">
+      <data-type>int(3)|0</data-type>
+    </column>
+    <column id="76" parent="47" name="pass">
+      <data-type>int(10)|0</data-type>
+    </column>
+    <column id="77" parent="47" name="type">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="78" parent="47" name="rootUrl">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="79" parent="47" name="fromUrl">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="80" parent="47" name="text">
+      <data-type>longtext|0</data-type>
+    </column>
+    <column id="81" parent="47" name="html">
+      <data-type>longtext|0</data-type>
+    </column>
+    <column id="82" parent="47" name="title">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="83" parent="47" name="startTime">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <column id="84" parent="47" name="crawlTime">
+      <data-type>datetime|0</data-type>
+    </column>
+    <column id="85" parent="47" name="publishTime">
+      <data-type>datetime|0</data-type>
+    </column>
+    <column id="86" parent="47" name="depthfromSeed">
+      <data-type>int(10)|0</data-type>
+    </column>
+    <column id="87" parent="47" name="count">
+      <data-type>int(10)|0</data-type>
+    </column>
+    <column id="88" parent="47" name="tag">
+      <data-type>tinyint(5)|0</data-type>
+    </column>
+    <column id="89" parent="47" name="fetched">
+      <data-type>tinyint(5)|0</data-type>
+    </column>
+    <key id="90" parent="47" name="PRIMARY">
+      <columns>seqeueID</columns>
+      <primary>1</primary>
+    </key>
+    <column id="91" parent="48" name="cmd">
+      <mandatory>1</mandatory>
+      <data-type>varchar(256)|0</data-type>
+    </column>
+    <column id="92" parent="48" name="cmdID">
+      <mandatory>1</mandatory>
+      <data-type>varchar(64)|0</data-type>
+    </column>
+    <column id="93" parent="48" name="deviceID">
+      <mandatory>1</mandatory>
+      <data-type>varchar(64)|0</data-type>
+    </column>
+    <key id="94" parent="48" name="PRIMARY">
+      <columns>cmdID</columns>
+      <primary>1</primary>
+    </key>
+    <column id="95" parent="49" name="deviceID">
+      <mandatory>1</mandatory>
+      <data-type>varchar(64)|0</data-type>
+    </column>
+    <column id="96" parent="49" name="userID">
+      <mandatory>1</mandatory>
+      <data-type>varchar(64)|0</data-type>
+    </column>
+    <column id="97" parent="49" name="ssid">
+      <data-type>varchar(64)|0</data-type>
+    </column>
+    <column id="98" parent="49" name="encryption">
+      <data-type>varchar(64)|0</data-type>
+    </column>
+    <column id="99" parent="49" name="devicePassword">
+      <data-type>varchar(64)|0</data-type>
+    </column>
+    <column id="100" parent="49" name="ipAddress">
+      <data-type>varchar(64)|0</data-type>
+    </column>
+    <column id="101" parent="49" name="ipMask">
+      <data-type>varchar(64)|0</data-type>
+    </column>
+    <column id="102" parent="49" name="isDHCP">
+      <data-type>tinyint(1)|0</data-type>
+    </column>
+    <column id="103" parent="49" name="startIP">
+      <data-type>int(3)|0</data-type>
+    </column>
+    <column id="104" parent="49" name="limitIP">
+      <data-type>int(3)|0</data-type>
+    </column>
+    <column id="105" parent="49" name="isReboot">
+      <data-type>tinyint(1)|0</data-type>
+    </column>
+    <column id="106" parent="49" name="rebootTime">
+      <data-type>varchar(64)|0</data-type>
+    </column>
+    <column id="107" parent="49" name="updateTime">
+      <data-type>datetime|0</data-type>
+    </column>
+    <index id="108" parent="49" name="userID">
+      <columns>userID</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="109" parent="49" name="PRIMARY">
+      <columns>deviceID</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="110" parent="49" name="userID">
+      <columns>userID</columns>
+      <ref-key>~.t_user.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <column id="111" parent="50" name="userID">
+      <mandatory>1</mandatory>
+      <data-type>varchar(64)|0</data-type>
+    </column>
+    <column id="112" parent="50" name="username">
+      <mandatory>1</mandatory>
+      <data-type>varchar(64)|0</data-type>
+    </column>
+    <column id="113" parent="50" name="password">
+      <mandatory>1</mandatory>
+      <data-type>varchar(64)|0</data-type>
+    </column>
+    <column id="114" parent="50" name="createTime">
+      <data-type>datetime|0</data-type>
+    </column>
+    <column id="115" parent="50" name="updateTime">
+      <data-type>datetime|0</data-type>
+    </column>
+    <column id="116" parent="50" name="deleteFlag">
+      <data-type>tinyint(1)|0</data-type>
+    </column>
+    <key id="117" parent="50" name="PRIMARY">
+      <columns>userID</columns>
+      <primary>1</primary>
+    </key>
+    <column id="118" parent="51" name="cllgId">
+      <comment>濠电偞鍨堕幐鎼佲�﹂悜钘夋瀬闁跨噦鎷� 闂佽瀛╅崘鑽ょ不閹炬枼鏋嶉悗娑欐絼</comment>
+      <mandatory>1</mandatory>
+      <data-type>bigint(20)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="119" parent="51" name="userId">
+      <comment>濠电姰鍨奸崺鏍偋閻樿鏋侀柨鐕傛嫹 闂備胶鍎甸崑鎾诲礉瀹ュ鏄ユ慨鍦尠</comment>
+      <mandatory>1</mandatory>
+      <data-type>varchar(13)|0</data-type>
+    </column>
+    <column id="120" parent="51" name="cllgName">
+      <comment>闂佽瀛╅崘鑽ょ不閹炬枼鏋嶇�癸拷閸曨偉袝閻庡箍鍎卞▔锕傛晸閿燂拷</comment>
+      <data-type>varchar(64)|0</data-type>
+    </column>
+    <column id="121" parent="51" name="clssName">
+      <comment>闂備胶绮换宥夊储閻愵剦娈介柛銉墮鐟欙妇锟藉箍鍎卞▔锕傛晸閿燂拷</comment>
+      <data-type>varchar(64)|0</data-type>
+    </column>
+    <column id="122" parent="51" name="delFlag">
+      <data-type>tinyint(1)|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <index id="123" parent="51" name="userId">
+      <columns>userId</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="124" parent="51" name="PRIMARY">
+      <columns>cllgId</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="125" parent="51" name="tbCllgInfo_ibfk_1">
+      <columns>userId</columns>
+      <ref-key>~.tbUser.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <column id="126" parent="52" name="id">
+      <comment>闂備胶绮悧顒勫礈濠靛棌鏋嶉柡鍥╁枔椤╃兘鎮归崶銊ョ祷妞ゎ偁鍊濋弻锝夊Ω閵夈儳鍔穌闂備焦瀵х粙鎴﹀嫉椤掑嫭鍎婇柍鈺佸暟閳绘梹銇勮箛鎾虫殲鐎规洘鐓￠弻娑㈠籍閹惧墎锛熷┑鐐茬墛閸氭攧闂備礁鎼�氱兘宕规导鏉戞瀬妞ゆ梻鏅埢鏃堟煥閻斿墎鐭欓柟顖氬暣瀹曠喖宕滄担渚Х闂佽瀛╃粙鎺椼�冮崼銉晞濞达絽婀遍埢鏃堟偣閸ュ洤鎳愰ˇ顕�姊洪棃鈺勭闁告柨绉瑰鎶芥偄閻撳海顔夊銈嗘閸嬫劕顫濋妸鈺傜厽闁靛鍎遍顓㈡煛閸℃岸鍝洪柟顖涙閺佸倿鎳楅婊庢Ч64濠电偞鍨堕幖鈺傜濠婂牊鍋ょ憸蹇曞垝椤撱垺鏅滈柣姘摠鐎氬綊鏌ㄩ悤鍌涘</comment>
+      <mandatory>1</mandatory>
+      <data-type>varchar(64)|0</data-type>
+      <default-expression>&apos;&apos;</default-expression>
+    </column>
+    <column id="127" parent="52" name="idUser">
+      <comment>闂備胶鍎甸崑鎾诲礉瀹ュ鏄ユ繛宀�鎯勯梻浣瑰缁嬫垿鎯屾笟锟芥俊鎾礃椤旂厧寮烽柟鍏肩暘閸╁嫰宕濋崘顭嬪綊鎮╂笟顖氭婵犳鍠氶崰鎾寸閿曞倹鍊烽柟娈垮枦婢规﹢姊洪崨濠勭濞存粍鐟╅弻灞筋煥閸喎浠洪梺闈涱煭缁犳垿鎮￠弴銏＄厽闁靛鍎遍褔鏌熼獮鍨伈鐎规洘绻冮獮濠囨煥閻旂粯顥夐柛濠呮硶閸掓帡顢涘鍕�涢梺闈涚墕閹锋垿骞忛悜鑺モ拻缁炬儳顑囬ˇ鐧桿LL闂備線娼уΛ鎾箯閿燂拷</comment>
+      <data-type>bigint(20)|0</data-type>
+    </column>
+    <column id="128" parent="52" name="name">
+      <comment>闂備胶绮悧顒勫礈濠靛棌鏋嶉柡鍥╁枔椤╃兘鎮归崶銊ョ祷妞ゎ偁鍊濋弻娑橆潩椤掑倐銈囨偖閵娾晜鐓忛柛鈩冾殔閿熷�熸硶閸掓帡顢涘鍕�涢梺闈涚墕閹锋垿骞忛悜鑺モ拻缁炬儳顑囬ˇ鎵磽娴ｆ瓕瀚伴柟纰卞亰閹缚顦寸紒顕呭弮閺佸倿鎳楅锝嗚埞闂備線娼уΛ鎾箯閿燂拷</comment>
+      <data-type>varchar(512)|0</data-type>
+      <default-expression>&apos;&apos;</default-expression>
+    </column>
+    <column id="129" parent="52" name="remark">
+      <comment>闂備胶绮悧顒勫礈濠靛棌鏋嶉柡鍥╁枔椤╃兘鎮归崶銊ョ祷妞ゎ偁鍊濋弻鐔烘嫚閼碱剛顔戦梺鍓插亾閹凤拷</comment>
+      <data-type>varchar(1024)|0</data-type>
+      <default-expression>&apos;&apos;</default-expression>
+    </column>
+    <column id="130" parent="52" name="type">
+      <comment>闂備胶绮悧顒勫礈濠靛棌鏋嶉柡鍥╁枔椤╃兘鎮归崶銊ョ祷妞ゎ偁鍊楃槐鎺楊敃閵夘喖娈梺璇叉捣閸忔﹢寮鍥︽勃缂佹稑顑嗛幖鎰版⒑閹稿海鈾侀柤褰掔畺瀹曪綀绠涢弴鐘插触濠电偛妫楃�涒晛鐣烽弻銉︾厱闁哄倸鎼晶鏌ユ煕閵婏絽濮傜�殿喖锟界喓鐤�闁哄洨鍠撻悰銉︾箾鐎电鞋妞ゆ泦鍕弿闁跨噦鎷�</comment>
+      <data-type>int(11)|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="131" parent="52" name="depthCrawl">
+      <comment>闂備胶绮悧顒勫礈濞嗘帇浜归柛銉仈鎼淬劌纭�闁绘劕妯婇崬锟�</comment>
+      <data-type>int(11)|0</data-type>
+      <default-expression>&apos;3&apos;</default-expression>
+    </column>
+    <column id="132" parent="52" name="depthDynamic">
+      <comment>闂備礁鎲￠弻锝夊礉瀹ュ鏅搁柟瀛樺笩閸忓矂鏌涢埡浣瑰枠鐎规洩缍佸浠嬪Ω瑜忛悾鎶芥煙閼圭増褰ч柟鍑ゆ嫹</comment>
+      <data-type>int(11)|0</data-type>
+      <default-expression>&apos;3&apos;</default-expression>
+    </column>
+    <column id="133" parent="52" name="pass">
+      <comment>闂傚倷绶￠崜娆戠矓閻㈢姹查柣鏂垮悑閺咁剛锟界櫢鎷烽柛鏇ㄥ幖缁楋繝鏌ｉ悩閬嶆闁稿﹥鎸鹃幏褰掓晸閿燂拷0</comment>
+      <data-type>int(11)|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="134" parent="52" name="weight">
+      <comment>濠电偛顕慨楣冾敋瑜庨幈銊╂偄閸忕厧鍓梺鍛婃处閸撴氨绱為敓浠嬫⒒娴ｇ懓绲荤紒瀣濡叉劕鈹戦崶鑸典粯濠碘槅鍨遍娆撳触閸パ�妲堥柟鍨鐎氾拷0</comment>
+      <data-type>int(11)|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="135" parent="52" name="threads">
+      <comment>濠电偛顕慨楣冾敋瑜庨幈銊╂偄閸忕厧浜銈嗗釜閹烽鎲搁弶鎸庡枠鐎殿噮鍣ｅ畷婊勬媴閸︻厽娈哥紓鍌欑劍瀹曟ê鈻旈弴銏犵厺濠靛倻顭堥弸渚�鎮介锝呮灓缂侊拷婢舵劖鍋￠柡鍥ㄦ皑椤︼箓鏌曢崶褎澶勭紒鍌氱Ч閺佹捇鏁撻敓锟�0闂備焦瀵х粙鎴︽儗閸屾粌鍨濇い鏍ㄧ矋婵ジ鏌曢崼婵嗩伂缂侊拷閿燂拷1</comment>
+      <data-type>int(11)|0</data-type>
+      <default-expression>&apos;1&apos;</default-expression>
+    </column>
+    <column id="136" parent="52" name="scheduleType">
+      <comment>濠电偛顕慨楣冾敋瑜庨幈銊╂偄閸忕厧鍓梺鍛婃处閸犳艾鈻撻崼鏇炵閺夊牊鍎抽々顒勬偠濮樼厧浜扮�规洖婀遍敓鏂ょ到婢у海绮堟径濠庢健婵炴垶鐟悞鐐亜閹惧墎甯涚紒瀣樀閺佹捇鏁撻敓锟�0</comment>
+      <data-type>int(11)|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="137" parent="52" name="workNum">
+      <comment>闂備礁婀遍悷鎶藉幢閳哄倹鏉稿┑鐐差嚟婵箖顢氳閹便劑鎮㈤崗鐓庡壄闂佸憡娲﹂崰鏍亹闂備胶绮崝姗�锝炴径鎰辈闁绘柨鍚嬮悡鍌炵叓閸ャ儱鍔ょ紒锟芥径濠庣唵闁割偄妫楅崐濠氭嚌閿燂拷0闂備焦瀵х粙鎴︽儗閸屾粌鍨濇い鏍ㄧ矋婵ジ鏌曢崼婵嗩伂缂侊拷閿燂拷1</comment>
+      <data-type>int(11)|0</data-type>
+      <default-expression>&apos;1&apos;</default-expression>
+    </column>
+    <column id="138" parent="52" name="completeTimes">
+      <comment>闂備胶绮悧顒勫礈濞嗘帇浜归柛銉ｅ妿椤╃兘鎮归崶銊ョ祷妞ゎ偁鍊濋幃妤呮偡閻楀牊鎷遍梺鎼炲妽瀹�鎼佸箚閸愵喖绀嬫い鎺戭槸娴犲綊姊烘潪鎵瓘闁瑰嚖鎷�</comment>
+      <data-type>int(11)|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="139" parent="52" name="cycleRecrawl">
+      <comment>濠电偛顕慨楣冾敋瑜庨幈銊╂偄閸忕厧浜銈嗗釜閹烽鎲搁弶鎸庡枠鐎规洏鍔戞俊鎼佹晜閽樺鍔梻浣瑰缁嬫垶绺介弮锟界粋宥夊箳閺傚墽鍓ㄩ棅顐㈡处濮婂綊藝瑜嶉埥澶愬箻閾忣偅鍎撻悗瑙勬礈閸犳劙骞忛崨顓у悑闊洦娲滈ˇ顔芥叏閹烘挾鈾佹い顓炵墦椤㈡﹢鏁撻敓锟�72</comment>
+      <data-type>int(11)|0</data-type>
+      <default-expression>&apos;72&apos;</default-expression>
+    </column>
+    <column id="140" parent="52" name="status">
+      <comment>濠电偛顕慨楣冾敋瑜庨幈銊╂偄閸忕厧浜归梺鐓庢憸椤ｎ噣骞忛柨瀣懝濠电姴瀚ˇ顕�姊洪悜鈺佷壕闁告柨绉瑰鎶芥偄閻氬瓨瀚规繛鎴炵懐濞堟洟鏌ｉ弽鐢垫偧闁归濞�瀹曢亶顢橀悩娈挎Х濠殿喗甯楃粙鎺椻�﹂崼銉晣缂備焦顭囬埢鏃堟煥閻曞倹瀚�0</comment>
+      <data-type>int(11)|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="141" parent="52" name="deleteFlag">
+      <comment>濠电偛顕慨楣冾敋瑜庨幈銊╂偄閸忕厧鍓梺鍛婃处閸犳盯骞忛锔界厱闁圭儤鏌ㄩ埢鍫熺箾閸涱參鍙勭�殿喕绮欏畷鍫曨敂閸℃﹩娼ラ梻浣瑰缁嬫垶绺介弮鍌涘闁绘帩婀紆e闂備礁鎼崯顖氾耿閸︻厾绠斿鑸靛姇缁�鍐拷骞垮劚閻楀繒绮绘繝姘仩婵炴垶顭囬悘閬嶆煕閳轰焦鍠樼�规洩缍佸浠嬪Ψ椤栨稑顏堕梺绋跨灱閸嬬喓鏁☉銏″仯濞撴艾娲﹂～鎶媗se闂備線娼уΛ鎾箯閿燂拷</comment>
+      <data-type>tinyint(1)|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="142" parent="52" name="timeStart">
+      <comment>闂備胶绮悧顒勫礈濞嗘帇浜归柛銉ｅ妿椤╃兘鎮归崶銊ョ祷妞ゎ偁鍊濋弻娑橆潩閻撳海浠╂繝娈垮枓閺呯娀骞嗛崘顔肩妞ゆ帊绶″Σ顖炴⒒閸屾艾浜伴柟鍑ゆ嫹</comment>
+      <data-type>datetime|0</data-type>
+    </column>
+    <column id="143" parent="52" name="timeStop">
+      <comment>闂備胶绮悧顒勫礈濞嗘帇浜归柛銉ｅ妿椤╃兘鎮归崶銊ョ祷妞ゎ偁鍊濋弻娑氾拷锝庡亞閻銇勯幒鎾舵创闁诡垰鍟村畷鐔碱敆娓氬洦袧闂傚倸鍊搁崑濠囧箯閿燂拷</comment>
+      <data-type>datetime|0</data-type>
+    </column>
+    <column id="144" parent="52" name="timeLastCrawl">
+      <comment>濠电偛顕慨楣冾敋瑜庨幈銊╂偄閻撳骸鐝橀梺璺ㄥ枍缁瑥鐣烽妷锔藉劅婵犻潧鐗滄导鍥р攽閻愬弶锛旂紒杈ㄦ礋瀹曟椽宕堕锟介惌妤呮煛瀹ュ骸浜濋柣锝変憾閺岋繝宕橀妸褍鐓熷┑鈽嗗亾閹凤拷</comment>
+      <data-type>datetime|0</data-type>
+    </column>
+    <column id="145" parent="52" name="costLastCrawl">
+      <comment>濠电偞鍨堕幐鎼佹晝閵夆晩鏁冨┑鍌氭啞閸嬪銇勯幒鐐村閻熸粍婢樺ú銈夊煡婢舵劕閱囬柨婵嗙箲鐎氳淇婇妶鍛殲闁伙綁浜堕弻锟犲礃閵娧冪厽濠碘槅鍋勫锟犲极瀹ュ洣娌柦妯侯槺椤︾増绻涙潏鍓у埌缂佸鎸冲畷瑙勬償閵婏妇鍙冮梺璺ㄥ櫐閹凤拷</comment>
+      <data-type>int(11)|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="146" parent="52" name="createDate">
+      <comment>濠电偛顕慨楣冾敋瑜庨幈銊╂偄閻撳海顦┑鐐村灦椤洨妲愰敃鍌涚厽闁靛鍎遍顏呬繆閻愭彃锟藉灝顫忔繝姘櫢闁跨噦鎷�</comment>
+      <data-type>datetime|0</data-type>
+    </column>
+    <key id="147" parent="52" name="PRIMARY">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="148" parent="53" name="id">
+      <comment>闂傚倷鐒﹀妯肩矓閸洘鍋柛鈩兦滄禍婊呯磼濞戞碍鐝�</comment>
+      <mandatory>1</mandatory>
+      <data-type>bigint(20)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="149" parent="53" name="idTask">
+      <comment>闂備胶绮悧顒勫礈濠靛棌鏋嶉柡鍥╁枔椤╃兘鎮归崶銊ョ祷妞ゎ偁鍊濋弻锝夊Ω閵夈儳鍔穌闂備焦瀵х粙鎴︽嚐椤栫倛鍥ㄧ節濮橆厾鍙嗗銈嗘礀濡稓绮堟径鎰厱婵炲棗绻愰敓鎴掔矙閺佹捇鎸婃径濠冩闂侀潧妫撮幏锟� tbCrawlerTask</comment>
+      <data-type>varchar(64)|0</data-type>
+    </column>
+    <column id="150" parent="53" name="confName">
+      <comment>闂傚倷鐒﹀妯肩矓閸洘鍋柛鈩兦滄禍婊堟煟閻斿搫顣奸柛濠傜－缁辨帗寰勫☉娆忣伓</comment>
+      <data-type>varchar(512)|0</data-type>
+    </column>
+    <column id="151" parent="53" name="confType">
+      <comment>闂傚倷鐒﹀妯肩矓閸洘鍋柛鈩冪懅鐏忕敻鎮归崶顏勭毢闁跨喐鏋婚幏锟�</comment>
+      <data-type>enum(&apos;undefine&apos;, &apos;seedUrls&apos;, &apos;templates&apos;, &apos;tags&apos;, &apos;configs&apos;, &apos;clickRegex&apos;, &apos;regexFilter&apos;, &apos;protocolFilter&apos;, &apos;suffixFilter&apos;)|0</data-type>
+      <default-expression>&apos;undefine&apos;</default-expression>
+    </column>
+    <column id="152" parent="53" name="confValue">
+      <data-type>longtext|0</data-type>
+    </column>
+    <column id="153" parent="53" name="addDate">
+      <comment>闂傚倷鐒﹀妯肩矓閸洘鍋柛鈩兦滄禍婊堟偡濞嗗繐顏╂繛鍏煎灴閺屾盯寮崒姣裤儲绻涢崼鐔风伌鐎殿噮鍣ｅ畷濂稿即閻曞倻鍚�</comment>
+      <data-type>datetime|0</data-type>
+    </column>
+    <index id="154" parent="53" name="idTask">
+      <columns>idTask</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="155" parent="53" name="PRIMARY">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="156" parent="53" name="tbCrawlerTaskConfig_ibfk_1">
+      <columns>idTask</columns>
+      <ref-key>~.tbCrawlerTask.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <column id="157" parent="54" name="crdtId">
+      <comment>闂佽瀛╅崘鑽ょ不閹达箑鍨傞幖杈剧稻閸嬫﹢鏌嶉锝嗙导</comment>
+      <mandatory>1</mandatory>
+      <data-type>bigint(20)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="158" parent="54" name="userId">
+      <comment>闂備胶鍎甸崑鎾诲礉瀹ュ鏄ユ慨鍦尠</comment>
+      <mandatory>1</mandatory>
+      <data-type>varchar(13)|0</data-type>
+      <default-expression>&apos;&apos;</default-expression>
+    </column>
+    <column id="159" parent="54" name="credit">
+      <comment>闂備浇顕栭崜婵嬵敋瑜旈、妤呮偄閻撳海顦梺璺ㄥ櫐閹凤拷</comment>
+      <data-type>int(11)|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="160" parent="54" name="frozen">
+      <comment>闂備礁鎲￠崝妯虹暦閻㈤潧鍨濋柕濞у秵瀚规繛鎴濈－閻ｉ亶鏌涢…鎺撳</comment>
+      <data-type>int(11)|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="161" parent="54" name="useable">
+      <comment>闂備礁鎲￠悷顖炲垂閹惰棄鏋侀柕鍫濇祫閹峰嘲鈽夊畷鍥╂殸闂佸壊鐓夐幏锟�</comment>
+      <data-type>int(11)|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="162" parent="54" name="describe">
+      <comment>闂備胶顢婇褏鎹㈠Δ鍛唶妞ゅ繐鎳愰埞宥夋煃閳轰礁鏆曠紒鎲嬫嫹</comment>
+      <data-type>varchar(2048)|0</data-type>
+    </column>
+    <index id="163" parent="54" name="userId">
+      <columns>userId</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="164" parent="54" name="PRIMARY">
+      <columns>crdtId
+userId</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="165" parent="54" name="tbCrdt_ibfk_1">
+      <columns>userId</columns>
+      <ref-key>~.tbUser.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <column id="166" parent="55" name="logId">
+      <comment>濠电偞鍨堕幐鎼佲�﹂悜钘夋瀬闁跨噦鎷�</comment>
+      <mandatory>1</mandatory>
+      <data-type>bigint(20)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="167" parent="55" name="userId">
+      <comment>闂備胶鍎甸崑鎾诲礉瀹ュ鏄ユ繛宀�鎯�</comment>
+      <mandatory>1</mandatory>
+      <data-type>varchar(13)|0</data-type>
+    </column>
+    <column id="168" parent="55" name="credit">
+      <data-type>int(11)|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="169" parent="55" name="direction">
+      <data-type>enum(&apos;CHARGE&apos;, &apos;GAINS&apos;, &apos;COSTS&apos;, &apos;UNDEFINE&apos;)|0</data-type>
+      <default-expression>&apos;UNDEFINE&apos;</default-expression>
+    </column>
+    <column id="170" parent="55" name="describe">
+      <comment>闂備胶顢婇褏鎹㈠Δ鍛唶闁跨噦鎷�</comment>
+      <data-type>varchar(2048)|0</data-type>
+    </column>
+    <index id="171" parent="55" name="userId">
+      <columns>userId</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="172" parent="55" name="PRIMARY">
+      <columns>logId</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="173" parent="55" name="tbCrdtLog_ibfk_1">
+      <columns>userId</columns>
+      <ref-key>~.tbUser.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <column id="174" parent="56" name="crsId">
+      <comment>闂佽崵濮村ú銈嗘櫠娴犲鐓濈紒顖氭��</comment>
+      <mandatory>1</mandatory>
+      <data-type>bigint(20)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="175" parent="56" name="userId">
+      <comment>濠电姰鍨奸崺鏍偋閻樿鏋侀柨鐕傛嫹 闂備胶鍎甸崑鎾诲礉瀹ュ鏄ユ慨鍦尠</comment>
+      <mandatory>1</mandatory>
+      <data-type>varchar(13)|0</data-type>
+    </column>
+    <column id="176" parent="56" name="crsName">
+      <comment>闂佽崵濮村ú銈嗘櫠娴犲鐓濆┑鍌滎焾鐟欙妇锟藉箍鍎卞▔锕傛晸閿燂拷</comment>
+      <data-type>varchar(32)|0</data-type>
+    </column>
+    <column id="177" parent="56" name="crsLocation">
+      <comment>闂佽崵濮村ú銈嗘櫠娴犲鐓濋柛蹇氬亹閳绘柨鈹戦悩鍙夊闁搞倧绠撻弻娑㈡晜閽樺妫嗛梺绋款儜閹凤拷</comment>
+      <data-type>varchar(1024)|0</data-type>
+    </column>
+    <column id="178" parent="56" name="crsTchrName">
+      <comment>濠电偞鍨堕幐鎼佹晝閵娾晩鏁嬮柟鎯板Г閸わ拷婵炶揪绲介幗婊堟偡鎼淬劍鐓曟慨姗嗗墰瀛濋梺鐑╂閹凤拷</comment>
+      <data-type>varchar(32)|0</data-type>
+    </column>
+    <column id="179" parent="56" name="crsWeek">
+      <comment>濠电偞鍨堕幐鎼佹晝閵娾晩鏁嬮柟鎯版缁秹鏌涢锝嗙闁挎稓鍠栭弻锝夊Ω閵夈儺浠奸梺鍦劜閹凤拷 0 1 2 3 4 5 6 濠电偛顕刊瀵哥礊閿熶粙鏌曢崱顓熷 闂備礁鎲＄粙蹇涘礉瀹ュ憘娑㈠煛閸涱厾顦梺鍝勵槹鐎笛囧闯椤栫偞鐓曢煫鍥ュ劜鐎氾拷</comment>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="180" parent="56" name="crsTime">
+      <comment>濠电偞鍨堕幐鎼佹晝閵娾晩鏁嬮柟鎯板Г閸庡秹鏌涢弴銊ュ妞は佸洦鈷掗柛灞炬皑閹界姵銇勯弮鎾村</comment>
+      <data-type>varchar(16)|0</data-type>
+    </column>
+    <index id="181" parent="56" name="userId">
+      <columns>userId</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="182" parent="56" name="PRIMARY">
+      <columns>crsId</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="183" parent="56" name="tbCrsInfo_ibfk_1">
+      <columns>userId</columns>
+      <ref-key>~.tbUser.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <column id="184" parent="57" name="expnsId">
+      <comment>濠电偞鍨堕幐鎼佲�﹂悜钘夋瀬闁跨噦鎷� 婵犵數鍋為崹鐢告偋閹版澘鍨傚〒姘鳖煪</comment>
+      <mandatory>1</mandatory>
+      <data-type>bigint(20)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="185" parent="57" name="userId">
+      <comment>闂備胶鍎甸崑鎾诲礉瀹ュ鏄ユ慨鍦尠</comment>
+      <mandatory>1</mandatory>
+      <data-type>varchar(13)|0</data-type>
+    </column>
+    <column id="186" parent="57" name="msgId">
+      <comment>婵犵數鍋為崹鐢告偋婵犲啫顕遍柛鏍存櫓</comment>
+      <mandatory>1</mandatory>
+      <data-type>bigint(20)|0</data-type>
+    </column>
+    <column id="187" parent="57" name="time">
+      <comment>婵犵數鍋為崹鐢告偋閹版澘鍨傞柛宀�鍋為崑銊╂煟閺冨偆鐒鹃柣蹇撴喘閺岋繝宕橀妸褍鐓熷┑鈽嗗亾閹凤拷</comment>
+      <data-type>datetime|0</data-type>
+    </column>
+    <column id="188" parent="57" name="status">
+      <comment>婵犵數鍋為崹鐢告偋閹版澘鍨傞柛宀�鍋為崑鎰版煠閸濄儺鏆滈柟椋庡厴閺佹捇鏁撻敓锟�</comment>
+      <data-type>enum(&apos;SUCCESS&apos;, &apos;FAILED&apos;)|0</data-type>
+    </column>
+    <index id="189" parent="57" name="msgId">
+      <columns>msgId</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <index id="190" parent="57" name="userId">
+      <columns>userId</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="191" parent="57" name="PRIMARY">
+      <columns>expnsId</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="192" parent="57" name="tbExpns_ibfk_1">
+      <columns>userId</columns>
+      <ref-key>~.tbUser.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="193" parent="57" name="tbExpns_ibfk_2">
+      <columns>msgId</columns>
+      <ref-key>~.tbMsgJob.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <column id="194" parent="58" name="msgId">
+      <comment>闁诲氦顫夐幃鍫曞磿閹殿喚绀婇柡鍌氱氨濡插牓鏌涢銈呮瀺缂佽鲸婀廳</comment>
+      <mandatory>1</mandatory>
+      <data-type>bigint(20)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="195" parent="58" name="creatorId">
+      <comment>闂備礁鎲＄敮妤冪矙閹寸姷纾介柟鎯ь嚟椤╄尙绱掗埄鍐瀷</comment>
+      <mandatory>1</mandatory>
+      <data-type>varchar(13)|0</data-type>
+    </column>
+    <column id="196" parent="58" name="crsId">
+      <comment>闂佽崵濮村ú銈嗘櫠娴犲鐓濋柤娴嬫櫆閸嬫﹢鏌曟繛鐐珔婵炲拑绻濋弻锝夊Ω閵夈儺浼傚銈嗘穿閹凤拷 闂備礁鍚嬮惇褰掑磿閹殿喚绠斿鑸靛姇閸欏﹥銇勯弽銊х闁搞倧濡囩槐鎺旓拷锝庝憾閸庢捇鏌曢崱妤�鏆ｉ柡灞借嫰閻ｆ繈鏁撻挊澶嗘灁闁瑰濮电�氭岸鏌ㄩ悤鍌涘 婵犳鍠楃缓鍧楀磹閺囥垺鍋ょ憸宥夊煝閹剧粯鍋ㄩ柟鑲╁剳閹风柉绠涢弮鍌楁灃闂佹儳绻愰崢婊堝极閿燂拷 NULL</comment>
+      <data-type>bigint(20)|0</data-type>
+      <default-expression>&apos;-1&apos;</default-expression>
+    </column>
+    <column id="197" parent="58" name="crsDefName">
+      <comment>闂備胶鍘ч〃搴㈢濠婂牊鍋╅柣鎰靛墰閳绘洖顭跨捄渚Ш闁荤喐鍔欓幃褰掑炊瑜嶉埛鏃�绻涢崼鐔风仼闁归濞�瀹曟粏顦柡灞诲�濋弻娑橆潩椤掑倐銈囨偖閿燂拷</comment>
+      <data-type>varchar(32)|0</data-type>
+    </column>
+    <column id="198" parent="58" name="crsDefLocation">
+      <comment>闂備胶鍘ч〃搴㈢濠婂牊鍋╅柣鎰靛墰閳绘洖顭跨捄渚Ш闁荤喐鍔欓幃褰掑炊瑜嶉埛鏃�绻涢崼鐔风伌鐎规洜鍏橀獮宥夘敊闂傛潙瀵�</comment>
+      <data-type>varchar(128)|0</data-type>
+    </column>
+    <column id="199" parent="58" name="crsDatetime">
+      <comment>濠电偞鍨堕幐鎼佹晝閵娾晩鏁嬮柟鎯板Г閸庡秹鏌涢弴銊ュ妞は佸洦鈷掗柛宀嬮檮鐎氾拷</comment>
+      <data-type>datetime|0</data-type>
+    </column>
+    <column id="200" parent="58" name="jobName">
+      <comment>闂備胶顭堢换妤佺珶閸喓顩查柟缁㈠枛鐟欙妇锟藉箍鍎卞▔锕傛晸閿燂拷</comment>
+      <data-type>varchar(32)|0</data-type>
+    </column>
+    <column id="201" parent="58" name="jobLocation">
+      <comment>闂備胶顭堢换妤佺珶閸喓顩查柟缁㈠枛閹瑰爼鏌熷▓鍨灈濞寸媴鎷�</comment>
+      <data-type>varchar(128)|0</data-type>
+    </column>
+    <column id="202" parent="58" name="jobDescribe">
+      <comment>闂備胶顭堢换妤佺珶閸喓顩查悗闈涙憸娑撳秹鏌ㄩ悢璇残撶紒鍌涘浮閺佹捇鏁撻敓锟�</comment>
+      <data-type>varchar(2048)|0</data-type>
+    </column>
+    <column id="203" parent="58" name="jobSDate">
+      <comment>闂備胶顭堢换妤佺珶閸喓顩查柡澶嬪焾閸ゆ洟鏌ㄩ悢璇残撻柟渚垮妿閿熸枻缍嗛崑鍛此囪濮婂宕掗敂钘夘伓</comment>
+      <data-type>datetime|0</data-type>
+    </column>
+    <column id="204" parent="58" name="jobEDate">
+      <comment>闂備胶顭堢换妤佺珶閸喓顩查悗闈涙憸绾惧ジ鏌熼幆褏鎽犻悘蹇撴閺岋繝宕橀妸褍鐓熷┑鈽嗗亾閹凤拷</comment>
+      <data-type>datetime|0</data-type>
+    </column>
+    <column id="205" parent="58" name="credit">
+      <comment>闂佽瀛╅崘鑽ょ不閹达箑鍨傞柨鐕傛嫹</comment>
+      <data-type>int(11)|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="206" parent="58" name="msgType">
+      <comment>濠电偛顕慨楣冾敋瑜庨幈銊╂偄閾忕懓鏆楅柣鐘叉穿鐏忔瑩鏁撻弬銈嗗</comment>
+      <data-type>int(11)|0</data-type>
+      <default-expression>&apos;-1&apos;</default-expression>
+    </column>
+    <column id="207" parent="58" name="geterSex">
+      <comment>濠电偛顕慨楣冾敋瑜庨幈銊╂偄闂堚晝鐭楅梺绯曞墲椤ㄥ懐寰婇崸妤佺厾闁哄瀵ч崳鑺ョ箾閸喎鐏存鐑囨嫹閻熸粌绉瑰畷娲幢濞嗘劕鏆繛杈剧到濠�鍗烇耿閿燂拷 濠电偞鍨堕幖顐﹀箯閿燂拷 S 闂備礁鎼崯顐ｆ櫠鎼淬劌鏋侀柣鎴烆焽闂勫嫮锟借娲栧ú锕傛偩閻戣姤鐓曟繛鍡樏悘锔姐亜閿濆骸浜扮�规洩缍侀弫鎾绘晸閿燂拷</comment>
+      <data-type>enum(&apos;F&apos;, &apos;M&apos;, &apos;S&apos;)|0</data-type>
+      <default-expression>&apos;S&apos;</default-expression>
+    </column>
+    <column id="208" parent="58" name="msgStatus">
+      <comment>婵犵數鍋為崹鐢告偋婵犲啫顕遍柛娑樼摠閸嬫劙鏌ら崫銉殰闁归鍏橀弫鎾绘晸閿燂拷 缂傚倷鐒︾粙鎴λ囬婊勵偨闁绘柨鎽滈埢鏃堟煥閻曞倹瀚� 闂佸搫顦弲婊呯矙閺嶎厹锟戒線骞嬮悙纰樻灃闂佽法鍣﹂幏锟� 闁诲海鎳撻幉陇銇愰崘顔藉仼妞ゆ帒瀚粻锝夋煥閻曞倹瀚� 闁诲海鎳撻幉陇銇愰崘顔肩煑鐟滄柨顫忔繝姘櫢闁跨噦鎷�</comment>
+      <data-type>enum(&apos;WAITING&apos;, &apos;RUNNING&apos;, &apos;FINISHED&apos;, &apos;CLOSED&apos;)|0</data-type>
+      <default-expression>&apos;WAITING&apos;</default-expression>
+    </column>
+    <column id="209" parent="58" name="isGeter">
+      <comment>婵犵數鍋為崹鐢告偋婵犲啫顕遍柛娑卞櫙缁憋綁鏌涢埄鍐炬當缂佹彃娼￠弻锝呂熼崹顔惧帿闂佽法鍠愰弸濠氬箯閿燂拷 false 闂備礁鎼悧婊勭椤忓牄锟藉倿顢曢敃锟介惌妤呮煥閻曞倹瀚� true 闁诲海鎳撻幉锟犳偂閿熺姰锟藉倿顢曢敃锟介惌妤呮煥閻曞倹瀚�</comment>
+      <data-type>tinyint(1)|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="210" parent="58" name="createDate">
+      <comment>闁诲氦顫夐幃鍫曞磿閹殿喚绀婇柡鍌氱氨濡插牓鏌涢銈呮瀺缂佽鲸鐗犻弻娑㈠箳閹惧灈妲堢紓鍌氬�归幑鍥ь嚕椤曪拷瀹曞ジ寮撮悤鍌滃惞</comment>
+      <data-type>datetime|0</data-type>
+    </column>
+    <column id="211" parent="58" name="getDate">
+      <comment>闁诲氦顫夐幃鍫曞磿閹殿喚绀婇柡鍌氱氨濡插牓鏌涢銈呮瀺缂佽鲸鐗曡灋闁哄瀵чˉ婊呮喐閺夋寧鍠樼�殿噮鍣ｅ畷濂稿即閻曞倻鍚�</comment>
+      <data-type>datetime|0</data-type>
+    </column>
+    <column id="212" parent="58" name="isValid">
+      <comment>婵犵數鍋為崹鐢告偋婵犲啫顕遍柛娑欐綑鐎氬顭跨捄渚剱婵炲懎绻橀弻鐔碱敆婵犲啫顏�</comment>
+      <data-type>tinyint(1)|0</data-type>
+      <default-expression>&apos;1&apos;</default-expression>
+    </column>
+    <index id="213" parent="58" name="creatorId">
+      <columns>creatorId</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <index id="214" parent="58" name="crsId">
+      <columns>crsId</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="215" parent="58" name="PRIMARY">
+      <columns>msgId</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="216" parent="58" name="tbMsgJob_ibfk_1">
+      <columns>creatorId</columns>
+      <ref-key>~.tbUser.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="217" parent="58" name="tbMsgJob_ibfk_2">
+      <columns>crsId</columns>
+      <ref-key>~.tbCrsInfo.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <column id="218" parent="59" name="mtId">
+      <comment>婵犵數鍋為崹鐢告偋婵犲啫顕遍柛娑卞枤椤╃兘鎮归崶銊ョ祷妞ゎ偒妫穌</comment>
+      <mandatory>1</mandatory>
+      <data-type>bigint(20)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="219" parent="59" name="msgId">
+      <comment>濠电偛顕慨楣冾敋瑜庨幈銊╂倻閻拷</comment>
+      <mandatory>1</mandatory>
+      <data-type>bigint(20)|0</data-type>
+    </column>
+    <column id="220" parent="59" name="creatorId">
+      <comment>闂備礁鎲￠悷锕傚垂閻㈢數鍗氶梺鍨儑椤╃兘鎮归崶銊ョ祷妞ゎ偁鍊濋弻銈囨暜椤旇棄顏�</comment>
+      <mandatory>1</mandatory>
+      <data-type>varchar(13)|0</data-type>
+    </column>
+    <column id="221" parent="59" name="geterId">
+      <comment>濠碘槅鍋呭妯何涘Δ鍕╀汗闁搞儯鍔庨々鐑芥偣閸ャ劌绲绘い顐犲�濋弻銈囨暜椤旇棄顏�</comment>
+      <mandatory>1</mandatory>
+      <data-type>varchar(13)|0</data-type>
+    </column>
+    <column id="222" parent="59" name="isGeterFinish">
+      <comment>濠电偛顕慨楣冾敋瑜庨幈銊╂偄閻撳海顓奸悷婊勫灴閵嗕線骞嬮敂钘夋畬闂佸憡渚楅崹顏堟晸閼恒儺鐒介柟宄邦儔閺佹捇鏁撻敓锟�</comment>
+      <data-type>tinyint(1)|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="223" parent="59" name="isCreatorConfirm">
+      <comment>濠电偛顕慨楣冾敋瑜庨幈銊╂偄閻撳海鐓戦梺鐟扮摠缁诲嫰顢旈幘顔界厾闁哄瀵ч崳浠嬫煃閵夛富鐒介柟宄邦儔閺佹捇鏁撻敓锟�</comment>
+      <data-type>tinyint(1)|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="224" parent="59" name="mtStatus">
+      <comment>濠电偛顕慨楣冾敋瑜庨幈銊╂偄閸忕厧浜归梺鐓庢憸椤ｎ噣骞忛悜鑺ユ櫢闁跨噦鎷�</comment>
+      <data-type>enum(&apos;RUNNING&apos;, &apos;FINISHED&apos;, &apos;CLOSED&apos;, &apos;OTHERS&apos;)|0</data-type>
+      <default-expression>&apos;RUNNING&apos;</default-expression>
+    </column>
+    <column id="225" parent="59" name="isValid">
+      <comment>濠电偛顕慨楣冾敋瑜庨幈銊╂偄閻撳骸鐝樻繝銏ｆ硾椤戝棗鈻嶈箛娑欑厵妞ゆ帒锕ョ�氾拷</comment>
+      <data-type>tinyint(1)|0</data-type>
+      <default-expression>&apos;1&apos;</default-expression>
+    </column>
+    <column id="226" parent="59" name="createDate">
+      <comment>濠电偛顕慨楣冾敋瑜庨幈銊╂偄閸忕厧浠洪梺缁樻⒒椤牓鎮橀崶顒佺厸闁告劑鍔庨崺锝嗕繆椤愵剚瀚�</comment>
+      <data-type>datetime|0</data-type>
+    </column>
+    <column id="227" parent="59" name="finishDate">
+      <comment>闂佽崵鍋炵粙鎴︽儗娓氾拷閺佹捇鎸婃径瀣闂佺偨鍎查…鍥箯鐎ｎ喖围闁糕剝锕╁Σ顖炴⒒閸屾艾浜伴柟鍑ゆ嫹</comment>
+      <data-type>datetime|0</data-type>
+    </column>
+    <column id="228" parent="59" name="confirmDate">
+      <comment>闂備礁鎲￠悷锕傚垂閻㈢數鍗氶柣鎴ｅГ閸わ拷闂佸憡渚楅崹顏堟晸閼恒儺鐒介柟宄邦儔婵″爼宕卞鍡樞濋梻鍌氬�搁崑濠囧箯閿燂拷</comment>
+      <data-type>datetime|0</data-type>
+    </column>
+    <index id="229" parent="59" name="creatorId">
+      <columns>creatorId</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <index id="230" parent="59" name="geterId">
+      <columns>geterId</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="231" parent="59" name="PRIMARY">
+      <columns>mtId</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="232" parent="59" name="tbMsgTask_ibfk_1">
+      <columns>creatorId</columns>
+      <ref-key>wifi_ac.tbMsgJob(creatorId)</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="233" parent="59" name="tbMsgTask_ibfk_2">
+      <columns>geterId</columns>
+      <ref-key>~.tbUser.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <column id="234" parent="60" name="payId">
+      <mandatory>1</mandatory>
+      <data-type>bigint(20)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="235" parent="60" name="goodsId">
+      <mandatory>1</mandatory>
+      <data-type>varchar(64)|0</data-type>
+    </column>
+    <column id="236" parent="60" name="userId">
+      <mandatory>1</mandatory>
+      <data-type>varchar(13)|0</data-type>
+    </column>
+    <column id="237" parent="60" name="credit">
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="238" parent="60" name="money">
+      <data-type>float(5,2)|0</data-type>
+    </column>
+    <column id="239" parent="60" name="status">
+      <data-type>enum(&apos;SUCCESS&apos;, &apos;FAILED&apos;, &apos;CLOSED&apos;, &apos;UNDEFINE&apos;)|0</data-type>
+      <default-expression>&apos;UNDEFINE&apos;</default-expression>
+    </column>
+    <column id="240" parent="60" name="createDate">
+      <data-type>datetime|0</data-type>
+    </column>
+    <column id="241" parent="60" name="delFlag">
+      <data-type>tinyint(1)|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <index id="242" parent="60" name="userId">
+      <columns>userId</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="243" parent="60" name="PRIMARY">
+      <columns>payId</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="244" parent="60" name="tbPay_ibfk_1">
+      <columns>userId</columns>
+      <ref-key>~.tbUser.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <column id="245" parent="61" name="rgstrId">
+      <comment>濠电偞鍨堕幐鎼佲�﹂悜钘夋瀬妞ゆ挶鍨洪弲顒勬倶閻愰潧浜鹃柡鍡楃墦閺屾盯骞囬浣规嫳濠碘槅鍋�閺呯偟绮诲☉姗嗘禆闁谎嶆嫹</comment>
+      <mandatory>1</mandatory>
+      <data-type>bigint(20)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="246" parent="61" name="phone">
+      <comment>婵犵數鍋涢ˇ顓㈠礉瀹�鍕埞濞寸姴顑嗛崕宥夋煕閺囥劌澧い銈勭窔閺岋繝宕煎┑鍥ㄥ創閻熸粍婢樺锟犲箚瀹ュ鏅搁柨鐕傛嫹</comment>
+      <data-type>varchar(13)|0</data-type>
+    </column>
+    <column id="247" parent="61" name="authCode">
+      <comment>濠德板�楁慨鎾儗娓氾拷閹焦寰勯幇顓炲壓闂佽法鍣﹂幏锟�</comment>
+      <data-type>varchar(6)|0</data-type>
+    </column>
+    <column id="248" parent="61" name="datetime">
+      <comment>婵犵數鍋涢ˇ顓㈠礉瀹�鍕埞濞寸姴顑嗛崑銊╂煟閺冨偆鐒鹃柣蹇撴喘閺岋繝宕橀妸褍鐓熷┑鈽嗗亾閹凤拷</comment>
+      <data-type>datetime|0</data-type>
+    </column>
+    <column id="249" parent="61" name="status">
+      <comment>闂備胶绮…鍫ュ春閺嶎厽鏅搁柡鍌樺�栫�氾拷</comment>
+      <data-type>enum(&apos;SUCCESS&apos;, &apos;FAILED&apos;, &apos;WAITING&apos;, &apos;UNDEFINE&apos;)|0</data-type>
+      <default-expression>&apos;WAITING&apos;</default-expression>
+    </column>
+    <column id="250" parent="61" name="isValid">
+      <comment>闂備礁鎼崯銊╁磿鏉堚晜宕查柡鍐ㄧ墕鐎氬顭跨捄渚剱婵炲懎绻橀弻鐔碱敆婵犲啫顏�</comment>
+      <data-type>tinyint(1)|0</data-type>
+      <default-expression>&apos;1&apos;</default-expression>
+    </column>
+    <key id="251" parent="61" name="PRIMARY">
+      <columns>rgstrId</columns>
+      <primary>1</primary>
+    </key>
+    <column id="252" parent="62" name="roleId">
+      <comment>闂佽崵鍠愰悷锔炬暜閻斿摜鐝跺┑鍌氱</comment>
+      <mandatory>1</mandatory>
+      <data-type>bigint(20)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="253" parent="62" name="name">
+      <comment>闂佽崵鍠愰悷锔炬暜閻斿摜鐝跺┑鐘叉搐鐟欙妇锟藉箍鍎卞▔锕傛晸閿燂拷</comment>
+      <data-type>varchar(16)|0</data-type>
+    </column>
+    <column id="254" parent="62" name="authority">
+      <comment>闂備礁鎼ˇ顖炲疮閺夋埈鐎堕柨鐕傛嫹 闂備礁鎲￠悷銉╁磹娴犲鏅搁柦妯侯槸閺嗘洜绱掗妸褎鍎猧nux 濠电偞鍨堕幖顐﹀箯閿燂拷 闂佽绻掗崑鐔煎磻濡》鎷风喊澶嬪-濠电娀娼ч崐钘壩涢崟顐殨闁跨噦鎷�-闂備胶顭堢换鎴濓耿閸︻厼鍨濋柨鐕傛嫹</comment>
+      <data-type>varchar(9)|0</data-type>
+      <default-expression>&apos;rwx------&apos;</default-expression>
+    </column>
+    <column id="255" parent="62" name="createDate">
+      <data-type>datetime|0</data-type>
+    </column>
+    <column id="256" parent="62" name="delFlag">
+      <data-type>tinyint(1)|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <key id="257" parent="62" name="PRIMARY">
+      <columns>roleId</columns>
+      <primary>1</primary>
+    </key>
+    <column id="258" parent="63" name="schlId">
+      <comment>闂佽瀛╅崘濠氭⒔閸曨垱鍋嬮幖娣灮閳瑰秹鏌嶉埡浣告殨缂佹唻鎷� Id</comment>
+      <mandatory>1</mandatory>
+      <data-type>bigint(20)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="259" parent="63" name="schlName">
+      <comment>闂佽瀛╅崘濠氭⒔閸曨垱鍋嬮幖娣妼鐟欙妇锟藉箍鍎卞▔锕傛晸閿燂拷</comment>
+      <data-type>varchar(64)|0</data-type>
+    </column>
+    <column id="260" parent="63" name="schlLocation">
+      <comment>闂佽瀛╅崘濠氭⒔閸曨垱鍋嬮幖娣妼閹瑰爼鏌℃径瀣嚋缂佽鎷� JSON 闂備浇妗ㄩ懗鑸垫櫠濡わ拷閻ｅ灚绗熼敓钘夘嚕娴犲鍋傞幖杈剧悼椤拷</comment>
+      <data-type>varchar(2048)|0</data-type>
+    </column>
+    <key id="261" parent="63" name="PRIMARY">
+      <columns>schlId</columns>
+      <primary>1</primary>
+    </key>
+    <column id="262" parent="64" name="id">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="263" parent="64" name="name">
+      <data-type>varchar(10)|0</data-type>
+    </column>
+    <column id="264" parent="64" name="password">
+      <data-type>varchar(512)|0</data-type>
+    </column>
+    <index id="265" parent="64" name="name">
+      <columns>name</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="266" parent="64" name="PRIMARY">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <key id="267" parent="64" name="name">
+      <columns>name</columns>
+      <underlying-index>name</underlying-index>
+    </key>
+    <column id="268" parent="65" name="userId">
+      <comment>濠电偞鍨堕幐鎼佲�﹂悜钘夋瀬闁跨噦鎷� 闂備胶鍎甸崑鎾诲礉瀹ュ鏄ユ慨鍦尠 濠电偛顕慨浼村磿閹惰棄鏋侀柛婵勫劜鐎氭碍绻濋棃娑欘棞濠电偛娲弻锝夘敊閼姐倕濡介梺杞拌兌閸嬨倕鐣峰锟介弫鎾绘晸閿燂拷</comment>
+      <mandatory>1</mandatory>
+      <data-type>varchar(13)|0</data-type>
+    </column>
+    <column id="269" parent="65" name="roleId">
+      <comment>濠电姰鍨奸崺鏍偋閻樿鏋侀柨鐕傛嫹 闂備胶鍎甸崑鎾诲礉瀹ュ鏄ユ繛鎴炵閸犲棝鏌熼悜妯荤妞ゃ儱绮ヾ</comment>
+      <data-type>bigint(20)|0</data-type>
+    </column>
+    <column id="270" parent="65" name="schlId">
+      <comment>濠电姰鍨奸崺鏍偋閻樿鏋侀柨鐕傛嫹 闂佽瀛╅崘濠氭⒔閸曨垱鍋嬬�广儳灏�</comment>
+      <data-type>bigint(20)|0</data-type>
+    </column>
+    <column id="271" parent="65" name="realName">
+      <comment>闂備胶鍎甸崑鎾诲礉瀹ュ鏄ユ繛鎴欏灪閸庢垿鏌ｉ弮鍫闁哄妫勯埞鎴︻敊閼恒儱纰嶉梺璇″櫙閹凤拷</comment>
+      <data-type>varchar(16)|0</data-type>
+    </column>
+    <column id="272" parent="65" name="nickName">
+      <comment>闂備胶鍎甸崑鎾诲礉瀹ュ鏄ユ繛鎴欏灩閸欏﹪鏌ｉ姀鈩冩珪闁跨噦鎷�</comment>
+      <data-type>varchar(16)|0</data-type>
+    </column>
+    <column id="273" parent="65" name="sex">
+      <comment>闂備胶鍎甸崑鎾诲礉瀹ュ鏄ユ繛鎴欏灩缁犳垹鎲稿澶婃槬闁跨噦鎷� F 闂備焦妞垮渚�骞忛敓锟� M 濠电娀娼ч崑濠囧箯閿燂拷 S 濠电儑绲藉ú锔炬崲閸岀偞鍎婇柨鐕傛嫹</comment>
+      <data-type>enum(&apos;F&apos;, &apos;M&apos;, &apos;S&apos;)|0</data-type>
+      <default-expression>&apos;S&apos;</default-expression>
+    </column>
+    <column id="274" parent="65" name="birthday">
+      <comment>闂備礁鎲￠崹鐓庘枍閿濆鏋侀柟鎹愵嚙缁秹鏌曟径娑㈡闁糕晪鎷�</comment>
+      <data-type>date|0</data-type>
+    </column>
+    <column id="275" parent="65" name="email">
+      <comment>闂備焦鐪归崹钘夘焽瑜旈幃鍝勨枎閹惧鍔峰銈嗘⒒缁垶顢曢敓锟�</comment>
+      <data-type>varchar(64)|0</data-type>
+    </column>
+    <column id="276" parent="65" name="registerDate">
+      <comment>婵犵數鍋涢ˇ顓㈠礉瀹�鍕埞濞寸姴顑呯猾宥夋煕椤愶絾绀冮柨娑虫嫹</comment>
+      <data-type>datetime|0</data-type>
+    </column>
+    <column id="277" parent="65" name="password">
+      <comment>闂備浇鐨崱鈺佹缂傚倸绉寸粔鍫曟晸娴犲娑ф俊顐ｇ洴閹儵鏁撻敓锟�</comment>
+      <data-type>varchar(64)|0</data-type>
+    </column>
+    <index id="278" parent="65" name="roleId">
+      <columns>roleId</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <index id="279" parent="65" name="schlId">
+      <columns>schlId</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="280" parent="65" name="PRIMARY">
+      <columns>userId</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="281" parent="65" name="tbUser_ibfk_1">
+      <columns>roleId</columns>
+      <ref-key>~.tbRole.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="282" parent="65" name="tbUser_ibfk_2">
+      <columns>schlId</columns>
+      <ref-key>~.tbSchlInfo.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <column id="283" parent="66" name="id">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="284" parent="66" name="publicTime">
+      <data-type>datetime|0</data-type>
+    </column>
+    <column id="285" parent="66" name="text">
+      <data-type>longtext|0</data-type>
+    </column>
+    <column id="286" parent="66" name="fetched">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(1)|0</data-type>
+    </column>
+    <column id="287" parent="66" name="html">
+      <mandatory>1</mandatory>
+      <data-type>text|0</data-type>
+    </column>
+    <column id="288" parent="66" name="title">
+      <data-type>varchar(1024)|0</data-type>
+    </column>
+    <column id="289" parent="66" name="url">
+      <data-type>varchar(250)|0</data-type>
+    </column>
+    <index id="290" parent="66" name="urlIndex">
+      <columns>url</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="291" parent="66" name="PRIMARY">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <key id="292" parent="66" name="urlIndex">
+      <columns>url</columns>
+      <underlying-index>urlIndex</underlying-index>
+    </key>
+    <column id="293" parent="67" name="topicUpdatetblID">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="294" parent="67" name="topicTaskID">
+      <mandatory>1</mandatory>
+      <data-type>varchar(176)|0</data-type>
+    </column>
+    <column id="295" parent="67" name="title">
+      <mandatory>1</mandatory>
+      <data-type>text|0</data-type>
+    </column>
+    <column id="296" parent="67" name="labelTime">
+      <data-type>datetime|0</data-type>
+    </column>
+    <column id="297" parent="67" name="url">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="298" parent="67" name="fromUrl">
+      <mandatory>1</mandatory>
+      <data-type>text|0</data-type>
+    </column>
+    <column id="299" parent="67" name="rootUrl">
+      <mandatory>1</mandatory>
+      <data-type>text|0</data-type>
+    </column>
+    <column id="300" parent="67" name="crawlTime">
+      <mandatory>1</mandatory>
+      <data-type>datetime|0</data-type>
+    </column>
+    <column id="301" parent="67" name="deleteflag">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(4)|0</data-type>
+    </column>
+    <key id="302" parent="67" name="PRIMARY">
+      <columns>topicUpdatetblID</columns>
+      <primary>1</primary>
+    </key>
+    <column id="303" parent="68" name="userId">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <column id="304" parent="68" name="accountId">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <column id="305" parent="68" name="categoryId">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <column id="306" parent="68" name="categoryType">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <column id="307" parent="68" name="groupName">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <column id="308" parent="68" name="headPicture">
+      <data-type>varchar(100)|0</data-type>
+    </column>
+    <column id="309" parent="68" name="wxName">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <column id="310" parent="68" name="lastUpdateTime">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <column id="311" parent="68" name="payTime">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <column id="312" parent="68" name="expireTime">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <column id="313" parent="68" name="wxid">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <column id="314" parent="68" name="username">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <column id="315" parent="68" name="openid">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <column id="316" parent="68" name="wxBiz">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <column id="317" parent="68" name="rank">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <column id="318" parent="68" name="articlesNum">
+      <data-type>int(20)|0</data-type>
+    </column>
+    <column id="319" parent="68" name="totalReadNum">
+      <data-type>int(20)|0</data-type>
+    </column>
+    <column id="320" parent="68" name="totalLikeNum">
+      <data-type>int(20)|0</data-type>
+    </column>
+    <column id="321" parent="68" name="avgReadNum">
+      <data-type>int(20)|0</data-type>
+    </column>
+    <column id="322" parent="68" name="avgLikeNum">
+      <data-type>int(20)|0</data-type>
+    </column>
+    <column id="323" parent="68" name="qualityNum">
+      <data-type>float(20)|0</data-type>
+    </column>
+    <column id="324" parent="68" name="influenceNum">
+      <data-type>float(20)|0</data-type>
+    </column>
+    <column id="325" parent="68" name="activeNum">
+      <data-type>float(20)|0</data-type>
+    </column>
+    <column id="326" parent="68" name="totalOriginalNum">
+      <data-type>int(20)|0</data-type>
+    </column>
+    <column id="327" parent="68" name="avgHeadlineNum">
+      <data-type>int(20)|0</data-type>
+    </column>
+    <column id="328" parent="68" name="confirm">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <column id="329" parent="68" name="tag">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <column id="330" parent="68" name="price">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <column id="331" parent="68" name="latestDate">
+      <data-type>datetime|0</data-type>
+    </column>
+    <column id="332" parent="68" name="deleteFlag">
+      <data-type>tinyint(1)|0</data-type>
+    </column>
+    <column id="333" parent="69" name="uid">
+      <data-type>varchar(64)|0</data-type>
+    </column>
+    <column id="334" parent="69" name="nickName">
+      <data-type>varchar(64)|0</data-type>
+    </column>
+    <column id="335" parent="69" name="head">
+      <data-type>varchar(500)|0</data-type>
+    </column>
+    <column id="336" parent="69" name="followCount">
+      <data-type>int(64)|0</data-type>
+    </column>
+    <column id="337" parent="69" name="rateActivity">
+      <data-type>float|0</data-type>
+    </column>
+    <column id="338" parent="69" name="interactNum">
+      <data-type>int(64)|0</data-type>
+    </column>
+    <column id="339" parent="69" name="newFllowCount">
+      <data-type>int(64)|0</data-type>
+    </column>
+    <column id="340" parent="69" name="qualityIndex">
+      <data-type>float(64,4)|0</data-type>
+    </column>
+    <column id="341" parent="69" name="influence">
+      <data-type>float(64,4)|0</data-type>
+    </column>
+    <column id="342" parent="69" name="categoryId">
+      <data-type>varchar(64)|0</data-type>
+    </column>
+    <column id="343" parent="69" name="userName">
+      <data-type>varchar(64)|0</data-type>
+    </column>
+    <column id="344" parent="69" name="deleteFlag">
+      <data-type>varchar(64)|0</data-type>
+    </column>
+    <column id="345" parent="69" name="searchDate">
+      <data-type>datetime|0</data-type>
+    </column>
+  </database-model>
+</dataSource>

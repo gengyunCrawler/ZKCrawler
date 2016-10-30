@@ -1,8 +1,8 @@
 package com.gy.wm.entry;
 
-import com.gy.wm.parser.analysis.BaseTemplate;
-import com.gy.wm.parser.analysis.TextAnalysis;
-import com.gy.wm.parser.analysis.WholeSiteAnalysis;
+import com.gy.wm.plugins.topicPlugin.analysis.BaseTemplate;
+import com.gy.wm.plugins.wholesitePlugin.analysis.WholesiteTextAnalysis;
+import com.gy.wm.plugins.wholesitePlugin.analysis.WholeSiteAnalysis;
 import com.gy.wm.queue.RedisCrawledQue;
 import com.gy.wm.queue.RedisToCrawlQue;
 
@@ -12,6 +12,7 @@ import java.util.List;
  * Created by Administrator on 2016/5/18.
  */
 public class InstanceFactory {
+
     private static InitCrawlerConfig CRAWL_CONFIG;
 
     private static InstanceFactory singleton;
@@ -19,7 +20,7 @@ public class InstanceFactory {
     private static List<String> POST_REGEXS;
     private static List<String> PROTOCOLS;
     private static List<String> REGEXS;
-    private static TextAnalysis TEXT_ANALYSIS;
+    private static WholesiteTextAnalysis TEXT_ANALYSIS;
 
     private static RedisToCrawlQue REDIS_TO_CRAWL_QUE = new RedisToCrawlQue();
     private static RedisCrawledQue REDIS_CRAWLED_QUE = new RedisCrawledQue();
@@ -28,12 +29,18 @@ public class InstanceFactory {
 
     public InstanceFactory(InitCrawlerConfig obj)   {
         CRAWL_CONFIG = obj;
+        BASE_TEMPLATE = CRAWL_CONFIG.getListTemplate();
         POST_REGEXS = CRAWL_CONFIG.getPostRegex();
         PROTOCOLS = CRAWL_CONFIG.getProtocols();
         REGEXS = CRAWL_CONFIG.getRegexList();
-        TEXT_ANALYSIS = new TextAnalysis(WHOLE_SITE_ANALYSIS);
+
     }
 
+    /**
+     * 在静态方法中按使用静态字段，多线程存在，字段同时被修改
+     * @param object
+     * @return
+     */
     public static InstanceFactory getInstance(final InitCrawlerConfig object) {
         if (singleton == null) {
             synchronized (InstanceFactory.class) {
@@ -85,11 +92,11 @@ public class InstanceFactory {
         InstanceFactory.REGEXS = REGEXS;
     }
 
-    public static TextAnalysis getTextAnalysis() {
+    public static WholesiteTextAnalysis getTextAnalysis() {
         return TEXT_ANALYSIS;
     }
 
-    public static void setTextAnalysis(TextAnalysis textAnalysis) {
+    public static void setTextAnalysis(WholesiteTextAnalysis textAnalysis) {
         TEXT_ANALYSIS = textAnalysis;
     }
 
@@ -117,5 +124,12 @@ public class InstanceFactory {
         WHOLE_SITE_ANALYSIS = wholeSiteAnalysis;
     }
 
+    public static InitCrawlerConfig getCrawlConfig() {
+        return CRAWL_CONFIG;
+    }
+
+    public static void setCrawlConfig(InitCrawlerConfig crawlConfig) {
+        CRAWL_CONFIG = crawlConfig;
+    }
 
 }

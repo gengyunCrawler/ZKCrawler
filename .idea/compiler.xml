@@ -22,7 +22,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
+        <module name="ZKCrawler-API" />
         <module name="ZKCrawler-Master" />
+        <module name="ZKCrawler-Starter" />
         <module name="ZKCrawler-TaskClient" />
         <module name="ZKCrawler-Webmagic" />
         <module name="ZKCrawler-Worker" />
@@ -30,8 +32,10 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="ZKCrawler" target="1.6" />
-      <module name="ZKCrawler-Master" target="1.6" />
-      <module name="ZKCrawler-TaskClient" target="1.6" />
+      <module name="ZKCrawler-API" target="1.7" />
+      <module name="ZKCrawler-Master" target="1.7" />
+      <module name="ZKCrawler-Starter" target="1.7" />
+      <module name="ZKCrawler-TaskClient" target="1.7" />
       <module name="ZKCrawler-Webmagic" target="1.7" />
       <module name="ZKCrawler-Worker" target="1.7" />
     </bytecodeTargetLevel>

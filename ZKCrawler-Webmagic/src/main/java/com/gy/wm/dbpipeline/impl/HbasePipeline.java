@@ -7,11 +7,12 @@ import com.gy.wm.model.CrawlData;
 import com.gy.wm.util.JedisPoolUtils;
 import us.codecraft.webmagic.ResultItems;
 import us.codecraft.webmagic.Task;
+import us.codecraft.webmagic.pipeline.Pipeline;
 
 /**
  * Created by TianyuanPan on 5/18/16.
  */
-public class HbasePipeline extends BaseDBPipeline {
+public class HbasePipeline implements Pipeline{
 
 
     private HbaseClient hbaseClient;
@@ -24,11 +25,6 @@ public class HbasePipeline extends BaseDBPipeline {
         //MyHbaseUtils.deleteAfterCreateTable();
         this.hbaseClient = new HbaseClient();
         pipelineBloomFilter = new PipelineBloomFilter(JedisPoolUtils.getJedisPool().getResource(), 0.001f, (int) Math.pow(2, 31));
-    }
-
-    @Override
-    public int insertRecord(Object obj) {
-        return 0;
     }
 
     @Override
@@ -45,13 +41,10 @@ public class HbasePipeline extends BaseDBPipeline {
         if (crawlerData != null) {
 
             try {
-                if (!pipelineBloomFilter.contains(crawlerData.getUrl())) {
-                    pipelineBloomFilter.add(crawlerData.getUrl());
-                    this.hbaseClient.add(crawlerData);
-                    int i = this.hbaseClient.doSetInsert();
-                    System.out.println("HbasePipeline doInsert Successful number: " + i);
-                    //logger.debug("HbasePipeline doInsert Successful number: " + i);
-                }
+                this.hbaseClient.add(crawlerData);
+                int i = this.hbaseClient.doSetInsert();
+                System.out.println("HbasePipeline doInsert Successful number: " + i);
+                //logger.debug("HbasePipeline doInsert Successful number: " + i);
 
             } catch (Exception e) {
 

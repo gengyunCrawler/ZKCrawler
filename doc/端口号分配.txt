@@ -1,0 +1,6 @@
+分配端口号如下：
+对外API：      10080
+Master：       10081
+TaskClient：   10082
+WebMagic：     10083
+Worker：       10084

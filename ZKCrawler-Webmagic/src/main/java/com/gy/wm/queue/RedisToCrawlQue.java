@@ -3,6 +3,7 @@ package com.gy.wm.queue;
 import com.gy.wm.model.CrawlData;
 import com.gy.wm.util.JSONUtil;
 import com.gy.wm.util.LogManager;
+import com.gy.wm.util.MySerializer;
 import redis.clients.jedis.Jedis;
 
 import java.util.List;
@@ -14,10 +15,14 @@ public class RedisToCrawlQue {
     private transient static LogManager logger = new LogManager(RedisToCrawlQue.class);
 
     public void putNextUrls(List<CrawlData> crawlData,Jedis jedis, String tid ) {
-
         for (CrawlData nextCrawlData : crawlData) {
-            String crawlDataJson = JSONUtil.object2JacksonString(nextCrawlData);
-            jedis.hset("webmagicCrawler::ToCrawl::" + tid, nextCrawlData.getUrl(), crawlDataJson);
+            byte [] byte_crawlData = null;
+            try {
+                byte_crawlData = MySerializer.serialize(nextCrawlData);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            jedis.hset(("webmagicCrawler::ToCrawl::" + tid).getBytes(), nextCrawlData.getUrl().getBytes(), byte_crawlData);
         }
     }
 }
