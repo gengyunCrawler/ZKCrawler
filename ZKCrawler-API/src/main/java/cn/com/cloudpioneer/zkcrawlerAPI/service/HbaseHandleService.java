@@ -1,7 +1,9 @@
 package cn.com.cloudpioneer.zkcrawlerAPI.service;
 
 import cn.com.cloudpioneer.zkcrawlerAPI.model.CrawlData;
+import cn.com.cloudpioneer.zkcrawlerAPI.utils.JSONUtil;
 import cn.com.cloudpioneer.zkcrawlerAPI.utils.RandomAlphaNumeric;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.*;
@@ -71,6 +73,7 @@ public class HbaseHandleService {
 
         conf = HBaseConfiguration.create();
         ResultScanner rs = null;
+        JSONObject result =null;
         try {
             HTable htable = new HTable(conf, tableName);
             Scan scan = new Scan();
@@ -80,23 +83,37 @@ public class HbaseHandleService {
             String tid = jsonObject.getString("tid");
             String startRow = jsonObject.getString("startRow");
             int size = jsonObject.getInteger("size");
-
-
-            scan.setStartRow(Bytes.toBytes(startRow));                   // start key is inclusive
-//        scan.setStopRow(Bytes.toBytes("row" + (char) 0));  // stop key is exclusive
+            scan.setStartRow(Bytes.toBytes(startRow));
+            // start key is inclusive
+//        scan.setStopRow(Bytes.toBytes("row" + (char) 0));  // stop key is
             rs = htable.getScanner(scan);
+            int count =0;
+            String nextRow = null;
 
-            for (Result r = rs.next(); r != null; r = rs.next()) {
-                for(Cell cell : r.rawCells())   {
-                    System.out.println(Bytes.toString(CellUtil.cloneValue(cell)));
+            JSONArray crawlerDataArray = new JSONArray();
+            for(int i=0; i<size; i++)   {
+                for (Result r = rs.next(); r != null; r = rs.next()) {
+                    for(Cell cell : r.rawCells())   {
+                       String url = Bytes.toString(CellUtil.cloneValue(cell));
+                        nextRow = Bytes.toString(r.getRow()).split("\\|")[2];
+                        JSONObject perObject = new JSONObject();
+                        perObject.put("url",url);
+                        crawlerDataArray.add(perObject);
+                        count++;
+                    }
                 }
             }
+            result.put("result",true);
+            result.put("data",new JSONObject().put("data",crawlerDataArray));
+            result.put("size",count);
+            result.put("nextRow",nextRow);
+
         } catch (IOException e) {
             e.printStackTrace();
         }finally {
             rs.close();
         }
-        return null;
+        return JSONUtil.object2JacksonString(result);
     }
 
     public String generateRowKey(String taskId)    {
