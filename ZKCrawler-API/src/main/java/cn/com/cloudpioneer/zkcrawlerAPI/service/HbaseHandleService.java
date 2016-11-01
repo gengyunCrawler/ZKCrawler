@@ -81,7 +81,7 @@ public class HbaseHandleService {
             scan.addColumn(Bytes.toBytes("data"), Bytes.toBytes("tid"));
             scan.addColumn(Bytes.toBytes("data"), Bytes.toBytes("url"));
             String tid = jsonObject.getString("tid");
-            String startRow = jsonObject.getString("startRow");
+            String startRow = jsonObject.getString("startRow"+"0");
             int size = jsonObject.getInteger("size");
             scan.setStartRow(Bytes.toBytes(startRow));
             // start key is inclusive
