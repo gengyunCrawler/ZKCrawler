@@ -1,4 +1,4 @@
-package cn.com.cloudpioneer.zkcrawlerAPI.model;
+package cn.com.cloudpioneer.zkcrawlerAPI.model.crawler;
 
 import java.util.List;
 import java.util.Map;

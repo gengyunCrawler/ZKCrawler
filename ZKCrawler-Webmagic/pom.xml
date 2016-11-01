@@ -102,12 +102,6 @@
             <artifactId>phantomjsdriver</artifactId>
             <version>1.2.1</version>
         </dependency>
-        <!-- elasticsearch dependence -->
-        <dependency>
-            <groupId>org.elasticsearch</groupId>
-            <artifactId>elasticsearch</artifactId>
-            <version>2.3.2</version>
-        </dependency>
 
         <!-- hbase api -->
         <dependency>
