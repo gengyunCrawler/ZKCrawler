@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
 
 public class WeixinTester
 {
-    @RandomStringCreator
+    @AlphabeticRandom
     public void testWebDriver4weixin(){
         System.setProperty("phantomjs.binary.path", "D:\\Tool\\PhantomJS\\phantomjs.exe");
         WebDriver driver=new PhantomJSDriver();

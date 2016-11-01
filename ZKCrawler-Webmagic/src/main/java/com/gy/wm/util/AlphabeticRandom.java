@@ -9,11 +9,11 @@ import java.security.SecureRandom;
  * @Author： Huanghai
  * @Version: 2016-09-14
  **/
-public class RandomStringCreator {
+public class AlphabeticRandom {
     private static SecureRandom random = new SecureRandom();
     public static String getString() {
-        System.out.println(new BigInteger(130, random).toString(32));
-        return new BigInteger(130, random).toString(32);
+        System.out.println(new BigInteger(130, random).toString(5));
+        return new BigInteger(130, random).toString(5);
     }
 
     public static void main(String[] args) {
