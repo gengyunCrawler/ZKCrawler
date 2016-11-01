@@ -3,12 +3,10 @@ package com.gy.wm.service;
 import com.alibaba.fastjson.JSONObject;
 import com.gy.wm.ApplicationWebmagic;
 import com.gy.wm.controller.API;
+import com.gy.wm.model.TaskParamModel;
 import com.gy.wm.util.JSONUtil;
 import com.gy.wm.vo.Base;
 import com.gy.wm.vo.Param;
-import com.gy.wm.model.TaskParamModel;
-import com.gy.wm.service.CustomPageProcessor;
-import com.gy.wm.service.TaskService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +15,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
