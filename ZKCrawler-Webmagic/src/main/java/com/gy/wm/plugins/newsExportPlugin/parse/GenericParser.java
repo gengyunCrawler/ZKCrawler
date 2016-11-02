@@ -133,10 +133,19 @@ public class GenericParser implements PageParser {
                 }
             }
 
-
             fieldMap.put(htmlField.getFieldName(),fieldValue);
-        }
 
+            if (htmlField.getFieldName().equals("title"))
+                crawlData.setTitle(fieldValue);
+            else if (htmlField.getFieldName().equals("content"))
+                crawlData.setText(fieldValue);
+            else if (htmlField.getFieldName().equals("author"))
+                crawlData.setAuthor(fieldValue);
+            else if (htmlField.getFieldName().equals("sourceName"))
+                crawlData.setSourceName(fieldValue);
+
+
+        }
         crawlData.setCrawlerdata(fieldMap);
 
         return crawlData;

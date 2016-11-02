@@ -20,8 +20,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -32,6 +34,7 @@ import java.util.concurrent.locks.ReentrantLock;
  *         Time: afternoon 1:37 <br>
  */
 public class SeleniumDownloader implements Downloader, Closeable {
+    private Lock lock = new ReentrantLock();
     private final static org.slf4j.Logger LOG= LoggerFactory.getLogger(SeleniumDownloader.class);
     static {
         /**
@@ -61,7 +64,8 @@ public class SeleniumDownloader implements Downloader, Closeable {
 
     private int poolSize = 1;
 
-    private WebDriver webDriver;
+    private WebDriver webDriver = create();
+    private WebDriverPool webDriverPool = new WebDriverPool();
 
     //cache webdriver
     private Map<String,WebDriver> webDriverMap= Collections.synchronizedMap(new HashMap<String, WebDriver>());
@@ -106,17 +110,24 @@ public class SeleniumDownloader implements Downloader, Closeable {
 
     @Override
     public Page download(Request request, Task task) {
-        webDriver= this.getWebDriver(task);
+        lock.lock();
+        while (webDriverPool.getAvailabe()==0){
+            waitTime();
+        }
+        WebDriver  webDriver1= webDriverPool.get();
+        lock.unlock();
         LOG.info("downloading page " + request.getUrl());
-        webDriver.get(request.getUrl());
+        webDriver1.get(request.getUrl());
         this.sleep();
-        WebElement webElement = webDriver.findElement(By.xpath("/html"));
+        WebElement webElement = webDriver1.findElement(By.xpath("/html"));
         String content = webElement.getAttribute("outerHTML");
+        webDriverPool.returnWebDriver(webDriver1);
         Page page = new Page();
         page.setRawText(content);
         page.setHtml(new Html(UrlUtils.fixAllRelativeHrefs(content, request.getUrl())));
         page.setUrl(new PlainText(request.getUrl()));
         page.setRequest(request);
+        System.out.println(page);
         return page;
     }
 
@@ -166,10 +177,22 @@ public class SeleniumDownloader implements Downloader, Closeable {
 
         }
     }
+
+    private void  waitTime(){
+        try {
+            Thread.sleep(260);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 }
 
  class WebDriverPool{
+
+     private AtomicInteger availableNum = new AtomicInteger();
+
      private int size = 1 ;
+     private int num = 0;
 
      private Lock lock = new ReentrantLock();
 
@@ -177,10 +200,14 @@ public class SeleniumDownloader implements Downloader, Closeable {
      //default constructor
       WebDriverPool(){
          size = 5;
+          num = size;
+          this.init();
      }
 
       WebDriverPool(int size){
          this.size = size;
+          num=size;
+          this.init();
      }
 
      //create a webdriver instance
@@ -190,9 +217,11 @@ public class SeleniumDownloader implements Downloader, Closeable {
          return webDriver;
      }
      private void init(){
-         while (size>0){
+         while (num>0){
              try {
                  webDriverQueue.put(create());
+                 availableNum.getAndIncrement();
+                 num--;
              } catch (InterruptedException e) {
                  e.printStackTrace();
              }
@@ -201,28 +230,36 @@ public class SeleniumDownloader implements Downloader, Closeable {
       WebDriver get(){
          WebDriver webDriver = null;
          lock.lock();
-         if (webDriverQueue.size()>0){
+          availableNum.getAndDecrement();
+          if (webDriverQueue.size()>0){
              try {
                  webDriver  = webDriverQueue.take();
              } catch (InterruptedException e) {
                  e.printStackTrace();
              }
          }
+
          lock.unlock();
          return webDriver;
      }
 
       void  returnWebDriver(WebDriver webDriver){
          if (webDriver == null){
-             throw new RuntimeException("webdriver can't be null!");
+            return;
          }
          try {
+             lock.lock();
              webDriverQueue.put(webDriver);
+             availableNum.getAndIncrement();
+             lock.unlock();
          } catch (InterruptedException e) {
              e.printStackTrace();
          }
      }
 
+     public int getAvailabe(){
+         return availableNum.get();
+     }
      void checkWebdriverSize(){
 
      }

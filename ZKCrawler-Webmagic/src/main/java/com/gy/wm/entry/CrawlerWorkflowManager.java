@@ -81,7 +81,9 @@ public class CrawlerWorkflowManager {
                 //从seed开始抓
 
                 .addUrl(urlArray)
-                .addPipeline(new HDFSPipeline("/user/root/icp"))
+                .addPipeline(
+                        new MysqlPipeline())
+//                        new HDFSPipeline("/user/root/icp"))
 //                .addPipeline(new EsPipeline())
 //                .addPipeline(new HbaseEsPipeline())
 //                .addPipeline(new HbasePipeline())
