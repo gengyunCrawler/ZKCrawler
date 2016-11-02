@@ -9,7 +9,6 @@ import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.*;
 import org.apache.hadoop.hbase.client.*;
 import org.apache.hadoop.hbase.util.Bytes;
-import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -21,41 +20,43 @@ import java.util.Date;
  * @Author： Huanghai
  * @Version: 2016-11-01
  **/
-@Service
+//@Service
 public class HbaseHandleService {
     private static Configuration conf;
     private static SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddhhmmss");
 
     /**
      * 创建表
+     *
      * @throws Exception
      */
-    public void createTable()   throws Exception{
-    conf = HBaseConfiguration.create();
-    HBaseAdmin admin = new HBaseAdmin(conf);
+    public void createTable() throws Exception {
+        conf = HBaseConfiguration.create();
+        HBaseAdmin admin = new HBaseAdmin(conf);
 
-    //create tableDesc, with namespace name "my_ns" and table name "mytable"
-    HTableDescriptor tableDesc = new HTableDescriptor(TableName.valueOf("gengyun.crawler.info"));
-    tableDesc.setDurability(Durability.SYNC_WAL);
+        //create tableDesc, with namespace name "my_ns" and table name "mytable"
+        HTableDescriptor tableDesc = new HTableDescriptor(TableName.valueOf("gengyun.crawler.info"));
+        tableDesc.setDurability(Durability.SYNC_WAL);
 
-    //add a column family "data"
-    HColumnDescriptor hcd = new HColumnDescriptor("data");
-    tableDesc.addFamily(hcd);
-    admin.createTable(tableDesc);
-    admin.close();
+        //add a column family "data"
+        HColumnDescriptor hcd = new HColumnDescriptor("data");
+        tableDesc.addFamily(hcd);
+        admin.createTable(tableDesc);
+        admin.close();
     }
 
     /**
      * 抓取数据插入Hbase
+     *
      * @param crawlData
      * @param tableName
      */
-    public void putRecord(CrawlData crawlData, String tableName, String taskId)  {
+    public void putRecord(CrawlData crawlData, String tableName, String taskId) {
         conf = HBaseConfiguration.create();
         try {
-            HTable table = new HTable(conf,tableName);
+            HTable table = new HTable(conf, tableName);
             Put put = new Put(Bytes.toBytes(generateRowKey(taskId)));
-            put.add(Bytes.toBytes("data"),Bytes.toBytes("url"),Bytes.toBytes(crawlData.getUrl()));
+            put.add(Bytes.toBytes("data"), Bytes.toBytes("url"), Bytes.toBytes(crawlData.getUrl()));
             table.put(put);
             table.close();
         } catch (IOException e) {
@@ -65,15 +66,16 @@ public class HbaseHandleService {
 
     /**
      * 扫描Hbase信息
+     *
      * @param jsonObject
      * @param tableName
      * @return
      */
-    public String getHBaseData(JSONObject jsonObject,String tableName) {
+    public String getHBaseData(JSONObject jsonObject, String tableName) {
 
         conf = HBaseConfiguration.create();
         ResultScanner rs = null;
-        JSONObject result =null;
+        JSONObject result = null;
         try {
             HTable htable = new HTable(conf, tableName);
             Scan scan = new Scan();
@@ -81,43 +83,43 @@ public class HbaseHandleService {
             scan.addColumn(Bytes.toBytes("data"), Bytes.toBytes("tid"));
             scan.addColumn(Bytes.toBytes("data"), Bytes.toBytes("url"));
             String tid = jsonObject.getString("tid");
-            String startRow = jsonObject.getString("startRow"+"0");
+            String startRow = jsonObject.getString("startRow" + "0");
             int size = jsonObject.getInteger("size");
             scan.setStartRow(Bytes.toBytes(startRow));
             // start key is inclusive
 //        scan.setStopRow(Bytes.toBytes("row" + (char) 0));  // stop key is
             rs = htable.getScanner(scan);
-            int count =0;
+            int count = 0;
             String nextRow = null;
 
             JSONArray crawlerDataArray = new JSONArray();
-            for(int i=0; i<size; i++)   {
+            for (int i = 0; i < size; i++) {
                 for (Result r = rs.next(); r != null; r = rs.next()) {
-                    for(Cell cell : r.rawCells())   {
-                       String url = Bytes.toString(CellUtil.cloneValue(cell));
+                    for (Cell cell : r.rawCells()) {
+                        String url = Bytes.toString(CellUtil.cloneValue(cell));
                         nextRow = Bytes.toString(r.getRow()).split("\\|")[2];
                         JSONObject perObject = new JSONObject();
-                        perObject.put("url",url);
+                        perObject.put("url", url);
                         crawlerDataArray.add(perObject);
                         count++;
                     }
                 }
             }
-            result.put("result",true);
-            result.put("data",new JSONObject().put("data",crawlerDataArray));
-            result.put("size",count);
-            result.put("nextRow",nextRow);
+            result.put("result", true);
+            result.put("data", new JSONObject().put("data", crawlerDataArray));
+            result.put("size", count);
+            result.put("nextRow", nextRow);
 
         } catch (IOException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             rs.close();
         }
         return JSONUtil.object2JacksonString(result);
     }
 
-    public String generateRowKey(String taskId)    {
-        return taskId+"|"+ sdf.format(new Date())+"|"+RandomAlphaNumeric.randomStringOfLength(5);
+    public String generateRowKey(String taskId) {
+        return taskId + "|" + sdf.format(new Date()) + "|" + RandomAlphaNumeric.randomStringOfLength(5);
     }
 
     public String MD5(String md5) {
@@ -126,7 +128,7 @@ public class HbaseHandleService {
             byte[] array = md.digest(md5.getBytes());
             StringBuffer sb = new StringBuffer();
             for (int i = 0; i < array.length; ++i) {
-                sb.append(Integer.toHexString((array[i] & 0xFF) | 0x100).substring(1,3));
+                sb.append(Integer.toHexString((array[i] & 0xFF) | 0x100).substring(1, 3));
             }
             return sb.toString();
         } catch (java.security.NoSuchAlgorithmException e) {
@@ -172,9 +174,9 @@ public class HbaseHandleService {
         handleService.putRecord(crawlData5,"gengyun.crawler.info",taskId);
         handleService.putRecord(crawlData6,"gengyun.crawler.info",taskId);*/
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("taskid",taskId);
-        jsonObject.put("size",5);
-        jsonObject.put("startRow",taskId+"|");
-        handleService.getHBaseData(jsonObject,"gengyun.crawler.info");
+        jsonObject.put("taskid", taskId);
+        jsonObject.put("size", 5);
+        jsonObject.put("startRow", taskId + "|");
+        handleService.getHBaseData(jsonObject, "gengyun.crawler.info");
     }
 }
