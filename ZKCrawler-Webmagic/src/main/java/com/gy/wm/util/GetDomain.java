@@ -12,7 +12,7 @@ public class GetDomain {
         return  result.replace("www.","");
     }
 
-    //test
+    //Test
     public static void main(String[] args) {
         System.out.println(getDomain("http://www.gog.cn/"));
     }

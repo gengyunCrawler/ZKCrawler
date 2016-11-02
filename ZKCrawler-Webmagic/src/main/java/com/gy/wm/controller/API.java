@@ -27,7 +27,7 @@ public class API implements Runnable {
 
     @RequestMapping("/test")
     public String test() {
-        return "test!";
+        return "Test!";
     }
 
 
