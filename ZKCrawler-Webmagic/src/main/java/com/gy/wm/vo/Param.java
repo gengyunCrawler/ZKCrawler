@@ -2,6 +2,7 @@ package com.gy.wm.vo;
 
 import org.springframework.stereotype.Component;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -12,7 +13,9 @@ import java.util.List;
  * @Version: 2016-09-20
  **/
 @Component
-public class Param {
+public class Param implements Serializable{
+
+    private static final long serialVersionUID = 1L;
 
     List<String> configs;
 

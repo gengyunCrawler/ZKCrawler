@@ -58,4 +58,8 @@ public class HttpClientDownloader implements Downloader {
     public void setThread(int threadNum) {
 
     }
+
+    public static void main(String[] args) {
+
+    }
 }

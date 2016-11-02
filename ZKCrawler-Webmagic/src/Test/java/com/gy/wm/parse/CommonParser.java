@@ -154,5 +154,5 @@ public class CommonParser implements PageParser {
         }
         return null;
     }
-    private static String testConfig="{\"fileds\":[{\"fieldName\":\"title\",\"xpaths\":[\"/html/body/table[5]/tbody/tr/td/table/tbody/tr/td/table[3]/tbody/tr/td[1]/table[2]/tbody/tr/td/text()\"]},{\"fieldName\":\"content\",\"xpaths\":[\"//td[@class='newstext']\"]}],\"id\":3434,\"taskId\":\"task222\",\"urlPatterns\":[{\"regex\":\"http://www.qnz.com.cn/news/newslist-0-\\\\d.shtml\",\"type\":\"COLUMN_REGEX\"},{\"regex\":\"http://www.qnz.com.cn/news/newsshow-\\\\d.shtml\",\"type\":\"CONTENT_LINK_REGEX\"}]}";
+    private static String testConfig="{\"fileds\":[{\"fieldName\":\"title\",\"xpaths\":[\"//div[@class='Title_h1']/h1\",\"/html/body/table[5]/tbody/tr/td/table/tbody/tr/td/table[3]/tbody/tr/td[1]/table[2]/tbody/tr/td\"]},{\"fieldName\":\"content\",\"xpaths\":[\"//div[@id='content_main']\",\"//td[@class='newstext']\"]}],\"id\":3434,\"taskId\":\"task222\",\"urlPatterns\":[{\"regex\":\"http://www.qnz.com.cn/news/newslist-0-\\\\d*.shtml\",\"type\":\"COLUMN_REGEX\"},{\"regex\":\"http://www.qnz.com.cn/news/newsshow-\\\\d*.shtml\",\"type\":\"CONTENT_LINK_REGEX\"}]}";
 }

@@ -20,103 +20,70 @@ public class GenerateConfig {
 
     @Test
     public void testConfig() {
-
         List<UrlPattern> urlPatterns = new ArrayList<>();
         List<HtmlField> fileds = new ArrayList<>();
+        urlPatterns.add(new UrlPattern("http://www.zunyi.gov.cn/sy/\\w+/", "COLUMN_REGEX"));
 
-        urlPatterns.add(new UrlPattern("http://www.gaxq.gov.cn/xwdt/\\w+/index.shtml", "COLUMN_REGEX"));
-
-
-
-        //urlPatterns.add(new UrlPattern("http://www.anshun.gov.cn/list.jsp?cItemId=172&itemId=7", "COLUMN_REGEX"));
-        //urlPatterns.add(new UrlPattern("http://www.anshun.gov.cn/list.jsp?cItemId=173&itemId=7&page=1", "COLUMN_REGEX"));
-        //urlPatterns.add(new UrlPattern("http://www.anshun.gov.cn/list.jsp?cItemId=174&itemId=7&page=1", "COLUMN_REGEX"));
-
-
-
-        //urlPatterns.add(new UrlPattern("http://news.qq.com/a/\\d.*/\\d.*.htm", "CONTENT_LINK_REGEX"));
-        urlPatterns.add(new UrlPattern("http://www.gaxq.gov.cn/xwdt/\\w+/\\d+.shtml", "CONTENT_LINK_REGEX"));
-
-
-        /**
-         * title field
-         */
+        urlPatterns.add(new UrlPattern("http://www.zunyi.gov.cn/sy/\\w+/\\d+/(\\w|_)*.html", "CONTENT_LINK_REGEX"));
+        //标题
         HtmlField title = new HtmlField();
-        List<String> listTitle = new ArrayList<>();
+        List<String> list1 = new ArrayList<>();
+        list1.add("//div[@class='middletext']/p[@class='middle_title']");
+        title.setXpaths(list1);
         title.setFieldName("title");
-
-        listTitle.add("html/body/table/tbody/tr[2]/td[2]/table/tbody/tr/td/table/tbody/tr[3]/td/table[1]/tbody/tr[1]/td/h1");
-
-        title.setXpaths(listTitle);
-
-
-        /**
-         * content field
-         */
+        //正文
+        //设置为包含标签
+//        content.setContainsHtml(true);
         HtmlField content = new HtmlField();
-        List<String> listContent = new ArrayList<>();
+        List<String> list2 = new ArrayList<>();
+        list2.add("//div[@class='TRS_Editor']");
+        content.setXpaths(list2);
         content.setFieldName("content");
 
-        listContent.add("html/body/table/tbody/tr[2]/td[2]/table/tbody/tr/td/table/tbody/tr[3]/td/table[1]/tbody/tr[3]/td");
-
-        //设置为包含标签
-        content.setContainsHtml(true);
-        content.setXpaths(listContent);
-
-
-        /**
-         * source field
-         */
+        //设置来源
         HtmlField sourceName = new HtmlField();
-        List<String> listSourceName = new ArrayList<>();
+        List<String> list4 = new ArrayList<>();
+        list4.add("//p[@class='middlebiaoti left'][2]");
+        sourceName.setXpaths(list4);
         sourceName.setFieldName("sourceName");
 
-
-        listSourceName.add("html/body/table/tbody/tr[2]/td[2]/table/tbody/tr/td/table/tbody/tr[3]/td/table[1]/tbody/tr[1]/td/p");
-
-        sourceName.setXpaths(listSourceName);
-
-
-        /**
-         * author field
-         */
+        //设置作者
         HtmlField author = new HtmlField();
-        List<String> listAuthor = new ArrayList<>();
+        List<String> list5 = new ArrayList<>();
+        list5.add("//p[@class='middlebiaoti left'][3]");
+        author.setXpaths(list5);
         author.setFieldName("author");
 
-        listAuthor.add("html/body/table/tbody/tr[2]/td[2]/table/tbody/tr/td/table/tbody/tr[3]/td/table[1]/tbody/tr[1]/td/p");
-
-        author.setXpaths(listAuthor);
-
-
-
-
+        //设置属性块整块提取
+        HtmlField infoBar = new HtmlField();
+        List<String> list6 = new ArrayList<>();
+        author.setFieldName("infoBar");
 
         fileds.add(title);
         fileds.add(content);
         fileds.add(sourceName);
         fileds.add(author);
+        fileds.add(infoBar);
 
         ParserConfig config = new ParserConfig();
         config.setFields(fileds);
-        config.setId(3434);
-        config.setTaskId("task222");
+        config.setId(2227);
+        config.setTaskId("http://www.zunyi.gov.cn/");
         config.setUrlPatterns(urlPatterns);
         String s = JSON.toJSONString(config);
-        System.out.printf("THE RESULT:\n" + s);
+        System.out.printf(s);
         ParserDao dao = new ParserDao();
-        ParserEntity entity = new ParserEntity();
+        com.gy.wm.plugins.newsExportPlugin.parse.ParserEntity entity = new ParserEntity();
         entity.setConfig(s);
-        entity.setId(2);
-        entity.setTid("gaxq.gov.cn");
+        entity.setTid("http://www.zunyi.gov.cn/");
         dao.insert(entity);
 
     }
     @Test
     public void testUrlMatch(){
-        String url="http://www.gaxq.gov.cn/xwdt/\\w+/\\d+.shtml";
+        String url="http://news.qq.com/a/\\d.*/\\d.*.htm";
         Pattern pattern = Pattern.compile(url);
-      Matcher matcher = pattern.matcher("http://www.gaxq.gov.cn/xwdt/ddaa4522d/12560.shtml");
+      Matcher matcher = pattern.matcher("http://news.qq.com/a/20161023/020617.htm");
         System.out.println(matcher.find());
     }
 }

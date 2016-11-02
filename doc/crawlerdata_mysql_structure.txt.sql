@@ -28,7 +28,7 @@ CREATE TABLE `crawlerdata`(
     `fetched` TINYINT,
     `author` VARCHAR(32) CHARACTER SET utf8,
     `sourceName` VARCHAR(32) CHARACTER SET utf8,
-    `jsonData` LONGTEXT CHARACTER SET utf8,
+    `parsedData` LONGTEXT CHARACTER SET utf8,
 
     PRIMARY KEY (`seqeueID`)
 );

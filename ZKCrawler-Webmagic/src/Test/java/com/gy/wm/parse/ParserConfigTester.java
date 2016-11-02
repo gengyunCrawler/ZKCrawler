@@ -3,7 +3,7 @@ package com.gy.wm.parse;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.gy.wm.dao.ParserDao;
-import com.gy.wm.plugins.newsExportPlugin.parse.ParserConfig;
+import com.gy.wm.plugins.newsExportPlugin.parse.*;
 import com.gy.wm.plugins.newsExportPlugin.parse.HtmlField;
 import com.gy.wm.plugins.newsExportPlugin.parse.ParserEntity;
 import org.junit.Test;
@@ -157,7 +157,7 @@ public class ParserConfigTester {
         fileds.add(field4);
         fileds.add(field5);
 
-        ParserConfig config = new ParserConfig();
+        com.gy.wm.plugins.newsExportPlugin.parse.ParserConfig config = new com.gy.wm.plugins.newsExportPlugin.parse.ParserConfig();
         config.setFields(fileds);
         config.setId(3434);
         config.setTaskId("task222");
@@ -214,5 +214,15 @@ public class ParserConfigTester {
     public void testMapper() {
         ParserDao dao = new ParserDao();
         dao.find("");
+    }
+
+    @Test
+    public void testRegx(){
+        String s = "<span class=\"time-source xh-highlight\" id=\"navtimeSource\">2016年10月26日01:39\t\t<span>\n" +
+                "<span data-sudaclick=\"media_name\"><a href=\"http://epaper.jinghua.cn/html/2016-10/26/content_342030.htm\" target=\"_blank\" rel=\"nofollow\">京华时报</a></span></span>\n" +
+                "\t</span>";
+        Html html = new Html(s);
+       String ss= html.xpath("//span[@id='navtimeSource']/text()//*/text()").toString();
+        System.out.println(ss);
     }
 }

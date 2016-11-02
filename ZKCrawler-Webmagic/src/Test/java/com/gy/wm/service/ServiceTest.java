@@ -1,12 +1,12 @@
 package com.gy.wm.service;
 
+import com.alibaba.fastjson.JSONObject;
 import com.gy.wm.ApplicationWebmagic;
 import com.gy.wm.controller.API;
+import com.gy.wm.model.TaskParamModel;
+import com.gy.wm.util.JSONUtil;
 import com.gy.wm.vo.Base;
 import com.gy.wm.vo.Param;
-import com.gy.wm.model.TaskParamModel;
-import com.gy.wm.service.CustomPageProcessor;
-import com.gy.wm.service.TaskService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -46,30 +45,23 @@ public  class ServiceTest {
     public void test() throws Exception{
     }
 
+    //启动任务单元测试
     @Test
     public void testStartTask() {
 //        List<String> templateList = new ArrayList<>();
 //        templateList.add("");
         List<String> seedUrls = new ArrayList<>();
 
-
-        String seed1 = "http://www.qnz.com.cn/news/newslist-0-12.shtml";
-//        String seed2 = "http://www.qnz.com.cn/news/newslist-0-13.shtml";
-//        String seed3 = "http://www.qnz.com.cn/news/newsshow-29863.shtml";
-//        String seed4 = "http://www.gygov.gov.cn/col/col10683/index.html";
-      //  String seed5 = "http://www.gog.cn/";
-
-        seedUrls.add(seed1);
-//        seedUrls.add(seed2);
-//        param.setTemplates(templateList);
+        seedUrls.add("http://www.gzgov.gov.cn/xwzx/gzxw/");
         param.setSeedUrls(seedUrls);
 
 //        templateList.add(guiyangTemplate);
 //        param.setTemplates(templateList);
 
-        base.setId("acbrocdldrtfkauj9ertt29d67");
-        base.setDepthCrawl(1);
+        base.setId("http://www.gzgov.gov.cn");
+        base.setTags(setTag("贵州","贵州新闻"));
 
+        /*base.setDepthCrawl(1);
         taskParamModel.setParam(param);
         taskParamModel.setBase(base);
         System.out.println(api.startTask(taskParamModel));
@@ -77,6 +69,14 @@ public  class ServiceTest {
             Thread.sleep(Long.MAX_VALUE);
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }
+        }*/
+    }
+
+    public String setTag(String area,String column)    {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("area",area);
+        jsonObject.put("column",column);
+        System.out.println(JSONUtil.object2JacksonString(jsonObject));
+        return JSONUtil.object2JacksonString(jsonObject);
     }
 }
