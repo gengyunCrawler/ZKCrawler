@@ -26,11 +26,11 @@ public class APIController {
 
     /**
      *
-     * @api {post} ZKCrawler-API/api/getHbaseData 获取Hbase数据接口
-     * @apiGroup CrawlerGroup
+     * @api {post} http://ip:port/ZKCrawler-API/api/getHbaseData 获取Hbase数据接口
+     * @apiGroup Crawler
      * @apiVersion 0.1.0
      * @apiParam {String} taskId 任务id
-     * @apiParam {String} startRow 开始读取的行标志
+     * @apiParam {String} startRow 开始读取的row,首次读取startRow为taskId+"|"，
      * @apiParam {int} size 本次读取的数据条数，限定每次只能请求1~100条
      * @apiSuccess {String} code 结果码
      * @apiSuccess {boolean} result 请求结果是否成功
@@ -43,9 +43,9 @@ public class APIController {
      * {
      *   "code": 200,
      *   "result": true,
-     *   "nextRow": frR7J,
+     *   "nextRow": c5b475b03652d36b5fdfe97022be0240|20161102013959|52a7c,
      *   "size": 100,
-     *   "data": {[
+     *   "data": [{
      *      "tid":"c5b475b03652d36b5fdfe97022be0240",
      *      "url":"http://www.gygov.gov.cn/art/2016/10/31/art_10684_1067314.html",
      *      "statusCode":"200",
@@ -66,15 +66,24 @@ public class APIController {
      *      "author":"",
      *      "sourceName":"",
      *      "parsedData":"",
-     *   ]
-     *   }
+     *      }]
      * }
      */
     @RequestMapping(value = "/getHbaseData", method = RequestMethod.POST)
     public String getHbaseData(String taskId,String startRow,String size)    {
         String result = handleService.getHBaseData(taskId,startRow,size);
+
 //        String result = "taskId:"+taskId+"\n"+"startRow:"+startRow+"\n"+"size:"+size;
         return result;
     }
 
+    /**
+     * 待测试
+     * @param post_id
+     * @return
+     */
+    @RequestMapping(value = "/testPostJSON", method = RequestMethod.POST)
+    public String testPostJSON(String  post_id)  {
+        return post_id;
+    }
 }

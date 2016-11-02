@@ -1,28 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f80612aa-7060-4aab-872b-8b78d4511402" name="Default" comment="Hbase读取pending&#10;Huanghai_2016-11-1 18:28:54">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_8_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_10.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_17.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ZKCrawler-API/src/Test/cn/com/cloudpioneer/zkcrawlerAPI/service/HbaseHandleTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/controller/APIController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/utils/RequestUtil.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_3_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_h2database_h2_1_4_191.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_all_1_8_5.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__xml_apis_xml_apis_1_3_04.xml" afterPath="" />
+    <list default="true" id="f80612aa-7060-4aab-872b-8b78d4511402" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpasyncclient_4_1_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_nio_4_4_5.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_elasticsearch_client_rest_5_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/Test/TestCmsData.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/Test/TestDataResultEntity.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/Test/TestQueryAllEntity.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/Test/TestResultEntity.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/app/ZKCrawlerAPI.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/app/elastic/DeleteBuilder.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/app/elastic/ESClient.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/app/elastic/ExportBuilder.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/app/elastic/ImportBuilder.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/app/elastic/QueryBuilder.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/app/elastic/QueryMatchAll.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/app/elastic/UpdateBuilder.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/controller/GreetingController.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_jcraft_jsch_0_1_53.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_jcraft_jsch_0_1_53.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/controller/elastic/ESController.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_cli_commons_cli_1_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_cli_commons_cli_1_2.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_3_6_6_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_3_6_6_Final.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ZKCrawler-API/ZKCrawler-API.iml" afterPath="$PROJECT_DIR$/ZKCrawler-API/ZKCrawler-API.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ZKCrawler-API/pom.xml" afterPath="$PROJECT_DIR$/ZKCrawler-API/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/service/HbaseHandleService.java" afterPath="$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/service/HbaseHandleService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ZKCrawler-API/src/main/resources/config.properties" afterPath="$PROJECT_DIR$/ZKCrawler-API/src/main/resources/config.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/controller/APIController.java" afterPath="$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/controller/APIController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/utils/RequestUtil.java" afterPath="$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/utils/RequestUtil.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ZKCrawler-Webmagic/ZKCrawler-Webmagic.iml" afterPath="$PROJECT_DIR$/ZKCrawler-Webmagic/ZKCrawler-Webmagic.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ZKCrawler-Webmagic/pom.xml" afterPath="$PROJECT_DIR$/ZKCrawler-Webmagic/pom.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ZKCrawler-API/src/Test/cn/com/cloudpioneer/zkcrawlerAPI/HbaseHandleTest.java" afterPath="$PROJECT_DIR$/ZKCrawler-API/src/Test/cn/com/cloudpioneer/zkcrawlerAPI/controller/APIControllerTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/plugins/newsExportPlugin/parse/GenericParser.java" afterPath="$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/plugins/newsExportPlugin/parse/GenericParser.java" />
     </list>
     <ignored path="ZKCrawler.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -63,25 +67,53 @@
       <file leaf-file-name="APIController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/controller/APIController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+            <state relative-caret-position="532">
+              <caret line="80" column="10" selection-start-line="80" selection-start-column="10" selection-end-line="80" selection-end-column="10" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="docComment;method#getHbaseData#0;class#APIController#0" expanded="false" />
+                <element signature="e#3213#3214#0" expanded="true" />
+                <element signature="e#3243#3244#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ApplicationAPI.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/ApplicationAPI.java">
+      <file leaf-file-name="API.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/controller/API.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="6" column="37" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#307#308#0" expanded="true" />
-                <element signature="e#372#373#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="19">
+              <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RedisToCrawlQue.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/queue/RedisToCrawlQue.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RedisScheduler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/schedular/RedisScheduler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="76">
+              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RedisCrawledQue.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/queue/RedisCrawledQue.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -89,8 +121,8 @@
       <file leaf-file-name="RequestUtil.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/utils/RequestUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+            <state relative-caret-position="-58">
+              <caret line="51" column="64" selection-start-line="51" selection-start-column="64" selection-end-line="51" selection-end-column="64" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -98,78 +130,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HbaseHandleService.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/service/HbaseHandleService.java">
+      <file leaf-file-name="DBClient.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/dbpipeline/dbclient/DBClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2446">
-              <caret line="135" column="0" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ZKCrawler-API/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
+            <state relative-caret-position="228">
+              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HbaseHandleTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ZKCrawler-API/src/Test/cn/com/cloudpioneer/zkcrawlerAPI/service/HbaseHandleTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="541">
-              <caret line="81" column="5" selection-start-line="81" selection-start-column="5" selection-end-line="81" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#putRecordTest#0;class#HbaseHandleTest#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="APIControllerTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ZKCrawler-API/src/Test/cn/com/cloudpioneer/zkcrawlerAPI/controller/APIControllerTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="129">
-              <caret line="16" column="39" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RandomUtils.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/utils/RandomUtils.java">
+      <file leaf-file-name="EsClient.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/dbpipeline/dbclient/EsClient.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="133">
-              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+              <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/pom.xml">
+      <file leaf-file-name="CrawlData.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/model/CrawlData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="39" selection-end-column="21" />
+            <state relative-caret-position="654">
+              <caret line="53" column="43" selection-start-line="53" selection-start-column="43" selection-end-line="53" selection-end-column="43" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
+      <file leaf-file-name="GenericParser.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/plugins/newsExportPlugin/parse/GenericParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="30" column="66" selection-start-line="30" selection-start-column="66" selection-end-line="30" selection-end-column="66" />
+            <state relative-caret-position="482">
+              <caret line="139" column="47" selection-start-line="139" selection-start-column="47" selection-end-line="139" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -218,8 +213,6 @@
         <option value="$PROJECT_DIR$/ZKCrawler-Webmagic/src/Test/java/com/gy/wm/service/ProxyTest.java" />
         <option value="$PROJECT_DIR$/ZKCrawler-Webmagic/src/Test/java/com/gy/wm/service/GenerateConfig.java" />
         <option value="$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/resources/SqlMapConfig.xml" />
-        <option value="$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/plugins/newsExportPlugin/parse/GenericParser.java" />
-        <option value="$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/resources/config.properties" />
         <option value="dbtable:/85cd135e/11ac2914-82f4-4b31-9352-5edbc4ee3a29/wifi_ac.tbCrawlerTask" />
         <option value="dbtable:/85cd135e/11ac2914-82f4-4b31-9352-5edbc4ee3a29/wifi_ac.tbCrawlerTaskConfig" />
         <option value="$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/mapper/ParserMapper.java" />
@@ -229,7 +222,6 @@
         <option value="$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/util/JSONUtil.java" />
         <option value="$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/plugins/topicPlugin/analysis/TopicTextAnalysis.java" />
         <option value="$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/model/CrawlDataMapper.java" />
-        <option value="$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/controller/API.java" />
         <option value="$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/utils/JSONUtil.java" />
         <option value="$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/model/CrawlData.java" />
         <option value="$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/util/RandomStringCreator.java" />
@@ -249,9 +241,12 @@
         <option value="$PROJECT_DIR$/ZKCrawler-API/src/Test/cn/com/cloudpioneer/zkcrawlerAPI/utils/RequestUtilTest.java" />
         <option value="$PROJECT_DIR$/ZKCrawler-API/src/Test/cn/com/cloudpioneer/zkcrawlerAPI/service/HbaseHandleTest.java" />
         <option value="$PROJECT_DIR$/ZKCrawler-API/src/Test/cn/com/cloudpioneer/zkcrawlerAPI/controller/APIControllerTest.java" />
-        <option value="$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/controller/APIController.java" />
-        <option value="$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/utils/RequestUtil.java" />
         <option value="$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/service/HbaseHandleService.java" />
+        <option value="$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/resources/config.properties" />
+        <option value="$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/controller/API.java" />
+        <option value="$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/utils/RequestUtil.java" />
+        <option value="$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/plugins/newsExportPlugin/parse/GenericParser.java" />
+        <option value="$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/controller/APIController.java" />
       </list>
     </option>
   </component>
@@ -728,6 +723,340 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="ZKCrawler-Webmagic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ZKCrawler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ZKCrawler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ZKCrawler-Webmagic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ZKCrawler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ZKCrawler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ZKCrawler-Webmagic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ZKCrawler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ZKCrawler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ZKCrawler-Webmagic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ZKCrawler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ZKCrawler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ZKCrawler-Webmagic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="schedular" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ZKCrawler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ZKCrawler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ZKCrawler-Webmagic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="queue" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ZKCrawler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ZKCrawler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ZKCrawler-Webmagic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ZKCrawler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ZKCrawler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ZKCrawler-Webmagic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="newsExportPlugin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ZKCrawler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ZKCrawler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ZKCrawler-Webmagic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="newsExportPlugin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="parse" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ZKCrawler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ZKCrawler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ZKCrawler-Webmagic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ZKCrawler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ZKCrawler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ZKCrawler-Webmagic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ZKCrawler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ZKCrawler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="ZKCrawler-API" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -747,10 +1076,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Test" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -951,6 +1276,186 @@
       <recent name="D:\IdeaProjects\ZKCrawler\ZKCrawler-Webmagic\src\main\java\com\gy\wm\plugins\topicPlugin" />
       <recent name="D:\IdeaProjects\ZKCrawler\ZKCrawler-Webmagic\src\main\java\com\gy\wm\plugins\wholesitePlugin" />
     </key>
+  </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/dataSources.ids</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/dataSources.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_11_0_2.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__commons_cli_commons_cli_1_2.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_4.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_3_6_6_Final.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-TaskClient/ZKCrawler-TaskClient.iml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-Webmagic/pom.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/controller/API.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/util/GetDomain.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/util/LinkUnAvailService.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/util/URLFilter.java</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__commons_cli_commons_cli_1_2.xml~origin_dev</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpasyncclient_4_1_2.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_nio_4_4_5.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_elasticsearch_client_rest_5_0_0.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-API/doc/cms_ES_数据结构_txt.json</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-API/doc/cms_ES_数据结构映射_mappings.json</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/Test/TestCmsData.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/Test/TestDataResultEntity.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/Test/TestQueryAllEntity.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/Test/TestResultEntity.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/app/elastic/DeleteBuilder.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/app/elastic/ESClient.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/app/elastic/ExportBuilder.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/app/elastic/ImportBuilder.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/app/elastic/QueryBuilder.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/app/elastic/QueryMatchAll.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/app/elastic/UpdateBuilder.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/controller/GreetingController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/controller/elastic/ESController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/model/crawler/NodesInfoModel.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/model/elastic/CategoriesInfo.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/model/elastic/CmsData.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/model/elastic/DataResultEntity.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/model/elastic/FailedEntity.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/model/elastic/QueryAllEntity.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/model/elastic/QueryEntity.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/model/elastic/ResultEntity.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/model/elastic/SuccessEntity.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/model/elastic/TagsInfo.java</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__com_carrotsearch_hppc_0_7_1.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_dataformat_jackson_dataformat_cbor_2_8_1.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_dataformat_jackson_dataformat_smile_2_8_1.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_dataformat_jackson_dataformat_yaml_2_8_1.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__com_ning_compress_lzf_1_0_2.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__com_spatial4j_spatial4j_0_5.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__com_tdunning_t_digest_3_0.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__com_twitter_jsr166e_1_1_0.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__commons_cli_commons_cli_1_3_1.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_3_10_5_Final.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__joda_time_joda_time_2_9_4.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_analyzers_common_5_5_0.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_backward_codecs_5_5_0.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_core_5_5_0.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_grouping_5_5_0.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_highlighter_5_5_0.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_join_5_5_0.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_memory_5_5_0.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_misc_5_5_0.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_queries_5_5_0.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_queryparser_5_5_0.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_sandbox_5_5_0.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_spatial3d_5_5_0.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_spatial_5_5_0.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_suggest_5_5_0.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_elasticsearch_elasticsearch_2_3_2.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_elasticsearch_securesm_1_0.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_hdrhistogram_HdrHistogram_2_1_6.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_joda_joda_convert_1_2.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/model/NodesInfoModel.java</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
   </component>
   <component name="RunManager" selected="Application.RequestUtil">
     <configuration default="false" name="ApplicationAPI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -1568,7 +2073,7 @@
       <workItem from="1477966923890" duration="23408000" />
       <workItem from="1478049227805" duration="7972000" />
       <workItem from="1478057914309" duration="1286000" />
-      <workItem from="1478059247608" duration="12123000" />
+      <workItem from="1478059247608" duration="21577000" />
     </task>
     <task id="LOCAL-00001" summary="first init">
       <created>1472713688029</created>
@@ -1864,7 +2369,14 @@
       <option name="project" value="LOCAL" />
       <updated>1477996214870</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Hbase接口完成&#10;Huanghai_2016-11-2 15:26:47">
+      <created>1478071617248</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1478071617248</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1900,7 +2412,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="468551000" />
+    <option name="totallyTimeSpent" value="478005000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1924,12 +2436,12 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12255965" sideWeight="0.5042644" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.141258" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12255965" sideWeight="0.49573562" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2407809" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19522777" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329718" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30368763" sideWeight="0.4978678" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32321042" sideWeight="0.4978678" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23880596" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23987207" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2595949" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1946,6 +2458,38 @@
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3277027" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12255965" sideWeight="0.5042644" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.141258" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2595949" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34273317" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32923833" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30911064" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12255965" sideWeight="0.49573562" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2407809" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329718" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32321042" sideWeight="0.4978678" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44360086" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24034335" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3277027" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -1959,7 +2503,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="下载插件添加完成 by huanghai_2016-9-19 13:26:53" />
     <MESSAGE value="日志管理" />
     <MESSAGE value="日志管理_2016-09-19 18:37:47" />
     <MESSAGE value="TaskParamModel supply the params of start task instead of TaskEntity&#10;by huanghai_2016-9-20 12:11:33" />
@@ -1984,7 +2527,8 @@
     <MESSAGE value="fix&#10;by Huanghai_2016-10-24 17:14:14" />
     <MESSAGE value="修改crawlData中tag为String之前备份&#10;Huanghai_2016-10-25 15:10:16" />
     <MESSAGE value="Hbase读取pending&#10;Huanghai_2016-11-1 18:28:54" />
-    <option name="LAST_COMMIT_MESSAGE" value="Hbase读取pending&#10;Huanghai_2016-11-1 18:28:54" />
+    <MESSAGE value="Hbase接口完成&#10;Huanghai_2016-11-2 15:26:47" />
+    <option name="LAST_COMMIT_MESSAGE" value="Hbase接口完成&#10;Huanghai_2016-11-2 15:26:47" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2027,7 +2571,7 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/service/HbaseHandleService.java</url>
-          <line>75</line>
+          <line>73</line>
           <properties />
           <option name="timeStamp" value="108" />
         </line-breakpoint>
@@ -2063,98 +2607,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/utils/JSONUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-171">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/Test/java/com/gy/wm/hdfs/HDFSTester.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-38">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/resources/hdfs-site.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="191" column="25" selection-start-line="191" selection-start-column="25" selection-end-line="191" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/resources/hbase-site.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1846">
-          <caret line="5" column="30" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/model/CrawlData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-114">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/dbpipeline/impl/HDFSPipeline.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="741">
-          <caret line="58" column="74" selection-start-line="58" selection-start-column="74" selection-end-line="58" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/util/AlphabeticRandom.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/Test/java/com/gy/wm/service/ServiceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
-          <caret line="29" column="27" selection-start-line="29" selection-start-column="27" selection-end-line="29" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ZKCrawler-Starter/src/main/java/cn/com/cloudpioneer/starter/app/ApplicationStarter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ZKCrawler-Master/src/test/java/com/gy/curator/CuratorMaster.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ZKCrawler-Master/src/test/java/com/gy/curator/CuratorMasterTester.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ZKCrawler-Master/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ZKCrawler-Master/src/main/resources/config.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ZKCrawler-API/src/main/resources/hbase-site.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="426">
@@ -2219,14 +2671,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/utils/RandomAlphaNumeric.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.m2/repository/org/apache/hbase/hbase-client/0.98.4-hadoop2/hbase-client-0.98.4-hadoop2.jar!/org/apache/hadoop/hbase/client/HTable.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
@@ -2238,6 +2682,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2252,13 +2697,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="521">
           <caret line="77" column="0" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/resources/config.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="18" column="39" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2273,6 +2712,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
           <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1858#1859#0" expanded="false" />
+            <element signature="e#1910#1911#0" expanded="false" />
+            <element signature="e#2698#2699#0" expanded="false" />
+            <element signature="e#2740#2741#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2287,24 +2733,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
           <caret line="22" column="52" selection-start-line="22" selection-start-column="52" selection-end-line="22" selection-end-column="116" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/model/CrawlData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="779">
-          <caret line="53" column="43" selection-start-line="53" selection-start-column="43" selection-end-line="53" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/controller/API.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="18" column="19" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="false" />
-            <element signature="e#748#749#0" expanded="false" />
-            <element signature="e#778#779#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2371,16 +2801,28 @@
     <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
-          <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="39" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ZKCrawler-API/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
-          <folding />
+          <caret line="26" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="39" selection-end-column="21" />
+          <folding>
+            <marker date="1478071642610" expanded="true" signature="583:891" ph="..." />
+            <marker date="1478071642610" expanded="true" signature="604:871" ph="..." />
+            <marker date="1478071642610" expanded="true" signature="628:693" ph="..." />
+            <marker date="1478071642610" expanded="true" signature="916:1153" ph="..." />
+            <marker date="1478071642610" expanded="true" signature="943:1127" ph="..." />
+            <marker date="1478071642610" expanded="true" signature="1173:6209" ph="..." />
+            <marker date="1478071642610" expanded="true" signature="1194:1333" ph="..." />
+            <marker date="1478071642610" expanded="true" signature="1354:1494" ph="..." />
+            <marker date="1478071642610" expanded="true" signature="1515:1635" ph="..." />
+            <marker date="1478071642610" expanded="true" signature="1656:1810" ph="..." />
+            <marker date="1478071642610" expanded="true" signature="1831:1990" ph="..." />
+            <marker date="1478071642610" expanded="true" signature="2011:2169" ph="..." />
+            <marker date="1478071642610" expanded="true" signature="2213:2367" ph="..." />
+            <marker date="1478071642610" expanded="true" signature="2412:2559" ph="..." />
+            <marker date="1478071642610" expanded="true" signature="2606:2777" ph="..." />
+            <marker date="1478071642610" expanded="true" signature="2798:2946" ph="..." />
+            <marker date="1478071642610" expanded="true" signature="3058:3224" ph="..." />
+            <marker date="1478071642610" expanded="true" signature="3245:3383" ph="..." />
+            <marker date="1478071642610" expanded="true" signature="3487:3644" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2405,9 +2847,78 @@
         <state relative-caret-position="541">
           <caret line="81" column="5" selection-start-line="81" selection-start-column="5" selection-end-line="81" selection-end-column="5" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="method#putRecordTest#0;class#HbaseHandleTest#0" expanded="false" />
+            <marker date="1478069157498" expanded="true" signature="58:630" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ZKCrawler-API/src/Test/cn/com/cloudpioneer/zkcrawlerAPI/controller/APIControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="16" column="39" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
+          <folding>
+            <marker date="1478069548773" expanded="true" signature="436:512" ph="/**...*/" />
+            <marker date="1478069548773" expanded="true" signature="513:637" ph="@{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/dbpipeline/PipelineBloomFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ZKCrawler-API/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="73" column="31" selection-start-line="73" selection-start-column="30" selection-end-line="73" selection-end-column="31" />
+          <folding>
+            <marker date="1478071892982" expanded="true" signature="3791:5288" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/app/elastic/ESClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/controller/GreetingController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="19" column="26" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/dbpipeline/dbclient/HbaseClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="33" column="40" selection-start-line="33" selection-start-column="40" selection-end-line="33" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/dbpipeline/MyHbaseUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="23" column="83" selection-start-line="23" selection-start-column="83" selection-end-line="23" selection-end-column="83" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/resources/config.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="21" column="36" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2419,13 +2930,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ZKCrawler-API/src/Test/cn/com/cloudpioneer/zkcrawlerAPI/controller/APIControllerTest.java">
+    <entry file="file://$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/utils/RandomAlphaNumeric.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="16" column="39" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="475">
+          <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/utils/HttpClientUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/utils/JSONUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-138">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/service/HbaseHandleService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="88" column="30" selection-start-line="88" selection-start-column="30" selection-end-line="88" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2435,39 +2968,93 @@
           <caret line="6" column="37" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#307#308#0" expanded="true" />
-            <element signature="e#372#373#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/queue/RedisCrawledQue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/queue/RedisToCrawlQue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/schedular/RedisScheduler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/controller/API.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/model/CrawlData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="654">
+          <caret line="53" column="43" selection-start-line="53" selection-start-column="43" selection-end-line="53" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/plugins/newsExportPlugin/parse/GenericParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="482">
+          <caret line="139" column="47" selection-start-line="139" selection-start-column="47" selection-end-line="139" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/controller/APIController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="80" column="10" selection-start-line="80" selection-start-column="10" selection-end-line="80" selection-end-column="10" />
+          <folding>
+            <element signature="docComment;method#getHbaseData#0;class#APIController#0" expanded="false" />
+            <element signature="e#3213#3214#0" expanded="true" />
+            <element signature="e#3243#3244#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/utils/RequestUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+        <state relative-caret-position="-58">
+          <caret line="51" column="64" selection-start-line="51" selection-start-column="64" selection-end-line="51" selection-end-column="64" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/controller/APIController.java">
+    <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/dbpipeline/dbclient/EsClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/dbpipeline/dbclient/DBClient.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/service/HbaseHandleService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2446">
-          <caret line="135" column="0" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
