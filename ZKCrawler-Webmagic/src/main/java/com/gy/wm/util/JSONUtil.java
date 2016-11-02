@@ -7,9 +7,9 @@ import java.util.List;
 
 /**
  * JSON工具类，是通过封装jackson得到，为的是更简单的使用jackson
- * @author liguoyou
+ * @author Huanghai
  * @ClassName JSONUtil
- * @date 2014-7-21 上午11:12:03
+ * @date 2016-10-28 11:30:32
  *
  */
 public class JSONUtil {
