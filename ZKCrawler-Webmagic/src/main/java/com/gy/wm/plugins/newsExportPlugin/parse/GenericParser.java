@@ -151,7 +151,7 @@ public class GenericParser implements PageParser {
 
         for (String urlRegex : contentLinkRegexs) {
             Pattern pattern = Pattern.compile(urlRegex);
-            if (pattern.matcher(url).find()) {
+            if (pattern.matcher(url).matches()) {
                 return true;
             }
         }
@@ -167,7 +167,7 @@ public class GenericParser implements PageParser {
     private boolean isColumnHtml(String url) {
         for (String urlRegex : columnRegexs) {
             Pattern pattern = Pattern.compile(urlRegex);
-            if (pattern.matcher(url).find()) {
+            if (pattern.matcher(url).matches()) {
                 return true;
             }
         }

@@ -19,7 +19,11 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  *This is a downloader for dynamic web page,and it needs phantomjs driver to support.<br/>
@@ -162,4 +166,65 @@ public class SeleniumDownloader implements Downloader, Closeable {
 
         }
     }
+}
+
+ class WebDriverPool{
+     private int size = 1 ;
+
+     private Lock lock = new ReentrantLock();
+
+     private BlockingQueue<WebDriver> webDriverQueue = new LinkedBlockingDeque<>();
+     //default constructor
+      WebDriverPool(){
+         size = 5;
+     }
+
+      WebDriverPool(int size){
+         this.size = size;
+     }
+
+     //create a webdriver instance
+     private WebDriver create(){
+         WebDriver webDriver=new PhantomJSDriver();
+         webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+         return webDriver;
+     }
+     private void init(){
+         while (size>0){
+             try {
+                 webDriverQueue.put(create());
+             } catch (InterruptedException e) {
+                 e.printStackTrace();
+             }
+         }
+     }
+      WebDriver get(){
+         WebDriver webDriver = null;
+         lock.lock();
+         if (webDriverQueue.size()>0){
+             try {
+                 webDriver  = webDriverQueue.take();
+             } catch (InterruptedException e) {
+                 e.printStackTrace();
+             }
+         }
+         lock.unlock();
+         return webDriver;
+     }
+
+      void  returnWebDriver(WebDriver webDriver){
+         if (webDriver == null){
+             throw new RuntimeException("webdriver can't be null!");
+         }
+         try {
+             webDriverQueue.put(webDriver);
+         } catch (InterruptedException e) {
+             e.printStackTrace();
+         }
+     }
+
+     void checkWebdriverSize(){
+
+     }
+
 }

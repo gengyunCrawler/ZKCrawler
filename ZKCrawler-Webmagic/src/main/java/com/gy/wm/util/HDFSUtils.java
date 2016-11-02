@@ -27,6 +27,7 @@ public class HDFSUtils {
         out.write(words.getBytes("UTF-8"));
 
         out.close();
+        fs.close();
 
     }
 
@@ -35,7 +36,9 @@ public class HDFSUtils {
         Configuration conf = new Configuration();
         FileSystem fs = FileSystem.get(URI.create(file), conf);
         Path path = new Path(file);
-        return fs.exists(path);
+        Boolean result = fs.exists(path);
+        fs.close();
+        return result;
 
     }
     public static synchronized  void   uploadFile(String src,String file) throws IOException {
@@ -48,17 +51,36 @@ public class HDFSUtils {
     public static synchronized   void writeByAppend(String file,String worlds){
 
         Configuration conf = new Configuration();
+
         conf.setBoolean("dfs.support.append", true);
         FileSystem fs = null;
+        OutputStream out = null;
+        InputStream in = null;
+
         try {
             fs = FileSystem.get(URI.create(file), conf);
             //要追加的文件流，inpath为文件
-            InputStream in = new ByteArrayInputStream(worlds.getBytes("UTF-8"));
-            OutputStream out = fs.append(new Path(file));
+             in = new ByteArrayInputStream(worlds.getBytes("UTF-8"));
+             fs.close();
+            fs = FileSystem.get(conf);
+            fs.setReplication(new Path(file),(short)1);
+             out = fs.append(new Path(file));
+
             IOUtils.copyBytes(in, out, 4096, true);
+
         } catch (IOException e) {
             e.printStackTrace();
+        }  finally {
+
+            try {
+                in.close();
+                out.close();
+                fs.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
+
     }
     public static  synchronized void delete(String file) throws IOException {
         Configuration conf = new Configuration();
@@ -67,5 +89,18 @@ public class HDFSUtils {
         //查看fs的delete API可以看到三个方法。deleteonExit实在退出JVM时删除，下面的方法是在指定为目录是递归删除
         fs.delete(path,true);
         fs.close();
+    }
+
+    public static synchronized void download(String file){
+        Configuration conf = new Configuration();
+        conf.setBoolean("dfs.support.append", true);
+        FileSystem fs = null;
+        try {
+            fs = FileSystem.get(URI.create(file), conf);
+           fs.copyToLocalFile(false,new Path("/user/root/icp/news-20161101.txt"),new Path("d:/hdfs-files"));
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

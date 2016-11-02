@@ -52,14 +52,14 @@ public  class ServiceTest {
 //        templateList.add("");
         List<String> seedUrls = new ArrayList<>();
 
-        seedUrls.add("http://www.qxn.gov.cn/ListArtGovPublic/QxnInfo.9/1.html");
+        seedUrls.add("http://www.gaxq.gov.cn/xwdt/zrdt_1/index.shtml");
 
         param.setSeedUrls(seedUrls);
 
 //        templateList.add(guiyangTemplate);
 //        param.setTemplates(templateList);
 
-        base.setId("http://www.qxn.gov.cn/");
+        base.setId("http://www.gaxq.gov.cn/");
         base.setDepthCrawl(1);
 
 
@@ -72,4 +72,6 @@ public  class ServiceTest {
             e.printStackTrace();
         }
     }
+
+
 }
