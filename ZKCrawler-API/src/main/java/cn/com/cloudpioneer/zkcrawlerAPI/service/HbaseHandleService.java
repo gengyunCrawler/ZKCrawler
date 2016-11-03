@@ -106,7 +106,7 @@ public class HbaseHandleService {
                 int depthfromSeed = Bytes.toInt(r.getValue(Bytes.toBytes("crawlerData"),Bytes.toBytes("depthfromSeed")));
                 int count = Bytes.toInt(r.getValue(Bytes.toBytes("crawlerData"),Bytes.toBytes("count")));
                 String tag = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"),Bytes.toBytes("tag")));
-                String fetched = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"),Bytes.toBytes("fetched")));
+                boolean fetched = Bytes.toBoolean(r.getValue(Bytes.toBytes("crawlerData"),Bytes.toBytes("fetched")));
                 String author = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"),Bytes.toBytes("author")));
                 String sourceName = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"),Bytes.toBytes("sourceName")));
                 String parsedData = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"),Bytes.toBytes("parsedData")));
