@@ -64,20 +64,13 @@ public class RequestUtil {
 
     public static void main(String[] args) {
         String url = "http://localhost:10080/api/getHbaseData";
-        String url_json = "http://localhost:10080/api/testPostJSON";
-        //传递参数
+
         Map<String,String> params = new HashMap<>();
-        params.put("taskId1","c5b475b03652d36b5fdfe97022be0240");
-        params.put("starRow1","c5b475b03652d36b5fdfe97022be0240|20161102013959|52a7c");
-        params.put("size1","100");
-        //传递JSON
-        JSONObject postJSON = new JSONObject();
-        postJSON.put("id","AE86");
-        String jsonStr = JSONUtil.object2JacksonString(postJSON);
+        params.put("taskId","0ec153c8c4dae69ae48420426f3750f6");
+        params.put("startRow","0ec153c8c4dae69ae48420426f3750f6|");
+        params.put("size","100");
 
         String result = postMethod(url,params);
-        String result_post = postJSON(url, jsonStr);
         System.out.println("post返回结果：" + result);
-        System.out.println("post JSON的结果是：" + result_post);
     }
 }

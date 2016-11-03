@@ -59,7 +59,7 @@ public  class ServiceTest {
 //        templateList.add(guiyangTemplate);
 //        param.setTemplates(templateList);
 
-        base.setId("http://www.gaxq.gov.cn/");
+        base.setId("0ec153c8c4dae69ae48420426f3750f6");
         base.setDepthCrawl(1);
 
 
@@ -72,6 +72,4 @@ public  class ServiceTest {
             e.printStackTrace();
         }
     }
-
-
 }

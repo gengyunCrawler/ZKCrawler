@@ -6,8 +6,6 @@ import com.gy.wm.plugins.newsExportPlugin.parse.HtmlField;
 import com.gy.wm.plugins.newsExportPlugin.parse.ParserConfig;
 import com.gy.wm.plugins.newsExportPlugin.parse.ParserEntity;
 import com.gy.wm.plugins.newsExportPlugin.parse.UrlPattern;
-import com.gy.wm.util.RandomStringCreator;
-import com.gy.wm.util.RandomUtils;
 import org.junit.Test;
 
 import java.util.ArrayList;

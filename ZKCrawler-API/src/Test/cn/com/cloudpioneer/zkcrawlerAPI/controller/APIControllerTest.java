@@ -23,9 +23,9 @@ public class APIControllerTest {
 
     @Test
     public void getHbaseDataTest()  {
-        String taskId = "c5b475b03652d36b5fdfe97022be0240";
-        String startRow = "c5b475b03652d36b5fdfe97022be0240|20161102013959|52a7c";
-        String size = "5";
-        apiController.getHbaseData(taskId,startRow,size);
+        String taskId = "0ec153c8c4dae69ae48420426f3750f6";
+        String startRow = "0ec153c8c4dae69ae48420426f3750f6|";
+        String size = "100";
+        System.out.println(apiController.getHbaseData(taskId,startRow,size));
     }
 }

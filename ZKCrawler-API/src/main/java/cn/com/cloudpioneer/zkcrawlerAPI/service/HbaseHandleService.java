@@ -41,7 +41,7 @@ public class HbaseHandleService {
     tableDesc.setDurability(Durability.SYNC_WAL);
 
     //add a column family "data"
-    HColumnDescriptor hcd = new HColumnDescriptor("data");
+    HColumnDescriptor hcd = new HColumnDescriptor("crawlerData");
     tableDesc.addFamily(hcd);
     admin.createTable(tableDesc);
     admin.close();
@@ -80,33 +80,67 @@ public class HbaseHandleService {
             HTable htable = new HTable(conf, TABLE_NAME);
             Scan scan = new Scan();
             scan.setCaching(100);
-            scan.addColumn(Bytes.toBytes("data"), Bytes.toBytes("tid"));
-            scan.addColumn(Bytes.toBytes("data"), Bytes.toBytes("url"));
+            scan.addFamily(Bytes.toBytes("crawlerData"));
             String tid = t_taskId;
+            // start key is exclusive
             String startRow = t_startRow +"0";
             int size = Integer.valueOf(t_size);
             scan.setStartRow(Bytes.toBytes(startRow));
-            // start key is inclusive
-//        scan.setStopRow(Bytes.toBytes("row" + (char) 0));  // stop key is
             rs = htable.getScanner(scan);
-            int count =0;
+            int readCount =0;
             String rowkey = null;
             JSONArray crawlerDataArray = new JSONArray();
-            for (Result r = rs.next(); r != null&& count < size; r = rs.next()) {
-                //column qualifier iterator
-                for(Cell cell : r.rawCells())   {
-                   String url = Bytes.toString(CellUtil.cloneValue(cell));
-                    rowkey = Bytes.toString(r.getRow());
-                    JSONObject perObject = new JSONObject();
-                    perObject.put("url",url);
-                    crawlerDataArray.add(perObject);
-                }
-                count++;
+            for (Result r = rs.next(); r != null&& readCount < size; r = rs.next()) {
+                String url = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"),Bytes.toBytes("url")));
+                int statusCode = Bytes.toInt(r.getValue(Bytes.toBytes("crawlerData"),Bytes.toBytes("statusCode")));
+                int pass = Bytes.toInt(r.getValue(Bytes.toBytes("crawlerData"),Bytes.toBytes("pass")));
+                String type = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"),Bytes.toBytes("type")));
+                String rootUrl = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"),Bytes.toBytes("rootUrl")));
+                String fromUrl = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"),Bytes.toBytes("fromUrl")));
+                String text = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"),Bytes.toBytes("text")));
+                String html = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"),Bytes.toBytes("html")));
+                String title = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"),Bytes.toBytes("title")));
+                String startTime = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"),Bytes.toBytes("startTime")));
+                String crawlTime = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"),Bytes.toBytes("crawlTime")));
+                String publishTime = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"),Bytes.toBytes("publishTime")));
+                int depthfromSeed = Bytes.toInt(r.getValue(Bytes.toBytes("crawlerData"),Bytes.toBytes("depthfromSeed")));
+                int count = Bytes.toInt(r.getValue(Bytes.toBytes("crawlerData"),Bytes.toBytes("count")));
+                String tag = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"),Bytes.toBytes("tag")));
+                String fetched = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"),Bytes.toBytes("fetched")));
+                String author = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"),Bytes.toBytes("author")));
+                String sourceName = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"),Bytes.toBytes("sourceName")));
+                String parsedData = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"),Bytes.toBytes("parsedData")));
+
+                rowkey = Bytes.toString(r.getRow());
+                JSONObject perObject = new JSONObject();
+                perObject.put("tid",tid);
+                perObject.put("url",url);
+                perObject.put("statusCode",statusCode);
+                perObject.put("pass",pass);
+                perObject.put("type",type);
+                perObject.put("rootUrl",rootUrl);
+                perObject.put("fromUrl",fromUrl);
+                perObject.put("text",text);
+                perObject.put("html",html);
+                perObject.put("title",title);
+                perObject.put("startTime",startTime);
+                perObject.put("crawlTime",crawlTime);
+                perObject.put("publishTime",publishTime);
+                perObject.put("depthfromSeed",depthfromSeed);
+                perObject.put("count",count);
+                perObject.put("tag",tag);
+                perObject.put("fetched",fetched);
+                perObject.put("author",author);
+                perObject.put("sourceName",sourceName);
+                perObject.put("parsedData",parsedData);
+                crawlerDataArray.add(perObject);
+
+                readCount++;
             }
 
             result.put("result","true");
             result.put("data",crawlerDataArray);
-            result.put("size",count);
+            result.put("size",readCount);
             result.put("nextRow",rowkey);
         } catch (IOException e) {
             e.printStackTrace();
@@ -120,7 +154,7 @@ public class HbaseHandleService {
         return taskId+"|"+ sdf.format(new Date())+"|"+RandomAlphaNumeric.randomStringOfLength(5);
     }
 
-    public String MD5(String md5) {
+    public static String MD5(String md5) {
         try {
             java.security.MessageDigest md = java.security.MessageDigest.getInstance("MD5");
             byte[] array = md.digest(md5.getBytes());
@@ -132,5 +166,9 @@ public class HbaseHandleService {
         } catch (java.security.NoSuchAlgorithmException e) {
         }
         return null;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(MD5("http://www.gaxq.gov.cn/"));
     }
 }

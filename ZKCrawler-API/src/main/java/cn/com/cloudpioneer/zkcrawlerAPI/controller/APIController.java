@@ -71,9 +71,8 @@ public class APIController {
      */
     @RequestMapping(value = "/getHbaseData", method = RequestMethod.POST)
     public String getHbaseData(String taskId,String startRow,String size)    {
+        System.out.println("taskId:"+taskId+"\n"+"startRow:"+startRow+"\n"+"size:"+size);
         String result = handleService.getHBaseData(taskId,startRow,size);
-
-//        String result = "taskId:"+taskId+"\n"+"startRow:"+startRow+"\n"+"size:"+size;
         return result;
     }
 

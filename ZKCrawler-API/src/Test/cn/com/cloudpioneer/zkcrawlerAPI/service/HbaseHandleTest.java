@@ -73,11 +73,12 @@ public class HbaseHandleTest {
 
     @Test
     public void getHBaseDataTest()  {
-        String taskId =/*handleService.MD5("http://www.gygov.gov.cn/");*/"c5b475b03652d36b5fdfe97022be0240";
+        String taskId =/*handleService.MD5("http://www.gygov.gov.cn/");*/"0ec153c8c4dae69ae48420426f3750f6";
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("taskid",taskId);
-        jsonObject.put("size",5);
+        jsonObject.put("size",100);
         jsonObject.put("startRow",taskId+"|");
-//        hbaseHandleService.getHBaseData(jsonObject);
+        String result = hbaseHandleService.getHBaseData("0ec153c8c4dae69ae48420426f3750f6","0ec153c8c4dae69ae48420426f3750f6|","100");
+        System.out.println(result);
     }
 }
