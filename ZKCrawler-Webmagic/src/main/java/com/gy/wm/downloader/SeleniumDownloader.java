@@ -278,7 +278,7 @@ public class SeleniumDownloader implements Downloader {
      }
 
      /**
-      * quit webdriver and kill the PhantomJS driver process before this object be destroy
+      * quit webdriver and kill the PhantomJS driver process before this object be destroyed
       *
       * @throws IOException if an I/O error occurs
       */
