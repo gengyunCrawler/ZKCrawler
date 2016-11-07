@@ -32,14 +32,10 @@ public class MyHbaseUtils {
     public static boolean isThisTableExist(String tableName) {
 
         try {
-
             HBaseAdmin hBaseAdmin = new HBaseAdmin(conf);
-
             if (hBaseAdmin.tableExists(tableName))
                 return true;
-
         } catch (IOException e) {
-
             e.printStackTrace();
         }
 
@@ -68,50 +64,6 @@ public class MyHbaseUtils {
 
         return true;
     }
-
-    public static boolean createTable(String tableName, String[] columnFamilyName) {
-
-        try {
-
-            HBaseAdmin hBaseAdmin = new HBaseAdmin(conf);
-
-            HTableDescriptor tableDescriptor = new HTableDescriptor(tableName);
-
-            for (String familyName : columnFamilyName)
-                tableDescriptor.addFamily(new HColumnDescriptor(familyName));
-
-            hBaseAdmin.createTable(tableDescriptor);
-
-        } catch (Exception ex) {
-
-            ex.printStackTrace();
-            return false;
-        }
-
-        return true;
-    }
-
-    public static boolean createTable(String tableName, String columnFamilyName) {
-
-        try {
-
-            HBaseAdmin hBaseAdmin = new HBaseAdmin(conf);
-
-            HTableDescriptor tableDescriptor = new HTableDescriptor(tableName);
-
-            tableDescriptor.addFamily(new HColumnDescriptor(columnFamilyName));
-
-            hBaseAdmin.createTable(tableDescriptor);
-
-        } catch (Exception ex) {
-
-            ex.printStackTrace();
-            return false;
-        }
-
-        return true;
-    }
-
 
     public static boolean deleteAfterCreateTable() {
 

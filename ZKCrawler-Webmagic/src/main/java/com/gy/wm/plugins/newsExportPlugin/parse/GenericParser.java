@@ -133,10 +133,19 @@ public class GenericParser implements PageParser {
                 }
             }
 
-
             fieldMap.put(htmlField.getFieldName(),fieldValue);
-        }
 
+            if (htmlField.getFieldName().equals("title"))
+                crawlData.setTitle(fieldValue);
+            else if (htmlField.getFieldName().equals("content"))
+                crawlData.setText(fieldValue);
+            else if (htmlField.getFieldName().equals("author"))
+                crawlData.setAuthor(fieldValue);
+            else if (htmlField.getFieldName().equals("sourceName"))
+                crawlData.setSourceName(fieldValue);
+
+
+        }
         crawlData.setCrawlerdata(fieldMap);
 
         return crawlData;
@@ -167,7 +176,7 @@ public class GenericParser implements PageParser {
     private boolean isColumnHtml(String url) {
         for (String urlRegex : columnRegexs) {
             Pattern pattern = Pattern.compile(urlRegex);
-            if (pattern.matcher(url).find()) {
+            if (pattern.matcher(url).matches()) {
                 return true;
             }
         }

@@ -38,10 +38,10 @@ public class ParserConfigTester {
                 "{document.getElementById('MyContent').style.fontSize=size+'px';}\n" +
                 "</script> 【字体：<a href=\"\">大</a> <a href=\"\">中</a> <a href=\"\">小</a>】 </span> 　 \n" +
                 "</div>";
-        SmartContentSelector selector = Selectors.smartContent();
+
         Html html = new Html(content);
         //  HtmlPage htmlPag=new HtmlPage()
-        System.out.println(html.xpath("//div").smartContent());
+        System.out.println("content:"+html.xpath("//div[contains(@class,'hh')]").smartContent());
 
 
     }

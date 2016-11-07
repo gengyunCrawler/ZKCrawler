@@ -2,6 +2,7 @@ package com.gy.wm.vo;
 
 import org.springframework.stereotype.Component;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -12,7 +13,9 @@ import java.util.Date;
  * @Version: 2016-09-20
  **/
 @Component
-public class Base {
+public class Base implements Serializable{
+
+    private static final long serialVersionUID = 1L;
 
     //爬虫的任务id，唯一
     private String id;

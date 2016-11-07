@@ -16,6 +16,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
+ * 同时向Hbse和ES插入爬取记录
  * Created by TianyuanPan on 5/18/16.
  */
 public class HbaseEsPipeline implements Pipeline {

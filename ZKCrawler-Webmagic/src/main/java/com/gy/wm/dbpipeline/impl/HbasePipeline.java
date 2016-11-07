@@ -14,11 +14,9 @@ import us.codecraft.webmagic.pipeline.Pipeline;
  */
 public class HbasePipeline implements Pipeline{
 
-
     private HbaseClient hbaseClient;
 
     private PipelineBloomFilter pipelineBloomFilter;
-
 
     public HbasePipeline() {
         MyHbaseUtils.createTable();
@@ -45,6 +43,8 @@ public class HbasePipeline implements Pipeline{
                 int i = this.hbaseClient.doSetInsert();
                 System.out.println("HbasePipeline doInsert Successful number: " + i);
                 //logger.debug("HbasePipeline doInsert Successful number: " + i);
+
+                //created by Huanghai
 
             } catch (Exception e) {
 

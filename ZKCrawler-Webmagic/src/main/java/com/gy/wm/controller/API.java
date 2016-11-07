@@ -27,8 +27,9 @@ public class API implements Runnable {
 
     @RequestMapping("/test")
     public String test() {
-        return "test!";
+        return "Test!";
     }
+
 
     /**开始任务接口
      * @param taskParamModel

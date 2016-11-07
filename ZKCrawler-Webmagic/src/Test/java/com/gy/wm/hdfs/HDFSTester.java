@@ -12,6 +12,8 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by Administrator on 2016/10/25.
@@ -53,12 +55,17 @@ public class HDFSTester
 
     @Test
     public void delete() throws IOException {
-        HDFSUtils.delete("/user/root/icp/news-20161027.txt");
+        HDFSUtils.delete("/user/root/icp/test.txt");
     }
 
     @Test
+    public void testAppend(){
+        String content="dsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss";
+        HDFSUtils.writeByAppend("/user/root/icp/news-20161101.txt",content);
+    }
+    @Test
     public void testCheck() throws IOException, URISyntaxException {
-       boolean b= HDFSUtils.fileIsExist("/user/root/icp/news-20161027.txt");
+       boolean b= HDFSUtils.fileIsExist("/user/root/icp/news-20161101.txt");
         System.out.println(b);
     }
     @Test
@@ -70,6 +77,19 @@ public class HDFSTester
     }
     @Test
     public void testUpload() throws IOException {
-     HDFSUtils.uploadFile("d:/news-20161027.txt","/user/root/icp/");
+     HDFSUtils.uploadFile("d:/news-20161102.txt","/user/root/icp/");
+    }
+
+    @Test
+    public void testDownload(){
+
+    }
+
+    @Test
+    public void testRegex(){
+        Pattern pattern = Pattern.compile("http://www.guiz.com/\\w+/");
+        String ur = "http://www.guiz.com/gzu/ss";
+        Matcher matcher = pattern.matcher(ur);
+        System.out.println(matcher.matches());
     }
 }
