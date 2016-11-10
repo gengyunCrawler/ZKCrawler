@@ -11,9 +11,9 @@ import java.util.List;
  */
 public class BatchResult {
 
-    private boolean status;
-    private String  nextSign;
-    private int     size;
+    private boolean status = false;
+    private String  nextSign = "0";
+    private int     size = 0;
     private List<CrawlData> data = new ArrayList<>();
 
     public boolean isStatus() {

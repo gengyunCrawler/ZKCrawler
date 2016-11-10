@@ -30,9 +30,13 @@ public class DdpBatchGetService {
 
     public String batchDataGet(String nextSign, int size) {
 
+        if (nextSign == null || nextSign.equals(""))
+            nextSign = "0";
+
         if (size <= 0)
             size = 100;
         int getSize = 0;
+
         String newNextSign = RandomAlphaNumeric.randomStringOfLength(10) + "-" + System.currentTimeMillis() + "-" + RandomAlphaNumeric.randomStringOfLength(10);
         boolean isFirstGet = false;
         if (nextSign.equals("0")) {
@@ -43,6 +47,7 @@ public class DdpBatchGetService {
         BatchResult batchResult = new BatchResult();
         Map<String, Object> resultMap;
 
+        List<BatchGetInfo> updateBatchGetInfoList = new ArrayList<>();
         List<BatchGetInfo> batchGetInfoList;
         if (isFirstGet) {
 
@@ -54,19 +59,19 @@ public class DdpBatchGetService {
 
         List<BatchGetLog> batchGetLogs = new ArrayList<>();
 
-        for (int i = 0; i < batchGetInfoList.size(); i++) {
+        for (BatchGetInfo item : batchGetInfoList) {
 
             try {
                 if (isFirstGet) {
                     resultMap = hbaseHandleService.getMapHBaseData(
-                            batchGetInfoList.get(i).getIdTask(),
-                            batchGetInfoList.get(i).getIdTask() + "|",
+                            item.getIdTask(),
+                            item.getIdTask() + "|",
                             size
                     );
                 } else {
                     resultMap = hbaseHandleService.getMapHBaseData(
-                            batchGetInfoList.get(i).getIdTask(),
-                            batchGetInfoList.get(i).getNextRow(),
+                            item.getIdTask(),
+                            item.getNextRow(),
                             size
                     );
                 }
@@ -85,26 +90,27 @@ public class DdpBatchGetService {
                 batchResult.addData(crawlDataList);
             }
 
-            batchGetInfoList.get(i).setNextRow((String) resultMap.get("nextRow"));
-            batchGetInfoList.get(i).setNextSign(newNextSign);
-            batchGetInfoList.get(i).setLastSize((int) resultMap.get("size"));
-            batchGetInfoList.get(i).setAllSize(batchGetInfoList.get(i).getAllSize() + (int) resultMap.get("size"));
-            batchGetInfoList.get(i).setUpdateTime(new Date(System.currentTimeMillis()));
+            item.setNextRow((String) resultMap.get("nextRow"));
+            item.setNextSign(newNextSign);
+            item.setLastSize((int) resultMap.get("size"));
+            item.setAllSize(item.getAllSize() + (int) resultMap.get("size"));
+            item.setUpdateTime(new Date(System.currentTimeMillis()));
 
             batchGetLogs.add(
                     new BatchGetLog(
-                            batchGetInfoList.get(i).getIdTask(),
+                            item.getIdTask(),
                             newNextSign,
-                            batchGetInfoList.get(i).toJSONString()
+                            item.toJSONString()
                     )
             );
+            updateBatchGetInfoList.add(item);
         }
 
         batchResult.setNextSign(newNextSign);
         batchResult.setStatus(true);
         batchResult.setSize(getSize);
 
-        batchGetDao.updateGetInfos(batchGetInfoList);
+        batchGetDao.updateGetInfos(updateBatchGetInfoList);
         batchGetDao.insertGetLogs(batchGetLogs);
 
         return batchResult.toJSONString();

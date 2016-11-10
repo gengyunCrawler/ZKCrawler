@@ -165,13 +165,14 @@ public class HbaseHandleService {
         Map<String, Object> result = new HashMap<>();
         try {
             HTable htable = new HTable(conf, TABLE_NAME);
+            //HTableInterface htable = HConnectionManager.createConnection(conf).getTable(TABLE_NAME);
             Scan scan = new Scan();
             scan.setCaching(100);
             scan.addFamily(Bytes.toBytes("crawlerData"));
             String tid = t_taskId;
             // start key is exclusive
             String startRow = t_startRow + "0";
-            int size = t_size;
+
             scan.setStartRow(Bytes.toBytes(startRow));
             rs = htable.getScanner(scan);
             int readCount = 0;
@@ -180,7 +181,7 @@ public class HbaseHandleService {
             List<CrawlData> crawlDataList = new ArrayList<>();
 
 
-            for (Result r = rs.next(); r != null && readCount < size; r = rs.next()) {
+            for (Result r = rs.next(); r != null && readCount < t_size; r = rs.next()) {
                 String url = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"), Bytes.toBytes("url")));
                 int statusCode = Bytes.toInt(r.getValue(Bytes.toBytes("crawlerData"), Bytes.toBytes("statusCode")));
                 int pass = Bytes.toInt(r.getValue(Bytes.toBytes("crawlerData"), Bytes.toBytes("pass")));
