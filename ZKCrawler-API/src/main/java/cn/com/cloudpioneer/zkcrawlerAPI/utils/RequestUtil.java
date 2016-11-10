@@ -41,36 +41,15 @@ public class RequestUtil {
         return response;
     }
 
-    //通过json传递
-    public static String postJSON(String url, String jsonString) {
-        HttpClient httpClient = new HttpClient();
-        PostMethod postMethod = new PostMethod(url);
-        String response = null;
-        try {
-            StringEntity params =new StringEntity(JSONUtil.object2JacksonString(jsonString));
-            postMethod.setRequestHeader("content-type", "application/json");
-            postMethod.setRequestEntity((RequestEntity) params);
-            int status= httpClient.executeMethod(postMethod);
-            response  = postMethod.getResponseBodyAsString();
-        }catch (Exception ex) {
-            // handle exception here
-            ex.printStackTrace();
-        } finally {
-            if (postMethod != null)
-                postMethod.releaseConnection();
-        }
-        return response;
-    }
 
     public static void main(String[] args) {
-        String url = "http://localhost:10080/api/getHbaseData";
+        String url = "http://localhost:10080/api/batchHbaseDataGet";
 
         Map<String,String> params = new HashMap<>();
-        params.put("taskId","0ec153c8c4dae69ae48420426f3750f6");
-        params.put("startRow","0ec153c8c4dae69ae48420426f3750f6|");
+        params.put("nextSign","0");
         params.put("size","100");
 
         String result = postMethod(url,params);
-        System.out.println("post返回结果：" + result);
+        System.out.println("post返回结果：\n" + result);
     }
 }

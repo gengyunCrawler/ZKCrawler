@@ -1,5 +1,6 @@
 package cn.com.cloudpioneer.zkcrawlerAPI.controller;
 
+import cn.com.cloudpioneer.zkcrawlerAPI.service.DdpBatchGetService;
 import cn.com.cloudpioneer.zkcrawlerAPI.service.HbaseHandleService;
 import com.alibaba.fastjson.JSONObject;
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
@@ -16,6 +17,11 @@ import java.util.Map;
 public class APIController {
     @Autowired
     private HbaseHandleService handleService;
+
+
+    @Autowired
+    private DdpBatchGetService ddpBatchGetService;
+
 
     @RequestMapping("/greeting")
     public String greeting(@RequestParam(value = "name", required = false, defaultValue = "World") String name, Model model) {
@@ -75,6 +81,15 @@ public class APIController {
         String result = handleService.getHBaseData(taskId,startRow,size);
         return result;
     }
+
+
+
+    @RequestMapping(value = "/batchHbaseDataGet", method = RequestMethod.POST)
+    public String ddpBatchDataGet(String nextSign, String size){
+
+        return ddpBatchGetService.batchDataGet(nextSign, Integer.parseInt(size));
+    }
+
 
     /**
      * 待测试
