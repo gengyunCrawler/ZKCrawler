@@ -72,6 +72,7 @@ public class CMSHbasePipeline implements Pipeline{
             table.put(put);
             table.close();
         } catch (IOException e) {
+            
             e.printStackTrace();
         }
     }

@@ -6,6 +6,7 @@ import cn.com.cloudpioneer.zkcrawlerAPI.model.BatchGetLog;
 import cn.com.cloudpioneer.zkcrawlerAPI.model.BatchResult;
 import cn.com.cloudpioneer.zkcrawlerAPI.model.CrawlData;
 import cn.com.cloudpioneer.zkcrawlerAPI.utils.RandomAlphaNumeric;
+import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -49,12 +50,53 @@ public class DdpBatchGetService {
 
         List<BatchGetInfo> updateBatchGetInfoList = new ArrayList<>();
         List<BatchGetInfo> batchGetInfoList;
+        List<BatchGetInfo> temp = new ArrayList<>();
         if (isFirstGet) {
 
             batchGetInfoList = batchGetDao.findAllGetInfo();
+            for (BatchGetInfo elem : batchGetInfoList) {
+                elem.setNextRow(elem.getIdTask() + "|");
+                temp.add(elem);
+            }
+            batchGetInfoList = temp;
         } else {
 
             batchGetInfoList = batchGetDao.findAllGetInfoByNextSign(nextSign);
+            int count = batchGetDao.countGetInfo();
+
+            if (count != batchGetInfoList.size()) {
+
+                batchGetInfoList = batchGetDao.findAllGetInfo();
+
+                for (BatchGetInfo elem : batchGetInfoList) {
+
+                    if (!elem.getNextSign().equals(nextSign)) {
+
+                        List<BatchGetLog> logList = batchGetDao.findGetLogsByIdTaskAndNextSign(elem.getIdTask(), elem.getNextSign());
+                        if (logList == null || logList.size() == 0) {
+
+                            elem.setNextRow(elem.getIdTask() + "|");
+
+                        } else {
+
+                            elem = JSONObject.toJavaObject(
+                                    JSONObject.parseObject(logList.get(0).getLogInfo()),
+                                    BatchGetInfo.class
+                            );
+                        }
+
+                        temp.add(elem);
+
+                    } else {
+
+                        temp.add(elem);
+                    }
+
+                }
+
+                batchGetInfoList = temp;
+            }
+
         }
 
         List<BatchGetLog> batchGetLogs = new ArrayList<>();
@@ -62,19 +104,13 @@ public class DdpBatchGetService {
         for (BatchGetInfo item : batchGetInfoList) {
 
             try {
-                if (isFirstGet) {
-                    resultMap = hbaseHandleService.getMapHBaseData(
-                            item.getIdTask(),
-                            item.getIdTask() + "|",
-                            size
-                    );
-                } else {
-                    resultMap = hbaseHandleService.getMapHBaseData(
-                            item.getIdTask(),
-                            item.getNextRow(),
-                            size
-                    );
-                }
+
+                resultMap = hbaseHandleService.getMapHBaseData(
+                        item.getIdTask(),
+                        item.getNextRow(),
+                        size
+                );
+
             } catch (Exception e) {
 
                 e.printStackTrace();

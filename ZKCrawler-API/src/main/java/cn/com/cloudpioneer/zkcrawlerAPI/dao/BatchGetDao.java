@@ -44,6 +44,18 @@ public class BatchGetDao {
         return batchGetInfoList;
     }
 
+    public int countGetInfo(){
+
+        SqlSession session = sqlSessionFactory.openSession();
+
+        BatchGetMapper mapper = session.getMapper(BatchGetMapper.class);
+        int size = mapper.countGetInfo();
+        session.commit();
+        session.close();
+
+        return size;
+    }
+
     public List<BatchGetInfo> findAllGetInfoByNextSign(String nextSign) {
 
         SqlSession session = sqlSessionFactory.openSession();

@@ -26,12 +26,16 @@ public interface BatchGetMapper {
 
 
     @Update("UPDATE hbase_ddp_batch_get_info SET nextSign=#{nextSign}," +
-            "nextRow=#{nextRow},lastSize=#{lastSize},allSize={#allSize}" +
+            "nextRow=#{nextRow},lastSize=#{lastSize},allSize=#{allSize}," +
             "updateTime=#{updateTime} WHERE idTask=#{idTask}")
     Integer updateGetInfo(BatchGetInfo batchGetInfo);
 
 
-    @Select("SELECT * FROM hbase_ddp_batch_get_log WHERE idTask=#{idTask} AND nextSign=#{nextSign}")
+    @Select("SELECT COUNT(*) FROM hbase_ddp_batch_get_info")
+    Integer countGetInfo();
+
+
+    @Select("SELECT * FROM hbase_ddp_batch_get_log WHERE idTask=#{idTask} AND nextSign=#{nextSign} ORDER BY createTime DESC")
     List<BatchGetLog> findGetLogsByIdTaskAndNextSign(@Param("idTask") String idTask, @Param("nextSign") String nextSign);
 
 
