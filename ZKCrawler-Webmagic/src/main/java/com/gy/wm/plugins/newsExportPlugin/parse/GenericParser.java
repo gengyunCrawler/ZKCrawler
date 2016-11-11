@@ -134,6 +134,9 @@ public class GenericParser implements PageParser {
             }
 
             fieldMap.put(htmlField.getFieldName(),fieldValue);
+            Map<String,String> tags = new HashMap<>();
+            tags.put("column",crawlData.getTag());
+            fieldMap.put("tag",JSONObject.toJSONString(tags));
 
             if (htmlField.getFieldName().equals("title"))
                 crawlData.setTitle(fieldValue);
@@ -146,6 +149,7 @@ public class GenericParser implements PageParser {
 
 
         }
+
         crawlData.setCrawlerdata(fieldMap);
 
         return crawlData;
