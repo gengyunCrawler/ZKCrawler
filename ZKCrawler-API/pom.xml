@@ -80,7 +80,7 @@
         <dependency>
             <groupId>org.apache.hbase</groupId>
             <artifactId>hbase-server</artifactId>
-            <version>0.98.4-hadoop2</version>
+            <version>0.95.2-hadoop2</version>
         </dependency>
 
 

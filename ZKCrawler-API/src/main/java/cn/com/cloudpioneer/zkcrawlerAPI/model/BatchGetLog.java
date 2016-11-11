@@ -3,7 +3,7 @@ package cn.com.cloudpioneer.zkcrawlerAPI.model;
 import com.alibaba.fastjson.JSONObject;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 
 /**
  * Created by TianyuanPan on 11/10/16.
@@ -19,7 +19,7 @@ public class BatchGetLog implements Serializable {
 
     public BatchGetLog(){
 
-        createTime = new Date(System.currentTimeMillis());
+        createTime = new Date();
     }
 
     public BatchGetLog(String idTask, String nextSign, String logInfo){
@@ -27,7 +27,7 @@ public class BatchGetLog implements Serializable {
         this.idTask = idTask;
         this.nextSign = nextSign;
         this.logInfo = logInfo;
-        this.createTime = new Date(System.currentTimeMillis());
+        this.createTime = new Date();
     }
 
     public long getId() {

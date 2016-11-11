@@ -10,7 +10,7 @@ import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -31,11 +31,12 @@ public class DdpBatchGetService {
 
     public String batchDataGet(String nextSign, int size) {
 
-        if (nextSign == null || nextSign.equals(""))
-            nextSign = "0";
+        if (nextSign == null || nextSign.equals("")) {
+            return "{\"status\":false,\"reason\":\"读取标记 nextSign 错误.\"}";
+        }
 
         if (size <= 0)
-            size = 1024;
+            size = 10240;
         int getSize = 0;
 
         String newNextSign = RandomAlphaNumeric.randomStringOfLength(10) + "-" + System.currentTimeMillis() + "-" + RandomAlphaNumeric.randomStringOfLength(10);
@@ -72,20 +73,16 @@ public class DdpBatchGetService {
 
                     if (!elem.getNextSign().equals(nextSign)) {
 
-                        List<BatchGetLog> logList = batchGetDao.findGetLogsByIdTaskAndNextSign(elem.getIdTask(), elem.getNextSign());
-                        if (logList == null || logList.size() == 0) {
-
-                            elem.setNextRow(elem.getIdTask() + "|");
-
-                        } else {
+                        List<BatchGetLog> logList = batchGetDao.findGetLogsByIdTaskAndNextSign(elem.getIdTask(), nextSign);
+                        if (logList != null && logList.size() != 0) {
 
                             elem = JSONObject.toJavaObject(
                                     JSONObject.parseObject(logList.get(0).getLogInfo()),
                                     BatchGetInfo.class
                             );
-                        }
 
-                        temp.add(elem);
+                            temp.add(elem);
+                        }
 
                     } else {
 
@@ -97,7 +94,13 @@ public class DdpBatchGetService {
                 batchGetInfoList = temp;
             }
 
+            if (batchGetInfoList.size() == 0 && count != 0) {
+
+                return "{\"status\":false,\"reason\":\"读取标记 nextSign 错误.\"}";
+            }
+
         }
+
 
         List<BatchGetLog> batchGetLogs = new ArrayList<>();
 
@@ -114,8 +117,8 @@ public class DdpBatchGetService {
             } catch (Exception e) {
 
                 e.printStackTrace();
-                if (isFirstGet)
-                    newNextSign = "0";
+                //if (isFirstGet)
+                //    newNextSign = "0";
                 continue;
             }
 
@@ -133,7 +136,7 @@ public class DdpBatchGetService {
             item.setNextSign(newNextSign);
             item.setLastSize((int) resultMap.get("size"));
             item.setAllSize(item.getAllSize() + (int) resultMap.get("size"));
-            item.setUpdateTime(new Date(System.currentTimeMillis()));
+            item.setUpdateTime(new Date());
 
             batchGetLogs.add(
                     new BatchGetLog(

@@ -3,7 +3,7 @@ package cn.com.cloudpioneer.zkcrawlerAPI.model;
 import com.alibaba.fastjson.JSONObject;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 
 /**
  * Created by TianyuanPan on 11/9/16.
