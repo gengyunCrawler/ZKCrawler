@@ -26,7 +26,7 @@ public class ConfigLoader {
             crawlData.setDepthfromSeed(0);
 
             JSONObject jsonObject = JSONObject.parseObject(tags);
-            String tag = jsonObject.getString("seed");
+            String tag = jsonObject.getString(seed);
 
             crawlData.setTag(tag);
 

@@ -64,6 +64,7 @@ public class GenericParser implements PageParser {
                     data.setTid(crawlData.getTid());
                     data.setFromUrl(crawlData.getUrl());
                     data.setRootUrl(crawlData.getUrl());
+                    data.setTag(crawlData.getTag());
                     data.setFetched(false);
                     crawlDatas.add(data);
                 }
@@ -99,7 +100,7 @@ public class GenericParser implements PageParser {
         crawlData.setCrawlTime(new Date());
 
         //put all fields into mup
-        Map<String,String> fieldMap=new HashMap<>();
+        Map<String,Object> fieldMap=new HashMap<>();
         for (HtmlField htmlField:htmlFields){
             String fieldValue=byXpaths(html,htmlField.getXpaths());
 
@@ -136,7 +137,7 @@ public class GenericParser implements PageParser {
             fieldMap.put(htmlField.getFieldName(),fieldValue);
             Map<String,String> tags = new HashMap<>();
             tags.put("column",crawlData.getTag());
-            fieldMap.put("tag",JSONObject.toJSONString(tags));
+            fieldMap.put("tag",tags);
 
             if (htmlField.getFieldName().equals("title"))
                 crawlData.setTitle(fieldValue);

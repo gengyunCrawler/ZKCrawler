@@ -1,5 +1,6 @@
 package com.gy.wm.service;
 
+import com.alibaba.fastjson.JSON;
 import com.gy.wm.ApplicationWebmagic;
 import com.gy.wm.controller.API;
 import com.gy.wm.vo.Base;
@@ -14,9 +15,7 @@ import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
  * <类详细说明：单元测试>
@@ -55,20 +54,20 @@ public  class ServiceTest {
 //        templateList.add("");
         List<String> seedUrls = new ArrayList<>();
 
-        seedUrls.add("http://www.qxn.gov.cn/ListOrgDT/QxnGov/1.html");
-        seedUrls.add("http://www.qxn.gov.cn/ListArt/zwyw/1.html");
+        seedUrls.add("http://www.trs.gov.cn/xwzx/zyzcxx/index.html");
+        seedUrls.add("http://www.trs.gov.cn/xwzx/zwdsj/index.html");
 
         param.setSeedUrls(seedUrls);
 
 //        templateList.add(guiyangTemplate);
 //        param.setTemplates(templateList);
 
-        base.setId("1cd0885cae7d8efe5a5fdf76e2e157eb");
+        base.setId("ddc4c8968d0d743d65cb78ad7a5432bc");
         base.setDepthCrawl(1);
-        base.setTags("{\n" +
-                "    \"http://www.qxn.gov.cn/ListArt/zwyw/1.html\": \"金州要闻\",\n" +
-                "    \"http://www.qxn.gov.cn/ListOrgDT/QxnGov/1.html\": \"机构动态\"\n" +
-                "}");
+        Map<String,String> map = new HashMap<>();
+        map.put("http://www.trs.gov.cn/xwzx/zyzcxx/index.html","中央政策信息");
+        map.put("http://www.trs.gov.cn/xwzx/zwdsj/index.html","大事记");
+        base.setTags(JSON.toJSONString(map));
 
 
         taskParamModel.setParam(param);
@@ -90,4 +89,6 @@ public  class ServiceTest {
             System.out.println(i+": " + arr[i]);
         }
     }
+
+
 }

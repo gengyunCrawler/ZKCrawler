@@ -101,8 +101,8 @@ public class GenerateConfig {
     }
     @Test
     public void testRegex(){
-        String urlre="http://(politics|world|news|mil).gmw.cn/node_\\d+";
-        String url = "http://politics.gmw.cn/node_9844.htm";
+        String urlre="http://www.trs.gov.cn/xwzx/\\\\w+/index.html";
+        String url = "http://www.trs.gov.cn/xwzx/zyzcxx/index.html";
         System.out.println(url.matches(urlre));
     }
 }

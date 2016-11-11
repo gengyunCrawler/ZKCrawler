@@ -43,13 +43,13 @@ public class CrawlData implements Serializable {
         this.parsedData = parsedData;
     }
 
-    private Map<String,String> crawlerdata=new HashMap<>();
+    private Map<String,Object> crawlerdata=new HashMap<>();
 
-    public Map<String, String> getCrawlerdata() {
+    public Map<String, Object> getCrawlerdata() {
         return crawlerdata;
     }
 
-    public void setCrawlerdata(Map<String, String> crawlerdata) {
+    public void setCrawlerdata(Map<String, Object> crawlerdata) {
         if (crawlerdata!=null){
             this.crawlerdata = crawlerdata;
             this.parsedData = JSON.toJSONString(crawlerdata);
