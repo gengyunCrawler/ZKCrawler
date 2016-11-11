@@ -43,11 +43,11 @@ public class RequestUtil {
 
 
     public static void main(String[] args) {
-        String url = "http://localhost:10080/api/batchHbaseDataGeter";
+        String url = "http://118.118.118.201:10080/api/batchHbaseDataGeter";
 
         Map<String,String> params = new HashMap<>();
-        params.put("nextSign","0");
-        params.put("size","2");
+        params.put("nextSign","6bb1174f88-1478834640717-263c639f1d");
+        params.put("size","0");
 
         String result = postMethod(url,params);
         System.out.println("post返回结果：\n" + result);

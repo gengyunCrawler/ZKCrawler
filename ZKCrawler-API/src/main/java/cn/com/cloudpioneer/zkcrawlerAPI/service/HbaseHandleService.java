@@ -159,6 +159,9 @@ public class HbaseHandleService {
 
     public Map<String, Object> getMapHBaseData(String t_taskId, String t_startRow, int t_size) {
 
+        if (t_size == 0)
+            t_size = Integer.MAX_VALUE;
+
         conf = HBaseConfiguration.create();
         ResultScanner rs = null;
         //JSONObject result = new JSONObject();
@@ -167,7 +170,8 @@ public class HbaseHandleService {
             HTable htable = new HTable(conf, TABLE_NAME);
             //HTableInterface htable = HConnectionManager.createConnection(conf).getTable(TABLE_NAME);
             Scan scan = new Scan();
-            scan.setCaching(100);
+            //scan.setCaching(100);
+            scan.setCaching(t_size);
             scan.addFamily(Bytes.toBytes("crawlerData"));
             String tid = t_taskId;
             // start key is exclusive
@@ -179,7 +183,6 @@ public class HbaseHandleService {
             String rowkey = null;
             //JSONArray crawlerDataArray = new JSONArray();
             List<CrawlData> crawlDataList = new ArrayList<>();
-
 
             for (Result r = rs.next(); r != null && readCount < t_size; r = rs.next()) {
                 String url = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"), Bytes.toBytes("url")));

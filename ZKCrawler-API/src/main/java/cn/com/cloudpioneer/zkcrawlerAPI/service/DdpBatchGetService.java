@@ -126,7 +126,10 @@ public class DdpBatchGetService {
                 batchResult.addData(crawlDataList);
             }
 
-            item.setNextRow((String) resultMap.get("nextRow"));
+            if (resultMap.get("nextRow") != null) {
+                item.setNextRow((String) resultMap.get("nextRow"));
+            }
+
             item.setNextSign(newNextSign);
             item.setLastSize((int) resultMap.get("size"));
             item.setAllSize(item.getAllSize() + (int) resultMap.get("size"));

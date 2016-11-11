@@ -32,7 +32,7 @@ public class APIController {
 
     /**
      *
-     * @api {post} http://ip:port/ZKCrawler-API/api/getHbaseData  通过任务id获取Hbase数据接口
+     * @api {post} http://ip:port/api/getHbaseData  通过任务id获取Hbase数据接口
      * @apiGroup Crawler
      * @apiVersion 0.1.0
      * @apiParam {String} taskId 任务id
@@ -108,7 +108,7 @@ public class APIController {
 
     /**
 
-     @api                {post}      http://ip:port/ZKCrawler-API/api/batchHbaseDataGeter  DDP批量获取Hbase数据接口
+     @api                {post}      http://ip:port/api/batchHbaseDataGeter  DDP批量获取Hbase数据接口
      @apiGroup           Crawler
      @apiVersion         0.1.0
      @apiParam           {String}  nextSign 批量读取标记，<span style="color:red;font-style: italic">第一次读取时，值为字符串 "0",</span>这一点要非常注意！！！<br/>
