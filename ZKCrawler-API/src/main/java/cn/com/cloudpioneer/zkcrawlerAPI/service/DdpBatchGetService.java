@@ -35,7 +35,7 @@ public class DdpBatchGetService {
             nextSign = "0";
 
         if (size <= 0)
-            size = 100;
+            size = 1024;
         int getSize = 0;
 
         String newNextSign = RandomAlphaNumeric.randomStringOfLength(10) + "-" + System.currentTimeMillis() + "-" + RandomAlphaNumeric.randomStringOfLength(10);

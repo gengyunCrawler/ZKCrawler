@@ -159,9 +159,6 @@ public class HbaseHandleService {
 
     public Map<String, Object> getMapHBaseData(String t_taskId, String t_startRow, int t_size) {
 
-        if (t_size == 0)
-            t_size = Integer.MAX_VALUE;
-
         conf = HBaseConfiguration.create();
         ResultScanner rs = null;
         //JSONObject result = new JSONObject();
@@ -173,7 +170,7 @@ public class HbaseHandleService {
             //scan.setCaching(100);
             scan.setCaching(t_size);
             scan.addFamily(Bytes.toBytes("crawlerData"));
-            String tid = t_taskId;
+            //String tid = t_taskId;
             // start key is exclusive
             String startRow = t_startRow + "0";
 
@@ -209,7 +206,7 @@ public class HbaseHandleService {
                 CrawlData crawlData = new CrawlData();
                 //JSONObject perObject = new JSONObject();
                 //perObject.put("tid",tid);
-                crawlData.setTid(tid);
+                crawlData.setTid(t_taskId);
                 //perObject.put("url",url);
                 crawlData.setUrl(url);
                 //perObject.put("statusCode",statusCode);

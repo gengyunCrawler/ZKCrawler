@@ -2,6 +2,9 @@
 <project version="4">
   <component name="dataSourceStorageLocal">
     <data-source name="MySQL - crawlerdata@118.118.118.201" uuid="f26038fc-8bad-43f9-a40a-599ecd5e779a" />
-    <data-source name="MySQL - crawlerdata@108.108.108.8" uuid="d6f85fa2-d546-4417-8daa-71b7df736e1a" />
+    <data-source name="MySQL - crawlerdata@108.108.108.8" uuid="d6f85fa2-d546-4417-8daa-71b7df736e1a">
+      <user-name>builder</user-name>
+      <user-password>dfc8dfdfdfc3dfc6dfcedfcfdfd8</user-password>
+    </data-source>
   </component>
 </project>
