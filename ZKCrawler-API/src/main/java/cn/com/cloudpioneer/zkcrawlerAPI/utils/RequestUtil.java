@@ -43,7 +43,9 @@ public class RequestUtil {
 
 
     public static void main(String[] args) {
-        String url = "http://118.118.118.201:10080/api/batchHbaseDataGeter";
+
+        //String url = "http://118.118.118.201:10080/api/batchHbaseDataGeter";
+        String url = "http://localhost:10080/api/batchHbaseDataGeter";
 
         Map<String,String> params = new HashMap<>();
         params.put("nextSign","6bb1174f88-1478834640717-263c639f1d");
