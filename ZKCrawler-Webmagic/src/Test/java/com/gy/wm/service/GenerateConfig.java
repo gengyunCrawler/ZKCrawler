@@ -22,24 +22,21 @@ public class GenerateConfig {
     public void testConfig() {
         List<UrlPattern> urlPatterns = new ArrayList<>();
         List<HtmlField> fileds = new ArrayList<>();
-        urlPatterns.add(new UrlPattern("http://www.gaxq.gov.cn/\\w+/\\w+/index.shtml", "COLUMN_REGEX"));
+        urlPatterns.add(new UrlPattern("http://www.qxn.gov.cn/List(OrgDT|Art)/\\w+/\\d+.html", "COLUMN_REGEX"));
 
-        urlPatterns.add(new UrlPattern("http://www.gaxq.gov.cn/\\w+/\\w+/\\d+.shtml", "CONTENT_LINK_REGEX"));
-
-
-
+        urlPatterns.add(new UrlPattern("http://www.qxn.gov.cn/View/(\\w|.)+/\\d+.html", "CONTENT_LINK_REGEX"));
 
         HtmlField title = new HtmlField();
         title.setFieldName("title");
         List<String> list1 = new ArrayList<>();
-        list1.add("//td[@class='ContentTitle']/h1");
+        list1.add("//div[@class='title']/h1");
         title.setXpaths(list1);
 
 
         HtmlField content = new HtmlField();
         content.setFieldName("content");
         List<String> list2 = new ArrayList<>();
-        list2.add("//div[@id='Zoom']");
+        list2.add("//div[@id='IDNewsDtail']/font");
 
       /*  List<String> exPaths=new ArrayList<>();
         exPaths.add("//div[@id='embed_hzh_div']");
@@ -47,12 +44,9 @@ public class GenerateConfig {
 
         content.setXpaths(list2);
 
-
-
        HtmlField sourceName = new HtmlField();
         List<String> list4 = new ArrayList<>();
-        list4.add("//span[@class='lyc']");
-
+        list4.add("");
 
         sourceName.setXpaths(list4);
         sourceName.setFieldName("sourceName");
@@ -60,22 +54,19 @@ public class GenerateConfig {
 
         HtmlField author = new HtmlField();
         List<String> list5 = new ArrayList<>();
-        list5.add("//span[@class='zzc']");
+        list5.add("");
         author.setFieldName("author");
-
-
-
 
         HtmlField inforBar = new HtmlField();
         List<String> list6 = new ArrayList<>();
-        list6.add("//td[@class='ContentTitle']/p");
+        list6.add("//div[@class='title']/span");
         inforBar.setFieldName("infoBar");
         inforBar.setXpaths(list6);
 
         HtmlField pulishTime = new HtmlField();
         pulishTime.setFieldName("publishTime");
         List<String> puList = new ArrayList<>();
-        puList.add("//span[@class='adtc']");
+        puList.add("");
         pulishTime.setXpaths(puList);
 
 
@@ -90,15 +81,14 @@ public class GenerateConfig {
 
         ParserConfig config = new ParserConfig();
         config.setFields(fileds);
-        config.setId(3434);
-        config.setTaskId("task222");
+        config.setTaskId("1cd0885cae7d8efe5a5fdf76e2e157eb");
         config.setUrlPatterns(urlPatterns);
         String s = JSON.toJSONString(config);
         System.out.printf(s);
         ParserDao dao = new ParserDao();
         com.gy.wm.plugins.newsExportPlugin.parse.ParserEntity entity = new ParserEntity();
         entity.setConfig(s);
-        entity.setTid("http://www.gaxq.gov.cn/");
+        entity.setTid("1cd0885cae7d8efe5a5fdf76e2e157eb");
         dao.insert(entity);
 
     }
@@ -112,7 +102,6 @@ public class GenerateConfig {
     @Test
     public void testRegex(){
         String urlre="http://(politics|world|news|mil).gmw.cn/node_\\d+";
-
         String url = "http://politics.gmw.cn/node_9844.htm";
         System.out.println(url.matches(urlre));
     }

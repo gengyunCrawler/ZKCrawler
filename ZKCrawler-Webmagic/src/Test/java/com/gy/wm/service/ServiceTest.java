@@ -46,22 +46,29 @@ public  class ServiceTest {
     public void test() throws Exception{
     }
 
-    //创建任务
+    /**
+     * 创建任务
+     */
     @Test
     public void testStartTask() {
 //        List<String> templateList = new ArrayList<>();
 //        templateList.add("");
         List<String> seedUrls = new ArrayList<>();
 
-        seedUrls.add("http://www.gaxq.gov.cn/xwdt/zrdt_1/index.shtml");
+        seedUrls.add("http://www.qxn.gov.cn/ListOrgDT/QxnGov/1.html");
+        seedUrls.add("http://www.qxn.gov.cn/ListArt/zwyw/1.html");
 
         param.setSeedUrls(seedUrls);
 
 //        templateList.add(guiyangTemplate);
 //        param.setTemplates(templateList);
 
-        base.setId("0ec153c8c4dae69ae48420426f3750f6");
+        base.setId("1cd0885cae7d8efe5a5fdf76e2e157eb");
         base.setDepthCrawl(1);
+        base.setTags("{\n" +
+                "    \"http://www.qxn.gov.cn/ListArt/zwyw/1.html\": \"金州要闻\",\n" +
+                "    \"http://www.qxn.gov.cn/ListOrgDT/QxnGov/1.html\": \"机构动态\"\n" +
+                "}");
 
 
         taskParamModel.setParam(param);
@@ -71,6 +78,16 @@ public  class ServiceTest {
             Thread.sleep(Long.MAX_VALUE);
         } catch (InterruptedException e) {
             e.printStackTrace();
+        }
+    }
+
+
+    @Test
+    public void splitInfobar()  {
+        String infobar = "索引号：52230011/2016-173111 文章来源：黔西南日报 发布时间：2016/11/11 9:37:15 作者：方文毅 娄孝云 点击：119 【字体： 】大中小【打印内容】【内容纠错】";
+        String [] arr = infobar.split(" ");
+        for (int i=0; i< arr.length; i++) {
+            System.out.println(i+": " + arr[i]);
         }
     }
 }

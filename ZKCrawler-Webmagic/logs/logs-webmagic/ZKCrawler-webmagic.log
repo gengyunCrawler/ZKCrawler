@@ -24227,3 +24227,287 @@ org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = 
 2016-11-03 14:06:07.194  INFO 13628 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : Retrying request
 2016-11-03 14:06:08.196  INFO 13628 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : I/O exception (java.net.ConnectException) caught when processing request: Connection refused: connect
 2016-11-03 14:06:08.197  INFO 13628 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : Retrying request
+2016-11-11 13:35:30.651  INFO 9292 --- [main] com.gy.wm.service.ServiceTest            : Starting ServiceTest on DESKTOP-I5VPLTQ with PID 9292 (started by karel in D:\IdeaProjects\ZKCrawler\ZKCrawler-Webmagic)
+2016-11-11 13:35:30.671  INFO 9292 --- [main] com.gy.wm.service.ServiceTest            : No active profile set, falling back to default profiles: default
+2016-11-11 13:35:30.967  INFO 9292 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@4e408c3c: startup date [Fri Nov 11 13:35:30 CST 2016]; root of context hierarchy
+2016-11-11 13:35:33.568  INFO 9292 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-11 13:35:33.635  WARN 9292 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'proxyDownloader': Unsatisfied dependency expressed through field 'proxyIpMapper': No qualifying bean of type [com.gy.wm.mapper.ProxyIpMapper] found for dependency [com.gy.wm.mapper.ProxyIpMapper]: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [com.gy.wm.mapper.ProxyIpMapper] found for dependency [com.gy.wm.mapper.ProxyIpMapper]: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2016-11-11 13:35:33.643  INFO 9292 --- [main] utoConfigurationReportLoggingInitializer : 
+
+Error starting ApplicationContext. To display the auto-configuration report enable debug logging (start with --debug)
+
+
+2016-11-11 13:35:33.691 ERROR 9292 --- [main] o.s.boot.SpringApplication               : Application startup failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'proxyDownloader': Unsatisfied dependency expressed through field 'proxyIpMapper': No qualifying bean of type [com.gy.wm.mapper.ProxyIpMapper] found for dependency [com.gy.wm.mapper.ProxyIpMapper]: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [com.gy.wm.mapper.ProxyIpMapper] found for dependency [com.gy.wm.mapper.ProxyIpMapper]: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:569) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:349) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1214) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:543) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:776) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:861) ~[spring-context-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:541) ~[spring-context-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759) ~[spring-boot-1.4.0.RELEASE.jar:1.4.0.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:369) ~[spring-boot-1.4.0.RELEASE.jar:1.4.0.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:313) ~[spring-boot-1.4.0.RELEASE.jar:1.4.0.RELEASE]
+	at org.springframework.boot.test.SpringApplicationContextLoader.loadContext(SpringApplicationContextLoader.java:103) [spring-boot-test-1.4.0.RELEASE.jar:1.4.0.RELEASE]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:98) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:116) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:83) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:189) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:131) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:230) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:228) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:287) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit-4.12.jar:4.12]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:289) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:247) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:94) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268) [junit-4.12.jar:4.12]
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363) [junit-4.12.jar:4.12]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:191) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137) [junit-4.12.jar:4.12]
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:117) [junit-rt.jar:na]
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:42) [junit-rt.jar:na]
+	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:253) [junit-rt.jar:na]
+	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:84) [junit-rt.jar:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.7.0_80]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[na:1.7.0_80]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.7.0_80]
+	at java.lang.reflect.Method.invoke(Method.java:606) ~[na:1.7.0_80]
+	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:147) [idea_rt.jar:na]
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [com.gy.wm.mapper.ProxyIpMapper] found for dependency [com.gy.wm.mapper.ProxyIpMapper]: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoMatchingBeanFound(DefaultListableBeanFactory.java:1406) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1057) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1019) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:566) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	... 47 common frames omitted
+
+2016-11-11 13:35:33.695 ERROR 9292 --- [main] o.s.test.context.TestContextManager      : Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@1d96bf64] to prepare test instance [com.gy.wm.service.ServiceTest@243f01d4]
+
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:124) ~[spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:83) ~[spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:189) ~[spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:131) ~[spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:230) ~[spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:228) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:287) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit-4.12.jar:4.12]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:289) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:247) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:94) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268) [junit-4.12.jar:4.12]
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363) [junit-4.12.jar:4.12]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:191) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137) [junit-4.12.jar:4.12]
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:117) [junit-rt.jar:na]
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:42) [junit-rt.jar:na]
+	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:253) [junit-rt.jar:na]
+	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:84) [junit-rt.jar:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.7.0_80]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[na:1.7.0_80]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.7.0_80]
+	at java.lang.reflect.Method.invoke(Method.java:606) ~[na:1.7.0_80]
+	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:147) [idea_rt.jar:na]
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'proxyDownloader': Unsatisfied dependency expressed through field 'proxyIpMapper': No qualifying bean of type [com.gy.wm.mapper.ProxyIpMapper] found for dependency [com.gy.wm.mapper.ProxyIpMapper]: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [com.gy.wm.mapper.ProxyIpMapper] found for dependency [com.gy.wm.mapper.ProxyIpMapper]: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:569) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:349) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1214) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:543) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:776) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:861) ~[spring-context-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:541) ~[spring-context-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759) ~[spring-boot-1.4.0.RELEASE.jar:1.4.0.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:369) ~[spring-boot-1.4.0.RELEASE.jar:1.4.0.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:313) ~[spring-boot-1.4.0.RELEASE.jar:1.4.0.RELEASE]
+	at org.springframework.boot.test.SpringApplicationContextLoader.loadContext(SpringApplicationContextLoader.java:103) ~[spring-boot-test-1.4.0.RELEASE.jar:1.4.0.RELEASE]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:98) ~[spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:116) ~[spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	... 29 common frames omitted
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [com.gy.wm.mapper.ProxyIpMapper] found for dependency [com.gy.wm.mapper.ProxyIpMapper]: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoMatchingBeanFound(DefaultListableBeanFactory.java:1406) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1057) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1019) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:566) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	... 47 common frames omitted
+
+2016-11-11 13:42:45.965  INFO 7040 --- [main] com.gy.wm.service.ServiceTest            : Starting ServiceTest on DESKTOP-I5VPLTQ with PID 7040 (started by karel in D:\IdeaProjects\ZKCrawler\ZKCrawler-Webmagic)
+2016-11-11 13:42:45.966  INFO 7040 --- [main] com.gy.wm.service.ServiceTest            : No active profile set, falling back to default profiles: default
+2016-11-11 13:42:46.109  INFO 7040 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@2e6a317: startup date [Fri Nov 11 13:42:46 CST 2016]; root of context hierarchy
+2016-11-11 13:42:49.289  INFO 7040 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-11 13:42:50.444  INFO 7040 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@2e6a317: startup date [Fri Nov 11 13:42:46 CST 2016]; root of context hierarchy
+2016-11-11 13:42:50.554  INFO 7040 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/test]}" onto public java.lang.String com.gy.wm.controller.API.test()
+2016-11-11 13:42:50.555  INFO 7040 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/startTask],methods=[POST],produces=[application/json]}" onto public java.lang.String com.gy.wm.controller.API.startTask(com.gy.wm.model.TaskParamModel)
+2016-11-11 13:42:50.555  INFO 7040 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/cleanTaskRedis],methods=[POST]}" onto public java.lang.String com.gy.wm.controller.API.cleanTaskRedis(java.lang.String)
+2016-11-11 13:42:50.556  INFO 7040 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/stopTask]}" onto public java.lang.String com.gy.wm.controller.API.stopTask(java.lang.String)
+2016-11-11 13:42:50.558  INFO 7040 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2016-11-11 13:42:50.559  INFO 7040 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2016-11-11 13:42:50.617  INFO 7040 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-11-11 13:42:50.617  INFO 7040 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-11-11 13:42:50.688  INFO 7040 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-11-11 13:42:51.305  INFO 7040 --- [main] com.gy.wm.service.ServiceTest            : Started ServiceTest in 6.514 seconds (JVM running for 7.868)
+2016-11-11 13:42:51.393  INFO 7040 --- [main] com.gy.wm.service.TaskService            : ===> get thread pool size: 50
+2016-11-11 13:42:51.499  INFO 7040 --- [main] com.gy.wm.service.TaskService            : ===> starting crawler task ......
+2016-11-11 13:42:51.502  INFO 7040 --- [pool-1-thread-1] com.gy.wm.controller.API                 : ==++==> starting task. taskId: 1cd0885cae7d8efe5a5fdf76e2e157eb
+2016-11-11 13:42:51.874  INFO 7040 --- [pool-1-thread-1] com.gy.wm.entry.CrawlerWorkflowManager   : ****************************==>> task started, domain:  qxn.gov.cn, taskId: 1cd0885cae7d8efe5a5fdf76e2e157eb
+2016-11-11 13:42:53.102  INFO 7040 --- [pool-1-thread-1] us.codecraft.webmagic.Spider             : Spider 1cd0885cae7d8efe5a5fdf76e2e157eb started!
+2016-11-11 13:42:53.106  INFO 7040 --- [pool-2-thread-1] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/ListOrgDT/QxnGov/1.html
+2016-11-11 13:42:53.106  INFO 7040 --- [pool-2-thread-2] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/ListArt/zwyw/1.html
+2016-11-11 13:42:54.634  WARN 7040 --- [pool-2-thread-1] u.c.w.downloader.HttpClientDownloader    : download page http://www.qxn.gov.cn/ListOrgDT/QxnGov/1.html error
+
+java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method) ~[na:1.7.0_80]
+	at java.net.SocketInputStream.read(SocketInputStream.java:152) ~[na:1.7.0_80]
+	at java.net.SocketInputStream.read(SocketInputStream.java:122) ~[na:1.7.0_80]
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:282) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:140) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:57) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:167) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:271) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:107) ~[httpclient-4.5.2.jar:4.5.2]
+	at us.codecraft.webmagic.downloader.HttpClientDownloader.download(HttpClientDownloader.java:92) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:409) [webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) [webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_80]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_80]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_80]
+
+2016-11-11 13:42:55.122  INFO 7040 --- [pool-2-thread-2] com.gy.wm.util.PluginUtil                : crawlDataList size：27
+2016-11-11 13:42:56.121  INFO 7040 --- [pool-2-thread-3] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/XXFB.Article/52330.html
+2016-11-11 13:42:56.121  INFO 7040 --- [pool-2-thread-4] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/zwyw/173111.html
+2016-11-11 13:42:56.122  INFO 7040 --- [pool-2-thread-5] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/zwyw/173110.html
+2016-11-11 13:42:56.122  INFO 7040 --- [pool-2-thread-6] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/zwyw/173109.html
+2016-11-11 13:42:56.123  INFO 7040 --- [pool-2-thread-9] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/zwyw/172943.html
+2016-11-11 13:42:56.123  INFO 7040 --- [pool-2-thread-8] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/zwyw/172945.html
+2016-11-11 13:42:56.123  INFO 7040 --- [pool-2-thread-7] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/zwyw/172948.html
+2016-11-11 13:42:56.123  INFO 7040 --- [pool-2-thread-1] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/zwyw/172938.html
+2016-11-11 13:42:56.123  INFO 7040 --- [pool-2-thread-10] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/zwyw/172942.html
+2016-11-11 13:42:56.480  INFO 7040 --- [pool-2-thread-2] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/zwyw/172854.html
+2016-11-11 13:42:56.694  INFO 7040 --- [pool-2-thread-3] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 13:42:56.783  INFO 7040 --- [pool-2-thread-6] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 13:42:56.803  INFO 7040 --- [pool-2-thread-5] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 13:42:56.894  INFO 7040 --- [pool-2-thread-7] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 13:42:56.952  INFO 7040 --- [pool-2-thread-9] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 13:42:56.968  INFO 7040 --- [pool-2-thread-8] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 13:42:56.997  INFO 7040 --- [pool-2-thread-10] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 13:42:57.032  INFO 7040 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 13:42:57.045  INFO 7040 --- [pool-2-thread-4] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 13:42:57.858  INFO 7040 --- [pool-2-thread-3] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/zwyw/172849.html
+2016-11-11 13:42:58.006  INFO 7040 --- [pool-2-thread-6] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/zwyw/172848.html
+2016-11-11 13:42:58.007  INFO 7040 --- [pool-2-thread-7] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/zwyw/172844.html
+2016-11-11 13:42:58.016  INFO 7040 --- [pool-2-thread-9] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/zwyw/172838.html
+2016-11-11 13:42:58.017  INFO 7040 --- [pool-2-thread-5] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/zwyw/172729.html
+2016-11-11 13:42:58.051  INFO 7040 --- [pool-2-thread-10] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/zwyw/172727.html
+2016-11-11 13:42:58.082  INFO 7040 --- [pool-2-thread-1] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/zwyw/172559.html
+2016-11-11 13:42:58.083  INFO 7040 --- [pool-2-thread-8] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/zwyw/172558.html
+2016-11-11 13:42:58.109  INFO 7040 --- [pool-2-thread-4] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/zwyw/172556.html
+2016-11-11 13:43:17.194  INFO 7040 --- [pool-2-thread-2] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 13:43:18.253  INFO 7040 --- [pool-2-thread-2] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/zwyw/172500.html
+2016-11-11 13:43:18.588  INFO 7040 --- [pool-2-thread-3] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 13:43:18.690  INFO 7040 --- [pool-2-thread-7] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 13:43:18.693  INFO 7040 --- [pool-2-thread-5] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 13:43:18.722  INFO 7040 --- [pool-2-thread-8] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 13:43:18.731  INFO 7040 --- [pool-2-thread-2] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 13:43:18.737  INFO 7040 --- [pool-2-thread-6] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 13:43:18.854  INFO 7040 --- [pool-2-thread-4] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 13:43:18.877  INFO 7040 --- [pool-2-thread-9] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 13:43:18.884  INFO 7040 --- [pool-2-thread-10] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 13:43:19.646  INFO 7040 --- [pool-2-thread-3] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/zwyw/172499.html
+2016-11-11 13:43:38.894  INFO 7040 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 13:43:40.069  INFO 7040 --- [pool-2-thread-3] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 13:43:54.961  INFO 7040 --- [pool-1-thread-1] com.gy.wm.entry.Crawl                    : ****************************==>> task finished, domain: qxn.gov.cn, taskId: 1cd0885cae7d8efe5a5fdf76e2e157eb
+2016-11-11 13:43:54.962  INFO 7040 --- [pool-1-thread-1] com.gy.wm.entry.Crawl                    : time elapse(seconds):63.459
+2016-11-11 13:43:56.112  INFO 7040 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : I/O exception (java.net.ConnectException) caught when processing request: Connection refused: connect
+2016-11-11 13:43:56.112  INFO 7040 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : Retrying request
+2016-11-11 13:43:57.114  INFO 7040 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : I/O exception (java.net.ConnectException) caught when processing request: Connection refused: connect
+2016-11-11 13:43:57.114  INFO 7040 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : Retrying request
+2016-11-11 13:43:58.116  INFO 7040 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : I/O exception (java.net.ConnectException) caught when processing request: Connection refused: connect
+2016-11-11 13:43:58.117  INFO 7040 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : Retrying request
+2016-11-11 13:50:38.704  INFO 2516 --- [main] com.gy.wm.service.ServiceTest            : Starting ServiceTest on DESKTOP-I5VPLTQ with PID 2516 (started by karel in D:\IdeaProjects\ZKCrawler\ZKCrawler-Webmagic)
+2016-11-11 13:50:38.706  INFO 2516 --- [main] com.gy.wm.service.ServiceTest            : No active profile set, falling back to default profiles: default
+2016-11-11 13:50:39.019  INFO 2516 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@3e4a762a: startup date [Fri Nov 11 13:50:39 CST 2016]; root of context hierarchy
+2016-11-11 13:50:41.702  INFO 2516 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-11 13:50:42.698  INFO 2516 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@3e4a762a: startup date [Fri Nov 11 13:50:39 CST 2016]; root of context hierarchy
+2016-11-11 13:50:42.813  INFO 2516 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/test]}" onto public java.lang.String com.gy.wm.controller.API.test()
+2016-11-11 13:50:42.815  INFO 2516 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/startTask],methods=[POST],produces=[application/json]}" onto public java.lang.String com.gy.wm.controller.API.startTask(com.gy.wm.model.TaskParamModel)
+2016-11-11 13:50:42.815  INFO 2516 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/cleanTaskRedis],methods=[POST]}" onto public java.lang.String com.gy.wm.controller.API.cleanTaskRedis(java.lang.String)
+2016-11-11 13:50:42.816  INFO 2516 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/stopTask]}" onto public java.lang.String com.gy.wm.controller.API.stopTask(java.lang.String)
+2016-11-11 13:50:42.819  INFO 2516 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2016-11-11 13:50:42.820  INFO 2516 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2016-11-11 13:50:42.885  INFO 2516 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-11-11 13:50:42.886  INFO 2516 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-11-11 13:50:42.978  INFO 2516 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-11-11 13:50:43.407  INFO 2516 --- [main] com.gy.wm.service.ServiceTest            : Started ServiceTest in 5.635 seconds (JVM running for 6.807)
+2016-11-11 13:50:43.451  INFO 2516 --- [main] com.gy.wm.service.TaskService            : ===> get thread pool size: 50
+2016-11-11 13:50:43.522  INFO 2516 --- [Thread-1] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@3e4a762a: startup date [Fri Nov 11 13:50:39 CST 2016]; root of context hierarchy
+2016-11-11 13:51:12.422  INFO 10452 --- [main] com.gy.wm.service.ServiceTest            : Starting ServiceTest on DESKTOP-I5VPLTQ with PID 10452 (started by karel in D:\IdeaProjects\ZKCrawler\ZKCrawler-Webmagic)
+2016-11-11 13:51:12.423  INFO 10452 --- [main] com.gy.wm.service.ServiceTest            : No active profile set, falling back to default profiles: default
+2016-11-11 13:51:12.569  INFO 10452 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@50a14c18: startup date [Fri Nov 11 13:51:12 CST 2016]; root of context hierarchy
+2016-11-11 13:51:14.325  INFO 10452 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-11 13:51:15.527  INFO 10452 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@50a14c18: startup date [Fri Nov 11 13:51:12 CST 2016]; root of context hierarchy
+2016-11-11 13:51:15.682  INFO 10452 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/test]}" onto public java.lang.String com.gy.wm.controller.API.test()
+2016-11-11 13:51:15.683  INFO 10452 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/startTask],methods=[POST],produces=[application/json]}" onto public java.lang.String com.gy.wm.controller.API.startTask(com.gy.wm.model.TaskParamModel)
+2016-11-11 13:51:15.684  INFO 10452 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/cleanTaskRedis],methods=[POST]}" onto public java.lang.String com.gy.wm.controller.API.cleanTaskRedis(java.lang.String)
+2016-11-11 13:51:15.684  INFO 10452 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/stopTask]}" onto public java.lang.String com.gy.wm.controller.API.stopTask(java.lang.String)
+2016-11-11 13:51:15.688  INFO 10452 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2016-11-11 13:51:15.689  INFO 10452 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2016-11-11 13:51:15.756  INFO 10452 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-11-11 13:51:15.756  INFO 10452 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-11-11 13:51:15.860  INFO 10452 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-11-11 13:51:16.368  INFO 10452 --- [main] com.gy.wm.service.ServiceTest            : Started ServiceTest in 4.862 seconds (JVM running for 6.049)
+2016-11-11 13:51:16.403  INFO 10452 --- [main] com.gy.wm.service.TaskService            : ===> get thread pool size: 50
+2016-11-11 13:51:16.447  INFO 10452 --- [Thread-1] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@50a14c18: startup date [Fri Nov 11 13:51:12 CST 2016]; root of context hierarchy
+2016-11-11 13:51:36.887  INFO 11564 --- [main] com.gy.wm.service.ServiceTest            : Starting ServiceTest on DESKTOP-I5VPLTQ with PID 11564 (started by karel in D:\IdeaProjects\ZKCrawler\ZKCrawler-Webmagic)
+2016-11-11 13:51:36.889  INFO 11564 --- [main] com.gy.wm.service.ServiceTest            : No active profile set, falling back to default profiles: default
+2016-11-11 13:51:37.075  INFO 11564 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@58faf771: startup date [Fri Nov 11 13:51:37 CST 2016]; root of context hierarchy
+2016-11-11 13:51:38.758  INFO 11564 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-11 13:51:39.771  INFO 11564 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@58faf771: startup date [Fri Nov 11 13:51:37 CST 2016]; root of context hierarchy
+2016-11-11 13:51:39.938  INFO 11564 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/test]}" onto public java.lang.String com.gy.wm.controller.API.test()
+2016-11-11 13:51:39.940  INFO 11564 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/startTask],methods=[POST],produces=[application/json]}" onto public java.lang.String com.gy.wm.controller.API.startTask(com.gy.wm.model.TaskParamModel)
+2016-11-11 13:51:39.941  INFO 11564 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/stopTask]}" onto public java.lang.String com.gy.wm.controller.API.stopTask(java.lang.String)
+2016-11-11 13:51:39.941  INFO 11564 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/cleanTaskRedis],methods=[POST]}" onto public java.lang.String com.gy.wm.controller.API.cleanTaskRedis(java.lang.String)
+2016-11-11 13:51:39.944  INFO 11564 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2016-11-11 13:51:39.944  INFO 11564 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2016-11-11 13:51:40.014  INFO 11564 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-11-11 13:51:40.014  INFO 11564 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-11-11 13:51:40.110  INFO 11564 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-11-11 13:51:40.499  INFO 11564 --- [main] com.gy.wm.service.ServiceTest            : Started ServiceTest in 4.479 seconds (JVM running for 5.684)
+2016-11-11 13:51:40.526  INFO 11564 --- [main] com.gy.wm.service.TaskService            : ===> get thread pool size: 50
+2016-11-11 13:51:40.571  INFO 11564 --- [Thread-1] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@58faf771: startup date [Fri Nov 11 13:51:37 CST 2016]; root of context hierarchy

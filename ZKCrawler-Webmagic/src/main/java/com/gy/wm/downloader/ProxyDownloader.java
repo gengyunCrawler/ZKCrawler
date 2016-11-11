@@ -1,3 +1,4 @@
+/*
 package com.gy.wm.downloader;
 
 import com.gy.wm.entry.ProxyIp;
@@ -24,9 +25,11 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Random;
 
+*/
 /**
  * Created by Tianjinjin on 2016/11/4.
- */
+ *//*
+
 @Component
 public class ProxyDownloader implements Downloader{
 
@@ -78,10 +81,12 @@ public class ProxyDownloader implements Downloader{
     }
 
 
-    /**
+    */
+/**
      * 设置代理
      * @param httpRequestBase
-     */
+     *//*
+
     public void resetProxy(HttpRequestBase httpRequestBase){
 
         proxyHttpPost= getHttpPost();
@@ -95,11 +100,13 @@ public class ProxyDownloader implements Downloader{
         httpRequestBase.setConfig(requestConfig);
     }
 
-    /**
+    */
+/**
      * 获取一个HttpPost对象，用于设置代理
      * 先从数据库得到一组代理ip对象，然后用一个范围在[0,list.size()]的随机数i，用于
      * 从list里面取出一个ip对象，进行代理，每次取出一个对象，就出list中将其移除
-     */
+     *//*
+
     public HttpHost getHttpPost(){
         List<ProxyIp> proxyIpList =proxyIpMapper.getProxyIpList();
 
@@ -110,3 +117,4 @@ public class ProxyDownloader implements Downloader{
         return proxyHttpPost;
     }
 }
+*/

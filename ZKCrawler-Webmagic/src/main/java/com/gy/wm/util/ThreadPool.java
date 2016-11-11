@@ -1,7 +1,7 @@
+/*
 package com.gy.wm.util;
 
 import com.gy.wm.downloader.ProxyDownloader;
-import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion;
 import org.apache.http.config.Registry;
 import org.apache.http.config.RegistryBuilder;
 import org.apache.http.conn.socket.ConnectionSocketFactory;
@@ -16,21 +16,25 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+*/
 /**
  * Created by Tianjinjin on 2016/11/7.
- */
+ *//*
+
 public class ThreadPool {
 
     int defaultWorkNum=10;
     ExecutorService executors ;
     CountDownLatch countDownLatch;
 
-    /**
+    */
+/**
      *
      * @param proxyDownloader 实现ip代理的下载器
      * @param request
      * @param task
-     */
+     *//*
+
     public void startPool(ProxyDownloader proxyDownloader,Request request, Task task){
         executors =  Executors.newFixedThreadPool(defaultWorkNum);
         countDownLatch  =  new  CountDownLatch(defaultWorkNum);
@@ -38,12 +42,14 @@ public class ThreadPool {
     }
 
 
-    /**
+    */
+/**
      *
      * @param maxPoolNum httpClient连接池最大连接数
      * @param defaultRouteNum 默认路由的连接数，即连接每个网站的最大数量。
      * @return
-     */
+     *//*
+
     public static PoolingHttpClientConnectionManager getHttpConnectionPool(int maxPoolNum,int defaultRouteNum){
         ConnectionSocketFactory plainsf  =  PlainConnectionSocketFactory.getSocketFactory();
         LayeredConnectionSocketFactory sslsf  =  SSLConnectionSocketFactory.getSocketFactory();
@@ -60,3 +66,4 @@ public class ThreadPool {
         return cm;
     }
 }
+*/
