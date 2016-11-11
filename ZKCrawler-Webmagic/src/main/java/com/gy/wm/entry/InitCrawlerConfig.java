@@ -2,7 +2,6 @@ package com.gy.wm.entry;
 
 import com.gy.wm.plugins.topicPlugin.analysis.BaseTemplate;
 import com.gy.wm.util.BloomFilter;
-import com.kenai.jaffl.annotations.In;
 
 import java.io.*;
 import java.util.ArrayList;

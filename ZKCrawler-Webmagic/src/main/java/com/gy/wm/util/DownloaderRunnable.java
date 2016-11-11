@@ -1,3 +1,4 @@
+/*
 package com.gy.wm.util;
 
 
@@ -7,15 +8,19 @@ import us.codecraft.webmagic.Task;
 
 import java.util.concurrent.CountDownLatch;
 
+*/
 /**
  * Created by Tianjinjin on 2016/11/7.
- */
+ *//*
+
 public class DownloaderRunnable implements Runnable{
 
-    /**
+    */
+/**
      *倒计时计数器
      *
-     */
+     *//*
+
     private CountDownLatch countDownLatch;
 
     private ProxyDownloader proxyDownloader;
@@ -36,3 +41,4 @@ public class DownloaderRunnable implements Runnable{
         proxyDownloader.download(request, task);
     }
 }
+*/

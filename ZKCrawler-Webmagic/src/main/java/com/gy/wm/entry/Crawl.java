@@ -24,14 +24,14 @@ public class Crawl {
     private static final Logger LOG = LoggerFactory.getLogger(Crawl.class);
 
     public void kick(int depth, int pass, String tid, String starttime, List<String> seedList, List<String> protocolList,
-                     List<String> postregexList, String type, int recalldepth, List<String> templateList, List<String> clickregexList, List<String> configpath) throws Exception {
+                     List<String> postregexList, String type, int recalldepth, List<String> templateList, List<String> clickregexList, List<String> configpath, String tags) throws Exception {
         //tid_startTime作为appname，即作为这个爬虫的任务名称
         InitCrawlerConfig crawlerConfig = new InitCrawlerConfig(tid + starttime, depth, templateList, clickregexList, protocolList, postregexList);
         InstanceFactory.getInstance(crawlerConfig);
 
         //种子的加载
         ConfigLoader configLoader = new ConfigLoader();
-        List<CrawlData> crawlDataList = configLoader.load(tid, starttime, pass, type, seedList);
+        List<CrawlData> crawlDataList = configLoader.load(tid, starttime, pass, type, seedList, tags);
 
         //初始化HBASE
         String domain = GetDomain.getDomain(crawlDataList.get(0).getUrl());
@@ -51,6 +51,7 @@ public class Crawl {
         String starttime = "" + taskParamModel.getBase().getTimeStart();
         String type = "" + taskParamModel.getBase().getType();
         int recalldepth = taskParamModel.getBase().getDepthDynamic();
+        String tags = taskParamModel.getBase().getTags();
 
         List<String> seedList = taskParamModel.getParam().getSeedUrls();
         List<String> protocolList = taskParamModel.getParam().getProtocolFilter();
@@ -60,7 +61,7 @@ public class Crawl {
         List<String> configpath = taskParamModel.getParam().getConfigs();
 
         try {
-            kick(depth, pass, tid, starttime, seedList, protocolList, postregexList, type, recalldepth, templateList, clickregexList, configpath);
+            kick(depth, pass, tid, starttime, seedList, protocolList, postregexList, type, recalldepth, templateList, clickregexList, configpath, tags);
         } catch (Exception e) {
             e.printStackTrace();
         }
