@@ -164,6 +164,7 @@ public class DdpBatchGetService {
         batchGetDao.insertGetLogs(batchGetLogs);
 
         LOGGER.info("====>> return size: " + getSize);
+        LOGGER.info("====>> return nextSign: [ \"" + newNextSign + "\" ]");
 
         return batchResult.toJSONString();
     }
