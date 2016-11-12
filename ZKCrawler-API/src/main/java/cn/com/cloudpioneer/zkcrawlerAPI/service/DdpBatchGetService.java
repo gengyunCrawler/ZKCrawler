@@ -7,11 +7,13 @@ import cn.com.cloudpioneer.zkcrawlerAPI.model.BatchResult;
 import cn.com.cloudpioneer.zkcrawlerAPI.model.CrawlData;
 import cn.com.cloudpioneer.zkcrawlerAPI.utils.RandomAlphaNumeric;
 import com.alibaba.fastjson.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -21,6 +23,8 @@ import java.util.Map;
 
 @Service
 public class DdpBatchGetService {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(DdpBatchGetService.class);
 
     @Autowired
     private HbaseHandleService hbaseHandleService;
@@ -32,6 +36,7 @@ public class DdpBatchGetService {
     public String batchDataGet(String nextSign, int size) {
 
         if (nextSign == null || nextSign.equals("")) {
+            LOGGER.error("读取标记 nextSign 错误. 读取标记nextSign不能为空.");
             return "{\"status\":false,\"reason\":\"读取标记 nextSign 错误.\"}";
         }
 
@@ -42,6 +47,7 @@ public class DdpBatchGetService {
         String newNextSign = RandomAlphaNumeric.randomStringOfLength(10) + "-" + System.currentTimeMillis() + "-" + RandomAlphaNumeric.randomStringOfLength(10);
         boolean isFirstGet = false;
         if (nextSign.equals("0")) {
+            LOGGER.info("====>> 第一次读取数据，nextSign: [ \"0\" ], size: [ " + size + " ]");
             nextSign = newNextSign;
             isFirstGet = true;
         }
@@ -53,7 +59,6 @@ public class DdpBatchGetService {
         List<BatchGetInfo> batchGetInfoList;
         List<BatchGetInfo> temp = new ArrayList<>();
         if (isFirstGet) {
-
             batchGetInfoList = batchGetDao.findAllGetInfo();
             for (BatchGetInfo elem : batchGetInfoList) {
                 elem.setNextRow(elem.getIdTask() + "|");
@@ -64,6 +69,8 @@ public class DdpBatchGetService {
 
             batchGetInfoList = batchGetDao.findAllGetInfoByNextSign(nextSign);
             int count = batchGetDao.countGetInfo();
+
+            LOGGER.info("====>> batchGetInfoList.size = " + batchGetInfoList.size() + ", batchInfo Count = " + count);
 
             if (count != batchGetInfoList.size()) {
 
@@ -95,7 +102,7 @@ public class DdpBatchGetService {
             }
 
             if (batchGetInfoList.size() == 0 && count != 0) {
-
+                LOGGER.warn("====>> 读取标记 nextSign: [ " + nextSign + " ] 无效." );
                 return "{\"status\":false,\"reason\":\"读取标记 nextSign 错误.\"}";
             }
 
@@ -116,6 +123,7 @@ public class DdpBatchGetService {
 
             } catch (Exception e) {
 
+                LOGGER.warn("====>> hbaseHandleService.getMapHBaseData(...) 出错.");
                 e.printStackTrace();
                 //if (isFirstGet)
                 //    newNextSign = "0";
@@ -154,6 +162,8 @@ public class DdpBatchGetService {
 
         batchGetDao.updateGetInfos(updateBatchGetInfoList);
         batchGetDao.insertGetLogs(batchGetLogs);
+
+        LOGGER.info("====>> return size: " + getSize);
 
         return batchResult.toJSONString();
     }

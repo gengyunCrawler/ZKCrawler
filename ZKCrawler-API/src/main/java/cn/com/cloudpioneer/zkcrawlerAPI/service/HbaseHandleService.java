@@ -161,24 +161,18 @@ public class HbaseHandleService {
 
         conf = HBaseConfiguration.create();
         ResultScanner rs = null;
-        //JSONObject result = new JSONObject();
         Map<String, Object> result = new HashMap<>();
         try {
             HTable htable = new HTable(conf, TABLE_NAME);
-            //HTableInterface htable = HConnectionManager.createConnection(conf).getTable(TABLE_NAME);
             Scan scan = new Scan();
-            //scan.setCaching(100);
             scan.setCaching(t_size);
             scan.addFamily(Bytes.toBytes("crawlerData"));
-            //String tid = t_taskId;
-            // start key is exclusive
             String startRow = t_startRow + "0";
 
             scan.setStartRow(Bytes.toBytes(startRow));
             rs = htable.getScanner(scan);
             int readCount = 0;
             String rowkey = null;
-            //JSONArray crawlerDataArray = new JSONArray();
             List<CrawlData> crawlDataList = new ArrayList<>();
 
             for (Result r = rs.next(); r != null && readCount < t_size; r = rs.next()) {
@@ -204,65 +198,38 @@ public class HbaseHandleService {
 
                 rowkey = Bytes.toString(r.getRow());
                 CrawlData crawlData = new CrawlData();
-                //JSONObject perObject = new JSONObject();
-                //perObject.put("tid",tid);
                 crawlData.setTid(t_taskId);
-                //perObject.put("url",url);
                 crawlData.setUrl(url);
-                //perObject.put("statusCode",statusCode);
                 crawlData.setStatusCode(statusCode);
-                //perObject.put("pass",pass);
                 crawlData.setPass(pass);
-                //perObject.put("type",type);
                 crawlData.setType(type);
-                //perObject.put("rootUrl",rootUrl);
                 crawlData.setRootUrl(rootUrl);
-                //perObject.put("fromUrl",fromUrl);
                 crawlData.setFromUrl(fromUrl);
-                //perObject.put("text",text);
                 crawlData.setText(text);
-                //perObject.put("html",html);
                 crawlData.setHtml(html);
-                //perObject.put("title",title);
                 crawlData.setTitle(title);
-                //perObject.put("startTime",startTime);
                 crawlData.setStartTime(startTime);
-                //perObject.put("crawlTime",crawlTime);
                 try {
                     crawlData.setCrawlTime(new Date(new SimpleDateFormat("yyyy-MM-dd HH:ss:mm").parse(crawlTime).getTime()));
                 } catch (ParseException e) {
                     crawlData.setCrawlTime(new Date());
                 }
-                //perObject.put("publishTime",publishTime);
                 try {
                     crawlData.setPublishTime(new Date(new SimpleDateFormat("yyyy-MM-dd HH:ss:mm").parse(publishTime).getTime()));
                 } catch (ParseException e) {
                     crawlData.setPublishTime(new Date());
                 }
-                //perObject.put("depthfromSeed",depthfromSeed);
                 crawlData.setDepthfromSeed(depthfromSeed);
-                //perObject.put("count",count);
                 crawlData.setCount(count);
-                //perObject.put("tag",tag);
                 crawlData.setTag(tag);
-                //perObject.put("fetched",fetched);
                 crawlData.setFetched(fetched);
-                //perObject.put("author",author);
                 crawlData.setAuthor(author);
-                //perObject.put("sourceName",sourceName);
                 crawlData.setSourceName(sourceName);
-                //perObject.put("parsedData",parsedData);
                 crawlData.setParsedData(parsedData);
-                //crawlerDataArray.add(perObject);
                 crawlDataList.add(crawlData);
 
                 readCount++;
             }
-
-            //result.put("result","true");
-            //result.put("data",crawlerDataArray);
-            //result.put("size",readCount);
-            //result.put("nextRow",rowkey);
 
 
             result.put("data", crawlDataList);

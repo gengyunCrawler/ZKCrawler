@@ -9,12 +9,12 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
+        <module>ZKCrawler-API</module>
         <module>ZKCrawler-Master</module>
         <module>ZKCrawler-TaskClient</module>
         <module>ZKCrawler-Worker</module>
         <module>ZKCrawler-Webmagic</module>
         <module>ZKCrawler-Starter</module>
-        <module>ZKCrawler-API</module>
     </modules>
 
     <parent>
