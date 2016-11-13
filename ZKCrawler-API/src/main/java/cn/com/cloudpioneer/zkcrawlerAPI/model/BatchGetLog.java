@@ -8,13 +8,17 @@ import java.util.Date;
 /**
  * Created by TianyuanPan on 11/10/16.
  */
+
+/**
+ * 数据访问日志模型，每次取的任务，情况都要记录于此表中。
+ */
 public class BatchGetLog implements Serializable {
 
-    private long id;
-    private String idTask;
-    private String nextSign;
-    private String logInfo;
-    private Date createTime;
+    private long id;            // 记录id，主键
+    private String idTask;      // 任务id，来源于表BatchGetInfo的idTask.
+    private String nextSign;    // 数据读取标记 nextSign.
+    private String logInfo;     // 日志信息，内容为BatchGetInfo的JSON形式实体.
+    private Date createTime;    // 日志创建时间。
 
 
     public BatchGetLog(){

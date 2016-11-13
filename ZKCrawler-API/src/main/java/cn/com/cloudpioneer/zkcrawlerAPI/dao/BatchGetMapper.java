@@ -42,4 +42,7 @@ public interface BatchGetMapper {
     @Insert("INSERT INTO hbase_ddp_batch_get_log (idTask,nextSign,logInfo,createTime) VALUES (#{idTask},#{nextSign},#{logInfo},#{createTime})")
     Integer insertGetLog(BatchGetLog log);
 
+    @Select("SELECT COUNT(*) FROM hbase_ddp_batch_get_log WHERE nextSign=#{nextSign}")
+    Integer countGetLogsByNextSign(@Param("nextSign") String nextSign);
+
 }

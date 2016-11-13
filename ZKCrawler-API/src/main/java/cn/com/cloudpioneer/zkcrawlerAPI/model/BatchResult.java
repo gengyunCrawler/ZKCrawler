@@ -12,7 +12,7 @@ import java.util.List;
 public class BatchResult {
 
     private boolean status = false;
-    private String  nextSign = "0";
+    private String  nextSign = "";
     private int     size = 0;
     private List<CrawlData> data = new ArrayList<>();
 
