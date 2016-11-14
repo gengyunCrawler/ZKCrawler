@@ -44,7 +44,7 @@ public class BatchGetDao {
         return batchGetInfoList;
     }
 
-    public int countGetInfo(){
+    public int countGetInfo() {
 
         SqlSession session = sqlSessionFactory.openSession();
 
@@ -144,6 +144,17 @@ public class BatchGetDao {
         session.close();
 
         return size;
+    }
+
+    public boolean isValidNextSign(String nextSign) {
+
+        SqlSession session = sqlSessionFactory.openSession();
+        BatchGetMapper mapper = session.getMapper(BatchGetMapper.class);
+        int size = mapper.countGetLogsByNextSign(nextSign);
+        session.commit();
+        session.close();
+
+        return (size > 0);
     }
 
 }

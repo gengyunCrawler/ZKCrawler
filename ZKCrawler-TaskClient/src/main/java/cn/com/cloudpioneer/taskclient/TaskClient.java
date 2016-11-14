@@ -1,3 +1,4 @@
+/*
 package cn.com.cloudpioneer.taskclient;
 import cn.com.cloudpioneer.taskclient.chooser.TaskChooser;
 import cn.com.cloudpioneer.taskclient.entity.TaskEntity;
@@ -19,9 +20,11 @@ import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 import java.util.regex.Pattern;
 
+*/
 /**
  * Created by Tianjinjin on 2016/9/1.
- */
+ *//*
+
 public class TaskClient extends LeaderSelectorListenerAdapter implements Cloneable {
 
     //TaskClient的配置
@@ -120,11 +123,13 @@ public class TaskClient extends LeaderSelectorListenerAdapter implements Cloneab
     }
 
 
-    /**
+    */
+/**
      * 创建任务，把任务添加到task节点中
      * @param taskEntityList
      * @return
-     */
+     *//*
+
     private int tasksCreator(List<TaskEntity> taskEntityList) throws Exception {
         for(TaskEntity task:taskEntityList){
             String data =task.toString();
@@ -147,11 +152,13 @@ public class TaskClient extends LeaderSelectorListenerAdapter implements Cloneab
     }
 
 
-    /**
+    */
+/**
      * 删除tasks下已完成的任务节点
      * @param node
      * @return
-     */
+     *//*
+
     private boolean taskDelete(String node) throws Exception {
 
         client.delete().forPath("/tasks/task3");
@@ -209,11 +216,13 @@ public class TaskClient extends LeaderSelectorListenerAdapter implements Cloneab
 
     }
 
-    /**
+    */
+/**
      * 获取worsk节点下的所有work节点
      * @return
      * @throws Exception
-     */
+     *//*
+
     public List<String> getWorks() throws Exception {
         List<String> works=client.getChildren().forPath("/works");
         return works;
@@ -271,11 +280,13 @@ public class TaskClient extends LeaderSelectorListenerAdapter implements Cloneab
         taskEntity.setCycleRecrawl(40);
         taskEntity.setDepthCrawl(3);
         taskEntity.setIdUser(0144552);
-        /*taskEntity.setPathTemplates("agvb");
+        */
+/*taskEntity.setPathTemplates("agvb");
         taskEntity.setSeedUrls("rety");
         taskEntity.setPathRegexFilter("trh");
         taskEntity.setSeedUrls("url1,url2,url3");
-        taskEntity.setPathRegexFilter("ngjrd");*/
+        taskEntity.setPathRegexFilter("ngjrd");*//*
+
         taskEntity.setThreads(3);
         taskEntity.setWorkNum(5);
         List<TaskEntity> taskEntityList = new ArrayList<TaskEntity>();
@@ -296,3 +307,4 @@ public class TaskClient extends LeaderSelectorListenerAdapter implements Cloneab
     }
 
 }
+*/

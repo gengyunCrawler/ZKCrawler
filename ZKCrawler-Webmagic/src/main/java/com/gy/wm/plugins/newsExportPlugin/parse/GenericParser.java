@@ -66,6 +66,7 @@ public class GenericParser implements PageParser {
                     data.setRootUrl(crawlData.getUrl());
                     data.setTag(crawlData.getTag());
                     data.setFetched(false);
+                    data.setTag(crawlData.getTag());
                     crawlDatas.add(data);
                 }
             }

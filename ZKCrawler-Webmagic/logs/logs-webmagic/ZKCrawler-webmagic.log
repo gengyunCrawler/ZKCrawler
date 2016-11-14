@@ -24511,3 +24511,193 @@ java.net.SocketTimeoutException: Read timed out
 2016-11-11 13:51:40.499  INFO 11564 --- [main] com.gy.wm.service.ServiceTest            : Started ServiceTest in 4.479 seconds (JVM running for 5.684)
 2016-11-11 13:51:40.526  INFO 11564 --- [main] com.gy.wm.service.TaskService            : ===> get thread pool size: 50
 2016-11-11 13:51:40.571  INFO 11564 --- [Thread-1] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@58faf771: startup date [Fri Nov 11 13:51:37 CST 2016]; root of context hierarchy
+2016-11-11 18:34:51.993  INFO 2148 --- [main] com.gy.wm.service.ServiceTest            : Starting ServiceTest on DESKTOP-I5VPLTQ with PID 2148 (started by karel in D:\IdeaProjects\ZKCrawler\ZKCrawler-Webmagic)
+2016-11-11 18:34:52.009  INFO 2148 --- [main] com.gy.wm.service.ServiceTest            : No active profile set, falling back to default profiles: default
+2016-11-11 18:34:52.103  INFO 2148 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@196da888: startup date [Fri Nov 11 18:34:52 CST 2016]; root of context hierarchy
+2016-11-11 18:34:54.952  INFO 2148 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@196da888: startup date [Fri Nov 11 18:34:52 CST 2016]; root of context hierarchy
+2016-11-11 18:34:55.030  INFO 2148 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/test]}" onto public java.lang.String com.gy.wm.controller.API.test()
+2016-11-11 18:34:55.030  INFO 2148 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/startTask],methods=[POST],produces=[application/json]}" onto public java.lang.String com.gy.wm.controller.API.startTask(com.gy.wm.model.TaskParamModel)
+2016-11-11 18:34:55.030  INFO 2148 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/cleanTaskRedis],methods=[POST]}" onto public java.lang.String com.gy.wm.controller.API.cleanTaskRedis(java.lang.String)
+2016-11-11 18:34:55.030  INFO 2148 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/stopTask]}" onto public java.lang.String com.gy.wm.controller.API.stopTask(java.lang.String)
+2016-11-11 18:34:55.030  INFO 2148 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2016-11-11 18:34:55.030  INFO 2148 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2016-11-11 18:34:55.077  INFO 2148 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-11-11 18:34:55.077  INFO 2148 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-11-11 18:34:55.139  INFO 2148 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-11-11 18:34:55.746  INFO 2148 --- [main] com.gy.wm.service.ServiceTest            : Started ServiceTest in 5.076 seconds (JVM running for 6.134)
+2016-11-11 18:34:55.808  INFO 2148 --- [main] com.gy.wm.service.TaskService            : ===> get thread pool size: 50
+2016-11-11 18:34:55.855  INFO 2148 --- [main] com.gy.wm.service.TaskService            : ===> starting crawler task ......
+2016-11-11 18:34:55.867  INFO 2148 --- [pool-1-thread-1] com.gy.wm.controller.API                 : ==++==> starting task. taskId: 1cd0885cae7d8efe5a5fdf76e2e157eb
+2016-11-11 18:34:56.190  INFO 2148 --- [pool-1-thread-1] com.gy.wm.entry.CrawlerWorkflowManager   : ****************************==>> task started, domain:  qxn.gov.cn, taskId: 1cd0885cae7d8efe5a5fdf76e2e157eb
+2016-11-11 18:34:56.753  INFO 2148 --- [pool-1-thread-1] us.codecraft.webmagic.Spider             : Spider 1cd0885cae7d8efe5a5fdf76e2e157eb started!
+2016-11-11 18:34:56.755  INFO 2148 --- [pool-2-thread-2] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/ListArt/zwyw/1.html
+2016-11-11 18:34:56.755  INFO 2148 --- [pool-2-thread-1] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/ListOrgDT/QxnGov/1.html
+2016-11-11 18:34:57.928  WARN 2148 --- [pool-2-thread-1] u.c.w.downloader.HttpClientDownloader    : download page http://www.qxn.gov.cn/ListOrgDT/QxnGov/1.html error
+
+java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method) ~[na:1.7.0_80]
+	at java.net.SocketInputStream.read(SocketInputStream.java:152) ~[na:1.7.0_80]
+	at java.net.SocketInputStream.read(SocketInputStream.java:122) ~[na:1.7.0_80]
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:282) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:140) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:57) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:167) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125) ~[httpcore-4.4.5.jar:4.4.5]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:271) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:107) ~[httpclient-4.5.2.jar:4.5.2]
+	at us.codecraft.webmagic.downloader.HttpClientDownloader.download(HttpClientDownloader.java:92) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:409) [webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) [webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_80]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_80]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_80]
+
+2016-11-11 18:34:58.161 ERROR 2148 --- [pool-2-thread-2] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qxn.gov.cn/ListArt/zwyw/1.html', method='null', extras={statusCode=200}, priority=0} error
+
+java.lang.NullPointerException: null
+	at com.gy.wm.service.CustomPageProcessor.process(CustomPageProcessor.java:87) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:421) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_80]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_80]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_80]
+
+2016-11-11 18:35:11.766  INFO 2148 --- [pool-1-thread-1] com.gy.wm.entry.Crawl                    : ****************************==>> task finished, domain: qxn.gov.cn, taskId: 1cd0885cae7d8efe5a5fdf76e2e157eb
+2016-11-11 18:35:11.767  INFO 2148 --- [pool-1-thread-1] com.gy.wm.entry.Crawl                    : time elapse(seconds):15.899
+2016-11-11 18:35:13.192  INFO 2148 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : I/O exception (java.net.ConnectException) caught when processing request: Connection refused: connect
+2016-11-11 18:35:13.193  INFO 2148 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : Retrying request
+2016-11-11 18:35:14.203  INFO 2148 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : I/O exception (java.net.ConnectException) caught when processing request: Connection refused: connect
+2016-11-11 18:35:14.203  INFO 2148 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : Retrying request
+2016-11-11 18:35:15.204  INFO 2148 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : I/O exception (java.net.ConnectException) caught when processing request: Connection refused: connect
+2016-11-11 18:35:15.205  INFO 2148 --- [pool-1-thread-1] o.a.c.httpclient.HttpMethodDirector      : Retrying request
+2016-11-11 18:36:43.116  INFO 13156 --- [main] com.gy.wm.service.ServiceTest            : Starting ServiceTest on DESKTOP-I5VPLTQ with PID 13156 (started by karel in D:\IdeaProjects\ZKCrawler\ZKCrawler-Webmagic)
+2016-11-11 18:36:43.116  INFO 13156 --- [main] com.gy.wm.service.ServiceTest            : No active profile set, falling back to default profiles: default
+2016-11-11 18:36:43.224  INFO 13156 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@33b41492: startup date [Fri Nov 11 18:36:43 CST 2016]; root of context hierarchy
+2016-11-11 18:36:45.757  INFO 13156 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@33b41492: startup date [Fri Nov 11 18:36:43 CST 2016]; root of context hierarchy
+2016-11-11 18:36:45.851  INFO 13156 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/test]}" onto public java.lang.String com.gy.wm.controller.API.test()
+2016-11-11 18:36:45.851  INFO 13156 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/startTask],methods=[POST],produces=[application/json]}" onto public java.lang.String com.gy.wm.controller.API.startTask(com.gy.wm.model.TaskParamModel)
+2016-11-11 18:36:45.851  INFO 13156 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/stopTask]}" onto public java.lang.String com.gy.wm.controller.API.stopTask(java.lang.String)
+2016-11-11 18:36:45.851  INFO 13156 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/cleanTaskRedis],methods=[POST]}" onto public java.lang.String com.gy.wm.controller.API.cleanTaskRedis(java.lang.String)
+2016-11-11 18:36:45.851  INFO 13156 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2016-11-11 18:36:45.851  INFO 13156 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2016-11-11 18:36:45.913  INFO 13156 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-11-11 18:36:45.913  INFO 13156 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-11-11 18:36:45.960  INFO 13156 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-11-11 18:36:46.417  INFO 13156 --- [main] com.gy.wm.service.ServiceTest            : Started ServiceTest in 4.284 seconds (JVM running for 5.3)
+2016-11-11 18:36:46.439  INFO 13156 --- [main] com.gy.wm.service.TaskService            : ===> get thread pool size: 50
+2016-11-11 18:36:46.470  INFO 13156 --- [main] com.gy.wm.service.TaskService            : ===> starting crawler task ......
+2016-11-11 18:36:46.477  INFO 13156 --- [pool-1-thread-1] com.gy.wm.controller.API                 : ==++==> starting task. taskId: 1cd0885cae7d8efe5a5fdf76e2e157eb
+2016-11-11 18:36:46.919  INFO 13156 --- [pool-1-thread-1] com.gy.wm.entry.CrawlerWorkflowManager   : ****************************==>> task started, domain:  qxn.gov.cn, taskId: 1cd0885cae7d8efe5a5fdf76e2e157eb
+2016-11-11 18:36:47.316  INFO 13156 --- [pool-1-thread-1] us.codecraft.webmagic.Spider             : Spider 1cd0885cae7d8efe5a5fdf76e2e157eb started!
+2016-11-11 18:36:47.318  INFO 13156 --- [pool-2-thread-2] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/ListArt/zwyw/1.html
+2016-11-11 18:36:47.318  INFO 13156 --- [pool-2-thread-1] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/ListOrgDT/QxnGov/1.html
+2016-11-11 18:36:48.097  INFO 13156 --- [pool-2-thread-2] com.gy.wm.util.PluginUtil                : crawlDataList size：27
+2016-11-11 18:36:48.097  INFO 13156 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：21
+2016-11-11 18:36:49.406  INFO 13156 --- [pool-2-thread-3] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/XXFB.Article/52330.html
+2016-11-11 18:36:49.407  INFO 13156 --- [pool-2-thread-4] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/QxnGov.YMJ.Info/173176.html
+2016-11-11 18:36:49.409  INFO 13156 --- [pool-2-thread-5] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/QxnGov.LBJ.Info/173173.html
+2016-11-11 18:36:49.410  INFO 13156 --- [pool-2-thread-6] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/QxnGov.YMJ.Info/173168.html
+2016-11-11 18:36:49.411  INFO 13156 --- [pool-2-thread-7] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/QxnGov.XMJ.Info/173162.html
+2016-11-11 18:36:49.415  INFO 13156 --- [pool-2-thread-8] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/QxnGov.WSJ.Info/173112.html
+2016-11-11 18:36:49.415  INFO 13156 --- [pool-2-thread-10] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/QxnGov.GAJ.Info/173011.html
+2016-11-11 18:36:49.415  INFO 13156 --- [pool-2-thread-9] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/QxnGov.SJJ.Info/173087.html
+2016-11-11 18:36:49.761  INFO 13156 --- [pool-2-thread-1] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/XXFB.Article/52330.html
+2016-11-11 18:36:49.762  INFO 13156 --- [pool-2-thread-2] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/QxnGov.WSJ.Info/172987.html
+2016-11-11 18:36:49.795  INFO 13156 --- [pool-2-thread-3] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 18:36:49.805  INFO 13156 --- [pool-2-thread-8] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 18:36:49.812  INFO 13156 --- [pool-2-thread-9] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 18:36:49.900 ERROR 13156 --- [pool-2-thread-1] us.codecraft.webmagic.Spider             : process request Request{url='http://www.qxn.gov.cn/View/XXFB.Article/52330.html', method='null', extras={statusCode=200}, priority=0} error
+
+java.lang.NullPointerException: null
+	at java.io.ByteArrayInputStream.<init>(ByteArrayInputStream.java:106) ~[na:1.7.0_80]
+	at com.gy.wm.util.MySerializer.deserialize(MySerializer.java:24) ~[classes/:na]
+	at com.gy.wm.service.CustomPageProcessor.process(CustomPageProcessor.java:58) ~[classes/:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:421) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_80]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_80]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_80]
+
+2016-11-11 18:36:49.901  INFO 13156 --- [pool-2-thread-1] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/zwyw/173111.html
+2016-11-11 18:36:49.908  INFO 13156 --- [pool-2-thread-5] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 18:36:49.961  INFO 13156 --- [pool-2-thread-7] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 18:36:50.014  INFO 13156 --- [pool-2-thread-4] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 18:36:50.045  INFO 13156 --- [pool-2-thread-6] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 18:36:50.075  INFO 13156 --- [pool-2-thread-10] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 18:36:50.988  INFO 13156 --- [pool-2-thread-9] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/QxnGov.WSJ.Info/172971.html
+2016-11-11 18:36:50.991  INFO 13156 --- [pool-2-thread-3] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/zwyw/173110.html
+2016-11-11 18:36:51.006  INFO 13156 --- [pool-2-thread-8] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/QxnGov.WSJ.Info/172968.html
+2016-11-11 18:36:51.066  INFO 13156 --- [pool-2-thread-7] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/QxnGov.NLJ.Info/172961.html
+2016-11-11 18:36:51.084  INFO 13156 --- [pool-2-thread-5] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/zwyw/173109.html
+2016-11-11 18:36:51.085  INFO 13156 --- [pool-2-thread-4] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/QxnGov.XMJ.Info/172932.html
+2016-11-11 18:36:51.117  INFO 13156 --- [pool-2-thread-10] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/zwyw/172948.html
+2016-11-11 18:36:51.117  INFO 13156 --- [pool-2-thread-6] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/zwyw/172945.html
+2016-11-11 18:37:10.080  INFO 13156 --- [pool-2-thread-2] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 18:37:10.478  INFO 13156 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 18:37:11.140  INFO 13156 --- [pool-2-thread-2] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/QxnGov.ZJJ.Info/172893.html
+2016-11-11 18:37:11.326  INFO 13156 --- [pool-2-thread-2] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 18:37:11.377  INFO 13156 --- [pool-2-thread-8] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 18:37:11.378  INFO 13156 --- [pool-2-thread-9] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 18:37:11.399  INFO 13156 --- [pool-2-thread-4] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 18:37:11.402  INFO 13156 --- [pool-2-thread-7] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 18:37:11.522  INFO 13156 --- [pool-2-thread-3] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 18:37:11.528  INFO 13156 --- [pool-2-thread-1] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/zwyw/172943.html
+2016-11-11 18:37:11.601  INFO 13156 --- [pool-2-thread-5] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 18:37:11.637  INFO 13156 --- [pool-2-thread-10] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 18:37:12.391  INFO 13156 --- [pool-2-thread-2] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/QxnGov.NB.Info/172873.html
+2016-11-11 18:37:12.428  INFO 13156 --- [pool-2-thread-8] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/zwyw/172942.html
+2016-11-11 18:37:12.428  INFO 13156 --- [pool-2-thread-9] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/QxnGov.TJJ.Info/172869.html
+2016-11-11 18:37:12.457  INFO 13156 --- [pool-2-thread-4] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/QxnGov.ZJJ.Info/172855.html
+2016-11-11 18:37:12.457  INFO 13156 --- [pool-2-thread-7] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/zwyw/172938.html
+2016-11-11 18:37:12.570  INFO 13156 --- [pool-2-thread-3] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/zwyw/172854.html
+2016-11-11 18:37:12.648  INFO 13156 --- [pool-2-thread-5] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/QxnGov.JMJ.Info/172834.html
+2016-11-11 18:37:12.690  INFO 13156 --- [pool-2-thread-10] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/zwyw/172849.html
+2016-11-11 18:37:31.656  INFO 13156 --- [pool-2-thread-6] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 18:37:31.831  INFO 13156 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 18:37:32.706  INFO 13156 --- [pool-2-thread-6] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/QxnGov.LYJ.Info/172734.html
+2016-11-11 18:37:32.757  INFO 13156 --- [pool-2-thread-4] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 18:37:32.767  INFO 13156 --- [pool-2-thread-9] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 18:37:32.856  INFO 13156 --- [pool-2-thread-2] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 18:37:32.872  INFO 13156 --- [pool-2-thread-6] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 18:37:32.881  INFO 13156 --- [pool-2-thread-1] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/zwyw/172848.html
+2016-11-11 18:37:32.884  INFO 13156 --- [pool-2-thread-8] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 18:37:32.913  INFO 13156 --- [pool-2-thread-7] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 18:37:33.001  INFO 13156 --- [pool-2-thread-5] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 18:37:33.123  INFO 13156 --- [pool-2-thread-3] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 18:37:34.822  INFO 13156 --- [pool-2-thread-4] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/QxnGov.DAJ.Info/172634.html
+2016-11-11 18:37:35.353  INFO 13156 --- [pool-2-thread-6] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/zwyw/172844.html
+2016-11-11 18:37:35.353  INFO 13156 --- [pool-2-thread-8] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/QxnGov.SWJ.Info/172627.html
+2016-11-11 18:37:35.354  INFO 13156 --- [pool-2-thread-2] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/zwyw/172838.html
+2016-11-11 18:37:35.354  INFO 13156 --- [pool-2-thread-5] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/zwyw/172729.html
+2016-11-11 18:37:35.354  INFO 13156 --- [pool-2-thread-9] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/zwyw/172727.html
+2016-11-11 18:37:35.355  INFO 13156 --- [pool-2-thread-7] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/zwyw/172559.html
+2016-11-11 18:37:35.355  INFO 13156 --- [pool-2-thread-3] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/zwyw/172558.html
+2016-11-11 18:37:53.131  INFO 13156 --- [pool-2-thread-10] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 18:37:53.205  INFO 13156 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 18:37:54.160  INFO 13156 --- [pool-2-thread-10] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/zwyw/172556.html
+2016-11-11 18:37:54.252  INFO 13156 --- [pool-2-thread-1] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/zwyw/172500.html
+2016-11-11 18:37:54.499  INFO 13156 --- [pool-2-thread-10] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 18:37:54.570  INFO 13156 --- [pool-2-thread-1] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 18:37:55.015  INFO 13156 --- [pool-2-thread-4] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 18:37:55.545  INFO 13156 --- [pool-2-thread-10] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.qxn.gov.cn/View/zwyw/172499.html
+2016-11-11 18:37:55.738  INFO 13156 --- [pool-2-thread-8] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 18:37:55.860  INFO 13156 --- [pool-2-thread-10] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 18:37:55.866  INFO 13156 --- [pool-2-thread-2] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 18:37:55.893  INFO 13156 --- [pool-2-thread-3] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 18:37:55.898  INFO 13156 --- [pool-2-thread-5] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 18:38:15.974  INFO 13156 --- [pool-2-thread-9] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 18:38:15.974  INFO 13156 --- [pool-2-thread-7] com.gy.wm.util.PluginUtil                : crawlDataList size：1
+2016-11-11 18:38:15.999  INFO 13156 --- [pool-2-thread-6] com.gy.wm.util.PluginUtil                : crawlDataList size：1

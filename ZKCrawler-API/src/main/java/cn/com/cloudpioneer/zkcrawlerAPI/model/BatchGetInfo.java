@@ -3,21 +3,26 @@ package cn.com.cloudpioneer.zkcrawlerAPI.model;
 import com.alibaba.fastjson.JSONObject;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 
 /**
  * Created by TianyuanPan on 11/9/16.
  */
+
+/**
+ * 数据获取的信息模型，和任务相关。一个爬虫任务对应于产生的数据，
+ * 存于它自己的一张Hbase表中。此模型的一条记录，对应于一个任务。
+ */
 public class BatchGetInfo implements Serializable {
 
-    private long id;
-    private String idTask;
-    private String nextSign = "";
-    private String nextRow = "";
-    private int lastSize = 0;
-    private long allSize = 0;
-    private Date updateTime;
-    private Date createTime;
+    private long id;                // 记录id，主键.
+    private String idTask;          // 任务id，来源于爬虫任务表的任务id.
+    private String nextSign = "";   // 获取数据标记 nextSign.
+    private String nextRow = "";    // 此任务中 Hbase 的 nextRow.
+    private int lastSize = 0;       // 最后一次在此任务中取得数据的条数.
+    private long allSize = 0;       // 从此任务中取得数据的历史条数.
+    private Date updateTime;        // 此任务记录的更新时间.
+    private Date createTime;        // 此任务的创建时间.
 
     public long getId() {
         return id;
