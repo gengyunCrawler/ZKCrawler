@@ -21,14 +21,10 @@ import java.util.Map;
  */
 public class HDFSPipeline implements Pipeline {
 
-    private static Map<String,String> tagMap = new HashMap<>();
+
 
     private String dfsPath;
 
-    static {
-        tagMap.put("column","黔西南州人民政府网-义龙试验区");
-        tagMap.put("heat","8");
-    }
     public HDFSPipeline(String dfsPath){
         this.dfsPath=dfsPath;
     }
@@ -37,7 +33,7 @@ public class HDFSPipeline implements Pipeline {
     public void process(ResultItems resultItems, Task task) {
         CrawlData crawlData = resultItems.get("crawlerData");
         JSONObject object= JSON.parseObject(crawlData.getParsedData());
-        object.put("tag",tagMap);
+
         object.put("id", AlphabeticRandom.getString());
         crawlData.setParsedData("\n"+object.toJSONString());
         this.insertToDFS(crawlData);

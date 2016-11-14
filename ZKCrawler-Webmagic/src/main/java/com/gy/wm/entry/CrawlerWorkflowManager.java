@@ -82,13 +82,12 @@ public class CrawlerWorkflowManager {
                 //从seed开始抓
 
                 .addUrl(urlArray)
-                .addPipeline(
-                        new MysqlPipeline())
-//                        new HDFSPipeline("/user/root/icp"))
+//                .addPipeline(new MysqlPipeline())
+                  .addPipeline(new HDFSPipeline("/user/root/icp"))
 //                .addPipeline(new EsPipeline())
 //                .addPipeline(new HbaseEsPipeline())
 //                .addPipeline(new HbasePipeline())
-//                .addPipeline(new CMSHbasePipeline())
+            .addPipeline(new CMSHbasePipeline())
                         //开启5个线程抓取
                 .thread(10)
                         //启动爬虫
