@@ -56,9 +56,9 @@ public class RequestUtil {
 
         String url = "http://localhost:10080/api/getHbaseData";
         Map<String,String> params = new HashMap<>();
-        params.put("taskId","0ec153c8c4dae69ae48420426f3750f6");
-        params.put("startRow","0ec153c8c4dae69ae48420426f3750f6|");
-        params.put("size","1");
+        params.put("taskId1","0ec153c8c4dae69ae48420426f3750f6");
+        params.put("startRow1","0ec153c8c4dae69ae48420426f3750f6|");
+        params.put("size1","1");
 
         String result = postMethod(url,params);
         System.out.println("post返回结果：" + result);

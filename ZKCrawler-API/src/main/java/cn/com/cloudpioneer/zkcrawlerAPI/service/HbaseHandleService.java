@@ -150,6 +150,7 @@ public class HbaseHandleService {
             result.put("nextRow", rowkey);
         } catch (IOException e) {
             e.printStackTrace();
+            return "{\"result\":false,\"reason\":\"Hbase读写出错\"}";
         } finally {
             rs.close();
         }
