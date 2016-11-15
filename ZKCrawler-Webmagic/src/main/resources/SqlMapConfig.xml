@@ -9,14 +9,15 @@
         <transactionManager type = "JDBC"/>
         <dataSource type = "POOLED">
             <property name = "driver" value = "com.mysql.jdbc.Driver"/>
-            <property name = "url" value = "jdbc:mysql://118.118.118.201:3306/crawlerdata?useUnicode=true&amp;characterEncoding=UTF-8"/>
-            <property name = "username" value = "root"/>
-            <property name = "password" value = "123456"/>
+            <property name = "url" value = "jdbc:mysql://108.108.108.8:3306/crawlerdata?useUnicode=true&amp;characterEncoding=UTF-8"/>
+            <property name = "username" value = "builder"/>
+            <property name = "password" value = "builder"/>
         </dataSource>
     </environment>
 </environments>
     <mappers>
         <mapper class="com.gy.wm.model.CrawlDataMapper"></mapper>
         <mapper class="com.gy.wm.mapper.ParserMapper"></mapper>
+        <mapper class="com.gy.wm.mapper.TaskConfigMapper"></mapper>
     </mappers>
 </configuration>
