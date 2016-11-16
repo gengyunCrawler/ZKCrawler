@@ -97,6 +97,7 @@ public class HbaseHandleService {
             String rowkey = null;
             JSONArray crawlerDataArray = new JSONArray();
             for (Result r = rs.next(); r != null && readCount < size; r = rs.next()) {
+                String docId = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"),Bytes.toBytes("docId")));
                 String url = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"), Bytes.toBytes("url")));
                 int statusCode = Bytes.toInt(r.getValue(Bytes.toBytes("crawlerData"), Bytes.toBytes("statusCode")));
                 int pass = Bytes.toInt(r.getValue(Bytes.toBytes("crawlerData"), Bytes.toBytes("pass")));
@@ -119,6 +120,7 @@ public class HbaseHandleService {
 
                 rowkey = Bytes.toString(r.getRow());
                 JSONObject perObject = new JSONObject();
+                perObject.put("docId",docId);
                 perObject.put("tid", tid);
                 perObject.put("url", url);
                 perObject.put("statusCode", statusCode);
@@ -177,6 +179,7 @@ public class HbaseHandleService {
             List<CrawlData> crawlDataList = new ArrayList<>();
 
             for (Result r = rs.next(); r != null && readCount < t_size; r = rs.next()) {
+                String docId = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"),Bytes.toBytes("docId")));
                 String url = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"), Bytes.toBytes("url")));
                 int statusCode = Bytes.toInt(r.getValue(Bytes.toBytes("crawlerData"), Bytes.toBytes("statusCode")));
                 int pass = Bytes.toInt(r.getValue(Bytes.toBytes("crawlerData"), Bytes.toBytes("pass")));
@@ -199,6 +202,7 @@ public class HbaseHandleService {
 
                 rowkey = Bytes.toString(r.getRow());
                 CrawlData crawlData = new CrawlData();
+                crawlData.setDocId(docId);
                 crawlData.setTid(t_taskId);
                 crawlData.setUrl(url);
                 crawlData.setStatusCode(statusCode);

@@ -14,6 +14,8 @@ import java.util.Map;
 public class CrawlData implements Serializable {
 //    private final static long serialVersionUID = -2344403674643228206L;
 
+    private String docId = "";
+
     private String tid;
     private String url;
     private int statusCode;
@@ -34,7 +36,6 @@ public class CrawlData implements Serializable {
     private String author;
     private String sourceName;
     private String parsedData;
-
     public String getParsedData() {
         return parsedData;
     }
@@ -240,6 +241,14 @@ public class CrawlData implements Serializable {
 
     public void setFetched(boolean fetched) {
         this.fetched = fetched;
+    }
+
+    public String getDocId() {
+        return docId;
+    }
+
+    public void setDocId(String docId) {
+        this.docId = docId;
     }
 
 
