@@ -47,10 +47,13 @@ public class CustomPageProcessor implements PageProcessor {
         JedisPoolUtils jedisPoolUtils = null;
         JedisPool pool = null;
         Jedis jedis = null;
+        Jedis bloomJedis = null;
         try {
             jedisPoolUtils = new JedisPoolUtils();
             pool = jedisPoolUtils.getJedisPool();
             jedis = pool.getResource();
+            bloomJedis = pool.getResource();
+            bloomJedis.select(1);
 
             byte [] byte_crawlData = jedis.hget(("webmagicCrawler::ToCrawl::" + tid).getBytes(), page.getRequest().getUrl().getBytes());
             CrawlData page_crawlData = null;
@@ -83,12 +86,12 @@ public class CustomPageProcessor implements PageProcessor {
             List<CrawlData> nextCrawlData = new ArrayList<>();
             List<CrawlData> crawledData = new ArrayList<>();
 
-            BloomFilter bloomFilter = new BloomFilter(jedis, 1000, 0.001f, (int) Math.pow(2, 31));
+            BloomFilter bloomFilter = new BloomFilter(bloomJedis, 1000, 0.001f, (int) Math.pow(2, 31));
             for (CrawlData crawlData : perPageCrawlDateList) {
                 if(crawlData.getDepthfromSeed() <= DEPTH)    {
                     if (!crawlData.isFetched()) {
                         //链接fetched为false,即导航页,bloomFilter判断待爬取队列没有记录
-                        boolean isNew = RedisBloomFilter.notExistInBloomHash(crawlData.getUrl(), tid, jedis, bloomFilter);
+                        boolean isNew = RedisBloomFilter.notExistInBloomHash(crawlData.getUrl(), tid, bloomJedis, bloomFilter);
                         if (isNew && URLFilter.linkFilter(crawlData.getUrl()) && URLFilter.matchDomain(crawlData.getUrl(), domain)) {
                             nextCrawlData.add(crawlData);
                             page.addTargetRequest(crawlData.getUrl());
@@ -112,6 +115,7 @@ public class CustomPageProcessor implements PageProcessor {
             e.printStackTrace();
         } finally {
             pool.returnResource(jedis);
+            pool.returnResource(bloomJedis);
         }
     }
 

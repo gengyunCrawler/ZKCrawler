@@ -46,9 +46,11 @@ public class CMSHbasePipeline implements Pipeline{
         conf = HBaseConfiguration.create();
         try {
             HTable table = new HTable(conf,TABLE_NAME);
-            Put put = new Put(Bytes.toBytes(generateRowKey(taskId)));
+            String rowKey = generateRowKey(taskId);
+            Put put = new Put(Bytes.toBytes(rowKey));
             //Hbase Put value 不能为null,加逗号表达式进行null和空字符串处理
             int status = crawlData.getStatusCode();
+            put.add(Bytes.toBytes("crawlerData"),Bytes.toBytes("docId"),Bytes.toBytes(rowKey));
             put.add(Bytes.toBytes("crawlerData"),Bytes.toBytes("tid"),Bytes.toBytes(crawlData.getTid()==null?"":crawlData.getTid()));
             put.add(Bytes.toBytes("crawlerData"),Bytes.toBytes("url"),Bytes.toBytes(crawlData.getUrl() ==null?"":crawlData.getUrl()));
             put.add(Bytes.toBytes("crawlerData"),Bytes.toBytes("statusCode"),Bytes.toBytes(crawlData.getStatusCode()));

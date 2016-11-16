@@ -44,22 +44,31 @@ public class CrawlerWorkflowManager {
         JedisPoolUtils jedisPoolUtils = new JedisPoolUtils();
         JedisPool pool = jedisPoolUtils.getJedisPool();
         Jedis jedis = pool.getResource();
+        Jedis bloomJedis = pool.getResource();
+        bloomJedis.select(1);
         domain = GetDomain.getDomain(seeds.get(0).getUrl());
 
         LOG.info("****************************==>> task started, domain:  " + domain + ", taskId: " + tid);
         try {
             nextQueue.putNextUrls(seeds, jedis, tid);
+
+            //初始化布隆过滤HASH表
+            BloomFilter bloomFilter = new BloomFilter(bloomJedis, 1000, 0.001f, (int) Math.pow(2, 31));
+            boolean exists  = jedis.exists("redis:bloomfilter:" + tid);
+            //判断redis是否有布隆过滤表
+            if (exists) {
+                // do nothing
+            }else  {
+                for (CrawlData seed : seeds) {
+                    bloomFilter.add("redis:bloomfilter:" + tid, seed.getUrl());
+                }
+            }
+            //初始化webMagic的Spider程序
+            initSpider(seeds, domain);
         } finally {
             pool.returnResource(jedis);
+            pool.returnResource(bloomJedis);
         }
-
-        //初始化布隆过滤HASH表
-        BloomFilter bloomFilter = new BloomFilter(jedis, 1000, 0.001f, (int) Math.pow(2, 31));
-        for (CrawlData seed : seeds) {
-            bloomFilter.add("redis:bloomfilter:" + tid, seed.getUrl());
-        }
-        //初始化webMagic的Spider程序
-        initSpider(seeds, domain);
     }
 
     protected void initSpider(List<CrawlData> seeds, String domain) {
@@ -82,12 +91,12 @@ public class CrawlerWorkflowManager {
                 //从seed开始抓
 
                 .addUrl(urlArray)
-//                .addPipeline(new MysqlPipeline())
-                  .addPipeline(new HDFSPipeline("/user/root/icp"))
+                .addPipeline(new MysqlPipeline())
+//                  .addPipeline(new HDFSPipeline("/user/root/icp"))
 //                .addPipeline(new EsPipeline())
 //                .addPipeline(new HbaseEsPipeline())
 //                .addPipeline(new HbasePipeline())
-            .addPipeline(new CMSHbasePipeline())
+//            .addPipeline(new CMSHbasePipeline())
                         //开启5个线程抓取
                 .thread(10)
                         //启动爬虫

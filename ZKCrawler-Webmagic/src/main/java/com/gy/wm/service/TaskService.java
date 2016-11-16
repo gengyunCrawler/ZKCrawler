@@ -76,7 +76,6 @@ public class TaskService {
             jedis = pool.getResource();
 
             //结束之后清空对应任务的redis
-            jedis.del(("redis:bloomfilter:" + tid));
             jedis.del("queue_" + tid);
             jedis.del(("webmagicCrawler::ToCrawl::" + tid).getBytes());
             jedis.del(("webmagicCrawler::Crawled::" + tid).getBytes());
