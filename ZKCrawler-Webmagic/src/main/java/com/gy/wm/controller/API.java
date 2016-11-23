@@ -48,14 +48,12 @@ public class API implements Runnable {
         return taskModel.getBase().getId();
     }
 
-
     /**
      * @param taskId
      * @return
      */
     @RequestMapping("/stopTask")
     public String stopTask(@RequestParam("taskId") String taskId) {
-
         return taskId;
     }
 

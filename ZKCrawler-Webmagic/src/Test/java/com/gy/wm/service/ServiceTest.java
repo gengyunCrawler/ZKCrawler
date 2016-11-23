@@ -4,7 +4,9 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.gy.wm.ApplicationWebmagic;
 import com.gy.wm.controller.API;
+import com.gy.wm.dao.CrawlDataDao;
 import com.gy.wm.entry.TaskConfig;
+import com.gy.wm.model.CrawlData;
 import com.gy.wm.vo.Base;
 import com.gy.wm.vo.Param;
 import com.gy.wm.model.TaskParamModel;
@@ -18,6 +20,7 @@ import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -47,6 +50,8 @@ public  class ServiceTest {
     private Base base;
     @Autowired
     private TaskConfigService configService;
+    @Autowired
+    private CrawlDataDao crawlDataDao;
 
     private ExecutorService service = Executors.newFixedThreadPool(5);
 
@@ -55,36 +60,21 @@ public  class ServiceTest {
     }
 
     /**
-     * 创建任务
+     * 启动单条任务
      */
     @Test
     public void testStartTask() {
-//        List<String> templateList = new ArrayList<>();
-//        templateList.add("");
         List<String> seedUrls = new ArrayList<>();
-//
-//        seedUrls.add("http://news.qq.com/newsgn/gdxw/gedixinwen.htm");
-//        seedUrls.add("http://news.qq.com/newsgn/zhxw/shizhengxinwen.htm");
-//        seedUrls.add("http://news.qq.com/newssh/shwx/shehuiwanxiang.htm");
-//        seedUrls.add("http://roll.news.qq.com/#");
-        String id = "ea536889f698e28b3c77679010be5650";
+
+        String id = "0fdb8abcba360a47c3c986858819048d";
         JSONObject object = configService.findByIdTask(id);
 
         seedUrls.addAll(object.keySet());
         param.setSeedUrls(seedUrls);
 
-//        templateList.add(guiyangTemplate);
-//        param.setTemplates(templateList);
-
         base.setId(id);
         base.setDepthCrawl(1);
         base.setTags(object.toJSONString());
-//        Map<String,String> map = new HashMap<>();
-//        map.put("http://www.trs.gov.cn/xwzx/zyzcxx/index.html","中央政策信息");
-//        map.put("http://www.trs.gov.cn/xwzx/zwdsj/index.html","大事记");
-//        base.setTags(JSON.toJSONString(map));
-
-
         taskParamModel.setParam(param);
         taskParamModel.setBase(base);
         System.out.println(api.startTask(taskParamModel));
@@ -95,10 +85,13 @@ public  class ServiceTest {
         }
     }
 
+    /**
+     * 同时启动多条任务
+     */
     @Test
     public void testListTask(){
 
-        List<TaskConfig> configs = configService.findByIdStart(12);
+        List<TaskConfig> configs = configService.findByIdStart(10);
        for (TaskConfig conf:configs){
 
            JSONObject object = JSON.parseObject(conf.getConfValue());
@@ -137,5 +130,21 @@ public  class ServiceTest {
         }
     }
 
+    @Test
+    public void getCrawlDataById() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddhhmmss");
+        CrawlData crawlData = crawlDataDao.findCrawlDataById(182);
+        System.out.println("发布时间：" + (crawlData.getCrawlTime()==null?"":sdf.format(crawlData.getCrawlTime())));
+    }
+
+
+    @Test
+    public void insertCrawlDataTest()   {
+        CrawlData crawlData = new CrawlData();
+        crawlData.setTid("a123412341");
+        crawlData.setUrl("www.test.com");
+        crawlData.setPublishTime(null);
+        crawlDataDao.insertCrawlData(crawlData);
+    }
 
 }
