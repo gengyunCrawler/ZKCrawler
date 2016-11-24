@@ -56,9 +56,9 @@ public class DdpBatchGetService {
 
             /**
              * 若无用户不指定读取数据条数，或者指定错误的
-             * 数据读取条数据，则给默认值 10240.
+             * 数据读取条数据，则给默认值 100.
              */
-            if (size <= 0)
+            if (size <= 0 || size > 100)
                 size = 100;
 
             /**
@@ -270,7 +270,7 @@ public class DdpBatchGetService {
              */
             return batchResult.toJSONString();
 
-        }catch (Exception e){
+        } catch (Exception e) {
 
             LOGGER.error("====>> 服务器错误.");
             e.printStackTrace();
