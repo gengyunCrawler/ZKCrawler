@@ -85,7 +85,7 @@ public class CMSHbasePipeline implements Pipeline{
     }*/
 
     public String generateRowKey(String taskId)    {
-        return taskId+"|"+ sdf.format(new Date())+"|"+ AlphabeticRandom.randomStringOfLength(5);
+        return taskId+"|"+new Date().getTime()+"|"+ AlphabeticRandom.randomStringOfLength(5);
     }
 
 }
