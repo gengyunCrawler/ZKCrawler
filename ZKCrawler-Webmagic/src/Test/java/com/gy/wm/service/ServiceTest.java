@@ -66,7 +66,7 @@ public  class ServiceTest {
     public void testStartTask() {
         List<String> seedUrls = new ArrayList<>();
 
-        String id = "0fdb8abcba360a47c3c986858819048d";
+        String id = "42ba7434a8ec60a0a42801c16be7ad0d";
         JSONObject object = configService.findByIdTask(id);
 
         seedUrls.addAll(object.keySet());
@@ -77,7 +77,8 @@ public  class ServiceTest {
         base.setTags(object.toJSONString());
         taskParamModel.setParam(param);
         taskParamModel.setBase(base);
-        System.out.println(api.startTask(taskParamModel));
+        //启动任务
+        api.startTask(taskParamModel);
         try {
             Thread.sleep(Long.MAX_VALUE);
         } catch (InterruptedException e) {
@@ -110,7 +111,8 @@ public  class ServiceTest {
 
            taskParamModel.setParam(param);
            taskParamModel.setBase(base);
-           System.out.println(api.startTask(taskParamModel));
+           //启动任务
+           api.startTask(taskParamModel);
 
        }
 
