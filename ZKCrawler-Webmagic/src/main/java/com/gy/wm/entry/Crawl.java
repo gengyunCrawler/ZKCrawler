@@ -73,11 +73,8 @@ public class Crawl {
         LOG.info("****************************==>> task finished, domain: " + GetDomain.getDomain(seedList.get(0)) + ", taskId: " + tid);
         long end_time = System.currentTimeMillis();
         LOG.info("time elapse(seconds):" + ((end_time - start_time) / 1000.00));
+
         // 向worker发送任务结束信息
-        HttpUtil.postMethod(nomalEndUri + taskParamModel.getBase().getId());
-        // 如果下载插件式Selenium，需要在程序结束后杀掉webdriver进程
-        String seleniumDownloaderName = "com.gy.wm.downloader.SeleniumDownloader";
-        if (seleniumDownloaderName.equals(DOWNLOAD_PLUGIN_NAME)) {
-        }
+//        HttpUtil.postMethod(nomalEndUri + taskParamModel.getBase().getId());
     }
 }

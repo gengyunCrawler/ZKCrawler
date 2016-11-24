@@ -7,6 +7,7 @@ import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.client.HTable;
 import org.apache.hadoop.hbase.client.Put;
 import org.apache.hadoop.hbase.util.Bytes;
+import org.springframework.beans.factory.annotation.Autowired;
 import us.codecraft.webmagic.ResultItems;
 import us.codecraft.webmagic.Task;
 import us.codecraft.webmagic.pipeline.Pipeline;
@@ -84,6 +85,7 @@ public class CMSHbasePipeline implements Pipeline{
     }*/
 
     public String generateRowKey(String taskId)    {
-        return taskId+"|"+ sdf.format(new Date())+"|"+ AlphabeticRandom.randomStringOfLength(5);
+        return taskId+"|"+new Date().getTime()+"|"+ AlphabeticRandom.randomStringOfLength(5);
     }
+
 }

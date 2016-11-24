@@ -170,9 +170,7 @@ public class ParserConfigTester {
         entity.setId(2);
         entity.setTid("news.qq.com");
         dao.insert(entity);
-
     }
-
 
     @Test
     public void test4Conig() {
