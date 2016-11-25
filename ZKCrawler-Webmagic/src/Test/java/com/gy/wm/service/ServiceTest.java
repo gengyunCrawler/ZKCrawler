@@ -17,6 +17,7 @@ import org.junit.runner.RunWith;
 import org.omg.CORBA.PUBLIC_MEMBER;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
@@ -35,6 +36,7 @@ import java.util.concurrent.Executors;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = ApplicationWebmagic.class)
 @WebAppConfiguration
+
 public  class ServiceTest {
     @Autowired
     private TaskService taskService;
@@ -53,8 +55,6 @@ public  class ServiceTest {
     @Autowired
     private CrawlDataDao crawlDataDao;
 
-    private ExecutorService service = Executors.newFixedThreadPool(5);
-
     @Test
     public void test() throws Exception{
     }
@@ -66,7 +66,7 @@ public  class ServiceTest {
     public void testStartTask() {
         List<String> seedUrls = new ArrayList<>();
 
-        String id = "42ba7434a8ec60a0a42801c16be7ad0d";
+        String id = "f79ab981a14c819061818ee40f9473a4";
         JSONObject object = configService.findByIdTask(id);
 
         seedUrls.addAll(object.keySet());
@@ -78,9 +78,11 @@ public  class ServiceTest {
         taskParamModel.setParam(param);
         taskParamModel.setBase(base);
         //启动任务
-        api.startTask(taskParamModel);
+        String reslut = api.startTask(taskParamModel);
+        System.out.println("**************API接口返回任务Id: *****************" + reslut);
+        Thread t = Thread.currentThread();
         try {
-            Thread.sleep(Long.MAX_VALUE);
+            t.join();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

@@ -1,7 +1,7 @@
 package com.gy.wm.dbpipeline.impl;
 
 import com.gy.wm.model.CrawlData;
-import com.gy.wm.model.CrawlDataMapper;
+import com.gy.wm.mapper.CrawlDataMapper;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
