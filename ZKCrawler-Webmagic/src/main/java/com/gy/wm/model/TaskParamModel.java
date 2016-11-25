@@ -23,6 +23,7 @@ public class TaskParamModel {
         this.param = param;
     }
 
+
     public Base getBase() {
         return base;
     }

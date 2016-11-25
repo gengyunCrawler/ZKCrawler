@@ -17,6 +17,8 @@ import org.junit.runner.RunWith;
 import org.omg.CORBA.PUBLIC_MEMBER;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.core.task.SimpleAsyncTaskExecutor;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
@@ -35,6 +37,7 @@ import java.util.concurrent.Executors;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = ApplicationWebmagic.class)
 @WebAppConfiguration
+
 public  class ServiceTest {
     @Autowired
     private TaskService taskService;
@@ -53,8 +56,6 @@ public  class ServiceTest {
     @Autowired
     private CrawlDataDao crawlDataDao;
 
-    private ExecutorService service = Executors.newFixedThreadPool(5);
-
     @Test
     public void test() throws Exception{
     }
@@ -67,6 +68,7 @@ public  class ServiceTest {
         List<String> seedUrls = new ArrayList<>();
 
         String id = "3aea29c139050f23e8b01601997887a1";
+
         JSONObject object = configService.findByIdTask(id);
 
         seedUrls.addAll(object.keySet());
@@ -74,16 +76,12 @@ public  class ServiceTest {
 
         base.setId(id);
         base.setDepthCrawl(1);
-        base.setTags(object.toJSONString());
+
         taskParamModel.setParam(param);
         taskParamModel.setBase(base);
         //启动任务
-        api.startTask(taskParamModel);
-        try {
-            Thread.sleep(Long.MAX_VALUE);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        String reslut = api.startTask(taskParamModel);
+        System.out.println("**************API接口返回任务Id: *****************" + reslut);
     }
 
     /**
@@ -149,4 +147,8 @@ public  class ServiceTest {
         crawlDataDao.insertCrawlData(crawlData);
     }
 
+    @Test
+    public void testThread()    {
+        System.out.println(Thread.currentThread().getName());
+    }
 }

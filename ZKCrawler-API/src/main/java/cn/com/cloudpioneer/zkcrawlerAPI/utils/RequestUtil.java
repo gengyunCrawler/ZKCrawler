@@ -45,19 +45,19 @@ public class RequestUtil {
     public static void main(String[] args) {
 
         //String url = "http://118.118.118.201:10080/api/batchHbaseDataGeter";
-        String url = "http://localhost:10080/api/batchHbaseDataGeter";
+        /*String url = "http://localhost:10080/api/batchHbaseDataGeter";
 
         Map<String,String> params = new HashMap<>();
         params.put("nextSign","0");
         params.put("size","1");
 
         String result = postMethod(url,params);
-        System.out.println("post返回结果：\n" + result);
+        System.out.println("post返回结果：\n" + result);*/
 
-        /*String url = "http://localhost:10080/api/getHbaseData";
+        String url = "http://localhost:10080/api/getHbaseData";
     Map<String,String> params = new HashMap<>();
-        params.put("taskId","42ba7434a8ec60a0a42801c16be7ad0d");
-        params.put("startRow","42ba7434a8ec60a0a42801c16be7ad0d|");
+        params.put("taskId","0ec153c8c4dae69ae48420426f3750f6");
+        params.put("startRow","0ec153c8c4dae69ae48420426f3750f6|");
         params.put("size","1");
 
     String result = postMethod(url,params);
@@ -66,7 +66,7 @@ public class RequestUtil {
         System.out.println("post返回结果"+ result);
     } catch (InterruptedException e) {
         e.printStackTrace();
-    }*/
+    }
 }
 
 }

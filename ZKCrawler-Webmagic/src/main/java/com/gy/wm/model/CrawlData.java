@@ -28,7 +28,7 @@ public class CrawlData implements Serializable {
     private String title;
     private String startTime;
     private Date crawlTime;
-    private Date publishTime;
+    private String publishTime;
     private long depthfromSeed;//层数
     private long count;
     private String tag;//爬虫带的原始标签，比如地域area
@@ -86,7 +86,7 @@ public class CrawlData implements Serializable {
     public CrawlData() {}
 
     public CrawlData(String url, int statusCode, int pass, String type, String rootUrl, String fromUrl, String text, String html, String title,
-                     String startTime, Date crawlTime, Date publishTime, long depthfromSeed, String tag, long count, boolean fetched, String author, String sourceName)  {
+                     String startTime, Date crawlTime, String publishTime, long depthfromSeed, String tag, long count, boolean fetched, String author, String sourceName)  {
         this.url = url;
         this.statusCode = statusCode;
         this.pass = pass;
@@ -203,11 +203,11 @@ public class CrawlData implements Serializable {
         this.crawlTime = crawlTime;
     }
 
-    public Date getPublishTime() {
+    public String getPublishTime() {
         return publishTime;
     }
 
-    public void setPublishTime(Date publishTime) {
+    public void setPublishTime(String publishTime) {
         this.publishTime = publishTime;
     }
 
