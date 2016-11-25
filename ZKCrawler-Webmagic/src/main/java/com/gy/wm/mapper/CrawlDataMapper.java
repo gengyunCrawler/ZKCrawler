@@ -1,5 +1,6 @@
-package com.gy.wm.model;
+package com.gy.wm.mapper;
 
+import com.gy.wm.model.CrawlData;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 

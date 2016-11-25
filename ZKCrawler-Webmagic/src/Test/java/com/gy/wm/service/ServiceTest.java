@@ -66,7 +66,7 @@ public  class ServiceTest {
     public void testStartTask() {
         List<String> seedUrls = new ArrayList<>();
 
-        String id = "42ba7434a8ec60a0a42801c16be7ad0d";
+        String id = "3aea29c139050f23e8b01601997887a1";
         JSONObject object = configService.findByIdTask(id);
 
         seedUrls.addAll(object.keySet());
@@ -79,18 +79,18 @@ public  class ServiceTest {
         taskParamModel.setBase(base);
         //启动任务
         api.startTask(taskParamModel);
-        try {
+        /*try {
             Thread.sleep(Long.MAX_VALUE);
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
     /**
      * 同时启动多条任务
      */
     @Test
-    public void testListTask(){
+        public void testListTask(){
 
         List<TaskConfig> configs = configService.findByIdStart(10);
        for (TaskConfig conf:configs){

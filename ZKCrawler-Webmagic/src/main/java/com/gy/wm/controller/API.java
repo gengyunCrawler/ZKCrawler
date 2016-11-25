@@ -38,13 +38,6 @@ public class API implements Runnable {
     @RequestMapping(value = "/startTask", method = RequestMethod.POST, produces = {MediaType.APPLICATION_JSON_VALUE})
     public /*String*/ void startTask(@RequestBody TaskParamModel taskParamModel) {
         final TaskParamModel taskModel = taskParamModel;
-        /*TaskService.taskExecutor(new Runnable() {
-            @Override
-            public void run() {
-                LOGGER.info("==++==> starting task. taskId: " + taskModel.getBase().getId());
-                API.this.taskService.startTask(taskModel);
-            }
-        });*/
         API.this.taskService.startTask(taskModel);
 
 //        return taskModel.getBase().getId();
