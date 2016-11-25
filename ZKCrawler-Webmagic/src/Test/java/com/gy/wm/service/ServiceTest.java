@@ -79,11 +79,11 @@ public  class ServiceTest {
         taskParamModel.setBase(base);
         //启动任务
         api.startTask(taskParamModel);
-        /*try {
+        try {
             Thread.sleep(Long.MAX_VALUE);
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }*/
+        }
     }
 
     /**
