@@ -17,6 +17,7 @@ import org.junit.runner.RunWith;
 import org.omg.CORBA.PUBLIC_MEMBER;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.core.task.SimpleAsyncTaskExecutor;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
@@ -66,7 +67,7 @@ public  class ServiceTest {
     public void testStartTask() {
         List<String> seedUrls = new ArrayList<>();
 
-        String id = "f79ab981a14c819061818ee40f9473a4";
+        String id = "ee6ea2c2cefb7229b95ac869ae6b0c15";
         JSONObject object = configService.findByIdTask(id);
 
         seedUrls.addAll(object.keySet());
@@ -74,18 +75,12 @@ public  class ServiceTest {
 
         base.setId(id);
         base.setDepthCrawl(1);
-        base.setTags(object.toJSONString());
+
         taskParamModel.setParam(param);
         taskParamModel.setBase(base);
         //启动任务
         String reslut = api.startTask(taskParamModel);
         System.out.println("**************API接口返回任务Id: *****************" + reslut);
-        Thread t = Thread.currentThread();
-        try {
-            t.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 
     /**
@@ -151,4 +146,8 @@ public  class ServiceTest {
         crawlDataDao.insertCrawlData(crawlData);
     }
 
+    @Test
+    public void testThread()    {
+        System.out.println(Thread.currentThread().getName());
+    }
 }

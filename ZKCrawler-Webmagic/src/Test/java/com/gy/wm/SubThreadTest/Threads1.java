@@ -15,11 +15,11 @@ public class Threads1 {
         mainThreadOtherWork();
         System.out.println("now waiting sub thread done.");
         //主线程其他工作完毕,等待子线程的结束, 调用join系列的方法即可(可以设置超时时间)
-        try {
+        /*try {
             thread.join();
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }
+        }*/
         System.out.println("now all done.");
     }
 

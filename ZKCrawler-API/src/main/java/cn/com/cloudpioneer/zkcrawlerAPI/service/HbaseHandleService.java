@@ -217,12 +217,12 @@ public class HbaseHandleService {
                 crawlData.setTitle(title);
                 crawlData.setStartTime(startTime);
                 try {
-                    crawlData.setCrawlTime(new Date(new SimpleDateFormat("yyyy-MM-dd HH:ss:mm").parse(crawlTime).getTime()));
+                    crawlData.setCrawlTime(new Date(new SimpleDateFormat("yyyyMMddhhmmss").parse(crawlTime).getTime()));
                 } catch (ParseException e) {
                     crawlData.setCrawlTime(null);
                 }
                 try {
-                    crawlData.setPublishTime(new Date(new SimpleDateFormat("yyyy-MM-dd HH:ss:mm").parse(publishTime).getTime()));
+                    crawlData.setPublishTime(new Date(new SimpleDateFormat("yyyyMMddhhmmss").parse(publishTime).getTime()));
                 } catch (ParseException e) {
                     crawlData.setPublishTime(null);
                 }
