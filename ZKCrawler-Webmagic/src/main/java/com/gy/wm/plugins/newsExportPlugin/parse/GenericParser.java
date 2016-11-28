@@ -118,13 +118,19 @@ public class GenericParser implements PageParser {
                 }
 
                 if (htmlField.isContainsHtml()==false){
-                    Html fieldHtml = new Html(fieldValue);
-                    List<String> fieldValues = fieldHtml.xpath("//*/text()").all();
-                    StringBuffer buffer = new StringBuffer();
-                    for (String value:fieldValues){
-                        buffer.append(value);
+                    //apply to duocai_export,set boolean true to attribute "isContainsHtml" of "content"
+                    if(htmlField.getFieldName().equals("content"))    {
+                        fieldValue=byXpaths(html,htmlField.getXpaths());
+                    } else  {
+
+                        Html fieldHtml = new Html(fieldValue);
+                        List<String> fieldValues = fieldHtml.xpath("//*/text()").all();
+                        StringBuffer buffer = new StringBuffer();
+                        for (String value:fieldValues){
+                            buffer.append(value);
+                        }
+                        fieldValue=buffer.toString();
                     }
-                    fieldValue=buffer.toString();
 
                 }
                 //remove elements that is needn't

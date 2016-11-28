@@ -67,7 +67,7 @@ public  class ServiceTest {
     public void testStartTask() {
         List<String> seedUrls = new ArrayList<>();
 
-        String id = "3aea29c139050f23e8b01601997887a1";
+        String id = "019c531802d4200e52586dc01677cd64";
 
         JSONObject object = configService.findByIdTask(id);
 
@@ -76,12 +76,18 @@ public  class ServiceTest {
 
         base.setId(id);
         base.setDepthCrawl(1);
+        base.setTags(object.toJSONString());
 
         taskParamModel.setParam(param);
         taskParamModel.setBase(base);
         //启动任务
         String reslut = api.startTask(taskParamModel);
         System.out.println("**************API接口返回任务Id: *****************" + reslut);
+        try {
+            Thread.sleep(Long.MAX_VALUE);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
