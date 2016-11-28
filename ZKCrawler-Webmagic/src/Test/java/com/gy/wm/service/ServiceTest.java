@@ -67,8 +67,7 @@ public  class ServiceTest {
     public void testStartTask() {
         List<String> seedUrls = new ArrayList<>();
 
-        String id = "3aea29c139050f23e8b01601997887a1";
-
+        String id = "21236056e8a995b6f95c675a7d7aa44f";
         JSONObject object = configService.findByIdTask(id);
 
         seedUrls.addAll(object.keySet());
@@ -76,12 +75,17 @@ public  class ServiceTest {
 
         base.setId(id);
         base.setDepthCrawl(1);
-
+        base.setTags(object.toJSONString());
         taskParamModel.setParam(param);
         taskParamModel.setBase(base);
         //启动任务
         String reslut = api.startTask(taskParamModel);
-        System.out.println("**************API接口返回任务Id: *****************" + reslut);
+        Thread thread = Thread.currentThread();
+        try {
+            thread.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -102,7 +106,6 @@ public  class ServiceTest {
            seedUrls.addAll(object.keySet());
            param.setSeedUrls(seedUrls);
 
-
            base.setId(id);
            base.setDepthCrawl(1);
            base.setTags(object.toJSONString());
@@ -111,7 +114,6 @@ public  class ServiceTest {
            taskParamModel.setBase(base);
            //启动任务
            api.startTask(taskParamModel);
-
        }
 
         try {

@@ -11,7 +11,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
  * @Version: 2016-09-08
  **/
 @SpringBootApplication
-@EnableAsync(proxyTargetClass = true)
+@EnableAsync
 public class ApplicationWebmagic {
     public static void main(String[] args) {
         SpringApplication.run(ApplicationWebmagic.class,args);

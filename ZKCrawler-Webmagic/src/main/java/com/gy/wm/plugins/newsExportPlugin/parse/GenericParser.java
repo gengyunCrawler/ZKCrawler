@@ -91,8 +91,6 @@ public class GenericParser implements PageParser {
      */
     private CrawlData parseData(Html html, CrawlData crawlData, List<HtmlField> htmlFields) {
 
-
-
         crawlData.setTid(crawlData.getTid());
 
         crawlData.setHtml(html.toString());
@@ -117,15 +115,20 @@ public class GenericParser implements PageParser {
                     fieldValue= imgUrlPrefix(fieldValue,imgSrcs,domain);
                 }
 
-                if (htmlField.isContainsHtml()==false){
-                    Html fieldHtml = new Html(fieldValue);
-                    List<String> fieldValues = fieldHtml.xpath("//*/text()").all();
-                    StringBuffer buffer = new StringBuffer();
-                    for (String value:fieldValues){
-                        buffer.append(value);
-                    }
-                    fieldValue=buffer.toString();
+                if (htmlField.isContainsHtml()==false ){
 
+                    //for the export of duocai ,set boolean true for "isContentHtml" attribute
+                    if(htmlField.getFieldName().equals("content"))  {
+                        fieldValue=byXpaths(html,htmlField.getXpaths());
+                    }else   {
+                        Html fieldHtml = new Html(fieldValue);
+                        List<String> fieldValues = fieldHtml.xpath("//*/text()").all();
+                        StringBuffer buffer = new StringBuffer();
+                        for (String value:fieldValues){
+                            buffer.append(value);
+                        }
+                        fieldValue=buffer.toString();
+                    }
                 }
                 //remove elements that is needn't
                 List<String> excludesXpaths=htmlField.getExcludeXpaths();
