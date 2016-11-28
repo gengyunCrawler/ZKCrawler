@@ -76,6 +76,7 @@ public  class ServiceTest {
         base.setId(id);
         base.setDepthCrawl(1);
         base.setTags(object.toJSONString());
+
         taskParamModel.setParam(param);
         taskParamModel.setBase(base);
         //启动任务
