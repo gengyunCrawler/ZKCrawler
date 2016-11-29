@@ -221,11 +221,7 @@ public class HbaseHandleService {
                 } catch (ParseException e) {
                     crawlData.setCrawlTime(null);
                 }
-                try {
-                    crawlData.setPublishTime(new Date(new SimpleDateFormat("yyyyMMddhhmmss").parse(publishTime).getTime()));
-                } catch (ParseException e) {
-                    crawlData.setPublishTime(null);
-                }
+                crawlData.setPublishTime(publishTime);
                 crawlData.setDepthfromSeed(depthfromSeed);
                 crawlData.setCount(count);
                 crawlData.setTag(tag);
