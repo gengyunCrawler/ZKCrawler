@@ -7,25 +7,19 @@ import com.gy.wm.controller.API;
 import com.gy.wm.dao.CrawlDataDao;
 import com.gy.wm.entry.TaskConfig;
 import com.gy.wm.model.CrawlData;
+import com.gy.wm.model.TaskParamModel;
 import com.gy.wm.vo.Base;
 import com.gy.wm.vo.Param;
-import com.gy.wm.model.TaskParamModel;
-import com.gy.wm.service.CustomPageProcessor;
-import com.gy.wm.service.TaskService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.omg.CORBA.PUBLIC_MEMBER;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
-import org.springframework.core.task.SimpleAsyncTaskExecutor;
-import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
 import java.text.SimpleDateFormat;
-import java.util.*;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <类详细说明：单元测试>
@@ -67,7 +61,7 @@ public  class ServiceTest {
     public void testStartTask() {
         List<String> seedUrls = new ArrayList<>();
 
-        String id = "019c531802d4200e52586dc01677cd64";
+        String id = "21236056e8a995b6f95c675a7d7aa44f";
 
         JSONObject object = configService.findByIdTask(id);
 
