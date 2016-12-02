@@ -48,17 +48,17 @@ public class RequestUtil {
         /*String url = "http://localhost:10080/api/batchHbaseDataGeter";
 
         Map<String,String> params = new HashMap<>();
-        params.put("nextSign","0");
+        params.put("nextSign","abd704904d-1480490553455-9c5253dc09");
         params.put("size","1");
 
         String result = postMethod(url,params);
         System.out.println("post返回结果：\n" + result);*/
 
         String url = "http://localhost:10080/api/getHbaseData";
-    Map<String,String> params = new HashMap<>();
-        params.put("taskId","0ec153c8c4dae69ae48420426f3750f6");
-        params.put("startRow","0ec153c8c4dae69ae48420426f3750f6|");
-        params.put("size","1");
+        Map<String,String> params = new HashMap<>();
+        params.put("taskId","0fdb8abcba360a47c3c986858819048d");
+        params.put("startRow","0fdb8abcba360a47c3c986858819048d|");
+        params.put("size","50");
 
     String result = postMethod(url,params);
         try {

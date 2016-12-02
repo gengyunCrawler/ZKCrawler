@@ -34,7 +34,6 @@ public class CMSHbasePipeline implements Pipeline{
         CrawlData crawlerData = resultItems.get("crawlerData");
 
         if(crawlerData != null) {
-
             putRecord(crawlerData,crawlerData.getTid());
         }
     }

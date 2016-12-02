@@ -4,10 +4,13 @@ import com.alibaba.fastjson.JSONObject;
 import com.gy.wm.dao.ParserDao;
 import com.gy.wm.model.CrawlData;
 import com.gy.wm.service.PageParser;
+import com.gy.wm.util.AlphabeticRandom;
 import us.codecraft.webmagic.selector.Html;
 import us.codecraft.webmagic.selector.Selectable;
 import us.codecraft.webmagic.selector.SmartContentSelector;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -91,6 +94,9 @@ public class GenericParser implements PageParser {
      */
     private CrawlData parseData(Html html, CrawlData crawlData, List<HtmlField> htmlFields) {
 
+        /*String docId = generateRowKey(crawlData.getTid());
+        //设置文章
+        crawlData.setDocId(docId);*/
         crawlData.setTid(crawlData.getTid());
 
         crawlData.setHtml(html.toString());
@@ -116,7 +122,6 @@ public class GenericParser implements PageParser {
                 }
 
                 if (htmlField.isContainsHtml()==false ){
-
                     //for the export of duocai ,set boolean true for "isContentHtml" attribute
                     if(htmlField.getFieldName().equals("content"))  {
                         fieldValue=byXpaths(html,htmlField.getXpaths());
@@ -157,6 +162,7 @@ public class GenericParser implements PageParser {
 
         crawlData.setCrawlerdata(fieldMap);
 
+        //对html中img标签的处理，下载图片
         return crawlData;
     }
 
@@ -271,4 +277,7 @@ public class GenericParser implements PageParser {
         return urls;
     }
 
+    public String generateRowKey(String taskId)    {
+        return taskId+"|"+new Date().getTime()+"|"+ AlphabeticRandom.randomStringOfLength(5);
+    }
 }
