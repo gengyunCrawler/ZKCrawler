@@ -8,6 +8,7 @@ import com.gy.wm.model.CrawlData;
 import com.gy.wm.service.PageParser;
 import com.gy.wm.util.AlphabeticRandom;
 import com.gy.wm.util.JedisPoolUtils;
+import com.gy.wm.util.MD5;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import us.codecraft.webmagic.selector.Html;
@@ -28,17 +29,17 @@ import java.util.regex.Pattern;
  */
 public class GenericParser implements PageParser {
     private ParserConfig config = null;
-    private ParserDao parserDao = new ParserDao();
-    private List<String> contentLinkRegexs = new ArrayList<>();
-    private List<String> columnRegexs = new ArrayList<>();
-    private PropertyResourceBundle properties = (PropertyResourceBundle) PropertyResourceBundle.getBundle("config");
+    private final ParserDao parserDao = new ParserDao();
+    private final List<String> contentLinkRegexs = new ArrayList<>();
+    private final List<String> columnRegexs = new ArrayList<>();
+    private final String ALI_OSS_URL = PropertyResourceBundle.getBundle("config").getString("ALI_OSS_URL");
 
 
 
     @Override
     public List<CrawlData> parse(CrawlData crawlData) {
         List<CrawlData> crawlDatas = new ArrayList<>();
-        //obtain crawler config from MySQL ,one task one config(json),so for a task ,it just accesses database once
+        //obtain crawler config from MySQL,one task one config(json),so for a task ,it just accesses database once
         if (config == null) {
             ParserEntity entity = parserDao.find(crawlData.getTid());
             if (entity == null) {
@@ -117,7 +118,7 @@ public class GenericParser implements PageParser {
             String fieldValue=byXpaths(html,htmlField.getXpaths());
 
             if (fieldValue!=null){
-
+                //deal img label
                 if (fieldValue.contains("<img")){
                     Html newContentHtml=new Html(fieldValue);
 
@@ -127,10 +128,10 @@ public class GenericParser implements PageParser {
                     domain=arr[0]+"//"+arr[2];
                     int end = crawlData.getUrl().lastIndexOf("/");
                     String preUrl = crawlData.getUrl().substring(0,end+1);
-                    String aliOSSUrl = properties.getString("ALI_OSS_URL");
                     //fix imag url
                     fieldValue = imgUrlPrefix(fieldValue,domain,preUrl,imgSrcs);
-                    fieldValue =  imgDealWithRedis(aliOSSUrl,fieldValue,crawlData);
+                    //put img src to redis for download img
+                    fieldValue =  imgDealWithRedis(fieldValue,crawlData);
                 }
 
                 if (htmlField.isContainsHtml()==false ){
@@ -171,8 +172,6 @@ public class GenericParser implements PageParser {
         }
 
         crawlData.setCrawlerdata(fieldMap);
-
-        //对html中img标签的处理，下载图片
 
         return crawlData;
     }
@@ -258,12 +257,12 @@ public class GenericParser implements PageParser {
         return contentHtml;
     }
 
-    public String imgDealWithRedis(String ossUrl,String content,CrawlData crawlData){
+    public String imgDealWithRedis(String content,CrawlData crawlData){
         Html html = new Html(content);
         List<String> imgSrcs=html.xpath("//img/@src").all();
         imgConvert(crawlData.getTid(), crawlData.getUrl(), imgSrcs);
         for (String url:imgSrcs){
-           content = replaceWithOSS(content,url,ossUrl);
+           content = replaceWithOSS(content,url,ALI_OSS_URL,crawlData.getTid());
         }
 
        return  content;
@@ -297,6 +296,9 @@ public class GenericParser implements PageParser {
         //2. url start with '../../........'
         Preconditions.checkNotNull(domain,"preffix couldn't be null");
         Preconditions.checkNotNull(url,"url couldn't be null");
+        if (url.equals("")){
+            return "";
+        }
         if (url.startsWith("http")){
             return url;
         }
@@ -313,19 +315,22 @@ public class GenericParser implements PageParser {
 
 
     /**
-     * replace the orgUrl with ossUrl for img lable
+     * replace the orgUrl with ossUrl for img label
      * @param content
      * @param orgUrl
      * @param ossUrl
      * @return
      */
-    private String replaceWithOSS(String content,String orgUrl,String ossUrl){
+    private String replaceWithOSS(String content,String orgUrl,String ossUrl,String taskId){
         String domain="";
         String []arr= orgUrl.split("/");
         if (arr.length>2){
             domain=arr[0]+"//"+arr[2];
-           String url = ossUrl+"/"+ orgUrl.replace(domain,"");
-            content.replace(orgUrl,url);
+            int start = orgUrl.lastIndexOf(".");
+            String suffixName = orgUrl.substring(start,orgUrl.length());
+
+           String url = ossUrl+"/"+taskId+"/"+ MD5.generateMD5(orgUrl)+suffixName;
+          content =  content.replace(orgUrl,url);
         }
 
        return content;
@@ -349,7 +354,7 @@ public class GenericParser implements PageParser {
         JedisPool pool = jedisPoolUtils.getJedisPool();
         Jedis jedis = pool.getResource();
         Jedis imgJedis = pool.getResource();
-        imgJedis.select(1);
+        imgJedis.select(2);
 
         //redis中存储被替换的img的src地址的list srcurls
 

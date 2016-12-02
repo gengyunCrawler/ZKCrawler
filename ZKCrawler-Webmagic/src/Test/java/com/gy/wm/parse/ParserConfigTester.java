@@ -231,4 +231,12 @@ public class ParserConfigTester {
         String sub = url.substring(0,end+1);
         System.out.println(sub);
     }
+
+    @Test
+    public void testGainLast(){
+        String  src = "wwwwwwwwwwwwadsdfdf.jpg";
+       int a = src.lastIndexOf(".");
+        String result = src.substring(a,src.length());
+        System.out.println(result);
+    }
 }
