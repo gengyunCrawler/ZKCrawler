@@ -130,6 +130,7 @@ public class GenericParser implements PageParser {
                     String aliOSSUrl = properties.getString("ALI_OSS_URL");
                     //fix imag url
                     fieldValue = imgUrlPrefix(fieldValue,domain,preUrl,imgSrcs);
+                    imgDealWithRedis(aliOSSUrl,fieldValue,crawlData);
                 }
 
                 if (htmlField.isContainsHtml()==false ){
@@ -172,7 +173,7 @@ public class GenericParser implements PageParser {
         crawlData.setCrawlerdata(fieldMap);
 
         //对html中img标签的处理，下载图片
-        imgConvert(crawlData.getTid(), crawlData.getUrl(), html.toString());
+
         return crawlData;
     }
 
@@ -257,12 +258,14 @@ public class GenericParser implements PageParser {
         return contentHtml;
     }
 
-    public String imgDealWithRedis(String ossUrl,String content){
+    public String imgDealWithRedis(String ossUrl,String content,CrawlData crawlData){
         Html html = new Html(content);
         List<String> imgSrcs=html.xpath("//img/@src").all();
+        imgConvert(crawlData.getTid(), crawlData.getUrl(), imgSrcs);
         for (String url:imgSrcs){
            content = replaceWithOSS(content,url,ossUrl);
         }
+
        return  content;
     }
 
@@ -336,7 +339,7 @@ public class GenericParser implements PageParser {
      转换img的src属性，如果是绝对地址的话，直接使用
      *否则，通过规则把相对地址转换成绝对地址
      */
-    public void imgConvert(String taskId, String url, String html)   {
+    public void imgConvert(String taskId, String url, List<String> srcList)   {
         JedisPoolUtils jedisPoolUtils = null;
         try {
             jedisPoolUtils = new JedisPoolUtils();
@@ -350,7 +353,7 @@ public class GenericParser implements PageParser {
 
         //redis中存储被替换的img的src地址的list srcurls
 
-        List<String> srcList = new ArrayList<>();
+      //  List<String> srcList = new ArrayList<>();
         String srcurls = JSON.toJSONString(srcList);
 
         imgJedis.hset("ImgSrcOf:"+taskId, url, srcurls);
