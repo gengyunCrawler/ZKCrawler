@@ -1,6 +1,7 @@
 package com.gy.wm.plugins.newsExportPlugin.parse;
 
 import com.alibaba.fastjson.JSONObject;
+import com.google.common.base.Preconditions;
 import com.gy.wm.dao.ParserDao;
 import com.gy.wm.model.CrawlData;
 import com.gy.wm.service.PageParser;
@@ -25,7 +26,7 @@ public class GenericParser implements PageParser {
     private ParserDao parserDao = new ParserDao();
     private List<String> contentLinkRegexs = new ArrayList<>();
     private List<String> columnRegexs = new ArrayList<>();
-    private  Pattern pattern=Pattern.compile("(\\w+.*://\\w+.*)/(\\w+.*)");
+    private PropertyResourceBundle properties = (PropertyResourceBundle) PropertyResourceBundle.getBundle("config");
 
     @Override
     public List<CrawlData> parse(CrawlData crawlData) {
@@ -59,7 +60,6 @@ public class GenericParser implements PageParser {
             String domain="";
             String []arr= crawlData.getRootUrl().split("/");
             domain=arr[0]+"//"+arr[2];
-            urls=hrefPrifix(urls,domain);
             for (String url : urls) {
                 if (isContentHtml(url)) {
                     CrawlData data = new CrawlData();
@@ -118,13 +118,17 @@ public class GenericParser implements PageParser {
                     String domain="";
                     String []arr= crawlData.getRootUrl().split("/");
                     domain=arr[0]+"//"+arr[2];
-                    fieldValue= imgUrlPrefix(fieldValue,imgSrcs,domain);
+                    int end = crawlData.getUrl().lastIndexOf("/");
+                    String preUrl = crawlData.getUrl().substring(0,end+1);
+                    String aliOSSUrl = properties.getString("ALI_OSS_URL");
+                    //fix imag url
+                    fieldValue = imgUrlPrefix(fieldValue,domain,preUrl,imgSrcs);
                 }
 
                 if (htmlField.isContainsHtml()==false ){
                     //for the export of duocai ,set boolean true for "isContentHtml" attribute
                     if(htmlField.getFieldName().equals("content"))  {
-                        fieldValue=byXpaths(html,htmlField.getXpaths());
+                     //   fieldValue=byXpaths(html,htmlField.getXpaths());
                     }else   {
                         Html fieldHtml = new Html(fieldValue);
                         List<String> fieldValues = fieldHtml.xpath("//*/text()").all();
@@ -247,34 +251,75 @@ public class GenericParser implements PageParser {
         return contentHtml;
     }
 
+    public String imgDealWithRedis(String ossUrl,String content){
+        Html html = new Html(content);
+        List<String> imgSrcs=html.xpath("//img/@src").all();
+        for (String url:imgSrcs){
+           content = replaceWithOSS(content,url,ossUrl);
+        }
+       return  content;
+    }
+
     /**
-     * fix img src--->url missing domain
-     * @param contentHtml
-     * @param imgSrcs
+     *
+     * @param content
      * @param domain
+     * @param preUrl
+     * @param srcs
      * @return
      */
-    private String imgUrlPrefix(String contentHtml,List<String> imgSrcs,String domain){
-        for (String url:imgSrcs){
-            if (url.startsWith("/")){
-                contentHtml= contentHtml.replace(url,domain+url);
-            }
-        }
-        return contentHtml;
+    private String imgUrlPrefix(String content,String domain,String preUrl,List<String> srcs){
+        for (String oldUrl : srcs){
+            String fixedUrl = singleImgUrlPrefix(domain,preUrl,oldUrl);
+             content = content.replace(oldUrl,fixedUrl);
 
+        }
+        return  content;
     }
-    private List<String> hrefPrifix(List<String> urls,String domain){
-        if (urls==null){
-            return null;
+    /**
+     * deal with 3 condition with url missing domain
+     * @param domain
+     * @param url
+     * @Param preUrl
+     * @return
+     */
+    private String singleImgUrlPrefix(String domain,String preUrl,String url){
+        //1. url start with '/'
+        //2. url start with '../../........'
+        Preconditions.checkNotNull(domain,"preffix couldn't be null");
+        Preconditions.checkNotNull(url,"url couldn't be null");
+        if (url.startsWith("http")){
+            return url;
         }
-        for (int i=0;i<urls.size(); i++){
-            String url = urls.get(i);
-            if (!url.startsWith("http")){
-                url=domain + "/" + url;
-                urls.set(i,url);
-            }
+        if (url.startsWith("/")){
+            url = domain + url;
+        }else  if (url.startsWith("../")){
+          url =domain+"/"+url.replace("../","");
+        }else {//not start with http
+            url = preUrl+url;
         }
-        return urls;
+        //3. url start with '' nothing but not with http
+        return  url;
+    }
+
+
+    /**
+     * replace the orgUrl with ossUrl for img lable
+     * @param content
+     * @param orgUrl
+     * @param ossUrl
+     * @return
+     */
+    private String replaceWithOSS(String content,String orgUrl,String ossUrl){
+        String domain="";
+        String []arr= orgUrl.split("/");
+        if (arr.length>2){
+            domain=arr[0]+"//"+arr[2];
+           String url = ossUrl+"/"+ orgUrl.replace(domain,"");
+            content.replace(orgUrl,url);
+        }
+
+       return content;
     }
 
     public String generateRowKey(String taskId)    {
