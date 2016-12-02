@@ -1,15 +1,20 @@
 package com.gy.wm.plugins.newsExportPlugin.parse;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.gy.wm.dao.ParserDao;
 import com.gy.wm.model.CrawlData;
 import com.gy.wm.service.PageParser;
 import com.gy.wm.util.AlphabeticRandom;
+import com.gy.wm.util.JedisPoolUtils;
+import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisPool;
 import us.codecraft.webmagic.selector.Html;
 import us.codecraft.webmagic.selector.Selectable;
 import us.codecraft.webmagic.selector.SmartContentSelector;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 import java.util.regex.Matcher;
@@ -26,6 +31,8 @@ public class GenericParser implements PageParser {
     private List<String> contentLinkRegexs = new ArrayList<>();
     private List<String> columnRegexs = new ArrayList<>();
     private  Pattern pattern=Pattern.compile("(\\w+.*://\\w+.*)/(\\w+.*)");
+
+
 
     @Override
     public List<CrawlData> parse(CrawlData crawlData) {
@@ -94,9 +101,9 @@ public class GenericParser implements PageParser {
      */
     private CrawlData parseData(Html html, CrawlData crawlData, List<HtmlField> htmlFields) {
 
-        /*String docId = generateRowKey(crawlData.getTid());
+        String docId = generateRowKey(crawlData.getTid());
         //设置文章
-        crawlData.setDocId(docId);*/
+        crawlData.setDocId(docId);
         crawlData.setTid(crawlData.getTid());
 
         crawlData.setHtml(html.toString());
@@ -156,13 +163,12 @@ public class GenericParser implements PageParser {
                 crawlData.setAuthor(fieldValue);
             else if (htmlField.getFieldName().equals("sourceName"))
                 crawlData.setSourceName(fieldValue);
-
-
         }
 
         crawlData.setCrawlerdata(fieldMap);
 
         //对html中img标签的处理，下载图片
+        imgConvert(crawlData.getTid(), crawlData.getUrl(), html.toString());
         return crawlData;
     }
 
@@ -279,5 +285,29 @@ public class GenericParser implements PageParser {
 
     public String generateRowKey(String taskId)    {
         return taskId+"|"+new Date().getTime()+"|"+ AlphabeticRandom.randomStringOfLength(5);
+    }
+
+    /**
+     转换img的src属性，如果是绝对地址的话，直接使用
+     *否则，通过规则把相对地址转换成绝对地址
+     */
+    public void imgConvert(String taskId, String url, String html)   {
+        JedisPoolUtils jedisPoolUtils = null;
+        try {
+            jedisPoolUtils = new JedisPoolUtils();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        JedisPool pool = jedisPoolUtils.getJedisPool();
+        Jedis jedis = pool.getResource();
+        Jedis imgJedis = pool.getResource();
+        imgJedis.select(1);
+
+        //redis中存储被替换的img的src地址的list srcurls
+
+        List<String> srcList = new ArrayList<>();
+        String srcurls = JSON.toJSONString(srcList);
+
+        imgJedis.hset("ImgSrcOf:"+taskId, url, srcurls);
     }
 }
