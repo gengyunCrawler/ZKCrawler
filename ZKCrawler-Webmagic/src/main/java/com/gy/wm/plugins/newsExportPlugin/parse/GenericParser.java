@@ -130,7 +130,7 @@ public class GenericParser implements PageParser {
                     String aliOSSUrl = properties.getString("ALI_OSS_URL");
                     //fix imag url
                     fieldValue = imgUrlPrefix(fieldValue,domain,preUrl,imgSrcs);
-                    imgDealWithRedis(aliOSSUrl,fieldValue,crawlData);
+                    fieldValue =  imgDealWithRedis(aliOSSUrl,fieldValue,crawlData);
                 }
 
                 if (htmlField.isContainsHtml()==false ){
