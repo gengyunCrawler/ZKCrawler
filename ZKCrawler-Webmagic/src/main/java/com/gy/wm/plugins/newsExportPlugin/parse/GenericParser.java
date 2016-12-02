@@ -120,7 +120,7 @@ public class GenericParser implements PageParser {
                 if (htmlField.isContainsHtml()==false){
                     //apply to duocai_export,set boolean true to attribute "isContainsHtml" of "content"
                     if(htmlField.getFieldName().equals("content"))    {
-                        fieldValue=byXpaths(html,htmlField.getXpaths());
+                      //  fieldValue=byXpaths(html,htmlField.getXpaths());
                     } else  {
 
                         Html fieldHtml = new Html(fieldValue);
