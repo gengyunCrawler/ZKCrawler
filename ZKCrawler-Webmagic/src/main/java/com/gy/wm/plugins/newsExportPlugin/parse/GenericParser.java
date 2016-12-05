@@ -299,7 +299,6 @@ public class GenericParser implements PageParser {
             e.printStackTrace();
         }
         JedisPool pool = jedisPoolUtils.getJedisPool();
-        Jedis jedis = pool.getResource();
         Jedis imgJedis = pool.getResource();
         imgJedis.select(1);
 
