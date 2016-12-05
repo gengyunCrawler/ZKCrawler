@@ -223,4 +223,20 @@ public class ParserConfigTester {
        String ss= html.xpath("//span[@id='navtimeSource']/text()//*/text()").toString();
         System.out.println(ss);
     }
+
+    @Test
+    public void testRegexUrl(){
+        String url = "http://www.gz.xinhuanet.com/2016-09/29/c_1119646613.htm";
+        int end = url.lastIndexOf("/");
+        String sub = url.substring(0,end+1);
+        System.out.println(sub);
+    }
+
+    @Test
+    public void testGainLast(){
+        String  src = "wwwwwwwwwwwwadsdfdf.jpg";
+       int a = src.lastIndexOf(".");
+        String result = src.substring(a,src.length());
+        System.out.println(result);
+    }
 }
