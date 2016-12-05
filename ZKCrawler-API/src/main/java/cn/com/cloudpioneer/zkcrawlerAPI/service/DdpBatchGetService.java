@@ -44,7 +44,6 @@ public class DdpBatchGetService {
     public String batchDataGet(String nextSign, int size) {
 
         try {
-
             /**
              * 对读取标记进行判断，若读取标记为空指针或空字符串，返回错误信息；
              * 由于用户不提供正确的读取标记而无法读取数据。
@@ -58,7 +57,7 @@ public class DdpBatchGetService {
              * 若无用户不指定读取数据条数，或者指定错误的
              * 数据读取条数据，则给默认值 100.
              */
-//            if (size <= 0 || size > 100)
+            if (size <= 0 || size > 100)
                 size = 100;
 
             /**
