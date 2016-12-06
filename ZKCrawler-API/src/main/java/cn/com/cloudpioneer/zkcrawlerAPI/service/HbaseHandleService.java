@@ -42,6 +42,7 @@ public class HbaseHandleService {
 
         //create tableDesc, with namespace name "my_ns" and table name "mytable"
         HTableDescriptor tableDesc = new HTableDescriptor(TableName.valueOf(TABLE_NAME));
+
         tableDesc.setDurability(Durability.SYNC_WAL);
 
         //add a column family "data"
@@ -60,8 +61,9 @@ public class HbaseHandleService {
         conf = HBaseConfiguration.create();
         try {
             HTable table = new HTable(conf, TABLE_NAME);
+
             Put put = new Put(Bytes.toBytes(generateRowKey(taskId)));
-            put.add(Bytes.toBytes("data"), Bytes.toBytes("url"), Bytes.toBytes(crawlData.getUrl()));
+            put.add(Bytes.toBytes("crawlerData"), Bytes.toBytes("url"), Bytes.toBytes(crawlData.getUrl()));
             table.put(put);
             table.close();
         } catch (IOException e) {
@@ -97,6 +99,7 @@ public class HbaseHandleService {
             String rowkey = null;
             JSONArray crawlerDataArray = new JSONArray();
             for (Result r = rs.next(); r != null && readCount < size; r = rs.next()) {
+                String docId = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"),Bytes.toBytes("docId")));
                 String url = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"), Bytes.toBytes("url")));
                 int statusCode = Bytes.toInt(r.getValue(Bytes.toBytes("crawlerData"), Bytes.toBytes("statusCode")));
                 int pass = Bytes.toInt(r.getValue(Bytes.toBytes("crawlerData"), Bytes.toBytes("pass")));
@@ -119,6 +122,7 @@ public class HbaseHandleService {
 
                 rowkey = Bytes.toString(r.getRow());
                 JSONObject perObject = new JSONObject();
+                perObject.put("docId",docId);
                 perObject.put("tid", tid);
                 perObject.put("url", url);
                 perObject.put("statusCode", statusCode);
@@ -150,6 +154,7 @@ public class HbaseHandleService {
             result.put("nextRow", rowkey);
         } catch (IOException e) {
             e.printStackTrace();
+            return "{\"result\":false,\"reason\":\"Hbase读写出错\"}";
         } finally {
             rs.close();
         }
@@ -176,6 +181,7 @@ public class HbaseHandleService {
             List<CrawlData> crawlDataList = new ArrayList<>();
 
             for (Result r = rs.next(); r != null && readCount < t_size; r = rs.next()) {
+                String docId = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"),Bytes.toBytes("docId")));
                 String url = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"), Bytes.toBytes("url")));
                 int statusCode = Bytes.toInt(r.getValue(Bytes.toBytes("crawlerData"), Bytes.toBytes("statusCode")));
                 int pass = Bytes.toInt(r.getValue(Bytes.toBytes("crawlerData"), Bytes.toBytes("pass")));
@@ -198,6 +204,7 @@ public class HbaseHandleService {
 
                 rowkey = Bytes.toString(r.getRow());
                 CrawlData crawlData = new CrawlData();
+                crawlData.setDocId(docId);
                 crawlData.setTid(t_taskId);
                 crawlData.setUrl(url);
                 crawlData.setStatusCode(statusCode);
@@ -212,12 +219,12 @@ public class HbaseHandleService {
                 try {
                     crawlData.setCrawlTime(new Date(new SimpleDateFormat("yyyy-MM-dd HH:ss:mm").parse(crawlTime).getTime()));
                 } catch (ParseException e) {
-                    crawlData.setCrawlTime(new Date());
+                    crawlData.setCrawlTime(null);
                 }
                 try {
                     crawlData.setPublishTime(new Date(new SimpleDateFormat("yyyy-MM-dd HH:ss:mm").parse(publishTime).getTime()));
                 } catch (ParseException e) {
-                    crawlData.setPublishTime(new Date());
+                    crawlData.setPublishTime(null);
                 }
                 crawlData.setDepthfromSeed(depthfromSeed);
                 crawlData.setCount(count);
@@ -246,7 +253,7 @@ public class HbaseHandleService {
 
 
     public String generateRowKey(String taskId) {
-        return taskId + "|" + sdf.format(new Date()) + "|" + RandomAlphaNumeric.randomStringOfLength(5);
+        return taskId + "|" + new Date().getTime() + "|" + RandomAlphaNumeric.randomStringOfLength(5);
     }
 
     public static String MD5(String md5) {
@@ -265,5 +272,57 @@ public class HbaseHandleService {
 
     public static void main(String[] args) {
         System.out.println(MD5("http://www.gaxq.gov.cn/"));
+    }
+
+    /**
+     * 获取Hbase数据
+     *
+     * @param t_taskId
+     * @param t_startRow
+     * @param t_size
+     * @return
+     */
+    public String getHBaseDataTest(String t_taskId, String t_startRow, String t_size) {
+
+        conf = HBaseConfiguration.create();
+        ResultScanner rs = null;
+        JSONObject result = new JSONObject();
+        try {
+            HTable htable = new HTable(conf, TABLE_NAME);
+            Scan scan = new Scan();
+            scan.setCaching(100);
+            scan.addFamily(Bytes.toBytes("crawlerData"));
+            scan.addColumn(Bytes.toBytes("crawlerData"),Bytes.toBytes("crawlTime"));
+            scan.addColumn(Bytes.toBytes("crawlerData"),Bytes.toBytes("publishTime"));
+            String tid = t_taskId;
+            // start key is exclusive
+            String startRow = t_startRow + "0";
+            int size = Integer.valueOf(t_size);
+            scan.setStartRow(Bytes.toBytes(startRow));
+            rs = htable.getScanner(scan);
+            int readCount = 0;
+            String rowkey = null;
+            JSONArray crawlerDataArray = new JSONArray();
+            for (Result r = rs.next(); r != null && readCount < size; r = rs.next()) {
+                String crawlTime = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"), Bytes.toBytes("crawlTime")));
+                String publishTime = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"), Bytes.toBytes("publishTime")));
+                rowkey = Bytes.toString(r.getRow());
+
+                System.out.println("rowkey: " + rowkey + "\t" + "crawlTime:" + crawlTime + "\t" + "publishTime:" + publishTime);
+
+                readCount++;
+            }
+
+            result.put("result", "true");
+            result.put("data", crawlerDataArray);
+            result.put("size", readCount);
+            result.put("nextRow", rowkey);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return "{\"result\":false,\"reason\":\"Hbase读写出错\"}";
+        } finally {
+            rs.close();
+        }
+        return JSONUtil.object2JacksonString(result);
     }
 }

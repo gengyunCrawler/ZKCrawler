@@ -55,7 +55,7 @@ public class HDFSTester
 
     @Test
     public void delete() throws IOException {
-        HDFSUtils.delete("/user/root/icp/test.txt");
+        HDFSUtils.delete("/user/root/icp/news-20161114.txt");
     }
 
     @Test

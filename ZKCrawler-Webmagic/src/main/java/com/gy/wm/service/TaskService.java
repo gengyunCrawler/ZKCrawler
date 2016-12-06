@@ -6,6 +6,7 @@ import com.gy.wm.util.JedisPoolUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import redis.clients.jedis.Jedis;
@@ -62,6 +63,7 @@ public class TaskService {
     public TaskService() {
     }
 
+    @Async
     public void startTask(TaskParamModel taskParamModel) {
         this.crawl.startTask(taskParamModel);
     }
@@ -76,7 +78,6 @@ public class TaskService {
             jedis = pool.getResource();
 
             //结束之后清空对应任务的redis
-            jedis.del(("redis:bloomfilter:" + tid));
             jedis.del("queue_" + tid);
             jedis.del(("webmagicCrawler::ToCrawl::" + tid).getBytes());
             jedis.del(("webmagicCrawler::Crawled::" + tid).getBytes());

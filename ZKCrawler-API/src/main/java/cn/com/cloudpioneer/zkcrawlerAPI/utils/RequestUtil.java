@@ -48,20 +48,25 @@ public class RequestUtil {
         String url = "http://localhost:10080/api/batchHbaseDataGeter";
 
         Map<String,String> params = new HashMap<>();
-        params.put("nextSign","6bb1174f88-1478834640717-263c639f1d");
-        params.put("size","0");
+        params.put("nextSign","0");
+        params.put("size","1");
 
         String result = postMethod(url,params);
         System.out.println("post返回结果：\n" + result);
 
-       /* String url = "http://localhost:10080/api/getHbaseData";
-        Map<String,String> params = new HashMap<>();
-        params.put("taskId","0ec153c8c4dae69ae48420426f3750f6");
-        params.put("startRow","0ec153c8c4dae69ae48420426f3750f6|");
-        params.put("size","100");
+        /*String url = "http://localhost:10080/api/getHbaseData";
+    Map<String,String> params = new HashMap<>();
+        params.put("taskId","42ba7434a8ec60a0a42801c16be7ad0d");
+        params.put("startRow","42ba7434a8ec60a0a42801c16be7ad0d|");
+        params.put("size","1");
 
-        String result = postMethod(url,params);
-        System.out.println("post返回结果：" + result);*/
+    String result = postMethod(url,params);
+        try {
+        Thread.sleep(5000);
+        System.out.println("post返回结果"+ result);
+    } catch (InterruptedException e) {
+        e.printStackTrace();
+    }*/
+}
 
-    }
 }

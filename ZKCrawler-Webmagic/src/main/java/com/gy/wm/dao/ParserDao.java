@@ -16,29 +16,20 @@ import java.io.Reader;
  * @author TijunWang
  */
 public class ParserDao {
-    private static Reader reader;
-    private static SqlSessionFactory sqlSessionFactory;
 
-    static {
-        try {
-            reader = Resources.getResourceAsReader("SqlMapConfig.xml");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
-    }
-    //just for query
-    public <T> T getMapper(Class<T> clazz){
-       SqlSession session= sqlSessionFactory.openSession();
-       return session.getMapper(clazz);
-    }
+    private static SqlSessionFactory sqlSessionFactory = SQLSessionFactory.getSqlSessionFactory();
 
     public ParserEntity find(String tid){
-        ParserMapper mapper=getMapper(ParserMapper.class);
-        return   mapper.find(tid);
+
+        SqlSession session= sqlSessionFactory.openSession();
+        ParserMapper mapper= session.getMapper(ParserMapper.class);
+        ParserEntity entity =   mapper.find(tid);
+        session.close();
+        return  entity;
     }
 
     public void insert(ParserEntity entity){
+
         SqlSession session= sqlSessionFactory.openSession();
         ParserMapper mapper= session.getMapper(ParserMapper.class);
         mapper.insert(entity);
@@ -46,4 +37,5 @@ public class ParserDao {
         session.close();
 
     }
+
 }

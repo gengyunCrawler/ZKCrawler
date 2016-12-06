@@ -100,14 +100,13 @@ public class APIController {
      * "size": 2
      * }
      */
+
     @RequestMapping(value = "/getHbaseData", method = RequestMethod.POST)
     public String getHbaseData(String taskId, String startRow, String size) {
         LOGGER.info("taskId: " + taskId + "," + "startRow: " + startRow + "," + "size: " + size);
         String result = handleService.getHBaseData(taskId, startRow, size);
-        //System.out.println("result:" + "\n" + result);
         return result;
     }
-
 
     /**
      * @api {post}      http://ip:port/api/batchHbaseDataGeter  DDP批量获取Hbase数据接口
