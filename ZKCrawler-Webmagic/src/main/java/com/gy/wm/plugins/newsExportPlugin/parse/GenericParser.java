@@ -362,4 +362,14 @@ public class GenericParser implements PageParser {
 
         imgJedis.hset("ImgSrcOf:"+taskId, url, srcurls);
     }
+
+
+    public static void main(String[] args) {
+        Set<String> set = new HashSet<>();
+        set.add("www.test1.com");
+        set.add("www.test2.com");
+        set.add("www.test3.com");
+        System.out.println(JSON.toJSONString(set));
+
+    }
 }
