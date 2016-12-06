@@ -1,8 +1,6 @@
 package com.gy.wm.plugins.newsExportPlugin.parse;
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.google.common.base.Preconditions;
 import com.gy.wm.dao.ParserDao;
 import com.gy.wm.model.CrawlData;
 import com.gy.wm.service.PageParser;
@@ -102,9 +100,8 @@ public class GenericParser implements PageParser {
      */
     private CrawlData parseData(Html html, CrawlData crawlData, List<HtmlField> htmlFields) {
 
-        String docId = generateRowKey(crawlData.getTid());
-        //设置文章
-        crawlData.setDocId(docId);
+
+
         crawlData.setTid(crawlData.getTid());
 
         crawlData.setHtml(html.toString());
@@ -269,11 +266,10 @@ public class GenericParser implements PageParser {
     }
 
     /**
-     *
-     * @param content
+     * fix img src--->url missing domain
+     * @param contentHtml
+     * @param imgSrcs
      * @param domain
-     * @param preUrl
-     * @param srcs
      * @return
      */
     private String imgUrlPrefix(String content,String domain,String preUrl,List<String> srcs){
@@ -363,13 +359,4 @@ public class GenericParser implements PageParser {
         imgJedis.hset("ImgSrcOf:"+taskId, url, srcurls);
     }
 
-
-    public static void main(String[] args) {
-        Set<String> set = new HashSet<>();
-        set.add("www.test1.com");
-        set.add("www.test2.com");
-        set.add("www.test3.com");
-        System.out.println(JSON.toJSONString(set));
-
-    }
 }
