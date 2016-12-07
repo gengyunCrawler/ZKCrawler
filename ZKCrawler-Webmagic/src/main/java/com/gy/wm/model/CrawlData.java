@@ -36,6 +36,16 @@ public class CrawlData implements Serializable {
     private String author;
     private String sourceName;
     private String parsedData;
+    private String textPTag;
+
+    public String getTextPTag() {
+        return textPTag;
+    }
+
+    public void setTextPTag(String textPTag) {
+        this.textPTag = textPTag;
+    }
+
     public String getParsedData() {
         return parsedData;
     }

@@ -2,6 +2,7 @@ package com.gy.wm.plugins.newsExportPlugin.parse;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.google.common.base.CharMatcher;
 import com.google.common.base.Preconditions;
 import com.gy.wm.dao.ParserDao;
 import com.gy.wm.model.CrawlData;
@@ -133,11 +134,13 @@ public class GenericParser implements PageParser {
                     fieldValue =  imgDealWithRedis(fieldValue,crawlData);
                 }
 
-                if (htmlField.isContainsHtml()==false ){
                     //for the export of duocai ,set boolean true for "isContentHtml" attribute
                     if(htmlField.getFieldName().equals("content"))  {
                      //   fieldValue=byXpaths(html,htmlField.getXpaths());
-                    }else   {
+                        String content = clearText4label(fieldValue);
+                        crawlData.setTextPTag(content);
+                        fieldMap.put("textPTag",content);
+                    }
                         Html fieldHtml = new Html(fieldValue);
                         List<String> fieldValues = fieldHtml.xpath("//*/text()").all();
                         StringBuffer buffer = new StringBuffer();
@@ -145,8 +148,7 @@ public class GenericParser implements PageParser {
                             buffer.append(value);
                         }
                         fieldValue=buffer.toString();
-                    }
-                }
+
                 //remove elements that is needn't
                 List<String> excludesXpaths=htmlField.getExcludeXpaths();
                 if (excludesXpaths!=null&&excludesXpaths.size()>0){
@@ -359,6 +361,16 @@ public class GenericParser implements PageParser {
         String srcurls = JSON.toJSONString(srcList);
 
         imgJedis.hset("ImgSrcOf:"+taskId, url, srcurls);
+    }
+    public String clearText4label(String html){
+        html = CharMatcher.WHITESPACE.collapseFrom(html,' ');
+        // html = CharMatcher.WHITESPACE.collapseFrom(html,' ');
+        html =html.replaceAll("<style.*?>.*?</style>","");
+        html = html.replaceAll("<div.*?>","");
+        html = html.replace("</div>","");
+        html = html.replaceAll("<script.*?>.*?</script>","");
+        html = html.replaceAll("<!--.*?-->","");
+        return html;
     }
 
 }
