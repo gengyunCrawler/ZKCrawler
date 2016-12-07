@@ -1,6 +1,7 @@
 package com.gy.wm.entry;
 
 import com.gy.wm.dbpipeline.impl.CMSHbasePipeline;
+import com.gy.wm.dbpipeline.impl.FilePipeline;
 import com.gy.wm.dbpipeline.impl.HDFSPipeline;
 import com.gy.wm.dbpipeline.impl.MysqlPipeline;
 import com.gy.wm.model.CrawlData;
@@ -91,7 +92,8 @@ public class CrawlerWorkflowManager {
                 //从seed开始抓
 
                 .addUrl(urlArray)
-                .addPipeline(new MysqlPipeline())
+                .addPipeline(new FilePipeline())
+//                .addPipeline(new MysqlPipeline())
 //                  .addPipeline(new HDFSPipeline("/user/root/icp"))
 //                .addPipeline(new EsPipeline())
 //                .addPipeline(new HbaseEsPipeline())

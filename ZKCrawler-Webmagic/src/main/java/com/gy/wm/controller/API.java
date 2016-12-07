@@ -1,5 +1,6 @@
 package com.gy.wm.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.gy.wm.model.TaskParamModel;
 import com.gy.wm.service.TaskService;
 import org.slf4j.Logger;
@@ -46,6 +47,8 @@ public class API implements Runnable {
             }
         });*/
         API.this.taskService.startTask(taskModel);
+
+        System.out.println("taskModel: " + JSONObject.toJSONString(taskParamModel));
 
 //        return taskModel.getBase().getId();
     }

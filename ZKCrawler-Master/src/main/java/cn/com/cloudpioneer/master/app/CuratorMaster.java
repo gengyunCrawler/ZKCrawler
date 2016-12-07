@@ -319,7 +319,7 @@ public class CuratorMaster implements Closeable, LeaderSelectorListener {
 
                 break;
             case SUSPENDED:
-                LOGGER.warn("Session suspended");//
+                LOGGER.warn("Session suspended");
                 try {
                     closeLatch.countDown();
                     runForMaster();

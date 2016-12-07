@@ -10,7 +10,6 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import java.io.IOException;
 import java.io.Reader;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -33,7 +32,7 @@ public class GetTaskConfigs {
     }
 
 
-   public List<TaskConfigEntity> findConfigs(String idTask) {
+    public List<TaskConfigEntity> findConfigs(String idTask) {
 
         SqlSession session = sqlSessionFactory.openSession();
 
@@ -46,58 +45,69 @@ public class GetTaskConfigs {
     }
 
 
-    public static Map<String, List<TaskConfigEntity>> configsParser(List<TaskConfigEntity> taskConfigEntities) {
+    public static Map<String, TaskConfigEntity> configsParser(List<TaskConfigEntity> taskConfigEntities) {
 
-        Map<String, List<TaskConfigEntity>> configs = new HashMap<>();
+        Map<String, TaskConfigEntity> configs = new HashMap<>();
 
         for (TaskConfigEntity item : taskConfigEntities) {
 
             switch (item.getConfType()) {
+
+                // 种子url配置项.
                 case ConfigType.SEED_URLS:
-                    if (configs.get(ConfigType.SEED_URLS) == null)
-                        configs.put(ConfigType.SEED_URLS, new ArrayList<TaskConfigEntity>());
-                    configs.get(ConfigType.SEED_URLS).add(item);
+                    configs.put(ConfigType.SEED_URLS, item);
                     break;
+
+                // 模板配置项.
                 case ConfigType.TEMPLATES:
-                    if (configs.get(ConfigType.TEMPLATES) == null)
-                        configs.put(ConfigType.TEMPLATES, new ArrayList<TaskConfigEntity>());
-                    configs.get(ConfigType.TEMPLATES).add(item);
+                    configs.put(ConfigType.TEMPLATES, item);
                     break;
+
+                // configs 配置项.
                 case ConfigType.CONFIGS:
-                    if (configs.get(ConfigType.CONFIGS) == null)
-                        configs.put(ConfigType.CONFIGS, new ArrayList<TaskConfigEntity>());
-                    configs.get(ConfigType.CONFIGS).add(item);
+                    configs.put(ConfigType.CONFIGS, item);
                     break;
+
+                // 点击正则配置项.
                 case ConfigType.CLICK_REGEX:
-                    if (configs.get(ConfigType.CLICK_REGEX) == null)
-                        configs.put(ConfigType.CLICK_REGEX, new ArrayList<TaskConfigEntity>());
-                    configs.get(ConfigType.CLICK_REGEX).add(item);
+                    configs.put(ConfigType.CLICK_REGEX, item);
                     break;
+
+                // 正则过滤器配置项.
                 case ConfigType.REGEX_FILTER:
-                    if (configs.get(ConfigType.REGEX_FILTER) == null)
-                        configs.put(ConfigType.REGEX_FILTER, new ArrayList<TaskConfigEntity>());
-                    configs.get(ConfigType.REGEX_FILTER).add(item);
+                    configs.put(ConfigType.REGEX_FILTER, item);
                     break;
+
+                // 协议过滤器配置项.
                 case ConfigType.PROTOCOL_FILTER:
-                    if (configs.get(ConfigType.PROTOCOL_FILTER) == null)
-                        configs.put(ConfigType.PROTOCOL_FILTER, new ArrayList<TaskConfigEntity>());
-                    configs.get(ConfigType.PROTOCOL_FILTER).add(item);
+                    configs.put(ConfigType.PROTOCOL_FILTER, item);
                     break;
+
+                // 后缀过滤器配置项.
                 case ConfigType.SUFFIX_FILTER:
-                    if (configs.get(ConfigType.SUFFIX_FILTER) == null)
-                        configs.put(ConfigType.SUFFIX_FILTER, new ArrayList<TaskConfigEntity>());
-                    configs.get(ConfigType.SUFFIX_FILTER).add(item);
+                    configs.put(ConfigType.SUFFIX_FILTER, item);
                     break;
+
+                // 代理配置项.
                 case ConfigType.PROXY:
-                    if (configs.get(ConfigType.PROXY) == null)
-                        configs.put(ConfigType.PROXY, new ArrayList<TaskConfigEntity>());
-                    configs.get(ConfigType.PROXY).add(item);
+                    configs.put(ConfigType.PROXY, item);
                     break;
+
+                // 标签配置项.
+                case ConfigType.TAGS:
+                    configs.put(ConfigType.TAGS, item);
+                    break;
+
+                // 分类，栏目(频道)配置项.
+                case ConfigType.CATEGORIES:
+                    configs.put(ConfigType.CATEGORIES, item);
+                    break;
+
+                // 未定义配置项.
                 case ConfigType.UNDEFINE:
+
                 default:
-                    if (configs.get(ConfigType.UNDEFINE) == null)
-                        configs.put(ConfigType.UNDEFINE, new ArrayList<TaskConfigEntity>());
-                    configs.get(ConfigType.UNDEFINE).add(item);
+                    configs.put(ConfigType.UNDEFINE, item);
                     break;
             }
         }
@@ -105,6 +115,5 @@ public class GetTaskConfigs {
         return configs;
 
     }
-
 
 }

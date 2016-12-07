@@ -14,7 +14,7 @@ import java.util.List;
 @Repository
 public interface TaskConfigEntityMapper {
 
-    @Select("SELECT * FROM taskConfig WHERE idTask = #{id}")
+    @Select("SELECT * FROM taskconfig WHERE idTask = #{id}")
     List<TaskConfigEntity> findTaskConfigsById(@Param("id") String id);
 
 }

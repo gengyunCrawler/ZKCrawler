@@ -1,8 +1,5 @@
 package com.gy.wm.dao;
 
-import com.gy.wm.entry.Crawl;
-import com.gy.wm.entry.TaskConfig;
-import com.gy.wm.mapper.TaskConfigMapper;
 import com.gy.wm.model.CrawlData;
 import com.gy.wm.model.CrawlDataMapper;
 import org.apache.ibatis.session.SqlSession;

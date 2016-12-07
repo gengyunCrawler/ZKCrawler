@@ -3,7 +3,6 @@ package com.gy.wm.vo;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
-import java.util.List;
 
 /**
  * <类详细说明:任务参数，需要读取路径取得的参数，如tempalte路径下的
@@ -13,88 +12,118 @@ import java.util.List;
  * @Version: 2016-09-20
  **/
 @Component
-public class Param implements Serializable{
+public class Param implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    List<String> configs;
+    private String undefine;
 
-    List<String> regexFilter;
+    private String configs;
 
-    List<String> templates;
+    private String regexFilter;
 
-    List<String> suffixFilter;
+    private String templates;
 
-    List<String> seedUrls;
+    private String suffixFilter;
 
-    List<String> clickRegex;
+    private String seedUrls;
 
-    List<String> protocolFilter;
+    private String clickRegex;
 
-    List<String> proxy;
+    private String protocolFilter;
+
+    private String proxy;
+
+    private String tags;
+
+    private String categories;
 
 
-    public List<String> getConfigs() {
+    public String getUndefine() {
+        return undefine;
+    }
+
+    public void setUndefine(String undefine) {
+        this.undefine = undefine;
+    }
+
+    public String getConfigs() {
         return configs;
     }
 
-    public void setConfigs(List<String> configs) {
+    public void setConfigs(String configs) {
         this.configs = configs;
     }
 
-    public List<String> getRegexFilter() {
+    public String getRegexFilter() {
         return regexFilter;
     }
 
-    public void setRegexFilter(List<String> regexFilter) {
+    public void setRegexFilter(String regexFilter) {
         this.regexFilter = regexFilter;
     }
 
-    public List<String> getTemplates() {
+    public String getTemplates() {
         return templates;
     }
 
-    public void setTemplates(List<String> templates) {
+    public void setTemplates(String templates) {
         this.templates = templates;
     }
 
-    public List<String> getSuffixFilter() {
+    public String getSuffixFilter() {
         return suffixFilter;
     }
 
-    public void setSuffixFilter(List<String> suffixFilter) {
+    public void setSuffixFilter(String suffixFilter) {
         this.suffixFilter = suffixFilter;
     }
 
-    public List<String> getSeedUrls() {
+    public String getSeedUrls() {
         return seedUrls;
     }
 
-    public void setSeedUrls(List<String> seedUrls) {
+    public void setSeedUrls(String seedUrls) {
         this.seedUrls = seedUrls;
     }
 
-    public List<String> getClickRegex() {
+    public String getClickRegex() {
         return clickRegex;
     }
 
-    public void setClickRegex(List<String> clickRegex) {
+    public void setClickRegex(String clickRegex) {
         this.clickRegex = clickRegex;
     }
 
-    public List<String> getProtocolFilter() {
+    public String getProtocolFilter() {
         return protocolFilter;
     }
 
-    public void setProtocolFilter(List<String> protocolFilter) {
+    public void setProtocolFilter(String protocolFilter) {
         this.protocolFilter = protocolFilter;
     }
 
-    public List<String> getProxy() {
+    public String getProxy() {
         return proxy;
     }
 
-    public void setProxy(List<String> proxy) {
+    public void setProxy(String proxy) {
         this.proxy = proxy;
+    }
+
+    public String getTags() {
+        return tags;
+    }
+
+    public void setTags(String tags) {
+        this.tags = tags;
+    }
+
+    public String getCategories() {
+        return categories;
+    }
+
+    public void setCategories(String categories) {
+        this.categories = categories;
     }
 }

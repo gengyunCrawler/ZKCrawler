@@ -5,9 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -46,7 +44,7 @@ public class TaskModel implements Serializable {
     /**
      * 任务具体配置
      */
-    private Map<String, List<TaskConfigEntity>> configs;
+    private Map<String, TaskConfigEntity> configsMap;
 
 
     /**
@@ -55,24 +53,18 @@ public class TaskModel implements Serializable {
      * @param typeName 配置项类型名称
      * @return
      */
-    public List<String> getConfigs(String typeName) {
+    public TaskConfigEntity getConfigs(String typeName) {
 
-        List<TaskConfigEntity> conf = configs.get(typeName);
-        if (conf == null || conf.size() == 0)
-            return new ArrayList<>();
-        List<String> confs = new ArrayList<>();
-        for (TaskConfigEntity item : conf)
-            confs.add(item.getConfValue());
-        return confs;
+        return configsMap.get(typeName);
     }
 
     /**
      * 设置任务配置
      *
-     * @param configs
+     * @param configsMap
      */
-    public void setConfigs(Map<String, List<TaskConfigEntity>> configs) {
-        this.configs = configs;
+    public void setConfigsMap(Map<String, TaskConfigEntity> configsMap) {
+        this.configsMap = configsMap;
     }
 
     /**
@@ -80,8 +72,8 @@ public class TaskModel implements Serializable {
      *
      * @return
      */
-    public Map<String, List<TaskConfigEntity>> getConfigs() {
-        return configs;
+    public Map<String, TaskConfigEntity> getConfigsMap() {
+        return configsMap;
     }
 
     /**
@@ -103,7 +95,7 @@ public class TaskModel implements Serializable {
         this.entityString = "";
         this.startTime = System.currentTimeMillis();
         this.entity = new TaskEntity();
-        this.configs = new HashMap<>();
+        this.configsMap = new HashMap<>();
     }
 
     /**
@@ -215,14 +207,55 @@ public class TaskModel implements Serializable {
         JSONObject objectA = new JSONObject();
         JSONObject objectB = new JSONObject();
 
-        objectA.put(ConfigType.SEED_URLS, getConfigs(ConfigType.SEED_URLS));
-        objectA.put(ConfigType.TEMPLATES, getConfigs(ConfigType.TEMPLATES));
-        objectA.put(ConfigType.CONFIGS, getConfigs(ConfigType.CONFIGS));
-        objectA.put(ConfigType.CLICK_REGEX, getConfigs(ConfigType.CLICK_REGEX));
-        objectA.put(ConfigType.PROTOCOL_FILTER, getConfigs(ConfigType.PROTOCOL_FILTER));
-        objectA.put(ConfigType.REGEX_FILTER, getConfigs(ConfigType.REGEX_FILTER));
-        objectA.put(ConfigType.SUFFIX_FILTER, getConfigs(ConfigType.SUFFIX_FILTER));
-        objectA.put(ConfigType.PROXY, getConfigs(ConfigType.PROXY));
+        if (getConfigs(ConfigType.SEED_URLS) != null)
+            objectA.put(ConfigType.SEED_URLS, getConfigs(ConfigType.SEED_URLS).getConfValue());
+        else
+            objectA.put(ConfigType.SEED_URLS, "");
+
+        if (getConfigs(ConfigType.TEMPLATES) != null)
+            objectA.put(ConfigType.TEMPLATES, getConfigs(ConfigType.TEMPLATES).getConfValue());
+        else
+            objectA.put(ConfigType.TEMPLATES, "");
+
+        if (getConfigs(ConfigType.CONFIGS) != null)
+            objectA.put(ConfigType.CONFIGS, getConfigs(ConfigType.CONFIGS).getConfValue());
+        else
+            objectA.put(ConfigType.CONFIGS, "");
+
+        if (getConfigs(ConfigType.CLICK_REGEX) != null)
+            objectA.put(ConfigType.CLICK_REGEX, getConfigs(ConfigType.CLICK_REGEX).getConfValue());
+        else
+            objectA.put(ConfigType.CLICK_REGEX, "");
+
+        if (getConfigs(ConfigType.PROTOCOL_FILTER) != null)
+            objectA.put(ConfigType.PROTOCOL_FILTER, getConfigs(ConfigType.PROTOCOL_FILTER).getConfValue());
+        else
+            objectA.put(ConfigType.PROTOCOL_FILTER, "");
+
+        if (getConfigs(ConfigType.REGEX_FILTER) != null)
+            objectA.put(ConfigType.REGEX_FILTER, getConfigs(ConfigType.REGEX_FILTER).getConfValue());
+        else
+            objectA.put(ConfigType.REGEX_FILTER, "");
+
+        if (getConfigs(ConfigType.SUFFIX_FILTER) != null)
+            objectA.put(ConfigType.SUFFIX_FILTER, getConfigs(ConfigType.SUFFIX_FILTER).getConfValue());
+        else
+            objectA.put(ConfigType.SUFFIX_FILTER, "");
+
+        if (getConfigs(ConfigType.PROXY) != null)
+            objectA.put(ConfigType.PROXY, getConfigs(ConfigType.PROXY).getConfValue());
+        else
+            objectA.put(ConfigType.PROXY, "");
+
+        if (getConfigs(ConfigType.TAGS) != null)
+            objectA.put(ConfigType.TAGS, getConfigs(ConfigType.TAGS).getConfValue());
+        else
+            objectA.put(ConfigType.TAGS, "");
+
+        if (getConfigs(ConfigType.CATEGORIES) != null)
+            objectA.put(ConfigType.CATEGORIES, getConfigs(ConfigType.CATEGORIES).getConfValue());
+        else
+            objectA.put(ConfigType.CATEGORIES, "");
 
         objectB.put("base", this.entity);
         objectB.put("param", objectA);

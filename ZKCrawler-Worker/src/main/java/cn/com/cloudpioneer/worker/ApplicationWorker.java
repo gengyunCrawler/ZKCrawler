@@ -20,13 +20,13 @@ public class ApplicationWorker {
     /**
      * zookeeper 的链接字符串，从配置文件中获得。
      */
-    private static String zkHostPort = ResourceBundle.getBundle("config").getString("ZK_CONNECTION_STRING");
+    private static String zkHostPort;
 
 
     /**
      * 初始化 worker。
      */
-    private static Worker worker = Worker.initializeWorker(zkHostPort, new ExponentialBackoffRetry(1000, 5));
+    private static Worker worker;
 
     /**
      * 主函数。
@@ -36,11 +36,14 @@ public class ApplicationWorker {
      */
     public static void main(String[] args) throws InterruptedException {
 
-
         /**
          * 启动 spring boot 服务。
          */
         SpringApplication.run(ApplicationWorker.class, args);
+
+        zkHostPort = ResourceBundle.getBundle("config").getString("ZK_CONNECTION_STRING");
+
+        worker = Worker.initializeWorker(zkHostPort, new ExponentialBackoffRetry(1000, 5));
 
         /**
          * 启动 worker。

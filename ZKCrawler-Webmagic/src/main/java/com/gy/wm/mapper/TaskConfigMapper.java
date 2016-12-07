@@ -1,7 +1,6 @@
 package com.gy.wm.mapper;
 
-import com.gy.wm.entry.TaskConfig;
-import org.apache.hadoop.yarn.webapp.hamlet.HamletSpec;
+import com.gy.wm.model.TaskConfig;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
