@@ -7,6 +7,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.scheduling.annotation.Async;
+import org.springframework.scheduling.annotation.AsyncResult;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import redis.clients.jedis.Jedis;
@@ -16,6 +17,7 @@ import java.io.IOException;
 import java.util.ResourceBundle;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 /**
  * <类详细说明:work处理webmagic 任务请求>
@@ -30,38 +32,8 @@ public class TaskService {
 
     private static final Logger LOGGER = Logger.getLogger(TaskService.class);
 
-    private static ExecutorService executorService;
-
     @Autowired
     private Crawl crawl;
-
-    static {
-        int poolSize = 20;
-        try {
-            int i;
-            poolSize = (i = Integer.parseInt(ResourceBundle.getBundle("config").getString("TASK_SERVICE_THREAD_POOL_SIZE"))) > poolSize ? i : poolSize;
-            LOGGER.info("===> get thread pool size: " + poolSize);
-        } catch (Exception e) {
-            LOGGER.warn("===> get thread pool size error, use the default size: " + poolSize);
-        }
-        executorService = Executors.newFixedThreadPool(poolSize);
-    }
-
-
-    public static void taskExecutor(Runnable task) {
-
-        if (!executorService.isShutdown()) {
-            LOGGER.info("===> starting crawler task ......");
-            executorService.execute(task);
-            return;
-        }
-
-        LOGGER.warn("===> executorService was shutdown !!!! crawler task can't be started.");
-
-    }
-
-    public TaskService() {
-    }
 
     @Async
     public void startTask(TaskParamModel taskParamModel) {

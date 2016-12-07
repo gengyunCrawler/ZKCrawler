@@ -5,6 +5,7 @@ import com.gy.wm.service.PageParser;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -19,6 +20,9 @@ public class WholesiteTextAnalysis implements Serializable,PageParser {
     public void setWholeSiteAnalysis(WholeSiteAnalysis wholeSiteAnalysis) {
         this.wholeSiteAnalysis = wholeSiteAnalysis;
     }
+
+    //format
+    private final static SimpleDateFormat sdf= new SimpleDateFormat("yyyyMMddhhmmss");
 
     public WholesiteTextAnalysis(WholeSiteAnalysis wholeSiteAnalysis) {
         this.wholeSiteAnalysis = wholeSiteAnalysis;
@@ -62,7 +66,7 @@ public class WholesiteTextAnalysis implements Serializable,PageParser {
             crawlData.setRootUrl(rootURL);
             crawlData.setDepthfromSeed(depth + 1);
             crawlData.setFromUrl(fromUrl);
-            crawlData.setPublishTime(new Date(baseURL.getDate()));
+            crawlData.setPublishTime(sdf.format(new Date(baseURL.getDate())));
             crawlData.setUrl(url);
             crawlData.setPass(pass);
             crawlData.setTitle(baseURL.getTitle());

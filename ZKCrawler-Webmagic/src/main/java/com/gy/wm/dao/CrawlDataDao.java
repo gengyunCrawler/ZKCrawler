@@ -1,10 +1,7 @@
 package com.gy.wm.dao;
 
-import com.gy.wm.entry.Crawl;
-import com.gy.wm.entry.TaskConfig;
-import com.gy.wm.mapper.TaskConfigMapper;
 import com.gy.wm.model.CrawlData;
-import com.gy.wm.model.CrawlDataMapper;
+import com.gy.wm.mapper.CrawlDataMapper;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.stereotype.Repository;

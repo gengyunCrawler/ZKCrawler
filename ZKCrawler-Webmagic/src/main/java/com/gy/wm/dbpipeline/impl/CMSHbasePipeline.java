@@ -34,7 +34,6 @@ public class CMSHbasePipeline implements Pipeline{
         CrawlData crawlerData = resultItems.get("crawlerData");
 
         if(crawlerData != null) {
-
             putRecord(crawlerData,crawlerData.getTid());
         }
     }
@@ -64,7 +63,7 @@ public class CMSHbasePipeline implements Pipeline{
             put.add(Bytes.toBytes("crawlerData"),Bytes.toBytes("title"),Bytes.toBytes(crawlData.getTitle()==null?"":crawlData.getTitle()));
             put.add(Bytes.toBytes("crawlerData"),Bytes.toBytes("startTime"),Bytes.toBytes(crawlData.getStartTime()==null?"":crawlData.getStartTime()));
             put.add(Bytes.toBytes("crawlerData"),Bytes.toBytes("crawlTime"),Bytes.toBytes(sdf.format(crawlData.getCrawlTime())==null?"":sdf.format(crawlData.getCrawlTime())));
-            put.add(Bytes.toBytes("crawlerData"),Bytes.toBytes("publishTime"),Bytes.toBytes(crawlData.getPublishTime()==null?"":sdf.format(crawlData.getPublishTime())));
+            put.add(Bytes.toBytes("crawlerData"),Bytes.toBytes("publishTime"),Bytes.toBytes(crawlData.getPublishTime()==null?"":crawlData.getPublishTime()));
             put.add(Bytes.toBytes("crawlerData"),Bytes.toBytes("depthfromSeed"),Bytes.toBytes(crawlData.getDepthfromSeed()));
             put.add(Bytes.toBytes("crawlerData"),Bytes.toBytes("count"),Bytes.toBytes(crawlData.getCount()));
             put.add(Bytes.toBytes("crawlerData"),Bytes.toBytes("tag"),Bytes.toBytes(crawlData.getTag()==null?"":crawlData.getTag()));
