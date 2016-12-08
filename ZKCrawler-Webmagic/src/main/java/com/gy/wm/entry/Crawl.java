@@ -28,7 +28,7 @@ public class Crawl {
     private static final Logger LOGGER = LoggerFactory.getLogger(Crawl.class);
 
     private void kick(String tid, String type, String startTime, int depth, int pass,
-                      SeedUrlsConfig seedUrlsConfig, TemplatesConfig templatesConfig,
+                      SeedsConfig seedsConfig, TemplatesConfig templatesConfig,
                       ProtocolConfig protocolConfig, PostRegexConfig postRegexConfig,
                       ClickRegexConfig clickRegexConfig, JSONArray tags, JSONArray categories) throws Exception {
 
@@ -41,7 +41,7 @@ public class Crawl {
 
         //种子的加载
         ConfigLoader configLoader = new ConfigLoader();
-        List<CrawlData> crawlDataList = configLoader.load(tid, startTime, pass, type, seedUrlsConfig, tags, categories);
+        List<CrawlData> crawlDataList = configLoader.load(tid, startTime, pass, type, seedsConfig);
 
         //初始化HBASE
         String domain = GetDomain.getDomain(crawlDataList.get(0).getUrl());
@@ -71,7 +71,7 @@ public class Crawl {
 
         JSONArray jsonArrayTags;
         JSONArray jsonArrayCategories;
-        SeedUrlsConfig seedUrlsConfig;
+        SeedsConfig seedsConfig;
         TemplatesConfig templatesConfig;
 
 
@@ -85,8 +85,8 @@ public class Crawl {
         //String clickregexList = taskParamModel.getParam().getClickRegex();
         //String configpath = taskParamModel.getParam().getConfigs();
 
-        seedUrlsConfig = new SeedUrlsConfig(seedUrls);
-        if (!(seedUrlsConfig.getSeedUrls().size() > 0)) {
+        seedsConfig = new SeedsConfig(seedUrls);
+        if (!(seedsConfig.getSeedsInfoList().size() > 0)) {
             LOGGER.error("解析种子配置(seedUrls)出错,无法启动爬取任务,也许是由于种子配置的JSON语法错误导致.");
             return;
         }
@@ -113,7 +113,7 @@ public class Crawl {
 
         try {
 
-            kick(tid, type, startTime, depth, pass, seedUrlsConfig,
+            kick(tid, type, startTime, depth, pass, seedsConfig,
                     templatesConfig, new ProtocolConfig(), new PostRegexConfig(),
                     new ClickRegexConfig(), jsonArrayTags, jsonArrayCategories);
 

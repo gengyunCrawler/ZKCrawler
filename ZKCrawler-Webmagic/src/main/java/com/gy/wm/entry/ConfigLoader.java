@@ -1,10 +1,8 @@
 package com.gy.wm.entry;
 
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
 import com.gy.wm.model.CrawlData;
-import com.gy.wm.model.config.SeedUrl;
-import com.gy.wm.model.config.SeedUrlsConfig;
+import com.gy.wm.model.config.SeedsConfig;
+import com.gy.wm.model.config.SeedsInfo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,24 +13,34 @@ import java.util.List;
 public class ConfigLoader {
 
     //对种子对应的CrawlData进行赋值
-    public List<CrawlData> load(String tid, String startTime, int pass, String type, SeedUrlsConfig seedUrlsConfig, JSONArray tags, JSONArray categories) {
-        List <CrawlData> crawlDataList = new ArrayList<>();
-        List<SeedUrl> seedingUrls = seedUrlsConfig.getSeedUrls();
-        for(SeedUrl seed : seedingUrls)  {
+    public List<CrawlData> load(String tid, String startTime, int pass, String type, SeedsConfig seedsConfig) {
+        List<CrawlData> crawlDataList = new ArrayList<>();
+        List<SeedsInfo> seedsInfoList = seedsConfig.getSeedsInfoList();
+        for (SeedsInfo seedInfo : seedsInfoList) {
+
             CrawlData crawlData = new CrawlData();
+
             crawlData.setTid(tid);
-            crawlData.setUrl(seed.getUrl());
+
+            crawlData.setUrl(seedInfo.getUrl());
+
             crawlData.setStartTime(startTime);
+
             crawlData.setPass(pass);
+
             crawlData.setType(type);
-            crawlData.setRootUrl(seed.getUrl());
-            crawlData.setFromUrl(seed.getUrl());
+
+            crawlData.setRootUrl(seedInfo.getUrl());
+
+            crawlData.setFromUrl(seedInfo.getUrl());
+
             crawlData.setDepthfromSeed(0);
 
-            crawlData.setTag(seed.getSourceName());
+            crawlData.setTag(seedInfo.getSourceName());
 
-            crawlData.setTags(tags);
-            crawlData.setCategories(categories);
+            crawlData.setTags(seedInfo.getTags());
+
+            crawlData.setCategories(seedInfo.getCategories());
 
             crawlDataList.add(crawlData);
         }

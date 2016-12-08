@@ -39,7 +39,7 @@ CREATE TABLE `task` (
 CREATE TABLE `taskconfig` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '配置项id',
   `idTask` varchar(64) DEFAULT NULL COMMENT '爬虫任务的id，外键，参考表 task',
-  `confType` enum('undefine','seedUrls','templates','configsMap','clickRegex','regexFilter','protocolFilter','suffixFilter','proxy','tags','categories') DEFAULT 'undefine' COMMENT '配置类型',
+  `confType` enum('undefine','seedsInfoList','templates','configsMap','clickRegex','regexFilter','protocolFilter','suffixFilter','proxy','tags','categories') DEFAULT 'undefine' COMMENT '配置类型',
   `confValue` longtext,
   `addDate` datetime DEFAULT NULL COMMENT '配置项添加或修改的时间',
   PRIMARY KEY (`id`),

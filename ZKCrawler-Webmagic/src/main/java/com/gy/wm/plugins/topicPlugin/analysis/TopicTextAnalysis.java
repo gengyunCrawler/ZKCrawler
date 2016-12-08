@@ -15,9 +15,10 @@ import java.util.List;
 /**
  * Created by root on 15-12-22.
  */
-public class TopicTextAnalysis implements Serializable,PageParser {
+public class TopicTextAnalysis implements Serializable, PageParser {
     private List<BaseTemplate> baseTemplates;
     private AnalysisArticle analysisArticle;
+
     public void setBaseTemplates(List<BaseTemplate> baseTemplates) {
         this.baseTemplates = baseTemplates;
     }
@@ -26,12 +27,12 @@ public class TopicTextAnalysis implements Serializable,PageParser {
         this.analysisArticle = analysisArticle;
     }
 
-    public TopicTextAnalysis()  {
+    public TopicTextAnalysis() {
         this.setAnalysisArticle(new AnalysisArticle());
         this.setBaseTemplates(InstanceFactory.getBaseTemplate());
     }
 
-    public List<CrawlData> parse(CrawlData crawlData)   {
+    public List<CrawlData> parse(CrawlData crawlData) {
         List<CrawlData> crawlDataList = new ArrayList<>();
         List<BaseAnalysisURL> baseAnalysisURLList = new ArrayList<>();
         //初始化
@@ -55,21 +56,26 @@ public class TopicTextAnalysis implements Serializable,PageParser {
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         //导航解析
-        if(sort ==1)    {
+        if (sort == 1) {
             try {
-                baseAnalysisURLList = analysisNavigation.getUrlList(url,html);
-                for(BaseAnalysisURL baseAnalysisURL : baseAnalysisURLList)  {
+                baseAnalysisURLList = analysisNavigation.getUrlList(url, html);
+                for (BaseAnalysisURL baseAnalysisURL : baseAnalysisURLList) {
                     CrawlData newCrawlData = new CrawlData();
                     newCrawlData.setTid(tid);
                     newCrawlData.setPass(pass);
                     newCrawlData.setType(type);
                     newCrawlData.setStartTime(startTime);
                     newCrawlData.setDepthfromSeed(depthfromSeed + 1);
-                    newCrawlData.setRootUrl(url);
+                    newCrawlData.setRootUrl(crawlData.getRootUrl());
                     newCrawlData.setFromUrl(url);
                     newCrawlData.setUrl(baseAnalysisURL.getUrl());
                     newCrawlData.setTitle(baseAnalysisURL.getTitle());
                     newCrawlData.setPublishTime(baseAnalysisURL.getDate());
+
+                    newCrawlData.setTag(crawlData.getTag());
+                    newCrawlData.setTags(crawlData.getTags());
+                    newCrawlData.setCategories(crawlData.getCategories());
+
 
                     newCrawlData.setCrawlTime(new Date(System.currentTimeMillis()));
                     newCrawlData.setHtml(baseAnalysisURL.getHtml());
@@ -83,7 +89,7 @@ public class TopicTextAnalysis implements Serializable,PageParser {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }else {
+        } else {
             //文章页解析
             try {
                 oldUrl = analysisArticle.analysisArticle(oldUrl, baseTemplates);
@@ -92,7 +98,7 @@ public class TopicTextAnalysis implements Serializable,PageParser {
             }
 
 //            crawlData.setTitle(oldUrl.getTitle());
-            if(crawlData.getPublishTime() == null)  {
+            if (crawlData.getPublishTime() == null) {
                 //crawlData.setPublishTime(TimeJudger.validTime(oldUrl.getDate(),sdf));
             }
             crawlData.setCrawlTime(new Date(System.currentTimeMillis()));

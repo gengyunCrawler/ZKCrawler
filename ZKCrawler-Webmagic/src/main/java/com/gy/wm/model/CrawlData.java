@@ -44,6 +44,8 @@ public class CrawlData implements Serializable {
     private String parsedData;
 
 
+    private Map<String, Object> crawlerdata = new HashMap<>();
+
     public String getParsedData() {
         return parsedData;
     }
@@ -51,8 +53,6 @@ public class CrawlData implements Serializable {
     public void setParsedData(String parsedData) {
         this.parsedData = parsedData;
     }
-
-    private Map<String, Object> crawlerdata = new HashMap<>();
 
     public Map<String, Object> getCrawlerdata() {
         return crawlerdata;
@@ -304,7 +304,6 @@ public class CrawlData implements Serializable {
             this.categories = new JSONArray();
         }
     }
-
 
     public String toJSONString() {
 

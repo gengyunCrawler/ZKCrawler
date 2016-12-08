@@ -49,8 +49,8 @@ public class FilePipeline implements Pipeline {
             try {
                 writeLock.lock();
                 try {
-                    outputStream.write(crawlerData.toJSONString().getBytes(),
-                            0, crawlerData.toJSONString().getBytes().length);
+                    byte[] data = (crawlerData.toJSONString() + "\n").getBytes();
+                    outputStream.write(data, 0, data.length);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

@@ -68,7 +68,7 @@ public  class ServiceTest {
         JSONObject object = configService.findByIdTask(id);
 
         seedUrls.addAll(object.keySet());
-        param.setSeedUrls(seedUrls);
+        param.setSeedsInfoList(seedUrls);
 
         base.setId(id);
         base.setDepthCrawl(1);
@@ -101,7 +101,7 @@ public  class ServiceTest {
            String id =conf.getIdTask();
 
            seedUrls.addAll(object.keySet());
-           param.setSeedUrls(seedUrls);
+           param.setSeedsInfoList(seedUrls);
 
 
            base.setId(id);
