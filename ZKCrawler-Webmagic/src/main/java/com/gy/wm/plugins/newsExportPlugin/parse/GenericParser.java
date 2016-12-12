@@ -271,9 +271,10 @@ public class GenericParser implements PageParser {
 
     /**
      * fix img src--->url missing domain
-     * @param contentHtml
-     * @param imgSrcs
+     * @param content
      * @param domain
+     * @param preUrl
+     * @param srcs
      * @return
      */
     private String imgUrlPrefix(String content,String domain,String preUrl,List<String> srcs){
@@ -305,7 +306,12 @@ public class GenericParser implements PageParser {
         if (url.startsWith("/")){
             url = domain + url;
         }else  if (url.startsWith("../")){
-          url =domain+"/"+url.replace("../","");
+           int i = CharMatcher.anyOf(url).countIn("../");
+            for (int j = 0;j<i;j++){
+                int end = preUrl.lastIndexOf("/");
+                preUrl = preUrl.substring(0,end);
+            }
+          url =preUrl+"/"+url.replace("../","");
         }else {//not start with http
             url = preUrl+url;
         }
@@ -370,6 +376,7 @@ public class GenericParser implements PageParser {
         html = html.replace("</div>","");
         html = html.replaceAll("<script.*?>.*?</script>","");
         html = html.replaceAll("<!--.*?-->","");
+        html = html.replaceAll("<iframe.*?>.*?</iframe>","");
         return html;
     }
 
