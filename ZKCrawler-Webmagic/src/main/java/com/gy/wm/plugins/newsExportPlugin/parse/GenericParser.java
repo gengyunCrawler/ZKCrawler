@@ -2,6 +2,7 @@ package com.gy.wm.plugins.newsExportPlugin.parse;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.google.common.base.CharMatcher;
 import com.google.common.base.Preconditions;
 import com.gy.wm.dao.ParserDao;
 import com.gy.wm.model.CrawlData;
@@ -115,7 +116,7 @@ public class GenericParser implements PageParser {
         Map<String,Object> fieldMap=new HashMap<>();
         for (HtmlField htmlField:htmlFields){
             String fieldValue=byXpaths(html,htmlField.getXpaths());
-
+            fieldValue = clearText4label(fieldValue);
             if (fieldValue!=null){
                 //deal img label
                 if (fieldValue.contains("<img")){
@@ -129,8 +130,9 @@ public class GenericParser implements PageParser {
                     String preUrl = crawlData.getUrl().substring(0,end+1);
                     //fix imag url
                     fieldValue = imgUrlPrefix(fieldValue,domain,preUrl,imgSrcs);
+
                     //put img src to redis for download img
-                    fieldValue =  imgDealWithRedis(fieldValue,crawlData);
+                    //fieldValue =  imgDealWithRedis(fieldValue,crawlData);
                 }
 
                 if (htmlField.isContainsHtml()==false ){
@@ -269,9 +271,10 @@ public class GenericParser implements PageParser {
 
     /**
      * fix img src--->url missing domain
-     * @param contentHtml
-     * @param imgSrcs
+     * @param content
      * @param domain
+     * @param preUrl
+     * @param srcs
      * @return
      */
     private String imgUrlPrefix(String content,String domain,String preUrl,List<String> srcs){
@@ -303,7 +306,12 @@ public class GenericParser implements PageParser {
         if (url.startsWith("/")){
             url = domain + url;
         }else  if (url.startsWith("../")){
-          url =domain+"/"+url.replace("../","");
+           int i = CharMatcher.anyOf(url).countIn("../");
+            for (int j = 0;j<i;j++){
+                int end = preUrl.lastIndexOf("/");
+                preUrl = preUrl.substring(0,end);
+            }
+          url =preUrl+"/"+url.replace("../","");
         }else {//not start with http
             url = preUrl+url;
         }
@@ -360,5 +368,15 @@ public class GenericParser implements PageParser {
 
         imgJedis.hset("ImgSrcOf:"+taskId, url, srcurls);
     }
-
+    public String clearText4label(String html){
+        html = CharMatcher.WHITESPACE.collapseFrom(html,' ');
+        // html = CharMatcher.WHITESPACE.collapseFrom(html,' ');
+        html =html.replaceAll("<style.*?>.*?</style>","");
+        html = html.replaceAll("<div.*?>","");
+        html = html.replace("</div>","");
+        html = html.replaceAll("<script.*?>.*?</script>","");
+        html = html.replaceAll("<!--.*?-->","");
+        html = html.replaceAll("<iframe.*?>.*?</iframe>","");
+        return html;
+    }
 }
