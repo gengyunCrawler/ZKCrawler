@@ -20,15 +20,11 @@ public class ApplicationTaskClient {
     /**
      * zookeeper 的链接字符串，从配置文件中获得。
      */
-    private static String zkHostPort = ResourceBundle.getBundle("config").getString("ZK_CONNECTION_STRING");
-
-
+    private static String zkHostPort;
     /**
      * 初始化 task client。
      */
-    private static TaskClient taskClient = TaskClient.initializeTaskClient(zkHostPort, new RetryNTimes(5, 1000), null, null, null, null);
-
-
+    private static TaskClient taskClient;
 
 
     /**
@@ -44,6 +40,15 @@ public class ApplicationTaskClient {
          */
         SpringApplication.run(ApplicationTaskClient.class, args);
 
+        /**
+         * 获取主机配置。
+         */
+        zkHostPort = ResourceBundle.getBundle("config").getString("ZK_CONNECTION_STRING");
+
+        /**
+         * 初始化taskClient角色.
+         */
+        taskClient = TaskClient.initializeTaskClient(zkHostPort, new RetryNTimes(5, 1000), null, null, null, null);
 
         /**
          * 启动 task client。

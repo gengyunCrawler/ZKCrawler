@@ -1,7 +1,8 @@
 package com.gy.wm.entry;
 
-import com.alibaba.fastjson.JSONObject;
 import com.gy.wm.model.CrawlData;
+import com.gy.wm.model.config.SeedsConfig;
+import com.gy.wm.model.config.SeedsInfo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,23 +13,34 @@ import java.util.List;
 public class ConfigLoader {
 
     //对种子对应的CrawlData进行赋值
-    public List<CrawlData> load(String tid, String startTime, int pass, String type, List<String> seedingUrls, String tags) {
-        List <CrawlData> crawlDataList = new ArrayList<CrawlData>();
-        for(String seed : seedingUrls)  {
+    public List<CrawlData> load(String tid, String startTime, int pass, String type, SeedsConfig seedsConfig) {
+        List<CrawlData> crawlDataList = new ArrayList<>();
+        List<SeedsInfo> seedsInfoList = seedsConfig.getSeedsInfoList();
+        for (SeedsInfo seedInfo : seedsInfoList) {
+
             CrawlData crawlData = new CrawlData();
+
             crawlData.setTid(tid);
-            crawlData.setUrl(seed);
+
+            crawlData.setUrl(seedInfo.getUrl());
+
             crawlData.setStartTime(startTime);
+
             crawlData.setPass(pass);
+
             crawlData.setType(type);
-            crawlData.setRootUrl(seed);
-            crawlData.setFromUrl(seed);
+
+            crawlData.setRootUrl(seedInfo.getUrl());
+
+            crawlData.setFromUrl(seedInfo.getUrl());
+
             crawlData.setDepthfromSeed(0);
 
-            JSONObject jsonObject = JSONObject.parseObject(tags);
-            String tag = jsonObject.getString(seed);
+            crawlData.setTag(seedInfo.getSourceName());
 
-            crawlData.setTag(tag);
+            crawlData.setTags(seedInfo.getTags());
+
+            crawlData.setCategories(seedInfo.getCategories());
 
             crawlDataList.add(crawlData);
         }

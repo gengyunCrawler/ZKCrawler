@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="MySQL - crawlerdata@118.118.118.201" uuid="f26038fc-8bad-43f9-a40a-599ecd5e779a">
+  <component name="DataSourceManagerImpl" format="xml" hash="1753634152">
+    <data-source source="LOCAL" name="MySQL - wifi_ac@108.108.108.8" uuid="f26038fc-8bad-43f9-a40a-599ecd5e779a">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://118.118.118.201:3306/crawlerdata</jdbc-url>
+      <jdbc-url>jdbc:mysql://108.108.108.8:3306/wifi_ac</jdbc-url>
       <driver-properties>
         <property name="autoReconnect" value="true" />
         <property name="zeroDateTimeBehavior" value="convertToNull" />

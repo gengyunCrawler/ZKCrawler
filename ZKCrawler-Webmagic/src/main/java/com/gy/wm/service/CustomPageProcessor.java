@@ -76,9 +76,9 @@ public class CustomPageProcessor implements PageProcessor {
              * 通过反射拿到解析类并执行解析方法
              * 在PluginUtil中定义了插件名称制定路径
              */
-            List<CrawlData> perPageCrawlDateList = null;
+            List<CrawlData> perPageCrawlDataList = null;
             try {
-                perPageCrawlDateList = new PluginUtil().excutePluginParse(page_crawlData);
+                perPageCrawlDataList = new PluginUtil().excutePluginParse(page_crawlData);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -87,7 +87,7 @@ public class CustomPageProcessor implements PageProcessor {
             List<CrawlData> crawledData = new ArrayList<>();
 
             BloomFilter bloomFilter = new BloomFilter(bloomJedis, 1000, 0.001f, (int) Math.pow(2, 31));
-            for (CrawlData crawlData : perPageCrawlDateList) {
+            for (CrawlData crawlData : perPageCrawlDataList) {
                 if(crawlData.getDepthfromSeed() <= DEPTH)    {
                     if (!crawlData.isFetched()) {
                         //链接fetched为false,即导航页,bloomFilter判断待爬取队列没有记录

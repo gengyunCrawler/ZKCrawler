@@ -6,50 +6,50 @@
 
 
     <select id="findAll" resultType="taskEntity">
-        select * from tbcrawlertask
+        select * from task
     </select>
 
     <insert id="insertTaskEntity">
-        INSERT  INTO  tbcrawlertask
+        INSERT  INTO  task
                        (id,idUser,name,remark,type,depthCrawl,depthDynamic,pass,weight,
                        threads,completeTimes,cycleRecrawl,status,deleteFlag,timeStart,timeStop,timeLastCrawl,costLastCrawl,
-                       scheduleType,workNum,createDate)
+                       scheduleType,workerNumber,createDate)
                        VALUES
                        (#{id},#{idUser},#{name},#{remark},#{type},#{depthCrawl},
                        #{depthDynamic},#{pass},#{weight},#{threads},#{completeTimes},#{cycleRecrawl},#{status},#{deleteFlag},
-                       #{timeStart},#{timeStop},#{timeLastCrawl},#{costLastCrawl},#{scheduleType},#{workNum},#{createDate})
+                       #{timeStart},#{timeStop},#{timeLastCrawl},#{costLastCrawl},#{scheduleType},#{workerNumber},#{createDate})
 
     </insert>
 
     <update id="deleteTaskEntity">
-        update tbcrawlertask set deleteFlag=false where id =#{id}
+        update task set deleteFlag=false where id =#{id}
     </update>
 
 
     <select id="findById" resultType="TaskEntity">
-        SELECT  * from tbcrawlertask where id=#{id}
+        SELECT  * from task where id=#{id}
     </select>
 
     <select id="findByType" resultType="TaskEntity">
-        SELECT  * from tbcrawlertask where type=#{type}
+        SELECT  * from task where type=#{type}
     </select>
 
     <select id="findByTimeLastCrawl" resultType="TaskEntity">
-        SELECT  * from tbcrawlertask where timeLastCrawl=#{timeLastCrawl}
+        SELECT  * from task where timeLastCrawl=#{timeLastCrawl}
     </select>
 
     <update id="updateTimeLastCrawl">
-        update tbcrawlertask SET timeLastCrawl=#{newTime} where id=#{id}
+        update task SET timeLastCrawl=#{newTime} where id=#{id}
     </update>
 
     <update id="updateTaskEntityById">
-        update tbcrawlertask
+        update task
         set
          idUser=#{idUser},name=#{name},remark=#{remark},type=#{type},
          depthCrawl=#{depthCrawl},depthDynamic=#{depthDynamic},pass=#{pass},weight=#{weight},
          threads=#{threads},completeTimes=#{completeTimes},cycleRecrawl=#{cycleRecrawl},status=#{status},
          deleteFlag=#{deleteFlag},timeStart=#{timeStart},timeStop=#{timeStop},timeLastCrawl=#{timeLastCrawl},
-         costLastCrawl=#{costLastCrawl},scheduleType=#{scheduleType},workNum=#{workNum},createDate=#{createDate}
+         costLastCrawl=#{costLastCrawl},scheduleType=#{scheduleType},workerNumber=#{workerNumber},createDate=#{createDate}
         where id=#{id}
     </update>
 

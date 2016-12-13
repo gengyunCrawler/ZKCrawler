@@ -490,7 +490,7 @@ public class Worker implements Closeable, ConnectionStateListener {
                     HttpClientUtils.jsonPostRequest(API_CRAWLER_TASK_STARTER, task.toString());
                     LOGGER.info("=====>> Ended request Webmagic.......");
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    LOGGER.error("====>> 启动 WebMagic 任务出错！！", e);
                     return;
                 }
 
@@ -521,19 +521,18 @@ public class Worker implements Closeable, ConnectionStateListener {
         /**
          * 清理 redis 调用。
          */
-        /**
-         executorService.execute(new Runnable() {
-        @Override public void run() {
-        try {
-        HttpClientUtils.jsonPostRequest(API_CRAWLER_TASK_CLEAN_R + task.getEntity().getId(), task.getEntity().getId());
-        } catch (Exception e) {
-        e.printStackTrace();
-        }
-        }
+/**
+        executorService.execute(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    HttpClientUtils.jsonPostRequest(API_CRAWLER_TASK_CLEAN_R + task.getEntity().getId(), task.getEntity().getId());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
         });
-
-         **/
-
+     **/
     }
 
 
@@ -548,7 +547,7 @@ public class Worker implements Closeable, ConnectionStateListener {
         try {
             return client.getData().forPath(znode);
         } catch (Exception e) {
-            LOGGER.warn("get znode data error.");
+            LOGGER.warn("get znode data error.", e);
         }
         return null;
     }
@@ -565,7 +564,7 @@ public class Worker implements Closeable, ConnectionStateListener {
             myTasksLock.lock();
             myTasks.addTask(task);
         } catch (Exception e) {
-            LOGGER.warn("myTasks.addTask Exception...!!!");
+            LOGGER.warn("myTasks.addTask Exception...!!!", e);
         } finally {
 
             myTasksLock.unlock();
@@ -601,7 +600,6 @@ public class Worker implements Closeable, ConnectionStateListener {
         } catch (Exception e) {
             return false;
         } finally {
-
             myTasksLock.unlock();
         }
     }
@@ -707,6 +705,7 @@ public class Worker implements Closeable, ConnectionStateListener {
         LOGGER.info("closing worker ......");
         CloseableUtils.closeQuietly(myTasksCache);
         CloseableUtils.closeQuietly(client);
+        executorService.shutdown();
         LOGGER.info("worker closed.");
 
     }
@@ -772,3 +771,4 @@ public class Worker implements Closeable, ConnectionStateListener {
     }
 
 }
+

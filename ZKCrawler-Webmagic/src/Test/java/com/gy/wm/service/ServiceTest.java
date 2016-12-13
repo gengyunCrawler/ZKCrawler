@@ -5,21 +5,24 @@ import com.alibaba.fastjson.JSONObject;
 import com.gy.wm.ApplicationWebmagic;
 import com.gy.wm.controller.API;
 import com.gy.wm.dao.CrawlDataDao;
-import com.gy.wm.entry.TaskConfig;
+import com.gy.wm.model.TaskConfig;
 import com.gy.wm.model.CrawlData;
-import com.gy.wm.model.TaskParamModel;
 import com.gy.wm.vo.Base;
 import com.gy.wm.vo.Param;
+import com.gy.wm.model.TaskParamModel;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.core.task.SimpleAsyncTaskExecutor;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * <类详细说明：单元测试>
@@ -59,14 +62,14 @@ public  class ServiceTest {
      */
     @Test
     public void testStartTask() {
+        /*
         List<String> seedUrls = new ArrayList<>();
 
-        String id = "b1b43eefa56c06ee57c32e3ad0a5495c";
+        String id = "21236056e8a995b6f95c675a7d7aa44f";
         JSONObject object = configService.findByIdTask(id);
 
         seedUrls.addAll(object.keySet());
-      //  seedUrls.add("http://cnews.chinadaily.com.cn/2016-11/22/content_27457191.htm");
-        param.setSeedUrls(seedUrls);
+        param.setSeedsInfoList(seedUrls);
 
         base.setId(id);
         base.setDepthCrawl(1);
@@ -76,20 +79,22 @@ public  class ServiceTest {
         taskParamModel.setBase(base);
         //启动任务
         String reslut = api.startTask(taskParamModel);
-        System.out.println("**************API接口返回任务Id: *****************" + reslut);
+        Thread thread = Thread.currentThread();
         try {
-            Thread.sleep(Long.MAX_VALUE);
+            thread.join();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        */
     }
 
     /**
      * 同时启动多条任务
      */
     @Test
-        public void testListTask(){
+    public void testListTask(){
 
+/*
         List<TaskConfig> configs = configService.findByIdStart(10);
        for (TaskConfig conf:configs){
 
@@ -100,7 +105,7 @@ public  class ServiceTest {
            String id =conf.getIdTask();
 
            seedUrls.addAll(object.keySet());
-           param.setSeedUrls(seedUrls);
+           param.setSeedsInfoList(seedUrls);
 
            base.setId(id);
            base.setDepthCrawl(1);
@@ -117,7 +122,7 @@ public  class ServiceTest {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
+*/
     }
     @Test
     public void splitInfobar()  {

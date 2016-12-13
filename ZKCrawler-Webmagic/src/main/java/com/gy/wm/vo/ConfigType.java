@@ -1,4 +1,4 @@
-package cn.com.cloudpioneer.worker.model;
+package com.gy.wm.vo;
 
 /**
  * Created by Administrator on 2016/9/19.

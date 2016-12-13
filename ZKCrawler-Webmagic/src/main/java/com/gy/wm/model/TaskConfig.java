@@ -1,4 +1,4 @@
-package com.gy.wm.entry;
+package com.gy.wm.model;
 
 /**
  * Created by Administrator on 2016/11/14.
