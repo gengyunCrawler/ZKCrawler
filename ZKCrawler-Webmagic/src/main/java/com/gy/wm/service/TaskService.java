@@ -36,11 +36,8 @@ public class TaskService {
     private Crawl crawl;
 
     @Async
-    public Future<Long> startTask(TaskParamModel taskParamModel) {
+    public void startTask(TaskParamModel taskParamModel) {
         this.crawl.startTask(taskParamModel);
-        LOGGER.info("异步返回：任务 "+taskParamModel.getBase().getId()+" 已完成！");
-        LOGGER.info("异步中的线程名称： " + java.lang.Thread.currentThread().getName() + "异步中的线程id： " + Thread.currentThread().getId());
-        return new AsyncResult<>(java.lang.Thread.currentThread().getId());
     }
 
     public String cleanTaskRedis(String tid)  {

@@ -11,16 +11,20 @@ import org.apache.ibatis.annotations.Select;
  * @Version: 2016-09-12
  **/
 public interface CrawlDataMapper {
-    @Insert("INSERT INTO crawlerdata_test_huanghai(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched,author,sourceName,parsedData) VALUES " +
-            "(#{tid},#{url},#{statusCode},#{pass},#{type},#{rootUrl},#{fromUrl},#{text},#{html},#{title},#{startTime},#{crawlTime},#{publishTime},#{depthfromSeed},#{count},#{tag},#{fetched},#{author},#{sourceName},#{parsedData})")
+    @Insert("INSERT INTO crawlerdata_duocai(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched,author,sourceName,parsedData,textPTag) VALUES " +
+            "(#{tid},#{url},#{statusCode},#{pass},#{type},#{rootUrl},#{fromUrl},#{text},#{html},#{title},#{startTime},#{crawlTime},#{publishTime},#{depthfromSeed},#{count},#{tag},#{fetched},#{author},#{sourceName},#{parsedData},#{textPTag})")
     public void saveToMysql(CrawlData crawlData);
+//    @Insert("INSERT INTO crawlerdata_test_huanghai(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched,author,sourceName,parsedData) VALUES " +
+//            "(#{tid},#{url},#{statusCode},#{pass},#{type},#{rootUrl},#{fromUrl},#{text},#{html},#{title},#{startTime},#{crawlTime},#{publishTime},#{depthfromSeed},#{count},#{tag},#{fetched},#{author},#{sourceName},#{parsedData})")
+//    public void saveToMysql(CrawlData crawlData);
 
-  /*@Insert("INSERT INTO zk_test(url,data) values(#{url},#{parsedData})")
-  public void saveToMysql(CrawlData crawlData);*/
+  @Insert("INSERT INTO zk_test(url,data) values(#{url},#{parsedData})")
+//  public void saveToMysql(CrawlData crawlData);
 
 /*    @Insert("INSERT INTO crawlerdata(tid,url,statusCode,pass,type,rootUrl,fromUrl,text,html,title,startTime,crawlTime,publishTime,depthfromSeed,count,tag,fetched,author,sourceName,jsonData) VALUES " +
             "(#{tid},#{url},#{statusCode},#{pass},#{type},#{rootUrl},#{fromUrl},#{text},#{html},#{title},#{startTime},#{crawlTime},#{publishTime},#{depthfromSeed},#{count},#{tag},#{fetched},#{author},#{sourceName},#{jsonData})")
     public void saveToMysql(CrawlData crawlData);*/
+
 
     @Select("SELECT * FROM  crawlerdata_test_huanghai WHERE seqeueID=#{seqeueID}")
     public CrawlData findCrawlDataById(int seqeueID);

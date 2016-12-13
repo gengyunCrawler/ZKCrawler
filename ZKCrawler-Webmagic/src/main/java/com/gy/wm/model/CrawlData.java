@@ -42,9 +42,15 @@ public class CrawlData implements Serializable {
     private String author;
     private String sourceName;
     private String parsedData;
+    private String textPTag;
 
+    public String getTextPTag() {
+        return textPTag;
+    }
 
-    private Map<String, Object> crawlerdata = new HashMap<>();
+    public void setTextPTag(String textPTag) {
+        this.textPTag = textPTag;
+    }
 
     public String getParsedData() {
         return parsedData;
@@ -53,6 +59,8 @@ public class CrawlData implements Serializable {
     public void setParsedData(String parsedData) {
         this.parsedData = parsedData;
     }
+
+    private Map<String,Object> crawlerdata=new HashMap<>();
 
     public Map<String, Object> getCrawlerdata() {
         return crawlerdata;
@@ -266,48 +274,5 @@ public class CrawlData implements Serializable {
         this.docId = docId;
     }
 
-    public String getTextPTag() {
-        return textPTag;
-    }
 
-    public void setTextPTag(String textPTag) {
-        this.textPTag = textPTag;
-    }
-
-    public JSONArray getTags() {
-        return tags;
-    }
-
-    public void setTags(JSONArray tags) {
-        this.tags = tags;
-    }
-
-    public void setTags(String tags) {
-        try {
-            this.tags = JSONArray.parseArray(tags);
-        } catch (Exception e) {
-            this.tags = new JSONArray();
-        }
-    }
-
-    public JSONArray getCategories() {
-        return categories;
-    }
-
-    public void setCategories(JSONArray categories) {
-        this.categories = categories;
-    }
-
-    public void setCategories(String categories) {
-        try {
-            this.categories = JSONArray.parseArray(categories);
-        } catch (Exception e) {
-            this.categories = new JSONArray();
-        }
-    }
-
-    public String toJSONString() {
-
-        return JSONObject.toJSONString(this);
-    }
 }

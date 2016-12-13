@@ -112,14 +112,18 @@ public class SeleniumDownloader implements Downloader {
         LOG.info("downloading page " + request.getUrl());
 
         webDriver1.get(request.getUrl());
+
         this.sleep();
+
         WebElement webElement = webDriver1.findElement(By.xpath("/html"));
+
         String content = webElement.getAttribute("outerHTML");
 
         webDriverPool.returnWebDriver(webDriver1);
 
         Page page = new Page();
         page.setRawText(content);
+
         page.setHtml(new Html(UrlUtils.fixAllRelativeHrefs(content, request.getUrl())));
         page.setUrl(new PlainText(request.getUrl()));
         page.setRequest(request);
