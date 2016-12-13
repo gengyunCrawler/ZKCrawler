@@ -87,13 +87,5 @@ public class TaskDao {
         return integer;
     }
 
-    public static void main(String[] args) {
-        TaskDao dao = new TaskDao();
-
-        List<TaskEntity> entities = dao.findAllValidByStatus(TaskStatusItem.TASK_STATUS_COMPLETED);
-
-        System.out.println("size: " + entities.size());
-        System.out.println(JSON.toJSONString(entities));
-    }
 
 }

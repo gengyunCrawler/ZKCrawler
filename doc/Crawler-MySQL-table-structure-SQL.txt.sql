@@ -5,7 +5,7 @@
 第二张为任务配置。
 
  */
-
+/* 第一张为基本描述 */
 CREATE TABLE `task` (
   `id` varchar(64) NOT NULL DEFAULT '' COMMENT '爬虫任务的id，每个任务的id是唯一的，字符串，在数据库的长度为64个字符。',
   `idUser` bigint(20) DEFAULT NULL COMMENT '用户id，表明此任务属于哪个用户的任务。默认值为NULL。',
@@ -31,21 +31,22 @@ CREATE TABLE `task` (
   `createDate` datetime DEFAULT NULL COMMENT '任务创建的时间',
   `downloader` varchar(512) DEFAULT '' COMMENT '下载器类型',
   `parser` varchar(512) DEFAULT '' COMMENT '解析器类型',
-  `tags` longtext COMMENT '任务标签，字符串JSON数组，如 ["tag1","tag2","tag3"]',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
+/* 第二张为任务配置 */
 CREATE TABLE `taskconfig` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '配置项id',
-  `idTask` varchar(64) DEFAULT NULL COMMENT '爬虫任务的id，外键，参考表 tbCrawlerTask',
-  `confType` enum('undefine','seedUrls','templates','configs','clickRegex','regexFilter','protocolFilter','suffixFilter','proxy') DEFAULT 'undefine' COMMENT '配置类型',
+  `idTask` varchar(64) DEFAULT NULL COMMENT '爬虫任务的id，外键，参考表 task',
+  `confType` enum('undefine','seedsInfoList','templates','configsMap','clickRegex','regexFilter','protocolFilter','suffixFilter','proxy','tags','categories') DEFAULT 'undefine' COMMENT '配置类型',
   `confValue` longtext,
   `addDate` datetime DEFAULT NULL COMMENT '配置项添加或修改的时间',
   PRIMARY KEY (`id`),
+  UNIQUE KEY `idTask_confType` (`idTask`,`confType`),
   KEY `idTask` (`idTask`),
-  CONSTRAINT `tbCrawlerTaskConfig_ibfk_1` FOREIGN KEY (`idTask`) REFERENCES `task` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
+  CONSTRAINT `taskconfig_ibfk_1` FOREIGN KEY (`idTask`) REFERENCES `task` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=95 DEFAULT CHARSET=utf8;
 
 
 CREATE TABLE `hbase_ddp_batch_get_info` (
@@ -59,7 +60,8 @@ CREATE TABLE `hbase_ddp_batch_get_info` (
   `createTime` datetime DEFAULT NULL COMMENT '记录添加时间',
   UNIQUE KEY `idTask` (`idTask`),
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
 
 
 CREATE TABLE `hbase_ddp_batch_get_log` (
@@ -69,7 +71,7 @@ CREATE TABLE `hbase_ddp_batch_get_log` (
   `logInfo` text CHARACTER SET utf8 COMMENT '  logInfo 为JSON字符串,是表 hbase_ddp_batch_get_info 中的记录JSON化后的内容。',
   `createTime` datetime DEFAULT NULL COMMENT '记录添加时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 CREATE TABLE `pos_duocai_export` (
@@ -77,7 +79,7 @@ CREATE TABLE `pos_duocai_export` (
   `taskId` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
   `position` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -88,7 +90,7 @@ CREATE TABLE `article_parse_config` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `tid` (`tid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=206 DEFAULT CHARSET=utf8 COMMENT='此表添加文章解析各个字段的Xpath，通过Xpath获得比如标题、正文、来源等文章字段'
-
+;
 
 CREATE TABLE `crawlerdata` (
   `seqeueID` int(10) NOT NULL AUTO_INCREMENT COMMENT '表的ID，自动递增',
@@ -113,3 +115,4 @@ CREATE TABLE `crawlerdata` (
   PRIMARY KEY (`seqeueID`),
   UNIQUE KEY `url unique_index` (`url`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=182 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='此表存储爬虫程序下载并解析后的数据'
+;

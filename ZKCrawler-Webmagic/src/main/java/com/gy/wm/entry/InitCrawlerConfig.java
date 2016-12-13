@@ -13,12 +13,12 @@ import java.util.List;
 public class InitCrawlerConfig {
 
     private static  List<String> postRegex;
-    private static List<BaseTemplate> listTemplate;
-    private static List<String> regexList;
-    private static List<String> protocols;
-    private static int recalldepth;
-    private static BloomFilter sparkBloomFilter;
-    private static int depth;
+    private static  List<BaseTemplate> listTemplate;
+    private static  List<String> regexList;
+    private static  List<String> protocols;
+    private static  int recalldepth;
+    private static  BloomFilter sparkBloomFilter;
+    private static  int depth;
 
     public List<String> getPostRegex() {
         return postRegex;

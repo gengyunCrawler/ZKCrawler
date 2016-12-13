@@ -82,8 +82,6 @@ public class TaskEntity implements Serializable {
     // 解析器
     private String parser = "";
 
-    // 标签
-    private String tags = "[]";
 
 
     public String getId() {
@@ -280,13 +278,6 @@ public class TaskEntity implements Serializable {
         this.parser = parser;
     }
 
-    public String getTags() {
-        return tags;
-    }
-
-    public void setTags(String tags) {
-        this.tags = tags;
-    }
 
     @Override
     public String toString() {

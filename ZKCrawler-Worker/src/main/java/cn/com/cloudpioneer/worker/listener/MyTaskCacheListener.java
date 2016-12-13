@@ -78,7 +78,7 @@ public class MyTaskCacheListener implements TreeCacheListener {
                         taskModel.getEntity().setTimeStart(new Date());
                         taskModel.getEntity().setTimeLastCrawl(new Date());
                         GetTaskConfigs getTaskConfigs = new GetTaskConfigs();
-                        taskModel.setConfigs(GetTaskConfigs.configsParser(getTaskConfigs.findConfigs(taskModel.getEntity().getId())));
+                        taskModel.setConfigsMap(GetTaskConfigs.configsParser(getTaskConfigs.findConfigs(taskModel.getEntity().getId())));
                         worker.addTaskToRunning(taskModel);
 
                     } else

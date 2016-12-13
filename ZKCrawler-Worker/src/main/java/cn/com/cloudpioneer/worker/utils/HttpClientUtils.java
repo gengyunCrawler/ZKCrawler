@@ -118,7 +118,7 @@ public class HttpClientUtils {
 
         HttpPost postRequest = new HttpPost(url);
         postRequest.setHeader("Accept", "application/json");
-        postRequest.setHeader("Content-type", "application/json");
+        postRequest.setHeader("Content-type", "application/json;charset=UTF-8");
 
         StringEntity stringEntity;
 

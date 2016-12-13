@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created by root on 15-12-22.
  */
-public class WholesiteTextAnalysis implements Serializable,PageParser {
+public class WholesiteTextAnalysis implements Serializable, PageParser {
 
     private WholeSiteAnalysis wholeSiteAnalysis;
 
@@ -28,22 +28,24 @@ public class WholesiteTextAnalysis implements Serializable,PageParser {
         this.wholeSiteAnalysis = wholeSiteAnalysis;
     }
 
-    public WholesiteTextAnalysis()  {}
+    public WholesiteTextAnalysis() {
+    }
 
-    public List<CrawlData> parse(CrawlData crawlData)   {
+    public List<CrawlData> parse(CrawlData crawlData) {
         this.setWholeSiteAnalysis(new WholeSiteAnalysis());
         List<CrawlData> crawlDataList = new ArrayList<>();
 
         String html = crawlData.getHtml();
 
-        if(html != null || html.length() > 0) {
+        if (html != null || html.length() > 0) {
             String rootUrl = crawlData.getRootUrl();
             long depth = crawlData.getDepthfromSeed();
             String fromUrl = crawlData.getUrl();
             try {
-                List<BaseURL> baseURLList = wholeSiteAnalysis.getUrlList(fromUrl,html);
-                for (int i=0; i<baseURLList.size(); i++) {
-                    CrawlData newCrawlData = createNewCrawlData(baseURLList.get(i),rootUrl,depth,fromUrl,crawlData.getPass(),crawlData.getTid(),crawlData.getStartTime());
+                List<BaseURL> baseURLList = wholeSiteAnalysis.getUrlList(fromUrl, html);
+                for (int i = 0; i < baseURLList.size(); i++) {
+                    //CrawlData newCrawlData = createNewCrawlData(baseURLList.get(i),rootUrl,depth,fromUrl,crawlData.getPass(),crawlData.getTid(),crawlData.getStartTime());
+                    CrawlData newCrawlData = createNewCrawlData(baseURLList.get(i), crawlData);
                     crawlDataList.add(newCrawlData);
                 }
             } catch (IOException e) {
@@ -53,13 +55,14 @@ public class WholesiteTextAnalysis implements Serializable,PageParser {
             crawlData.setText(wholeSiteAnalysis.getText());
         }
         crawlData.setFetched(true);
+        crawlData.setCrawlTime(new Date());
         crawlDataList.add(crawlData);
         return crawlDataList;
     }
 
-    public CrawlData createNewCrawlData(BaseURL baseURL, String rootURL, long depth, String fromUrl, int pass, String tid, String startTime)   {
+    private CrawlData createNewCrawlData(BaseURL baseURL, String rootURL, long depth, String fromUrl, int pass, String tid, String startTime) {
         CrawlData crawlData = new CrawlData();
-        if(baseURL != null) {
+        if (baseURL != null) {
             String url = baseURL.getUrl();
             crawlData.setTid(tid);
             crawlData.setStartTime(startTime);
@@ -70,6 +73,28 @@ public class WholesiteTextAnalysis implements Serializable,PageParser {
             crawlData.setUrl(url);
             crawlData.setPass(pass);
             crawlData.setTitle(baseURL.getTitle());
+            crawlData.setFetched(false);
+        }
+        return crawlData;
+    }
+
+    private CrawlData createNewCrawlData(BaseURL baseURL, CrawlData parent) {
+        CrawlData crawlData = new CrawlData();
+        if (baseURL != null) {
+            String url = baseURL.getUrl();
+            crawlData.setTid(parent.getTid());
+            crawlData.setStartTime(parent.getStartTime());
+            crawlData.setRootUrl(parent.getRootUrl());
+            crawlData.setDepthfromSeed(parent.getDepthfromSeed() + 1);
+            crawlData.setFromUrl(parent.getUrl());
+            crawlData.setPublishTime(sdf.format(new Date(baseURL.getDate())));
+            crawlData.setUrl(url);
+            crawlData.setPass(parent.getPass());
+            crawlData.setTitle(baseURL.getTitle());
+            crawlData.setType(parent.getType());
+            crawlData.setCategories(parent.getCategories());
+            crawlData.setTags(parent.getTags());
+            crawlData.setTag(parent.getTag());
             crawlData.setFetched(false);
         }
         return crawlData;

@@ -5,16 +5,13 @@ import com.alibaba.fastjson.JSONObject;
 import com.gy.wm.ApplicationWebmagic;
 import com.gy.wm.controller.API;
 import com.gy.wm.dao.CrawlDataDao;
-import com.gy.wm.entry.TaskConfig;
+import com.gy.wm.model.TaskConfig;
 import com.gy.wm.model.CrawlData;
 import com.gy.wm.vo.Base;
 import com.gy.wm.vo.Param;
 import com.gy.wm.model.TaskParamModel;
-import com.gy.wm.service.CustomPageProcessor;
-import com.gy.wm.service.TaskService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.omg.CORBA.PUBLIC_MEMBER;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.core.task.SimpleAsyncTaskExecutor;
@@ -65,13 +62,14 @@ public  class ServiceTest {
      */
     @Test
     public void testStartTask() {
+        /*
         List<String> seedUrls = new ArrayList<>();
 
         String id = "21236056e8a995b6f95c675a7d7aa44f";
         JSONObject object = configService.findByIdTask(id);
 
         seedUrls.addAll(object.keySet());
-        param.setSeedUrls(seedUrls);
+        param.setSeedsInfoList(seedUrls);
 
         base.setId(id);
         base.setDepthCrawl(1);
@@ -87,14 +85,16 @@ public  class ServiceTest {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        */
     }
 
     /**
      * 同时启动多条任务
      */
     @Test
-        public void testListTask(){
+    public void testListTask(){
 
+/*
         List<TaskConfig> configs = configService.findByIdStart(10);
        for (TaskConfig conf:configs){
 
@@ -105,7 +105,7 @@ public  class ServiceTest {
            String id =conf.getIdTask();
 
            seedUrls.addAll(object.keySet());
-           param.setSeedUrls(seedUrls);
+           param.setSeedsInfoList(seedUrls);
 
            base.setId(id);
            base.setDepthCrawl(1);
@@ -122,7 +122,7 @@ public  class ServiceTest {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
+*/
     }
     @Test
     public void splitInfobar()  {

@@ -150,7 +150,7 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
     public static final String ROOT_PATH_LOCK = "/lock-4-tasks";
     public static final String ROOT_PATH_TASKS = "/tasks";
     public static final String ROOT_PATH_WORKERS = "/workers";
-    public static final String ROOT_PATH_CLIENT = "/TASK_CLIENT";
+    public static final String ROOT_PATH_CLIENT = "/taskClient";
 
 
     /**
@@ -159,7 +159,7 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
     static {
         try {
             tasksScannerPeriod = Integer.parseInt(ResourceBundle.getBundle("config").getString("TASKS_SCANNER_PERIOD"));
-        } catch (NumberFormatException e) {
+        } catch (Exception e) {
             tasksScannerPeriod = 2;
             LOGGER.warn("get tasksScannerPeriod Exception, use the default value: " + tasksScannerPeriod + " minutes.");
         }

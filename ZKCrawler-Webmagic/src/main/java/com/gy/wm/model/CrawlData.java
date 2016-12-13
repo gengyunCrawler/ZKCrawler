@@ -1,6 +1,8 @@
 package com.gy.wm.model;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -12,9 +14,13 @@ import java.util.Map;
  * Created by Administrator on 2016/4/29.
  */
 public class CrawlData implements Serializable {
-//    private final static long serialVersionUID = -2344403674643228206L;
 
     private String docId = "";
+
+    private String textPTag = "";
+    private JSONArray tags;
+    private JSONArray categories;
+
 
     private String tid;
     private String url;
@@ -36,6 +42,10 @@ public class CrawlData implements Serializable {
     private String author;
     private String sourceName;
     private String parsedData;
+
+
+    private Map<String, Object> crawlerdata = new HashMap<>();
+
     public String getParsedData() {
         return parsedData;
     }
@@ -44,14 +54,12 @@ public class CrawlData implements Serializable {
         this.parsedData = parsedData;
     }
 
-    private Map<String,Object> crawlerdata=new HashMap<>();
-
     public Map<String, Object> getCrawlerdata() {
         return crawlerdata;
     }
 
     public void setCrawlerdata(Map<String, Object> crawlerdata) {
-        if (crawlerdata!=null){
+        if (crawlerdata != null) {
             this.crawlerdata = crawlerdata;
             this.parsedData = JSON.toJSONString(crawlerdata);
         }
@@ -73,7 +81,7 @@ public class CrawlData implements Serializable {
         this.sourceName = sourceName;
     }
 
-    private List<Map<String,String>> fieldsMap;
+    private List<Map<String, String>> fieldsMap;
 
     public List<Map<String, String>> getFieldsMap() {
         return fieldsMap;
@@ -83,10 +91,17 @@ public class CrawlData implements Serializable {
         this.fieldsMap = fieldsMap;
     }
 
-    public CrawlData() {}
+    public CrawlData() {
+        this.tags = new JSONArray();
+        this.categories = new JSONArray();
+    }
 
     public CrawlData(String url, int statusCode, int pass, String type, String rootUrl, String fromUrl, String text, String html, String title,
-                     String startTime, Date crawlTime, String publishTime, long depthfromSeed, String tag, long count, boolean fetched, String author, String sourceName)  {
+
+                     String startTime, Date crawlTime, String publishTime, long depthfromSeed, String tag, long count, boolean fetched, String author, String sourceName) {
+        this.tags = new JSONArray();
+        this.categories = new JSONArray();
+
         this.url = url;
         this.statusCode = statusCode;
         this.pass = pass;
@@ -251,5 +266,48 @@ public class CrawlData implements Serializable {
         this.docId = docId;
     }
 
+    public String getTextPTag() {
+        return textPTag;
+    }
 
+    public void setTextPTag(String textPTag) {
+        this.textPTag = textPTag;
+    }
+
+    public JSONArray getTags() {
+        return tags;
+    }
+
+    public void setTags(JSONArray tags) {
+        this.tags = tags;
+    }
+
+    public void setTags(String tags) {
+        try {
+            this.tags = JSONArray.parseArray(tags);
+        } catch (Exception e) {
+            this.tags = new JSONArray();
+        }
+    }
+
+    public JSONArray getCategories() {
+        return categories;
+    }
+
+    public void setCategories(JSONArray categories) {
+        this.categories = categories;
+    }
+
+    public void setCategories(String categories) {
+        try {
+            this.categories = JSONArray.parseArray(categories);
+        } catch (Exception e) {
+            this.categories = new JSONArray();
+        }
+    }
+
+    public String toJSONString() {
+
+        return JSONObject.toJSONString(this);
+    }
 }

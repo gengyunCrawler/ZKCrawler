@@ -1,6 +1,6 @@
 package com.gy.wm.dao;
 
-import com.gy.wm.entry.TaskConfig;
+import com.gy.wm.model.TaskConfig;
 import com.gy.wm.mapper.TaskConfigMapper;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;

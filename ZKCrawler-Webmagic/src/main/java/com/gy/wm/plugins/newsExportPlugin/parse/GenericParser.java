@@ -7,16 +7,15 @@ import com.gy.wm.service.PageParser;
 import com.gy.wm.util.AlphabeticRandom;
 import us.codecraft.webmagic.selector.Html;
 import us.codecraft.webmagic.selector.Selectable;
-import us.codecraft.webmagic.selector.SmartContentSelector;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.*;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
  * Created by tijun on 2016/10/8.
+ *
  * @author TijunWang
  * @version 1.0
  */
@@ -25,11 +24,11 @@ public class GenericParser implements PageParser {
     private ParserDao parserDao = new ParserDao();
     private List<String> contentLinkRegexs = new ArrayList<>();
     private List<String> columnRegexs = new ArrayList<>();
-    private  Pattern pattern=Pattern.compile("(\\w+.*://\\w+.*)/(\\w+.*)");
+    private Pattern pattern = Pattern.compile("(\\w+.*://\\w+.*)/(\\w+.*)");
 
     @Override
     public List<CrawlData> parse(CrawlData crawlData) {
-        List<CrawlData> crawlDatas = new ArrayList<>();
+        List<CrawlData> crawlDataList = new ArrayList<>();
         //obtain crawler config from MySQL ,one task one config(json),so for a task ,it just accesses database once
         if (config == null) {
             ParserEntity entity = parserDao.find(crawlData.getTid());
@@ -56,30 +55,34 @@ public class GenericParser implements PageParser {
         //judge current page class(links page or content page)
         if (isColumnHtml(crawlData.getUrl())) {
             List<String> urls = new Html(crawlData.getHtml()).xpath("//a/@href").all();
-            String domain="";
-            String []arr= crawlData.getRootUrl().split("/");
-            domain=arr[0]+"//"+arr[2];
-            urls=hrefPrifix(urls,domain);
+            String domain = "";
+            String[] arr = crawlData.getRootUrl().split("/");
+            domain = arr[0] + "//" + arr[2];
+            urls = hrefPrifix(urls, domain);
             for (String url : urls) {
                 if (isContentHtml(url)) {
-                    CrawlData data = new CrawlData();
-                    data.setUrl(url);
-                    data.setTid(crawlData.getTid());
-                    data.setFromUrl(crawlData.getUrl());
-                    data.setRootUrl(crawlData.getUrl());
-                    data.setTag(crawlData.getTag());
-                    data.setFetched(false);
-                    data.setTag(crawlData.getTag());
-                    crawlDatas.add(data);
+                    CrawlData newCrawlData = new CrawlData();
+
+                    newCrawlData.setUrl(url);
+                    newCrawlData.setTid(crawlData.getTid());
+                    newCrawlData.setFromUrl(crawlData.getUrl());
+                    newCrawlData.setRootUrl(crawlData.getRootUrl());
+                    newCrawlData.setTag(crawlData.getTag());
+                    newCrawlData.setFetched(false);
+                    newCrawlData.setTag(crawlData.getTag());
+                    newCrawlData.setTags(crawlData.getTags());
+                    newCrawlData.setCategories(crawlData.getCategories());
+
+                    crawlDataList.add(newCrawlData);
                 }
             }
         }
         //parsing data from html
         if (isContentHtml(crawlData.getUrl())) {
-            crawlDatas.add(parseData(new Html(crawlData.getHtml()), crawlData, config.getFields()));
+            crawlDataList.add(parseData(new Html(crawlData.getHtml()), crawlData, config.getFields()));
         }
 
-        return crawlDatas;
+        return crawlDataList;
     }
 
     /**
@@ -94,9 +97,6 @@ public class GenericParser implements PageParser {
      */
     private CrawlData parseData(Html html, CrawlData crawlData, List<HtmlField> htmlFields) {
 
-        /*String docId = generateRowKey(crawlData.getTid());
-        //设置文章
-        crawlData.setDocId(docId);*/
         crawlData.setTid(crawlData.getTid());
 
         crawlData.setHtml(html.toString());
@@ -104,21 +104,21 @@ public class GenericParser implements PageParser {
         crawlData.setFetched(true);
         crawlData.setCrawlTime(new Date());
 
-        //put all fields into mup
-        Map<String,Object> fieldMap=new HashMap<>();
-        for (HtmlField htmlField:htmlFields){
-            String fieldValue=byXpaths(html,htmlField.getXpaths());
+        //put all fields into map
+        Map<String, Object> fieldMap = new HashMap<>();
+        for (HtmlField htmlField : htmlFields) {
+            String fieldValue = byXpaths(html, htmlField.getXpaths());
 
-            if (fieldValue!=null){
+            if (fieldValue != null) {
 
-                if (fieldValue.contains("<img")){
-                    Html newContentHtml=new Html(fieldValue);
+                if (fieldValue.contains("<img")) {
+                    Html newContentHtml = new Html(fieldValue);
 
-                    List<String> imgSrcs=newContentHtml.xpath("//img/@src").all();
-                    String domain="";
-                    String []arr= crawlData.getRootUrl().split("/");
-                    domain=arr[0]+"//"+arr[2];
-                    fieldValue= imgUrlPrefix(fieldValue,imgSrcs,domain);
+                    List<String> imgSrcs = newContentHtml.xpath("//img/@src").all();
+                    String domain = "";
+                    String[] arr = crawlData.getRootUrl().split("/");
+                    domain = arr[0] + "//" + arr[2];
+                    fieldValue = imgUrlPrefix(fieldValue, imgSrcs, domain);
                 }
 
                 if (htmlField.isContainsHtml()==false ){
@@ -134,19 +134,20 @@ public class GenericParser implements PageParser {
                         }
                         fieldValue=buffer.toString();
                     }
+
                 }
                 //remove elements that is needn't
-                List<String> excludesXpaths=htmlField.getExcludeXpaths();
-                if (excludesXpaths!=null&&excludesXpaths.size()>0){
-                    fieldValue=byExcludesXpaths(fieldValue,excludesXpaths);
+                List<String> excludesXpaths = htmlField.getExcludeXpaths();
+                if (excludesXpaths != null && excludesXpaths.size() > 0) {
+                    fieldValue = byExcludesXpaths(fieldValue, excludesXpaths);
 
                 }
             }
 
-            fieldMap.put(htmlField.getFieldName(),fieldValue);
-            Map<String,String> tags = new HashMap<>();
-            tags.put("column",crawlData.getTag());
-            fieldMap.put("tag",tags);
+            fieldMap.put(htmlField.getFieldName(), fieldValue);
+            Map<String, String> tags = new HashMap<>();
+            tags.put("column", crawlData.getTag());
+            fieldMap.put("tag", tags);
 
             if (htmlField.getFieldName().equals("title"))
                 crawlData.setTitle(fieldValue);
@@ -168,6 +169,7 @@ public class GenericParser implements PageParser {
 
     /**
      * judge the url which is the final content html
+     *
      * @param url
      * @return
      */
@@ -209,10 +211,10 @@ public class GenericParser implements PageParser {
         for (String xpath : xpaths) {
             Selectable selectable = html.xpath(xpath);
             if (selectable != null) {
-                if (selectable.toString()!=null){
-                    List<String> contents=selectable.all();
-                    StringBuffer buffer=new StringBuffer();
-                    for (String content:contents){
+                if (selectable.toString() != null) {
+                    List<String> contents = selectable.all();
+                    StringBuffer buffer = new StringBuffer();
+                    for (String content : contents) {
                         buffer.append(content);
                     }
                     return buffer.toString();
@@ -224,54 +226,57 @@ public class GenericParser implements PageParser {
 
     /**
      * remove elements that matches xpathes
+     *
      * @param contentHtml
      * @param xpaths
      * @return
      */
     private String byExcludesXpaths(String contentHtml, List<String> xpaths) {
-        String regex=">\\s*<";
+        String regex = ">\\s*<";
         Html html = new Html(contentHtml);
         for (String xpath : xpaths) {
             Selectable selectable = html.xpath(xpath);
             if (selectable != null) {
-                if (selectable.toString() != null){
-                    List<String> contents=selectable.all();
-                        for (String content:contents){
-                            content=content.replace("\n","").replace("\t","").replaceAll(regex,"><");
-                            contentHtml=html.xpath("/html/body/*").toString().replaceAll(regex,"><").replace(content,"");
-                           }
-                        }
+                if (selectable.toString() != null) {
+                    List<String> contents = selectable.all();
+                    for (String content : contents) {
+                        content = content.replace("\n", "").replace("\t", "").replaceAll(regex, "><");
+                        contentHtml = html.xpath("/html/body/*").toString().replaceAll(regex, "><").replace(content, "");
+                    }
                 }
             }
+        }
 
         return contentHtml;
     }
 
     /**
      * fix img src--->url missing domain
+     *
      * @param contentHtml
      * @param imgSrcs
      * @param domain
      * @return
      */
-    private String imgUrlPrefix(String contentHtml,List<String> imgSrcs,String domain){
-        for (String url:imgSrcs){
-            if (url.startsWith("/")){
-                contentHtml= contentHtml.replace(url,domain+url);
+    private String imgUrlPrefix(String contentHtml, List<String> imgSrcs, String domain) {
+        for (String url : imgSrcs) {
+            if (url.startsWith("/")) {
+                contentHtml = contentHtml.replace(url, domain + url);
             }
         }
         return contentHtml;
 
     }
-    private List<String> hrefPrifix(List<String> urls,String domain){
-        if (urls==null){
+
+    private List<String> hrefPrifix(List<String> urls, String domain) {
+        if (urls == null) {
             return null;
         }
-        for (int i=0;i<urls.size(); i++){
+        for (int i = 0; i < urls.size(); i++) {
             String url = urls.get(i);
-            if (!url.startsWith("http")){
-                url=domain + "/" + url;
-                urls.set(i,url);
+            if (!url.startsWith("http")) {
+                url = domain + "/" + url;
+                urls.set(i, url);
             }
         }
         return urls;

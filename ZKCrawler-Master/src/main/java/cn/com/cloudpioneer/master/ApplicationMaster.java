@@ -15,17 +15,25 @@ public class ApplicationMaster {
     /**
      * zookeeper 的链接字符串，从配置文件中获得。
      */
-    private static String zkHostPort = ResourceBundle.getBundle("config").getString("ZK_CONNECTION_STRING");
+    private static String zkHostPort;
+
+    /**
+     * master 角色实体
+     */
+    private static CuratorMaster master;
 
 
-    private static CuratorMaster master = CuratorMaster.initializeMaster(zkHostPort, new ExponentialBackoffRetry(1000, 5), null);
-
-
+    /**
+     * 入口函数
+     * @param args
+     * @throws Exception
+     */
     public static void main(String[] args) throws Exception {
 
-
         SpringApplication.run(ApplicationMaster.class, args);
-
+        zkHostPort = ResourceBundle.getBundle("config").getString("ZK_CONNECTION_STRING");
+        master = CuratorMaster.initializeMaster(zkHostPort, new ExponentialBackoffRetry(1000, 5), null);
         master.startMaster();
     }
+
 }
