@@ -2,22 +2,13 @@ package com.gy.wm.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.gy.wm.model.TaskParamModel;
-import com.gy.wm.service.TaskConfigService;
 import com.gy.wm.service.TaskService;
-import com.gy.wm.vo.Base;
-import com.gy.wm.vo.Param;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.http.MediaType;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Future;
 
 /**
  * worker和webmagic交互的API
@@ -28,7 +19,7 @@ import java.util.concurrent.Future;
 @RestController
 @Scope("prototype")
 @RequestMapping("/WebMagic")
-public class API implements Runnable {
+public class API {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(API.class);
 
@@ -41,12 +32,14 @@ public class API implements Runnable {
     }
 
 
-    /**开始任务接口
+    /**
+     * 开始任务接口
+     *
      * @param taskParamModel
      * @return
      */
     @RequestMapping(value = "/startTask", method = RequestMethod.POST, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public String  startTask(@RequestBody TaskParamModel taskParamModel) {
+    public String startTask(@RequestBody TaskParamModel taskParamModel) {
         final TaskParamModel taskModel = taskParamModel;
         API.this.taskService.startTask(taskModel);
         System.out.println("taskModel: " + JSONObject.toJSONString(taskParamModel));
@@ -66,24 +59,18 @@ public class API implements Runnable {
 
     /**
      * 任务结束后清除rendis数据
+     * <p>
+     * //     * @param taskId
      *
-//     * @param taskId
      * @return String
      */
-    /*@RequestMapping(value = "/cleanTaskRedis", method = RequestMethod.POST)
+    @RequestMapping(value = "/cleanTaskRedis", method = RequestMethod.POST)
     public String cleanTaskRedis(@RequestParam("taskId") final String taskId) {
-        TaskService.taskExecutor(new Runnable() {
-            @Override
-            public void run() {
-                LOGGER.info("===> Now, clean the Redis, taskId: " + taskId);
-                taskService.cleanTaskRedis(taskId);
-            }
-        });
+
+        LOGGER.info("====>> Now, clean the Redis, taskId: " + taskId);
+        taskService.cleanTaskRedis(taskId);
+
         return taskId;
-    }*/
-
-    @Override
-    public void run() {
-
     }
+
 }

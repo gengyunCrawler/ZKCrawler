@@ -5,6 +5,11 @@ import org.apache.curator.retry.RetryNTimes;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+import java.lang.management.ManagementFactory;
+import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
 
 /**
@@ -40,6 +45,8 @@ public class ApplicationTaskClient {
          */
         SpringApplication.run(ApplicationTaskClient.class, args);
 
+        createPidFile();
+
         /**
          * 获取主机配置。
          */
@@ -56,6 +63,37 @@ public class ApplicationTaskClient {
         taskClient.startTaskClient();
 
 
+    }
+
+
+    private static void createPidFile() {
+
+        String pidFile;
+
+        try {
+
+            pidFile = PropertyResourceBundle.getBundle("config").getString("PID_FILE");
+
+        } catch (Exception e) {
+
+            pidFile = "./ZKCrawler-TaskClient.pid.txt";
+        }
+
+        try {
+
+            String pid = ManagementFactory.getRuntimeMXBean().getName().split("@")[0] + "\n";
+
+            File file = new File(pidFile);
+            OutputStream os = new FileOutputStream(file);
+            os.write(pid.getBytes(), 0, pid.getBytes().length);
+
+            os.flush();
+            os.close();
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+        }
     }
 
 }

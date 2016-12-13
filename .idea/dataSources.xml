@@ -1,25 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="1753634152">
-    <data-source source="LOCAL" name="MySQL - wifi_ac@108.108.108.8" uuid="f26038fc-8bad-43f9-a40a-599ecd5e779a">
+  <component name="DataSourceManagerImpl" format="xml" hash="559242997">
+    <data-source source="LOCAL" name="MySQL - wifi_ac@108.108.108.8" uuid="0cb2cba0-94ab-460a-ba7c-f692e380ab29">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://108.108.108.8:3306/wifi_ac</jdbc-url>
-      <driver-properties>
-        <property name="autoReconnect" value="true" />
-        <property name="zeroDateTimeBehavior" value="convertToNull" />
-        <property name="tinyInt1isBit" value="false" />
-        <property name="characterEncoding" value="utf8" />
-        <property name="characterSetResults" value="utf8" />
-        <property name="yearIsDateType" value="false" />
-      </driver-properties>
-    </data-source>
-    <data-source source="LOCAL" name="MySQL - crawlerdata@108.108.108.8" uuid="d6f85fa2-d546-4417-8daa-71b7df736e1a">
-      <driver-ref>mysql</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://108.108.108.8:3306/crawlerdata</jdbc-url>
       <driver-properties>
         <property name="autoReconnect" value="true" />
         <property name="zeroDateTimeBehavior" value="convertToNull" />

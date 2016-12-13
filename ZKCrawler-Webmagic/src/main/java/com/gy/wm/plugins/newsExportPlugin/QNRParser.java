@@ -26,7 +26,7 @@ public class QNRParser implements PageParser {
     public List<CrawlData> parse(CrawlData crawlData) {
         //match the url list
         List<CrawlData> crawlDataList = new ArrayList<>();
-        List<String> urls = new ArrayList<>();
+        List<String> urls;
 
         if (crawlData.getUrl().matches(QNR_COLUMN_REGEX)) {
             urls = new Html(crawlData.getHtml()).xpath("//a/@href").all();
@@ -41,6 +41,7 @@ public class QNRParser implements PageParser {
                     newCrawlData.setTag(crawlData.getTag());
                     newCrawlData.setTags(crawlData.getTags());
                     newCrawlData.setCategories(crawlData.getCategories());
+                    newCrawlData.setSourceTypeId(crawlData.getSourceTypeId());
                     newCrawlData.setFetched(false);
                     crawlDataList.add(newCrawlData);
                 }

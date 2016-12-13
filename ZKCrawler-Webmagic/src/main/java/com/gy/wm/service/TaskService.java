@@ -40,6 +40,8 @@ public class TaskService {
         this.crawl.startTask(taskParamModel);
     }
 
+
+    @Async
     public String cleanTaskRedis(String tid)  {
         JedisPoolUtils jedisPoolUtils = null;
         JedisPool pool = null;
