@@ -31,6 +31,9 @@ public class TopicTextAnalysis implements Serializable,PageParser {
         this.setBaseTemplates(InstanceFactory.getBaseTemplate());
     }
 
+    //format
+    private final static SimpleDateFormat sdf= new SimpleDateFormat("yyyyMMddhhmmss");
+
     public List<CrawlData> parse(CrawlData crawlData)   {
         List<CrawlData> crawlDataList = new ArrayList<>();
         List<BaseAnalysisURL> baseAnalysisURLList = new ArrayList<>();
@@ -69,7 +72,7 @@ public class TopicTextAnalysis implements Serializable,PageParser {
                     newCrawlData.setFromUrl(url);
                     newCrawlData.setUrl(baseAnalysisURL.getUrl());
                     newCrawlData.setTitle(baseAnalysisURL.getTitle());
-                    newCrawlData.setPublishTime(baseAnalysisURL.getDate());
+                    newCrawlData.setPublishTime(sdf.format(baseAnalysisURL.getDate()));
 
                     newCrawlData.setCrawlTime(new Date(System.currentTimeMillis()));
                     newCrawlData.setHtml(baseAnalysisURL.getHtml());

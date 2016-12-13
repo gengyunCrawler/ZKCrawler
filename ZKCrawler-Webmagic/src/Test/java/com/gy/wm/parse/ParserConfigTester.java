@@ -2,6 +2,8 @@ package com.gy.wm.parse;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.google.common.base.CharMatcher;
+import com.google.common.io.Files;
 import com.gy.wm.dao.ParserDao;
 import com.gy.wm.plugins.newsExportPlugin.parse.*;
 import com.gy.wm.plugins.newsExportPlugin.parse.HtmlField;
@@ -12,9 +14,8 @@ import us.codecraft.webmagic.selector.Selectable;
 import us.codecraft.webmagic.selector.Selectors;
 import us.codecraft.webmagic.selector.SmartContentSelector;
 
-import java.io.BufferedInputStream;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -222,5 +223,46 @@ public class ParserConfigTester {
         Html html = new Html(s);
        String ss= html.xpath("//span[@id='navtimeSource']/text()//*/text()").toString();
         System.out.println(ss);
+    }
+
+    @Test
+    public void testRegexUrl(){
+        String url = "http://www.gz.xinhuanet.com/2016-09/29/c_1119646613.htm";
+        int end = url.lastIndexOf("/");
+        String sub = url.substring(0,end+1);
+        System.out.println(sub);
+    }
+
+    @Test
+    public void testGainLast(){
+        String  src = "wwwwwwwwwwwwadsdfdf.jpg";
+       int a = src.lastIndexOf(".");
+        String result = src.substring(a,src.length());
+        System.out.println(result);
+    }
+    @Test
+    public void testHtmlFormat() throws IOException {
+        String html = Files.toString(new File("d:/html.html"),Charset.forName("GBK"));
+        html = CharMatcher.WHITESPACE.removeFrom(html);
+       // html = CharMatcher.WHITESPACE.collapseFrom(html,' ');
+        html =html.replaceAll("<style.*?>.*?</style>","");
+        html = html.replaceAll("<div.*?>","");
+        html = html.replace("</div>","");
+        html = html.replaceAll("<script.*?>.*?</script>","");
+        html = html.replaceAll("<!--.*?-->","");
+
+    //    html = html.replaceAll("")
+        System.out.println(html);
+    }
+    @Test
+    public void testClearStyle(){
+        String html = "<link type=\"text/css\" rel=\"stylesheet\" href=\"http://css.sohu.com/upload/global1.4.1.css\"> \n" +
+
+                "  <style>.original-tit{font-size:14px;line-height:24px;padding-left:28px;}\n" +
+                "</style> <!-- drfestgrgdg dfdf-->"+
+        "  <link type=\"text/css\" rel=\"stylesheet\" href=\"http://news.sohu.com/upload/article/2012/style.v20150623.css\"> \n" ;
+     html = CharMatcher.WHITESPACE.collapseFrom(html,' ');
+      html =  html.replaceAll("<link.*?>","");
+        System.out.println(html);
     }
 }

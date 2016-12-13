@@ -7,23 +7,19 @@ import com.gy.wm.controller.API;
 import com.gy.wm.dao.CrawlDataDao;
 import com.gy.wm.entry.TaskConfig;
 import com.gy.wm.model.CrawlData;
+import com.gy.wm.model.TaskParamModel;
 import com.gy.wm.vo.Base;
 import com.gy.wm.vo.Param;
-import com.gy.wm.model.TaskParamModel;
-import com.gy.wm.service.CustomPageProcessor;
-import com.gy.wm.service.TaskService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.omg.CORBA.PUBLIC_MEMBER;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
 import java.text.SimpleDateFormat;
-import java.util.*;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <类详细说明：单元测试>
@@ -35,6 +31,7 @@ import java.util.concurrent.Executors;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = ApplicationWebmagic.class)
 @WebAppConfiguration
+
 public  class ServiceTest {
     @Autowired
     private TaskService taskService;
@@ -53,8 +50,6 @@ public  class ServiceTest {
     @Autowired
     private CrawlDataDao crawlDataDao;
 
-    private ExecutorService service = Executors.newFixedThreadPool(5);
-
     @Test
     public void test() throws Exception{
     }
@@ -66,19 +61,22 @@ public  class ServiceTest {
     public void testStartTask() {
         List<String> seedUrls = new ArrayList<>();
 
-        String id = "42ba7434a8ec60a0a42801c16be7ad0d";
+        String id = "b1b43eefa56c06ee57c32e3ad0a5495c";
         JSONObject object = configService.findByIdTask(id);
 
         seedUrls.addAll(object.keySet());
+      //  seedUrls.add("http://cnews.chinadaily.com.cn/2016-11/22/content_27457191.htm");
         param.setSeedUrls(seedUrls);
 
         base.setId(id);
         base.setDepthCrawl(1);
         base.setTags(object.toJSONString());
+
         taskParamModel.setParam(param);
         taskParamModel.setBase(base);
         //启动任务
-        api.startTask(taskParamModel);
+        String reslut = api.startTask(taskParamModel);
+        System.out.println("**************API接口返回任务Id: *****************" + reslut);
         try {
             Thread.sleep(Long.MAX_VALUE);
         } catch (InterruptedException e) {
@@ -90,7 +88,7 @@ public  class ServiceTest {
      * 同时启动多条任务
      */
     @Test
-    public void testListTask(){
+        public void testListTask(){
 
         List<TaskConfig> configs = configService.findByIdStart(10);
        for (TaskConfig conf:configs){
@@ -104,7 +102,6 @@ public  class ServiceTest {
            seedUrls.addAll(object.keySet());
            param.setSeedUrls(seedUrls);
 
-
            base.setId(id);
            base.setDepthCrawl(1);
            base.setTags(object.toJSONString());
@@ -113,7 +110,6 @@ public  class ServiceTest {
            taskParamModel.setBase(base);
            //启动任务
            api.startTask(taskParamModel);
-
        }
 
         try {
@@ -149,4 +145,8 @@ public  class ServiceTest {
         crawlDataDao.insertCrawlData(crawlData);
     }
 
+    @Test
+    public void testThread()    {
+        System.out.println(Thread.currentThread().getName());
+    }
 }
