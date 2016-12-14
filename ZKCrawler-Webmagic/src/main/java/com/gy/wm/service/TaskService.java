@@ -56,9 +56,12 @@ public class TaskService {
             jedis.del(("webmagicCrawler::ToCrawl::" + tid).getBytes());
             jedis.del(("webmagicCrawler::Crawled::" + tid).getBytes());
 
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+
+            LOGGER.warn("clean redis error, taskId = " + tid + ". ", e);
+
         } finally {
+
             pool.returnResource(jedis);
         }
         return tid + "has been cleaned";

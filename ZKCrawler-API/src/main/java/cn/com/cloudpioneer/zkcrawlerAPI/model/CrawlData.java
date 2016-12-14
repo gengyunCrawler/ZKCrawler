@@ -1,6 +1,8 @@
 package cn.com.cloudpioneer.zkcrawlerAPI.model;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -12,9 +14,15 @@ import java.util.Map;
  * Created by Administrator on 2016/4/29.
  */
 public class CrawlData implements Serializable {
-//    private final static long serialVersionUID = -2344403674643228206L;
 
     private String docId = "";
+
+    private JSONArray tags;        // 标签信息
+    private JSONArray categories;  // 分类,栏目,频道 信息
+
+    private String sourceTypeId;   // 数据源类型ID.
+    private String imgUrl;        // 文章缩略图的 OSS 图片 Url.
+
     private String tid;
     private String url;
     private int statusCode;
@@ -35,6 +43,22 @@ public class CrawlData implements Serializable {
     private String author;
     private String sourceName;
     private String parsedData;
+
+    private String textPTag;
+
+    private Map<String, Object> crawlerdata = new HashMap<>();
+
+
+
+
+    public String getTextPTag() {
+        return textPTag;
+    }
+
+    public void setTextPTag(String textPTag) {
+        this.textPTag = textPTag;
+    }
+
     public String getParsedData() {
         return parsedData;
     }
@@ -43,14 +67,12 @@ public class CrawlData implements Serializable {
         this.parsedData = parsedData;
     }
 
-    private Map<String,String> crawlerdata=new HashMap<>();
-
-    public Map<String, String> getCrawlerdata() {
+    public Map<String, Object> getCrawlerdata() {
         return crawlerdata;
     }
 
-    public void setCrawlerdata(Map<String, String> crawlerdata) {
-        if (crawlerdata!=null){
+    public void setCrawlerdata(Map<String, Object> crawlerdata) {
+        if (crawlerdata != null) {
             this.crawlerdata = crawlerdata;
             this.parsedData = JSON.toJSONString(crawlerdata);
         }
@@ -72,7 +94,7 @@ public class CrawlData implements Serializable {
         this.sourceName = sourceName;
     }
 
-    private List<Map<String,String>> fieldsMap;
+    private List<Map<String, String>> fieldsMap;
 
     public List<Map<String, String>> getFieldsMap() {
         return fieldsMap;
@@ -82,10 +104,17 @@ public class CrawlData implements Serializable {
         this.fieldsMap = fieldsMap;
     }
 
-    public CrawlData() {}
+    public CrawlData() {
+        this.tags = new JSONArray();
+        this.categories = new JSONArray();
+    }
 
     public CrawlData(String url, int statusCode, int pass, String type, String rootUrl, String fromUrl, String text, String html, String title,
-                     String startTime, Date crawlTime, String publishTime, long depthfromSeed, String tag, long count, boolean fetched, String author, String sourceName)  {
+
+                     String startTime, Date crawlTime, String publishTime, long depthfromSeed, String tag, long count, boolean fetched, String author, String sourceName) {
+        this.tags = new JSONArray();
+        this.categories = new JSONArray();
+
         this.url = url;
         this.statusCode = statusCode;
         this.pass = pass;
@@ -248,6 +277,46 @@ public class CrawlData implements Serializable {
 
     public void setDocId(String docId) {
         this.docId = docId;
+    }
+
+    public JSONArray getTags() {
+        return tags;
+    }
+
+    public void setTags(JSONArray tags) {
+        this.tags = tags;
+    }
+
+    public JSONArray getCategories() {
+        return categories;
+    }
+
+    public void setCategories(JSONArray categories) {
+        this.categories = categories;
+    }
+
+
+    public String getSourceTypeId() {
+        return sourceTypeId;
+    }
+
+    public void setSourceTypeId(String sourceTypeId) {
+        this.sourceTypeId = sourceTypeId;
+    }
+
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
+
+
+    public String toJSONString(){
+
+        return JSONObject.toJSONString(this);
     }
 
 

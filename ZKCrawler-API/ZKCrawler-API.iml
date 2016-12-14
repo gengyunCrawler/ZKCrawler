@@ -17,8 +17,6 @@
     <orderEntry type="library" name="Maven: org.apache.hbase:hbase-hadoop-compat:0.98.4-hadoop2" level="project" />
     <orderEntry type="library" name="Maven: org.apache.hbase:hbase-hadoop2-compat:0.98.4-hadoop2" level="project" />
     <orderEntry type="library" name="Maven: com.yammer.metrics:metrics-core:2.2.0" level="project" />
-    <orderEntry type="library" name="Maven: junit:junit:4.12" level="project" />
-    <orderEntry type="library" name="Maven: junit:junit:4.12" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-web:1.4.0.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter:1.4.0.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot:1.4.0.RELEASE" level="project" />

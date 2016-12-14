@@ -151,24 +151,35 @@ public class Worker implements Closeable, ConnectionStateListener {
      *
      * @throws Exception 当注册失败时，抛出异常。
      */
-    private void register() throws Exception {
+    private void register() {
 
         // 注册锁根节点,永久类型
-        if (client.checkExists().forPath(ROOT_PATH_LOCK) == null) {
-            client.create().withMode(CreateMode.PERSISTENT).forPath(ROOT_PATH_LOCK);
-            LOGGER.info("register znode: " + ROOT_PATH_LOCK + " finished.");
+        try {
+            if (client.checkExists().forPath(ROOT_PATH_LOCK) == null) {
+                client.create().withMode(CreateMode.PERSISTENT).forPath(ROOT_PATH_LOCK);
+                LOGGER.info("register znode: " + ROOT_PATH_LOCK + " finished.");
+            }
+        } catch (Exception e) {
+            LOGGER.error("register znode: " + ROOT_PATH_LOCK + " error.", e);
         }
 
         // 去 workers 节点下注册 worker 节点，持久类型（ephemeral）
-        if (client.checkExists().forPath(ROOT_PATH_WORKERS + "/" + workerId) == null) {
-            client.create().withMode(CreateMode.PERSISTENT).forPath(ROOT_PATH_WORKERS + "/" + workerId, workerId.getBytes());
-            LOGGER.info("register zonode: " + ROOT_PATH_WORKERS + "/" + workerId + " finished.");
+        try {
+            if (client.checkExists().forPath(ROOT_PATH_WORKERS + "/" + workerId) == null) {
+                client.create().withMode(CreateMode.PERSISTENT).forPath(ROOT_PATH_WORKERS + "/" + workerId, workerId.getBytes());
+            }
+        } catch (Exception e) {
+            LOGGER.error("register zonode: " + ROOT_PATH_WORKERS + "/" + workerId + " error.", e);
         }
 
         // 去 workers 节点下之间的节点woker 注册状态节点status，短暂类型（persistent）
-        if (client.checkExists().forPath(ROOT_PATH_WORKERS + "/" + workerId + "/status") == null) {
-            client.create().withMode(CreateMode.EPHEMERAL).forPath(ROOT_PATH_WORKERS + "/" + workerId + "/status", MY_STATUS.getBytes());
-            LOGGER.info("register zonode: " + ROOT_PATH_WORKERS + "/" + workerId + "/status" + " finished.");
+        try {
+            if (client.checkExists().forPath(ROOT_PATH_WORKERS + "/" + workerId + "/status") == null) {
+                client.create().withMode(CreateMode.EPHEMERAL).forPath(ROOT_PATH_WORKERS + "/" + workerId + "/status", MY_STATUS.getBytes());
+            }
+        } catch (Exception e) {
+            LOGGER.info("register zonode: " + ROOT_PATH_WORKERS + "/" + workerId + "/status" + " error.", e);
+
         }
     }
 
@@ -522,17 +533,16 @@ public class Worker implements Closeable, ConnectionStateListener {
          * 清理 redis 调用。
          */
 /**
-        executorService.execute(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    HttpClientUtils.jsonPostRequest(API_CRAWLER_TASK_CLEAN_R + task.getEntity().getId(), task.getEntity().getId());
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-     **/
+ executorService.execute(new Runnable() {
+@Override public void run() {
+try {
+HttpClientUtils.jsonPostRequest(API_CRAWLER_TASK_CLEAN_R + task.getEntity().getId(), task.getEntity().getId());
+} catch (Exception e) {
+e.printStackTrace();
+}
+}
+});
+ **/
     }
 
 
@@ -664,12 +674,7 @@ public class Worker implements Closeable, ConnectionStateListener {
      */
     private void bootsrap() {
 
-        try {
-            register();
-        } catch (Exception e) {
-            e.printStackTrace();
-            LOGGER.warn("register znode Exception");
-        }
+        register();
 
     }
 

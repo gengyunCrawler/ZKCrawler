@@ -1,5 +1,4 @@
-<!--Mon Oct 24 11:30:30 2016-->
-    <configuration>
+  <configuration>
     
     <property>
       <name>dfs.domain.socket.path</name>
@@ -7,8 +6,18 @@
     </property>
     
     <property>
+      <name>hbase.bulkload.staging.dir</name>
+      <value>/apps/hbase/staging</value>
+    </property>
+    
+    <property>
       <name>hbase.client.keyvalue.maxsize</name>
-      <value>10485760</value>
+      <value>1048576</value>
+    </property>
+    
+    <property>
+      <name>hbase.client.retries.number</name>
+      <value>35</value>
     </property>
     
     <property>
@@ -28,7 +37,7 @@
     
     <property>
       <name>hbase.coprocessor.region.classes</name>
-      <value></value>
+      <value>org.apache.hadoop.hbase.security.access.SecureBulkLoadEndpoint</value>
     </property>
     
     <property>
@@ -72,6 +81,11 @@
     </property>
     
     <property>
+      <name>hbase.hstore.compaction.max</name>
+      <value>10</value>
+    </property>
+    
+    <property>
       <name>hbase.hstore.compactionThreshold</name>
       <value>3</value>
     </property>
@@ -88,32 +102,42 @@
     
     <property>
       <name>hbase.master.info.port</name>
-      <value>60010</value>
+      <value>16010</value>
     </property>
     
     <property>
       <name>hbase.master.port</name>
-      <value>60000</value>
+      <value>16000</value>
     </property>
     
     <property>
-      <name>hbase.regionserver.global.memstore.lowerLimit</name>
-      <value>0.38</value>
+      <name>hbase.master.ui.readonly</name>
+      <value>false</value>
     </property>
     
     <property>
-      <name>hbase.regionserver.global.memstore.upperLimit</name>
+      <name>hbase.regionserver.global.memstore.size</name>
       <value>0.4</value>
     </property>
     
     <property>
       <name>hbase.regionserver.handler.count</name>
-      <value>60</value>
+      <value>30</value>
     </property>
     
     <property>
       <name>hbase.regionserver.info.port</name>
-      <value>60030</value>
+      <value>16030</value>
+    </property>
+    
+    <property>
+      <name>hbase.regionserver.port</name>
+      <value>16020</value>
+    </property>
+    
+    <property>
+      <name>hbase.regionserver.wal.codec</name>
+      <value>org.apache.hadoop.hbase.regionserver.wal.WALCellCodec</value>
     </property>
     
     <property>
@@ -124,6 +148,11 @@
     <property>
       <name>hbase.rpc.protection</name>
       <value>authentication</value>
+    </property>
+    
+    <property>
+      <name>hbase.rpc.timeout</name>
+      <value>90000</value>
     </property>
     
     <property>
@@ -143,7 +172,7 @@
     
     <property>
       <name>hbase.tmp.dir</name>
-      <value>/hadoop/hbase</value>
+      <value>/tmp/hbase-${user.name}</value>
     </property>
     
     <property>
@@ -153,7 +182,7 @@
     
     <property>
       <name>hbase.zookeeper.quorum</name>
-      <value>hdp-slave2,hdp-master,hdp-slave1</value>
+      <value>hdp-master,hdp-slave1,hdp-slave2,hdp-slave3</value>
     </property>
     
     <property>
@@ -163,12 +192,22 @@
     
     <property>
       <name>hfile.block.cache.size</name>
-      <value>0.40</value>
+      <value>0.4</value>
+    </property>
+    
+    <property>
+      <name>phoenix.query.timeoutMs</name>
+      <value>60000</value>
+    </property>
+    
+    <property>
+      <name>zookeeper.recovery.retry</name>
+      <value>6</value>
     </property>
     
     <property>
       <name>zookeeper.session.timeout</name>
-      <value>30000</value>
+      <value>90000</value>
     </property>
     
     <property>

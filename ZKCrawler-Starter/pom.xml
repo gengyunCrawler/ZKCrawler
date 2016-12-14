@@ -63,7 +63,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <classpathPrefix>libZKCrawler/</classpathPrefix>
+                            <classpathPrefix>libStarter/</classpathPrefix>
                             <mainClass>
                                 cn.com.cloudpioneer.starter.app.ApplicationStarter
                             </mainClass>
@@ -86,7 +86,7 @@
                             <goal>copy-dependencies</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${project.build.directory}/libZKCrawler</outputDirectory>
+                            <outputDirectory>${project.build.directory}/libStarter</outputDirectory>
                         </configuration>
                     </execution>
                 </executions>

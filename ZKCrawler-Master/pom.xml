@@ -50,7 +50,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <classpathPrefix>libZKCrawler/</classpathPrefix>
+                            <classpathPrefix>libMaster/</classpathPrefix>
                             <mainClass>
                                 cn.com.cloudpioneer.master.ApplicationMaster
                             </mainClass>
@@ -74,7 +74,7 @@
                             <goal>copy-dependencies</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${project.build.directory}/libZKCrawler</outputDirectory>
+                            <outputDirectory>${project.build.directory}/libMaster</outputDirectory>
                         </configuration>
                     </execution>
                 </executions>
