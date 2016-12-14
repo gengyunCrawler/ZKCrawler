@@ -54,10 +54,10 @@ public class RequestUtil {
         String result = postMethod(url,params);
         System.out.println("post返回结果：\n" + result);*/
 
-        String url = "http://localhost:10080/api/getHbaseData";
+        String url = "http://90.90.90.5:10080/api/getHbaseData";
         Map<String,String> params = new HashMap<>();
-        params.put("taskId","0fdb8abcba360a47c3c986858819048d");
-        params.put("startRow","0fdb8abcba360a47c3c986858819048d|");
+        params.put("taskId","21236056e8a995b6f95c675a7d7aa44f");
+        params.put("startRow","21236056e8a995b6f95c675a7d7aa44f|");
         params.put("size","50");
 
     String result = postMethod(url,params);

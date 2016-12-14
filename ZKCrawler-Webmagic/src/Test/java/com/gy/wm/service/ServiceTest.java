@@ -88,42 +88,6 @@ public  class ServiceTest {
         */
     }
 
-    /**
-     * 同时启动多条任务
-     */
-    @Test
-    public void testListTask(){
-
-/*
-        List<TaskConfig> configs = configService.findByIdStart(10);
-       for (TaskConfig conf:configs){
-
-           JSONObject object = JSON.parseObject(conf.getConfValue());
-
-           List<String> seedUrls = new ArrayList<>();
-
-           String id =conf.getIdTask();
-
-           seedUrls.addAll(object.keySet());
-           param.setSeedsInfoList(seedUrls);
-
-           base.setId(id);
-           base.setDepthCrawl(1);
-           base.setTags(object.toJSONString());
-
-           taskParamModel.setParam(param);
-           taskParamModel.setBase(base);
-           //启动任务
-           api.startTask(taskParamModel);
-       }
-
-        try {
-            Thread.sleep(Long.MAX_VALUE);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-*/
-    }
     @Test
     public void splitInfobar()  {
         String infobar = "索引号：52230011/2016-173111 文章来源：黔西南日报 发布时间：2016/11/11 9:37:15 作者：方文毅 娄孝云 点击：119 【字体： 】大中小【打印内容】【内容纠错】";

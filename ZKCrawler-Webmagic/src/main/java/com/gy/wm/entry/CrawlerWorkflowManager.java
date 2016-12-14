@@ -1,9 +1,6 @@
 package com.gy.wm.entry;
 
-import com.gy.wm.dbpipeline.impl.CMSHbasePipeline;
-import com.gy.wm.dbpipeline.impl.FilePipeline;
-import com.gy.wm.dbpipeline.impl.HDFSPipeline;
-import com.gy.wm.dbpipeline.impl.MysqlPipeline;
+import com.gy.wm.dbpipeline.impl.*;
 import com.gy.wm.model.CrawlData;
 import com.gy.wm.queue.RedisCrawledQue;
 import com.gy.wm.queue.RedisToCrawlQue;
