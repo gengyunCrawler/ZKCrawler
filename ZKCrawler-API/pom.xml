@@ -134,7 +134,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <classpathPrefix>libZKCrawler/</classpathPrefix>
+                            <classpathPrefix>libCrawlerDataAPI/</classpathPrefix>
                             <mainClass>cn.com.cloudpioneer.zkcrawlerAPI.ApplicationAPI</mainClass>
                         </manifest>
                     </archive>
@@ -155,7 +155,7 @@
                             <goal>copy-dependencies</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${project.build.directory}/libZKCrawler</outputDirectory>
+                            <outputDirectory>${project.build.directory}/libCrawlerDataAPI</outputDirectory>
                         </configuration>
                     </execution>
                 </executions>

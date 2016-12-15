@@ -39,14 +39,14 @@ CREATE TABLE `task` (
 CREATE TABLE `taskconfig` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '配置项id',
   `idTask` varchar(64) DEFAULT NULL COMMENT '爬虫任务的id，外键，参考表 task',
-  `confType` enum('undefine','seedsInfoList','templates','configsMap','clickRegex','regexFilter','protocolFilter','suffixFilter','proxy','tags','categories') DEFAULT 'undefine' COMMENT '配置类型',
+  `confType` enum('undefine','seedUrls','templates','configsMap','clickRegex','regexFilter','protocolFilter','suffixFilter','proxy','tags','categories') DEFAULT 'undefine' COMMENT '配置类型',
   `confValue` longtext,
   `addDate` datetime DEFAULT NULL COMMENT '配置项添加或修改的时间',
   PRIMARY KEY (`id`),
   UNIQUE KEY `idTask_confType` (`idTask`,`confType`),
   KEY `idTask` (`idTask`),
   CONSTRAINT `taskconfig_ibfk_1` FOREIGN KEY (`idTask`) REFERENCES `task` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=95 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=102 DEFAULT CHARSET=utf8;
 
 
 CREATE TABLE `hbase_ddp_batch_get_info` (
@@ -74,6 +74,17 @@ CREATE TABLE `hbase_ddp_batch_get_log` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
+CREATE TABLE `article_parse_config` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键，表ID',
+  `tid` varchar(32) DEFAULT NULL COMMENT '对应的任务ID',
+  `config` text COMMENT '对应的解析类对应的文章字段Xpath的json数据',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `tid` (`tid`)
+) ENGINE=InnoDB AUTO_INCREMENT=206 DEFAULT CHARSET=utf8 COMMENT='此表添加文章解析各个字段的Xpath，通过Xpath获得比如标题、正文、来源等文章字段'
+;
+
+
+
 CREATE TABLE `pos_duocai_export` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `taskId` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -83,14 +94,6 @@ CREATE TABLE `pos_duocai_export` (
 
 
 
-CREATE TABLE `article_parse_config` (
-  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键，表ID',
-  `tid` varchar(32) DEFAULT NULL COMMENT '对应的任务ID',
-  `config` text COMMENT '对应的解析类对应的文章字段Xpath的json数据',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `tid` (`tid`)
-) ENGINE=InnoDB AUTO_INCREMENT=206 DEFAULT CHARSET=utf8 COMMENT='此表添加文章解析各个字段的Xpath，通过Xpath获得比如标题、正文、来源等文章字段'
-;
 
 CREATE TABLE `crawlerdata` (
   `seqeueID` int(10) NOT NULL AUTO_INCREMENT COMMENT '表的ID，自动递增',

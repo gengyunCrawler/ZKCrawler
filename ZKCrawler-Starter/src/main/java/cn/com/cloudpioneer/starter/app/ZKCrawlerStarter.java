@@ -149,13 +149,13 @@ public class ZKCrawlerStarter {
 
                     System.out.println("\n===> now, starting Master.");
                     System.out.println(myShell.doExecuteShell(startMasterSh));
-                    delay(10, "Master");
+                    delay(20, "Master");
                     System.out.println("\n===> now, starting Webmagic.");
                     System.out.println(myShell.doExecuteShell(startWebmagicSh));
                     delay(20, "Webmagic");
                     System.out.println("\n===> now, starting Worker.");
                     System.out.println(myShell.doExecuteShell(startWorkerSh));
-                    delay(10, "Worker");
+                    delay(20, "Worker");
                     System.out.println("\n===> now, starting TaskClient.");
                     System.out.println(myShell.doExecuteShell(startTaskClientSh));
 

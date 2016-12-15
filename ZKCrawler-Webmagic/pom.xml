@@ -11,24 +11,6 @@
     <artifactId>ZKCrawler-Webmagic</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <repositories>
-        <repository>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-            <id>thirdparty</id>
-            <name>3rd party</name>
-            <url>http://108.108.108.10:8081/nexus/content/repositories/thirdparty/</url>
-        </repository>
-    </repositories>
-    <pluginRepositories>
-        <pluginRepository>
-            <id>thirdparty</id>
-            <name>3rd party</name>
-            <url>http://108.108.108.10:8081/nexus/content/repositories/thirdparty/</url>
-        </pluginRepository>
-    </pluginRepositories>
-
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -146,6 +128,20 @@
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
             <version>1.2.15</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.sun.jmx</groupId>
+                    <artifactId>jmxri</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.sun.jdmk</groupId>
+                    <artifactId>jmxtools</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>javax.jms</groupId>
+                    <artifactId>jms</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>commons-lang</groupId>
@@ -220,7 +216,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <classpathPrefix>libZKCrawler/</classpathPrefix>
+                            <classpathPrefix>libWebmagic/</classpathPrefix>
                             <mainClass>
                                 com.gy.wm.ApplicationWebmagic
                             </mainClass>
@@ -244,12 +240,11 @@
                             <goal>copy-dependencies</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${project.build.directory}/libZKCrawler</outputDirectory>
+                            <outputDirectory>${project.build.directory}/libWebmagic</outputDirectory>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
-
         </plugins>
 
         <resources>
