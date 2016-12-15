@@ -380,11 +380,10 @@ public class GenericParser implements PageParser {
         imgJedis.select(2);
 
         //redis中存储被替换的img的src地址的list srcurls
+        String [] linkArr = (String[]) srcList.toArray();
 
-        //  List<String> srcList = new ArrayList<>();
-        String srcurls = JSON.toJSONString(srcList);
+        imgJedis.sadd("ImgSrcOf:" + taskId,linkArr);
 
-        imgJedis.hset("ImgSrcOf:" + taskId, url, srcurls);
     }
 
     public String clearText4label(String html) {
