@@ -58,7 +58,7 @@ public class RequestUtil {
         Map<String,String> params = new HashMap<>();
         params.put("taskId","21236056e8a995b6f95c675a7d7aa44f");
         params.put("startRow","21236056e8a995b6f95c675a7d7aa44f|");
-        params.put("size","50");
+        params.put("size","2");
 
     String result = postMethod(url,params);
         try {
