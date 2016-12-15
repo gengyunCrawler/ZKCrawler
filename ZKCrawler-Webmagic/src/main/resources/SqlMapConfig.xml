@@ -19,5 +19,6 @@
         <mapper class="com.gy.wm.mapper.CrawlDataMapper"></mapper>
         <mapper class="com.gy.wm.mapper.ParserMapper"></mapper>
         <mapper class="com.gy.wm.mapper.TaskConfigMapper"></mapper>
+        <mapper class="com.gy.wm.mapper.WxArticleMapper"></mapper>
     </mappers>
 </configuration>

@@ -10,6 +10,7 @@ import com.gy.wm.model.CrawlData;
 import com.gy.wm.model.TaskParamModel;
 import com.gy.wm.vo.Base;
 import com.gy.wm.vo.Param;
+import com.gy.wm.wx.DownloadUrl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -58,15 +60,15 @@ public  class ServiceTest {
      * 启动单条任务
      */
     @Test
-    public void testStartTask() {
+    public void testStartTask() throws IOException {
         List<String> seedUrls = new ArrayList<>();
 
-        String id = "b1b43eefa56c06ee57c32e3ad0a5495c";
+        String id = "2a175e9ad55e9ef9904746c7e4c7e04e";
         JSONObject object = configService.findByIdTask(id);
-
-        seedUrls.addAll(object.keySet());
+        List<String> urls = DownloadUrl.downWxUrls(2016,12);
+     //   seedUrls.addAll(object.keySet());
       //  seedUrls.add("http://cnews.chinadaily.com.cn/2016-11/22/content_27457191.htm");
-        param.setSeedUrls(seedUrls);
+        param.setSeedUrls(urls);
 
         base.setId(id);
         base.setDepthCrawl(1);
@@ -87,7 +89,7 @@ public  class ServiceTest {
     /**
      * 同时启动多条任务
      */
-    @Test
+        @Test
         public void testListTask(){
 
         List<TaskConfig> configs = configService.findByIdStart(10);
@@ -119,6 +121,8 @@ public  class ServiceTest {
         }
 
     }
+
+
     @Test
     public void splitInfobar()  {
         String infobar = "索引号：52230011/2016-173111 文章来源：黔西南日报 发布时间：2016/11/11 9:37:15 作者：方文毅 娄孝云 点击：119 【字体： 】大中小【打印内容】【内容纠错】";
