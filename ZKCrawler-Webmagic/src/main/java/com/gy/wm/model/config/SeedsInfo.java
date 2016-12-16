@@ -61,6 +61,7 @@ public class SeedsInfo implements Serializable {
     private String url;
     private String sourceName;
     private String sourceTypeId;
+    private String sourceRegion;
     private JSONArray tags;
     private JSONArray categories;
 
@@ -153,6 +154,15 @@ public class SeedsInfo implements Serializable {
 
     public void setSourceTypeId(String sourceTypeId) {
         this.sourceTypeId = sourceTypeId;
+    }
+
+    public String getSourceRegion() {
+
+        return sourceRegion;
+    }
+
+    public void setSourceRegion(String sourceRegion) {
+        this.sourceRegion = sourceRegion;
     }
 
     public String toJSONString() {

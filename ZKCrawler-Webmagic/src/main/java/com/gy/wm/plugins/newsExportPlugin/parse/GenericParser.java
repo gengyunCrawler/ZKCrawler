@@ -76,6 +76,7 @@ public class GenericParser implements PageParser {
                     data.setSourceTypeId(crawlData.getSourceTypeId());
                     data.setTags(crawlData.getTags());
                     data.setCategories(crawlData.getCategories());
+                    data.setSourceRegion(crawlData.getSourceRegion());
                     data.setTag(crawlData.getTag());
                     data.setFetched(false);
 
@@ -379,12 +380,9 @@ public class GenericParser implements PageParser {
         Jedis imgJedis = pool.getResource();
         imgJedis.select(2);
 
-        //redis中存储被替换的img的src地址的list srcurls
+        String [] linkArray = (String[]) srcList.toArray();
 
-        //  List<String> srcList = new ArrayList<>();
-        String srcurls = JSON.toJSONString(srcList);
-
-        imgJedis.hset("ImgSrcOf:" + taskId, url, srcurls);
+        imgJedis.sadd("ImgSrcOf:" + taskId, linkArray);
     }
 
     public String clearText4label(String html) {

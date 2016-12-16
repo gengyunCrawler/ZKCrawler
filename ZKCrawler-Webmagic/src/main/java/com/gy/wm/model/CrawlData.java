@@ -46,6 +46,8 @@ public class CrawlData implements Serializable {
 
     private String textPTag;
 
+    private String sourceRegion;
+
     private Map<String, Object> crawlerdata = new HashMap<>();
 
 
@@ -313,6 +315,14 @@ public class CrawlData implements Serializable {
         this.imgUrl = imgUrl;
     }
 
+
+    public String getSourceRegion() {
+        return sourceRegion;
+    }
+
+    public void setSourceRegion(String sourceRegion) {
+        this.sourceRegion = sourceRegion;
+    }
 
     public String toJSONString(){
 

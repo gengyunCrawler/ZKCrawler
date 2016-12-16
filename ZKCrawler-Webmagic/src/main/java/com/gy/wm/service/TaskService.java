@@ -58,7 +58,7 @@ public class TaskService {
 
         } catch (Exception e) {
 
-            LOGGER.warn("clean redis error, taskId = " + tid + ". ", e);
+            LOGGER.warn("clean redis error, taskId = " + tid + ". ");
 
         } finally {
 
