@@ -102,10 +102,7 @@ public class GenericParser implements PageParser {
      * @version 1.0
      */
     private CrawlData parseData(Html html, CrawlData crawlData, List<HtmlField> htmlFields) {
-
-
         crawlData.setTid(crawlData.getTid());
-
         crawlData.setHtml(html.toString());
         crawlData.setDepthfromSeed(crawlData.getDepthfromSeed() + 1);
         crawlData.setFetched(true);

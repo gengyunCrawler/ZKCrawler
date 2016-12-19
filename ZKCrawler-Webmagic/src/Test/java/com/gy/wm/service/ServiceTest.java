@@ -57,36 +57,6 @@ public  class ServiceTest {
     public void test() throws Exception{
     }
 
-    /**
-     * 启动单条任务
-     */
-    @Test
-    public void testStartTask() {
-        /*
-        List<String> seedUrls = new ArrayList<>();
-
-        String id = "21236056e8a995b6f95c675a7d7aa44f";
-        JSONObject object = configService.findByIdTask(id);
-
-        seedUrls.addAll(object.keySet());
-        param.setSeedsInfoList(seedUrls);
-
-        base.setId(id);
-        base.setDepthCrawl(1);
-        base.setTags(object.toJSONString());
-
-        taskParamModel.setParam(param);
-        taskParamModel.setBase(base);
-        //启动任务
-        String reslut = api.startTask(taskParamModel);
-        Thread thread = Thread.currentThread();
-        try {
-            thread.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        */
-    }
 
     @Test
     public void splitInfobar()  {

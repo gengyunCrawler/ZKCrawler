@@ -123,5 +123,13 @@ public class CustomPageProcessor implements PageProcessor {
     public Site getSite() {
         return site;
     }
+
+    public static void main(String[] args) {
+        String  str= "11bbb";
+        byte[] bytes = str.getBytes();
+        for (byte aByte : bytes) {
+            System.out.println(aByte);
+        }
+    }
 }
 

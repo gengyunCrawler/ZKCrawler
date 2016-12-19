@@ -48,9 +48,6 @@ public class CrawlData implements Serializable {
 
     private Map<String, Object> crawlerdata = new HashMap<>();
 
-
-
-
     public String getTextPTag() {
         return textPTag;
     }
