@@ -20,6 +20,7 @@ public class RedisToCrawlQue {
             try {
                 byte_crawlData = MySerializer.serialize(nextCrawlData);
             } catch (Exception e) {
+                logger.logInfo("序列化放入带爬取队列的url 发生异常！！！");
                 e.printStackTrace();
             }
             jedis.hset(("webmagicCrawler::ToCrawl::" + tid).getBytes(), nextCrawlData.getUrl().getBytes(), byte_crawlData);

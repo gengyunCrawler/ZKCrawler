@@ -10,6 +10,7 @@ import com.gy.wm.service.PageParser;
 import com.gy.wm.util.AlphabeticRandom;
 import com.gy.wm.util.JedisPoolUtils;
 import com.gy.wm.util.MD5;
+import org.springframework.beans.factory.annotation.Autowired;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import us.codecraft.webmagic.selector.Html;
@@ -31,6 +32,11 @@ public class GenericParser implements PageParser {
     private final List<String> contentLinkRegexs = new ArrayList<>();
     private final List<String> columnRegexs = new ArrayList<>();
     private final String ALI_OSS_URL = PropertyResourceBundle.getBundle("config").getString("ALI_OSS_URL");
+
+    //private FieldCroperHandler fieldCroperHandler = new FieldCroperHandler();
+
+    @Autowired
+    private FieldCroperHandler fieldCroperHandler;
 
 
     @Override
@@ -76,6 +82,7 @@ public class GenericParser implements PageParser {
                     data.setSourceTypeId(crawlData.getSourceTypeId());
                     data.setTags(crawlData.getTags());
                     data.setCategories(crawlData.getCategories());
+                    data.setSourceRegion(crawlData.getSourceRegion());
                     data.setTag(crawlData.getTag());
                     data.setFetched(false);
 
@@ -102,7 +109,10 @@ public class GenericParser implements PageParser {
      * @version 1.0
      */
     private CrawlData parseData(Html html, CrawlData crawlData, List<HtmlField> htmlFields) {
+
+
         crawlData.setTid(crawlData.getTid());
+
         crawlData.setHtml(html.toString());
         crawlData.setDepthfromSeed(crawlData.getDepthfromSeed() + 1);
         crawlData.setFetched(true);
@@ -159,19 +169,27 @@ public class GenericParser implements PageParser {
             tagMap.put("column", crawlData.getTag());
             fieldMap.put("tag", tagMap);
 
-            if (htmlField.getFieldName().equals("title"))
+
+            if (htmlField.getFieldName().equals("title")) {
                 crawlData.setTitle(fieldValue);
-            else if (htmlField.getFieldName().equals("content"))
+            } else if (htmlField.getFieldName().equals("content")) {
                 crawlData.setText(fieldValue);
-            else if (htmlField.getFieldName().equals("author"))
+            } else if (htmlField.getFieldName().equals("author")) {
                 crawlData.setAuthor(fieldValue);
-            else if (htmlField.getFieldName().equals("sourceName"))
+            } else if (htmlField.getFieldName().equals("sourceName")) {
                 crawlData.setSourceName(fieldValue);
+            } else if (htmlField.getFieldName().equals("publishTime")) {
+                crawlData.setSourceName(fieldValue);
+            }
+
         }
 
         crawlData.setCrawlerdata(fieldMap);
 
-        return crawlData;
+        //对裁剪字段进行精确处理
+        CrawlData croped_crawlerData = fieldCroperHandler.accessFieldCroper(crawlData);
+
+        return croped_crawlerData;
     }
 
     /**
@@ -266,7 +284,7 @@ public class GenericParser implements PageParser {
         }
 
         // 这里给文章的缩略图字段添加第一张图片地址.
-        if(imgSrcs.size() > 0){
+        if (imgSrcs.size() > 0) {
 
             String orgUrl = imgSrcs.get(0);
             int start = orgUrl.lastIndexOf(".");
@@ -377,9 +395,9 @@ public class GenericParser implements PageParser {
         imgJedis.select(2);
 
         //redis中存储被替换的img的src地址的list srcurls
-        String [] linkArray = (String[]) srcList.toArray();
+        String[] linkArray = srcList.toArray(new String[srcList.size()]);
 
-        imgJedis.sadd("ImgSrcOf:" + taskId,linkArray);
+        imgJedis.sadd("ImgSrcOf:" + taskId, linkArray);
 
     }
 

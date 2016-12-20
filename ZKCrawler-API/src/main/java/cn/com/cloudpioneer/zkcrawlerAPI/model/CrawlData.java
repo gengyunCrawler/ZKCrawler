@@ -15,6 +15,7 @@ import java.util.Map;
  */
 public class CrawlData implements Serializable {
 
+
     private String docId = "";
 
     private JSONArray tags;        // 标签信息
@@ -45,6 +46,8 @@ public class CrawlData implements Serializable {
     private String parsedData;
 
     private String textPTag;
+
+    private String sourceRegion;
 
     private Map<String, Object> crawlerdata = new HashMap<>();
 
@@ -314,10 +317,17 @@ public class CrawlData implements Serializable {
     }
 
 
+    public String getSourceRegion() {
+        return sourceRegion;
+    }
+
+    public void setSourceRegion(String sourceRegion) {
+        this.sourceRegion = sourceRegion;
+    }
+
     public String toJSONString(){
 
         return JSONObject.toJSONString(this);
     }
-
 
 }

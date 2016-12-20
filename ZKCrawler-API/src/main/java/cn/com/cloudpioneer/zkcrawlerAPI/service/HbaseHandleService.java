@@ -246,6 +246,8 @@ public class HbaseHandleService {
 
                 String sourceName = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"), Bytes.toBytes("sourceName")));
 
+                String sourceRegion = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"), Bytes.toBytes("sourceRegion")));
+
                 String parsedData = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"), Bytes.toBytes("parsedData")));
 
                 rowkey = Bytes.toString(r.getRow());
@@ -283,6 +285,7 @@ public class HbaseHandleService {
                 crawlData.setFetched(fetched);
                 crawlData.setAuthor(author);
                 crawlData.setSourceName(sourceName);
+                crawlData.setSourceRegion(sourceRegion);
                 crawlData.setParsedData(parsedData);
                 crawlDataList.add(crawlData);
 

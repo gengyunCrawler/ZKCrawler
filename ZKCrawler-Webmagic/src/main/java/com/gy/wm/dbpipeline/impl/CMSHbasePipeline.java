@@ -79,6 +79,7 @@ public class CMSHbasePipeline implements Pipeline{
             put.add(Bytes.toBytes("crawlerData"),Bytes.toBytes("textPTag"), Bytes.toBytes(crawlData.getTextPTag()==null?"":crawlData.getTextPTag()));
             put.add(Bytes.toBytes("crawlerData"),Bytes.toBytes("imgUrl"), Bytes.toBytes(crawlData.getImgUrl()==null?"":crawlData.getImgUrl()));
             put.add(Bytes.toBytes("crawlerData"),Bytes.toBytes("sourceTypeId"), Bytes.toBytes(crawlData.getSourceTypeId()==null?"":crawlData.getSourceTypeId()));
+            put.add(Bytes.toBytes("crawlerData"),Bytes.toBytes("sourceRegion"), Bytes.toBytes(crawlData.getSourceRegion()==null?";":crawlData.getSourceRegion()));
 
             table.put(put);
             table.close();

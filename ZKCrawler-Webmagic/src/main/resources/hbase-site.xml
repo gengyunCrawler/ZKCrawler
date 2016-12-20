@@ -12,6 +12,7 @@
     
     <property>
       <name>hbase.client.keyvalue.maxsize</name>
+      <name>hbase.client.keyvalue.maxsize</name>
       <value>1048576</value>
     </property>
     

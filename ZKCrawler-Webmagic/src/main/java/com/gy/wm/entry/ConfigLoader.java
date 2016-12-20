@@ -44,6 +44,9 @@ public class ConfigLoader {
 
             crawlData.setSourceTypeId(seedInfo.getSourceTypeId());
 
+            crawlData.setSourceRegion(seedInfo.getSourceRegion());
+
+
             crawlDataList.add(crawlData);
         }
         return crawlDataList;
