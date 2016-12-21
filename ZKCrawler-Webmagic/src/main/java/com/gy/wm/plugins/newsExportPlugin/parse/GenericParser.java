@@ -4,8 +4,10 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.google.common.base.CharMatcher;
 import com.google.common.base.Preconditions;
+import com.gy.wm.dao.FieldCroperEntityDao;
 import com.gy.wm.dao.ParserDao;
 import com.gy.wm.model.CrawlData;
+import com.gy.wm.model.FieldCroperEntity;
 import com.gy.wm.service.PageParser;
 import com.gy.wm.util.AlphabeticRandom;
 import com.gy.wm.util.JedisPoolUtils;
@@ -32,12 +34,6 @@ public class GenericParser implements PageParser {
     private final List<String> contentLinkRegexs = new ArrayList<>();
     private final List<String> columnRegexs = new ArrayList<>();
     private final String ALI_OSS_URL = PropertyResourceBundle.getBundle("config").getString("ALI_OSS_URL");
-
-    //private FieldCroperHandler fieldCroperHandler = new FieldCroperHandler();
-
-    @Autowired
-    private FieldCroperHandler fieldCroperHandler;
-
 
     @Override
     public List<CrawlData> parse(CrawlData crawlData) {
@@ -187,7 +183,8 @@ public class GenericParser implements PageParser {
         crawlData.setCrawlerdata(fieldMap);
 
         //对裁剪字段进行精确处理
-        CrawlData croped_crawlerData = fieldCroperHandler.accessFieldCroper(crawlData);
+        CrawlData croped_crawlerData = null;
+        croped_crawlerData = new FieldCroperHandler().accessFieldCroper(crawlData);
 
         return croped_crawlerData;
     }
@@ -412,5 +409,4 @@ public class GenericParser implements PageParser {
         html = html.replaceAll("<iframe.*?>.*?</iframe>", "");
         return html;
     }
-
 }

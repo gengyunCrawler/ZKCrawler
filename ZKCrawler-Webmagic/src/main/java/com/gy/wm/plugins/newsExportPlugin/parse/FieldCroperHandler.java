@@ -20,8 +20,11 @@ import java.util.List;
 @Component
 public class FieldCroperHandler {
 
-    @Autowired
     private FieldCroperEntityDao fieldCroperEntityDao;
+
+    public FieldCroperHandler() {
+        this.fieldCroperEntityDao = new FieldCroperEntityDao();
+    }
     /**
      * 处理获取精确值
      * @param crawlData
