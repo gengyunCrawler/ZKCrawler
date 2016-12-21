@@ -2492,3 +2492,31 @@ java.io.IOException: Could not locate executable null\bin\winutils.exe in the Ha
 2016-12-14 16:35:23.924  INFO 12528 --- [http-nio-10080-exec-3] c.c.c.z.controller.APIController         : taskId: 21236056e8a995b6f95c675a7d7aa44f,startRow: 21236056e8a995b6f95c675a7d7aa44f|,size: 2
 2016-12-14 16:38:52.535  INFO 12528 --- [http-nio-10080-exec-5] c.c.c.z.controller.APIController         : taskId: 21236056e8a995b6f95c675a7d7aa44f,startRow: 21236056e8a995b6f95c675a7d7aa44f|,size: 2
 2016-12-14 16:39:06.330  INFO 12528 --- [http-nio-10080-exec-7] c.c.c.z.controller.APIController         : taskId: 21236056e8a995b6f95c675a7d7aa44f,startRow: 21236056e8a995b6f95c675a7d7aa44f|,size: 2
+2016-12-21 16:33:13.105  INFO 28224 --- [main] c.c.c.zkcrawlerAPI.ApplicationAPI        : Starting ApplicationAPI on DESKTOP-I5VPLTQ with PID 28224 (D:\IdeaProjects\ZKCrawler\ZKCrawler-API\target\classes started by karel in D:\IdeaProjects\ZKCrawler)
+2016-12-21 16:33:13.168  INFO 28224 --- [main] c.c.c.zkcrawlerAPI.ApplicationAPI        : No active profile set, falling back to default profiles: default
+2016-12-21 16:33:13.308  INFO 28224 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7467f451: startup date [Wed Dec 21 16:33:13 CST 2016]; root of context hierarchy
+2016-12-21 16:33:15.831  INFO 28224 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-12-21 16:33:16.738  INFO 28224 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 10080 (http)
+2016-12-21 16:33:16.753  INFO 28224 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2016-12-21 16:33:16.753  INFO 28224 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.4
+2016-12-21 16:33:17.191  INFO 28224 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2016-12-21 16:33:17.191  INFO 28224 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3898 ms
+2016-12-21 16:33:17.534  INFO 28224 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2016-12-21 16:33:17.550  INFO 28224 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2016-12-21 16:33:17.550  INFO 28224 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2016-12-21 16:33:17.550  INFO 28224 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2016-12-21 16:33:17.550  INFO 28224 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2016-12-21 16:33:18.702  INFO 28224 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7467f451: startup date [Wed Dec 21 16:33:13 CST 2016]; root of context hierarchy
+2016-12-21 16:33:18.842  INFO 28224 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/batchHbaseDataGeter],methods=[POST]}" onto public java.lang.String cn.com.cloudpioneer.zkcrawlerAPI.controller.APIController.ddpBatchDataGet(java.lang.String,int)
+2016-12-21 16:33:18.858  INFO 28224 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/greeting]}" onto public java.lang.String cn.com.cloudpioneer.zkcrawlerAPI.controller.APIController.greeting(java.lang.String,org.springframework.ui.Model)
+2016-12-21 16:33:18.858  INFO 28224 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/testPostJSON],methods=[POST]}" onto public java.lang.String cn.com.cloudpioneer.zkcrawlerAPI.controller.APIController.testPostJSON(java.lang.String)
+2016-12-21 16:33:18.858  INFO 28224 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/getHbaseData],methods=[POST]}" onto public java.lang.String cn.com.cloudpioneer.zkcrawlerAPI.controller.APIController.getHbaseData(java.lang.String,java.lang.String,java.lang.String)
+2016-12-21 16:33:18.858  INFO 28224 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2016-12-21 16:33:18.858  INFO 28224 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2016-12-21 16:33:18.952  INFO 28224 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-12-21 16:33:18.952  INFO 28224 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-12-21 16:33:18.998  INFO 28224 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in exceptionReaper
+2016-12-21 16:33:19.061  INFO 28224 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-12-21 16:33:20.045  INFO 28224 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2016-12-21 16:33:20.233  INFO 28224 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 10080 (http)
+2016-12-21 16:33:20.248  INFO 28224 --- [main] c.c.c.zkcrawlerAPI.ApplicationAPI        : Started ApplicationAPI in 8.612 seconds (JVM running for 10.422)

@@ -90,15 +90,15 @@ public class CrawlerWorkflowManager {
 
                 .addUrl(urlArray)  //从seed开始抓
 
-              .addPipeline(new FilePipeline())
+//              .addPipeline(new FilePipeline())
 //              .addPipeline(new MysqlPipeline())
 //              .addPipeline(new HDFSPipeline("/user/root/icp"))
 //              .addPipeline(new EsPipeline())
 //              .addPipeline(new HbaseEsPipeline())
 //              .addPipeline(new HbasePipeline())
-//                .addPipeline(new CMSHbasePipeline())
+                .addPipeline(new CMSHbasePipeline())
 
-                .thread(1)    // 开启5个线程抓取
+                .thread(20)    // 开启5个线程抓取
                 .run();        // 启动爬虫
     }
 }

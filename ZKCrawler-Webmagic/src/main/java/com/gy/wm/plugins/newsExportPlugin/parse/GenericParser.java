@@ -331,7 +331,7 @@ public class GenericParser implements PageParser {
             url = domain + url;
         } else if (url.startsWith("../")) {
             int i = CharMatcher.anyOf(url).countIn("../");
-            for (int j = 0; j < i; j++) {
+            for (int j = 0; j <= i; j++) {
                 int end = preUrl.lastIndexOf("/");
                 preUrl = preUrl.substring(0, end);
             }

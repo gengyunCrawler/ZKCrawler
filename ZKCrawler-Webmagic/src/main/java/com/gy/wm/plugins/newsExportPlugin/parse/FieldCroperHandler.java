@@ -5,7 +5,6 @@ import com.alibaba.fastjson.JSONObject;
 import com.gy.wm.dao.FieldCroperEntityDao;
 import com.gy.wm.model.CrawlData;
 import com.gy.wm.model.FieldCroperEntity;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
