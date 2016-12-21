@@ -1,18 +1,14 @@
 package com.gy.wm.plugins.newsExportPlugin.parse;
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.google.common.base.CharMatcher;
 import com.google.common.base.Preconditions;
-import com.gy.wm.dao.FieldCroperEntityDao;
 import com.gy.wm.dao.ParserDao;
 import com.gy.wm.model.CrawlData;
-import com.gy.wm.model.FieldCroperEntity;
 import com.gy.wm.service.PageParser;
 import com.gy.wm.util.AlphabeticRandom;
 import com.gy.wm.util.JedisPoolUtils;
 import com.gy.wm.util.MD5;
-import org.springframework.beans.factory.annotation.Autowired;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import us.codecraft.webmagic.selector.Html;
@@ -183,8 +179,7 @@ public class GenericParser implements PageParser {
         crawlData.setCrawlerdata(fieldMap);
 
         //对裁剪字段进行精确处理
-        CrawlData croped_crawlerData = null;
-        croped_crawlerData = new FieldCroperHandler().accessFieldCroper(crawlData);
+        CrawlData croped_crawlerData = new FieldCroperHandler().accessFieldCroper(crawlData);
 
         return croped_crawlerData;
     }
