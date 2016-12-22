@@ -5,12 +5,15 @@ import com.alibaba.fastjson.JSONObject;
 import com.gy.wm.ApplicationWebmagic;
 import com.gy.wm.controller.API;
 import com.gy.wm.dao.CrawlDataDao;
+import com.gy.wm.dao.SQLSessionFactory;
 import com.gy.wm.entry.TaskConfig;
+import com.gy.wm.mapper.WxArticleMapper;
 import com.gy.wm.model.CrawlData;
 import com.gy.wm.model.TaskParamModel;
 import com.gy.wm.vo.Base;
 import com.gy.wm.vo.Param;
 import com.gy.wm.wx.DownloadUrl;
+import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,10 +68,11 @@ public  class ServiceTest {
 
         String id = "2a175e9ad55e9ef9904746c7e4c7e04e";
         JSONObject object = configService.findByIdTask(id);
-        List<String> urls = DownloadUrl.downWxUrls(2016,12);
+      //  List<String> urls = DownloadUrl.downWxUrls(2016,12);
      //   seedUrls.addAll(object.keySet());
       //  seedUrls.add("http://cnews.chinadaily.com.cn/2016-11/22/content_27457191.htm");
-        param.setSeedUrls(urls);
+        WxArticleMapper mapper  = SQLSessionFactory.getSqlSessionFactory().openSession().getMapper(WxArticleMapper.class);
+        param.setSeedUrls(mapper.findNullContent());
 
         base.setId(id);
         base.setDepthCrawl(1);

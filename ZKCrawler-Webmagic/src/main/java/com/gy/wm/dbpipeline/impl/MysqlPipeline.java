@@ -72,7 +72,8 @@ public class MysqlPipeline implements Pipeline {
     private void insertWxToMysql(WxArticle wxArticle){
         SqlSession sqlSession = sqlSessionFactory.openSession();
         WxArticleMapper mapper = sqlSession.getMapper(WxArticleMapper.class);
-        mapper.insert(wxArticle);
+     //   mapper.insert(wxArticle);
+        mapper.updateArticle(wxArticle.getContent(),wxArticle.getUrl());
         sqlSession.commit();
         sqlSession.close();
     }
