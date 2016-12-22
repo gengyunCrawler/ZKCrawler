@@ -99,7 +99,6 @@ public class HbaseHandleService {
             int readCount = 0;
             String rowkey = null;
             JSONArray crawlerDataArray = new JSONArray();
-
             for (Result r = rs.next(); r != null && readCount < size; r = rs.next()) {
                 String docId = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"),Bytes.toBytes("docId")));
                 String url = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"), Bytes.toBytes("url")));

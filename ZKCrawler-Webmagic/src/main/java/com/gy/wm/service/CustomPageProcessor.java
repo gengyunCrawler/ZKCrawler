@@ -79,7 +79,7 @@ public class CustomPageProcessor implements PageProcessor {
             List<CrawlData>
                     perPageCrawlDataList = null;
             try {
-                perPageCrawlDataList = new PluginUtil().excutePluginParse(page_crawlData);
+                perPageCrawlDataList = new ReflectionUtil().excutePluginParse(page_crawlData);
             } catch (Exception e) {
                 e.printStackTrace();
             }

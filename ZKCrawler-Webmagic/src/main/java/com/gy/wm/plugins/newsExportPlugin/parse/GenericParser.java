@@ -171,7 +171,7 @@ public class GenericParser implements PageParser {
             } else if (htmlField.getFieldName().equals("sourceName")) {
                 crawlData.setSourceName(fieldValue);
             } else if (htmlField.getFieldName().equals("publishTime")) {
-                crawlData.setSourceName(fieldValue);
+                crawlData.setPublishTime(fieldValue);
             }
 
         }
