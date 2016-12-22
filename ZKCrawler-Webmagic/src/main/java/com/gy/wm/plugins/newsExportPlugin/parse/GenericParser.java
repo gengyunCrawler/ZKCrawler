@@ -172,6 +172,9 @@ public class GenericParser implements PageParser {
 
         crawlData.setCrawlerdata(fieldMap);
 
+        //对裁剪字段进行精确处理
+        CrawlData croped_crawlerData = new FieldCroperHandler().accessFieldCroper(crawlData);
+
         return crawlData;
     }
 
