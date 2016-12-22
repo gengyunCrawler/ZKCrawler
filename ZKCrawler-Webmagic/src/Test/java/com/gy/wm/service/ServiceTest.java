@@ -61,7 +61,7 @@ public  class ServiceTest {
     public void testStartTask() {
         List<String> seedUrls = new ArrayList<>();
 
-        String id = "019c531802d4200e52586dc01677cd64";
+        String id = "c79d53bc8900557469ca2fd010980d60";
         JSONObject object = configService.findByIdTask(id);
 
         seedUrls.addAll(object.keySet());

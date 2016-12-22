@@ -354,8 +354,7 @@ public class GenericParser implements PageParser {
         imgJedis.select(2);
 
         //redis中存储被替换的img的src地址的list srcurls
-
-        String [] linkArray = (String[]) srcList.toArray();
+        String [] linkArray = srcList.toArray(new String[srcList.size()]);
         imgJedis.sadd("ImgSrcOf:"+taskId,linkArray);
     }
 
