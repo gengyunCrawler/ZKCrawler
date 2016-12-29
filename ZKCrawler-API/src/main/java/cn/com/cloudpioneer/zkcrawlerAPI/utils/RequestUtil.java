@@ -47,26 +47,44 @@ public class RequestUtil {
         //String url = "http://118.118.118.201:10080/api/batchHbaseDataGeter";
         /*String url = "http://localhost:10080/api/batchHbaseDataGeter";
 
-        Map<String,String> params = new HashMap<>();
-        params.put("nextSign","abd704904d-1480490553455-9c5253dc09");
-        params.put("size","1");
+        Map<String, String> params = new HashMap<>();
+        params.put("nextSign", "f99a35621c-1482403943518-a4a2c42adc");
+        params.put("size", "100");
 
-        String result = postMethod(url,params);
-        System.out.println("post返回结果：\n" + result);*/
+        String result = postMethod(url, params);
+        // System.out.println("post返回结果：\n" + result);
+
+        try {
+            JSONObject object = JSONObject.parseObject(result);
+            while (object.getInteger("size") > 0) {
+                System.out.println("size: " + object.getString("size"));
+                System.out.println("nexSign: " + object.getString("nextSign"));
+                params.put("nextSign", object.getString("nextSign"));
+                params.put("size", "100");
+
+                result = postMethod(url, params);
+
+                object = JSONObject.parseObject(result);
+            }
+        } catch (Exception e1) {
+            e1.printStackTrace();
+        }*/
 
         String url = "http://90.90.90.5:10080/api/getHbaseData";
-        Map<String,String> params = new HashMap<>();
-        params.put("taskId","21236056e8a995b6f95c675a7d7aa44f");
-        params.put("startRow","21236056e8a995b6f95c675a7d7aa44f|");
-        params.put("size","2");
+//        String url = "http://118.118.118.201:10080/api/getHbaseData";
 
-    String result = postMethod(url,params);
+        Map<String, String> params = new HashMap<>();
+        params.put("taskId", "019c531802d4200e52586dc01677cd64");
+        params.put("startRow", "019c531802d4200e52586dc01677cd64|");
+        params.put("size", "3");
+
+        String result = postMethod(url, params);
         try {
-        Thread.sleep(5000);
-        System.out.println("post返回结果"+ result);
-    } catch (InterruptedException e) {
-        e.printStackTrace();
+            Thread.sleep(5000);
+            System.out.println("post返回结果" + result);
+        } catch (Exception e1) {
+            e1.printStackTrace();
+        }
     }
-}
 
 }
