@@ -165,7 +165,7 @@ public class GenericParser implements PageParser {
             if (htmlField.getFieldName().equals("title")) {
                 crawlData.setTitle(fieldValue);
             } else if (htmlField.getFieldName().equals("content")) {
-                crawlData.setText(fieldValue);
+                crawlData.setText(fieldValue.replace("  ","\n"));
             } else if (htmlField.getFieldName().equals("author")) {
                 crawlData.setAuthor(fieldValue);
             } else if (htmlField.getFieldName().equals("sourceName")) {

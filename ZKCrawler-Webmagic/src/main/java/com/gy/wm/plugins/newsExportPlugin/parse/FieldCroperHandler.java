@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.gy.wm.dao.FieldCroperEntityDao;
 import com.gy.wm.model.CrawlData;
 import com.gy.wm.model.FieldCroperEntity;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -126,11 +127,26 @@ public class FieldCroperHandler {
                             //前缀为空
                             if(fieldPre.equals("")) {
                                 cropFieldValue = parsedDataFieldValue[i];
+                                //对时间中空格后的时分秒进行追加处理
+                                if(i+1<parsedDataFieldValue.length) {
+                                    if(belongToHours(parsedDataFieldValue[i+1]))    {
+                                        String hours = parsedDataFieldValue[i+1];
+                                        cropFieldValue+=" "+hours;
+                                    }
+                                }
                             }else{
                                 if(parsedDataFieldValue[i].replace(fieldPre,"").equals("")==false)  {
                                     //前缀后面无空格
                                     cropFieldValue = parsedDataFieldValue[i].replace(fieldPre,"");
+                                    //对时间中空格后的时分秒进行追加处理
+                                    if(i+1<parsedDataFieldValue.length) {
+                                        if(belongToHours(parsedDataFieldValue[i+1]))    {
+                                            String hours = parsedDataFieldValue[i+1];
+                                            cropFieldValue+=" "+hours;
+                                        }
+                                    }
                                 }else if(parsedDataFieldValue[i].replace(fieldPre,"").equals(""))  {
+                                    //去除前缀后等于空格
                                     if(i+1<parsedDataFieldValue.length) {
                                         //fieldString为数据库中提取字段的全部前缀
                                         for (String fieldValue : fieldString) {
@@ -141,7 +157,6 @@ public class FieldCroperHandler {
                                                     nullField = true;
                                                     break;
                                                 }
-
                                             }
                                         }
                                     }else   {
@@ -150,6 +165,13 @@ public class FieldCroperHandler {
                                     //循环比较结束,发现分割值的下一个值不是特征值
                                     if(nullField==false)    {
                                         cropFieldValue = parsedDataFieldValue[i+1];
+                                        if(i+2<parsedDataFieldValue.length) {
+                                            //对时间中空格后的时分秒进行追加处理
+                                            if(belongToHours(parsedDataFieldValue[i+2]))    {
+                                                String hours = parsedDataFieldValue[i+2];
+                                                cropFieldValue+=" "+hours;
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -177,5 +199,14 @@ public class FieldCroperHandler {
         }else {
             return null;
         }
+    }
+
+    /**
+     * 是否属于小时内的时间精度,如“2016-12-45 07:32:22”中的“07:32:22”
+     * @param pasedData 解析的字段
+     * @return
+     */
+    public boolean belongToHours(String pasedData)   {
+        return pasedData.matches("\\d{1,2}(:)\\d{1,2}(:)\\d{1,2}");
     }
 }
