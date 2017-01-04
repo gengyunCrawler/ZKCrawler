@@ -280,11 +280,17 @@ public class GenericParser implements PageParser {
 
             String orgUrl = imgSrcs.get(0);
             int start = orgUrl.lastIndexOf(".");
+
             String suffixName = orgUrl.substring(start, orgUrl.length());
-
-            String imgUrl = ALI_OSS_URL + "/" + crawlData.getTid() + "/" + MD5.generateMD5(orgUrl) + suffixName;
-
+            String imgUrl = "";
+            if(!suffixName.contains("/"))    {
+                imgUrl = ALI_OSS_URL + "/" + crawlData.getTid() + "/" + MD5.generateMD5(orgUrl) + suffixName;
+            }else   {
+                imgUrl = ALI_OSS_URL + "/" + crawlData.getTid() + "/" + MD5.generateMD5(orgUrl)+suffixName.replace("/","");
+            }
             crawlData.setImgUrl(imgUrl);
+
+
         }
 
         return content;
