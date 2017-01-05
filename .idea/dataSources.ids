@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
-  <data-source name="MySQL - wifi_ac@108.108.108.8" uuid="f26038fc-8bad-43f9-a40a-599ecd5e779a">
-    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
-  </data-source>
-  <data-source name="MySQL - crawlerdata@108.108.108.8" uuid="d6f85fa2-d546-4417-8daa-71b7df736e1a">
+  <data-source name="MySQL - wifi_ac@108.108.108.8" uuid="0cb2cba0-94ab-460a-ba7c-f692e380ab29">
     <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
   </data-source>
 </component>

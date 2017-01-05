@@ -163,15 +163,15 @@ public class GenericParser implements PageParser {
 
 
             if (htmlField.getFieldName().equals("title")) {
-                crawlData.setTitle(fieldValue);
+                crawlData.setTitle(fieldValue == null ? "" : fieldValue);
             } else if (htmlField.getFieldName().equals("content")) {
-                crawlData.setText(fieldValue.replace("  ","\n"));
+                crawlData.setText(fieldValue == null ? "" : fieldValue.replaceAll("\\u00A0{1,}|\\u3000{1,}|\\u0020{1,}", "\n"));
             } else if (htmlField.getFieldName().equals("author")) {
-                crawlData.setAuthor(fieldValue);
+                crawlData.setAuthor(fieldValue == null ? "" : fieldValue);
             } else if (htmlField.getFieldName().equals("sourceName")) {
-                crawlData.setSourceName(fieldValue);
+                crawlData.setSourceName(fieldValue == null ? "" : fieldValue);
             } else if (htmlField.getFieldName().equals("publishTime")) {
-                crawlData.setPublishTime(fieldValue);
+                crawlData.setPublishTime(fieldValue == null ? "" : fieldValue);
             }
 
         }
@@ -283,10 +283,10 @@ public class GenericParser implements PageParser {
 
             String suffixName = orgUrl.substring(start, orgUrl.length());
             String imgUrl = "";
-            if(!suffixName.contains("/"))    {
+            if (!suffixName.contains("/")) {
                 imgUrl = ALI_OSS_URL + "/" + crawlData.getTid() + "/" + MD5.generateMD5(orgUrl) + suffixName;
-            }else   {
-                imgUrl = ALI_OSS_URL + "/" + crawlData.getTid() + "/" + MD5.generateMD5(orgUrl)+suffixName.replace("/","");
+            } else {
+                imgUrl = ALI_OSS_URL + "/" + crawlData.getTid() + "/" + MD5.generateMD5(orgUrl) + suffixName.replace("/", "");
             }
             crawlData.setImgUrl(imgUrl);
 
@@ -365,11 +365,11 @@ public class GenericParser implements PageParser {
             domain = arr[0] + "//" + arr[2];
             int start = orgUrl.lastIndexOf(".");
             String suffixName = orgUrl.substring(start, orgUrl.length());
-            String url= "";
-            if(!suffixName.contains("/"))   {
+            String url = "";
+            if (!suffixName.contains("/")) {
                 url = ossUrl + "/" + taskId + "/" + MD5.generateMD5(orgUrl) + suffixName;
-            }else   {
-                url = ossUrl + "/" + taskId + "/" + MD5.generateMD5(orgUrl) + suffixName.replace("/","");
+            } else {
+                url = ossUrl + "/" + taskId + "/" + MD5.generateMD5(orgUrl) + suffixName.replace("/", "");
             }
             content = content.replace(orgUrl, url);
         }
