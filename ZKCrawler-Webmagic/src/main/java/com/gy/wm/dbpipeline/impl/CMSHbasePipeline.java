@@ -2,6 +2,7 @@ package com.gy.wm.dbpipeline.impl;
 
 import com.gy.wm.model.CrawlData;
 import com.gy.wm.util.AlphabeticRandom;
+import com.gy.wm.util.ObjectSerializeUtils;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.client.HTable;
@@ -71,6 +72,15 @@ public class CMSHbasePipeline implements Pipeline{
             put.add(Bytes.toBytes("crawlerData"),Bytes.toBytes("author"),Bytes.toBytes(crawlData.getAuthor()==null?"":crawlData.getAuthor()));
             put.add(Bytes.toBytes("crawlerData"),Bytes.toBytes("sourceName"),Bytes.toBytes(crawlData.getSourceName()==null?"":crawlData.getSourceName()));
             put.add(Bytes.toBytes("crawlerData"),Bytes.toBytes("parsedData"),Bytes.toBytes(crawlData.getParsedData()==null?"":crawlData.getParsedData()));
+
+            put.add(Bytes.toBytes("crawlerData"),Bytes.toBytes("tags"), ObjectSerializeUtils.serializeObjectToBytes(crawlData.getTags()));
+            put.add(Bytes.toBytes("crawlerData"),Bytes.toBytes("categories"), ObjectSerializeUtils.serializeObjectToBytes(crawlData.getCategories()));
+
+            put.add(Bytes.toBytes("crawlerData"),Bytes.toBytes("textPTag"), Bytes.toBytes(crawlData.getTextPTag()==null?"":crawlData.getTextPTag()));
+            put.add(Bytes.toBytes("crawlerData"),Bytes.toBytes("imgUrl"), Bytes.toBytes(crawlData.getImgUrl()==null?"":crawlData.getImgUrl()));
+            put.add(Bytes.toBytes("crawlerData"),Bytes.toBytes("sourceTypeId"), Bytes.toBytes(crawlData.getSourceTypeId()==null?"":crawlData.getSourceTypeId()));
+            put.add(Bytes.toBytes("crawlerData"),Bytes.toBytes("sourceRegion"), Bytes.toBytes(crawlData.getSourceRegion()==null?";":crawlData.getSourceRegion()));
+
             table.put(put);
             table.close();
         } catch (IOException e) {

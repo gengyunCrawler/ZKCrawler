@@ -16,7 +16,7 @@ JAR_FILE=ZKCrawler-Webmagic-1.0-SNAPSHOT.jar
 
 echo "jar: $JAR_FILE"
 
-$JAVA -Dfile.encoding=UTF-8  -jar $JAR_FILE >& out_$JAR_FILE.TXT &
+$JAVA  -Dfile.encoding=UTF-8  -jar $JAR_FILE >& out_$JAR_FILE.TXT &
 
 
 echo "ZKCrawler-Webmagic Started."

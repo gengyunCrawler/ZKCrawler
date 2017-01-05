@@ -38,7 +38,7 @@ public class PluginUtil {
         //执行方法
         List<CrawlData> crawlDataList = new ArrayList<>();
         crawlDataList = (List<CrawlData>) pse.invoke(object,arguments);
-        LOG.info("crawlDataList size：" + crawlDataList.size());
+        LOG.info("解析得到的urls数量：" + crawlDataList.size());
         return crawlDataList;
     }
 

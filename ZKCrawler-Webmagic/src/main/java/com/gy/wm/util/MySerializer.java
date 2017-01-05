@@ -26,18 +26,4 @@ public class MySerializer {
         Object obj = ois.readObject();
         return obj;
     }
-
-    //测试
-    public static void main(String[] args) {
-        CrawlData crawlData =new CrawlData();
-        crawlData.setUrl("www.google.com");
-        crawlData.setTid("aaaaaaaaaaaaa");
-        try {
-            byte [] crawler_s = serialize(crawlData);
-            CrawlData crawlData1 = (CrawlData) deserialize(crawler_s);
-            System.out.println(crawlData1.getUrl() + " " + crawlData1.getTid());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 }

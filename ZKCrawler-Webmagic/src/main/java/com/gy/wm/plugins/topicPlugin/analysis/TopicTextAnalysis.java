@@ -79,6 +79,9 @@ public class TopicTextAnalysis implements Serializable, PageParser {
                     newCrawlData.setTag(crawlData.getTag());
                     newCrawlData.setTags(crawlData.getTags());
                     newCrawlData.setCategories(crawlData.getCategories());
+                    newCrawlData.setImgUrl(crawlData.getImgUrl());
+                    newCrawlData.setSourceRegion(crawlData.getSourceRegion());
+                    newCrawlData.setSourceTypeId(crawlData.getSourceTypeId());
 
 
                     newCrawlData.setCrawlTime(new Date(System.currentTimeMillis()));

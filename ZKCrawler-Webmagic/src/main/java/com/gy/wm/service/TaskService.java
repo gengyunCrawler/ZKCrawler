@@ -40,6 +40,8 @@ public class TaskService {
         this.crawl.startTask(taskParamModel);
     }
 
+
+    @Async
     public String cleanTaskRedis(String tid)  {
         JedisPoolUtils jedisPoolUtils = null;
         JedisPool pool = null;
@@ -54,9 +56,12 @@ public class TaskService {
             jedis.del(("webmagicCrawler::ToCrawl::" + tid).getBytes());
             jedis.del(("webmagicCrawler::Crawled::" + tid).getBytes());
 
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+
+            LOGGER.warn("clean redis error, taskId = " + tid + ". ");
+
         } finally {
+
             pool.returnResource(jedis);
         }
         return tid + "has been cleaned";

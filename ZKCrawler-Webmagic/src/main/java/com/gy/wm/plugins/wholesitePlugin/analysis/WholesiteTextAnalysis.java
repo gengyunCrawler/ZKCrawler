@@ -94,6 +94,9 @@ public class WholesiteTextAnalysis implements Serializable, PageParser {
             crawlData.setType(parent.getType());
             crawlData.setCategories(parent.getCategories());
             crawlData.setTags(parent.getTags());
+            crawlData.setSourceTypeId(parent.getSourceTypeId());
+            crawlData.setImgUrl(parent.getImgUrl());
+            crawlData.setSourceRegion(parent.getSourceRegion());
             crawlData.setTag(parent.getTag());
             crawlData.setFetched(false);
         }

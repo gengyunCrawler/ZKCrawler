@@ -14,6 +14,7 @@ import java.io.Serializable;
  * {
  * "url":"http://url-01",
  * "sourceName":"source-name-01",
+ * "sourceTypeId":"source-type-id-01",
  * "categories":[
  *      {
  *          "name":"name-01",
@@ -59,6 +60,8 @@ public class SeedsInfo implements Serializable {
 
     private String url;
     private String sourceName;
+    private String sourceTypeId;
+    private String sourceRegion;
     private JSONArray tags;
     private JSONArray categories;
 
@@ -142,6 +145,24 @@ public class SeedsInfo implements Serializable {
 
     public void setCategories(JSONArray categories) {
         this.categories = categories;
+    }
+
+
+    public String getSourceTypeId() {
+        return sourceTypeId;
+    }
+
+    public void setSourceTypeId(String sourceTypeId) {
+        this.sourceTypeId = sourceTypeId;
+    }
+
+    public String getSourceRegion() {
+
+        return sourceRegion;
+    }
+
+    public void setSourceRegion(String sourceRegion) {
+        this.sourceRegion = sourceRegion;
     }
 
     public String toJSONString() {

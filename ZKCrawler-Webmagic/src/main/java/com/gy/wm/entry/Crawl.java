@@ -30,7 +30,7 @@ public class Crawl {
     private void kick(String tid, String type, String startTime, int depth, int pass,
                       SeedsConfig seedsConfig, TemplatesConfig templatesConfig,
                       ProtocolConfig protocolConfig, PostRegexConfig postRegexConfig,
-                      ClickRegexConfig clickRegexConfig, JSONArray tags, JSONArray categories) throws Exception {
+                      ClickRegexConfig clickRegexConfig) throws Exception {
 
         //tid_startTime作为appname，即作为这个爬虫的任务名称
         InitCrawlerConfig crawlerConfig = new InitCrawlerConfig(
@@ -69,8 +69,8 @@ public class Crawl {
         int recallDepth = taskParamModel.getBase().getDepthDynamic();
 
 
-        JSONArray jsonArrayTags;
-        JSONArray jsonArrayCategories;
+        //JSONArray jsonArrayTags;
+        //JSONArray jsonArrayCategories;
         SeedsConfig seedsConfig;
         TemplatesConfig templatesConfig;
 
@@ -91,7 +91,7 @@ public class Crawl {
             return;
         }
 
-        try {
+        /*try {
             jsonArrayTags = JSONArray.parseArray(tags);
         } catch (Exception e) {
             LOGGER.warn("解析标签配置出错,请检查任务的标签配置,出错的原因可能是JSON语法错误导致.", e);
@@ -102,7 +102,7 @@ public class Crawl {
         } catch (Exception e) {
             LOGGER.warn("解析分类(栏目,频道)标签配置出错,请检查分类(栏目,频道)的标签配置,出错的原因可能是JSON语法错误导致.", e);
             jsonArrayCategories = new JSONArray();
-        }
+        }*/
 
 
         templatesConfig = new TemplatesConfig(templates);
@@ -115,7 +115,7 @@ public class Crawl {
 
             kick(tid, type, startTime, depth, pass, seedsConfig,
                     templatesConfig, new ProtocolConfig(), new PostRegexConfig(),
-                    new ClickRegexConfig(), jsonArrayTags, jsonArrayCategories);
+                    new ClickRegexConfig());
 
         } catch (Exception e) {
             e.printStackTrace();

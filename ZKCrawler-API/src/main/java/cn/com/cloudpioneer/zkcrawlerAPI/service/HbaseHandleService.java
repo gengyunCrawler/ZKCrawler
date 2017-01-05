@@ -2,6 +2,7 @@ package cn.com.cloudpioneer.zkcrawlerAPI.service;
 
 import cn.com.cloudpioneer.zkcrawlerAPI.model.CrawlData;
 import cn.com.cloudpioneer.zkcrawlerAPI.utils.JSONUtil;
+import cn.com.cloudpioneer.zkcrawlerAPI.utils.ObjectSerializeUtils;
 import cn.com.cloudpioneer.zkcrawlerAPI.utils.RandomAlphaNumeric;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -98,6 +99,7 @@ public class HbaseHandleService {
             int readCount = 0;
             String rowkey = null;
             JSONArray crawlerDataArray = new JSONArray();
+
             for (Result r = rs.next(); r != null && readCount < size; r = rs.next()) {
                 String docId = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"),Bytes.toBytes("docId")));
                 String url = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"), Bytes.toBytes("url")));
@@ -180,31 +182,85 @@ public class HbaseHandleService {
             String rowkey = null;
             List<CrawlData> crawlDataList = new ArrayList<>();
 
+            JSONArray tags, categories;
+
             for (Result r = rs.next(); r != null && readCount < t_size; r = rs.next()) {
+
                 String docId = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"),Bytes.toBytes("docId")));
+
+                try {
+                    tags = (JSONArray) ObjectSerializeUtils.buildObjectFromBytes(r.getValue(Bytes.toBytes("crawlerData"),Bytes.toBytes("tags")));
+                } catch (Exception e) {
+                    tags = new JSONArray();
+                    e.printStackTrace();
+                }
+
+                try {
+                    categories = (JSONArray) ObjectSerializeUtils.buildObjectFromBytes(r.getValue(Bytes.toBytes("crawlerData"),Bytes.toBytes("categories")));
+                } catch (Exception e) {
+                    categories = new JSONArray();
+                    e.printStackTrace();
+                }
+
+                String sourceTypeId = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"), Bytes.toBytes("sourceTypeId")));
+
+                String imgUrl = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"), Bytes.toBytes("imgUrl")));
+
+                String tid = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"), Bytes.toBytes("tid")));
+
                 String url = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"), Bytes.toBytes("url")));
+
                 int statusCode = Bytes.toInt(r.getValue(Bytes.toBytes("crawlerData"), Bytes.toBytes("statusCode")));
+
                 int pass = Bytes.toInt(r.getValue(Bytes.toBytes("crawlerData"), Bytes.toBytes("pass")));
+
                 String type = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"), Bytes.toBytes("type")));
+
                 String rootUrl = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"), Bytes.toBytes("rootUrl")));
+
                 String fromUrl = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"), Bytes.toBytes("fromUrl")));
+
                 String text = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"), Bytes.toBytes("text")));
+
+                String textPTag = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"), Bytes.toBytes("textPTag")));
+
                 String html = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"), Bytes.toBytes("html")));
+
                 String title = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"), Bytes.toBytes("title")));
+
                 String startTime = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"), Bytes.toBytes("startTime")));
+
                 String crawlTime = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"), Bytes.toBytes("crawlTime")));
+
                 String publishTime = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"), Bytes.toBytes("publishTime")));
+
                 int depthfromSeed = Bytes.toInt(r.getValue(Bytes.toBytes("crawlerData"), Bytes.toBytes("depthfromSeed")));
+
                 int count = Bytes.toInt(r.getValue(Bytes.toBytes("crawlerData"), Bytes.toBytes("count")));
+
                 String tag = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"), Bytes.toBytes("tag")));
+
                 boolean fetched = Bytes.toBoolean(r.getValue(Bytes.toBytes("crawlerData"), Bytes.toBytes("fetched")));
+
                 String author = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"), Bytes.toBytes("author")));
+
                 String sourceName = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"), Bytes.toBytes("sourceName")));
+
+                String sourceRegion = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"), Bytes.toBytes("sourceRegion")));
+
                 String parsedData = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"), Bytes.toBytes("parsedData")));
 
                 rowkey = Bytes.toString(r.getRow());
+
                 CrawlData crawlData = new CrawlData();
+
                 crawlData.setDocId(docId);
+                crawlData.setTags(tags);
+                crawlData.setCategories(categories);
+                crawlData.setSourceTypeId(sourceTypeId);
+                crawlData.setImgUrl(imgUrl);
+                crawlData.setTextPTag(textPTag);
+
                 crawlData.setTid(t_taskId);
                 crawlData.setUrl(url);
                 crawlData.setStatusCode(statusCode);
@@ -216,6 +272,7 @@ public class HbaseHandleService {
                 crawlData.setHtml(html);
                 crawlData.setTitle(title);
                 crawlData.setStartTime(startTime);
+
                 try {
                     crawlData.setCrawlTime(new Date(new SimpleDateFormat("yyyyMMddhhmmss").parse(crawlTime).getTime()));
                 } catch (ParseException e) {
@@ -228,6 +285,7 @@ public class HbaseHandleService {
                 crawlData.setFetched(fetched);
                 crawlData.setAuthor(author);
                 crawlData.setSourceName(sourceName);
+                crawlData.setSourceRegion(sourceRegion);
                 crawlData.setParsedData(parsedData);
                 crawlDataList.add(crawlData);
 

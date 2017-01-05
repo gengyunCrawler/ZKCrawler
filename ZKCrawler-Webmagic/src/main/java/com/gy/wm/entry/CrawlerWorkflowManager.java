@@ -1,8 +1,6 @@
 package com.gy.wm.entry;
 
-import com.gy.wm.dbpipeline.impl.CMSHbasePipeline;
-import com.gy.wm.dbpipeline.impl.HDFSPipeline;
-import com.gy.wm.dbpipeline.impl.MysqlPipeline;
+import com.gy.wm.dbpipeline.impl.*;
 import com.gy.wm.model.CrawlData;
 import com.gy.wm.queue.RedisCrawledQue;
 import com.gy.wm.queue.RedisToCrawlQue;
@@ -48,7 +46,8 @@ public class CrawlerWorkflowManager {
         bloomJedis.select(1);
         domain = GetDomain.getDomain(seeds.get(0).getUrl());
 
-        LOG.info("****************************==>> task started, domain:  " + domain + ", taskId: " + tid);
+        LOG.info("====>> task started, domain:  [" + domain + "], taskId: [" + tid + "].");
+
         try {
             nextQueue.putNextUrls(seeds, jedis, tid);
 
@@ -88,18 +87,18 @@ public class CrawlerWorkflowManager {
         }
 
         spider.setScheduler(new RedisScheduler(domain)).setUUID(tid)
-                //从seed开始抓
 
-                .addUrl(urlArray)
- //               .addPipeline(new MysqlPipeline())
-//                  .addPipeline(new HDFSPipeline("/user/root/icp"))
-//                .addPipeline(new EsPipeline())
-//                .addPipeline(new HbaseEsPipeline())
-//                .addPipeline(new HbasePipeline())
-            .addPipeline(new CMSHbasePipeline())
-                        //开启5个线程抓取
-                .thread(5)
-                        //启动爬虫
-                .run();
+                .addUrl(urlArray)  //从seed开始抓
+
+              .addPipeline(new FilePipeline())
+//              .addPipeline(new MysqlPipeline())
+//              .addPipeline(new HDFSPipeline("/user/root/icp"))
+//              .addPipeline(new EsPipeline())
+//              .addPipeline(new HbaseEsPipeline())
+//              .addPipeline(new HbasePipeline())
+//                .addPipeline(new CMSHbasePipeline())
+
+                .thread(1)    // 开启5个线程抓取
+                .run();        // 启动爬虫
     }
 }
