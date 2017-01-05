@@ -27,7 +27,7 @@ import java.util.ResourceBundle;
 public class CMSHbasePipeline implements Pipeline{
 
     private static Configuration conf;
-    private static SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddhhmmss");
+    private static SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
     private static final String TABLE_NAME= ResourceBundle.getBundle("config").getString("HTableName");
 
     @Override

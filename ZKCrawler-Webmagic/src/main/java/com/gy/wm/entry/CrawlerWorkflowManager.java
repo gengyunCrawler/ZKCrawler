@@ -81,7 +81,7 @@ public class CrawlerWorkflowManager {
         Spider spider = null;
         try {
             //反射机制取得下载插件，PluginUtil为反射工具类
-            spider = new PluginUtil().excutePluginDownload(tid,domain);
+            spider = new ReflectionUtil().excutePluginDownload(tid,domain);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -90,15 +90,15 @@ public class CrawlerWorkflowManager {
 
                 .addUrl(urlArray)  //从seed开始抓
 
-              .addPipeline(new FilePipeline())
+//              .addPipeline(new FilePipeline())
 //              .addPipeline(new MysqlPipeline())
 //              .addPipeline(new HDFSPipeline("/user/root/icp"))
 //              .addPipeline(new EsPipeline())
 //              .addPipeline(new HbaseEsPipeline())
 //              .addPipeline(new HbasePipeline())
-//                .addPipeline(new CMSHbasePipeline())
+                .addPipeline(new CMSHbasePipeline())
 
-                .thread(1)    // 开启5个线程抓取
+                .thread(20)    // 开启5个线程抓取
                 .run();        // 启动爬虫
     }
 }

@@ -165,13 +165,13 @@ public class GenericParser implements PageParser {
             if (htmlField.getFieldName().equals("title")) {
                 crawlData.setTitle(fieldValue);
             } else if (htmlField.getFieldName().equals("content")) {
-                crawlData.setText(fieldValue);
+                crawlData.setText(fieldValue.replace("  ","\n"));
             } else if (htmlField.getFieldName().equals("author")) {
                 crawlData.setAuthor(fieldValue);
             } else if (htmlField.getFieldName().equals("sourceName")) {
                 crawlData.setSourceName(fieldValue);
             } else if (htmlField.getFieldName().equals("publishTime")) {
-                crawlData.setSourceName(fieldValue);
+                crawlData.setPublishTime(fieldValue);
             }
 
         }
@@ -280,11 +280,17 @@ public class GenericParser implements PageParser {
 
             String orgUrl = imgSrcs.get(0);
             int start = orgUrl.lastIndexOf(".");
+
             String suffixName = orgUrl.substring(start, orgUrl.length());
-
-            String imgUrl = ALI_OSS_URL + "/" + crawlData.getTid() + "/" + MD5.generateMD5(orgUrl) + suffixName;
-
+            String imgUrl = "";
+            if(!suffixName.contains("/"))    {
+                imgUrl = ALI_OSS_URL + "/" + crawlData.getTid() + "/" + MD5.generateMD5(orgUrl) + suffixName;
+            }else   {
+                imgUrl = ALI_OSS_URL + "/" + crawlData.getTid() + "/" + MD5.generateMD5(orgUrl)+suffixName.replace("/","");
+            }
             crawlData.setImgUrl(imgUrl);
+
+
         }
 
         return content;
@@ -331,7 +337,7 @@ public class GenericParser implements PageParser {
             url = domain + url;
         } else if (url.startsWith("../")) {
             int i = CharMatcher.anyOf(url).countIn("../");
-            for (int j = 0; j < i; j++) {
+            for (int j = 0; j <= i; j++) {
                 int end = preUrl.lastIndexOf("/");
                 preUrl = preUrl.substring(0, end);
             }
@@ -359,8 +365,12 @@ public class GenericParser implements PageParser {
             domain = arr[0] + "//" + arr[2];
             int start = orgUrl.lastIndexOf(".");
             String suffixName = orgUrl.substring(start, orgUrl.length());
-
-            String url = ossUrl + "/" + taskId + "/" + MD5.generateMD5(orgUrl) + suffixName;
+            String url= "";
+            if(!suffixName.contains("/"))   {
+                url = ossUrl + "/" + taskId + "/" + MD5.generateMD5(orgUrl) + suffixName;
+            }else   {
+                url = ossUrl + "/" + taskId + "/" + MD5.generateMD5(orgUrl) + suffixName.replace("/","");
+            }
             content = content.replace(orgUrl, url);
         }
 

@@ -12,6 +12,7 @@ import org.apache.hadoop.hbase.HColumnDescriptor;
 import org.apache.hadoop.hbase.HTableDescriptor;
 import org.apache.hadoop.hbase.TableName;
 import org.apache.hadoop.hbase.client.*;
+import org.apache.hadoop.hbase.filter.PrefixFilter;
 import org.apache.hadoop.hbase.util.Bytes;
 import org.springframework.stereotype.Service;
 
@@ -29,7 +30,7 @@ import java.util.*;
 @Service
 public class HbaseHandleService {
     private static Configuration conf;
-    private static SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddhhmmss");
+    private static SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
     private static final String TABLE_NAME = ResourceBundle.getBundle("config").getString("HTableName");
 
     /**
@@ -88,6 +89,7 @@ public class HbaseHandleService {
         try {
             HTable htable = new HTable(conf, TABLE_NAME);
             Scan scan = new Scan();
+            scan.setFilter(new PrefixFilter(t_taskId.getBytes()));
             scan.setCaching(100);
             scan.addFamily(Bytes.toBytes("crawlerData"));
             String tid = t_taskId;
@@ -99,7 +101,6 @@ public class HbaseHandleService {
             int readCount = 0;
             String rowkey = null;
             JSONArray crawlerDataArray = new JSONArray();
-
             for (Result r = rs.next(); r != null && readCount < size; r = rs.next()) {
                 String docId = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"),Bytes.toBytes("docId")));
                 String url = Bytes.toString(r.getValue(Bytes.toBytes("crawlerData"), Bytes.toBytes("url")));
@@ -172,6 +173,7 @@ public class HbaseHandleService {
         try {
             HTable htable = new HTable(conf, TABLE_NAME);
             Scan scan = new Scan();
+            scan.setFilter(new PrefixFilter(t_taskId.getBytes()));
             scan.setCaching(t_size);
             scan.addFamily(Bytes.toBytes("crawlerData"));
             String startRow = t_startRow + "0";
@@ -274,7 +276,7 @@ public class HbaseHandleService {
                 crawlData.setStartTime(startTime);
 
                 try {
-                    crawlData.setCrawlTime(new Date(new SimpleDateFormat("yyyyMMddhhmmss").parse(crawlTime).getTime()));
+                    crawlData.setCrawlTime(new Date(sdf.parse(crawlTime).getTime()));
                 } catch (ParseException e) {
                     crawlData.setCrawlTime(null);
                 }

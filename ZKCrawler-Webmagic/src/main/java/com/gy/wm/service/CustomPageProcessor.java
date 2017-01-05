@@ -76,9 +76,10 @@ public class CustomPageProcessor implements PageProcessor {
              * 通过反射拿到解析类并执行解析方法
              * 在PluginUtil中定义了插件名称制定路径
              */
-            List<CrawlData> perPageCrawlDataList = null;
+            List<CrawlData>
+                    perPageCrawlDataList = null;
             try {
-                perPageCrawlDataList = new PluginUtil().excutePluginParse(page_crawlData);
+                perPageCrawlDataList = new ReflectionUtil().excutePluginParse(page_crawlData);
             } catch (Exception e) {
                 e.printStackTrace();
             }
