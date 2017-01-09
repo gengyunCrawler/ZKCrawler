@@ -277,7 +277,6 @@ public class GenericParser implements PageParser {
 
         // 这里给文章的缩略图字段添加第一张图片地址.
         if (imgSrcs.size() > 0) {
-
             String orgUrl = imgSrcs.get(0);
             int start = orgUrl.lastIndexOf(".");
 
@@ -289,8 +288,6 @@ public class GenericParser implements PageParser {
                 imgUrl = ALI_OSS_URL + "/" + crawlData.getTid() + "/" + MD5.generateMD5(orgUrl)+suffixName.replace("/","");
             }
             crawlData.setImgUrl(imgUrl);
-
-
         }
 
         return content;
