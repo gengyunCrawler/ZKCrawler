@@ -5,11 +5,12 @@ import com.alibaba.fastjson.JSONObject;
 import com.gy.wm.dao.FieldCroperEntityDao;
 import com.gy.wm.model.CrawlData;
 import com.gy.wm.model.FieldCroperEntity;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * <类详细说明:针对特征字段的精确裁剪，用于修正Xpath得到的不准确的修正>
@@ -73,11 +74,26 @@ public class FieldCroperHandler {
                 }
 
                 //时间
-                String publishTime = getCropFieldValue("publishTime", croper, map, fieldString);
-                if(publishTime !=null)   {
-                    crawlData.setPublishTime(publishTime);
-                }else {
-                    crawlData.setPublishTime(map.getString("publishTime"));
+                //如果可以直接匹配正则表达式，直接以正则表达式来取
+                String dateRegx = croper.getDateRegex();
+                if(null !=dateRegx) {
+                    String originDateString =map.getString("publishTime");
+                    Pattern pattern = Pattern.compile(dateRegx);
+                    Matcher matcher = pattern.matcher(originDateString);
+                    if(matcher.find())  {
+                        String publishTime = matcher.group();
+                        crawlData.setPublishTime(publishTime);
+                    }else   {
+                        crawlData.setPublishTime(map.getString("publishTime"));
+                    }
+                }else   {
+                    //通过裁剪字段来拿时间
+                    String publishTime = getCropFieldValue("publishTime", croper, map, fieldString);
+                    if(publishTime !=null)   {
+                        crawlData.setPublishTime(publishTime);
+                    }else {
+                        crawlData.setPublishTime(map.getString("publishTime"));
+                    }
                 }
 
                 crawlData.setTitle(map.getString("title"));
@@ -115,7 +131,9 @@ public class FieldCroperHandler {
             // parsedDataJSON.getString(fieldName)用于保证就算此字段不能精确提取，但也要不为空才进行字符裁剪
             String waittingParseString = parsedDataJSON.getString(field_name);
             //预处理,如果":",冒号之前有空格，去掉空格
-            waittingParseString = waittingParseString.replaceAll("\\s*：","：");
+            if(waittingParseString !=null)  {
+                waittingParseString = waittingParseString.replaceAll("\\s*：","：");
+            }
             //开始匹配
             if (waittingParseString !=null && ! waittingParseString.equals("")) {
                 String[] parsedDataFieldValue = waittingParseString.trim().split("(\\s+|\\u00A0)");
