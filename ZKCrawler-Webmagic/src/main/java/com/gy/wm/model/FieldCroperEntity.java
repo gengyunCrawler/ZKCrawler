@@ -1,7 +1,6 @@
 package com.gy.wm.model;
 
 import org.springframework.stereotype.Component;
-
 /**
  * <类详细说明:如果通过Xpath拿到的字段不准确，通过该实体配置进行字段的裁剪，直到准确再进行推送>
  *

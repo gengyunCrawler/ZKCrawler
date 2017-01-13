@@ -1,5 +1,6 @@
 package com.gy.wm.util;
 
+import com.gy.wm.dao.TaskEntityDao;
 import com.gy.wm.model.CrawlData;
 import com.gy.wm.service.CustomPageProcessor;
 import org.slf4j.Logger;
@@ -19,9 +20,9 @@ import java.util.ResourceBundle;
  * @Version: 2016-09-14
  **/
 public class ReflectionUtil {
+    private static TaskEntityDao taskEntityDao = new TaskEntityDao();
     private static final Logger LOG= LoggerFactory.getLogger(ReflectionUtil.class);
     private static final String PARSE_PLUGIN_NAME = ResourceBundle.getBundle("config").getString("parsePluginName");
-    private static final String DOWNLOAD_PLUGIN_NAME = ResourceBundle.getBundle("config").getString("donwloadPluginName");
 
     //解析类反射
     public List<CrawlData> excutePluginParse(CrawlData crawlData) throws Exception{
@@ -45,7 +46,7 @@ public class ReflectionUtil {
 
     //下载类反射
     public Spider excutePluginDownload(String tid,String domain) throws Exception{
-        Class c = Class.forName(DOWNLOAD_PLUGIN_NAME);
+        Class c = Class.forName(taskEntityDao.findById(tid).getDownloader());
         Object object = c.newInstance();
         return Spider.create(new CustomPageProcessor(tid, domain)).setDownloader((Downloader) object);
     }
