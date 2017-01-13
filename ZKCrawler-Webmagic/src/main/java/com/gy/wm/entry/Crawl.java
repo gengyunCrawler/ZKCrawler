@@ -24,7 +24,6 @@ import java.util.ResourceBundle;
 public class Crawl {
 
     private static String nomalEndUri = ResourceBundle.getBundle("api").getString("nomalEndUri");
-    private static final String DOWNLOAD_PLUGIN_NAME = ResourceBundle.getBundle("config").getString("donwloadPluginName");
     private static final Logger LOGGER = LoggerFactory.getLogger(Crawl.class);
 
     private void kick(String tid, String type, String startTime, int depth, int pass,
