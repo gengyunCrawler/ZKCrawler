@@ -12,7 +12,6 @@ import org.apache.ibatis.annotations.Select;
  * @Version: 2016-11-28
  **/
 public interface FieldCroperEntityMapper {
-
     @Insert("INSERT INTO field_croper(tid,cropRule) VALUES(#{tid},#{cropRule})")
     int insertRules(FieldCroperEntity fieldCroperEntity);
 
