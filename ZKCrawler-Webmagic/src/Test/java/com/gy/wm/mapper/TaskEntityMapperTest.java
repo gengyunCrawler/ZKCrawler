@@ -29,3 +29,6 @@ public class TaskEntityMapperTest {
         System.out.println(taskEntityDao.findById(id).getDownloader());
     }
 }
+
+
+
