@@ -74,8 +74,8 @@ public class RequestUtil {
 //        String url = "http://118.118.118.201:10080/api/getHbaseData";
 
         Map<String, String> params = new HashMap<>();
-        params.put("taskId", "019c531802d4200e52586dc01677cd64");
-        params.put("startRow", "019c531802d4200e52586dc01677cd64|");
+        params.put("taskId", "sAQ1zl85FVMEzUk5mK4VETNEgV6nP231");
+        params.put("startRow", "sAQ1zl85FVMEzUk5mK4VETNEgV6nP231|");
         params.put("size", "3");
 
         String result = postMethod(url, params);
