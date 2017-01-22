@@ -410,7 +410,7 @@ public class GenericParser implements PageParser {
         html = html.replaceAll("<!--.*?-->", "");
         html = html.replaceAll("<iframe.*?>.*?</iframe>", "");
         // 把 p 标签里面的各种样式去掉以及 strong 标签去掉。
-        html = html.replaceAll("<p.*?>", "<p>").replaceAll("<strong.*?>|</strong>", "");
+        html = html.replaceAll("<p.*?(align=\"center\").*?>", "<p align=\"center\">").replaceAll("<strong.*?>|</strong>|<span.*?>|</span>|<font.*?>|</font>", "");
         return html;
     }
 }
