@@ -225,6 +225,6 @@ public class FieldCroperHandler {
      * @return
      */
     public boolean belongToHours(String pasedData)   {
-        return pasedData.matches("\\d{1,2}(:)\\d{1,2}(:)\\d{1,2}");
+        return pasedData.matches("(\\d{1,2}(:)){0,1}\\d{1,2}(:)\\d{1,2}");
     }
 }
