@@ -132,7 +132,7 @@ public class FieldCroperHandler {
             String waittingParseString = parsedDataJSON.getString(field_name);
             //预处理,如果":",冒号之前有空格，去掉空格
             if(waittingParseString !=null)  {
-                waittingParseString = waittingParseString.replaceAll("\\s*：","：");
+                waittingParseString = waittingParseString.replaceAll("\\s*：","：").replaceAll("\\s*:",":");
             }
             //开始匹配
             if (waittingParseString !=null && ! waittingParseString.equals("")) {
