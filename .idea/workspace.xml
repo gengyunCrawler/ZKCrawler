@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f80612aa-7060-4aab-872b-8b78d4511402" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/plugins/newsExportPlugin/parse/FieldCroperHandler.java" afterPath="$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/plugins/newsExportPlugin/parse/FieldCroperHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/resources/webdriver.properties" afterPath="$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/resources/webdriver.properties" />
     </list>
     <ignored path="D:\IdeaProjects\ZKCrawler\.idea\shelf/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -40,20 +41,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="webdriver.properties" pinned="false" current-in-tab="false">
+      <file leaf-file-name="webdriver.properties" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/resources/webdriver.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="68" lean-forward="false" selection-start-line="0" selection-start-column="68" selection-end-line="0" selection-end-column="68" />
+            <state relative-caret-position="19">
+              <caret line="1" column="57" lean-forward="false" selection-start-line="1" selection-start-column="57" selection-end-line="1" selection-end-column="57" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FieldCroperHandler.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FieldCroperHandler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/plugins/newsExportPlugin/parse/FieldCroperHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
+            <state relative-caret-position="-316">
               <caret line="165" column="91" lean-forward="true" selection-start-line="165" selection-start-column="91" selection-end-line="165" selection-end-column="91" />
               <folding />
             </state>
@@ -85,15 +86,9 @@
       <file leaf-file-name="SeleniumDownloader.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/downloader/SeleniumDownloader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="46" column="11" lean-forward="false" selection-start-line="46" selection-start-column="11" selection-end-line="46" selection-end-column="11" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#4129#4130#0" expanded="false" />
-                <element signature="e#4167#4168#0" expanded="false" />
-                <element signature="e#4952#4953#0" expanded="false" />
-                <element signature="e#4984#4985#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="171">
+              <caret line="35" column="13" lean-forward="false" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -170,10 +165,10 @@
         <option value="$PROJECT_DIR$/ZKCrawler-Webmagic/src/Test/java/com/gy/wm/mapper/TaskEntityMapperTest.java" />
         <option value="$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/plugins/newsExportPlugin/parse/GenericParser.java" />
         <option value="$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/resources/SqlMapConfig.xml" />
-        <option value="$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/resources/webdriver.properties" />
         <option value="$PROJECT_DIR$/ZKCrawler-API/src/main/java/cn/com/cloudpioneer/zkcrawlerAPI/utils/RequestUtil.java" />
         <option value="$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/downloader/HttpClientDownloader.java" />
         <option value="$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/plugins/newsExportPlugin/parse/FieldCroperHandler.java" />
+        <option value="$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/resources/webdriver.properties" />
       </list>
     </option>
   </component>
@@ -281,6 +276,10 @@
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -310,6 +309,44 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="wm" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ZKCrawler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ZKCrawler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ZKCrawler-Webmagic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="downloader" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SeleniumDownloader.java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -898,7 +935,7 @@
       <workItem from="1485056940800" duration="86000" />
       <workItem from="1485146404026" duration="9327000" />
       <workItem from="1485241476020" duration="167000" />
-      <workItem from="1485243245037" duration="470000" />
+      <workItem from="1485243245037" duration="857000" />
     </task>
     <task id="LOCAL-00001" summary="去掉p标签的样式和strong标签。">
       <created>1484706632298</created>
@@ -916,7 +953,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41948000" />
+    <option name="totallyTimeSpent" value="42335000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
@@ -944,7 +981,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.49025974" sideWeight="0.4978678" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39673913" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32905984" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23369566" sideWeight="0.4978678" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23290598" sideWeight="0.4978678" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30650496" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="JRebel" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -1307,33 +1344,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/resources/webdriver.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="68" lean-forward="false" selection-start-line="0" selection-start-column="68" selection-end-line="0" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/resources/selectableTest.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/downloader/SeleniumDownloader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="46" column="11" lean-forward="false" selection-start-line="46" selection-start-column="11" selection-end-line="46" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#4129#4130#0" expanded="false" />
-            <element signature="e#4167#4168#0" expanded="false" />
-            <element signature="e#4952#4953#0" expanded="false" />
-            <element signature="e#4984#4985#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1395,8 +1410,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/plugins/newsExportPlugin/parse/FieldCroperHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
+        <state relative-caret-position="-316">
           <caret line="165" column="91" lean-forward="true" selection-start-line="165" selection-start-column="91" selection-end-line="165" selection-end-column="91" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/java/com/gy/wm/downloader/SeleniumDownloader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="35" column="13" lean-forward="false" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ZKCrawler-Webmagic/src/main/resources/webdriver.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" column="57" lean-forward="false" selection-start-line="1" selection-start-column="57" selection-end-line="1" selection-end-column="57" />
           <folding />
         </state>
       </provider>
