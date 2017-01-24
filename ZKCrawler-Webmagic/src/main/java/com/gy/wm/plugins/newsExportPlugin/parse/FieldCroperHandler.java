@@ -165,7 +165,10 @@ public class FieldCroperHandler {
                                     }
                                 }else if(parsedDataFieldValue[i].replace(fieldPre,"").equals(""))  {
                                     //去除前缀后等于空格
-                                    if(i+1<parsedDataFieldValue.length) {
+                                    if(parsedDataFieldValue.length ==2) {
+                                        //恰好是一组特征值的key/value
+                                        cropFieldValue = parsedDataFieldValue[i+1];
+                                    }else if(i+1<parsedDataFieldValue.length) {
                                         //fieldString为数据库中提取字段的全部前缀
                                         for (String fieldValue : fieldString) {
                                             fieldValue=fieldValue.trim();
