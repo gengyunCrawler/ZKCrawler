@@ -14,6 +14,8 @@ import us.codecraft.webmagic.selector.PlainText;
 import us.codecraft.webmagic.utils.UrlUtils;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Created by Tijun on 2016/9/26.
@@ -57,7 +59,40 @@ public class HttpClientDownloader implements Downloader {
 
     }
 
-    public static void main(String[] args) {
+    public static int getRandomNum()   {
+        int min = 600;
+        int max = 1500;
+        Random random = new Random();
+        int s = random.nextInt(max)%(max-min+1)+min;
+        return s;
+    }
 
+    public static void main(String[] args) throws Exception{
+
+        ArrayList<String> list =new ArrayList<>();
+        list.add("http://2.xiao8web.com/MicroSiteBuilderWeb/display/5351477360917086?from=singlemessage");
+        list.add("http://2.xiao8web.com/MicroSiteBuilderWeb/display/5331477362487140");
+        list.add("http://2.xiao8web.com/MicroSiteBuilderWeb/display/2521477361849626");
+        list.add("http://dcwz.gog.cn/player.html?id=814741633848311808");
+        list.add("http://3.xiao8web.com/MicroSiteDisplay/display/4701478165337570");
+        for (String url : list) {
+            int num = getRandomNum();
+            System.out.println("得到的随机数："+num);
+            for(int i=0; i<num; i++) {
+                HttpGet get=new HttpGet(url);
+                HttpResponse response= null;
+                CloseableHttpClient client = null;
+                try {
+                    client= HttpClients.custom().build();
+                    response = client.execute(get);
+                    System.out.println("当前访问链接："+url+"\t"+response.getStatusLine().getStatusCode()+" 访问计数："+(i+1));
+                    Thread.sleep(500);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }finally {
+                    client.close();
+                }
+            }
+        }
     }
 }
