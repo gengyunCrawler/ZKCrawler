@@ -59,7 +59,7 @@ public class FieldCroperHandler {
 
                 //作者
                 String author = getCropFieldValue("author", croper, map, fieldString);
-                if(author!=null)    {
+                if(author!=null && !author.trim().equals(""))    {
                     crawlData.setAuthor(author);
                 }else {
                     crawlData.setAuthor(map.getString("author"));
@@ -67,7 +67,7 @@ public class FieldCroperHandler {
 
                 //来源
                 String sourceName = getCropFieldValue("sourceName", croper, map, fieldString);
-                if(sourceName !=null)   {
+                if(sourceName !=null && !sourceName.trim().equals(""))   {
                     crawlData.setSourceName(sourceName);
                 }else {
                     crawlData.setSourceName(map.getString("sourceName"));
