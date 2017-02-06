@@ -7,6 +7,8 @@ public class ParserEntity {
     private int id;
     private String config;
     private String tid;
+    private String viewAll;
+    private String nextKey;
 
     public int getId() {
         return id;
@@ -30,5 +32,21 @@ public class ParserEntity {
 
     public void setTid(String tid) {
         this.tid = tid;
+    }
+
+    public String getViewAll() {
+        return viewAll;
+    }
+
+    public void setViewAll(String viewAll) {
+        this.viewAll = viewAll;
+    }
+
+    public String getNextKey() {
+        return nextKey;
+    }
+
+    public void setNextKey(String nextKey) {
+        this.nextKey = nextKey;
     }
 }

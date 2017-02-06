@@ -13,6 +13,8 @@ public class ParserConfig {
     public static final String URL_PARTTERN_TYPE_COLUMN_REGEX="COLUMN_REGEX";
     //judge the page is our content page
     public static final String HTML_LINK_REGEX="CONTENT_LINK_REGEX";
+    //find article block from seedUrl on Xpath
+    public static final String URL_PARTTERN_TYPE_ARTICLE_BLOCK_XPATH="ARTICLE_BLOCK_XPATH";
     //all fieds are needed to find from html
     private List<HtmlField>fields ;
     //start url and url regex

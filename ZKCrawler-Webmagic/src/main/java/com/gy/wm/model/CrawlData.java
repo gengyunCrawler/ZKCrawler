@@ -39,11 +39,13 @@ public class CrawlData implements Serializable {
     private long depthfromSeed;//层数
     private long count;
     private String tag;//爬虫带的原始标签，比如地域area
+
+    private boolean isMultiPage;
+
     private boolean fetched;
     private String author;
     private String sourceName;
     private String parsedData;
-
     private String textPTag;
 
     private String sourceRegion;
@@ -252,6 +254,14 @@ public class CrawlData implements Serializable {
 
     public void setTag(String tag) {
         this.tag = tag;
+    }
+
+    public boolean isMultiPage() {
+        return isMultiPage;
+    }
+
+    public void setMultiPage(boolean multiPage) {
+        isMultiPage = multiPage;
     }
 
     public long getCount() {
