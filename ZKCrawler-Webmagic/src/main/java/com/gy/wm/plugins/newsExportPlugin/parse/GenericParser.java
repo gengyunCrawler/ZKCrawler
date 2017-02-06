@@ -66,12 +66,14 @@ public class GenericParser implements PageParser {
         //judge current page class(links page or content page)
         if (isColumnHtml(crawlData.getUrl())) {
             //是栏目页，如果可以通过Xpath取得所需文章链接块（或称列表），采取此法
-            List<String> urls = null;
+            List<String> urls;
             if(articleBlockXpaths.size() !=0)   {
                 urls = getArticleBockByXpath(crawlData);
                 if(urls.size()==0) {
                     urls = new Html(crawlData.getHtml()).xpath("//a/@href").all();
                 }
+            }else   {
+                urls = new Html(crawlData.getHtml()).xpath("//a/@href").all();
             }
             String domain="";
             String []arr= crawlData.getRootUrl().split("/");
