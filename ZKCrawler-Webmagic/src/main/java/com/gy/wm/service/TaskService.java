@@ -40,6 +40,10 @@ public class TaskService {
         this.crawl.startTask(taskParamModel);
     }
 
+    //测试分支启动任务用
+    public void testStartTask(TaskParamModel taskParamModel) {
+        this.crawl.startTask(taskParamModel);
+    }
 
     @Async
     public String cleanTaskRedis(String tid)  {

@@ -1,6 +1,7 @@
 package com.gy.wm.service;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.gy.wm.ApplicationWebmagic;
 import com.gy.wm.controller.API;
@@ -53,9 +54,39 @@ public  class ServiceTest {
     @Autowired
     private CrawlDataDao crawlDataDao;
 
+    /**
+     * 任务测试
+     */
     @Test
-    public void test() throws Exception{
+    public void testStartTask() {
+        //测试的任务Id
+        String id = "VXSRoTQLC71EgAGiuDwP4obLgXfXJv38";
+        //测试的种子
+        String testUrl  = "http://www.gywb.cn/meiti/node_366.htm";
+        JSONArray seedUrlsArray = new JSONArray();
+        JSONArray tagsArray = new JSONArray();
+        JSONArray categoriesArray = new JSONArray();
+        JSONObject seedObject = new JSONObject();
+        seedObject.put("tags",tagsArray);
+        seedObject.put("sourceTypeId","");
+        seedObject.put("sourceRegion","");
+        seedObject.put("sourceName","");
+        seedObject.put("categories",categoriesArray);
+        seedObject.put("url",testUrl);
+        seedUrlsArray.add(seedObject);
+        String seedUrls = JSONArray.toJSONString(seedUrlsArray);
+        param.setSeedUrls(seedUrls);
+        param.setTemplates("");
+
+        base.setId(id);
+        base.setDepthCrawl(1);
+
+        taskParamModel.setParam(param);
+        taskParamModel.setBase(base);
+        //启动任务
+        taskService.testStartTask(taskParamModel);
     }
+
 
 
     @Test

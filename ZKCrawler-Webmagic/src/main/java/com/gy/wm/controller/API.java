@@ -42,6 +42,7 @@ public class API {
     public String startTask(@RequestBody TaskParamModel taskParamModel) {
         final TaskParamModel taskModel = taskParamModel;
         API.this.taskService.startTask(taskModel);
+
         System.out.println("taskModel: " + JSONObject.toJSONString(taskParamModel));
 
         return taskModel.getBase().getId();
