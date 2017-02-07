@@ -56,6 +56,9 @@ public class GenericParser implements PageParser {
                 if (pattern.getType().equals(ParserConfig.URL_PARTTERN_TYPE_COLUMN_REGEX)) {
                     columnRegexs.add(pattern.getRegex());
                 }
+                if (pattern.getType().equals(ParserConfig.URL_PARTTERN_TYPE_ARTICLE_BLOCK_XPATH)) {
+                    articleBlockXpaths.add(pattern.getRegex());
+                }
             }
 
         }

@@ -60,9 +60,9 @@ public  class ServiceTest {
     @Test
     public void testStartTask() {
         //测试的任务Id
-        String id = "VXSRoTQLC71EgAGiuDwP4obLgXfXJv38";
+        String id = "oVfvcEw9ivKpOuf7dWnwNMeAm2KMOCSK";
         //测试的种子
-        String testUrl  = "http://www.gywb.cn/meiti/node_366.htm";
+        String testUrl  = "http://www.lpswz.com/09news/node_4151.htm";
         JSONArray seedUrlsArray = new JSONArray();
         JSONArray tagsArray = new JSONArray();
         JSONArray categoriesArray = new JSONArray();
