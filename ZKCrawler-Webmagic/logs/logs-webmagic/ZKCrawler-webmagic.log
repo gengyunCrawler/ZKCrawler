@@ -3522,3 +3522,383 @@ Caused by: java.net.SocketTimeoutException: connect timed out
 2017-02-07 09:26:54.771  INFO 4912 --- [main] o.a.c.httpclient.HttpMethodDirector      : Retrying request
 2017-02-07 09:26:55.773  INFO 4912 --- [main] o.a.c.httpclient.HttpMethodDirector      : I/O exception (java.net.ConnectException) caught when processing request: Connection refused: connect
 2017-02-07 09:26:55.773  INFO 4912 --- [main] o.a.c.httpclient.HttpMethodDirector      : Retrying request
+2017-02-07 09:47:48.473  INFO 5732 --- [main] com.gy.wm.service.ServiceTest            : Starting ServiceTest on DESKTOP-I5VPLTQ with PID 5732 (started by karel in D:\IdeaProjects\ZKCrawler\ZKCrawler-Webmagic)
+2017-02-07 09:47:48.474  INFO 5732 --- [main] com.gy.wm.service.ServiceTest            : No active profile set, falling back to default profiles: default
+2017-02-07 09:47:48.571  INFO 5732 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@2d72bc24: startup date [Tue Feb 07 09:47:48 CST 2017]; root of context hierarchy
+2017-02-07 09:47:50.102  INFO 5732 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2017-02-07 09:47:51.540  INFO 5732 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@2d72bc24: startup date [Tue Feb 07 09:47:48 CST 2017]; root of context hierarchy
+2017-02-07 09:47:51.614  INFO 5732 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/test]}" onto public java.lang.String com.gy.wm.controller.API.test()
+2017-02-07 09:47:51.615  INFO 5732 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/cleanTaskRedis],methods=[POST]}" onto public java.lang.String com.gy.wm.controller.API.cleanTaskRedis(java.lang.String)
+2017-02-07 09:47:51.617  INFO 5732 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/startTask],methods=[POST],produces=[application/json]}" onto public java.lang.String com.gy.wm.controller.API.startTask(com.gy.wm.model.TaskParamModel)
+2017-02-07 09:47:51.617  INFO 5732 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/WebMagic/stopTask]}" onto public java.lang.String com.gy.wm.controller.API.stopTask(java.lang.String)
+2017-02-07 09:47:51.620  INFO 5732 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-02-07 09:47:51.620  INFO 5732 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-02-07 09:47:51.676  INFO 5732 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-02-07 09:47:51.676  INFO 5732 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-02-07 09:47:51.757  INFO 5732 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-02-07 09:47:52.237  INFO 5732 --- [main] com.gy.wm.service.ServiceTest            : Started ServiceTest in 4.554 seconds (JVM running for 6.272)
+2017-02-07 09:47:52.547  WARN 5732 --- [main] com.gy.wm.entry.Crawl                    : 解析模板配置(templates)出错,这会导致爬取任务解析数据时不正常.
+2017-02-07 09:47:52.773  INFO 5732 --- [main] com.gy.wm.entry.CrawlerWorkflowManager   : ====>> task started, domain:  [gywb.cn], taskId: [VXSRoTQLC71EgAGiuDwP4obLgXfXJv38].
+2017-02-07 09:47:53.358  INFO 5732 --- [main] us.codecraft.webmagic.Spider             : Spider VXSRoTQLC71EgAGiuDwP4obLgXfXJv38 started!
+2017-02-07 09:47:53.360  INFO 5732 --- [pool-1-thread-1] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/meiti/node_366.htm
+2017-02-07 09:47:54.155  INFO 5732 --- [pool-1-thread-1] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：160
+2017-02-07 09:47:55.485  INFO 5732 --- [pool-1-thread-2] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2017-02/06/content_5443846.htm
+2017-02-07 09:47:55.486  INFO 5732 --- [pool-1-thread-3] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2017-02/06/content_5443712.htm
+2017-02-07 09:47:55.487  INFO 5732 --- [pool-1-thread-4] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2017-02/06/content_5443707.htm
+2017-02-07 09:47:55.487  INFO 5732 --- [pool-1-thread-5] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2017-02/04/content_5442923.htm
+2017-02-07 09:47:55.488  INFO 5732 --- [pool-1-thread-7] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2017-01/23/content_5437597.htm
+2017-02-07 09:47:55.490  INFO 5732 --- [pool-1-thread-9] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2017-01/11/content_5428528.htm
+2017-02-07 09:47:55.490  INFO 5732 --- [pool-1-thread-8] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2017-01/12/content_5429823.htm
+2017-02-07 09:47:55.490  INFO 5732 --- [pool-1-thread-6] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2017-01/25/content_5438989.htm
+2017-02-07 09:47:55.495  INFO 5732 --- [pool-1-thread-11] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2017-01/10/content_5427696.htm
+2017-02-07 09:47:55.495  INFO 5732 --- [pool-1-thread-10] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2017-01/11/content_5428526.htm
+2017-02-07 09:47:55.496  INFO 5732 --- [pool-1-thread-12] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2017-01/10/content_5427694.htm
+2017-02-07 09:47:55.499  INFO 5732 --- [pool-1-thread-14] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2017-01/09/content_5426902.htm
+2017-02-07 09:47:55.499  INFO 5732 --- [pool-1-thread-15] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2017-01/06/content_5424890.htm
+2017-02-07 09:47:55.500  INFO 5732 --- [pool-1-thread-16] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2017-01/06/content_5424889.htm
+2017-02-07 09:47:55.503  INFO 5732 --- [pool-1-thread-17] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2017-01/05/content_5423836.htm
+2017-02-07 09:47:55.504  INFO 5732 --- [pool-1-thread-13] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2017-01/09/content_5426904.htm
+2017-02-07 09:47:55.506  INFO 5732 --- [pool-1-thread-19] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2017-01/04/content_5422633.htm
+2017-02-07 09:47:55.506  INFO 5732 --- [pool-1-thread-20] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2017-01/04/content_5422629.htm
+2017-02-07 09:47:55.506  INFO 5732 --- [pool-1-thread-18] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2017-01/05/content_5423818.htm
+2017-02-07 09:47:55.664  INFO 5732 --- [pool-1-thread-1] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2017-01/03/content_5421780.htm
+2017-02-07 09:47:56.266  INFO 5732 --- [pool-1-thread-18] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:56.330  INFO 5732 --- [pool-1-thread-15] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:56.367  INFO 5732 --- [pool-1-thread-14] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:56.387  INFO 5732 --- [pool-1-thread-20] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:56.443  INFO 5732 --- [pool-1-thread-16] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:56.457  INFO 5732 --- [pool-1-thread-10] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:56.467  INFO 5732 --- [pool-1-thread-17] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:56.493  INFO 5732 --- [pool-1-thread-13] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:56.528  INFO 5732 --- [pool-1-thread-3] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:56.547  WARN 5732 --- [pool-1-thread-4] u.c.w.downloader.HttpClientDownloader    : download page http://www.gywb.cn/content/2017-02/06/content_5443707.htm error
+
+org.apache.http.conn.ConnectTimeoutException: Connect to www.gywb.cn:80 [www.gywb.cn/219.159.84.208] failed: connect timed out
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:150) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:353) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:380) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:107) ~[httpclient-4.5.2.jar:4.5.2]
+	at us.codecraft.webmagic.downloader.HttpClientDownloader.download(HttpClientDownloader.java:92) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:409) [webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) [webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_80]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_80]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_80]
+Caused by: java.net.SocketTimeoutException: connect timed out
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method) ~[na:1.7.0_80]
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85) ~[na:1.7.0_80]
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339) ~[na:1.7.0_80]
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200) ~[na:1.7.0_80]
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182) ~[na:1.7.0_80]
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172) ~[na:1.7.0_80]
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392) ~[na:1.7.0_80]
+	at java.net.Socket.connect(Socket.java:579) ~[na:1.7.0_80]
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:74) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:141) ~[httpclient-4.5.2.jar:4.5.2]
+	... 16 common frames omitted
+
+2017-02-07 09:47:56.549  WARN 5732 --- [pool-1-thread-7] u.c.w.downloader.HttpClientDownloader    : download page http://www.gywb.cn/content/2017-01/23/content_5437597.htm error
+
+org.apache.http.conn.ConnectTimeoutException: Connect to www.gywb.cn:80 [www.gywb.cn/219.159.84.208] failed: connect timed out
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:150) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:353) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:380) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:107) ~[httpclient-4.5.2.jar:4.5.2]
+	at us.codecraft.webmagic.downloader.HttpClientDownloader.download(HttpClientDownloader.java:92) ~[webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:409) [webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322) [webmagic-core-0.5.3.jar:na]
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74) [webmagic-core-0.5.3.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_80]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_80]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_80]
+Caused by: java.net.SocketTimeoutException: connect timed out
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method) ~[na:1.7.0_80]
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85) ~[na:1.7.0_80]
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339) ~[na:1.7.0_80]
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200) ~[na:1.7.0_80]
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182) ~[na:1.7.0_80]
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172) ~[na:1.7.0_80]
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392) ~[na:1.7.0_80]
+	at java.net.Socket.connect(Socket.java:579) ~[na:1.7.0_80]
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:74) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:141) ~[httpclient-4.5.2.jar:4.5.2]
+	... 16 common frames omitted
+
+2017-02-07 09:47:56.552  INFO 5732 --- [pool-1-thread-11] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:56.556  INFO 5732 --- [pool-1-thread-6] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:56.593  INFO 5732 --- [pool-1-thread-19] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:56.601  INFO 5732 --- [pool-1-thread-12] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:56.609  INFO 5732 --- [pool-1-thread-5] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:56.636  INFO 5732 --- [pool-1-thread-1] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:56.644  INFO 5732 --- [pool-1-thread-9] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:56.660  INFO 5732 --- [pool-1-thread-8] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:56.684  INFO 5732 --- [pool-1-thread-2] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:57.269  INFO 5732 --- [pool-1-thread-18] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2017-01/03/content_5421779.htm
+2017-02-07 09:47:57.333  INFO 5732 --- [pool-1-thread-15] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/29/content_5418992.htm
+2017-02-07 09:47:57.370  INFO 5732 --- [pool-1-thread-14] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/29/content_5418914.htm
+2017-02-07 09:47:57.393  INFO 5732 --- [pool-1-thread-20] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/28/content_5417322.htm
+2017-02-07 09:47:57.531  INFO 5732 --- [pool-1-thread-15] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:57.605  INFO 5732 --- [pool-1-thread-10] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/28/content_5417310.htm
+2017-02-07 09:47:57.606  INFO 5732 --- [pool-1-thread-13] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/27/content_5415991.htm
+2017-02-07 09:47:57.608  INFO 5732 --- [pool-1-thread-17] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/27/content_5415976.htm
+2017-02-07 09:47:57.610  INFO 5732 --- [pool-1-thread-16] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/26/content_5415116.htm
+2017-02-07 09:47:57.610  INFO 5732 --- [pool-1-thread-3] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/26/content_5415097.htm
+2017-02-07 09:47:57.613  INFO 5732 --- [pool-1-thread-18] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:57.671  INFO 5732 --- [pool-1-thread-14] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:57.675  INFO 5732 --- [pool-1-thread-20] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:57.686  INFO 5732 --- [pool-1-thread-4] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/22/content_5412667.htm
+2017-02-07 09:47:57.687  INFO 5732 --- [pool-1-thread-7] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/22/content_5412660.htm
+2017-02-07 09:47:57.687  INFO 5732 --- [pool-1-thread-6] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/21/content_5412086.htm
+2017-02-07 09:47:57.688  INFO 5732 --- [pool-1-thread-11] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/21/content_5412085.htm
+2017-02-07 09:47:57.689  INFO 5732 --- [pool-1-thread-12] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/20/content_5411099.htm
+2017-02-07 09:47:57.689  INFO 5732 --- [pool-1-thread-19] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/20/content_5411095.htm
+2017-02-07 09:47:57.692  INFO 5732 --- [pool-1-thread-5] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/19/content_5410333.htm
+2017-02-07 09:47:57.693  INFO 5732 --- [pool-1-thread-1] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/19/content_5410329.htm
+2017-02-07 09:47:57.695  INFO 5732 --- [pool-1-thread-9] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/16/content_5408143.htm
+2017-02-07 09:47:57.698  INFO 5732 --- [pool-1-thread-2] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/16/content_5408125.htm
+2017-02-07 09:47:57.754  INFO 5732 --- [pool-1-thread-8] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/15/content_5406844.htm
+2017-02-07 09:47:57.766  INFO 5732 --- [pool-1-thread-10] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:57.794  INFO 5732 --- [pool-1-thread-17] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:57.800  INFO 5732 --- [pool-1-thread-13] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:57.886  INFO 5732 --- [pool-1-thread-7] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:57.886  INFO 5732 --- [pool-1-thread-2] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:57.928  INFO 5732 --- [pool-1-thread-16] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:57.930  INFO 5732 --- [pool-1-thread-8] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:57.943  INFO 5732 --- [pool-1-thread-3] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:57.977  INFO 5732 --- [pool-1-thread-4] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:57.995  INFO 5732 --- [pool-1-thread-12] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:58.022  INFO 5732 --- [pool-1-thread-1] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:58.029  INFO 5732 --- [pool-1-thread-19] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:58.036  INFO 5732 --- [pool-1-thread-6] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:58.045  INFO 5732 --- [pool-1-thread-9] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:58.045  INFO 5732 --- [pool-1-thread-11] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:58.055  INFO 5732 --- [pool-1-thread-5] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:58.534  INFO 5732 --- [pool-1-thread-15] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/15/content_5406841.htm
+2017-02-07 09:47:58.614  INFO 5732 --- [pool-1-thread-18] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/14/content_5405610.htm
+2017-02-07 09:47:58.672  INFO 5732 --- [pool-1-thread-14] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/14/content_5405607.htm
+2017-02-07 09:47:58.676  INFO 5732 --- [pool-1-thread-20] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/13/content_5404643.htm
+2017-02-07 09:47:58.768  INFO 5732 --- [pool-1-thread-10] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/13/content_5404638.htm
+2017-02-07 09:47:58.797  INFO 5732 --- [pool-1-thread-17] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/12/content_5403265.htm
+2017-02-07 09:47:58.803  INFO 5732 --- [pool-1-thread-13] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/12/content_5403245.htm
+2017-02-07 09:47:58.825  INFO 5732 --- [pool-1-thread-15] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:58.915  INFO 5732 --- [pool-1-thread-7] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/09/content_5401785.htm
+2017-02-07 09:47:58.915  INFO 5732 --- [pool-1-thread-2] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/09/content_5401758.htm
+2017-02-07 09:47:58.960  INFO 5732 --- [pool-1-thread-18] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:58.962  INFO 5732 --- [pool-1-thread-14] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:58.965  INFO 5732 --- [pool-1-thread-10] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:58.966  INFO 5732 --- [pool-1-thread-8] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/08/content_5400607.htm
+2017-02-07 09:47:58.967  INFO 5732 --- [pool-1-thread-16] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/08/content_5400590.htm
+2017-02-07 09:47:58.967  INFO 5732 --- [pool-1-thread-3] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/07/content_5399276.htm
+2017-02-07 09:47:58.973  INFO 5732 --- [pool-1-thread-20] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:58.999  INFO 5732 --- [pool-1-thread-4] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/07/content_5399275.htm
+2017-02-07 09:47:59.004  INFO 5732 --- [pool-1-thread-12] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/06/content_5398520.htm
+2017-02-07 09:47:59.045  INFO 5732 --- [pool-1-thread-1] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/06/content_5398519.htm
+2017-02-07 09:47:59.045  INFO 5732 --- [pool-1-thread-19] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/05/content_5397569.htm
+2017-02-07 09:47:59.046  INFO 5732 --- [pool-1-thread-6] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/05/content_5397554.htm
+2017-02-07 09:47:59.048  INFO 5732 --- [pool-1-thread-11] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/02/content_5395643.htm
+2017-02-07 09:47:59.048  INFO 5732 --- [pool-1-thread-9] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/02/content_5395618.htm
+2017-02-07 09:47:59.058  INFO 5732 --- [pool-1-thread-5] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/01/content_5394410.htm
+2017-02-07 09:47:59.079  INFO 5732 --- [pool-1-thread-7] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:59.093  INFO 5732 --- [pool-1-thread-17] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:59.107  INFO 5732 --- [pool-1-thread-13] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:59.118  INFO 5732 --- [pool-1-thread-2] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:59.127  INFO 5732 --- [pool-1-thread-16] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:59.132  INFO 5732 --- [pool-1-thread-8] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:59.167  INFO 5732 --- [pool-1-thread-12] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:59.235  INFO 5732 --- [pool-1-thread-6] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:59.250  INFO 5732 --- [pool-1-thread-9] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:59.257  INFO 5732 --- [pool-1-thread-19] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:59.262  INFO 5732 --- [pool-1-thread-1] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:59.265  INFO 5732 --- [pool-1-thread-3] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:59.310  INFO 5732 --- [pool-1-thread-4] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:59.344  INFO 5732 --- [pool-1-thread-11] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:59.348  INFO 5732 --- [pool-1-thread-5] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:47:59.826  INFO 5732 --- [pool-1-thread-15] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/01/content_5394407.htm
+2017-02-07 09:47:59.962  INFO 5732 --- [pool-1-thread-18] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-11/30/content_5392777.htm
+2017-02-07 09:47:59.964  INFO 5732 --- [pool-1-thread-14] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-11/30/content_5392773.htm
+2017-02-07 09:47:59.967  INFO 5732 --- [pool-1-thread-10] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-11/29/content_5391776.htm
+2017-02-07 09:47:59.974  INFO 5732 --- [pool-1-thread-20] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-11/29/content_5391773.htm
+2017-02-07 09:48:00.080  INFO 5732 --- [pool-1-thread-7] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-11/28/content_5390066.htm
+2017-02-07 09:48:00.094  INFO 5732 --- [pool-1-thread-17] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-11/28/content_5390059.htm
+2017-02-07 09:48:00.108  INFO 5732 --- [pool-1-thread-13] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-11/25/content_5388663.htm
+2017-02-07 09:48:00.124  INFO 5732 --- [pool-1-thread-2] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-11/25/content_5388639.htm
+2017-02-07 09:48:00.128  INFO 5732 --- [pool-1-thread-16] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-11/24/content_5387911.htm
+2017-02-07 09:48:00.133  INFO 5732 --- [pool-1-thread-8] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-11/24/content_5387903.htm
+2017-02-07 09:48:00.175  INFO 5732 --- [pool-1-thread-18] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:00.174  INFO 5732 --- [pool-1-thread-12] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-11/23/content_5386576.htm
+2017-02-07 09:48:00.177  INFO 5732 --- [pool-1-thread-15] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:00.185  INFO 5732 --- [pool-1-thread-20] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:00.210  INFO 5732 --- [pool-1-thread-7] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:00.216  INFO 5732 --- [pool-1-thread-10] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:00.229  INFO 5732 --- [pool-1-thread-17] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:00.242  INFO 5732 --- [pool-1-thread-6] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-11/23/content_5386544.htm
+2017-02-07 09:48:00.258  INFO 5732 --- [pool-1-thread-9] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-11/22/content_5385135.htm
+2017-02-07 09:48:00.260  INFO 5732 --- [pool-1-thread-19] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-11/22/content_5385097.htm
+2017-02-07 09:48:00.260  INFO 5732 --- [pool-1-thread-14] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:00.268  INFO 5732 --- [pool-1-thread-1] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-11/21/content_5384446.htm
+2017-02-07 09:48:00.268  INFO 5732 --- [pool-1-thread-3] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-11/21/content_5384440.htm
+2017-02-07 09:48:00.314  INFO 5732 --- [pool-1-thread-4] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-11/15/content_5377583.htm
+2017-02-07 09:48:00.345  INFO 5732 --- [pool-1-thread-11] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-11/15/content_5377540.htm
+2017-02-07 09:48:00.349  INFO 5732 --- [pool-1-thread-5] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-11/14/content_5376642.htm
+2017-02-07 09:48:00.364  INFO 5732 --- [pool-1-thread-13] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:00.429  INFO 5732 --- [pool-1-thread-2] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:00.450  INFO 5732 --- [pool-1-thread-3] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:00.478  INFO 5732 --- [pool-1-thread-16] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:00.506  INFO 5732 --- [pool-1-thread-8] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:00.517  INFO 5732 --- [pool-1-thread-6] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:00.517  INFO 5732 --- [pool-1-thread-19] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:00.699  INFO 5732 --- [pool-1-thread-5] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:00.701  INFO 5732 --- [pool-1-thread-1] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:00.707  INFO 5732 --- [pool-1-thread-4] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:00.708  INFO 5732 --- [pool-1-thread-12] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:00.716  INFO 5732 --- [pool-1-thread-9] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:00.729  INFO 5732 --- [pool-1-thread-11] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:01.176  INFO 5732 --- [pool-1-thread-18] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2017-01/05/content_5423818_all.htm
+2017-02-07 09:48:01.178  INFO 5732 --- [pool-1-thread-15] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2017-01/06/content_5424890_all.htm
+2017-02-07 09:48:01.187  INFO 5732 --- [pool-1-thread-20] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2017-01/09/content_5426902_all.htm
+2017-02-07 09:48:01.212  INFO 5732 --- [pool-1-thread-7] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2017-01/04/content_5422629_all.htm
+2017-02-07 09:48:01.217  INFO 5732 --- [pool-1-thread-10] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2017-01/09/content_5426904_all.htm
+2017-02-07 09:48:01.230  INFO 5732 --- [pool-1-thread-17] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2017-02/06/content_5443712_all.htm
+2017-02-07 09:48:01.262  INFO 5732 --- [pool-1-thread-14] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2017-01/05/content_5423836_all.htm
+2017-02-07 09:48:01.365  INFO 5732 --- [pool-1-thread-13] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2017-01/06/content_5424889_all.htm
+2017-02-07 09:48:01.385  INFO 5732 --- [pool-1-thread-18] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:01.469  INFO 5732 --- [pool-1-thread-15] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:01.470  INFO 5732 --- [pool-1-thread-2] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2017-01/11/content_5428526_all.htm
+2017-02-07 09:48:01.483  INFO 5732 --- [pool-1-thread-20] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:01.496  INFO 5732 --- [pool-1-thread-16] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2017-01/25/content_5438989_all.htm
+2017-02-07 09:48:01.560  INFO 5732 --- [pool-1-thread-7] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:01.567  INFO 5732 --- [pool-1-thread-10] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:01.572  INFO 5732 --- [pool-1-thread-17] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:01.583  INFO 5732 --- [pool-1-thread-13] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:01.589  INFO 5732 --- [pool-1-thread-14] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:01.591  INFO 5732 --- [pool-1-thread-8] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2017-01/10/content_5427696_all.htm
+2017-02-07 09:48:01.660  INFO 5732 --- [pool-1-thread-3] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2017-01/04/content_5422633_all.htm
+2017-02-07 09:48:01.670  INFO 5732 --- [pool-1-thread-2] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:01.673  INFO 5732 --- [pool-1-thread-6] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2017-01/10/content_5427694_all.htm
+2017-02-07 09:48:01.708  INFO 5732 --- [pool-1-thread-19] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2017-02/04/content_5442923_all.htm
+2017-02-07 09:48:01.762  INFO 5732 --- [pool-1-thread-1] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2017-01/03/content_5421780_all.htm
+2017-02-07 09:48:01.793  INFO 5732 --- [pool-1-thread-8] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:01.798  INFO 5732 --- [pool-1-thread-11] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2017-01/11/content_5428528_all.htm
+2017-02-07 09:48:01.798  INFO 5732 --- [pool-1-thread-12] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2017-02/06/content_5443846_all.htm
+2017-02-07 09:48:01.798  INFO 5732 --- [pool-1-thread-5] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/29/content_5418992_all.htm
+2017-02-07 09:48:01.799  INFO 5732 --- [pool-1-thread-9] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2017-01/03/content_5421779_all.htm
+2017-02-07 09:48:01.800  INFO 5732 --- [pool-1-thread-4] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/29/content_5418914_all.htm
+2017-02-07 09:48:01.840  INFO 5732 --- [pool-1-thread-16] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:01.860  INFO 5732 --- [pool-1-thread-6] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:01.902  INFO 5732 --- [pool-1-thread-3] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:01.966  INFO 5732 --- [pool-1-thread-19] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:01.968  INFO 5732 --- [pool-1-thread-9] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:02.000  INFO 5732 --- [pool-1-thread-5] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:02.008  INFO 5732 --- [pool-1-thread-12] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:02.053  INFO 5732 --- [pool-1-thread-1] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:02.086  INFO 5732 --- [pool-1-thread-4] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:02.086  INFO 5732 --- [pool-1-thread-11] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:02.482  INFO 5732 --- [pool-1-thread-18] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/28/content_5417322_all.htm
+2017-02-07 09:48:02.576  INFO 5732 --- [pool-1-thread-15] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/28/content_5417310_all.htm
+2017-02-07 09:48:02.598  INFO 5732 --- [pool-1-thread-20] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/27/content_5415976_all.htm
+2017-02-07 09:48:02.606  INFO 5732 --- [pool-1-thread-7] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/27/content_5415991_all.htm
+2017-02-07 09:48:02.639  INFO 5732 --- [pool-1-thread-10] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/22/content_5412660_all.htm
+2017-02-07 09:48:02.639  INFO 5732 --- [pool-1-thread-13] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/16/content_5408125_all.htm
+2017-02-07 09:48:02.639  INFO 5732 --- [pool-1-thread-14] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/15/content_5406844_all.htm
+2017-02-07 09:48:02.641  INFO 5732 --- [pool-1-thread-17] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/26/content_5415116_all.htm
+2017-02-07 09:48:02.716  INFO 5732 --- [pool-1-thread-2] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/26/content_5415097_all.htm
+2017-02-07 09:48:02.748  INFO 5732 --- [pool-1-thread-18] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:02.807  INFO 5732 --- [pool-1-thread-7] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:02.816  INFO 5732 --- [pool-1-thread-15] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:02.841  INFO 5732 --- [pool-1-thread-8] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/22/content_5412667_all.htm
+2017-02-07 09:48:02.881  INFO 5732 --- [pool-1-thread-16] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/20/content_5411099_all.htm
+2017-02-07 09:48:02.915  INFO 5732 --- [pool-1-thread-20] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:02.929  INFO 5732 --- [pool-1-thread-13] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:02.950  INFO 5732 --- [pool-1-thread-17] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:02.958  INFO 5732 --- [pool-1-thread-6] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/19/content_5410329_all.htm
+2017-02-07 09:48:02.961  INFO 5732 --- [pool-1-thread-2] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:02.962  INFO 5732 --- [pool-1-thread-10] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:02.968  INFO 5732 --- [pool-1-thread-14] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:03.011  INFO 5732 --- [pool-1-thread-8] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:03.017  INFO 5732 --- [pool-1-thread-3] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/20/content_5411095_all.htm
+2017-02-07 09:48:03.035  INFO 5732 --- [pool-1-thread-19] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/21/content_5412086_all.htm
+2017-02-07 09:48:03.035  INFO 5732 --- [pool-1-thread-5] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/16/content_5408143_all.htm
+2017-02-07 09:48:03.035  INFO 5732 --- [pool-1-thread-9] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/21/content_5412085_all.htm
+2017-02-07 09:48:03.036  INFO 5732 --- [pool-1-thread-12] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/19/content_5410333_all.htm
+2017-02-07 09:48:03.068  INFO 5732 --- [pool-1-thread-16] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:03.094  INFO 5732 --- [pool-1-thread-1] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/15/content_5406841_all.htm
+2017-02-07 09:48:03.106  INFO 5732 --- [pool-1-thread-11] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/14/content_5405610_all.htm
+2017-02-07 09:48:03.106  INFO 5732 --- [pool-1-thread-4] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/14/content_5405607_all.htm
+2017-02-07 09:48:03.175  INFO 5732 --- [pool-1-thread-6] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:03.175  INFO 5732 --- [pool-1-thread-3] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:03.207  INFO 5732 --- [pool-1-thread-12] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:03.284  INFO 5732 --- [pool-1-thread-19] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:03.309  INFO 5732 --- [pool-1-thread-11] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:03.335  INFO 5732 --- [pool-1-thread-1] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:03.351  INFO 5732 --- [pool-1-thread-9] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:03.414  INFO 5732 --- [pool-1-thread-4] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:03.416  INFO 5732 --- [pool-1-thread-5] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:03.773  INFO 5732 --- [pool-1-thread-18] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/13/content_5404638_all.htm
+2017-02-07 09:48:03.856  INFO 5732 --- [pool-1-thread-7] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/13/content_5404643_all.htm
+2017-02-07 09:48:03.899  INFO 5732 --- [pool-1-thread-15] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/09/content_5401785_all.htm
+2017-02-07 09:48:03.967  INFO 5732 --- [pool-1-thread-20] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/12/content_5403265_all.htm
+2017-02-07 09:48:04.020  INFO 5732 --- [pool-1-thread-13] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/12/content_5403245_all.htm
+2017-02-07 09:48:04.021  INFO 5732 --- [pool-1-thread-17] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/09/content_5401758_all.htm
+2017-02-07 09:48:04.057  INFO 5732 --- [pool-1-thread-14] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/08/content_5400590_all.htm
+2017-02-07 09:48:04.057  INFO 5732 --- [pool-1-thread-10] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/08/content_5400607_all.htm
+2017-02-07 09:48:04.057  INFO 5732 --- [pool-1-thread-2] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/06/content_5398520_all.htm
+2017-02-07 09:48:04.095  INFO 5732 --- [pool-1-thread-18] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:04.117  INFO 5732 --- [pool-1-thread-8] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/05/content_5397554_all.htm
+2017-02-07 09:48:04.173  INFO 5732 --- [pool-1-thread-7] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:04.187  INFO 5732 --- [pool-1-thread-16] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/02/content_5395618_all.htm
+2017-02-07 09:48:04.216  INFO 5732 --- [pool-1-thread-15] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:04.242  INFO 5732 --- [pool-1-thread-14] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:04.312  INFO 5732 --- [pool-1-thread-2] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:04.319  INFO 5732 --- [pool-1-thread-10] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:04.323  INFO 5732 --- [pool-1-thread-13] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:04.323  INFO 5732 --- [pool-1-thread-20] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:04.337  INFO 5732 --- [pool-1-thread-8] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:04.344  INFO 5732 --- [pool-1-thread-17] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:04.372  INFO 5732 --- [pool-1-thread-16] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:05.491  INFO 5732 --- [pool-1-thread-6] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/05/content_5397569_all.htm
+2017-02-07 09:48:05.492  INFO 5732 --- [pool-1-thread-3] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/07/content_5399276_all.htm
+2017-02-07 09:48:05.645  INFO 5732 --- [pool-1-thread-5] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/06/content_5398519_all.htm
+2017-02-07 09:48:05.647  INFO 5732 --- [pool-1-thread-9] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/07/content_5399275_all.htm
+2017-02-07 09:48:05.648  INFO 5732 --- [pool-1-thread-18] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/02/content_5395643_all.htm
+2017-02-07 09:48:05.649  INFO 5732 --- [pool-1-thread-12] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/01/content_5394410_all.htm
+2017-02-07 09:48:05.652  INFO 5732 --- [pool-1-thread-19] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-11/30/content_5392777_all.htm
+2017-02-07 09:48:05.652  INFO 5732 --- [pool-1-thread-11] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-12/01/content_5394407_all.htm
+2017-02-07 09:48:05.653  INFO 5732 --- [pool-1-thread-4] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-11/29/content_5391773_all.htm
+2017-02-07 09:48:05.695  INFO 5732 --- [pool-1-thread-1] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-11/28/content_5390066_all.htm
+2017-02-07 09:48:05.707  INFO 5732 --- [pool-1-thread-16] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-11/29/content_5391776_all.htm
+2017-02-07 09:48:05.708  INFO 5732 --- [pool-1-thread-7] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-11/28/content_5390059_all.htm
+2017-02-07 09:48:05.714  INFO 5732 --- [pool-1-thread-6] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:05.766  INFO 5732 --- [pool-1-thread-4] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:05.768  INFO 5732 --- [pool-1-thread-13] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-11/30/content_5392773_all.htm
+2017-02-07 09:48:05.802  INFO 5732 --- [pool-1-thread-3] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:05.816  INFO 5732 --- [pool-1-thread-8] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-11/25/content_5388663_all.htm
+2017-02-07 09:48:05.817  INFO 5732 --- [pool-1-thread-17] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-11/25/content_5388639_all.htm
+2017-02-07 09:48:05.817  INFO 5732 --- [pool-1-thread-15] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-11/24/content_5387911_all.htm
+2017-02-07 09:48:05.817  INFO 5732 --- [pool-1-thread-10] u.c.w.downloader.HttpClientDownloader    : downloading page http://www.gywb.cn/content/2016-11/24/content_5387903_all.htm
+2017-02-07 09:48:05.853  INFO 5732 --- [pool-1-thread-9] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:05.929  INFO 5732 --- [pool-1-thread-1] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:05.956  INFO 5732 --- [pool-1-thread-13] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:06.012  INFO 5732 --- [pool-1-thread-18] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:06.014  INFO 5732 --- [pool-1-thread-5] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:06.029  INFO 5732 --- [pool-1-thread-11] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:06.051  INFO 5732 --- [pool-1-thread-19] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:06.086  INFO 5732 --- [pool-1-thread-8] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:06.087  INFO 5732 --- [pool-1-thread-7] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:06.087  INFO 5732 --- [pool-1-thread-12] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:06.088  INFO 5732 --- [pool-1-thread-16] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:06.130  INFO 5732 --- [pool-1-thread-17] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:06.132  INFO 5732 --- [pool-1-thread-10] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1
+2017-02-07 09:48:06.144  INFO 5732 --- [pool-1-thread-15] com.gy.wm.util.ReflectionUtil            : 解析得到的urls数量：1

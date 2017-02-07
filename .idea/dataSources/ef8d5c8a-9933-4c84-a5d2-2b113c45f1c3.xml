@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="crawlerdata@60.60.60.100">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.0">
+    <root id="1"/>
+    <schema id="2" parent="1" name="crawlerdata">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="bigdata"/>
+    <schema id="4" parent="1" name="big_data"/>
+    <schema id="5" parent="1" name="crawler-transfer"/>
+    <schema id="6" parent="1" name="dbCmsDataApi"/>
+    <schema id="7" parent="1" name="information_schema"/>
+    <schema id="8" parent="1" name="mysql"/>
+    <schema id="9" parent="1" name="performance_schema"/>
+    <schema id="10" parent="1" name="teamwork"/>
+    <schema id="11" parent="1" name="tw_backup"/>
+    <schema id="12" parent="1" name="webanalysis"/>
+    <schema id="13" parent="1" name="webanalytics"/>
+    <table id="14" parent="2" name="article_parse_config">
+      <Comment>此表添加文章解析各个字段的Xpath，通过Xpath获得比如标题、正文、来源等文章字段</Comment>
+    </table>
+    <table id="15" parent="2" name="field_croper"/>
+    <table id="16" parent="2" name="hbase_ddp_batch_get_info"/>
+    <table id="17" parent="2" name="hbase_ddp_batch_get_log"/>
+    <table id="18" parent="2" name="task"/>
+    <table id="19" parent="2" name="taskconfig"/>
+    <table id="20" parent="2" name="tb_auth_info"/>
+    <table id="21" parent="2" name="tb_new_task_tmp"/>
+    <column id="22" parent="14" name="id">
+      <Position>1</Position>
+      <Comment>主键，表ID</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="23" parent="14" name="tid">
+      <Position>2</Position>
+      <Comment>对应的任务ID</Comment>
+      <DataType>varchar(32)|0</DataType>
+    </column>
+    <column id="24" parent="14" name="config">
+      <Position>3</Position>
+      <Comment>对应的解析类对应的文章字段Xpath的json数据</Comment>
+      <DataType>text|0</DataType>
+    </column>
+    <column id="25" parent="14" name="viewAll">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="26" parent="14" name="nextKey">
+      <Position>5</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <index id="27" parent="14" name="tid">
+      <ColNames>tid</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="28" parent="14" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="29" parent="14" name="tid">
+      <ColNames>tid</ColNames>
+      <UnderlyingIndexName>tid</UnderlyingIndexName>
+    </key>
+    <column id="30" parent="15" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="31" parent="15" name="tid">
+      <Position>2</Position>
+      <DataType>varchar(32)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="32" parent="15" name="dateRegex">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="33" parent="15" name="cropRule">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <index id="34" parent="15" name="tid_index">
+      <ColNames>tid</ColNames>
+    </index>
+    <key id="35" parent="15" name="PRIMARY">
+      <ColNames>id
+tid</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="36" parent="16" name="id">
+      <Position>1</Position>
+      <Comment>id,主键，自动增加</Comment>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="37" parent="16" name="idTask">
+      <Position>2</Position>
+      <Comment>爬虫任务的id，每个任务的id是唯一的，字符串，在数据库的长度为64个字符。</Comment>
+      <DataType>varchar(64)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="38" parent="16" name="nextSign">
+      <Position>3</Position>
+      <Comment>读取下一批的标识，一般是时间戳</Comment>
+      <DataType>varchar(512)|0</DataType>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="39" parent="16" name="nextRow">
+      <Position>4</Position>
+      <Comment>HBASE 的下一行标识</Comment>
+      <DataType>varchar(512)|0</DataType>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="40" parent="16" name="lastSize">
+      <Position>5</Position>
+      <Comment>上次取出数据的条数</Comment>
+      <DataType>bigint(20)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="41" parent="16" name="allSize">
+      <Position>6</Position>
+      <Comment>总的取出数据条数</Comment>
+      <DataType>bigint(20)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="42" parent="16" name="updateTime">
+      <Position>7</Position>
+      <Comment>数据更新时间</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="43" parent="16" name="createTime">
+      <Position>8</Position>
+      <Comment>记录添加时间</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <index id="44" parent="16" name="idTask">
+      <ColNames>idTask</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="45" parent="16" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="46" parent="16" name="idTask">
+      <ColNames>idTask</ColNames>
+      <UnderlyingIndexName>idTask</UnderlyingIndexName>
+    </key>
+    <column id="47" parent="17" name="id">
+      <Position>1</Position>
+      <Comment>id,主键，自动增加</Comment>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="48" parent="17" name="idTask">
+      <Position>2</Position>
+      <Comment>爬虫任务的id，每个任务的id是唯一的，字符串，在数据库的长度为64个字符。</Comment>
+      <DataType>varchar(64)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="49" parent="17" name="nextSign">
+      <Position>3</Position>
+      <Comment>读取下一批的标识，一般是时间戳</Comment>
+      <DataType>varchar(512)|0</DataType>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="50" parent="17" name="logInfo">
+      <Position>4</Position>
+      <Comment>  logInfo 为JSON字符串,是表 hbase_ddp_batch_get_info 中的记录JSON化后的内容。</Comment>
+      <DataType>text|0</DataType>
+    </column>
+    <column id="51" parent="17" name="createTime">
+      <Position>5</Position>
+      <Comment>记录添加时间</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <key id="52" parent="17" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="53" parent="18" name="id">
+      <Position>1</Position>
+      <Comment>爬虫任务的id，每个任务的id是唯一的，字符串，在数据库的长度为64个字符。</Comment>
+      <DataType>varchar(64)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="54" parent="18" name="idUser">
+      <Position>2</Position>
+      <Comment>用户id，表明此任务属于哪个用户的任务。默认值为NULL。</Comment>
+      <DataType>bigint(20)|0</DataType>
+    </column>
+    <column id="55" parent="18" name="name">
+      <Position>3</Position>
+      <Comment>爬虫任务名称。默认值为空字符串。</Comment>
+      <DataType>varchar(512)|0</DataType>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="56" parent="18" name="remark">
+      <Position>4</Position>
+      <Comment>爬虫任务描述</Comment>
+      <DataType>varchar(1024)|0</DataType>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="57" parent="18" name="type">
+      <Position>5</Position>
+      <Comment>爬虫任务类型，如：全站任务或栏目任务</Comment>
+      <DataType>int(11)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="58" parent="18" name="depthCrawl">
+      <Position>6</Position>
+      <Comment>爬取深度</Comment>
+      <DataType>int(11)|0</DataType>
+      <DefaultExpression>&apos;3&apos;</DefaultExpression>
+    </column>
+    <column id="59" parent="18" name="depthDynamic">
+      <Position>7</Position>
+      <Comment>动态爬取深度</Comment>
+      <DataType>int(11)|0</DataType>
+      <DefaultExpression>&apos;3&apos;</DefaultExpression>
+    </column>
+    <column id="60" parent="18" name="pass">
+      <Position>8</Position>
+      <Comment>遍数，默认为0</Comment>
+      <DataType>int(11)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="61" parent="18" name="weight">
+      <Position>9</Position>
+      <Comment>任务的权重，默认为0</Comment>
+      <DataType>int(11)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="62" parent="18" name="threads">
+      <Position>10</Position>
+      <Comment>任务爬取时的线程数，要大于0，默认为1</Comment>
+      <DataType>int(11)|0</DataType>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <column id="63" parent="18" name="scheduleType">
+      <Position>11</Position>
+      <Comment>任务的调度类型，默认为0</Comment>
+      <DataType>int(11)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="64" parent="18" name="workerNumber">
+      <Position>12</Position>
+      <Comment>执行任务的节点数量，大于0，默认为1</Comment>
+      <DataType>int(11)|0</DataType>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <column id="65" parent="18" name="completeTimes">
+      <Position>13</Position>
+      <Comment>爬取任务完成的次数</Comment>
+      <DataType>int(11)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="66" parent="18" name="cycleRecrawl">
+      <Position>14</Position>
+      <Comment>任务爬取周期，以小时为单位，默认72</Comment>
+      <DataType>int(11)|0</DataType>
+      <DefaultExpression>&apos;72&apos;</DefaultExpression>
+    </column>
+    <column id="67" parent="18" name="status">
+      <Position>15</Position>
+      <Comment>任务状态，用数字标识，默认为0</Comment>
+      <DataType>int(11)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="68" parent="18" name="deleteFlag">
+      <Position>16</Position>
+      <Comment>任务的软删除标识，为true时不再进行爬取。默认false。</Comment>
+      <DataType>tinyint(1)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="69" parent="18" name="activeFlag">
+      <Position>17</Position>
+      <Comment>任务的激活标识，为 false 时不进行爬取。默认 true。</Comment>
+      <DataType>tinyint(1)|0</DataType>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <column id="70" parent="18" name="timeStart">
+      <Position>18</Position>
+      <Comment>爬取任务启动的时间</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="71" parent="18" name="timeStop">
+      <Position>19</Position>
+      <Comment>爬取任务停止的时间</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="72" parent="18" name="timeLastCrawl">
+      <Position>20</Position>
+      <Comment>任务最后一次爬取的时间</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="73" parent="18" name="costLastCrawl">
+      <Position>21</Position>
+      <Comment>上次爬取消耗的时间，单位分钟</Comment>
+      <DataType>int(11)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="74" parent="18" name="createDate">
+      <Position>22</Position>
+      <Comment>任务创建的时间</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="75" parent="18" name="downloader">
+      <Position>23</Position>
+      <Comment>下载器类型</Comment>
+      <DataType>varchar(512)|0</DataType>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="76" parent="18" name="parser">
+      <Position>24</Position>
+      <Comment>解析器类型</Comment>
+      <DataType>varchar(512)|0</DataType>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <key id="77" parent="18" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="78" parent="19" name="id">
+      <Position>1</Position>
+      <Comment>配置项id</Comment>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="79" parent="19" name="idTask">
+      <Position>2</Position>
+      <Comment>爬虫任务的id，外键，参考表 task</Comment>
+      <DataType>varchar(64)|0</DataType>
+    </column>
+    <column id="80" parent="19" name="confType">
+      <Position>3</Position>
+      <Comment>配置类型</Comment>
+      <DataType>enum(&apos;undefine&apos;, &apos;seedUrls&apos;, &apos;templates&apos;, &apos;configsMap&apos;, &apos;clickRegex&apos;, &apos;regexFilter&apos;, &apos;protocolFilter&apos;, &apos;suffixFilter&apos;, &apos;proxy&apos;, &apos;tags&apos;, &apos;categories&apos;)|0</DataType>
+      <DefaultExpression>&apos;undefine&apos;</DefaultExpression>
+    </column>
+    <column id="81" parent="19" name="confValue">
+      <Position>4</Position>
+      <DataType>longtext|0</DataType>
+    </column>
+    <column id="82" parent="19" name="addDate">
+      <Position>5</Position>
+      <Comment>配置项添加或修改的时间</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <index id="83" parent="19" name="idTask">
+      <ColNames>idTask</ColNames>
+    </index>
+    <index id="84" parent="19" name="idTask_confType">
+      <ColNames>idTask
+confType</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="85" parent="19" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="86" parent="19" name="idTask_confType">
+      <ColNames>idTask
+confType</ColNames>
+      <UnderlyingIndexName>idTask_confType</UnderlyingIndexName>
+    </key>
+    <foreign-key id="87" parent="19" name="taskconfig_ibfk_1">
+      <ColNames>idTask</ColNames>
+      <RefSchemaName>crawlerdata</RefSchemaName>
+      <RefTableName>task</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="88" parent="20" name="id">
+      <Position>1</Position>
+      <Comment>主键, 长整数, 自动增加</Comment>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="89" parent="20" name="urlWords">
+      <Position>2</Position>
+      <Comment>请求客户端的主机部分URL, 例如 1. url: [http://my.mrpdata.com/getkey], 那么 urlWords为[my.mrpdata.com]; 2. url: [http://90.90.90.8/getkey/all], 那么 urlWords为[90.90.90.8]</Comment>
+      <DataType>varchar(128)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="90" parent="20" name="appKey">
+      <Position>3</Position>
+      <Comment>随机生成的64字符的串</Comment>
+      <DataType>varchar(64)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="91" parent="20" name="authToken">
+      <Position>4</Position>
+      <Comment>认证用的字符加密串</Comment>
+      <DataType>varchar(64)|0</DataType>
+    </column>
+    <column id="92" parent="20" name="expire">
+      <Position>5</Position>
+      <Comment>认证的过期时间, 单位为分钟, 默认14400分钟, 即：24 小时</Comment>
+      <DataType>int(11)|0</DataType>
+      <DefaultExpression>&apos;14400&apos;</DefaultExpression>
+    </column>
+    <column id="93" parent="20" name="updTime">
+      <Position>6</Position>
+      <Comment>记录更新时间</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="94" parent="20" name="addTime">
+      <Position>7</Position>
+      <Comment>记录创建时间</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <index id="95" parent="20" name="urlWords">
+      <ColNames>urlWords</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="96" parent="20" name="urlWords_2">
+      <ColNames>urlWords</ColNames>
+    </index>
+    <key id="97" parent="20" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="98" parent="20" name="urlWords">
+      <ColNames>urlWords</ColNames>
+      <UnderlyingIndexName>urlWords</UnderlyingIndexName>
+    </key>
+    <column id="99" parent="21" name="id">
+      <Position>1</Position>
+      <Comment>主键，自动增加</Comment>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="100" parent="21" name="taskId">
+      <Position>2</Position>
+      <Comment>任务ID</Comment>
+      <DataType>varchar(128)|0</DataType>
+    </column>
+    <column id="101" parent="21" name="config">
+      <Position>3</Position>
+      <Comment>任务配置</Comment>
+      <DataType>text|0</DataType>
+    </column>
+    <column id="102" parent="21" name="createTime">
+      <Position>4</Position>
+      <Comment>记录创建时间</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <key id="103" parent="21" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>
