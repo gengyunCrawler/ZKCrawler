@@ -7,11 +7,9 @@ import org.apache.curator.framework.api.CuratorListener;
 /**
  * Created by Tijun on 2016/9/1.
  */
-public class MasterListener implements CuratorListener
-{
+public class MasterListener implements CuratorListener {
     @Override
-    public void eventReceived(CuratorFramework curatorFramework, CuratorEvent curatorEvent) throws Exception
-    {
+    public void eventReceived(CuratorFramework curatorFramework, CuratorEvent curatorEvent) throws Exception {
 
     }
 }

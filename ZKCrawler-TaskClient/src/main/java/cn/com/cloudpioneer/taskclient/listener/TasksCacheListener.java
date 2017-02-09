@@ -1,6 +1,7 @@
 package cn.com.cloudpioneer.taskclient.listener;
 
 import cn.com.cloudpioneer.taskclient.app.TaskClient;
+import cn.com.cloudpioneer.taskclient.app.ValueDef;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.recipes.cache.TreeCacheEvent;
 import org.apache.curator.framework.recipes.cache.TreeCacheListener;
@@ -18,9 +19,9 @@ public class TasksCacheListener implements TreeCacheListener {
 
     private boolean isThisNodeUpdated(String nodePath, String nodeName) {
 
-        Pattern taskStatusPath = Pattern.compile(TaskClient.ROOT_PATH_TASKS + "/task-.*/status");
-        Pattern taskPath = Pattern.compile(TaskClient.ROOT_PATH_TASKS + "/task-.*");
-        Pattern workerPath = Pattern.compile(TaskClient.ROOT_PATH_TASKS + "/task-.*/worker-.*");
+        Pattern taskStatusPath = Pattern.compile(ValueDef.ROOT_PATH_TASKS + "/task-.*/status");
+        Pattern taskPath = Pattern.compile(ValueDef.ROOT_PATH_TASKS + "/task-.*");
+        Pattern workerPath = Pattern.compile(ValueDef.ROOT_PATH_TASKS + "/task-.*/worker-.*");
 
         switch (nodeName) {
             case "task":
@@ -38,7 +39,7 @@ public class TasksCacheListener implements TreeCacheListener {
     @Override
     public void childEvent(CuratorFramework curatorFramework, TreeCacheEvent treeCacheEvent) throws Exception {
 
-        String nodePath = null;
+        String nodePath;
         TaskClient taskClient = TaskClient.getThisTaskClient();
 
         switch (treeCacheEvent.getType()) {

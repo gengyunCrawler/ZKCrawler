@@ -11,12 +11,12 @@ public interface MasterService {
     String getMasterId();
 
 
-    String  workersTree();
+    String workersTree();
 
 
-    String  tasksTree();
+    String tasksTree();
 
 
-    String  workersAndTasksTree();
+    String workersAndTasksTree();
 
 }

@@ -1,6 +1,6 @@
 package cn.com.cloudpioneer.taskclient.service.impl;
 
-import cn.com.cloudpioneer.taskclient.app.PolicyBuilder;
+import cn.com.cloudpioneer.taskclient.scheduler.PolicyBuilder;
 import cn.com.cloudpioneer.taskclient.app.TaskClient;
 import cn.com.cloudpioneer.taskclient.chooser.ChooserPolicy;
 import cn.com.cloudpioneer.taskclient.scheduler.SchedulePolicy;

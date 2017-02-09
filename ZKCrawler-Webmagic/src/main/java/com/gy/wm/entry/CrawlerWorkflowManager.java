@@ -91,14 +91,14 @@ public class CrawlerWorkflowManager {
                 .addUrl(urlArray)  //从seed开始抓
 
 //                .addPipeline(new MysqlPipeline())
-                .addPipeline(new CMSHbasePipeline())
+//                .addPipeline(new CMSHbasePipeline())
 //              .addPipeline(new FilePipeline())
 //              .addPipeline(new HDFSPipeline("/user/root/icp"))
 //              .addPipeline(new EsPipeline())
 //              .addPipeline(new HbaseEsPipeline())
 //              .addPipeline(new HbasePipeline())
 
-                .thread(20)    // 开启5个线程抓取
+                .thread(1)    // 开启5个线程抓取
                 .run();        // 启动爬虫
     }
 }

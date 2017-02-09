@@ -201,8 +201,7 @@ public class TaskModel implements Serializable {
      *
      * @return
      */
-    @Override
-    public String toString() {
+    public String toJSONString() {
 
         JSONObject objectA = new JSONObject();
         JSONObject objectB = new JSONObject();

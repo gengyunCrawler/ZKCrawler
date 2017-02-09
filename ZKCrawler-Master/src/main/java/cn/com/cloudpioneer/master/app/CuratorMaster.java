@@ -1,5 +1,7 @@
 package cn.com.cloudpioneer.master.app;
 
+import cn.com.cloudpioneer.master.listener.TasksCacheListener;
+import cn.com.cloudpioneer.master.listener.WorkersCacheListener;
 import cn.com.cloudpioneer.master.utils.CuratorUtils;
 import cn.com.cloudpioneer.master.utils.RandomUtils;
 import com.sun.istack.internal.Nullable;
@@ -76,17 +78,14 @@ public class CuratorMaster implements Closeable, LeaderSelectorListener {
 
 
     /**
-     * zookeeper 三个角色 角色TaskCLient 角色Master 角色Worker 的根节点。
+     * 对/workers节点进行监听的监视器需完成对相应事件的处理
      */
-    public static final String PATH_ROOT_TASKS = "/tasks";
-    public static final String PATH_ROOT_MASTER = "/master";
-    public static final String PATH_ROOT_WORKERS = "/workers";
-
-
+    private TreeCacheListener workersCacheListener = new WorkersCacheListener();
     /**
-     * 匹配 task 节点下的 worker 节点的正则表达式。
+     * 对tasks进行监听的监视器需完成对相应事件的处理
      */
-    private final static Pattern TASK_WORKER = Pattern.compile(PATH_ROOT_TASKS + "/task-.*/worker-.*");
+    private TreeCacheListener tasksCacheListener = new TasksCacheListener();
+
 
 
     /**
@@ -148,9 +147,9 @@ public class CuratorMaster implements Closeable, LeaderSelectorListener {
         }
         this.hostPort = hostPort;
         this.client = CuratorFrameworkFactory.newClient(hostPort, retryPolicy);
-        this.leaderSelector = new LeaderSelector(this.client, PATH_ROOT_MASTER, this);
-        this.workersCache = new TreeCache(this.client, PATH_ROOT_WORKERS);
-        this.tasksCache = new TreeCache(this.client, PATH_ROOT_TASKS);
+        this.leaderSelector = new LeaderSelector(this.client, ValueDef.PATH_ROOT_MASTER, this);
+        this.workersCache = new TreeCache(this.client, ValueDef.PATH_ROOT_WORKERS);
+        this.tasksCache = new TreeCache(this.client, ValueDef.PATH_ROOT_TASKS);
 
     }
 
@@ -191,20 +190,19 @@ public class CuratorMaster implements Closeable, LeaderSelectorListener {
      */
     private void bootstrap() throws Exception {
 
-        if (!isNodeExist(PATH_ROOT_MASTER)) {
-            client.create().forPath(PATH_ROOT_MASTER, new byte[0]);
+        if (!CuratorUtils.isNodeExist(client, ValueDef.PATH_ROOT_MASTER)) {
+            client.create().forPath(ValueDef.PATH_ROOT_MASTER, new byte[0]);
         }
 
-        if (!isNodeExist(PATH_ROOT_WORKERS)) {
-            client.create().forPath(PATH_ROOT_WORKERS, new byte[0]);
+        if (!CuratorUtils.isNodeExist(client, ValueDef.PATH_ROOT_WORKERS)) {
+            client.create().forPath(ValueDef.PATH_ROOT_WORKERS, new byte[0]);
         }
 
-        if (!isNodeExist(PATH_ROOT_TASKS)) {
-            client.create().forPath(PATH_ROOT_TASKS, new byte[0]);
+        if (!CuratorUtils.isNodeExist(client, ValueDef.PATH_ROOT_TASKS)) {
+            client.create().forPath(ValueDef.PATH_ROOT_TASKS, new byte[0]);
         }
 
     }
-
 
     /**
      * 启动 master，将会启动主节点选择器并进行主节点的选举。
@@ -274,7 +272,7 @@ public class CuratorMaster implements Closeable, LeaderSelectorListener {
 
 
     /**
-     * 选举 leader 成功后执行该方法，在此方法中启动对/workers, /tasks的监听，并进行任务分配。
+     * 选举 leader 成功后执行该方法，在此方法中启动对/zkcrawler_workers, /zkcrawler_tasks的监听，并进行任务分配。
      * 若退出此方法，则为放弃主节点权限。
      */
     @Override
@@ -347,19 +345,6 @@ public class CuratorMaster implements Closeable, LeaderSelectorListener {
     }
 
 
-    /**
-     * 检查节点是否存在
-     *
-     * @return
-     */
-    public boolean isNodeExist(String node) throws Exception {
-        Stat stat = client.checkExists().forPath(node);
-        if (stat != null) {
-            return true;
-        }
-        return false;
-    }
-
     @Override
     public void close() throws IOException {
         closeLatch.countDown();
@@ -370,107 +355,6 @@ public class CuratorMaster implements Closeable, LeaderSelectorListener {
     }
 
 
-    /**
-     * 对/workers节点进行监听的监视器需完成对相应事件的处理
-     */
-    private TreeCacheListener workersCacheListener = new TreeCacheListener() {
-
-        String nodePath = "";
-
-        public void childEvent(CuratorFramework client, TreeCacheEvent event) {
-            switch (event.getType()) {
-                case NODE_ADDED:
-                    nodePath = event.getData().getPath();
-                    LOGGER.info("===> NODE_ADDED Event, path: " + nodePath);
-
-                    /**
-                     *  此处需要做一些具体处理，比如清理一些不存在的 worker 节点。
-                     */
-
-                    break;
-                case NODE_UPDATED:
-                    nodePath = event.getData().getPath();
-                    LOGGER.info("NODE_UPDATED:" + nodePath);
-                    break;
-                case NODE_REMOVED:
-
-                    nodePath = event.getData().getPath();
-
-                    LOGGER.info("NODE_REMOVED:" + nodePath);
-                    try {
-                        //删除过期的worker节点
-                        String path = nodePath.replace("/status", "");
-                        LOGGER.info("将删除:" + path);
-                        if (isNodeExist(path)) {
-                            CuratorUtils.deletePathAndChildren(client, path);
-                        }
-                        //
-                        LOGGER.info("已将删除:" + path);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    //  Pattern pattern=Pattern.compile(PATH_ROOT_WORKERS.concat("/").concat())
-                    break;
-
-            }
-
-
-        }
-    };
-
-
-    /**
-     * 对tasks进行监听的监视器需完成对相应事件的处理
-     */
-    private TreeCacheListener tasksCacheListener = new TreeCacheListener() {
-
-        String child = null;
-
-        public void childEvent(CuratorFramework client, TreeCacheEvent event) throws Exception {
-
-            switch (event.getType()) {
-
-                case NODE_ADDED:
-
-                    child = event.getData().getPath();
-                    LOGGER.info("===> taskCacheListener NODE_ADDED Event.");
-                    LOGGER.info("Event Path:" + child);
-                    //先判增加的节点是task或者task-*/worker?
-                    //节点为/tasks/task-*/worker-* 类型
-                    if (TASK_WORKER.matcher(child).matches()) {
-                        String[] arr = child.split("/");
-                        String taskId = arr[2];
-                        String workerId = arr[3];
-                        task4worker(taskId, workerId);
-
-                    }
-
-                    break;
-
-                case NODE_REMOVED:
-                    child = event.getData().getPath();
-                    LOGGER.info("===> taskCacheListener NODE_ADDED Event.");
-                    LOGGER.info("===> Event Path: " + child);
-                    //先判增加的节点是task或者task-*/worker?
-                    //节点为/tasks/task-*/worker-* 类型
-                    if (TASK_WORKER.matcher(child).matches()) {
-                        String[] arr = child.split("/");
-                        String worker = PATH_ROOT_WORKERS + "/" + arr[3];
-                        String task = arr[2];
-                        LOGGER.info("===> removing znode: " + worker + "/" + task);
-                        CuratorUtils.deletePathAndChildren(client, worker + "/" + task);
-                    }
-                    break;
-
-                case NODE_UPDATED:
-                    LOGGER.info("update");
-                    break;
-                default:
-
-                    break;
-            }
-        }
-    };
 
     /**
      * 当leader挂掉从新启动时得再次确定task是否已经挂载到了具体的worker下面
@@ -478,45 +362,16 @@ public class CuratorMaster implements Closeable, LeaderSelectorListener {
      * @throws Exception
      */
     private void recoverTask() throws Exception {
-        List<String> tasks = client.getChildren().forPath(PATH_ROOT_TASKS);
+        List<String> tasks = client.getChildren().forPath(ValueDef.PATH_ROOT_TASKS);
         for (String task : tasks) {
-            List<String> workers = client.getChildren().forPath(PATH_ROOT_TASKS.concat("/").concat(task));
+            List<String> workers = client.getChildren().forPath(ValueDef.PATH_ROOT_TASKS.concat("/").concat(task));
             for (String worker : workers) {
-                task4worker(task, worker);
+                CuratorUtils.task4worker(client, task, worker);
             }
         }
     }
 
-    /**
-     * 将task复制到相应的worker目录下
-     *
-     * @param taskId
-     * @param workerId
-     */
-    private void task4worker(String taskId, String workerId) {
-        try {
-            //task下的配置信息
-            byte[] taskData = client.getData().forPath(PATH_ROOT_TASKS + "/" + taskId);
-            //判断worker是否存在
-            Stat stat = client.checkExists().forPath(PATH_ROOT_WORKERS + "/" + workerId);
-            if (stat != null) {
-                //将任务挂载到worker下面
 
-                String task4workerPath = PATH_ROOT_WORKERS.concat("/").concat(workerId).concat("/").concat(taskId);
-
-                if (!isNodeExist(task4workerPath)) {
-                    client.create().withMode(CreateMode.PERSISTENT).forPath(task4workerPath, taskData);
-                }
-
-            } else {
-                //当任务分配要挂载的worker不存在时删除具体任务下的worker
-                client.delete().forPath(PATH_ROOT_TASKS.concat("/").concat(taskId).concat("/").concat(workerId));
-            }
-
-        } catch (Exception e) {
-
-        }
-    }
 
     /**
      * 启动master
@@ -574,7 +429,7 @@ public class CuratorMaster implements Closeable, LeaderSelectorListener {
     private void checkWorkers() throws Exception {
 
         LOGGER.info("check workers ...");
-        List<String> workers = getChildren(PATH_ROOT_WORKERS);
+        List<String> workers = getChildren(ValueDef.PATH_ROOT_WORKERS);
         if (workers == null || workers.size() == 0) {
             LOGGER.info("not have invalid workers.");
             return;
@@ -582,9 +437,9 @@ public class CuratorMaster implements Closeable, LeaderSelectorListener {
 
         for (String item : workers) {
 
-            if (!CuratorUtils.isHaveSpecificChild(this.client, PATH_ROOT_WORKERS + "/" + item, "status")) {
-                LOGGER.info("====> clean invalid worker: " + PATH_ROOT_WORKERS + "/" + item);
-                CuratorUtils.deletePathAndChildren(this.client, PATH_ROOT_WORKERS + "/" + item);
+            if (!CuratorUtils.isHaveSpecificChild(this.client, ValueDef.PATH_ROOT_WORKERS + "/" + item, "status")) {
+                LOGGER.info("====> clean invalid worker: " + ValueDef.PATH_ROOT_WORKERS + "/" + item);
+                CuratorUtils.deletePathAndChildren(this.client, ValueDef.PATH_ROOT_WORKERS + "/" + item);
             }
         }
 

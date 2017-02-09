@@ -1,6 +1,8 @@
 package cn.com.cloudpioneer.master.utils;
 
+import cn.com.cloudpioneer.master.app.ValueDef;
 import org.apache.curator.framework.CuratorFramework;
+import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.data.Stat;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -96,11 +98,46 @@ public class CuratorUtils {
         client.delete().inBackground().forPath(path);
     }
 
+
     public static boolean isNodeExist(CuratorFramework client, String node) throws Exception {
         Stat stat = client.checkExists().forPath(node);
         if (stat != null) {
             return true;
         }
         return false;
+    }
+
+
+    /**
+     * 将task复制到相应的worker目录下
+     *
+     * @param taskId
+     * @param workerId
+     */
+    public static void task4worker(CuratorFramework client, String taskId, String workerId) {
+
+        try {
+            //task下的配置信息
+            byte[] taskData = client.getData().forPath(ValueDef.PATH_ROOT_TASKS + "/" + taskId);
+            //判断worker是否存在
+            Stat stat = client.checkExists().forPath(ValueDef.PATH_ROOT_WORKERS + "/" + workerId);
+            if (stat != null) {
+                //将任务挂载到worker下面
+
+                String task4workerPath = ValueDef.PATH_ROOT_WORKERS.concat("/").concat(workerId).concat("/").concat(taskId);
+
+                if (!CuratorUtils.isNodeExist(client, task4workerPath)) {
+                    client.create().withMode(CreateMode.PERSISTENT).forPath(task4workerPath, taskData);
+                }
+
+            } else {
+                //当任务分配要挂载的worker不存在时删除具体任务下的worker
+                client.delete().forPath(ValueDef.PATH_ROOT_TASKS.concat("/").concat(taskId).concat("/").concat(workerId));
+            }
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+        }
     }
 }

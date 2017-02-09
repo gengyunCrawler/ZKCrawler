@@ -2,12 +2,13 @@ package cn.com.cloudpioneer.worker.model;
 
 import com.alibaba.fastjson.JSONObject;
 
+import java.io.Serializable;
 import java.sql.Date;
 
 /**
  * Created by Administrator on 2016/9/18.
  */
-public class TaskConfigEntity {
+public class TaskConfigEntity implements Serializable {
 
     // 任务配置id，在数据库中为主键
     private long id;

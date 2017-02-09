@@ -54,20 +54,6 @@ public class Worker implements Closeable, ConnectionStateListener {
      */
     private static final String MY_STATUS = "alive";
 
-    /**
-     * ROOT_PATH_TASKS 是 zookeeper 中的任务根节点，节点是永久类型（persistent）。
-     */
-    public static final String ROOT_PATH_TASKS = "/tasks";
-
-    /**
-     * ROOT_PATH_WORKERS 是 zookeeper 中挂载 worker 的根节点，节点是永久类型（persistent）。
-     */
-    public static final String ROOT_PATH_WORKERS = "/workers";
-
-    /**
-     * ROOT_PATH_LOCK 是任务锁节点的根节点，节点是永久类型（persistent）。
-     */
-    public static final String ROOT_PATH_LOCK = "/lock-4-tasks";
 
     /**
      * API_CRAWLER_TASK_STARTER 启动爬取任务时，访问的 WebMagic API，存储在配置文件中。
@@ -109,8 +95,13 @@ public class Worker implements Closeable, ConnectionStateListener {
      * |_____ w-123456 ———— status
      * <p>
      * 其中，status 表名 worker 的状态是在线的。
+     * workerId 生成方式为：
+     * 字符串 worker- 加上长度为 10
+     * 的随机字符串，该字符串由大、小写字母和数字组成,加上字符 '-'加上当前时间的毫秒数。
+     * workId 的示例如下：
+     * worker-q78KtWyUpz-1473737224577
      */
-    private String workerId;
+    private String workerId = "worker-" + RandomUtils.getRandomString(10) + "-" + System.currentTimeMillis();
 
     /**
      * client 是 zookeeper 的客户端，worker 依赖它来完成工作。
@@ -131,17 +122,13 @@ public class Worker implements Closeable, ConnectionStateListener {
     private ExecutorService executorService;
 
     /**
-     * 获取 worker 的 workerId，获取方式是
-     * 字符串 worker- 加上长度为 10
-     * 的随机字符串，该字符串由大、小写字母和数字组成,加上字符 '-'加上当前时间的毫秒数。
-     * workId 的示例如下：
-     * worker-q78KtWyUpz-1473737224577
+     * 获取 worker 的 workerId
      *
      * @return 返回值就是生成的 workerId
      */
-    private String getMyId() {
+    public String getMyId() {
 
-        return ("worker-" + RandomUtils.getRandomString(10)) + "-" + System.currentTimeMillis();
+        return workerId;
     }
 
 
@@ -155,30 +142,30 @@ public class Worker implements Closeable, ConnectionStateListener {
 
         // 注册锁根节点,永久类型
         try {
-            if (client.checkExists().forPath(ROOT_PATH_LOCK) == null) {
-                client.create().withMode(CreateMode.PERSISTENT).forPath(ROOT_PATH_LOCK);
-                LOGGER.info("register znode: " + ROOT_PATH_LOCK + " finished.");
+            if (client.checkExists().forPath(ValueDef.ROOT_PATH_LOCK) == null) {
+                client.create().withMode(CreateMode.PERSISTENT).forPath(ValueDef.ROOT_PATH_LOCK);
+                LOGGER.info("register znode: " + ValueDef.ROOT_PATH_LOCK + " finished.");
             }
         } catch (Exception e) {
-            LOGGER.error("register znode: " + ROOT_PATH_LOCK + " error.", e);
+            LOGGER.error("register znode: " + ValueDef.ROOT_PATH_LOCK + " error.", e);
         }
 
         // 去 workers 节点下注册 worker 节点，持久类型（ephemeral）
         try {
-            if (client.checkExists().forPath(ROOT_PATH_WORKERS + "/" + workerId) == null) {
-                client.create().withMode(CreateMode.PERSISTENT).forPath(ROOT_PATH_WORKERS + "/" + workerId, workerId.getBytes());
+            if (client.checkExists().forPath(ValueDef.ROOT_PATH_WORKERS + "/" + workerId) == null) {
+                client.create().withMode(CreateMode.PERSISTENT).forPath(ValueDef.ROOT_PATH_WORKERS + "/" + workerId, workerId.getBytes());
             }
         } catch (Exception e) {
-            LOGGER.error("register zonode: " + ROOT_PATH_WORKERS + "/" + workerId + " error.", e);
+            LOGGER.error("register zonode: " + ValueDef.ROOT_PATH_WORKERS + "/" + workerId + " error.", e);
         }
 
         // 去 workers 节点下之间的节点woker 注册状态节点status，短暂类型（persistent）
         try {
-            if (client.checkExists().forPath(ROOT_PATH_WORKERS + "/" + workerId + "/status") == null) {
-                client.create().withMode(CreateMode.EPHEMERAL).forPath(ROOT_PATH_WORKERS + "/" + workerId + "/status", MY_STATUS.getBytes());
+            if (client.checkExists().forPath(ValueDef.ROOT_PATH_WORKERS + "/" + workerId + "/status") == null) {
+                client.create().withMode(CreateMode.EPHEMERAL).forPath(ValueDef.ROOT_PATH_WORKERS + "/" + workerId + "/status", MY_STATUS.getBytes());
             }
         } catch (Exception e) {
-            LOGGER.info("register zonode: " + ROOT_PATH_WORKERS + "/" + workerId + "/status" + " error.", e);
+            LOGGER.info("register zonode: " + ValueDef.ROOT_PATH_WORKERS + "/" + workerId + "/status" + " error.", e);
 
         }
     }
@@ -194,13 +181,13 @@ public class Worker implements Closeable, ConnectionStateListener {
     private synchronized boolean isGetTaskLock(String taskId) {
 
         try {
-            client.create().withMode(CreateMode.EPHEMERAL).forPath(ROOT_PATH_LOCK + "/" + taskId, "Worker".getBytes());
+            client.create().withMode(CreateMode.EPHEMERAL).forPath(ValueDef.ROOT_PATH_LOCK + "/" + taskId, "Worker".getBytes());
         } catch (Exception e) {
             LOGGER.warn("get lock: " + taskId + " Failed. return false.");
             return false;
         }
 
-        taskLockMap.put(taskId, ROOT_PATH_LOCK + "/" + taskId);
+        taskLockMap.put(taskId, ValueDef.ROOT_PATH_LOCK + "/" + taskId);
         LOGGER.info("get lock: " + taskId + " Success. return true.");
         return true;
     }
@@ -453,14 +440,14 @@ public class Worker implements Closeable, ConnectionStateListener {
 
         taskLockMap = new HashMap<>();
         myTasksLock = new ReentrantLock();
-        myTasks = new MyTasks();
+        myTasks = new MyTasks(this.getMyId());
         workerId = getMyId();
         executorService = Executors.newFixedThreadPool(10);
         LOGGER.info("Worker constructing, hostPort:" + hostPort);
         LOGGER.info("my work id: " + workerId);
         this.client = CuratorFrameworkFactory.newClient(hostPort, retryPolicy);
         this.client.getConnectionStateListenable().addListener(this);
-        this.myTasksCache = new TreeCache(this.client, ROOT_PATH_WORKERS + "/" + workerId);
+        this.myTasksCache = new TreeCache(this.client, ValueDef.ROOT_PATH_WORKERS + "/" + workerId);
         this.myTaskCacheListener = new MyTaskCacheListener();
 
     }
@@ -497,7 +484,7 @@ public class Worker implements Closeable, ConnectionStateListener {
 
                 try {
                     LOGGER.info("=====>> Start request Webmagic.......");
-                    LOGGER.info("=====>> task info:\n\t" + task.toString());
+                    LOGGER.info("=====>> task info:\n\t" + task.toJSONString());
                     HttpClientUtils.jsonPostRequest(API_CRAWLER_TASK_STARTER, task.toString());
                     LOGGER.info("=====>> Ended request Webmagic.......");
                 } catch (Exception e) {
@@ -606,7 +593,7 @@ e.printStackTrace();
 
         try {
             myTasksLock.lock();
-            return myTasks.containsKey(taskId);
+            return myTasks.containsField(taskId);
         } catch (Exception e) {
             return false;
         } finally {
@@ -640,7 +627,7 @@ e.printStackTrace();
      *
      * @return 当前任务总数。
      */
-    public int getMyTasksSize() {
+    public long getMyTasksSize() {
         try {
             myTasksLock.lock();
             return myTasks.getMyTasksSize();

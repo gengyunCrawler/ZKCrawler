@@ -1,5 +1,6 @@
 package cn.com.cloudpioneer.taskclient.app;
 
+import cn.com.cloudpioneer.taskclient.chooser.Chooser;
 import cn.com.cloudpioneer.taskclient.chooser.ChooserPolicy;
 import cn.com.cloudpioneer.taskclient.dao.TaskDao;
 import cn.com.cloudpioneer.taskclient.listener.TasksCacheListener;
@@ -9,6 +10,8 @@ import cn.com.cloudpioneer.taskclient.model.TaskEntity;
 import cn.com.cloudpioneer.taskclient.model.TaskModel;
 import cn.com.cloudpioneer.taskclient.model.TaskStatusItem;
 import cn.com.cloudpioneer.taskclient.scheduler.SchedulePolicy;
+import cn.com.cloudpioneer.taskclient.scheduler.Scheduler;
+import cn.com.cloudpioneer.taskclient.tasks.MyTasks;
 import cn.com.cloudpioneer.taskclient.utils.RandomUtils;
 import com.alibaba.fastjson.JSON;
 import com.sun.istack.internal.Nullable;
@@ -98,7 +101,7 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
     /**
      * TaskClient 当前的所有任务集合。
      */
-    private Map<String, TaskModel> myTasks;
+    private MyTasks myTasks;
 
 
     /**
@@ -145,15 +148,6 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
 
 
     /**
-     * 以下常量为 zookeeper 里的相关根节点。
-     */
-    public static final String ROOT_PATH_LOCK = "/lock-4-tasks";
-    public static final String ROOT_PATH_TASKS = "/tasks";
-    public static final String ROOT_PATH_WORKERS = "/workers";
-    public static final String ROOT_PATH_CLIENT = "/taskClient";
-
-
-    /**
      * 初始化扫描器间隔变量，从配置文件中取得，若取值出错则初始化默认值。
      */
     static {
@@ -185,13 +179,13 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
     private synchronized boolean isGetTaskLock(String taskId) {
 
         try {
-            client.create().withMode(CreateMode.EPHEMERAL).forPath(ROOT_PATH_LOCK + "/" + taskId, "TaskClient".getBytes());
+            client.create().withMode(CreateMode.EPHEMERAL).forPath(ValueDef.ROOT_PATH_LOCK + "/" + taskId, "TaskClient".getBytes());
         } catch (Exception e) {
-            LOGGER.warn("get lock: " + taskId + " Failed. return false.");
+            LOGGER.warn("get lock: " + taskId + " Failed. return false.", e);
             return false;
         }
 
-        taskLockMap.put(taskId, ROOT_PATH_LOCK + "/" + taskId);
+        taskLockMap.put(taskId, ValueDef.ROOT_PATH_LOCK + "/" + taskId);
         LOGGER.info("get lock: " + taskId + " Success. return true.");
         return true;
     }
@@ -274,7 +268,6 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
     private TaskClient(String hostPort, RetryPolicy retryPolicy, @Nullable String myId, @Nullable SchedulePolicy schedulePolicy, @Nullable ChooserPolicy chooserPolicy, @Nullable String configFileName) {
 
         this.tasksTimer = new Timer();
-        this.myTasks = new HashMap<>();
         this.taskLockMap = new HashMap<>();
         this.executorService = Executors.newFixedThreadPool(10);
         this.lock4MyTasks = new ReentrantLock();
@@ -284,7 +277,9 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
         if (myId != null)
             this.myId = myId;
         else
-            this.myId = "TaskClient-" + RandomUtils.getRandomString(10) + "-" + System.currentTimeMillis();
+            this.myId = "tasks-client-" + RandomUtils.getRandomString(10) + "-" + System.currentTimeMillis();
+
+        this.myTasks = new MyTasks(this.myId);
 
         if (chooserPolicy != null)
             this.tasksChooser.setPolicy(chooserPolicy);
@@ -297,9 +292,9 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
 
         this.hostPort = hostPort;
         this.client = CuratorFrameworkFactory.newClient(this.hostPort, retryPolicy);
-        this.leaderSelector = new LeaderSelector(this.client, ROOT_PATH_CLIENT, this);
-        this.workersCache = new TreeCache(this.client, ROOT_PATH_WORKERS);
-        this.tasksCache = new TreeCache(this.client, ROOT_PATH_TASKS);
+        this.leaderSelector = new LeaderSelector(this.client, ValueDef.ROOT_PATH_CLIENT, this);
+        this.workersCache = new TreeCache(this.client, ValueDef.ROOT_PATH_WORKERS);
+        this.tasksCache = new TreeCache(this.client, ValueDef.ROOT_PATH_TASKS);
 
         tasksTimer.schedule(new TimerTask() {
             @Override
@@ -349,7 +344,7 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
 
         try {
             lock4MyTasks.lock();
-            return myTasks.remove(taskId);
+            return myTasks.removeTask(taskId);
         } finally {
             lock4MyTasks.unlock();
         }
@@ -367,7 +362,7 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
 
         try {
             lock4MyTasks.lock();
-            myTasks.put(taskId, taskModel);
+            myTasks.addTask(taskId, taskModel);
         } finally {
             lock4MyTasks.unlock();
         }
@@ -379,11 +374,11 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
      *
      * @return
      */
-    public int getMyTasksSize() {
+    public long getMyTasksSize() {
 
         try {
             lock4MyTasks.lock();
-            return myTasks.size();
+            return myTasks.getMyTasksSize();
         } finally {
             lock4MyTasks.unlock();
         }
@@ -397,9 +392,9 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
     private void updateMyTasks() {
 
         try {
-            List<String> tasks = client.getChildren().forPath(ROOT_PATH_TASKS);
+            List<String> tasks = client.getChildren().forPath(ValueDef.ROOT_PATH_TASKS);
             for (String item : tasks) {
-                List<String> workers = client.getChildren().forPath(ROOT_PATH_TASKS + "/" + item);
+                List<String> workers = client.getChildren().forPath(ValueDef.ROOT_PATH_TASKS + "/" + item);
                 for (int i = 0; i < workers.size(); i++) {
                     String s = workers.get(i);
                     if (workers.contains(s)) {
@@ -407,9 +402,9 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
                         i--;
                     }
                 }
-                TaskEntity entity = JSON.parseObject(new String(client.getData().forPath(ROOT_PATH_TASKS + "/" + item), "UTF-8"), TaskEntity.class);
-                String statusData = new String(client.getData().forPath(ROOT_PATH_TASKS + "/" + item + "/status"), "UTF-8");
-                addToMyTasks(entity.getId(), new TaskModel(ROOT_PATH_TASKS + "/" + item, entity, statusData, workers));
+                TaskEntity entity = JSON.parseObject(new String(client.getData().forPath(ValueDef.ROOT_PATH_TASKS + "/" + item), "UTF-8"), TaskEntity.class);
+                String statusData = new String(client.getData().forPath(ValueDef.ROOT_PATH_TASKS + "/" + item + "/status"), "UTF-8");
+                addToMyTasks(entity.getId(), new TaskModel(ValueDef.ROOT_PATH_TASKS + "/" + item, entity, statusData, workers));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -511,8 +506,8 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
     private void bootsrap() {
 
         try {
-            if (client.checkExists().forPath(ROOT_PATH_LOCK) == null) {
-                client.create().withMode(CreateMode.PERSISTENT).forPath(ROOT_PATH_LOCK);
+            if (client.checkExists().forPath(ValueDef.ROOT_PATH_LOCK) == null) {
+                client.create().withMode(CreateMode.PERSISTENT).forPath(ValueDef.ROOT_PATH_LOCK);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -582,10 +577,10 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
      */
     public boolean taskUpdateProcess(String taskStatusPath) {
 
-        String taskPath = ROOT_PATH_TASKS + "/" + taskStatusPath.split("/")[2];
+        String taskPath = ValueDef.ROOT_PATH_TASKS + "/" + taskStatusPath.split("/")[2];
         int count = getTaskStatusData(taskStatusPath);
-        LOGGER.info("******====>> COUNT: " + count + ", status node: " + taskStatusPath);
-        if (count == 0) {
+        LOGGER.info("====>> method taskUpdateProcess, COUNT: " + count + ", status node: " + taskStatusPath);
+        if (count <= 0) {
             TaskEntity entity = getTaskData(taskPath);
             if (entity == null) {
                 return false;
@@ -625,8 +620,6 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
     }
 
 
-
-
     /**
      * 创建爬取任务。
      *
@@ -634,7 +627,7 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
      */
     public synchronized void tasksCreator() throws Exception {
 
-        int size = (int) configs.get(ConfigItem.MAX_RUNNING_TASKS_SIZE) - getMyTasksSize();
+        int size = (int) configs.get(ConfigItem.MAX_RUNNING_TASKS_SIZE) - (int) getMyTasksSize();
         LOGGER.info("will get tasks, size: " + size);
         List<TaskEntity> taskEntities = tasksGeter(size);
         List<String> workers = getWorks();
@@ -670,14 +663,14 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
 
                         List<String> ws = (List<String>) item.getValue();
 
-                        taskModel = new TaskModel(ROOT_PATH_TASKS + "/task-" + taskId, ((TaskEntity) item.getKey()), "" + ws.size(), ws);
+                        taskModel = new TaskModel(ValueDef.ROOT_PATH_TASKS + "/task-" + taskId, ((TaskEntity) item.getKey()), "" + ws.size(), ws);
                         taskModel.setTaskStatus(TaskStatusItem.TASK_STATUS_RUNNING);
 
-                        client.create().withMode(CreateMode.PERSISTENT).forPath(ROOT_PATH_TASKS + "/task-" + taskId, taskModel.getEntity().toString().getBytes());
+                        client.create().withMode(CreateMode.PERSISTENT).forPath(ValueDef.ROOT_PATH_TASKS + "/task-" + taskId, taskModel.getEntity().toString().getBytes());
                         for (String w : ws) {
-                            client.create().withMode(CreateMode.PERSISTENT).forPath(ROOT_PATH_TASKS + "/task-" + taskId + "/" + w, "".getBytes());
+                            client.create().withMode(CreateMode.PERSISTENT).forPath(ValueDef.ROOT_PATH_TASKS + "/task-" + taskId + "/" + w, "".getBytes());
                         }
-                        client.create().withMode(CreateMode.PERSISTENT).forPath(ROOT_PATH_TASKS + "/task-" + taskId + "/status", ("" + ws.size()).getBytes());
+                        client.create().withMode(CreateMode.PERSISTENT).forPath(ValueDef.ROOT_PATH_TASKS + "/task-" + taskId + "/status", ("" + ws.size()).getBytes());
 
                         addToMyTasks(taskId, taskModel);
                         taskWriteBack(taskModel.getEntity());
@@ -689,12 +682,17 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
                         try {
                             //taskDelete(ROOT_PATH_TASKS + "/task-" + taskId);
 
-                            List<String> children = client.getChildren().forPath(ROOT_PATH_TASKS + "/task-" + taskId);
-                            for (String ch : children)
-                                client.delete().forPath(ROOT_PATH_TASKS + "/task-" + taskId + "/" + ch);
-                            client.delete().forPath(ROOT_PATH_TASKS + "/task-" + taskId);
+                            try {
+                                List<String> children = client.getChildren().forPath(ValueDef.ROOT_PATH_TASKS + "/task-" + taskId);
+                                for (String ch : children)
+                                    client.delete().forPath(ValueDef.ROOT_PATH_TASKS + "/task-" + taskId + "/" + ch);
+                                client.delete().forPath(ValueDef.ROOT_PATH_TASKS + "/task-" + taskId);
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
 
                             taskModel.getEntity().setStatus(TaskStatusItem.TASK_STATUS_COMPLETED);
+                            taskModel.getEntity().setTimeLastCrawl(new Date());// 设置当前时间为最后爬取时间。
                             taskWriteBack(taskModel.getEntity());
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -911,7 +909,7 @@ public class TaskClient implements Closeable, LeaderSelectorListener {
      */
     public List<String> getWorks() throws Exception {
 
-        List<String> works = client.getChildren().forPath(ROOT_PATH_WORKERS);
+        List<String> works = client.getChildren().forPath(ValueDef.ROOT_PATH_WORKERS);
 
         return works;
     }

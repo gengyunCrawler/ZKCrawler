@@ -1,9 +1,11 @@
 package cn.com.cloudpioneer.worker.model;
 
+import java.io.Serializable;
+
 /**
  * Created by Administrator on 2016/9/19.
  */
-public final class ConfigType {
+public final class ConfigType implements Serializable {
 
     public static final String UNDEFINE = "undefine";              // 未定义配置项.
     public static final String SEED_URLS = "seedUrls";             // 种子url配置项.

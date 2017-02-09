@@ -1,6 +1,7 @@
 package cn.com.cloudpioneer.taskclient;
 
 import cn.com.cloudpioneer.taskclient.app.TaskClient;
+import cn.com.cloudpioneer.taskclient.utils.JedisPoolUtil;
 import org.apache.curator.retry.RetryNTimes;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -46,6 +47,13 @@ public class ApplicationTaskClient {
         SpringApplication.run(ApplicationTaskClient.class, args);
 
         createPidFile();
+
+        /**
+         * 初始化 Redis 工具
+         */
+        String redisHost = ResourceBundle.getBundle("config").getString("REDIS_HOST");
+        int redisPort = Integer.parseInt(ResourceBundle.getBundle("config").getString("REDIS_PORT"));
+        JedisPoolUtil.initJedisPool(redisHost, redisPort);
 
         /**
          * 获取主机配置。

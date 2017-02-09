@@ -1,6 +1,7 @@
 package cn.com.cloudpioneer.worker;
 
 import cn.com.cloudpioneer.worker.app.Worker;
+import cn.com.cloudpioneer.worker.utils.JedisPoolUtil;
 import org.apache.curator.retry.ExponentialBackoffRetry;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -48,6 +49,13 @@ public class ApplicationWorker {
 
         createPidFile();
 
+        /**
+         * 初始化 Redis 工具
+         */
+        String redisHost = ResourceBundle.getBundle("config").getString("REDIS_HOST");
+        int redisPort = Integer.parseInt(ResourceBundle.getBundle("config").getString("REDIS_PORT"));
+        JedisPoolUtil.initJedisPool(redisHost, redisPort);
+
         zkHostPort = ResourceBundle.getBundle("config").getString("ZK_CONNECTION_STRING");
 
         worker = Worker.initializeWorker(zkHostPort, new ExponentialBackoffRetry(1000, 5));
@@ -58,7 +66,6 @@ public class ApplicationWorker {
         worker.workerStart();
 
     }
-
 
 
     private static void createPidFile() {

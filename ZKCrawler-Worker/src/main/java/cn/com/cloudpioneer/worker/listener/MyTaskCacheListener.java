@@ -1,6 +1,7 @@
 package cn.com.cloudpioneer.worker.listener;
 
 import cn.com.cloudpioneer.worker.app.GetTaskConfigs;
+import cn.com.cloudpioneer.worker.app.ValueDef;
 import cn.com.cloudpioneer.worker.app.Worker;
 import cn.com.cloudpioneer.worker.model.TaskModel;
 import org.apache.curator.framework.CuratorFramework;
@@ -53,12 +54,12 @@ public class MyTaskCacheListener implements TreeCacheListener {
         try {
 
             String treeChildren = treeCacheEvent.getData().getPath();
-            String taskPath = Worker.ROOT_PATH_TASKS;
+            String taskPath = ValueDef.ROOT_PATH_TASKS;
 
             switch (treeCacheEvent.getType()) {
 
                 case NODE_ADDED:
-                    Pattern taskInMyWorker = Pattern.compile(Worker.ROOT_PATH_WORKERS + "/" + worker.getWorkerId() + "/task-.*");
+                    Pattern taskInMyWorker = Pattern.compile(ValueDef.ROOT_PATH_WORKERS + "/" + worker.getWorkerId() + "/task-.*");
 
                     LOGGER.info("znode add event, treeChildren: " + treeChildren);
 
@@ -75,11 +76,17 @@ public class MyTaskCacheListener implements TreeCacheListener {
                         }
 
                         TaskModel taskModel = new TaskModel(taskPath, taskData);
-                        taskModel.getEntity().setTimeStart(new Date());
-                        taskModel.getEntity().setTimeLastCrawl(new Date());
                         GetTaskConfigs getTaskConfigs = new GetTaskConfigs();
-                        taskModel.setConfigsMap(GetTaskConfigs.configsParser(getTaskConfigs.findConfigs(taskModel.getEntity().getId())));
-                        worker.addTaskToRunning(taskModel);
+                        try {
+                            taskModel.getEntity().setTimeStart(new Date());
+                            taskModel.getEntity().setTimeLastCrawl(new Date());
+                            taskModel.setConfigsMap(GetTaskConfigs.configsParser(getTaskConfigs.findConfigs(taskModel.getEntity().getId())));
+                            worker.addTaskToRunning(taskModel);
+                        } catch (Exception e) {
+                            LOGGER.warn("++++>> method childEvent, NodeAdd, add task to run is Exception. ", e);
+                            worker.myTaskWriteBack(taskModel.getEntity().getId());
+                            worker.removeTaskInRunning(taskModel);
+                        }
 
                     } else
                         LOGGER.info("task in my worker not match .............");
@@ -93,7 +100,7 @@ public class MyTaskCacheListener implements TreeCacheListener {
                 case NODE_REMOVED:
                    /* ignore this case */
                     LOGGER.info("node removed event， treeChildren: " + treeChildren);
-                    Pattern taskRemove = Pattern.compile(Worker.ROOT_PATH_WORKERS + "/" + worker.getWorkerId() + "/task-.*");
+                    Pattern taskRemove = Pattern.compile(ValueDef.ROOT_PATH_WORKERS + "/" + worker.getWorkerId() + "/task-.*");
                     if (taskRemove.matcher(treeChildren).matches()) {
 
                         taskPath += "/" + treeChildren.split("/")[3];

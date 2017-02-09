@@ -1,4 +1,4 @@
-package cn.com.cloudpioneer.taskclient.app;
+package cn.com.cloudpioneer.taskclient.scheduler;
 
 import cn.com.cloudpioneer.taskclient.model.TaskEntity;
 import cn.com.cloudpioneer.taskclient.scheduler.SchedulePolicy;

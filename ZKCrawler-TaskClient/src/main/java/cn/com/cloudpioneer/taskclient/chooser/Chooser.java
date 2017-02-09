@@ -1,6 +1,5 @@
-package cn.com.cloudpioneer.taskclient.app;
+package cn.com.cloudpioneer.taskclient.chooser;
 
-import cn.com.cloudpioneer.taskclient.chooser.ChooserPolicy;
 import cn.com.cloudpioneer.taskclient.chooser.chooserPolicyImpl.LongTimeFirstChooserPolicy;
 import cn.com.cloudpioneer.taskclient.model.TaskEntity;
 import org.apache.log4j.Logger;

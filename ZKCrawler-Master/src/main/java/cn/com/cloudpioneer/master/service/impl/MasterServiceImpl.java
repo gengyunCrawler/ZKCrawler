@@ -1,6 +1,7 @@
 package cn.com.cloudpioneer.master.service.impl;
 
 import cn.com.cloudpioneer.master.app.CuratorMaster;
+import cn.com.cloudpioneer.master.app.ValueDef;
 import cn.com.cloudpioneer.master.model.TreeNodeBuilder;
 import cn.com.cloudpioneer.master.model.TreeNodeModel;
 import cn.com.cloudpioneer.master.service.MasterService;
@@ -45,7 +46,7 @@ public class MasterServiceImpl implements MasterService {
 
         try {
 
-            workers = master.getChildren(CuratorMaster.PATH_ROOT_WORKERS);
+            workers = master.getChildren(ValueDef.PATH_ROOT_WORKERS);
 
             if (workers == null || workers.size() == 0) {
                 LOGGER.info("===> workers list is null or workers list size is 0.");
@@ -53,8 +54,8 @@ public class MasterServiceImpl implements MasterService {
             }
             LOGGER.info("===> workers list size is: " + workers.size());
             for (String item : workers) {
-                treeNode = new TreeNodeModel(CuratorMaster.PATH_ROOT_WORKERS + "/" + item, item, master.getNodeData(CuratorMaster.PATH_ROOT_WORKERS + "/" + item));
-                jsonArray.add(TreeNodeBuilder.treeNodeBuilder(master, treeNode, CuratorMaster.PATH_ROOT_WORKERS + "/" + item));
+                treeNode = new TreeNodeModel(ValueDef.PATH_ROOT_WORKERS + "/" + item, item, master.getNodeData(ValueDef.PATH_ROOT_WORKERS + "/" + item));
+                jsonArray.add(TreeNodeBuilder.treeNodeBuilder(master, treeNode, ValueDef.PATH_ROOT_WORKERS + "/" + item));
             }
 
         } catch (Exception e) {
@@ -79,7 +80,7 @@ public class MasterServiceImpl implements MasterService {
 
         try {
 
-            tasks = master.getChildren(CuratorMaster.PATH_ROOT_TASKS);
+            tasks = master.getChildren(ValueDef.PATH_ROOT_TASKS);
 
             if (tasks == null || tasks.size() == 0) {
                 LOGGER.info("===> tasks list is null or tasks list size is 0.");
@@ -89,8 +90,8 @@ public class MasterServiceImpl implements MasterService {
             LOGGER.info("===> tasks list size is: " + tasks.size());
 
             for (String item : tasks) {
-                treeNode = new TreeNodeModel(CuratorMaster.PATH_ROOT_TASKS + "/" + item, item, master.getNodeData(CuratorMaster.PATH_ROOT_TASKS + "/" + item));
-                jsonArray.add(TreeNodeBuilder.treeNodeBuilder(master, treeNode, CuratorMaster.PATH_ROOT_TASKS + "/" + item));
+                treeNode = new TreeNodeModel(ValueDef.PATH_ROOT_TASKS + "/" + item, item, master.getNodeData(ValueDef.PATH_ROOT_TASKS + "/" + item));
+                jsonArray.add(TreeNodeBuilder.treeNodeBuilder(master, treeNode, ValueDef.PATH_ROOT_TASKS + "/" + item));
             }
 
         } catch (Exception e) {

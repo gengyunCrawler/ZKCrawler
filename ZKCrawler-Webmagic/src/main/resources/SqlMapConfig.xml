@@ -4,23 +4,26 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
-<environments default = "development">
-    <environment id = "development">
-        <transactionManager type = "JDBC"/>
-        <dataSource type = "POOLED">
-            <property name = "driver" value = "com.mysql.jdbc.Driver"/>
-            <!--??-->
-            <property name = "url" value = "jdbc:mysql://60.60.60.100:3306/crawlerdata?useUnicode=true&amp;characterEncoding=UTF-8"/>
-            <property name = "username" value = "root"/>
-            <property name = "password" value = "root"/>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <!--??-->
+                <!--<property name="url"
+                          value="jdbc:mysql://60.60.60.100:3306/crawlerdata?useUnicode=true&amp;characterEncoding=UTF-8"/>-->
+                <property name="url"
+                          value="jdbc:mysql://108.108.108.8:3306/crawlerdata?useUnicode=true&amp;characterEncoding=UTF-8"/>
+                <property name="username" value="root"/>
+                <property name="password" value="root"/>
 
-            <!--????-->
-            <!--<property name = "url" value = "jdbc:mysql://127.0.0.1:3306/crawlerdata?useUnicode=true&amp;characterEncoding=UTF-8"/>-->
-            <!--<property name = "username" value = "root"/>-->
-            <!--<property name = "password" value = "123456"/>-->
-        </dataSource>
-    </environment>
-</environments>
+                <!--????-->
+                <!--<property name = "url" value = "jdbc:mysql://127.0.0.1:3306/crawlerdata?useUnicode=true&amp;characterEncoding=UTF-8"/>-->
+                <!--<property name = "username" value = "root"/>-->
+                <!--<property name = "password" value = "123456"/>-->
+            </dataSource>
+        </environment>
+    </environments>
     <mappers>
         <mapper class="com.gy.wm.mapper.CrawlDataMapper"></mapper>
         <mapper class="com.gy.wm.mapper.ParserMapper"></mapper>
